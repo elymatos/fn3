@@ -1,5 +1,4 @@
-- A estrutura para classificação dos frames está definida com os dois eixos (domínios fundamentais e tipos estruturais).   
-- 
+- A estrutura para classificação dos frames está definida com os dois eixos (domínios fundamentais e tipos estruturais).
 - Cada frame estará associado a estes dois eixos.
 - Cada frame deverá estar associado a um (ou mais) cenários (um frame de cenário).
 - O frame de cenário vai representar a ideia de "domínio" específico para um conjunto de frames.
