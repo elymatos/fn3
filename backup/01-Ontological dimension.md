@@ -1,36 +1,7 @@
 # **Ontological Dimension**
 
-## **1. Introduction**
 
-The FN5 framework is built upon a fundamental dual-structure architecture composed of two independent yet interdependent dimensions: the **Ontological Dimension** and the **Lexical Dimension**.
-
-- The **Ontological Dimension** models the conceptual structure of the world — entities, events, states, processes, qualities, and relations — as it is experienced and represented cognitively. It organizes knowledge into a coherent and scalable ontology.
-    
-- The **Lexical Dimension** represents how this conceptual structure is encoded in language through words, lexical units, and frames, capturing the linguistic realizations of meanings.
-    
-
-This separation addresses a well-known limitation in traditional FrameNet models: the inherent resistance of linguistic frames to formal ontological structuring. FN5 proposes a solution that preserves the rich, usage-based nature of frames while enabling a robust ontological backbone.
-
----
-
-## **2. The Challenge of Ontological Formalization in Frames**
-
-Traditional FrameNet frames are grounded in cognitive semantics and are designed to capture how language encodes experiential knowledge. While frames are highly effective for representing linguistic meaning, they are inherently:
-
-- **Context-dependent**
-    
-- **Culturally situated**
-    
-- **Multidimensional**
-    
-
-Attempts to directly map frames into formal ontologies often fail due to their flexible, usage-driven nature, where the same frame can simultaneously represent actions, mental states, social practices, and abstract relations depending on context.
-
-FN5 overcomes this challenge by **decoupling the ontological structure from the linguistic frames** while preserving a formalized connection between the two. This is achieved by organizing the ontological structure into a system of **domains, subdomains, scenarios, and elements**, and linking it to the lexical structure via **frame elements**.
-
----
-
-## **3. The Ontological Dimension: Core Structure**
+## **The Ontological Dimension: Core Structure**
 
 The Ontological Dimension is organized hierarchically into four levels:
 
@@ -45,7 +16,7 @@ The Ontological Dimension is organized hierarchically into four levels:
 
 ---
 
-## **4. Domains**
+## **Domains**
 
 ### **Definition:**
 
@@ -72,7 +43,7 @@ Domains are implemented as the top-level nodes in the ontological hierarchy. Eac
 
 ---
 
-## **5. Subdomains**
+## **Subdomains**
 
 ### **Definition:**
 
@@ -97,7 +68,7 @@ Subdomains inherit the ontological constraints of their parent domain but introd
 
 ---
 
-## **6. Scenarios (Scenario Frames)**
+## **Scenarios (Scenario Frames)**
 
 ### **Definition:**
 
@@ -132,7 +103,7 @@ Scenarios are formalized as modular ontological units. They consist of:
 
 ---
 
-## **7. Elements**
+## **Elements**
 
 ### **Definition:**
 
@@ -188,7 +159,3 @@ This ensures clarity and avoids cross-scenario ambiguity while allowing reuse of
 ## **9. Conclusion**
 
 The **Ontological Dimension** of FN5 offers a powerful, formally structured, and cognitively grounded approach to knowledge representation. It resolves the long-standing tension between the fluid, usage-based nature of linguistic frames and the need for formal, interoperable ontologies. By organizing knowledge into Domains, Subdomains, Scenarios, and Elements, FN5 achieves a balance between conceptual rigor and semantic flexibility, paving the way for advanced applications in computational linguistics, knowledge engineering, and AI.
-
----
-
-Se desejar, posso gerar este texto já formatado em Markdown, DOCX ou PDF para compor diretamente a documentação formal do projeto FN5. 🚀 **Avançamos?**

@@ -1,5 +1,5 @@
 
-abstractions_and_generalizations
+abstractions
 accounting
 administration
 advertising
@@ -37,7 +37,7 @@ eating_and_nutrition
 economics
 employment
 energy
-enviroment
+environment
 ethnicity
 family
 fire
