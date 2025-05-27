@@ -518,3 +518,412 @@
 - PersonalPreferences organize into PreferenceHierarchies
 - ValueJudgments establish ValuePriorities across different domains: attention limitation, selective focus; Cultural: attention training practices, focus value systems
 
+
+# Cognitive Domain - Additional Scenarios
+
+## Attention and Awareness
+
+### Scenario 4: Mindfulness and Present-Moment Awareness
+
+**Description:** In this scenario, a #MindfulPractitioner cultivates #PresentMomentAwareness through #MindfulnessExercises and #AttentionalTraining. The practitioner develops #SustainedAwareness and #NonJudgmentalAttention while managing #MindWandering and #DistractiveThoughts to achieve #MindfulPresence and #ClarityOfMind.
+
+**Elements:**
+
+- **MindfulPractitioner** (Entity): Person developing mindful awareness and present-moment attention
+- **PresentMomentAwareness** (State): Conscious attention to current experience without mental elaboration
+- **MindfulnessExercises** (Process): Structured practices for developing mindful awareness
+- **AttentionalTraining** (Process): Systematic development of attention control abilities
+- **SustainedAwareness** (Quality): Ability to maintain continuous conscious attention
+- **NonJudgmentalAttention** (Quality): Observing experience without evaluative commentary
+- **MindWandering** (Process): Automatic drift of attention away from intended focus
+- **DistractiveThoughts** (Entity): Mental content that pulls attention from present experience
+- **MindfulPresence** (State): State of alert, open awareness of current experience
+- **ClarityOfMind** (Quality): Clear, undisturbed mental awareness
+
+**Relations:**
+
+- MindfulPractitioner cultivates PresentMomentAwareness through MindfulnessExercises
+- AttentionalTraining develops SustainedAwareness and NonJudgmentalAttention
+- MindfulPractitioner manages MindWandering and DistractiveThoughts
+- MindfulnessExercises help counteract MindWandering
+- SustainedAwareness enables MindfulPresence
+- NonJudgmentalAttention contributes to ClarityOfMind
+- MindfulPresence emerges from sustained PresentMomentAwareness
+
+### Scenario 5: Vigilance and Alert Monitoring
+
+**Description:** In this scenario, a #VigilanceOperator maintains #SustainedVigilance and #AlertMonitoring during #MonitoringTasks, detecting #CriticalSignals and #TargetEvents. The operator manages #VigilanceDecrement and #AttentionalFatigue while using #AlertnessStrategies to maintain #DetectionAccuracy and #ResponseReadiness.
+
+**Elements:**
+
+- **VigilanceOperator** (Entity): Person maintaining alert attention during monitoring tasks
+- **SustainedVigilance** (Process): Maintaining alert attention over extended periods
+- **AlertMonitoring** (Process): Active scanning for important signals or events
+- **MonitoringTasks** (Entity): Activities requiring continuous attention to detect signals
+- **CriticalSignals** (Entity): Important information requiring immediate attention
+- **TargetEvents** (Entity): Specific occurrences that must be detected
+- **VigilanceDecrement** (Process): Decline in attention quality over time
+- **AttentionalFatigue** (State): Reduced attentional capacity due to sustained effort
+- **AlertnessStrategies** (Process): Techniques for maintaining vigilant attention
+- **DetectionAccuracy** (Quality): Precision in identifying target signals
+- **ResponseReadiness** (State): Preparedness to respond quickly to detected events
+
+**Relations:**
+
+- VigilanceOperator maintains SustainedVigilance during MonitoringTasks
+- AlertMonitoring enables detection of CriticalSignals and TargetEvents
+- VigilanceDecrement and AttentionalFatigue impair DetectionAccuracy
+- AlertnessStrategies help counteract VigilanceDecrement
+- SustainedVigilance requires managing AttentionalFatigue
+- DetectionAccuracy depends on effective AlertMonitoring
+- ResponseReadiness emerges from sustained SustainedVigilance
+
+---
+
+## Memory and Learning
+
+### Scenario 4: Forgetting and Memory Interference
+
+**Description:** In this scenario, a #MemoryResearcher studies #ForgettingProcesses and #MemoryInterference in #MemorySystems, examining #MemoryDecay and #InterferencePatterns. The researcher investigates #ProactiveInterference and #RetroactiveInterference while understanding #MemoryConsolidation and #ForgettingCurves that affect #MemoryPersistence.
+
+**Elements:**
+
+- **MemoryResearcher** (Entity): Person studying memory loss and interference phenomena
+- **ForgettingProcesses** (Process): Natural decline in memory accessibility over time
+- **MemoryInterference** (Process): Disruption of memory by competing information
+- **MemorySystems** (Entity): Different types of memory storage and processing
+- **MemoryDecay** (Process): Gradual weakening of memory traces over time
+- **InterferencePatterns** (State): Ways competing memories disrupt each other
+- **ProactiveInterference** (Process): Old memories disrupting new learning
+- **RetroactiveInterference** (Process): New learning disrupting old memories
+- **MemoryConsolidation** (Process): Stabilization of memories into long-term storage
+- **ForgettingCurves** (Entity): Patterns of memory loss over time
+- **MemoryPersistence** (Quality): Durability of memories against forgetting
+
+**Relations:**
+
+- MemoryResearcher studies ForgettingProcesses and MemoryInterference in MemorySystems
+- ForgettingProcesses include MemoryDecay and InterferencePatterns
+- MemoryInterference includes ProactiveInterference and RetroactiveInterference
+- MemoryConsolidation affects MemoryPersistence
+- ForgettingCurves describe patterns of MemoryDecay
+- InterferencePatterns reduce MemoryPersistence
+- MemoryConsolidation helps resist MemoryInterference
+
+### Scenario 5: Metacognition and Learning Awareness
+
+**Description:** In this scenario, a #MetacognitiveAgent develops #LearningAwareness and #MetacognitiveKnowledge about their own #LearningProcesses. The agent engages in #MetacognitiveMonitoring and #MetacognitiveControl while using #LearningStrategies and #StudyRegulation to improve #LearningEffectiveness and #KnowledgeAccuracy.
+
+**Elements:**
+
+- **MetacognitiveAgent** (Entity): Person monitoring and controlling their own learning processes
+- **LearningAwareness** (State): Conscious understanding of one's learning capabilities and processes
+- **MetacognitiveKnowledge** (Entity): Understanding about memory, learning, and cognitive processes
+- **LearningProcesses** (Process): Cognitive operations involved in acquiring knowledge
+- **MetacognitiveMonitoring** (Process): Awareness of current learning and memory states
+- **MetacognitiveControl** (Process): Regulation of learning strategies and effort
+- **LearningStrategies** (Process): Systematic approaches to acquiring and retaining knowledge
+- **StudyRegulation** (Process): Management of study time, effort, and methods
+- **LearningEffectiveness** (Quality): Success in acquiring intended knowledge
+- **KnowledgeAccuracy** (Quality): Correctness of learned information
+
+**Relations:**
+
+- MetacognitiveAgent develops LearningAwareness and MetacognitiveKnowledge
+- MetacognitiveMonitoring tracks ongoing LearningProcesses
+- MetacognitiveControl regulates LearningStrategies and StudyRegulation
+- LearningAwareness enables effective MetacognitiveMonitoring
+- StudyRegulation improves LearningEffectiveness
+- MetacognitiveKnowledge guides selection of LearningStrategies
+- MetacognitiveControl enhances both LearningEffectiveness and KnowledgeAccuracy
+
+---
+
+## Reasoning and Problem-Solving
+
+### Scenario 4: Creative Problem-Solving and Innovation
+
+**Description:** In this scenario, a #CreativeThinker tackles #IllDefinedProblems through #CreativeProblemSolving and #InnovativeThinking. The thinker uses #DivergentThinking and #BrainstormingProcesses to generate #NovelSolutions while employing #ConvergentThinking and #SolutionEvaluation to develop #ViableSolutions and #CreativeOutcomes.
+
+**Elements:**
+
+- **CreativeThinker** (Entity): Person using creative approaches to solve problems
+- **IllDefinedProblems** (Entity): Problems lacking clear structure or obvious solutions
+- **CreativeProblemSolving** (Process): Using originality and innovation to solve problems
+- **InnovativeThinking** (Process): Generating new and original ideas
+- **DivergentThinking** (Process): Generating multiple possible solutions or ideas
+- **BrainstormingProcesses** (Process): Systematic generation of creative ideas
+- **NovelSolutions** (Entity): Original or unprecedented approaches to problems
+- **ConvergentThinking** (Process): Evaluating and selecting the best ideas
+- **SolutionEvaluation** (Process): Assessing feasibility and effectiveness of solutions
+- **ViableSolutions** (Entity): Practical solutions that can be implemented
+- **CreativeOutcomes** (Entity): Results that demonstrate originality and effectiveness
+
+**Relations:**
+
+- CreativeThinker tackles IllDefinedProblems through CreativeProblemSolving
+- InnovativeThinking employs DivergentThinking and BrainstormingProcesses
+- DivergentThinking generates multiple NovelSolutions
+- ConvergentThinking and SolutionEvaluation assess NovelSolutions
+- SolutionEvaluation identifies ViableSolutions from generated options
+- CreativeProblemSolving aims to achieve CreativeOutcomes
+- ViableSolutions lead to successful CreativeOutcomes
+
+### Scenario 5: Analogical Reasoning and Pattern Recognition
+
+**Description:** In this scenario, an #AnalogicalThinker uses #AnalogicalReasoning and #PatternRecognition to solve problems by identifying #StructuralSimilarities and #ConceptualMappings between #SourceDomains and #TargetDomains. The thinker applies #TransferProcesses and #AbstractionSkills to achieve #KnowledgeTransfer and #SolutionAdaptation.
+
+**Elements:**
+
+- **AnalogicalThinker** (Entity): Person using analogies and patterns to solve problems
+- **AnalogicalReasoning** (Process): Using similarities between different situations to solve problems
+- **PatternRecognition** (Process): Identifying recurring structures or regularities
+- **StructuralSimilarities** (Relation): Corresponding relationships between different domains
+- **ConceptualMappings** (Relation): Connections between concepts across domains
+- **SourceDomains** (Entity): Familiar areas providing analogical insights
+- **TargetDomains** (Entity): New areas where analogical insights are applied
+- **TransferProcesses** (Process): Application of knowledge from one domain to another
+- **AbstractionSkills** (Process): Identifying general principles from specific cases
+- **KnowledgeTransfer** (Process): Moving understanding between different contexts
+- **SolutionAdaptation** (Process): Modifying solutions to fit new contexts
+
+**Relations:**
+
+- AnalogicalThinker uses AnalogicalReasoning and PatternRecognition
+- AnalogicalReasoning identifies StructuralSimilarities between SourceDomains and TargetDomains
+- PatternRecognition enables ConceptualMappings across domains
+- TransferProcesses move knowledge from SourceDomains to TargetDomains
+- AbstractionSkills support identification of StructuralSimilarities
+- KnowledgeTransfer enables SolutionAdaptation
+- ConceptualMappings guide effective TransferProcesses
+
+---
+
+## Decision-Making and Planning
+
+### Scenario 4: Intuitive Decision-Making and Heuristic Processing
+
+**Description:** In this scenario, an #IntuitiveDecider uses #IntuitiveDecisionMaking and #HeuristicProcessing to make rapid choices based on #GutFeelings and #ImplicitKnowledge. The decider employs #MentalShortcuts and #ExperienceBasedJudgment while managing #CognitiveBiases and #HeuristicLimitations to achieve #EfficientChoices.
+
+**Elements:**
+
+- **IntuitiveDecider** (Entity): Person making decisions based on intuition and heuristics
+- **IntuitiveDecisionMaking** (Process): Making choices based on immediate impressions and feelings
+- **HeuristicProcessing** (Process): Using mental shortcuts for quick decision-making
+- **GutFeelings** (Entity): Immediate emotional or intuitive responses to decisions
+- **ImplicitKnowledge** (Entity): Unconscious understanding that guides decisions
+- **MentalShortcuts** (Process): Simplified decision rules that reduce cognitive effort
+- **ExperienceBasedJudgment** (Process): Decisions based on accumulated experience
+- **CognitiveBiases** (Entity): Systematic errors in thinking that affect decisions
+- **HeuristicLimitations** (Quality): Constraints and potential errors in shortcut thinking
+- **EfficientChoices** (Entity): Decisions that balance speed and accuracy
+
+**Relations:**
+
+- IntuitiveDecider uses IntuitiveDecisionMaking and HeuristicProcessing
+- IntuitiveDecisionMaking relies on GutFeelings and ImplicitKnowledge
+- HeuristicProcessing employs MentalShortcuts and ExperienceBasedJudgment
+- CognitiveBiases can distort IntuitiveDecisionMaking
+- HeuristicLimitations constrain effectiveness of MentalShortcuts
+- ExperienceBasedJudgment helps counteract some CognitiveBiases
+- Effective intuitive processing leads to EfficientChoices
+
+### Scenario 5: Group Decision-Making and Collaborative Planning
+
+**Description:** In this scenario, a #GroupFacilitator coordinates #GroupDecisionMaking and #CollaborativePlanning among #DecisionMakers, managing #GroupDynamics and #ConsensusBuilding. The facilitator handles #ConflictingViewpoints and #DecisionConflicts while facilitating #CollectiveWisdom and #SharedDecisions.
+
+**Elements:**
+
+- **GroupFacilitator** (Entity): Person coordinating group decision-making processes
+- **GroupDecisionMaking** (Process): Collective processes for making choices
+- **CollaborativePlanning** (Process): Joint development of plans and strategies
+- **DecisionMakers** (Entity): Individuals participating in group decision processes
+- **GroupDynamics** (Process): Interpersonal processes affecting group decisions
+- **ConsensusBuilding** (Process): Developing agreement among group members
+- **ConflictingViewpoints** (Entity): Different perspectives that create disagreement
+- **DecisionConflicts** (Entity): Disagreements about preferred choices
+- **CollectiveWisdom** (Quality): Enhanced understanding that emerges from group processes
+- **SharedDecisions** (Entity): Choices supported by group consensus
+
+**Relations:**
+
+- GroupFacilitator coordinates GroupDecisionMaking and CollaborativePlanning
+- DecisionMakers participate in group processes with varying perspectives
+- GroupDynamics influence effectiveness of ConsensusBuilding
+- ConflictingViewpoints create DecisionConflicts requiring resolution
+- ConsensusBuilding helps resolve ConflictingViewpoints
+- CollectiveWisdom emerges from effective GroupDecisionMaking
+- SharedDecisions result from successful ConsensusBuilding
+
+---
+
+## Beliefs and Knowledge and Assumptions
+
+### Scenario 4: Expertise Development and Domain Knowledge
+
+**Description:** In this scenario, an #ExpertiseDeveloper builds #DomainExpertise and #SpecializedKnowledge through #ExpertiseAcquisition and #ProfessionalDevelopment. The developer cultivates #ExpertIntuition and #DomainSpecificSkills while understanding #ExpertiseHierarchies and #KnowledgeDomains to achieve #ExpertPerformance.
+
+**Elements:**
+
+- **ExpertiseDeveloper** (Entity): Person developing specialized knowledge and skills
+- **DomainExpertise** (Entity): Deep knowledge and skill within specific fields
+- **SpecializedKnowledge** (Entity): Detailed understanding specific to particular domains
+- **ExpertiseAcquisition** (Process): Development of expert-level knowledge and skills
+- **ProfessionalDevelopment** (Process): Systematic improvement of professional capabilities
+- **ExpertIntuition** (Quality): Immediate recognition patterns developed through expertise
+- **DomainSpecificSkills** (Entity): Abilities specialized for particular fields
+- **ExpertiseHierarchies** (State): Levels of expertise from novice to expert
+- **KnowledgeDomains** (Entity): Distinct fields of specialized understanding
+- **ExpertPerformance** (Quality): High-level achievement characteristic of experts
+
+**Relations:**
+
+- ExpertiseDeveloper builds DomainExpertise through ExpertiseAcquisition
+- ProfessionalDevelopment contributes to SpecializedKnowledge
+- ExpertiseAcquisition develops ExpertIntuition and DomainSpecificSkills
+- ExpertiseDeveloper progresses through ExpertiseHierarchies
+- DomainExpertise varies across different KnowledgeDomains
+- ExpertIntuition enables ExpertPerformance
+- SpecializedKnowledge supports DomainSpecificSkills
+
+### Scenario 5: Uncertainty Management and Probabilistic Thinking
+
+**Description:** In this scenario, an #UncertaintyManager deals with #KnowledgeUncertainty and #ProbabilisticInformation through #UncertaintyAssessment and #ProbabilisticReasoning. The manager evaluates #ConfidenceLevels and #UncertaintyEstimates while making decisions under #AmbiguousConditions and managing #EpistemicUncertainty.
+
+**Elements:**
+
+- **UncertaintyManager** (Entity): Person managing decisions under uncertain conditions
+- **KnowledgeUncertainty** (State): Lack of complete or certain information
+- **ProbabilisticInformation** (Entity): Information expressed in terms of likelihoods
+- **UncertaintyAssessment** (Process): Evaluation of the degree of uncertainty
+- **ProbabilisticReasoning** (Process): Thinking with probabilities and likelihoods
+- **ConfidenceLevels** (Quality): Degrees of certainty in knowledge or beliefs
+- **UncertaintyEstimates** (Entity): Assessments of how much is unknown
+- **AmbiguousConditions** (State): Situations with unclear or multiple interpretations
+- **EpistemicUncertainty** (State): Uncertainty due to limited knowledge
+
+**Relations:**
+
+- UncertaintyManager deals with KnowledgeUncertainty and ProbabilisticInformation
+- UncertaintyAssessment evaluates ConfidenceLevels and UncertaintyEstimates
+- ProbabilisticReasoning helps process ProbabilisticInformation
+- AmbiguousConditions increase EpistemicUncertainty
+- UncertaintyAssessment helps quantify EpistemicUncertainty
+- ConfidenceLevels guide decision-making under KnowledgeUncertainty
+- ProbabilisticReasoning enables decisions despite AmbiguousConditions
+
+---
+
+## Intention and Goal-Oriented Action
+
+### Scenario 4: Habit Formation and Automatic Behavior
+
+**Description:** In this scenario, a #HabitFormer develops #AutomaticBehaviors and #BehavioralHabits through #HabitFormation and #BehaviorAutomation. The former establishes #HabitCues and #BehaviorRoutines while managing #HabitStrength and #AutomaticityDevelopment to create #SustainedBehaviors and #EffortlessExecution.
+
+**Elements:**
+
+- **HabitFormer** (Entity): Person developing automatic behavioral patterns
+- **AutomaticBehaviors** (Process): Actions performed without conscious effort
+- **BehavioralHabits** (Entity): Established patterns of automatic behavior
+- **HabitFormation** (Process): Development of automatic behavioral responses
+- **BehaviorAutomation** (Process): Transition from controlled to automatic behavior
+- **HabitCues** (Entity): Environmental triggers that initiate habitual behaviors
+- **BehaviorRoutines** (Entity): Sequences of actions performed automatically
+- **HabitStrength** (Quality): Degree of automaticity in behavioral patterns
+- **AutomaticityDevelopment** (Process): Progressive reduction in conscious control needed
+- **SustainedBehaviors** (Quality): Behaviors maintained over long periods
+- **EffortlessExecution** (Quality): Performance of behaviors without conscious effort
+
+**Relations:**
+
+- HabitFormer develops AutomaticBehaviors through HabitFormation
+- BehaviorAutomation creates BehavioralHabits from controlled behaviors
+- HabitCues trigger BehaviorRoutines automatically
+- HabitStrength increases through AutomaticityDevelopment
+- BehavioralHabits enable SustainedBehaviors
+- AutomaticityDevelopment leads to EffortlessExecution
+- Strong BehavioralHabits require minimal conscious intention
+
+### Scenario 5: Implementation Intentions and If-Then Planning
+
+**Description:** In this scenario, an #ImplementationPlanner creates #ImplementationIntentions and #IfThenPlans to bridge #IntentionActionGaps. The planner develops #SituationalCues and #ActionSpecifications while using #ConditionalPlanning and #TriggerIdentification to achieve #AutomaticExecution and #GoalPursuit.
+
+**Elements:**
+
+- **ImplementationPlanner** (Entity): Person creating specific plans for goal implementation
+- **ImplementationIntentions** (Entity): Specific plans linking situations to actions
+- **IfThenPlans** (Entity): Conditional plans specifying when and how to act
+- **IntentionActionGaps** (Entity): Discrepancies between intentions and actual behavior
+- **SituationalCues** (Entity): Environmental conditions that trigger planned actions
+- **ActionSpecifications** (Entity): Detailed descriptions of intended behaviors
+- **ConditionalPlanning** (Process): Creating plans that specify conditions for action
+- **TriggerIdentification** (Process): Identifying optimal cues for action initiation
+- **AutomaticExecution** (Process): Automatic performance of planned actions when triggered
+- **GoalPursuit** (Process): Systematic work toward achieving objectives
+
+**Relations:**
+
+- ImplementationPlanner creates ImplementationIntentions and IfThenPlans
+- ImplementationIntentions help bridge IntentionActionGaps
+- ConditionalPlanning links SituationalCues to ActionSpecifications
+- TriggerIdentification optimizes selection of SituationalCues
+- IfThenPlans enable AutomaticExecution when cues are encountered
+- AutomaticExecution supports consistent GoalPursuit
+- ImplementationIntentions make GoalPursuit more reliable
+
+---
+
+## Cognitive Judgments and Evaluations
+
+### Scenario 4: Metacognitive Judgment and Confidence Assessment
+
+**Description:** In this scenario, a #MetacognitiveJudge makes #ConfidenceJudgments and #MetacognitiveAssessments about their own cognitive performance, evaluating #JudgmentAccuracy and #ConfidenceCalibration. The judge monitors #MetacognitiveFeelings and #CertaintyEstimates while developing #SelfAssessmentSkills and #AccuracyAwareness.
+
+**Elements:**
+
+- **MetacognitiveJudge** (Entity): Person making judgments about their own cognitive processes
+- **ConfidenceJudgments** (Entity): Assessments of certainty in one's own knowledge or performance
+- **MetacognitiveAssessments** (Process): Evaluations of one's own cognitive abilities and performance
+- **JudgmentAccuracy** (Quality): Correctness of metacognitive evaluations
+- **ConfidenceCalibration** (Quality): Alignment between confidence and actual accuracy
+- **MetacognitiveFeelings** (Entity): Subjective experiences that inform metacognitive judgments
+- **CertaintyEstimates** (Entity): Assessments of how sure one is about knowledge or decisions
+- **SelfAssessmentSkills** (Process): Abilities to accurately evaluate one's own performance
+- **AccuracyAwareness** (State): Understanding of one's own strengths and limitations
+
+**Relations:**
+
+- MetacognitiveJudge makes ConfidenceJudgments through MetacognitiveAssessments
+- JudgmentAccuracy depends on effective SelfAssessmentSkills
+- ConfidenceCalibration reflects alignment between confidence and performance
+- MetacognitiveFeelings inform ConfidenceJudgments
+- CertaintyEstimates contribute to MetacognitiveAssessments
+- AccuracyAwareness improves ConfidenceCalibration
+- SelfAssessmentSkills enhance JudgmentAccuracy
+
+### Scenario 5: Social Judgment and Impression Formation
+
+**Description:** In this scenario, a #SocialJudge forms #SocialImpressions and makes #PersonalityJudgments about others through #ImpressionFormation and #SocialEvaluation. The judge processes #SocialInformation and #BehavioralCues while managing #JudgmentBiases and #StereotypeInfluence to achieve #AccurateSocialJudgments.
+
+**Elements:**
+
+- **SocialJudge** (Entity): Person forming impressions and making judgments about others
+- **SocialImpressions** (Entity): Overall evaluative judgments about other people
+- **PersonalityJudgments** (Entity): Assessments of others' character traits and tendencies
+- **ImpressionFormation** (Process): Development of overall evaluations of other people
+- **SocialEvaluation** (Process): Assessment of others' characteristics and behaviors
+- **SocialInformation** (Entity): Data about others' appearance, behavior, and background
+- **BehavioralCues** (Entity): Observable actions that inform judgments about others
+- **JudgmentBiases** (Entity): Systematic errors in social evaluation
+- **StereotypeInfluence** (Process): Impact of group-based generalizations on individual judgments
+- **AccurateSocialJudgments** (Quality): Correct assessments of others' characteristics
+
+**Relations:**
+
+- SocialJudge forms SocialImpressions through ImpressionFormation
+- PersonalityJudgments emerge from SocialEvaluation processes
+- ImpressionFormation processes SocialInformation and BehavioralCues
+- JudgmentBiases can distort SocialEvaluation
+- StereotypeInfluence affects formation of SocialImpressions
+- AccurateSocialJudgments require overcoming JudgmentBiases
+- BehavioralCues provide crucial SocialInformation for PersonalityJudgments
