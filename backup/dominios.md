@@ -14,6 +14,7 @@ arts
 astronomy
 biological_process
 biology
+body
 business
 categories_and_classification
 causality
@@ -35,6 +36,7 @@ disasters_and_crises
 earth_sciences
 eating_and_nutrition
 economics
+emotion
 employment
 energy
 environment
@@ -62,6 +64,7 @@ motion
 music
 people
 physics
+psychology
 planning
 religion
 scales

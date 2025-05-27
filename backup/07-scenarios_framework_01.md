@@ -58,6 +58,11 @@ Domain: [Parent Domain]
 
 Scenario X: [Aspect Focus]
 Description: Generic definition using #ElementNames
+Key Cognitive Principles Demonstrated:
+- Principle 1: Categorization/understanding patterns
+- Principle 2: Cultural vs. universal aspects  
+- Principle 3: Relationship to other subdomains
+
 Elements: [List with ontological type classification]
 Relations: [Natural language relationship expressions]
 Boundary Illustrations: [Distinctions from related subdomains]
