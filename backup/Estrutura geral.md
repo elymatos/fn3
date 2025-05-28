@@ -1,9 +1,0 @@
-- A estrutura para classificação dos frames está definida com os dois eixos (domínios fundamentais e tipos estruturais).
-- Cada frame estará associado a estes dois eixos.
-- Cada frame deverá estar associado a um (ou mais) cenários (um frame de cenário).
-- O frame de cenário vai representar a ideia de "domínio" específico para um conjunto de frames.
-- Devem ser definidos os tipos semânticos (semantictype) associados a cada cenário. Estes tipos representam os elementos do domínio (entidades, estados, qualidades, etc).
-- Todos os Fes dos frames pertencentes a um cenário precisam ser associados a um semantictype do cenário.
-- As relações entre frames continuam indicando como o frame (como um todo) se relaciona com outro frame (como um todo).
-- Mas as relações entre FEs são substituídas, quando necessário, pelas relações entre os semantic types correspondentes aos FEs.
-- Isso porque muitas relações entre FEs deixarão de existir porque o semantictype já estará compartilhado entre os FEs.
