@@ -1,0 +1,185 @@
+Domain,Subdomain,Macroscenario,Scenario
+BIOLOGICAL,Biological Entities and Life Processes,Life_Process_Dynamics,Life Cycle Recognition and Developmental Stages
+BIOLOGICAL,Biological Entities and Life Processes,Life_Process_Dynamics,Vital Functions and Biological Activities
+BIOLOGICAL,Biological Entities and Life Processes,Life_Process_Dynamics,Species Interactions and Ecological Relationships
+BIOLOGICAL,Biological Entities and Life Processes,Biological_Classification_Systems,Taxonomic hierarchy recognition and species categorization
+BIOLOGICAL,Body and Anatomy,Body_Structure_Understanding,Body Part Recognition and Structural Understanding
+BIOLOGICAL,Body and Anatomy,Body_Structure_Understanding,Internal vs External Body Awareness
+BIOLOGICAL,Body and Anatomy,Body_Structure_Understanding,Body Symmetry and Proportional Relationships
+BIOLOGICAL,Body and Anatomy,Body_Modification_Adaptation,Body enhancement prosthetics and adaptive modifications
+BIOLOGICAL,Ecological Systems,Ecosystem_Static_Relations,Habitat Relationships and Environmental Adaptation
+BIOLOGICAL,Ecological Systems,Ecosystem_Static_Relations,Resource Cycles and Energy Flow
+BIOLOGICAL,Ecological Systems,Ecosystem_Dynamic_Processes,Environmental Change and Ecosystem Response
+BIOLOGICAL,Ecological Systems,Ecosystem_Measurement_Monitoring,Environmental data collection and biodiversity assessment
+BIOLOGICAL,Health and Illness,Health_Management,Symptom Recognition and Illness Detection
+BIOLOGICAL,Health and Illness,Health_Management,Treatment and Recovery Processes
+BIOLOGICAL,Health and Illness,Health_Management,Prevention and Health Maintenance
+BIOLOGICAL,Health and Illness,Health_Communication_Education,Medical information dissemination and health literacy
+BIOLOGICAL,Physiological Functions,Body_Function_Systems,Vital System Operations and Regulatory Functions
+BIOLOGICAL,Physiological Functions,Body_Function_Systems,Sensory Processing and Perceptual Functions
+BIOLOGICAL,Physiological Functions,Body_Function_Systems,Motor Control and Movement Coordination
+BIOLOGICAL,Physiological Functions,Body_Performance_Optimization,Athletic performance enhancement and physical conditioning
+COGNITIVE,Attention and Awareness,Attention_Control,Selective Attention and Focus Control
+COGNITIVE,Attention and Awareness,Attention_Control,Awareness States and Conscious Monitoring
+COGNITIVE,Attention and Awareness,Attention_Control,Divided Attention and Multitasking
+COGNITIVE,Attention and Awareness,Metacognitive_Monitoring,Self-awareness of cognitive processes and mental state monitoring
+COGNITIVE,Beliefs and Knowledge and Assumptions,Knowledge_Belief_Processing,Knowledge Acquisition and Belief Formation
+COGNITIVE,Beliefs and Knowledge and Assumptions,Knowledge_Belief_Processing,Assumption Recognition and Epistemic Awareness
+COGNITIVE,Beliefs and Knowledge and Assumptions,Knowledge_Belief_Processing,Belief Revision and Knowledge Updating
+COGNITIVE,Beliefs and Knowledge and Assumptions,Epistemic_Communication,Knowledge sharing and belief transmission between individuals
+COGNITIVE,Cognitive Judgments and Evaluations,Evaluative_Cognition,Quality Assessment and Evaluative Thinking
+COGNITIVE,Cognitive Judgments and Evaluations,Evaluative_Cognition,Critical Analysis and Analytical Judgment
+COGNITIVE,Cognitive Judgments and Evaluations,Evaluative_Cognition,Preference Formation and Value Judgments
+COGNITIVE,Cognitive Judgments and Evaluations,Comparative_Assessment,Ranking alternatives and relative quality comparison
+COGNITIVE,Decision-Making and Planning,Strategic_Planning,Choice Evaluation and Decision Selection
+COGNITIVE,Decision-Making and Planning,Strategic_Planning,Future Planning and Goal Setting
+COGNITIVE,Decision-Making and Planning,Strategic_Planning,Problem-Solving and Strategic Thinking
+COGNITIVE,Decision-Making and Planning,Decision_Implementation_Monitoring,Tracking decision outcomes and plan execution monitoring
+COGNITIVE,Intention and Goal-Oriented Action,Intentional_Action,Goal Formation and Intention Setting
+COGNITIVE,Intention and Goal-Oriented Action,Intentional_Action,Action Planning and Implementation
+COGNITIVE,Intention and Goal-Oriented Action,Intentional_Action,Volitional Control and Persistence
+COGNITIVE,Intention and Goal-Oriented Action,Goal_Modification_Adaptation,Goal revision based on changing circumstances
+COGNITIVE,Memory and Learning,Learning_Memory_Systems,Information Encoding and Memory Formation
+COGNITIVE,Memory and Learning,Learning_Memory_Systems,Memory Retrieval and Recall Processes
+COGNITIVE,Memory and Learning,Learning_Memory_Systems,Learning Transfer and Skill Acquisition
+COGNITIVE,Memory and Learning,Knowledge_Organization_Structuring,Information categorization and mental schema construction
+COGNITIVE,Reasoning and Problem-Solving,Problem_Solving_Cognition,Analytical Problem Decomposition
+COGNITIVE,Reasoning and Problem-Solving,Problem_Solving_Cognition,Hypothesis Formation and Testing
+COGNITIVE,Reasoning and Problem-Solving,Problem_Solving_Cognition,Intuitive and Creative Problem Solving
+COGNITIVE,Reasoning and Problem-Solving,Reasoning_Communication,Explanation of logical processes and argument construction
+SOCIAL,Conflict and Cooperation,Conflict_Cooperation_Dynamics,Competitive Dynamics and Resource Competition
+SOCIAL,Conflict and Cooperation,Conflict_Cooperation_Dynamics,Collaborative Problem-Solving and Mutual Aid
+SOCIAL,Conflict and Cooperation,Conflict_Cooperation_Dynamics,Conflict Resolution and Peace-Making
+SOCIAL,Conflict and Cooperation,Negotiation_Bargaining,Strategic negotiation and compromise formation
+SOCIAL,Economic and Commercial Practices,Commercial_Activities,Exchange Relationships and Market Transactions
+SOCIAL,Economic and Commercial Practices,Commercial_Activities,Economic Planning and Resource Management
+SOCIAL,Economic and Commercial Practices,Commercial_Activities,Business Operations and Entrepreneurial Activities
+SOCIAL,Economic and Commercial Practices,Economic_Risk_Management,Financial risk assessment and investment protection strategies
+SOCIAL,Governance and Law,Governance_Legal_Systems,Legal Systems and Regulatory Frameworks
+SOCIAL,Governance and Law,Governance_Legal_Systems,Political Authority and Democratic Processes
+SOCIAL,Governance and Law,Governance_Legal_Systems,Justice Administration and Conflict Resolution
+SOCIAL,Governance and Law,Civic_Participation,Citizen engagement in democratic processes and policy formation
+SOCIAL,Group Dynamics and Collective Behavior,Group_Collective_Dynamics,Group Formation and Membership Dynamics
+SOCIAL,Group Dynamics and Collective Behavior,Group_Collective_Dynamics,Leadership and Influence Patterns
+SOCIAL,Group Dynamics and Collective Behavior,Group_Collective_Dynamics,Collective Action and Mass Behavior
+SOCIAL,Group Dynamics and Collective Behavior,Group_Performance_Evaluation,Team effectiveness assessment and collective achievement measurement
+SOCIAL,Institutions and Organizations,Organizational_Structure,Organizational Structure and Hierarchical Relationships
+SOCIAL,Institutions and Organizations,Organizational_Structure,Institutional Functions and Service Delivery
+SOCIAL,Institutions and Organizations,Organizational_Change,Organizational Change and Institutional Evolution
+SOCIAL,Institutions and Organizations,Institutional_Communication,Organizational messaging and institutional reputation management
+SOCIAL,Social Interaction and Relationships,Relationship_Dynamics,Interpersonal Communication and Social Exchange
+SOCIAL,Social Interaction and Relationships,Relationship_Dynamics,Relationship Formation and Maintenance
+SOCIAL,Social Interaction and Relationships,Relationship_Dynamics,Social Networks and Community Formation
+SOCIAL,Social Interaction and Relationships,Social_Boundary_Management,Privacy control and interpersonal boundary setting
+SOCIAL,Social Roles and Identities,Role_Performance,Role Recognition and Social Positioning
+SOCIAL,Social Roles and Identities,Identity_Development,Identity Formation and Social Categorization
+SOCIAL,Social Roles and Identities,Identity_Development,Role Transitions and Status Changes
+SOCIAL,Social Roles and Identities,Role_Conflict_Resolution,Managing competing role expectations and identity conflicts
+PHYSICAL,Manipulation and Interaction with Objects,Tool_Use_Control,Tool Use and Instrumental Manipulation
+PHYSICAL,Manipulation and Interaction with Objects,Tool_Use_Control,Object Assembly and Construction Activities
+PHYSICAL,Manipulation and Interaction with Objects,Tool_Use_Control,Precision Control and Fine Motor Manipulation
+PHYSICAL,Manipulation and Interaction with Objects,Object_Interaction_Analysis,Object interaction patterns and manipulation assessment
+PHYSICAL,Matter and Substances,Material_Property_Recognition,Material Property Recognition and Interaction
+PHYSICAL,Matter and Substances,Material_Property_Recognition,Material Composition and Structure
+PHYSICAL,Matter and Substances,Material_Property_Recognition,Material State and Phase Changes
+PHYSICAL,Matter and Substances,Material_Analysis_Testing,Material testing methodologies and property validation
+PHYSICAL,Motion and Location,Spatial_Navigation_Movement,Spatial Navigation and Movement Tracking
+PHYSICAL,Motion and Location,Spatial_Navigation_Movement,Object Positioning and Spatial Arrangement
+PHYSICAL,Motion and Location,Spatial_Navigation_Movement,Locational Reference and Spatial Description
+PHYSICAL,Motion and Location,Motion_Analysis_Prediction,Movement pattern analysis and trajectory prediction
+PHYSICAL,Natural Phenomena,Weather_Environmental_Observation,Weather Pattern Recognition and Environmental Response
+PHYSICAL,Natural Phenomena,Weather_Environmental_Observation,Geological Events and Earth System Dynamics
+PHYSICAL,Natural Phenomena,Weather_Environmental_Observation,Astronomical Cycles and Celestial Phenomena
+PHYSICAL,Natural Phenomena,Natural_Phenomenon_Prediction,Natural event forecasting and environmental change prediction
+PHYSICAL,Physical Transformation,Transformation_Process_Control,Material State Changes and Phase Transitions
+PHYSICAL,Physical Transformation,Transformation_Process_Control,Mechanical Alteration and Physical Modification
+PHYSICAL,Physical Transformation,Transformation_Process_Control,Chemical Reactions and Compositional Changes
+PHYSICAL,Physical Transformation,Transformation_Analysis_Monitoring,Process monitoring and transformation outcome assessment
+PSYCHOLOGICAL,Emotions and Affective States,Emotional_Recognition_Expression,Emotional Recognition and Expression
+PSYCHOLOGICAL,Emotions and Affective States,Emotional_Recognition_Expression,Emotional Regulation and Coping
+PSYCHOLOGICAL,Emotions and Affective States,Emotional_Recognition_Expression,Emotional Memory and Associations
+PSYCHOLOGICAL,Emotions and Affective States,Emotional_Intelligence_Management,Emotional awareness development and affective skill building
+PSYCHOLOGICAL,Needs and Drives and Motivations,Motivation_Drive_Recognition,Basic Need Recognition and Drive Satisfaction
+PSYCHOLOGICAL,Needs and Drives and Motivations,Motivation_Drive_Recognition,Psychological Motivations and Achievement Drives
+PSYCHOLOGICAL,Needs and Drives and Motivations,Motivation_Drive_Recognition,Social Motivations and Relationship Drives
+PSYCHOLOGICAL,Needs and Drives and Motivations,Motivational_Strategy_Development,Personal motivation enhancement and drive optimization
+PSYCHOLOGICAL,Perception and Sensation,Sensory_Processing_Organization,Sensory Input Processing and Perceptual Organization
+PSYCHOLOGICAL,Perception and Sensation,Sensory_Processing_Organization,Perceptual Thresholds and Sensitivity Variations
+PSYCHOLOGICAL,Perception and Sensation,Sensory_Processing_Organization,Perceptual Illusions and Interpretation Errors
+PSYCHOLOGICAL,Perception and Sensation,Perceptual_Training_Enhancement,Sensory skill development and perceptual accuracy improvement
+PSYCHOLOGICAL,Subjective Experience of the Body and Environment,Embodied_Environmental_Awareness,Embodied Awareness and Proprioceptive Experience
+PSYCHOLOGICAL,Subjective Experience of the Body and Environment,Embodied_Environmental_Awareness,Environmental Presence and Atmospheric Awareness
+PSYCHOLOGICAL,Subjective Experience of the Body and Environment,Embodied_Environmental_Awareness,Embodied Emotions and Somatic Responses
+PSYCHOLOGICAL,Subjective Experience of the Body and Environment,Mindfulness_Body_Practice,Mindful awareness cultivation and embodied presence training
+REPRESENTATIONAL,Formal Systems and Abstract Representations,Mathematical_Logical_Systems,Mathematical Systems and Logical Structures
+REPRESENTATIONAL,Formal Systems and Abstract Representations,Mathematical_Logical_Systems,Theoretical Models and Systematic Frameworks
+REPRESENTATIONAL,Formal Systems and Abstract Representations,Mathematical_Logical_Systems,Algorithmic Thinking and Computational Representations
+REPRESENTATIONAL,Formal Systems and Abstract Representations,Abstract_Modeling_Development,Conceptual model creation and formal system design
+REPRESENTATIONAL,Information Structures,Data_Organization_Systems,Data Organization and Categorical Systems
+REPRESENTATIONAL,Information Structures,Data_Organization_Systems,Relational Structures and Network Organization
+REPRESENTATIONAL,Information Structures,Data_Organization_Systems,Sequential Structures and Procedural Organization
+REPRESENTATIONAL,Information Structures,Information_Architecture_Design,Information system architecture and structural optimization
+REPRESENTATIONAL,Knowledge Representation,Knowledge_Framework_Organization,Conceptual Frameworks and Knowledge Organization
+REPRESENTATIONAL,Knowledge Representation,Knowledge_Framework_Organization,Semantic Networks and Meaning Structures
+REPRESENTATIONAL,Knowledge Representation,Knowledge_Framework_Organization,Knowledge Encoding and Representation Systems
+REPRESENTATIONAL,Knowledge_Engineering_Implementation,Practical knowledge system development and implementation strategies
+REPRESENTATIONAL,Media and Digital Systems,Digital_Content_Integration,Digital Content Creation and Multimedia Integration
+REPRESENTATIONAL,Media and Digital Systems,Digital_Content_Integration,Digital Information Processing and Data Management
+REPRESENTATIONAL,Media and Digital Systems,Digital_Content_Integration,Digital Communication and Interactive Systems
+REPRESENTATIONAL,Media and Digital Systems,Digital_Innovation_Development,Emerging media technologies and digital platform innovation
+REPRESENTATIONAL,Signs and Communication and Language,Symbolic_Communication_Systems,Symbolic Communication and Meaning Exchange
+REPRESENTATIONAL,Signs and Communication and Language,Symbolic_Communication_Systems,Language Structure and Grammar
+REPRESENTATIONAL,Signs and Communication and Language,Symbolic_Communication_Systems,Non-Verbal and Multimodal Communication
+REPRESENTATIONAL,Signs and Communication and Language,Communication_Innovation_Development,Advanced communication methods and linguistic innovation
+SPACE-TIME,Motion and Trajectory,Movement_Trajectory_Analysis,Movement Patterns and Directional Navigation
+SPACE-TIME,Motion and Trajectory,Movement_Trajectory_Analysis,Velocity and Acceleration Dynamics
+SPACE-TIME,Motion and Trajectory,Movement_Trajectory_Analysis,Trajectory Prediction and Path Anticipation
+SPACE-TIME,Motion and Trajectory,Motion_Optimization_Planning,Movement efficiency optimization and trajectory planning
+SPACE-TIME,Spatial Configuration,Spatial_Relationship_Understanding,Spatial Relationships and Positioning
+SPACE-TIME,Spatial Configuration,Spatial_Relationship_Understanding,Mental Mapping and Spatial Memory
+SPACE-TIME,Spatial Configuration,Spatial_Relationship_Understanding,Scale and Dimensional Thinking
+SPACE-TIME,Spatial Configuration,Spatial_Design_Engineering,Spatial design principles and configuration optimization
+SPACE-TIME,Temporal Structure,Time_Organization_Management,Time Organization and Chronological Systems
+SPACE-TIME,Temporal Structure,Time_Organization_Management,Cyclical Patterns and Temporal Rhythms
+SPACE-TIME,Temporal Structure,Time_Organization_Management,Duration Perception and Temporal Experience
+SPACE-TIME,Temporal Structure,Temporal_Innovation_Development,Advanced time management and temporal system design
+SPACE-TIME,Change over Time,Change_Process_Recognition,Process Development and Gradual Transformation
+SPACE-TIME,Change over Time,Change_Process_Recognition,Cyclical Changes and Recurring Transformations
+SPACE-TIME,Change over Time,Change_Process_Recognition,Sudden Changes and Transformational Events
+SPACE-TIME,Change over Time,Change_Management_Strategy,Change facilitation and transformation management
+MORAL,Conventions and Ethical Norms and Principles,Convention_Ethics_Recognition,Social Convention Recognition and Compliance
+MORAL,Conventions and Ethical Norms and Principles,Convention_Ethics_Recognition,Ethical Principle Application and Moral Reasoning
+MORAL,Conventions and Ethical Norms and Principles,Convention_Ethics_Recognition,Norm Violation and Moral Evaluation
+MORAL,Conventions and Ethical Norms and Principles,Ethical_Leadership_Development,Moral leadership and ethical culture building
+MORAL,Moral Emotions and Responses,Moral_Emotion_Processing,Moral Self-Assessment and Conscience Responses
+MORAL,Moral Emotions and Responses,Moral_Emotion_Processing,Moral Responses to Others and Empathetic Reactions
+MORAL,Moral Emotions and Responses,Moral_Emotion_Processing,Moral Repair and Forgiveness Processes
+MORAL,Moral Emotions and Responses,Moral_Intelligence_Development,Moral sensitivity enhancement and ethical emotional development
+MORAL,Moral Judgments and Evaluations,Moral_Judgment_Evaluation,Ethical Assessment and Moral Reasoning
+MORAL,Moral Judgments and Evaluations,Moral_Judgment_Evaluation,Moral Responsibility and Blame Attribution
+MORAL,Moral Judgments and Evaluations,Moral_Judgment_Evaluation,Moral Conflict Resolution and Ethical Dilemmas
+MORAL,Moral Judgments and Evaluations,Ethical_Decision_Optimization,Advanced moral decision-making and ethical optimization
+MORAL,Rights and Duties and Justice,Rights_Duties_Justice,Rights Recognition and Entitlement Claims
+MORAL,Rights and Duties and Justice,Rights_Duties_Justice,Duty Recognition and Obligation Fulfillment
+MORAL,Rights and Duties and Justice,Rights_Duties_Justice,Justice Administration and Fair Treatment
+MORAL,Rights and Duties and Justice,Justice_Innovation_Development,Justice system innovation and rights advancement
+CULTURAL,Arts and Creative Practices,Artistic_Creative_Expression,Artistic Creation and Aesthetic Expression
+CULTURAL,Arts and Creative Practices,Artistic_Creative_Expression,Performance Arts and Live Expression
+CULTURAL,Arts and Creative Practices,Artistic_Creative_Expression,Craft Traditions and Material Arts
+CULTURAL,Arts and Creative Practices,Creative_Innovation_Development,Artistic innovation and creative methodology advancement
+CULTURAL,Beliefs and Worldviews,Belief_Worldview_Formation,Belief System Formation and Worldview Development
+CULTURAL,Beliefs and Worldviews,Belief_Worldview_Formation,Religious and Spiritual Perspectives
+CULTURAL,Beliefs and Worldviews,Belief_Worldview_Formation,Philosophical Orientations and Value Systems
+CULTURAL,Beliefs and Worldviews,Worldview_Integration_Dialogue,Cross-cultural understanding and belief system integration
+CULTURAL,Cultural Narratives and Memory,Cultural_Narrative_Preservation,Storytelling and Oral Traditions
+CULTURAL,Cultural Narratives and Memory,Cultural_Narrative_Preservation,Historical Memory and Community Identity
+CULTURAL,Cultural Narratives and Memory,Cultural_Narrative_Preservation,Mythological and Legendary Narratives
+CULTURAL,Cultural Narratives and Memory,Narrative_Innovation_Creation,Contemporary storytelling and cultural narrative innovation
+CULTURAL,Heritage and Identity,Heritage_Identity_Maintenance,Cultural Inheritance and Ancestral Connections
+CULTURAL,Heritage and Identity,Heritage_Identity_Maintenance,Cultural Symbols and Identity Markers
+CULTURAL,Heritage and Identity,Heritage_Identity_Maintenance,Cultural Preservation and Revival
+CULTURAL,Heritage and Identity,Heritage_Innovation_Adaptation,Heritage adaptation and identity evolution
+CULTURAL,Rituals and Traditions,Ritual_Tradition_Practice,Ceremonial Practices and Ritual Performance
+CULTURAL,Rituals and Traditions,Ritual_Tradition_Practice,Traditional Customs and Cultural Practices
+CULTURAL,Rituals and Traditions,Ritual_Tradition_Practice,Seasonal and Cyclical Celebrations
+CULTURAL,Rituals and Traditions,Ritual_Innovation_Development,Contemporary ritual creation and tradition adaptation
