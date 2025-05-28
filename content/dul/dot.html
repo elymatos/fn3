@@ -322,16 +322,6 @@
         </div>
 
         <div class="control-row">
-            <span style="font-weight: 600; color: #495057;">Quick Examples:</span>
-            <div class="examples">
-                <button class="example-btn" onclick="loadExample('simple')">Simple Graph</button>
-                <button class="example-btn" onclick="loadExample('network')">Network Diagram</button>
-                <button class="example-btn" onclick="loadExample('flowchart')">Flowchart</button>
-                <button class="example-btn" onclick="loadExample('hierarchy')">Hierarchy</button>
-            </div>
-        </div>
-
-        <div class="control-row">
             <div class="status" id="status"></div>
         </div>
     </div>
@@ -438,92 +428,6 @@
                 console.error('Error rendering DOT:', error);
                 setStatus('error', `Rendering error: ${error.message}`);
                 setTimeout(() => clearStatus(), 5000);
-            }
-        }
-
-        // Example DOT graphs
-        const examples = {
-            simple: `digraph Simple {
-    A -> B;
-    B -> C;
-    C -> D;
-    D -> A;
-    
-    A [label="Start", shape=circle, style=filled, fillcolor=lightblue];
-    B [label="Process", shape=box, style=filled, fillcolor=lightgreen];
-    C [label="Decision", shape=diamond, style=filled, fillcolor=lightyellow];
-    D [label="End", shape=circle, style=filled, fillcolor=lightcoral];
-}`,
-            network: `graph Network {
-    layout=neato;
-    
-    Server [shape=box, style=filled, fillcolor=lightblue];
-    DB [shape=cylinder, style=filled, fillcolor=lightgreen, label="Database"];
-    Client1 [shape=ellipse, style=filled, fillcolor=lightyellow, label="Client 1"];
-    Client2 [shape=ellipse, style=filled, fillcolor=lightyellow, label="Client 2"];
-    Client3 [shape=ellipse, style=filled, fillcolor=lightyellow, label="Client 3"];
-    
-    Server -- DB [label="SQL"];
-    Server -- Client1 [label="HTTP"];
-    Server -- Client2 [label="HTTP"];
-    Server -- Client3 [label="HTTP"];
-    Client1 -- Client2 [label="P2P", style=dashed];
-    Client2 -- Client3 [label="P2P", style=dashed];
-}`,
-            flowchart: `digraph Flowchart {
-    rankdir=TD;
-    
-    start [label="Start", shape=ellipse, style=filled, fillcolor=lightgreen];
-    input [label="Get Input", shape=parallelogram, style=filled, fillcolor=lightblue];
-    process [label="Process Data", shape=box, style=filled, fillcolor=lightyellow];
-    decision [label="Valid?", shape=diamond, style=filled, fillcolor=orange];
-    output [label="Show Result", shape=parallelogram, style=filled, fillcolor=lightblue];
-    error [label="Show Error", shape=parallelogram, style=filled, fillcolor=lightcoral];
-    end [label="End", shape=ellipse, style=filled, fillcolor=lightgreen];
-    
-    start -> input;
-    input -> process;
-    process -> decision;
-    decision -> output [label="Yes"];
-    decision -> error [label="No"];
-    output -> end;
-    error -> input;
-}`,
-            hierarchy: `digraph Hierarchy {
-    rankdir=TB;
-    
-    CEO [label="CEO", shape=box, style=filled, fillcolor=gold];
-    CTO [label="CTO", shape=box, style=filled, fillcolor=lightblue];
-    CFO [label="CFO", shape=box, style=filled, fillcolor=lightblue];
-    
-    DevManager [label="Dev Manager", shape=box, style=filled, fillcolor=lightgreen];
-    QAManager [label="QA Manager", shape=box, style=filled, fillcolor=lightgreen];
-    
-    Dev1 [label="Developer 1", shape=ellipse, style=filled, fillcolor=lightyellow];
-    Dev2 [label="Developer 2", shape=ellipse, style=filled, fillcolor=lightyellow];
-    QA1 [label="QA Engineer 1", shape=ellipse, style=filled, fillcolor=lightyellow];
-    QA2 [label="QA Engineer 2", shape=ellipse, style=filled, fillcolor=lightyellow];
-    
-    Accountant [label="Accountant", shape=ellipse, style=filled, fillcolor=lightcoral];
-    
-    CEO -> CTO;
-    CEO -> CFO;
-    CTO -> DevManager;
-    CTO -> QAManager;
-    DevManager -> Dev1;
-    DevManager -> Dev2;
-    QAManager -> QA1;
-    QAManager -> QA2;
-    CFO -> Accountant;
-}`
-        };
-
-        // Load example
-        function loadExample(type) {
-            if (examples[type]) {
-                currentDotContent = examples[type];
-                renderDotContent(examples[type]);
-                document.getElementById('dotUrl').value = `Example: ${type.charAt(0).toUpperCase() + type.slice(1)}`;
             }
         }
 
