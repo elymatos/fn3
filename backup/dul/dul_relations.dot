@@ -1,0 +1,404 @@
+# http://www.graphviz.org/content/cluster
+
+digraph G {
+    rankdir=TB;
+
+  graph [fontname = "Handlee"];
+  node [fontname = "Handlee" shape="box" style="rounded" color="blue"];
+  edge [fontname = "Handlee"];
+
+  bgcolor=transparent;
+
+Abstract
+Action
+Agent
+Amount
+BiologicalObject
+ChemicalObject
+Classification
+Collection
+Collective
+CollectiveAgent
+Community
+Concept
+Configuration
+Contract
+Description
+Design
+DesignedArtifact
+DesignedSubstance
+Diagnosis
+Entity
+Event
+EventType
+FormalEntity
+FunctionalSubstance
+Goal
+"Group"
+InformationEntity
+InformationObject
+InformationRealization
+LocalConcept
+Method
+Narrative
+NaturalPerson
+Norm
+Object
+ObjectAggregate
+Organism
+Organization
+Parameter
+Parthood
+Pattern
+Person
+Personification
+PhysicalAgent
+PhysicalArtifact
+PhysicalAttribute
+PhysicalBody
+PhysicalObject
+PhysicalPlace
+Place
+Plan
+PlanExecution
+Process
+Project
+Quality
+Region
+Relation
+Right
+Role
+Set
+Situation
+SocialAgent
+SocialObject
+SocialObjectAttribute
+SocialPerson
+SocialRelation
+SpaceRegion
+SpatioTemporalRegion
+Substance
+Task
+Theory
+TimeIndexedRelation
+TimeInterval
+Transition
+TypeCollection
+UnitOfMeasure
+Workflow
+WorkflowExecution
+"actsFor*" [shape="hexagon" color="red"]
+"conceptualizes*" [shape="hexagon" color="red"]
+"involvesAgent*" [shape="hexagon" color="red"]
+"includesAgent*" [shape="hexagon" color="red"]
+"introduces*" [shape="hexagon" color="red"]
+"classifies*" [shape="hexagon" color="red"]
+"characterizes*" [shape="hexagon" color="red"]
+"covers*" [shape="hexagon" color="red"]
+"defines*" [shape="hexagon" color="red"]
+"definesRole*" [shape="hexagon" color="red"]
+"definesTask*" [shape="hexagon" color="red"]
+"usesConcept*" [shape="hexagon" color="red"]
+"parametrizes*" [shape="hexagon" color="red"]
+"hasConstraint*" [shape="hexagon" color="red"]
+"hasRole*" [shape="hexagon" color="red"]
+"hasTask*" [shape="hexagon" color="red"]
+"executesTask*" [shape="hexagon" color="red"]
+"describes*" [shape="hexagon" color="red"]
+"expands*" [shape="hexagon" color="red"]
+"satisfies*" [shape="hexagon" color="red"]
+"unifies*" [shape="hexagon" color="red"]
+"expresses*" [shape="hexagon" color="red"]
+"expressesConcept*" [shape="hexagon" color="red"]
+"concretelyExpresses*" [shape="hexagon" color="red"]
+"realizes*" [shape="hexagon" color="red"]
+"realizesInformationAbout*" [shape="hexagon" color="red"]
+"isAbout*" [shape="hexagon" color="red"]
+"hasParticipant*" [shape="hexagon" color="red"]
+"includesEvent*" [shape="hexagon" color="red"]
+"includesAction*" [shape="hexagon" color="red"]
+"includesObject*" [shape="hexagon" color="red"]
+"directlyPrecedes*" [shape="hexagon" color="red"]
+"precedes*" [shape="hexagon" color="red"]
+"hasPrecondition*" [shape="hexagon" color="red"]
+"hasPrecondition*" [shape="hexagon" color="red"]
+"hasPrecondition*" [shape="hexagon" color="red"]
+"hasPrecondition*" [shape="hexagon" color="red"]
+"hasPostcondition*" [shape="hexagon" color="red"]
+"hasPostrecondition*" [shape="hexagon" color="red"]
+"hasPostcondition*" [shape="hexagon" color="red"]
+"hasPostcondition*" [shape="hexagon" color="red"]
+"hasPrecondition*" [shape="hexagon" color="red"]
+"hasPrecondition*" [shape="hexagon" color="red"]
+"hasPrecondition*" [shape="hexagon" color="red"]
+"hasTimeInterval*" [shape="hexagon" color="red"]
+"includesTime*" [shape="hexagon" color="red"]
+"isObservableAt*" [shape="hexagon" color="red"]
+"hasPart*" [shape="hexagon" color="red"]
+"hasProperPart*" [shape="hexagon" color="red"]
+"hasComponent*" [shape="hexagon" color="red"]
+"hasConstituent*" [shape="hexagon" color="red"]
+"hasMember*" [shape="hexagon" color="red"]
+"hasQuality*" [shape="hexagon" color="red"]
+"hasRegion*" [shape="hexagon" color="red"]
+"hasLocation*" [shape="hexagon" color="red"]
+"hasSetting*" [shape="hexagon" color="red"]
+"isSuperordinatedTo*" [shape="hexagon" color="red"]
+"specializes*" [shape="hexagon" color="red"]
+"associatedWith#" [shape="hexagon" color="red"]
+"coparticipatesWith#" [shape="hexagon" color="red"]
+"farFrom#" [shape="hexagon" color="red"]
+"nearTo#" [shape="hexagon" color="red"]
+"hasCommonBoundary#" [shape="hexagon" color="red"]
+"overlaps#" [shape="hexagon" color="red"]
+"sameSettingAs#" [shape="hexagon" color="red"]
+"isRelatedToConcept#" [shape="hexagon" color="red"]
+"isRelatedToDescription#" [shape="hexagon" color="red"]
+"includesPart#" [shape="hexagon" color="red"]
+"includesWhole#" [shape="hexagon" color="red"]
+"realizesSelfInformation#" [shape="hexagon" color="red"]
+
+
+Agent  -> "actsFor*"
+ "actsFor*" ->  SocialAgent
+Agent  -> "conceptualizes*"
+ "conceptualizes*" ->  SocialObject
+Event  -> "involvesAgent*"
+ "involvesAgent*" ->  Agent
+Situation  -> "includesAgent*"
+ "includesAgent*" ->  Agent
+Description  -> "introduces*"
+ "introduces*" ->  SocialAgent
+Concept  -> "classifies*"
+ "classifies*" ->  Entity
+Concept  -> "characterizes*"
+ "characterizes*" ->  Collection
+Concept  -> "covers*"
+ "covers*" ->  Collection
+Description  -> "defines*"
+ "defines*" ->  Concept
+Description  -> "definesRole*"
+ "definesRole*" ->  Role
+Description  -> "definesTask*"
+ "definesTask*" ->  Task
+Description  -> "usesConcept*"
+ "usesConcept*" ->  Concept
+Parameter  -> "parametrizes*"
+ "parametrizes*" ->  Region
+Entity  -> "hasConstraint*"
+ "hasConstraint*" ->  Parameter
+Object  -> "hasRole*"
+ "hasRole*" ->  Role
+Role  -> "hasTask*"
+ "hasTask*" ->  Task
+Action  -> "executesTask*"
+ "executesTask*" ->  Task
+Description  -> "describes*"
+ "describes*" ->  Entity
+Description  -> "expands*" [dir="both"]
+# "expands*" ->  Description
+Situation  -> "satisfies*"
+ "satisfies*" ->  Description
+Description  -> "unifies*"
+ "unifies*" ->  Collection
+InformationObject  -> "expresses*"
+ "expresses*" ->  SocialObject
+InformationObject  -> "expressesConcept*"
+ "expressesConcept*" ->  Concept
+InformationObject  -> "concretelyExpresses*"
+ "concretelyExpresses*" ->  SocialObject
+InformationRealization  -> "realizes*"
+ "realizes*" ->  InformationObject
+InformationRealization  -> "realizesInformationAbout*"
+ "realizesInformationAbout*" ->  Entity
+InformationObject  -> "isAbout*"
+ "isAbout*" ->  Entity
+Event  -> "hasParticipant*"
+ "hasParticipant*" ->  Object
+Situation  -> "includesEvent*"
+ "includesEvent*" ->  Event
+Situation  -> "includesAction*"
+ "includesAction*" ->  Action
+Situation  -> "includesObject*"
+ "includesObject*" ->  Object
+Entity  -> "directlyPrecedes*"  [dir="both"]
+ #"directlyPrecedes*" ->  Entity
+Entity  -> "precedes*"   [dir="both"]
+ #"precedes*" ->  Entity
+Event  -> "hasPrecondition*"  [dir="both"]
+Situation  -> "hasPrecondition*"  [dir="both"]
+ #"hasPrecondition*" ->  Event
+#Event  -> "hasPrecondition*"
+# "hasPrecondition*" ->  Situation
+#Situation  -> "hasPrecondition*"
+# "hasPrecondition*" ->  Event
+#Situation  -> "hasPrecondition*"  [dir="both"]
+ #"hasPrecondition*" ->  Situation
+Event  -> "hasPostcondition*"   [dir="both"]
+# "hasPostcondition*" ->  Event
+#Event  -> "hasPostrecondition*"
+# "hasPostrecondition*" ->  Situation
+Situation  -> "hasPostcondition*"  [dir="both"]
+# "hasPostcondition*" ->  Event
+#Situation  -> "hasPostcondition*"  [dir="both"]
+# "hasPostcondition*" ->  Situation
+Event  -> "hasPrecondition*"  [dir="both"]
+# "hasPrecondition*" ->  Event
+#Event  -> "hasPrecondition*"
+# "hasPrecondition*" ->  Situation
+#Situation  -> "hasPrecondition*"
+# "hasPrecondition*" ->  Event
+Event  -> "hasTimeInterval*"
+ "hasTimeInterval*" ->  TimeInterval
+Situation  -> "includesTime*"
+ "includesTime*" ->  TimeInterval
+Entity  -> "isObservableAt*"
+ "isObservableAt*" ->  TimeInterval
+Entity  -> "hasPart*"  [dir="both"]
+ #"hasPart*" ->  Entity
+Entity  -> "hasProperPart*"  [dir="both"]
+ #"hasProperPart*" ->  Entity
+Entity  -> "hasComponent*"  [dir="both"]
+ #"hasComponent*" ->  Entity
+Entity  -> "hasConstituent*"  [dir="both"]
+ #"hasConstituent*" ->  Entity
+Collection  -> "hasMember*"  [dir="both"]
+ #"hasMember*" ->  Entity
+Entity  -> "hasQuality*"
+ "hasQuality*" ->  Quality
+Entity  -> "hasRegion*"
+ "hasRegion*" ->  Region
+Entity  -> "hasLocation*"  [dir="both"]
+ #"hasLocation*" ->  Entity
+Entity  -> "hasSetting*"
+ "hasSetting*" ->  Situation
+Concept  -> "isSuperordinatedTo*"  [dir="both"]
+ #"isSuperordinatedTo*" ->  Concept
+SocialObject  -> "specializes*"  [dir="both"]
+# "specializes*" ->  SocialObject
+Entity  -> "associatedWith#"  [dir="both"]
+# "associatedWith#" ->  Entity
+Object  -> "coparticipatesWith#"  [dir="both"]
+# "coparticipatesWith#" ->  Object
+Entity  -> "farFrom#"  [dir="both"]
+ #"farFrom#" ->  Entity
+Entity  -> "nearTo#"  [dir="both"]
+# "nearTo#" ->  Entity
+Entity  -> "hasCommonBoundary#"  [dir="both"]
+# "hasCommonBoundary#" ->  Entity
+Entity  -> "overlaps#"  [dir="both"]
+# "overlaps#" ->  Entity
+Entity  -> "sameSettingAs#"  [dir="both"]
+ #"sameSettingAs#" ->  Entity
+Concept  -> "isRelatedToConcept#" [dir="both"]
+# "isRelatedToConcept#" ->  Concept
+Description  -> "isRelatedToDescription#"  [dir="both"]
+# "isRelatedToDescription#" ->  Description
+Situation  -> "includesPart#"
+ "includesPart#" ->  Entity
+Situation  -> "includesWhole#"
+ "includesWhole#" ->  Entity
+InformationRealization  -> "realizesSelfInformation#"  [dir="both"]
+ #"realizesSelfInformation#" ->  InformationRealization
+
+Abstract -> Entity
+  "FormalEntity" -> Abstract
+  Set -> "FormalEntity"
+  "Region" -> Abstract
+  Amount -> "Region"
+  "PhysicalAttribute" -> "Region"
+  "SocialAttribute" -> "Region"
+  "SpaceRegion" -> "Region"
+  "SpatioTemporalRegion" -> "Region"
+  "TimeInterval" -> "Region"
+  Event -> Entity
+  Action -> Event
+  Process -> Event
+  InformationEntity -> Entity
+  "InformationOobject" -> InformationEntity
+  "InformationRealization" -> InformationEntity
+  Object -> Entity
+  Agent -> Object
+  Person -> Agent
+  "NaturalPerson" -> Person
+  "SocialPerson" -> Person
+  "PhysicalAgent" -> Agent
+  "NaturalPerson" -> "PhysicalAgent"
+  "Organism" -> "PhysicalAgent"
+  "SocialAgent" -> Agent
+  "CollectiveAgent" -> "SocialAgent"
+  Community -> "CollectiveAgent"
+  Group -> "SocialAgent"
+  Organization -> "SocialAgent"
+  Personification -> "SocialAgent"
+  "SocialPerson" -> "SocialAgent"
+  ObjectAggregate -> Object
+  "PhysicalObject" -> Object
+  "PhysicalAgent" -> "PhysicalObject"
+  "PhysicalArtifact" -> "PhysicalObject"
+  "DesignedArtifact" -> "PhysicalArtifact"
+  "DesignedSubstance" -> "DesignedArtifact"
+  "PhysicalBody" -> "PhysicalObject"
+  "BiologicalObject" -> "PhysicalBody"
+  "Organism" -> "BiologicalObject"
+  "ChemicalObject" -> "PhysicalBody"
+  "Substance" -> "PhysicalBody"
+  "FunctionalSubstance" -> "Substance"
+  "PhysicalPlace" -> "PhysicalObject"
+  "SocialObject" -> Object
+  "Collection" -> "SocialObject"
+  "Collective" -> "Collection"
+  "Configuration" -> "Collection"
+  "TypeCollection" -> "Collection"
+  "Concept" -> "SocialObject"
+  "EventType" -> "Concept"
+  "Task" -> "EventType"
+  "LocalConcept" -> "Concept"
+  "Parameter" -> "Concept"
+  "UnitOfMeasure" -> "Parameter"
+  "Role" -> "Concept"
+  "Description" -> "SocialObject"
+  "Contract" -> "Description"
+  "Design" -> "Description"
+  "Diagnosis" -> "Description"
+  "Goal" -> "Description"
+  "Method" -> "Description"
+  "Narrative" -> "Description"
+  "Norm" -> "Description"
+  "Plan" -> "Description"
+  "Project" -> "Plan"
+  "Wordflow" -> "Plan"
+  "Relation" -> "Description"
+  "Pattern" -> "Relation"
+  "SocialRelation" -> "Relation"
+  "Right" -> "Description"
+  "Theory" -> "Description"
+  "InformationObject" -> "SocialObject"
+  "Place" -> "SocialObject"
+  "Social agent" -> "SocialObject"
+  "Quality" -> Entity
+  "Situation" -> Entity
+  "PlanExecution" -> "Situation"
+  "TimeIndexedRelation" -> "Situation"
+  "Transition" -> "Situation"
+  "WorkflowExecution" -> "Situation"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

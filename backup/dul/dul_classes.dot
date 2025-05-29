@@ -1,0 +1,93 @@
+# http://www.graphviz.org/content/cluster
+
+digraph G {
+    rankdir=RL;
+  graph [fontname = "Handlee"];
+  node [fontname = "Handlee" shape="box" style="rounded"];
+  edge [fontname = "Handlee"];
+
+  bgcolor=transparent;
+
+  Entity
+  Abstract -> Entity
+  "Formal entity" -> Abstract
+  Set -> "Formal entity"
+  "Region" -> Abstract
+  Amount -> "Region"
+  "Physical attribute" -> "Region"
+  "Social attribute" -> "Region"
+  "Space region" -> "Region"
+  "SpatioTemporalRegion" -> "Region"
+  "Time interval" -> "Region"
+  Event -> Entity
+  Action -> Event
+  Process -> Event
+  InformationEntity -> Entity
+  "Information object" -> InformationEntity
+  "Information realization" -> InformationEntity
+  Object -> Entity
+  Agent -> Object
+  Person -> Agent
+  "Natural person" -> Person
+  "Social person" -> Person
+  "Physical agent" -> Agent
+  "Natural person" -> "Physical agent"
+  "Organism" -> "Physical agent"
+  "Social agent" -> Agent
+  "Collective agent" -> "Social agent"
+  Community -> "Collective agent"
+  Group -> "Social agent"
+  Organization -> "Social agent"
+  Personification -> "Social agent"
+  "Social person" -> "Social agent"
+  ObjectAggregate -> Object
+  "Physical object" -> Object
+  "Physical agent" -> "Physical object"
+  "Physical artifact" -> "Physical object"
+  "Designed artifact" -> "Physical artifact"
+  "DesignedSubstance" -> "Designed artifact"
+  "Physical body" -> "Physical object"
+  "Biological object" -> "Physical body"
+  "Organism" -> "Biological object"
+  "Chemical object" -> "Physical body"
+  "Substance" -> "Physical body"
+  "Functional substance" -> "Substance"
+  "Physical place" -> "Physical object"
+  "Social object" -> Object
+  "Collection" -> "Social object"
+  "Collective" -> "Collection"
+  "Configuration" -> "Collection"
+  "Type collection" -> "Collection"
+  "Concept" -> "Social object"
+  "Event type" -> "Concept"
+  "Task" -> "Event type"
+  "Local concept" -> "Concept"
+  "Parameter" -> "Concept"
+  "Unit of measure" -> "Parameter"
+  "Role" -> "Concept"
+  "Description" -> "Social object"
+  "Contract" -> "Description"
+  "Design" -> "Description"
+  "Diagnosis" -> "Description"
+  "Goal" -> "Description"
+  "Method" -> "Description"
+  "Narrative" -> "Description"
+  "Norm" -> "Description"
+  "Plan" -> "Description"
+  "Project" -> "Plan"
+  "Wordflow" -> "Plan"
+  "Relation" -> "Description"
+  "Pattern" -> "Relation"
+  "Social relation" -> "Relation"
+  "Right" -> "Description"
+  "Theory" -> "Description"
+  "Information object" -> "Social object"
+  "Place" -> "Social object"
+  "Social agent" -> "Social object"
+  "Quality" -> Entity
+  "Situation" -> Entity
+  "Plan execution" -> "Situation"
+  "TimeIndexedRelation" -> "Situation"
+  "Transition" -> "Situation"
+  "Workflow execution" -> "Situation"
+}
