@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUL Relations Graph Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <style>
+        body {
+            font-family: 'Handlee', cursive;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
+        .controls {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .control-group {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            margin: 0 4px;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        button:hover {
+            background: #0056b3;
+        }
+        
+        #graph-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .node {
+            cursor: grab;
+            stroke-width: 2;
+        }
+        
+        .node:active {
+            cursor: grabbing;
+        }
+        
+        .node.box {
+            fill: #4a90e2;
+            stroke: #2c5aa0;
+        }
+        
+        .node.hexagon {
+            fill: #e74c3c;
+            stroke: #c0392b;
+        }
+        
+        .node:hover {
+            stroke-width: 3;
+            filter: brightness(1.2);
+        }
+        
+        .link {
+            stroke: #666;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+        
+        .node-label {
+            font-size: 12px;
+            text-anchor: middle;
+            pointer-events: none;
+            fill: white;
+            font-weight: bold;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DUL (DOLCE+DnS Ultralite) Relations Graph</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>Zoom:</label>
+                <button onclick="zoomIn()">Zoom In</button>
+                <button onclick="zoomOut()">Zoom Out</button>
+                <button onclick="resetZoom()">Reset</button>
+            </div>
+            <div class="control-group">
+                <label>Layout:</label>
+                <button onclick="restartSimulation()">Restart Layout</button>
+                <button onclick="togglePhysics()">Toggle Physics</button>
+            </div>
+            <div class="control-group">
+                <label>Filter:</label>
+                <button onclick="showAll()">Show All</button>
+                <button onclick="showOnlyRelations()">Relations Only</button>
+                <button onclick="showOnlyEntities()">Entities Only</button>
+            </div>
+        </div>
+        
+        <div id="graph-container">
+            <svg id="graph"></svg>
+        </div>
+        
+
+    </div>
+
+    <script>
+        // Graph data from parsed DOT file
+        const graphData = {
+            "directed": true,
+            "graph": {
+                "rankdir": "TB",
+                "bgcolor": "transparent"
+            },
+            "nodes": [
+                {"id": "actsFor*", "shape": "hexagon", "color": "red"},
+                {"id": "conceptualizes*", "shape": "hexagon", "color": "red"},
+                {"id": "involvesAgent*", "shape": "hexagon", "color": "red"},
+                {"id": "includesAgent*", "shape": "hexagon", "color": "red"},
+                {"id": "introduces*", "shape": "hexagon", "color": "red"},
+                {"id": "classifies*", "shape": "hexagon", "color": "red"},
+                {"id": "characterizes*", "shape": "hexagon", "color": "red"},
+                {"id": "covers*", "shape": "hexagon", "color": "red"},
+                {"id": "defines*", "shape": "hexagon", "color": "red"},
+                {"id": "definesRole*", "shape": "hexagon", "color": "red"},
+                {"id": "definesTask*", "shape": "hexagon", "color": "red"},
+                {"id": "usesConcept*", "shape": "hexagon", "color": "red"},
+                {"id": "parametrizes*", "shape": "hexagon", "color": "red"},
+                {"id": "hasConstraint*", "shape": "hexagon", "color": "red"},
+                {"id": "hasRole*", "shape": "hexagon", "color": "red"},
+                {"id": "hasTask*", "shape": "hexagon", "color": "red"},
+                {"id": "executesTask*", "shape": "hexagon", "color": "red"},
+                {"id": "describes*", "shape": "hexagon", "color": "red"},
+                {"id": "expands*", "shape": "hexagon", "color": "red"},
+                {"id": "satisfies*", "shape": "hexagon", "color": "red"},
+                {"id": "unifies*", "shape": "hexagon", "color": "red"},
+                {"id": "expresses*", "shape": "hexagon", "color": "red"},
+                {"id": "expressesConcept*", "shape": "hexagon", "color": "red"},
+                {"id": "concretelyExpresses*", "shape": "hexagon", "color": "red"},
+                {"id": "realizes*", "shape": "hexagon", "color": "red"},
+                {"id": "realizesInformationAbout*", "shape": "hexagon", "color": "red"},
+                {"id": "isAbout*", "shape": "hexagon", "color": "red"},
+                {"id": "hasParticipant*", "shape": "hexagon", "color": "red"},
+                {"id": "includesEvent*", "shape": "hexagon", "color": "red"},
+                {"id": "includesAction*", "shape": "hexagon", "color": "red"},
+                {"id": "includesObject*", "shape": "hexagon", "color": "red"},
+                {"id": "directlyPrecedes*", "shape": "hexagon", "color": "red"},
+                {"id": "precedes*", "shape": "hexagon", "color": "red"},
+                {"id": "hasPrecondition*", "shape": "hexagon", "color": "red"},
+                {"id": "hasPostcondition*", "shape": "hexagon", "color": "red"},
+                {"id": "hasTimeInterval*", "shape": "hexagon", "color": "red"},
+                {"id": "includesTime*", "shape": "hexagon", "color": "red"},
+                {"id": "isObservableAt*", "shape": "hexagon", "color": "red"},
+                {"id": "hasPart*", "shape": "hexagon", "color": "red"},
+                {"id": "hasProperPart*", "shape": "hexagon", "color": "red"},
+                {"id": "hasComponent*", "shape": "hexagon", "color": "red"},
+                {"id": "hasConstituent*", "shape": "hexagon", "color": "red"},
+                {"id": "hasMember*", "shape": "hexagon", "color": "red"},
+                {"id": "hasQuality*", "shape": "hexagon", "color": "red"},
+                {"id": "hasRegion*", "shape": "hexagon", "color": "red"},
+                {"id": "hasLocation*", "shape": "hexagon", "color": "red"},
+                {"id": "hasSetting*", "shape": "hexagon", "color": "red"},
+                {"id": "isSuperordinatedTo*", "shape": "hexagon", "color": "red"},
+                {"id": "specializes*", "shape": "hexagon", "color": "red"},
+                {"id": "associatedWith#", "shape": "hexagon", "color": "red"},
+                {"id": "coparticipatesWith#", "shape": "hexagon", "color": "red"},
+                {"id": "farFrom#", "shape": "hexagon", "color": "red"},
+                {"id": "nearTo#", "shape": "hexagon", "color": "red"},
+                {"id": "hasCommonBoundary#", "shape": "hexagon", "color": "red"},
+                {"id": "overlaps#", "shape": "hexagon", "color": "red"},
+                {"id": "sameSettingAs#", "shape": "hexagon", "color": "red"},
+                {"id": "isRelatedToConcept#", "shape": "hexagon", "color": "red"},
+                {"id": "isRelatedToDescription#", "shape": "hexagon", "color": "red"},
+                {"id": "includesPart#", "shape": "hexagon", "color": "red"},
+                {"id": "includesWhole#", "shape": "hexagon", "color": "red"},
+                {"id": "realizesSelfInformation#", "shape": "hexagon", "color": "red"},
+                {"id": "Agent", "shape": "box", "color": "blue"},
+                {"id": "SocialAgent", "shape": "box", "color": "blue"},
+                {"id": "SocialObjectAttribute", "shape": "box", "color": "blue"},
+                {"id": "Event", "shape": "box", "color": "blue"},
+                {"id": "Situation", "shape": "box", "color": "blue"},
+                {"id": "Description", "shape": "box", "color": "blue"},
+                {"id": "Concept", "shape": "box", "color": "blue"},
+                {"id": "Entity", "shape": "box", "color": "blue"},
+                {"id": "Collection", "shape": "box", "color": "blue"},
+                {"id": "Role", "shape": "box", "color": "blue"},
+                {"id": "Task", "shape": "box", "color": "blue"},
+                {"id": "Parameter", "shape": "box", "color": "blue"},
+                {"id": "Region", "shape": "box", "color": "blue"},
+                {"id": "Object", "shape": "box", "color": "blue"},
+                {"id": "Action", "shape": "box", "color": "blue"},
+                {"id": "InformationObject", "shape": "box", "color": "blue"},
+                {"id": "InformationRealization", "shape": "box", "color": "blue"},
+                {"id": "TimeInterval", "shape": "box", "color": "blue"},
+                {"id": "Quality", "shape": "box", "color": "blue"},
+                {"id": "Abstract", "shape": "box", "color": "blue"},
+                {"id": "FormalEntity", "shape": "box", "color": "blue"},
+                {"id": "Set", "shape": "box", "color": "blue"},
+                {"id": "Amount", "shape": "box", "color": "blue"},
+                {"id": "PhysicalAttribute", "shape": "box", "color": "blue"},
+                {"id": "SocialObjectAttribute", "shape": "box", "color": "blue"},
+                {"id": "SpaceRegion", "shape": "box", "color": "blue"},
+                {"id": "SpatioTemporalRegion", "shape": "box", "color": "blue"},
+                {"id": "Process", "shape": "box", "color": "blue"},
+                {"id": "InformationEntity", "shape": "box", "color": "blue"},
+                {"id": "Person", "shape": "box", "color": "blue"},
+                {"id": "NaturalPerson", "shape": "box", "color": "blue"},
+                {"id": "SocialPerson", "shape": "box", "color": "blue"},
+                {"id": "PhysicalAgent", "shape": "box", "color": "blue"},
+                {"id": "Organism", "shape": "box", "color": "blue"},
+                {"id": "CollectiveAgent", "shape": "box", "color": "blue"},
+                {"id": "Community", "shape": "box", "color": "blue"},
+                {"id": "Group", "shape": "box", "color": "blue"},
+                {"id": "Organization", "shape": "box", "color": "blue"},
+                {"id": "Personification", "shape": "box", "color": "blue"},
+                {"id": "ObjectAggregate", "shape": "box", "color": "blue"},
+                {"id": "PhysicalObject", "shape": "box", "color": "blue"},
+                {"id": "PhysicalArtifact", "shape": "box", "color": "blue"},
+                {"id": "DesignedArtifact", "shape": "box", "color": "blue"},
+                {"id": "DesignedSubstance", "shape": "box", "color": "blue"},
+                {"id": "PhysicalBody", "shape": "box", "color": "blue"},
+                {"id": "BiologicalObject", "shape": "box", "color": "blue"},
+                {"id": "ChemicalObject", "shape": "box", "color": "blue"},
+                {"id": "Substance", "shape": "box", "color": "blue"},
+                {"id": "FunctionalSubstance", "shape": "box", "color": "blue"},
+                {"id": "PhysicalPlace", "shape": "box", "color": "blue"},
+                {"id": "Collective", "shape": "box", "color": "blue"},
+                {"id": "Configuration", "shape": "box", "color": "blue"},
+                {"id": "TypeCollection", "shape": "box", "color": "blue"},
+                {"id": "EventType", "shape": "box", "color": "blue"},
+                {"id": "LocalConcept", "shape": "box", "color": "blue"},
+                {"id": "UnitOfMeasure", "shape": "box", "color": "blue"},
+                {"id": "Contract", "shape": "box", "color": "blue"},
+                {"id": "Design", "shape": "box", "color": "blue"},
+                {"id": "Diagnosis", "shape": "box", "color": "blue"},
+                {"id": "Goal", "shape": "box", "color": "blue"},
+                {"id": "Method", "shape": "box", "color": "blue"},
+                {"id": "Narrative", "shape": "box", "color": "blue"},
+                {"id": "Norm", "shape": "box", "color": "blue"},
+                {"id": "Plan", "shape": "box", "color": "blue"},
+                {"id": "Project", "shape": "box", "color": "blue"},
+                {"id": "Workflow", "shape": "box", "color": "blue"},
+                {"id": "Relation", "shape": "box", "color": "blue"},
+                {"id": "Pattern", "shape": "box", "color": "blue"},
+                {"id": "SocialRelation", "shape": "box", "color": "blue"},
+                {"id": "Right", "shape": "box", "color": "blue"},
+                {"id": "Theory", "shape": "box", "color": "blue"},
+                {"id": "Place", "shape": "box", "color": "blue"},
+                {"id": "PlanExecution", "shape": "box", "color": "blue"},
+                {"id": "TimeIndexedRelation", "shape": "box", "color": "blue"},
+                {"id": "Transition", "shape": "box", "color": "blue"},
+                {"id": "WorkflowExecution", "shape": "box", "color": "blue"},
+                {"id": "Classification", "shape": "box", "color": "blue"},
+                {"id": "Parthood", "shape": "box", "color": "blue"}
+            ],
+            "links": [
+                {"source": "Agent", "target": "actsFor*"},
+                {"source": "actsFor*", "target": "SocialAgent"},
+                {"source": "Agent", "target": "conceptualizes*"},
+                {"source": "conceptualizes*", "target": "SocialObjectAttribute"},
+                {"source": "Event", "target": "involvesAgent*"},
+                {"source": "involvesAgent*", "target": "Agent"},
+                {"source": "Situation", "target": "includesAgent*"},
+                {"source": "includesAgent*", "target": "Agent"},
+                {"source": "Description", "target": "introduces*"},
+                {"source": "introduces*", "target": "SocialAgent"},
+                {"source": "Concept", "target": "classifies*"},
+                {"source": "classifies*", "target": "Entity"},
+                {"source": "Concept", "target": "characterizes*"},
+                {"source": "characterizes*", "target": "Collection"},
+                {"source": "Concept", "target": "covers*"},
+                {"source": "covers*", "target": "Collection"},
+                {"source": "Description", "target": "defines*"},
+                {"source": "defines*", "target": "Concept"},
+                {"source": "Description", "target": "definesRole*"},
+                {"source": "definesRole*", "target": "Role"},
+                {"source": "Description", "target": "definesTask*"},
+                {"source": "definesTask*", "target": "Task"},
+                {"source": "Description", "target": "usesConcept*"},
+                {"source": "usesConcept*", "target": "Concept"},
+                {"source": "Parameter", "target": "parametrizes*"},
+                {"source": "parametrizes*", "target": "Region"},
+                {"source": "Entity", "target": "hasConstraint*"},
+                {"source": "hasConstraint*", "target": "Parameter"},
+                {"source": "Object", "target": "hasRole*"},
+                {"source": "hasRole*", "target": "Role"},
+                {"source": "Role", "target": "hasTask*"},
+                {"source": "hasTask*", "target": "Task"},
+                {"source": "Action", "target": "executesTask*"},
+                {"source": "executesTask*", "target": "Task"},
+                {"source": "Description", "target": "describes*"},
+                {"source": "describes*", "target": "Entity"},
+                {"source": "Description", "target": "expands*"},
+                {"source": "Situation", "target": "satisfies*"},
+                {"source": "satisfies*", "target": "Description"},
+                {"source": "Description", "target": "unifies*"},
+                {"source": "unifies*", "target": "Collection"},
+                {"source": "InformationObject", "target": "expresses*"},
+                {"source": "expresses*", "target": "SocialObjectAttribute"},
+                {"source": "InformationObject", "target": "expressesConcept*"},
+                {"source": "expressesConcept*", "target": "Concept"},
+                {"source": "InformationObject", "target": "concretelyExpresses*"},
+                {"source": "concretelyExpresses*", "target": "SocialObjectAttribute"},
+                {"source": "InformationRealization", "target": "realizes*"},
+                {"source": "realizes*", "target": "InformationObject"},
+                {"source": "InformationRealization", "target": "realizesInformationAbout*"},
+                {"source": "realizesInformationAbout*", "target": "Entity"},
+                {"source": "InformationObject", "target": "isAbout*"},
+                {"source": "isAbout*", "target": "Entity"},
+                {"source": "Event", "target": "hasParticipant*"},
+                {"source": "hasParticipant*", "target": "Object"},
+                {"source": "Situation", "target": "includesEvent*"},
+                {"source": "includesEvent*", "target": "Event"},
+                {"source": "Situation", "target": "includesAction*"},
+                {"source": "includesAction*", "target": "Action"},
+                {"source": "Situation", "target": "includesObject*"},
+                {"source": "includesObject*", "target": "Object"},
+                {"source": "Entity", "target": "directlyPrecedes*"},
+                {"source": "Entity", "target": "precedes*"},
+                {"source": "Event", "target": "hasPrecondition*"},
+                {"source": "Situation", "target": "hasPrecondition*"},
+                {"source": "Event", "target": "hasPostcondition*"},
+                {"source": "Situation", "target": "hasPostcondition*"},
+                {"source": "Event", "target": "hasTimeInterval*"},
+                {"source": "hasTimeInterval*", "target": "TimeInterval"},
+                {"source": "Situation", "target": "includesTime*"},
+                {"source": "includesTime*", "target": "TimeInterval"},
+                {"source": "Entity", "target": "isObservableAt*"},
+                {"source": "isObservableAt*", "target": "TimeInterval"},
+                {"source": "Entity", "target": "hasPart*"},
+                {"source": "Entity", "target": "hasProperPart*"},
+                {"source": "Entity", "target": "hasComponent*"},
+                {"source": "Entity", "target": "hasConstituent*"},
+                {"source": "Collection", "target": "hasMember*"},
+                {"source": "Entity", "target": "hasQuality*"},
+                {"source": "hasQuality*", "target": "Quality"},
+                {"source": "Entity", "target": "hasRegion*"},
+                {"source": "hasRegion*", "target": "Region"},
+                {"source": "Entity", "target": "hasLocation*"},
+                {"source": "Entity", "target": "hasSetting*"},
+                {"source": "hasSetting*", "target": "Situation"},
+                {"source": "Concept", "target": "isSuperordinatedTo*"},
+                {"source": "InformationObject", "target": "SocialObjectAttribute"},
+                {"source": "Place", "target": "SocialObjectAttribute"},
+                {"source": "Entity", "target": "associatedWith#"},
+                {"source": "Object", "target": "coparticipatesWith#"},
+                {"source": "Entity", "target": "farFrom#"},
+                {"source": "Entity", "target": "nearTo#"},
+                {"source": "Entity", "target": "hasCommonBoundary#"},
+                {"source": "Entity", "target": "overlaps#"},
+                {"source": "Entity", "target": "sameSettingAs#"},
+                {"source": "Concept", "target": "isRelatedToConcept#"},
+                {"source": "Description", "target": "isRelatedToDescription#"},
+                {"source": "Situation", "target": "includesPart#"},
+                {"source": "includesPart#", "target": "Entity"},
+                {"source": "Situation", "target": "includesWhole#"},
+                {"source": "includesWhole#", "target": "Entity"},
+                {"source": "InformationRealization", "target": "realizesSelfInformation#"},
+                {"source": "Abstract", "target": "Entity"},
+                {"source": "FormalEntity", "target": "Abstract"},
+                {"source": "Set", "target": "FormalEntity"},
+                {"source": "Region", "target": "Abstract"},
+                {"source": "Amount", "target": "Region"},
+                {"source": "PhysicalAttribute", "target": "Region"},
+                {"source": "SocialObjectAttribute", "target": "Region"},
+                {"source": "SpaceRegion", "target": "Region"},
+                {"source": "SpatioTemporalRegion", "target": "Region"},
+                {"source": "TimeInterval", "target": "Region"},
+                {"source": "Event", "target": "Entity"},
+                {"source": "Action", "target": "Event"},
+                {"source": "Process", "target": "Event"},
+                {"source": "InformationEntity", "target": "Entity"},
+                {"source": "InformationRealization", "target": "InformationEntity"},
+                {"source": "Object", "target": "Entity"},
+                {"source": "Agent", "target": "Object"},
+                {"source": "Person", "target": "Agent"},
+                {"source": "NaturalPerson", "target": "Person"},
+                {"source": "SocialPerson", "target": "Person"},
+                {"source": "PhysicalAgent", "target": "Agent"},
+                {"source": "NaturalPerson", "target": "PhysicalAgent"},
+                {"source": "Organism", "target": "PhysicalAgent"},
+                {"source": "SocialAgent", "target": "Agent"},
+                {"source": "CollectiveAgent", "target": "SocialAgent"},
+                {"source": "Community", "target": "CollectiveAgent"},
+                {"source": "Group", "target": "SocialAgent"},
+                {"source": "Organization", "target": "SocialAgent"},
+                {"source": "Personification", "target": "SocialAgent"},
+                {"source": "SocialPerson", "target": "SocialAgent"},
+                {"source": "ObjectAggregate", "target": "Object"},
+                {"source": "PhysicalObject", "target": "Object"},
+                {"source": "PhysicalAgent", "target": "PhysicalObject"},
+                {"source": "PhysicalArtifact", "target": "PhysicalObject"},
+                {"source": "DesignedArtifact", "target": "PhysicalArtifact"},
+                {"source": "DesignedSubstance", "target": "DesignedArtifact"},
+                {"source": "PhysicalBody", "target": "PhysicalObject"},
+                {"source": "BiologicalObject", "target": "PhysicalBody"},
+                {"source": "Organism", "target": "BiologicalObject"},
+                {"source": "ChemicalObject", "target": "PhysicalBody"},
+                {"source": "Substance", "target": "PhysicalBody"},
+                {"source": "FunctionalSubstance", "target": "Substance"},
+                {"source": "PhysicalPlace", "target": "PhysicalObject"},
+                {"source": "SocialObjectAttribute", "target": "Object"},
+                {"source": "Collective", "target": "Collection"},
+                {"source": "Configuration", "target": "Collection"},
+                {"source": "TypeCollection", "target": "Collection"},
+                {"source": "Collection", "target": "SocialObjectAttribute"},
+                {"source": "EventType", "target": "Concept"},
+                {"source": "Task", "target": "EventType"},
+                {"source": "LocalConcept", "target": "Concept"},
+                {"source": "Parameter", "target": "Concept"},
+                {"source": "UnitOfMeasure", "target": "Parameter"},
+                {"source": "Role", "target": "Concept"},
+                {"source": "Concept", "target": "SocialObjectAttribute"},
+                {"source": "Contract", "target": "Description"},
+                {"source": "Design", "target": "Description"},
+                {"source": "Diagnosis", "target": "Description"},
+                {"source": "Goal", "target": "Description"},
+                {"source": "Method", "target": "Description"},
+                {"source": "Narrative", "target": "Description"},
+                {"source": "Norm", "target": "Description"},
+                {"source": "Plan", "target": "Description"},
+                {"source": "Project", "target": "Plan"},
+                {"source": "Workflow", "target": "Plan"},
+                {"source": "Relation", "target": "Description"},
+                {"source": "Pattern", "target": "Relation"},
+                {"source": "SocialRelation", "target": "Relation"},
+                {"source": "Right", "target": "Description"},
+                {"source": "Theory", "target": "Description"},
+                {"source": "Description", "target": "SocialObjectAttribute"},
+                {"source": "SocialObjectAttribute", "target": "specializes*"},
+                {"source": "Quality", "target": "Entity"},
+                {"source": "Situation", "target": "Entity"},
+                {"source": "TimeIndexedRelation", "target": "Situation"},
+                {"source": "Transition", "target": "Situation"},
+                {"source": "WorkflowExecution", "target": "Situation"},
+                {"source": "TimeIndexedRelation", "target": "Classification"},
+                {"source": "TimeIndexedRelation", "target": "Parthood"}
+            ]
+        };
+
+        // Set up dimensions and margins
+        const width = 1400;
+        const height = 900;
+        
+        // Create SVG
+        const svg = d3.select("#graph")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", [0, 0, width, height]);
+        
+        // Add zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.1, 4])
+            .on("zoom", handleZoom);
+        
+        svg.call(zoom);
+        
+        // Create container for all graph elements
+        const container = svg.append("g");
+        
+        // Define arrow marker for directed edges
+        container.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 15)
+            .attr("refY", 0)
+            .attr("orient", "auto")
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("xoverflow", "visible")
+            .append("path")
+            .attr("d", "M 0,-5 L 10,0 L 0,5")
+            .attr("fill", "#666")
+            .style("stroke", "none");
+        
+        // Force simulation
+        let simulation = d3.forceSimulation(graphData.nodes)
+            .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(30));
+        
+        // Create links
+        const link = container.append("g")
+            .attr("class", "links")
+            .selectAll("line")
+            .data(graphData.links)
+            .join("line")
+            .attr("class", "link");
+        
+        // Create nodes
+        const node = container.append("g")
+            .attr("class", "nodes")
+            .selectAll("g")
+            .data(graphData.nodes)
+            .join("g")
+            .attr("class", "node")
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+        
+        // Add shapes to nodes
+        node.each(function(d) {
+            const nodeGroup = d3.select(this);
+            
+            // Calculate dynamic width based on text length
+            const textWidth = d.id.length * 7; // Approximate width calculation
+            const rectWidth = Math.max(textWidth + 10, 60); // Minimum width of 60px
+            
+            // Create rectangle for all nodes (both entities and relations)
+            nodeGroup.append("rect")
+                .attr("width", rectWidth)
+                .attr("height", 25)
+                .attr("x", -rectWidth/2)
+                .attr("y", -12.5)
+                .attr("rx", 5)
+                .attr("class", d.shape)
+                .attr("fill", d.shape === "hexagon" ? "#e74c3c" : "#4a90e2") // Red for relations, blue for entities
+                .attr("stroke", d.shape === "hexagon" ? "#c0392b" : "#2c5aa0");
+        });
+        
+        // Add labels to nodes
+        node.append("text")
+            .attr("class", "node-label")
+            .attr("dy", "0.35em")
+            .text(d => {
+                // Show full labels now that all boxes are dynamically sized
+                return d.id.replace(/[*#]/g, '');
+            })
+            .style("font-size", "11px");
+        
+        // Add tooltips
+        node.append("title")
+            .text(d => `${d.id}\nType: ${d.shape === "hexagon" ? "Relation" : "Entity"}`);
+        
+        // Update positions on each tick
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => {
+                    // Calculate the edge of the target node to position arrow correctly
+                    const targetNode = d.target;
+                    const dx = targetNode.x - d.source.x;
+                    const dy = targetNode.y - d.source.y;
+                    const length = Math.sqrt(dx * dx + dy * dy);
+                    const targetRadius = Math.max(targetNode.id.length * 3.5, 30); // Approximate node radius
+                    return targetNode.x - (dx / length) * targetRadius;
+                })
+                .attr("y2", d => {
+                    // Calculate the edge of the target node to position arrow correctly
+                    const targetNode = d.target;
+                    const dx = targetNode.x - d.source.x;
+                    const dy = targetNode.y - d.source.y;
+                    const length = Math.sqrt(dx * dx + dy * dy);
+                    const targetRadius = 15; // Approximate node radius
+                    return targetNode.y - (dy / length) * targetRadius;
+                });
+            
+            node
+                .attr("transform", d => `translate(${d.x},${d.y})`);
+        });
+        
+        // Update info panel
+        updateInfoPanel();
+        
+        // Zoom functions
+        function handleZoom(event) {
+            container.attr("transform", event.transform);
+        }
+        
+        function zoomIn() {
+            svg.transition().call(zoom.scaleBy, 1.5);
+        }
+        
+        function zoomOut() {
+            svg.transition().call(zoom.scaleBy, 1 / 1.5);
+        }
+        
+        function resetZoom() {
+            svg.transition().call(zoom.transform, d3.zoomIdentity);
+        }
+        
+        // Layout functions
+        function restartSimulation() {
+            simulation.alpha(1).restart();
+        }
+        
+        let physicsEnabled = true;
+        function togglePhysics() {
+            if (physicsEnabled) {
+                simulation.stop();
+                physicsEnabled = false;
+            } else {
+                simulation.alpha(1).restart();
+                physicsEnabled = true;
+            }
+        }
+        
+        // Filter functions
+        function showAll() {
+            node.style("display", "block");
+            link.style("display", "block");
+            updateInfoPanel();
+        }
+        
+        function showOnlyRelations() {
+            node.style("display", d => d.shape === "hexagon" ? "block" : "none");
+            link.style("display", d => {
+                const sourceNode = graphData.nodes.find(n => n.id === d.source.id || n.id === d.source);
+                const targetNode = graphData.nodes.find(n => n.id === d.target.id || n.id === d.target);
+                return (sourceNode && sourceNode.shape === "hexagon") || 
+                       (targetNode && targetNode.shape === "hexagon") ? "block" : "none";
+            });
+            updateInfoPanel("relations");
+        }
+        
+        function showOnlyEntities() {
+            node.style("display", d => d.shape === "box" ? "block" : "none");
+            link.style("display", d => {
+                const sourceNode = graphData.nodes.find(n => n.id === d.source.id || n.id === d.source);
+                const targetNode = graphData.nodes.find(n => n.id === d.target.id || n.id === d.target);
+                return (sourceNode && sourceNode.shape === "box") && 
+                       (targetNode && targetNode.shape === "box") ? "block" : "none";
+            });
+            updateInfoPanel("entities");
+        }
+        
+        function updateInfoPanel(filter = "all") {
+            // Info panel removed - function kept for compatibility
+        }
+        
+        // Drag functions
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+        
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+        
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+        
+        // Highlight connected nodes on hover
+        node.on("mouseenter", function(event, d) {
+            d3.select(this).select("rect")
+                .transition()
+                .duration(200)
+                .attr("stroke-width", 3)
+                .style("filter", "brightness(1.2)");
+                
+            // Highlight connected links
+            link.style("opacity", l => 
+                (l.source.id === d.id || l.target.id === d.id) ? 1 : 0.2
+            );
+            
+            // Highlight connected nodes
+            const connectedNodes = new Set();
+            graphData.links.forEach(l => {
+                if (l.source.id === d.id || l.source === d.id) {
+                    connectedNodes.add(l.target.id || l.target);
+                }
+                if (l.target.id === d.id || l.target === d.id) {
+                    connectedNodes.add(l.source.id || l.source);
+                }
+            });
+            
+            node.style("opacity", n => 
+                n.id === d.id || connectedNodes.has(n.id) ? 1 : 0.3
+            );
+        })
+        .on("mouseleave", function(event, d) {
+            d3.select(this).select("rect")
+                .transition()
+                .duration(200)
+                .attr("stroke-width", 2)
+                .style("filter", "brightness(1)");
+                
+            link.style("opacity", 1);
+            node.style("opacity", 1);
+        });
+    </script>
+</body>
+</html>
