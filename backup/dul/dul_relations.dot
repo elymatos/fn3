@@ -71,7 +71,6 @@ Role
 Set
 Situation
 SocialAgent
-SocialObject
 SocialObjectAttribute
 SocialPerson
 SocialRelation
@@ -121,16 +120,7 @@ WorkflowExecution
 "directlyPrecedes*" [shape="hexagon" color="red"]
 "precedes*" [shape="hexagon" color="red"]
 "hasPrecondition*" [shape="hexagon" color="red"]
-"hasPrecondition*" [shape="hexagon" color="red"]
-"hasPrecondition*" [shape="hexagon" color="red"]
-"hasPrecondition*" [shape="hexagon" color="red"]
 "hasPostcondition*" [shape="hexagon" color="red"]
-"hasPostrecondition*" [shape="hexagon" color="red"]
-"hasPostcondition*" [shape="hexagon" color="red"]
-"hasPostcondition*" [shape="hexagon" color="red"]
-"hasPrecondition*" [shape="hexagon" color="red"]
-"hasPrecondition*" [shape="hexagon" color="red"]
-"hasPrecondition*" [shape="hexagon" color="red"]
 "hasTimeInterval*" [shape="hexagon" color="red"]
 "includesTime*" [shape="hexagon" color="red"]
 "isObservableAt*" [shape="hexagon" color="red"]
@@ -196,7 +186,6 @@ Action  -> "executesTask*"
 Description  -> "describes*"
  "describes*" ->  Entity
 Description  -> "expands*" [dir="both"]
-# "expands*" ->  Description
 Situation  -> "satisfies*"
  "satisfies*" ->  Description
 Description  -> "unifies*"
@@ -222,32 +211,11 @@ Situation  -> "includesAction*"
 Situation  -> "includesObject*"
  "includesObject*" ->  Object
 Entity  -> "directlyPrecedes*"  [dir="both"]
- #"directlyPrecedes*" ->  Entity
 Entity  -> "precedes*"   [dir="both"]
- #"precedes*" ->  Entity
 Event  -> "hasPrecondition*"  [dir="both"]
 Situation  -> "hasPrecondition*"  [dir="both"]
- #"hasPrecondition*" ->  Event
-#Event  -> "hasPrecondition*"
-# "hasPrecondition*" ->  Situation
-#Situation  -> "hasPrecondition*"
-# "hasPrecondition*" ->  Event
-#Situation  -> "hasPrecondition*"  [dir="both"]
- #"hasPrecondition*" ->  Situation
 Event  -> "hasPostcondition*"   [dir="both"]
-# "hasPostcondition*" ->  Event
-#Event  -> "hasPostrecondition*"
-# "hasPostrecondition*" ->  Situation
 Situation  -> "hasPostcondition*"  [dir="both"]
-# "hasPostcondition*" ->  Event
-#Situation  -> "hasPostcondition*"  [dir="both"]
-# "hasPostcondition*" ->  Situation
-Event  -> "hasPrecondition*"  [dir="both"]
-# "hasPrecondition*" ->  Event
-#Event  -> "hasPrecondition*"
-# "hasPrecondition*" ->  Situation
-#Situation  -> "hasPrecondition*"
-# "hasPrecondition*" ->  Event
 Event  -> "hasTimeInterval*"
  "hasTimeInterval*" ->  TimeInterval
 Situation  -> "includesTime*"
@@ -255,51 +223,33 @@ Situation  -> "includesTime*"
 Entity  -> "isObservableAt*"
  "isObservableAt*" ->  TimeInterval
 Entity  -> "hasPart*"  [dir="both"]
- #"hasPart*" ->  Entity
 Entity  -> "hasProperPart*"  [dir="both"]
- #"hasProperPart*" ->  Entity
 Entity  -> "hasComponent*"  [dir="both"]
- #"hasComponent*" ->  Entity
 Entity  -> "hasConstituent*"  [dir="both"]
- #"hasConstituent*" ->  Entity
 Collection  -> "hasMember*"  [dir="both"]
- #"hasMember*" ->  Entity
 Entity  -> "hasQuality*"
  "hasQuality*" ->  Quality
 Entity  -> "hasRegion*"
  "hasRegion*" ->  Region
 Entity  -> "hasLocation*"  [dir="both"]
- #"hasLocation*" ->  Entity
 Entity  -> "hasSetting*"
  "hasSetting*" ->  Situation
 Concept  -> "isSuperordinatedTo*"  [dir="both"]
- #"isSuperordinatedTo*" ->  Concept
 SocialObject  -> "specializes*"  [dir="both"]
-# "specializes*" ->  SocialObject
 Entity  -> "associatedWith#"  [dir="both"]
-# "associatedWith#" ->  Entity
 Object  -> "coparticipatesWith#"  [dir="both"]
-# "coparticipatesWith#" ->  Object
 Entity  -> "farFrom#"  [dir="both"]
- #"farFrom#" ->  Entity
 Entity  -> "nearTo#"  [dir="both"]
-# "nearTo#" ->  Entity
 Entity  -> "hasCommonBoundary#"  [dir="both"]
-# "hasCommonBoundary#" ->  Entity
 Entity  -> "overlaps#"  [dir="both"]
-# "overlaps#" ->  Entity
 Entity  -> "sameSettingAs#"  [dir="both"]
- #"sameSettingAs#" ->  Entity
 Concept  -> "isRelatedToConcept#" [dir="both"]
-# "isRelatedToConcept#" ->  Concept
 Description  -> "isRelatedToDescription#"  [dir="both"]
-# "isRelatedToDescription#" ->  Description
 Situation  -> "includesPart#"
  "includesPart#" ->  Entity
 Situation  -> "includesWhole#"
  "includesWhole#" ->  Entity
 InformationRealization  -> "realizesSelfInformation#"  [dir="both"]
- #"realizesSelfInformation#" ->  InformationRealization
 
 Abstract -> Entity
   "FormalEntity" -> Abstract
@@ -307,7 +257,7 @@ Abstract -> Entity
   "Region" -> Abstract
   Amount -> "Region"
   "PhysicalAttribute" -> "Region"
-  "SocialAttribute" -> "Region"
+  "SocialObjectAttribute" -> "Region"
   "SpaceRegion" -> "Region"
   "SpatioTemporalRegion" -> "Region"
   "TimeInterval" -> "Region"
@@ -367,7 +317,7 @@ Abstract -> Entity
   "Norm" -> "Description"
   "Plan" -> "Description"
   "Project" -> "Plan"
-  "Wordflow" -> "Plan"
+  "Workflow" -> "Plan"
   "Relation" -> "Description"
   "Pattern" -> "Relation"
   "SocialRelation" -> "Relation"
@@ -382,6 +332,8 @@ Abstract -> Entity
   "TimeIndexedRelation" -> "Situation"
   "Transition" -> "Situation"
   "WorkflowExecution" -> "Situation"
+  "TimeIndexedRelation" -> "Classification"
+  "TimeIndexedRelation" -> "Parthood"
 
 
 

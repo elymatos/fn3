@@ -1028,8 +1028,8 @@ If a reflexivity exists in general, it rather concerns its realisation, which is
         <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept"/>
         <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
         <rdfs:label xml:lang="en">is characterized by</rdfs:label>
-        <rdfs:label xml:lang="it">è caratterizzato da</rdfs:label>
         <rdfs:label>is characterized by {@en-us}</rdfs:label>
+        <rdfs:label xml:lang="it">è caratterizzato da</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -3170,8 +3170,8 @@ Since social objects are not formal entities, Relation includes here any &apos;r
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Set">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#FormalEntity"/>
         <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
-        <rdfs:label xml:lang="en">Set</rdfs:label>
         <rdfs:label>Insieme {it}</rdfs:label>
+        <rdfs:label xml:lang="en">Set</rdfs:label>
     </owl:Class>
     
 
@@ -3256,7 +3256,7 @@ Being dependent on communication, all social objects need to be expressed by som
         <rdfs:comment>Any Region in a dimensional space that is used to represent some characteristic of a SocialObject, e.g. judgment values, social scalars, statistical attributes over a collection of entities, etc.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
         <rdfs:label xml:lang="it">Caratteristica sociale</rdfs:label>
-        <rdfs:label xml:lang="en">SocialAttribute</rdfs:label>
+        <rdfs:label xml:lang="en">SocialObjectAttribute</rdfs:label>
     </owl:Class>
     
 
