@@ -180,7 +180,6 @@
                 {"source": "hasTask*", "target": "Task"},
                 {"source": "Action", "target": "executesTask*"},
                 {"source": "executesTask*", "target": "Task"},
-                {"source": "executesTask*", "target": "isClassifiedBy"},
                 {"source": "Description", "target": "describes*"},
                 {"source": "describes*", "target": "Entity"},
                 {"source": "Description", "target": "expands*"},
