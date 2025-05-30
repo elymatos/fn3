@@ -1,4 +1,4 @@
-# Physical Domain
+# Physical Domain - Subdomain Descriptions
 
 ## 1. Matter and Substances
 
@@ -159,7 +159,7 @@ Distinguished from "Physical Transformation" (which focuses on changes to materi
 
 The Physical domain establishes the foundational layer of human interaction with material reality. These five subdomains capture different aspects of physicality: the composition of things (Matter and Substances), their spatial dynamics (Motion and Location), their mutability (Physical Transformation), the larger natural forces at work (Natural Phenomena), and human agency in relation to physical objects (Manipulation and Interaction with Objects).
 
-# Biological Domain
+# Biological Domain - Subdomain Descriptions
 
 ## 1. Biological Entities and Life Processes
 
@@ -320,7 +320,7 @@ Distinguished from "Natural Phenomena" (which focuses on physical rather than bi
 
 The Biological domain captures human understanding of life in its various manifestations. These five subdomains progress from individual organisms and their processes (Biological Entities and Life Processes), through the experience of biological wellness and dysfunction (Health and Illness), to the structural (Body and Anatomy) and functional (Physiological Functions) aspects of living bodies, and finally to the larger ecological context in which life exists (Ecological Systems). Together, they represent the cognitive foundation for human interaction with the living world.
 
-# Social Domain
+# Social Domain - Subdomain Descriptions
 
 ## 1. Social Roles and Identities
 
@@ -543,7 +543,7 @@ Distinguished from "Social Interaction and Relationships" (which focuses on inte
 
 The Social domain captures the fundamental ways humans organize collective life. These seven subdomains progress from individual social positioning (Social Roles and Identities), through formal organizational structures (Institutions and Organizations), to specific domains of social activity (Economic and Commercial Practices, Governance and Law), and finally to the dynamic processes of social interaction (Social Interaction and Relationships, Conflict and Cooperation, Group Dynamics and Collective Behavior). Together, they represent the cognitive foundation for understanding human society and social behavior.
 
-# Cultural Domain
+# Cultural Domain - Subdomain Descriptions
 
 ## 1. Beliefs and Worldviews
 
@@ -704,7 +704,7 @@ Distinguished from "Social Roles and Identities" (which focuses on social positi
 
 The Cultural domain captures the symbolic, meaning-making dimensions of human social life. These five subdomains progress from fundamental interpretive frameworks (Beliefs and Worldviews), through embodied cultural practices (Rituals and Traditions), to creative expression (Arts and Creative Practices), collective storytelling (Cultural Narratives and Memory), and personal cultural connection (Heritage and Identity). Together, they represent how humans create, maintain, and transmit the symbolic systems that give meaning to social existence and provide frameworks for understanding reality beyond immediate experience.
 
-# Psychological Domain
+# Psychological Domain - Subdomain Descriptions
 
 ## 1. Perception and Sensation
 
@@ -834,7 +834,7 @@ Distinguished from "Perception and Sensation" (which focuses on information proc
 
 The Psychological domain captures the fundamental aspects of individual mental life and subjective experience. These four subdomains progress from the interface with external reality (Perception and Sensation), through the emotional coloring of experience (Emotions and Affective States), to the forces that drive behavior (Needs and Drives and Motivations), and finally to the qualitative, felt dimension of conscious experience (Subjective Experience of the Body and Environment). Together, they represent the core components of human psychological life as experienced from the first-person perspective.
 
-# Cognitive Domain
+# Cognitive Domain - Subdomain Descriptions
 
 ## 1. Attention and Awareness
 
@@ -1057,7 +1057,7 @@ Distinguished from "Reasoning and Problem-Solving" (which focuses on logical ana
 
 The Cognitive domain captures the fundamental mental processes and operations that constitute human thinking and rational cognition. These seven subdomains progress from the gatekeeping function of consciousness (Attention and Awareness), through information processing (Memory and Learning), systematic thinking (Reasoning and Problem-Solving), prospective cognition (Decision-Making and Planning), cognitive content (Beliefs and Knowledge and Assumptions), volitional control (Intention and Goal-Oriented Action), and evaluative thinking (Cognitive Judgments and Evaluations). Together, they represent the core operational components of human rational cognition and mental life.
 
-# Representational Domain
+# Representational Domain - Subdomain Descriptions
 
 ## 1. Signs and Communication and Language
 
@@ -1218,7 +1218,7 @@ Distinguished from "Beliefs and Knowledge and Assumptions" (which focuses on cog
 
 The Representational domain captures the various systems and processes through which humans create, manipulate, and transmit symbolic representations of reality and meaning. These five subdomains progress from basic communicative representation (Signs and Communication and Language), through information organization (Information Structures), technological mediation (Media and Digital Systems), systematic formal representation (Formal Systems and Abstract Representations), to meaning encoding and knowledge preservation (Knowledge Representation). Together, they represent the full spectrum of human representational capabilities that enable complex thinking, communication, and cultural transmission.
 
-# Space-Time Domain
+# Space-Time Domain - Subdomain Descriptions
 
 ## 1. Spatial Configuration
 
@@ -1348,7 +1348,7 @@ Distinguished from "Physical Transformation" in the Physical domain (which focus
 
 The Space-Time domain captures the fundamental dimensions within which all human experience and action occur. These four subdomains represent how humans understand and navigate the spatial and temporal frameworks of reality: static spatial relationships (Spatial Configuration), temporal organization and structure (Temporal Structure), dynamic movement through space-time (Motion and Trajectory), and transformation processes over time (Change over Time). Together, they provide the foundational frameworks that enable humans to orient themselves in reality, coordinate action, and understand the dynamic nature of existence within spatial and temporal dimensions.
 
-# Moral Domain
+# Moral Domain - Subdomain Descriptions
 
 ## 1. Conventions and Ethical Norms and Principles
 
