@@ -31,7 +31,7 @@ Each scenario serves as a **micro-ontology** that:
 #### 1. Dual-Level Analysis
 
 - **Cognitive Narrative Level**: Realistic short stories showing natural human cognition to illustrate the scenario
-- **Formal Ontological Level**: Generic definitions using five ontological types related to classes from DUL ontology:
+- **Formal Ontological Level**: Ontological Elements must be mapped to DUL ontology. Each element must be classified informally using five types, and this types maps to DUL ontology:
     - **@entity**: Objects (physical, social, mental), agents, artifacts, concepts. Mainly related to DUL Object and Abstract classes and subclasses.
     - **@event**: Dynamic situations involving change over time.Mainly related to DUL Event class and subclasses.
     - **@state**: Static conditions or properties without inherent change. Main related to DUL Event and Situation classes and subclasses.
