@@ -1,0 +1,455 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AuthorityRelationshipsToHierarchicalLevels a owl:ObjectProperty ;
+    rdfs:comment "link levels of" ;
+    rdfs:domain ex:AuthorityRelationships ;
+    rdfs:range ex:HierarchicalLevels ;
+    rdfs:subPropertyOf <dul:relates> .
+
+ex:ChangeAgentToOrganizationalReforms a owl:ObjectProperty ;
+    rdfs:comment "initiates" ;
+    rdfs:domain ex:ChangeAgent ;
+    rdfs:range ex:OrganizationalReforms ;
+    rdfs:subPropertyOf <dul:initiates> .
+
+ex:ChangeResistanceToOrganizationalReforms a owl:ObjectProperty ;
+    rdfs:comment "opposes" ;
+    rdfs:domain ex:ChangeResistance ;
+    rdfs:range ex:OrganizationalReforms ;
+    rdfs:subPropertyOf <dul:opposes> .
+
+ex:CollaborativeFrameworksToInterInstitutionalRelationships a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:CollaborativeFrameworks ;
+    rdfs:range ex:InterInstitutionalRelationships ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:CoordinationMechanismsToPartnerOrganizations a owl:ObjectProperty ;
+    rdfs:comment "align" ;
+    rdfs:domain ex:CoordinationMechanisms ;
+    rdfs:range ex:PartnerOrganizations ;
+    rdfs:subPropertyOf <dul:align> .
+
+ex:FormalStructuresToReportingStructures a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:FormalStructures ;
+    rdfs:range ex:ReportingStructures ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:InnovationCultureToContinuousImprovement a owl:ObjectProperty ;
+    rdfs:comment "promotes" ;
+    rdfs:domain ex:InnovationCulture ;
+    rdfs:range ex:ContinuousImprovement ;
+    rdfs:subPropertyOf <dul:promotes> .
+
+ex:InstitutionalAdaptationToEnvironmentalDemands a owl:ObjectProperty ;
+    rdfs:comment "responds to" ;
+    rdfs:domain ex:InstitutionalAdaptation ;
+    rdfs:range ex:EnvironmentalDemands ;
+    rdfs:subPropertyOf <dul:respondsTo> .
+
+ex:InstitutionalComplexityToNetworkDynamics a owl:ObjectProperty ;
+    rdfs:comment "arises from" ;
+    rdfs:domain ex:InstitutionalComplexity ;
+    rdfs:range ex:NetworkDynamics ;
+    rdfs:subPropertyOf <dul:arisesFrom> .
+
+ex:InstitutionalCoordinatorToInterInstitutionalRelationships a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:InstitutionalCoordinator ;
+    rdfs:range ex:InterInstitutionalRelationships ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:InstitutionalFrameworksToOrganizationalBehavior a owl:ObjectProperty ;
+    rdfs:comment "govern" ;
+    rdfs:domain ex:InstitutionalFrameworks ;
+    rdfs:range ex:OrganizationalBehavior ;
+    rdfs:subPropertyOf <dul:governs> .
+
+ex:InstitutionalInnovatorToOrganizationalInnovations a owl:ObjectProperty ;
+    rdfs:comment "introduces" ;
+    rdfs:domain ex:InstitutionalInnovator ;
+    rdfs:range ex:OrganizationalInnovations ;
+    rdfs:subPropertyOf <dul:introduces> .
+
+ex:InstitutionalMandatesToOrganizationalGoals a owl:ObjectProperty ;
+    rdfs:comment "specify" ;
+    rdfs:domain ex:InstitutionalMandates ;
+    rdfs:range ex:OrganizationalGoals ;
+    rdfs:subPropertyOf <dul:specify> .
+
+ex:InstitutionalProviderToOrganizationalServices a owl:ObjectProperty ;
+    rdfs:comment "provides" ;
+    rdfs:domain ex:InstitutionalProvider ;
+    rdfs:range ex:OrganizationalServices ;
+    rdfs:subPropertyOf <dul:provides> .
+
+ex:InstitutionalResourcesToOperationalProcedures a owl:ObjectProperty ;
+    rdfs:comment "used in" ;
+    rdfs:domain ex:InstitutionalResources ;
+    rdfs:range ex:OperationalProcedures ;
+    rdfs:subPropertyOf <dul:usedIn> .
+
+ex:InstitutionsScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:InstitutionsScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:InstitutionsScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:InstitutionsScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:InstitutionsScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:InterInstitutionalRelationshipsToPartnerOrganizations a owl:ObjectProperty ;
+    rdfs:comment "exist between" ;
+    rdfs:domain ex:InterInstitutionalRelationships ;
+    rdfs:range ex:PartnerOrganizations ;
+    rdfs:subPropertyOf <dul:existBetween> .
+
+ex:KnowledgeManagementToContinuousImprovement a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:KnowledgeManagement ;
+    rdfs:range ex:ContinuousImprovement ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:LearningProcessesToOrganizationalLearning a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:LearningProcesses ;
+    rdfs:range ex:OrganizationalLearning ;
+    rdfs:subPropertyOf <dul:support> .
+
+ex:NetworkGovernanceToPartnerOrganizations a owl:ObjectProperty ;
+    rdfs:comment "coordinates" ;
+    rdfs:domain ex:NetworkGovernance ;
+    rdfs:range ex:PartnerOrganizations ;
+    rdfs:subPropertyOf <dul:coordinates> .
+
+ex:OperationalProceduresToServiceProvision a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:OperationalProcedures ;
+    rdfs:range ex:ServiceProvision ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:OrganizationalInnovationsToInstitutionalCapacity a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:OrganizationalInnovations ;
+    rdfs:range ex:InstitutionalCapacity ;
+    rdfs:subPropertyOf <dul:enhance> .
+
+ex:OrganizationalLearningToInstitutionalEvolution a owl:ObjectProperty ;
+    rdfs:comment "leads to" ;
+    rdfs:domain ex:OrganizationalLearning ;
+    rdfs:range ex:InstitutionalEvolution ;
+    rdfs:subPropertyOf <dul:leadsTo> .
+
+ex:OrganizationalMemberToOrganizationalRoles a owl:ObjectProperty ;
+    rdfs:comment "occupies" ;
+    rdfs:domain ex:OrganizationalMember ;
+    rdfs:range ex:OrganizationalRoles ;
+    rdfs:subPropertyOf <dul:playsRole> .
+
+ex:OrganizationalNeedsToInstitutionalAdaptation a owl:ObjectProperty ;
+    rdfs:comment "motivate" ;
+    rdfs:domain ex:OrganizationalNeeds ;
+    rdfs:range ex:InstitutionalAdaptation ;
+    rdfs:subPropertyOf <dul:motivate> .
+
+ex:OrganizationalReformsToInstitutionalChallenges a owl:ObjectProperty ;
+    rdfs:comment "address" ;
+    rdfs:domain ex:OrganizationalReforms ;
+    rdfs:range ex:InstitutionalChallenges ;
+    rdfs:subPropertyOf <dul:address> .
+
+ex:OrganizationalRolesToFormalStructures a owl:ObjectProperty ;
+    rdfs:comment "defined within" ;
+    rdfs:domain ex:OrganizationalRoles ;
+    rdfs:range ex:FormalStructures ;
+    rdfs:subPropertyOf <dul:definedBy> .
+
+ex:OrganizationalRolesToHierarchicalLevels a owl:ObjectProperty ;
+    rdfs:comment "have rank" ;
+    rdfs:domain ex:OrganizationalRoles ;
+    rdfs:range ex:HierarchicalLevels ;
+    rdfs:subPropertyOf <dul:hasQuality> .
+
+ex:OrganizationalServicesToServiceRecipients a owl:ObjectProperty ;
+    rdfs:comment "delivered to" ;
+    rdfs:domain ex:OrganizationalServices ;
+    rdfs:range ex:ServiceRecipients ;
+    rdfs:subPropertyOf <dul:deliveredTo> .
+
+ex:ProcessImprovementsToOperationalProcedures a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:ProcessImprovements ;
+    rdfs:range ex:OperationalProcedures ;
+    rdfs:subPropertyOf <dul:enhance> .
+
+ex:ReportingStructuresToPowerDistribution a owl:ObjectProperty ;
+    rdfs:comment "represent" ;
+    rdfs:domain ex:ReportingStructures ;
+    rdfs:range ex:PowerDistribution ;
+    rdfs:subPropertyOf <dul:represents> .
+
+ex:ServiceDeliveryToOrganizationalServices a owl:ObjectProperty ;
+    rdfs:comment "implements" ;
+    rdfs:domain ex:ServiceDelivery ;
+    rdfs:range ex:OrganizationalServices ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:ServiceProvisionToOrganizationalGoals a owl:ObjectProperty ;
+    rdfs:comment "aims at" ;
+    rdfs:domain ex:ServiceProvision ;
+    rdfs:range ex:OrganizationalGoals ;
+    rdfs:subPropertyOf <dul:aimsAt> .
+
+ex:SharedObjectivesToNetworkGovernance a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:SharedObjectives ;
+    rdfs:range ex:NetworkGovernance ;
+    rdfs:subPropertyOf <dul:guide> .
+
+ex:SocialRolesToOrganizationalBehavior a owl:ObjectProperty ;
+    rdfs:comment "constrain" ;
+    rdfs:domain ex:SocialRoles ;
+    rdfs:range ex:OrganizationalBehavior ;
+    rdfs:subPropertyOf <dul:constrains> .
+
+ex:StructuralChangesToFormalStructures a owl:ObjectProperty ;
+    rdfs:comment "modify" ;
+    rdfs:domain ex:StructuralChanges ;
+    rdfs:range ex:FormalStructures ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:AuthorityRelationships a owl:Class ;
+    rdfs:label "AuthorityRelationships" ;
+    rdfs:comment "Power connections between different organizational positions" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:ChangeAgent a owl:Class ;
+    rdfs:label "ChangeAgent" ;
+    rdfs:comment "Person initiating and managing organizational transformation" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ChangeResistance a owl:Class ;
+    rdfs:label "ChangeResistance" ;
+    rdfs:comment "Opposition to proposed organizational modifications" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CollaborativeFrameworks a owl:Class ;
+    rdfs:label "CollaborativeFrameworks" ;
+    rdfs:comment "Structured approaches to inter-institutional cooperation" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:CoordinationMechanisms a owl:Class ;
+    rdfs:label "CoordinationMechanisms" ;
+    rdfs:comment "Methods for aligning activities across multiple institutions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EnvironmentalDemands a owl:Class ;
+    rdfs:label "EnvironmentalDemands" ;
+    rdfs:comment "External pressures requiring organizational response" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:InnovationCulture a owl:Class ;
+    rdfs:label "InnovationCulture" ;
+    rdfs:comment "Organizational environment that encourages and supports innovation" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InstitutionalCapacity a owl:Class ;
+    rdfs:label "InstitutionalCapacity" ;
+    rdfs:comment "Organization's ability to effectively achieve its goals and adapt to challenges" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InstitutionalChallenges a owl:Class ;
+    rdfs:label "InstitutionalChallenges" ;
+    rdfs:comment "Problems or difficulties facing organizations" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:InstitutionalComplexity a owl:Class ;
+    rdfs:label "InstitutionalComplexity" ;
+    rdfs:comment "Challenges arising from managing multiple organizational relationships" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InstitutionalCoordinator a owl:Class ;
+    rdfs:label "InstitutionalCoordinator" ;
+    rdfs:comment "Person managing relationships and coordination between multiple institutions" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:InstitutionalEvolution a owl:Class ;
+    rdfs:label "InstitutionalEvolution" ;
+    rdfs:comment "Long-term development and adaptation of organizational structures and practices" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InstitutionalFrameworks a owl:Class ;
+    rdfs:label "InstitutionalFrameworks" ;
+    rdfs:comment "Formal rules and procedures governing organization" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:InstitutionalInnovator a owl:Class ;
+    rdfs:label "InstitutionalInnovator" ;
+    rdfs:comment "Person introducing new ideas and practices within organizations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:InstitutionalMandates a owl:Class ;
+    rdfs:label "InstitutionalMandates" ;
+    rdfs:comment "Official purposes and responsibilities of organizations" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:InstitutionalProvider a owl:Class ;
+    rdfs:label "InstitutionalProvider" ;
+    rdfs:comment "Person or organization delivering services through institutional frameworks" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:InstitutionalResources a owl:Class ;
+    rdfs:label "InstitutionalResources" ;
+    rdfs:comment "Assets and capabilities available to organizations" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:KnowledgeManagement a owl:Class ;
+    rdfs:label "KnowledgeManagement" ;
+    rdfs:comment "Systematic handling of organizational knowledge and expertise" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LearningProcesses a owl:Class ;
+    rdfs:label "LearningProcesses" ;
+    rdfs:comment "Systematic approaches to acquiring and applying new knowledge" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:NetworkDynamics a owl:Class ;
+    rdfs:label "NetworkDynamics" ;
+    rdfs:comment "Evolving patterns of interaction within institutional networks" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OrganizationalMember a owl:Class ;
+    rdfs:label "OrganizationalMember" ;
+    rdfs:comment "Person participating in formal organizational structures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:OrganizationalNeeds a owl:Class ;
+    rdfs:label "OrganizationalNeeds" ;
+    rdfs:comment "Internal requirements for improved institutional functioning" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:PowerDistribution a owl:Class ;
+    rdfs:label "PowerDistribution" ;
+    rdfs:comment "Allocation of decision-making authority across organization" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ProcessImprovements a owl:Class ;
+    rdfs:label "ProcessImprovements" ;
+    rdfs:comment "Enhancements to operational procedures and methods" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ServiceDelivery a owl:Class ;
+    rdfs:label "ServiceDelivery" ;
+    rdfs:comment "Systematic provision of services to recipients" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ServiceRecipients a owl:Class ;
+    rdfs:label "ServiceRecipients" ;
+    rdfs:comment "People receiving services from institutional providers" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SharedObjectives a owl:Class ;
+    rdfs:label "SharedObjectives" ;
+    rdfs:comment "Common goals pursued by multiple organizations" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:StructuralChanges a owl:Class ;
+    rdfs:label "StructuralChanges" ;
+    rdfs:comment "Modifications to organizational arrangements and hierarchies" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ContinuousImprovement a owl:Class ;
+    rdfs:label "ContinuousImprovement" ;
+    rdfs:comment "Ongoing efforts to enhance organizational performance" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:HierarchicalLevels a owl:Class ;
+    rdfs:label "HierarchicalLevels" ;
+    rdfs:comment "Different ranks or positions within organizational hierarchy" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InstitutionalAdaptation a owl:Class ;
+    rdfs:label "InstitutionalAdaptation" ;
+    rdfs:comment "Organizational adjustment to new conditions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:NetworkGovernance a owl:Class ;
+    rdfs:label "NetworkGovernance" ;
+    rdfs:comment "Coordination and management of networks of organizations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OrganizationalBehavior a owl:Class ;
+    rdfs:label "OrganizationalBehavior" ;
+    rdfs:comment "Actions and interactions within institutional settings" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OrganizationalGoals a owl:Class ;
+    rdfs:label "OrganizationalGoals" ;
+    rdfs:comment "Intended outcomes and achievements of institutional activity" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:OrganizationalInnovations a owl:Class ;
+    rdfs:label "OrganizationalInnovations" ;
+    rdfs:comment "New methods, processes, or structures introduced to improve institutional performance" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:OrganizationalLearning a owl:Class ;
+    rdfs:label "OrganizationalLearning" ;
+    rdfs:comment "Collective acquisition of knowledge and skills within institutions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ReportingStructures a owl:Class ;
+    rdfs:label "ReportingStructures" ;
+    rdfs:comment "Formal chains of accountability and communication" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:ServiceProvision a owl:Class ;
+    rdfs:label "ServiceProvision" ;
+    rdfs:comment "Overall system of delivering services to meet needs" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FormalStructures a owl:Class ;
+    rdfs:label "FormalStructures" ;
+    rdfs:comment "Official organizational arrangements and systems" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:InterInstitutionalRelationships a owl:Class ;
+    rdfs:label "InterInstitutionalRelationships" ;
+    rdfs:comment "Connections and interactions between different organizations" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:OperationalProcedures a owl:Class ;
+    rdfs:label "OperationalProcedures" ;
+    rdfs:comment "Standardized methods for delivering services" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OrganizationalReforms a owl:Class ;
+    rdfs:label "OrganizationalReforms" ;
+    rdfs:comment "Systematic changes to improve institutional effectiveness" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OrganizationalRoles a owl:Class ;
+    rdfs:label "OrganizationalRoles" ;
+    rdfs:comment "Defined positions with specific responsibilities" ;
+    rdfs:subClassOf <dul:SocialRole> .
+
+ex:OrganizationalServices a owl:Class ;
+    rdfs:label "OrganizationalServices" ;
+    rdfs:comment "Specific functions or benefits provided by institutions" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:PartnerOrganizations a owl:Class ;
+    rdfs:label "PartnerOrganizations" ;
+    rdfs:comment "Institutions working together in collaborative arrangements" ;
+    rdfs:subClassOf <dul:Agent> .
+

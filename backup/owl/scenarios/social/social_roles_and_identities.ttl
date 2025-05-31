@@ -1,0 +1,484 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:CrossCulturalIdentitiesToCulturalBoundaries a owl:ObjectProperty ;
+    rdfs:comment "span" ;
+    rdfs:domain ex:CrossCulturalIdentities ;
+    rdfs:range ex:CulturalBoundaries ;
+    rdfs:subPropertyOf <dul:span> .
+
+ex:CulturalCompetenceToIdentityFlexibility a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:CulturalCompetence ;
+    rdfs:range ex:IdentityFlexibility ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:CulturalConflictsToInterculturalBalance a owl:ObjectProperty ;
+    rdfs:comment "challenge" ;
+    rdfs:domain ex:CulturalConflicts ;
+    rdfs:range ex:InterculturalBalance ;
+    rdfs:subPropertyOf <dul:challenge> .
+
+ex:GroupMembershipsToSocialCategories a owl:ObjectProperty ;
+    rdfs:comment "are based on" ;
+    rdfs:domain ex:GroupMemberships ;
+    rdfs:range ex:SocialCategories ;
+    rdfs:subPropertyOf <dul:definedBy> .
+
+ex:IdentityAdaptationToSelfConcept a owl:ObjectProperty ;
+    rdfs:comment "adjusts" ;
+    rdfs:domain ex:IdentityAdaptation ;
+    rdfs:range ex:SelfConcept ;
+    rdfs:subPropertyOf <dul:adjusts> .
+
+ex:IdentityChangesToRoleAdjustment a owl:ObjectProperty ;
+    rdfs:comment "result from" ;
+    rdfs:domain ex:IdentityChanges ;
+    rdfs:range ex:RoleAdjustment ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:IdentityConflictsToGroupMemberships a owl:ObjectProperty ;
+    rdfs:comment "can result from" ;
+    rdfs:domain ex:IdentityConflicts ;
+    rdfs:range ex:GroupMemberships ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:IdentityExpressionToPersonalIdentity a owl:ObjectProperty ;
+    rdfs:comment "expresses" ;
+    rdfs:domain ex:IdentityExpression ;
+    rdfs:range ex:PersonalIdentity ;
+    rdfs:subPropertyOf <dul:realizes> .
+
+ex:IdentityExpressionToSocialSituations a owl:ObjectProperty ;
+    rdfs:comment "influenced by" ;
+    rdfs:domain ex:IdentityExpression ;
+    rdfs:range ex:SocialSituations ;
+    rdfs:subPropertyOf <dul:influencedBy> .
+
+ex:IdentityFlexibilityToIdentityExpression a owl:ObjectProperty ;
+    rdfs:comment "facilitates" ;
+    rdfs:domain ex:IdentityFlexibility ;
+    rdfs:range ex:IdentityExpression ;
+    rdfs:subPropertyOf <dul:facilitates> .
+
+ex:IdentityFormationToGroupMemberships a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:IdentityFormation ;
+    rdfs:range ex:GroupMemberships ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:IdentityIndicatorsToSocialRoles a owl:ObjectProperty ;
+    rdfs:comment "identify" ;
+    rdfs:domain ex:IdentityIndicators ;
+    rdfs:range ex:SocialRoles ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:IdentityIntegrationToMultipleIdentities a owl:ObjectProperty ;
+    rdfs:comment "combines" ;
+    rdfs:domain ex:IdentityIntegration ;
+    rdfs:range ex:MultipleIdentities ;
+    rdfs:subPropertyOf <dul:combines> .
+
+ex:IndividualToPersonalIdentity a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:Individual ;
+    rdfs:range ex:PersonalIdentity ;
+    rdfs:subPropertyOf <dul:hasState> .
+
+ex:InterculturalBalanceToIdentityIntegration a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:InterculturalBalance ;
+    rdfs:range ex:IdentityIntegration ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:LifeStagesToSocialRoles a owl:ObjectProperty ;
+    rdfs:comment "linked to" ;
+    rdfs:domain ex:LifeStages ;
+    rdfs:range ex:SocialRoles ;
+    rdfs:subPropertyOf <dul:associatedWith> .
+
+ex:MulticulturalNavigatorToCrossCulturalIdentities a owl:ObjectProperty ;
+    rdfs:comment "navigates" ;
+    rdfs:domain ex:MulticulturalNavigator ;
+    rdfs:range ex:CrossCulturalIdentities ;
+    rdfs:subPropertyOf <dul:navigates> .
+
+ex:PersonalIdentityToIdentityFormation a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:PersonalIdentity ;
+    rdfs:range ex:IdentityFormation ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:PersonalizedRolesToIndividualNeeds a owl:ObjectProperty ;
+    rdfs:comment "conform to" ;
+    rdfs:domain ex:PersonalizedRoles ;
+    rdfs:range ex:IndividualNeeds ;
+    rdfs:subPropertyOf <dul:conformsTo> .
+
+ex:RoleAdjustmentToSocialBehavior a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:RoleAdjustment ;
+    rdfs:range ex:SocialBehavior ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:RoleAdjustmentToSocialDemands a owl:ObjectProperty ;
+    rdfs:comment "influenced by" ;
+    rdfs:domain ex:RoleAdjustment ;
+    rdfs:range ex:SocialDemands ;
+    rdfs:subPropertyOf <dul:influencedBy> .
+
+ex:RoleCustomizationToPersonalizedRoles a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:RoleCustomization ;
+    rdfs:range ex:PersonalizedRoles ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:RoleExpectationsToSocialBehavior a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:RoleExpectations ;
+    rdfs:range ex:SocialBehavior ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:RoleNegotiationToRoleDefinitions a owl:ObjectProperty ;
+    rdfs:comment "redefines" ;
+    rdfs:domain ex:RoleNegotiation ;
+    rdfs:range ex:RoleDefinitions ;
+    rdfs:subPropertyOf <dul:redefines> .
+
+ex:RoleNegotiationToTraditionalExpectations a owl:ObjectProperty ;
+    rdfs:comment "challenges" ;
+    rdfs:domain ex:RoleNegotiation ;
+    rdfs:range ex:TraditionalExpectations ;
+    rdfs:subPropertyOf <dul:challenges> .
+
+ex:RoleNegotiatorToFlexibleRoles a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:RoleNegotiator ;
+    rdfs:range ex:FlexibleRoles ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:RoleTransitionerToRoleTransitions a owl:ObjectProperty ;
+    rdfs:comment "undergoes" ;
+    rdfs:domain ex:RoleTransitioner ;
+    rdfs:range ex:RoleTransitions ;
+    rdfs:subPropertyOf <dul:undergoes> .
+
+ex:RoleTransitionsToRoleSkills a owl:ObjectProperty ;
+    rdfs:comment "require" ;
+    rdfs:domain ex:RoleTransitions ;
+    rdfs:range ex:RoleSkills ;
+    rdfs:subPropertyOf <dul:require> .
+
+ex:RoleTransitionsToSocialExpectations a owl:ObjectProperty ;
+    rdfs:comment "triggered by" ;
+    rdfs:domain ex:RoleTransitions ;
+    rdfs:range ex:SocialExpectations ;
+    rdfs:subPropertyOf <dul:triggeredBy> .
+
+ex:SelfConceptToSocialCategories a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:SelfConcept ;
+    rdfs:range ex:SocialCategories ;
+    rdfs:subPropertyOf <dul:incorporates> .
+
+ex:SocialAcceptanceToPersonalizedRoles a owl:ObjectProperty ;
+    rdfs:comment "applies to" ;
+    rdfs:domain ex:SocialAcceptance ;
+    rdfs:range ex:PersonalizedRoles ;
+    rdfs:subPropertyOf <dul:appliesTo> .
+
+ex:SocialActorToSocialRoles a owl:ObjectProperty ;
+    rdfs:comment "occupies" ;
+    rdfs:domain ex:SocialActor ;
+    rdfs:range ex:SocialRoles ;
+    rdfs:subPropertyOf <dul:playsRole> .
+
+ex:SocialBehaviorToRoleRequirements a owl:ObjectProperty ;
+    rdfs:comment "conforms to" ;
+    rdfs:domain ex:SocialBehavior ;
+    rdfs:range ex:RoleRequirements ;
+    rdfs:subPropertyOf <dul:conformsTo> .
+
+ex:SocialContextsToSocialActor a owl:ObjectProperty ;
+    rdfs:comment "context for" ;
+    rdfs:domain ex:SocialContexts ;
+    rdfs:range ex:SocialActor ;
+    rdfs:subPropertyOf <dul:includesAgent> .
+
+ex:SocialRolesScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SocialRolesScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SocialRolesScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SocialRolesScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SocialRolesScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SocialRolesToRoleExpectations a owl:ObjectProperty ;
+    rdfs:comment "define" ;
+    rdfs:domain ex:SocialRoles ;
+    rdfs:range ex:RoleExpectations ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:SocialRolesToSocialPositions a owl:ObjectProperty ;
+    rdfs:comment "imply" ;
+    rdfs:domain ex:SocialRoles ;
+    rdfs:range ex:SocialPositions ;
+    rdfs:subPropertyOf <dul:hasQuality> .
+
+ex:SocialRolesToStatusMarkers a owl:ObjectProperty ;
+    rdfs:comment "linked to" ;
+    rdfs:domain ex:SocialRoles ;
+    rdfs:range ex:StatusMarkers ;
+    rdfs:subPropertyOf <dul:associatedWith> .
+
+ex:StatusMarkersToSocialPositions a owl:ObjectProperty ;
+    rdfs:comment "express" ;
+    rdfs:domain ex:StatusMarkers ;
+    rdfs:range ex:SocialPositions ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:StatusPassageToRoleTransitions a owl:ObjectProperty ;
+    rdfs:comment "marks" ;
+    rdfs:domain ex:StatusPassage ;
+    rdfs:range ex:RoleTransitions ;
+    rdfs:subPropertyOf <dul:marks> .
+
+ex:CulturalBoundaries a owl:Class ;
+    rdfs:label "CulturalBoundaries" ;
+    rdfs:comment "Social divisions between different cultural groups" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:CulturalCompetence a owl:Class ;
+    rdfs:label "CulturalCompetence" ;
+    rdfs:comment "Ability to effectively navigate different cultural contexts" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CulturalConflicts a owl:Class ;
+    rdfs:label "CulturalConflicts" ;
+    rdfs:comment "Tensions between different cultural identity expectations" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:FlexibleRoles a owl:Class ;
+    rdfs:label "FlexibleRoles" ;
+    rdfs:comment "Social positions that can be adapted and personalized" ;
+    rdfs:subClassOf <dul:SocialRole> .
+
+ex:IdentityAdaptation a owl:Class ;
+    rdfs:label "IdentityAdaptation" ;
+    rdfs:comment "Adjusting personal identity to fit modified roles" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IdentityChanges a owl:Class ;
+    rdfs:label "IdentityChanges" ;
+    rdfs:comment "Modifications to self-concept during role transitions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IdentityConflicts a owl:Class ;
+    rdfs:label "IdentityConflicts" ;
+    rdfs:comment "Tensions between competing identity aspects" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IdentityIndicators a owl:Class ;
+    rdfs:label "IdentityIndicators" ;
+    rdfs:comment "Signs that communicate role membership or social identity" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:Individual a owl:Class ;
+    rdfs:label "Individual" ;
+    rdfs:comment "Person developing and expressing social identity" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:IndividualNeeds a owl:Class ;
+    rdfs:label "IndividualNeeds" ;
+    rdfs:comment "Personal requirements and preferences for role performance" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:LifeStages a owl:Class ;
+    rdfs:label "LifeStages" ;
+    rdfs:comment "Age-based phases with associated social roles" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MulticulturalNavigator a owl:Class ;
+    rdfs:label "MulticulturalNavigator" ;
+    rdfs:comment "Person managing multiple cultural identities and crossing cultural boundaries" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MultipleIdentities a owl:Class ;
+    rdfs:label "MultipleIdentities" ;
+    rdfs:comment "Different cultural identities maintained simultaneously" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:RoleCustomization a owl:Class ;
+    rdfs:label "RoleCustomization" ;
+    rdfs:comment "Personalizing roles to individual circumstances and preferences" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RoleDefinitions a owl:Class ;
+    rdfs:label "RoleDefinitions" ;
+    rdfs:comment "Specific descriptions and boundaries of social roles" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:RoleNegotiator a owl:Class ;
+    rdfs:label "RoleNegotiator" ;
+    rdfs:comment "Person actively shaping and modifying social role expectations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:RoleRequirements a owl:Class ;
+    rdfs:label "RoleRequirements" ;
+    rdfs:comment "Obligations and behaviors expected of role occupants" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:RoleSkills a owl:Class ;
+    rdfs:label "RoleSkills" ;
+    rdfs:comment "Abilities and knowledge required for specific roles" ;
+    rdfs:subClassOf <dul:Skill> .
+
+ex:RoleTransitioner a owl:Class ;
+    rdfs:label "RoleTransitioner" ;
+    rdfs:comment "Person moving between different social roles or positions" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SocialAcceptance a owl:Class ;
+    rdfs:label "SocialAcceptance" ;
+    rdfs:comment "Degree to which modified roles are accepted by others" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SocialContexts a owl:Class ;
+    rdfs:label "SocialContexts" ;
+    rdfs:comment "Situations where role-based interactions occur" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:SocialDemands a owl:Class ;
+    rdfs:label "SocialDemands" ;
+    rdfs:comment "Requirements and pressures of new roles" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:SocialExpectations a owl:Class ;
+    rdfs:label "SocialExpectations" ;
+    rdfs:comment "Behavioral standards for new roles" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:SocialSituations a owl:Class ;
+    rdfs:label "SocialSituations" ;
+    rdfs:comment "Contexts requiring different aspects of identity presentation" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:StatusPassage a owl:Class ;
+    rdfs:label "StatusPassage" ;
+    rdfs:comment "Formal or informal ceremonies marking role changes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TraditionalExpectations a owl:Class ;
+    rdfs:label "TraditionalExpectations" ;
+    rdfs:comment "Established, conventional role requirements" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:CrossCulturalIdentities a owl:Class ;
+    rdfs:label "CrossCulturalIdentities" ;
+    rdfs:comment "Identities that span or bridge different cultural groups" ;
+    rdfs:subClassOf <dul:SocialRole> .
+
+ex:IdentityFlexibility a owl:Class ;
+    rdfs:label "IdentityFlexibility" ;
+    rdfs:comment "Capacity to adapt identity expression to different cultural settings" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:IdentityFormation a owl:Class ;
+    rdfs:label "IdentityFormation" ;
+    rdfs:comment "Development of coherent self-concept over time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IdentityIntegration a owl:Class ;
+    rdfs:label "IdentityIntegration" ;
+    rdfs:comment "Combining different cultural identities into coherent self-concept" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InterculturalBalance a owl:Class ;
+    rdfs:label "InterculturalBalance" ;
+    rdfs:comment "Successful integration of multiple cultural identities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:RoleExpectations a owl:Class ;
+    rdfs:label "RoleExpectations" ;
+    rdfs:comment "Behavioral standards associated with specific positions" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:RoleNegotiation a owl:Class ;
+    rdfs:label "RoleNegotiation" ;
+    rdfs:comment "Active discussion and modification of role expectations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SelfConcept a owl:Class ;
+    rdfs:label "SelfConcept" ;
+    rdfs:comment "Individual's understanding of their own identity" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SocialActor a owl:Class ;
+    rdfs:label "SocialActor" ;
+    rdfs:comment "Person navigating and responding to social role systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SocialCategories a owl:Class ;
+    rdfs:label "SocialCategories" ;
+    rdfs:comment "Socially recognized groups or classifications" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:SocialPositions a owl:Class ;
+    rdfs:label "SocialPositions" ;
+    rdfs:comment "Relative standings within social hierarchies" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:StatusMarkers a owl:Class ;
+    rdfs:label "StatusMarkers" ;
+    rdfs:comment "Visible indicators of social position or role" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:GroupMemberships a owl:Class ;
+    rdfs:label "GroupMemberships" ;
+    rdfs:comment "Belonging to specific social groups or communities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:IdentityExpression a owl:Class ;
+    rdfs:label "IdentityExpression" ;
+    rdfs:comment "Communication of identity through behavior and appearance" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PersonalIdentity a owl:Class ;
+    rdfs:label "PersonalIdentity" ;
+    rdfs:comment "Integrated sense of self incorporating social categories" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PersonalizedRoles a owl:Class ;
+    rdfs:label "PersonalizedRoles" ;
+    rdfs:comment "Individually adapted versions of social positions" ;
+    rdfs:subClassOf <dul:SocialRole> .
+
+ex:RoleAdjustment a owl:Class ;
+    rdfs:label "RoleAdjustment" ;
+    rdfs:comment "Adaptation to requirements of new social positions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialBehavior a owl:Class ;
+    rdfs:label "SocialBehavior" ;
+    rdfs:comment "Actions adjusted to fit social role requirements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RoleTransitions a owl:Class ;
+    rdfs:label "RoleTransitions" ;
+    rdfs:comment "Changes from one social role to another" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialRoles a owl:Class ;
+    rdfs:label "SocialRoles" ;
+    rdfs:comment "Defined positions with associated behaviors and expectations" ;
+    rdfs:subClassOf <dul:SocialRole> .
+

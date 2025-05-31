@@ -1,0 +1,514 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AlternativeConsiderationToMonetaryPayment a owl:ObjectProperty ;
+    rdfs:comment "substitutes for" ;
+    rdfs:domain ex:AlternativeConsideration ;
+    rdfs:range ex:MonetaryPayment ;
+    rdfs:subPropertyOf <dul:substitutes> .
+
+ex:BudgetingProcessesToFinancialResources a owl:ObjectProperty ;
+    rdfs:comment "apply to" ;
+    rdfs:domain ex:BudgetingProcesses ;
+    rdfs:range ex:FinancialResources ;
+    rdfs:subPropertyOf <dul:appliesTo> .
+
+ex:BusinessRisksToProfitGeneration a owl:ObjectProperty ;
+    rdfs:comment "threaten" ;
+    rdfs:domain ex:BusinessRisks ;
+    rdfs:range ex:ProfitGeneration ;
+    rdfs:subPropertyOf <dul:threaten> .
+
+ex:BusinessVenturesToBusinessModels a owl:ObjectProperty ;
+    rdfs:comment "defined by" ;
+    rdfs:domain ex:BusinessVentures ;
+    rdfs:range ex:BusinessModels ;
+    rdfs:subPropertyOf <dul:definedBy> .
+
+ex:CommercialTransactionsToGoods a owl:ObjectProperty ;
+    rdfs:comment "involve" ;
+    rdfs:domain ex:CommercialTransactions ;
+    rdfs:range ex:Goods ;
+    rdfs:subPropertyOf <dul:hasObject> .
+
+ex:CommercialTransactionsToMonetaryPayment a owl:ObjectProperty ;
+    rdfs:comment "result in" ;
+    rdfs:domain ex:CommercialTransactions ;
+    rdfs:range ex:MonetaryPayment ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:CommercialTransactionsToServices a owl:ObjectProperty ;
+    rdfs:comment "involve" ;
+    rdfs:domain ex:CommercialTransactions ;
+    rdfs:range ex:Services ;
+    rdfs:subPropertyOf <dul:hasObject> .
+
+ex:CommercialTransactionsToTradingPartners a owl:ObjectProperty ;
+    rdfs:comment "involve" ;
+    rdfs:domain ex:CommercialTransactions ;
+    rdfs:range ex:TradingPartners ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+ex:CompetitiveEnvironmentsToBusinessVentures a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:CompetitiveEnvironments ;
+    rdfs:range ex:BusinessVentures ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:CustomerRelationshipsToBusinessVentures a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:CustomerRelationships ;
+    rdfs:range ex:BusinessVentures ;
+    rdfs:subPropertyOf <dul:support> .
+
+ex:DeliveryCoordinationToProductFlow a owl:ObjectProperty ;
+    rdfs:comment "improves" ;
+    rdfs:domain ex:DeliveryCoordination ;
+    rdfs:range ex:ProductFlow ;
+    rdfs:subPropertyOf <dul:improves> .
+
+ex:DevelopmentBarriersToEconomicGrowth a owl:ObjectProperty ;
+    rdfs:comment "challenge" ;
+    rdfs:domain ex:DevelopmentBarriers ;
+    rdfs:range ex:EconomicGrowth ;
+    rdfs:subPropertyOf <dul:challenge> .
+
+ex:DevelopmentStrategiesToNewMarkets a owl:ObjectProperty ;
+    rdfs:comment "target" ;
+    rdfs:domain ex:DevelopmentStrategies ;
+    rdfs:range ex:NewMarkets ;
+    rdfs:subPropertyOf <dul:target> .
+
+ex:DistributionChallengesToDeliveryCoordination a owl:ObjectProperty ;
+    rdfs:comment "impact" ;
+    rdfs:domain ex:DistributionChallenges ;
+    rdfs:range ex:DeliveryCoordination ;
+    rdfs:subPropertyOf <dul:impact> .
+
+ex:EconomicDeveloperToEconomicGrowth a owl:ObjectProperty ;
+    rdfs:comment "promotes" ;
+    rdfs:domain ex:EconomicDeveloper ;
+    rdfs:range ex:EconomicGrowth ;
+    rdfs:subPropertyOf <dul:promotes> .
+
+ex:EconomicGrowthToMarketDevelopment a owl:ObjectProperty ;
+    rdfs:comment "requires" ;
+    rdfs:domain ex:EconomicGrowth ;
+    rdfs:range ex:MarketDevelopment ;
+    rdfs:subPropertyOf <dul:requires> .
+
+ex:EconomicOpportunitiesToLocalEconomies a owl:ObjectProperty ;
+    rdfs:comment "enabled by" ;
+    rdfs:domain ex:EconomicOpportunities ;
+    rdfs:range ex:LocalEconomies ;
+    rdfs:subPropertyOf <dul:enabledBy> .
+
+ex:EconomicPlannerToFinancialResources a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:EconomicPlanner ;
+    rdfs:range ex:FinancialResources ;
+    rdfs:subPropertyOf <dul:controls> .
+
+ex:EconomicScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:EconomicScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:EconomicScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:EconomicScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:EconomicScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:EntrepreneurToBusinessVentures a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:Entrepreneur ;
+    rdfs:range ex:BusinessVentures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:FinancialRisksToSpendingChoices a owl:ObjectProperty ;
+    rdfs:comment "associated with" ;
+    rdfs:domain ex:FinancialRisks ;
+    rdfs:range ex:SpendingChoices ;
+    rdfs:subPropertyOf <dul:associatedWith> .
+
+ex:InfrastructureBuildingToMarketDevelopment a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:InfrastructureBuilding ;
+    rdfs:range ex:MarketDevelopment ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:InventoryManagementToSupplyChainEfficiency a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:InventoryManagement ;
+    rdfs:range ex:SupplyChainEfficiency ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:InvestmentDecisionsToEconomicGoals a owl:ObjectProperty ;
+    rdfs:comment "guided by" ;
+    rdfs:domain ex:InvestmentDecisions ;
+    rdfs:range ex:EconomicGoals ;
+    rdfs:subPropertyOf <dul:guidedBy> .
+
+ex:LogisticalProcessesToProductFlow a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:LogisticalProcesses ;
+    rdfs:range ex:ProductFlow ;
+    rdfs:subPropertyOf <dul:enable> .
+
+ex:MarketConditionsToPriceNegotiations a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:MarketConditions ;
+    rdfs:range ex:PriceNegotiations ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:MarketOfferingsToProfitGeneration a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:MarketOfferings ;
+    rdfs:range ex:ProfitGeneration ;
+    rdfs:subPropertyOf <dul:generate> .
+
+ex:MarketParticipantToCommercialTransactions a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:MarketParticipant ;
+    rdfs:range ex:CommercialTransactions ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:OperationalSystemsToMarketOfferings a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:OperationalSystems ;
+    rdfs:range ex:MarketOfferings ;
+    rdfs:subPropertyOf <dul:support> .
+
+ex:PriceNegotiationsToExchangeAgreements a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:PriceNegotiations ;
+    rdfs:range ex:ExchangeAgreements ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:ProductFlowToEndConsumers a owl:ObjectProperty ;
+    rdfs:comment "connects" ;
+    rdfs:domain ex:ProductFlow ;
+    rdfs:range ex:EndConsumers ;
+    rdfs:subPropertyOf <dul:connects> .
+
+ex:ProductFlowToSuppliers a owl:ObjectProperty ;
+    rdfs:comment "connects" ;
+    rdfs:domain ex:ProductFlow ;
+    rdfs:range ex:Suppliers ;
+    rdfs:subPropertyOf <dul:connects> .
+
+ex:QualityControlToSupplyChainEfficiency a owl:ObjectProperty ;
+    rdfs:comment "ensures" ;
+    rdfs:domain ex:QualityControl ;
+    rdfs:range ex:SupplyChainEfficiency ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:ResourceAllocationToFinancialStrategies a owl:ObjectProperty ;
+    rdfs:comment "implements" ;
+    rdfs:domain ex:ResourceAllocation ;
+    rdfs:range ex:FinancialStrategies ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:SpendingChoicesToEconomicGoals a owl:ObjectProperty ;
+    rdfs:comment "guided by" ;
+    rdfs:domain ex:SpendingChoices ;
+    rdfs:range ex:EconomicGoals ;
+    rdfs:subPropertyOf <dul:guidedBy> .
+
+ex:SupplyChainManagerToDistributionNetworks a owl:ObjectProperty ;
+    rdfs:comment "coordinates" ;
+    rdfs:domain ex:SupplyChainManager ;
+    rdfs:range ex:DistributionNetworks ;
+    rdfs:subPropertyOf <dul:coordinates> .
+
+ex:SupplyRisksToDistributionNetworks a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:SupplyRisks ;
+    rdfs:range ex:DistributionNetworks ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:SustainableGrowthToDevelopmentStrategies a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:SustainableGrowth ;
+    rdfs:range ex:DevelopmentStrategies ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:ValuePropositionsToExchangeAgreements a owl:ObjectProperty ;
+    rdfs:comment "described in" ;
+    rdfs:domain ex:ValuePropositions ;
+    rdfs:range ex:ExchangeAgreements ;
+    rdfs:subPropertyOf <dul:describedBy> .
+
+ex:WealthManagementToInvestmentDecisions a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:WealthManagement ;
+    rdfs:range ex:InvestmentDecisions ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:AlternativeConsideration a owl:Class ;
+    rdfs:label "AlternativeConsideration" ;
+    rdfs:comment "Non-monetary forms of payment or exchange" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:BudgetingProcesses a owl:Class ;
+    rdfs:label "BudgetingProcesses" ;
+    rdfs:comment "Systematic planning of income and expenditure" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BusinessModels a owl:Class ;
+    rdfs:label "BusinessModels" ;
+    rdfs:comment "Systematic approaches to creating and capturing value" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:BusinessRisks a owl:Class ;
+    rdfs:label "BusinessRisks" ;
+    rdfs:comment "Potential threats to business success and profitability" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:CompetitiveEnvironments a owl:Class ;
+    rdfs:label "CompetitiveEnvironments" ;
+    rdfs:comment "Market conditions with competing businesses" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CustomerRelationships a owl:Class ;
+    rdfs:label "CustomerRelationships" ;
+    rdfs:comment "Connections between businesses and their clients" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:DevelopmentBarriers a owl:Class ;
+    rdfs:label "DevelopmentBarriers" ;
+    rdfs:comment "Obstacles to economic development" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:DistributionChallenges a owl:Class ;
+    rdfs:label "DistributionChallenges" ;
+    rdfs:comment "Obstacles in product delivery" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:EconomicDeveloper a owl:Class ;
+    rdfs:label "EconomicDeveloper" ;
+    rdfs:comment "Person working to create economic opportunities and foster growth" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:EconomicOpportunities a owl:Class ;
+    rdfs:label "EconomicOpportunities" ;
+    rdfs:comment "Potential areas for economic activity" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:EconomicPlanner a owl:Class ;
+    rdfs:label "EconomicPlanner" ;
+    rdfs:comment "Person making strategic financial and resource decisions" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:EndConsumers a owl:Class ;
+    rdfs:label "EndConsumers" ;
+    rdfs:comment "Final users or buyers of products" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:Entrepreneur a owl:Class ;
+    rdfs:label "Entrepreneur" ;
+    rdfs:comment "Person creating and managing business enterprises" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:FinancialRisks a owl:Class ;
+    rdfs:label "FinancialRisks" ;
+    rdfs:comment "Potential threats to economic security or success" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:FinancialStrategies a owl:Class ;
+    rdfs:label "FinancialStrategies" ;
+    rdfs:comment "Long-term approaches to economic management" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Goods a owl:Class ;
+    rdfs:label "Goods" ;
+    rdfs:comment "Physical products offered for exchange" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:InfrastructureBuilding a owl:Class ;
+    rdfs:label "InfrastructureBuilding" ;
+    rdfs:comment "Developing foundations for economic activity" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InventoryManagement a owl:Class ;
+    rdfs:label "InventoryManagement" ;
+    rdfs:comment "Control and optimization of stock levels" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LocalEconomies a owl:Class ;
+    rdfs:label "LocalEconomies" ;
+    rdfs:comment "Economic systems within communities" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:LogisticalProcesses a owl:Class ;
+    rdfs:label "LogisticalProcesses" ;
+    rdfs:comment "Operations involved in moving and storing goods efficiently" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MarketConditions a owl:Class ;
+    rdfs:label "MarketConditions" ;
+    rdfs:comment "Economic circumstances affecting exchange opportunities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MarketParticipant a owl:Class ;
+    rdfs:label "MarketParticipant" ;
+    rdfs:comment "Person engaging in commercial exchange activities" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:NewMarkets a owl:Class ;
+    rdfs:label "NewMarkets" ;
+    rdfs:comment "Previously non-existent or underdeveloped economic opportunities" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:OperationalSystems a owl:Class ;
+    rdfs:label "OperationalSystems" ;
+    rdfs:comment "Organized processes for delivering products or services" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:QualityControl a owl:Class ;
+    rdfs:label "QualityControl" ;
+    rdfs:comment "Ensuring products meet standards" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ResourceAllocation a owl:Class ;
+    rdfs:label "ResourceAllocation" ;
+    rdfs:comment "Distribution of available resources across uses" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Services a owl:Class ;
+    rdfs:label "Services" ;
+    rdfs:comment "Intangible offerings provided for compensation" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Suppliers a owl:Class ;
+    rdfs:label "Suppliers" ;
+    rdfs:comment "Organizations that provide materials or products" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SupplyChainManager a owl:Class ;
+    rdfs:label "SupplyChainManager" ;
+    rdfs:comment "Person coordinating the flow of goods from production to consumption" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SupplyRisks a owl:Class ;
+    rdfs:label "SupplyRisks" ;
+    rdfs:comment "Potential disruptions in the supply chain" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:SustainableGrowth a owl:Class ;
+    rdfs:label "SustainableGrowth" ;
+    rdfs:comment "Long-term economic development viability" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TradingPartners a owl:Class ;
+    rdfs:label "TradingPartners" ;
+    rdfs:comment "Other parties involved in commercial exchanges" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ValuePropositions a owl:Class ;
+    rdfs:label "ValuePropositions" ;
+    rdfs:comment "Benefits and value offered in commercial exchanges" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:WealthManagement a owl:Class ;
+    rdfs:label "WealthManagement" ;
+    rdfs:comment "Systematic approach to building and preserving assets" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DeliveryCoordination a owl:Class ;
+    rdfs:label "DeliveryCoordination" ;
+    rdfs:comment "Organizing timely and accurate delivery" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DevelopmentStrategies a owl:Class ;
+    rdfs:label "DevelopmentStrategies" ;
+    rdfs:comment "Planned approaches to economic growth" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DistributionNetworks a owl:Class ;
+    rdfs:label "DistributionNetworks" ;
+    rdfs:comment "Systems of suppliers, distributors, and retailers" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:EconomicGoals a owl:Class ;
+    rdfs:label "EconomicGoals" ;
+    rdfs:comment "Intended financial outcomes and achievements" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:ExchangeAgreements a owl:Class ;
+    rdfs:label "ExchangeAgreements" ;
+    rdfs:comment "Formal or informal contracts governing transactions" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:FinancialResources a owl:Class ;
+    rdfs:label "FinancialResources" ;
+    rdfs:comment "Money, assets, and economic capabilities available" ;
+    rdfs:subClassOf <dul:Amount> .
+
+ex:InvestmentDecisions a owl:Class ;
+    rdfs:label "InvestmentDecisions" ;
+    rdfs:comment "Choices about allocating resources for future returns" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MarketDevelopment a owl:Class ;
+    rdfs:label "MarketDevelopment" ;
+    rdfs:comment "Creating conditions for new economic activities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MarketOfferings a owl:Class ;
+    rdfs:label "MarketOfferings" ;
+    rdfs:comment "Products or services provided to customers" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MonetaryPayment a owl:Class ;
+    rdfs:label "MonetaryPayment" ;
+    rdfs:comment "Financial compensation for goods or services" ;
+    rdfs:subClassOf <dul:Amount> .
+
+ex:PriceNegotiations a owl:Class ;
+    rdfs:label "PriceNegotiations" ;
+    rdfs:comment "Discussions to determine exchange terms" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ProfitGeneration a owl:Class ;
+    rdfs:label "ProfitGeneration" ;
+    rdfs:comment "Creation of financial returns from business operations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpendingChoices a owl:Class ;
+    rdfs:label "SpendingChoices" ;
+    rdfs:comment "Decisions about immediate resource consumption" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SupplyChainEfficiency a owl:Class ;
+    rdfs:label "SupplyChainEfficiency" ;
+    rdfs:comment "Effectiveness of the supply chain" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:EconomicGrowth a owl:Class ;
+    rdfs:label "EconomicGrowth" ;
+    rdfs:comment "Increase in economic activity and prosperity" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BusinessVentures a owl:Class ;
+    rdfs:label "BusinessVentures" ;
+    rdfs:comment "Commercial enterprises created to generate value and profit" ;
+    rdfs:subClassOf <dul:Organization> .
+
+ex:ProductFlow a owl:Class ;
+    rdfs:label "ProductFlow" ;
+    rdfs:comment "Movement of goods through the supply chain" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CommercialTransactions a owl:Class ;
+    rdfs:label "CommercialTransactions" ;
+    rdfs:comment "Formal exchanges of goods, services, or value" ;
+    rdfs:subClassOf <dul:Process> .
+

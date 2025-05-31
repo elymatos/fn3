@@ -1,0 +1,210 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix nat: <http://example.org/gemini/physical/nature#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+nat: ns1:imports dul: .
+
+nat:AstronomicalCycleContext a dul:Situation ;
+    dul:hasParticipant nat:CelestialBody ;
+    dul:hasSetting nat:AstronomicalCycle,
+        nat:CelestialPhenomenon,
+        nat:ObservationRecord .
+
+nat:GeologicalEventContext a dul:Situation ;
+    dul:hasParticipant nat:EarthSystemComponent ;
+    dul:hasSetting nat:GeologicalEvent,
+        nat:StructuralChange,
+        nat:TectonicActivity .
+
+nat:NaturalForceContext a dul:Situation ;
+    dul:hasParticipant nat:AffectedEnvironment ;
+    dul:hasSetting nat:DynamicEffect,
+        nat:ForceType,
+        nat:NaturalForceEvent .
+
+nat:SeasonalRhythmContext a dul:Situation ;
+    dul:hasSetting nat:BiologicalAdaptation,
+        nat:CycleIndicator,
+        nat:EnvironmentalRhythm,
+        nat:SeasonalCycle .
+
+nat:WeatherResponseContext a dul:Situation ;
+    dul:hasParticipant nat:SensorSystem ;
+    dul:hasSetting nat:AdaptationBehavior,
+        nat:EnvironmentalResponse,
+        nat:WeatherPattern .
+
+nat:affects a ns1:ObjectProperty ;
+    rdfs:domain nat:GeologicalEvent ;
+    rdfs:range nat:EarthSystemComponent ;
+    rdfs:subPropertyOf dul:hasObject .
+
+nat:associatedWith a ns1:ObjectProperty ;
+    rdfs:domain nat:CycleIndicator ;
+    rdfs:range nat:TemporalMarker ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:causes a ns1:ObjectProperty ;
+    rdfs:domain nat:GeologicalEvent ;
+    rdfs:range nat:StructuralChange ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+nat:characterizedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:GeologicalEvent ;
+    rdfs:range nat:SeismicImpact ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:classifiedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:NaturalForceEvent ;
+    rdfs:range nat:ForceType ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+nat:contributesTo a ns1:ObjectProperty ;
+    rdfs:domain nat:AtmosphericCondition ;
+    rdfs:range nat:WeatherPattern ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+nat:drives a ns1:ObjectProperty ;
+    rdfs:domain nat:EnvironmentalRhythm ;
+    rdfs:range nat:BiologicalAdaptation ;
+    rdfs:subPropertyOf dul:hasCause .
+
+nat:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain nat:CelestialBody ;
+    rdfs:range nat:AstronomicalCycle ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+nat:generates a ns1:ObjectProperty ;
+    rdfs:domain nat:TectonicActivity ;
+    rdfs:range nat:GeologicalEvent ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+nat:impacts a ns1:ObjectProperty ;
+    rdfs:domain nat:DynamicEffect ;
+    rdfs:range nat:AffectedEnvironment ;
+    rdfs:subPropertyOf dul:hasObject .
+
+nat:includes a ns1:ObjectProperty ;
+    rdfs:domain nat:EnvironmentalResponse ;
+    rdfs:range nat:AdaptationBehavior ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+nat:indicatedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:SeasonalCycle ;
+    rdfs:range nat:CycleIndicator ;
+    rdfs:subPropertyOf dul:hasReference .
+
+nat:influences a ns1:ObjectProperty ;
+    rdfs:domain nat:SeasonalCycle ;
+    rdfs:range nat:EnvironmentalRhythm ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+nat:monitoredBy a ns1:ObjectProperty ;
+    rdfs:domain nat:EnvironmentalResponse ;
+    rdfs:range nat:SensorSystem ;
+    rdfs:subPropertyOf dul:hasAgent .
+
+nat:movesAlong a ns1:ObjectProperty ;
+    rdfs:domain nat:CelestialBody ;
+    rdfs:range nat:OrbitalPath ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:produces a ns1:ObjectProperty ;
+    rdfs:domain nat:AstronomicalCycle,
+        nat:NaturalForceEvent ;
+    rdfs:range nat:CelestialPhenomenon,
+        nat:DynamicEffect ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasOutput .
+
+nat:quantifiedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:NaturalForceEvent ;
+    rdfs:range nat:ImpactExtent ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:trackedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:CelestialPhenomenon ;
+    rdfs:range nat:ObservationRecord ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+nat:triggers a ns1:ObjectProperty ;
+    rdfs:domain nat:WeatherPattern ;
+    rdfs:range nat:EnvironmentalResponse ;
+    rdfs:subPropertyOf dul:hasCause .
+
+nat:AtmosphericCondition a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:ImpactExtent a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:OrbitalPath a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:SeismicImpact a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:TemporalMarker a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:AdaptationBehavior a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:AffectedEnvironment a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:BiologicalAdaptation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:EarthSystemComponent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:ForceType a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:ObservationRecord a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:SensorSystem a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:StructuralChange a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:TectonicActivity a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:AstronomicalCycle a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:CelestialBody a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:CelestialPhenomenon a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+nat:CycleIndicator a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:DynamicEffect a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:EnvironmentalRhythm a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:SeasonalCycle a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:WeatherPattern a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:EnvironmentalResponse a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:NaturalForceEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+nat:GeologicalEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+

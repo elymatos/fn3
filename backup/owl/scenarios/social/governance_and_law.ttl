@@ -1,0 +1,493 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:CitizenToPoliticalRights a owl:ObjectProperty ;
+    rdfs:comment "has right to" ;
+    rdfs:domain ex:Citizen ;
+    rdfs:range ex:PoliticalRights ;
+    rdfs:subPropertyOf <dul:hasRight> .
+
+ex:CivicEngagementToVoting a owl:ObjectProperty ;
+    rdfs:comment "complements" ;
+    rdfs:domain ex:CivicEngagement ;
+    rdfs:range ex:Voting ;
+    rdfs:subPropertyOf <dul:complements> .
+
+ex:ComplianceAuditsToComplianceMonitoring a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:ComplianceAudits ;
+    rdfs:range ex:ComplianceMonitoring ;
+    rdfs:subPropertyOf <dul:support> .
+
+ex:ComplianceMonitoringToRegulatoryViolations a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:ComplianceMonitoring ;
+    rdfs:range ex:RegulatoryViolations ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:DemocraticParticipationToVoting a owl:ObjectProperty ;
+    rdfs:comment "realized by" ;
+    rdfs:domain ex:DemocraticParticipation ;
+    rdfs:range ex:Voting ;
+    rdfs:subPropertyOf <dul:realizedBy> .
+
+ex:DisputeResolutionToJudicialDecisionMaking a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:DisputeResolution ;
+    rdfs:range ex:JudicialDecisionMaking ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:EnforcementActionsToRegulatoryViolations a owl:ObjectProperty ;
+    rdfs:comment "respond to" ;
+    rdfs:domain ex:EnforcementActions ;
+    rdfs:range ex:RegulatoryViolations ;
+    rdfs:subPropertyOf <dul:respondTo> .
+
+ex:EnforcementMeasuresToEnforcementActions a owl:ObjectProperty ;
+    rdfs:comment "applied through" ;
+    rdfs:domain ex:EnforcementMeasures ;
+    rdfs:range ex:EnforcementActions ;
+    rdfs:subPropertyOf <dul:appliedThrough> .
+
+ex:GovernanceScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:GovernanceScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:GovernanceScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:GovernanceScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:GovernanceScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:GovernanceStrategiesToPolicyImplementation a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:GovernanceStrategies ;
+    rdfs:range ex:PolicyImplementation ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:GovernmentalSystemsToRepresentativeProcesses a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:GovernmentalSystems ;
+    rdfs:range ex:RepresentativeProcesses ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:ImpactAssessmentToPublicPolicies a owl:ObjectProperty ;
+    rdfs:comment "evaluates" ;
+    rdfs:domain ex:ImpactAssessment ;
+    rdfs:range ex:PublicPolicies ;
+    rdfs:subPropertyOf <dul:evaluates> .
+
+ex:ImplementationChallengesToPolicyOutcomes a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:ImplementationChallenges ;
+    rdfs:range ex:PolicyOutcomes ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:JudicialDecisionMakingToJusticeOutcomes a owl:ObjectProperty ;
+    rdfs:comment "determines" ;
+    rdfs:domain ex:JudicialDecisionMaking ;
+    rdfs:range ex:JusticeOutcomes ;
+    rdfs:subPropertyOf <dul:determines> .
+
+ex:JusticeOutcomesToFairTreatment a owl:ObjectProperty ;
+    rdfs:comment "satisfy" ;
+    rdfs:domain ex:JusticeOutcomes ;
+    rdfs:range ex:FairTreatment ;
+    rdfs:subPropertyOf <dul:satisfy> .
+
+ex:JusticeSeekerToLegalDisputes a owl:ObjectProperty ;
+    rdfs:comment "initiates" ;
+    rdfs:domain ex:JusticeSeeker ;
+    rdfs:range ex:LegalDisputes ;
+    rdfs:subPropertyOf <dul:initiates> .
+
+ex:LawsToLegalObligations a owl:ObjectProperty ;
+    rdfs:comment "impose" ;
+    rdfs:domain ex:Laws ;
+    rdfs:range ex:LegalObligations ;
+    rdfs:subPropertyOf <dul:impose> .
+
+ex:LawsToRegulations a owl:ObjectProperty ;
+    rdfs:comment "implemented by" ;
+    rdfs:domain ex:Laws ;
+    rdfs:range ex:Regulations ;
+    rdfs:subPropertyOf <dul:implementedBy> .
+
+ex:LegalComplianceToJuridicalProcesses a owl:ObjectProperty ;
+    rdfs:comment "ensured by" ;
+    rdfs:domain ex:LegalCompliance ;
+    rdfs:range ex:JuridicalProcesses ;
+    rdfs:subPropertyOf <dul:ensuredBy> .
+
+ex:LegalComplianceToLegalObligations a owl:ObjectProperty ;
+    rdfs:comment "realizes" ;
+    rdfs:domain ex:LegalCompliance ;
+    rdfs:range ex:LegalObligations ;
+    rdfs:subPropertyOf <dul:realizes> .
+
+ex:LegalConsequencesToLegalCompliance a owl:ObjectProperty ;
+    rdfs:comment "result from" ;
+    rdfs:domain ex:LegalConsequences ;
+    rdfs:range ex:LegalCompliance ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:LegalDisputesToConflictResolution a owl:ObjectProperty ;
+    rdfs:comment "resolved by" ;
+    rdfs:domain ex:LegalDisputes ;
+    rdfs:range ex:ConflictResolution ;
+    rdfs:subPropertyOf <dul:resolvedBy> .
+
+ex:LegalInstitutionsToConflictResolution a owl:ObjectProperty ;
+    rdfs:comment "perform" ;
+    rdfs:domain ex:LegalInstitutions ;
+    rdfs:range ex:ConflictResolution ;
+    rdfs:subPropertyOf <dul:perform> .
+
+ex:LegalParticipantToLegalSystems a owl:ObjectProperty ;
+    rdfs:comment "participates in" ;
+    rdfs:domain ex:LegalParticipant ;
+    rdfs:range ex:LegalSystems ;
+    rdfs:subPropertyOf <dul:participatesIn> .
+
+ex:LegalProceduresToEvidencePresentation a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:LegalProcedures ;
+    rdfs:range ex:EvidencePresentation ;
+    rdfs:subPropertyOf <dul:include> .
+
+ex:LegalRemediesToDisputeResolution a owl:ObjectProperty ;
+    rdfs:comment "provided in" ;
+    rdfs:domain ex:LegalRemedies ;
+    rdfs:range ex:DisputeResolution ;
+    rdfs:subPropertyOf <dul:providedIn> .
+
+ex:LegalSystemsToLaws a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:LegalSystems ;
+    rdfs:range ex:Laws ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:PolicyEffectivenessToPolicyOutcomes a owl:ObjectProperty ;
+    rdfs:comment "assesses" ;
+    rdfs:domain ex:PolicyEffectiveness ;
+    rdfs:range ex:PolicyOutcomes ;
+    rdfs:subPropertyOf <dul:assesses> .
+
+ex:PolicyImplementationToPolicyOutcomes a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:PolicyImplementation ;
+    rdfs:range ex:PolicyOutcomes ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:PolicyMakerToPublicPolicies a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:PolicyMaker ;
+    rdfs:range ex:PublicPolicies ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:PoliticalAuthoritiesToPolicyDecisions a owl:ObjectProperty ;
+    rdfs:comment "execute" ;
+    rdfs:domain ex:PoliticalAuthorities ;
+    rdfs:range ex:PolicyDecisions ;
+    rdfs:subPropertyOf <dul:execute> .
+
+ex:PoliticalRightsToDemocraticParticipation a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:PoliticalRights ;
+    rdfs:range ex:DemocraticParticipation ;
+    rdfs:subPropertyOf <dul:enable> .
+
+ex:PublicPoliciesToPolicyFormulation a owl:ObjectProperty ;
+    rdfs:comment "developed by" ;
+    rdfs:domain ex:PublicPolicies ;
+    rdfs:range ex:PolicyFormulation ;
+    rdfs:subPropertyOf <dul:developedBy> .
+
+ex:RegulationsToRegulatoryRequirements a owl:ObjectProperty ;
+    rdfs:comment "specify" ;
+    rdfs:domain ex:Regulations ;
+    rdfs:range ex:RegulatoryRequirements ;
+    rdfs:subPropertyOf <dul:specify> .
+
+ex:RegulatoryIntegrityToEnforcementActions a owl:ObjectProperty ;
+    rdfs:comment "maintained by" ;
+    rdfs:domain ex:RegulatoryIntegrity ;
+    rdfs:range ex:EnforcementActions ;
+    rdfs:subPropertyOf <dul:maintainedBy> .
+
+ex:RegulatoryOfficerToRegulatoryCompliance a owl:ObjectProperty ;
+    rdfs:comment "monitors" ;
+    rdfs:domain ex:RegulatoryOfficer ;
+    rdfs:range ex:RegulatoryCompliance ;
+    rdfs:subPropertyOf <dul:monitors> .
+
+ex:RepresentativeProcessesToPoliticalProcesses a owl:ObjectProperty ;
+    rdfs:comment "mediate" ;
+    rdfs:domain ex:RepresentativeProcesses ;
+    rdfs:range ex:PoliticalProcesses ;
+    rdfs:subPropertyOf <dul:mediate> .
+
+ex:StakeholderConsultationToPolicyFormulation a owl:ObjectProperty ;
+    rdfs:comment "informs" ;
+    rdfs:domain ex:StakeholderConsultation ;
+    rdfs:range ex:PolicyFormulation ;
+    rdfs:subPropertyOf <dul:informs> .
+
+ex:VoluntaryComplianceToRegulatoryCompliance a owl:ObjectProperty ;
+    rdfs:comment "achieves" ;
+    rdfs:domain ex:VoluntaryCompliance ;
+    rdfs:range ex:RegulatoryCompliance ;
+    rdfs:subPropertyOf <dul:achieves> .
+
+ex:Citizen a owl:Class ;
+    rdfs:label "Citizen" ;
+    rdfs:comment "Person with rights and obligations within political systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CivicEngagement a owl:Class ;
+    rdfs:label "CivicEngagement" ;
+    rdfs:comment "Broader participation in community and political life" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ComplianceAudits a owl:Class ;
+    rdfs:label "ComplianceAudits" ;
+    rdfs:comment "Formal examinations of adherence to regulatory requirements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EnforcementMeasures a owl:Class ;
+    rdfs:label "EnforcementMeasures" ;
+    rdfs:comment "Specific actions taken to address non-compliance" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:EvidencePresentation a owl:Class ;
+    rdfs:label "EvidencePresentation" ;
+    rdfs:comment "Systematic presentation of facts and information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FairTreatment a owl:Class ;
+    rdfs:label "FairTreatment" ;
+    rdfs:comment "Equal and impartial handling according to legal standards" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:GovernanceStrategies a owl:Class ;
+    rdfs:label "GovernanceStrategies" ;
+    rdfs:comment "Comprehensive approaches to governing and policy implementation" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:GovernmentalSystems a owl:Class ;
+    rdfs:label "GovernmentalSystems" ;
+    rdfs:comment "Formal structures for exercising political authority" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:ImpactAssessment a owl:Class ;
+    rdfs:label "ImpactAssessment" ;
+    rdfs:comment "Evaluating potential effects of proposed policies" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ImplementationChallenges a owl:Class ;
+    rdfs:label "ImplementationChallenges" ;
+    rdfs:comment "Obstacles encountered when putting policies into practice" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:JuridicalProcesses a owl:Class ;
+    rdfs:label "JuridicalProcesses" ;
+    rdfs:comment "Formal procedures for legal decision-making and enforcement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:JusticeSeeker a owl:Class ;
+    rdfs:label "JusticeSeeker" ;
+    rdfs:comment "Person seeking legal resolution of disputes or conflicts" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LegalConsequences a owl:Class ;
+    rdfs:label "LegalConsequences" ;
+    rdfs:comment "Results and penalties for legal violations or compliance" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:LegalInstitutions a owl:Class ;
+    rdfs:label "LegalInstitutions" ;
+    rdfs:comment "Formal systems for administering justice (courts, tribunals)" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:LegalParticipant a owl:Class ;
+    rdfs:label "LegalParticipant" ;
+    rdfs:comment "Person operating within formal legal and regulatory systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LegalProcedures a owl:Class ;
+    rdfs:label "LegalProcedures" ;
+    rdfs:comment "Formal steps in judicial decision-making" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LegalRemedies a owl:Class ;
+    rdfs:label "LegalRemedies" ;
+    rdfs:comment "Formal solutions or compensation for legal violations" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:PolicyDecisions a owl:Class ;
+    rdfs:label "PolicyDecisions" ;
+    rdfs:comment "Formal choices about public issues and resource allocation" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:PolicyEffectiveness a owl:Class ;
+    rdfs:label "PolicyEffectiveness" ;
+    rdfs:comment "Degree to which policies achieve their intended goals" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:PolicyMaker a owl:Class ;
+    rdfs:label "PolicyMaker" ;
+    rdfs:comment "Person responsible for developing and implementing public policies" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PoliticalAuthorities a owl:Class ;
+    rdfs:label "PoliticalAuthorities" ;
+    rdfs:comment "People holding formal governmental power" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PoliticalProcesses a owl:Class ;
+    rdfs:label "PoliticalProcesses" ;
+    rdfs:comment "Systematic procedures for collective decision-making and governance" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RegulatoryIntegrity a owl:Class ;
+    rdfs:label "RegulatoryIntegrity" ;
+    rdfs:comment "Consistent and fair application of regulatory standards" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:RegulatoryOfficer a owl:Class ;
+    rdfs:label "RegulatoryOfficer" ;
+    rdfs:comment "Person responsible for ensuring adherence to regulations and laws" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:RegulatoryRequirements a owl:Class ;
+    rdfs:label "RegulatoryRequirements" ;
+    rdfs:comment "Specific compliance standards and procedures" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:StakeholderConsultation a owl:Class ;
+    rdfs:label "StakeholderConsultation" ;
+    rdfs:comment "Engaging relevant parties in policy development" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:VoluntaryCompliance a owl:Class ;
+    rdfs:label "VoluntaryCompliance" ;
+    rdfs:comment "Self-directed adherence to regulations without enforcement pressure" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ComplianceMonitoring a owl:Class ;
+    rdfs:label "ComplianceMonitoring" ;
+    rdfs:comment "Systematic observation and assessment of adherence to regulations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ConflictResolution a owl:Class ;
+    rdfs:label "ConflictResolution" ;
+    rdfs:comment "Systematic approaches to resolving disputes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DemocraticParticipation a owl:Class ;
+    rdfs:label "DemocraticParticipation" ;
+    rdfs:comment "Active involvement in democratic decision-making" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DisputeResolution a owl:Class ;
+    rdfs:label "DisputeResolution" ;
+    rdfs:comment "Successful conclusion of legal conflicts" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:JudicialDecisionMaking a owl:Class ;
+    rdfs:label "JudicialDecisionMaking" ;
+    rdfs:comment "Formal determination of legal outcomes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:JusticeOutcomes a owl:Class ;
+    rdfs:label "JusticeOutcomes" ;
+    rdfs:comment "Results that satisfy legal and moral standards of fairness" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:LegalDisputes a owl:Class ;
+    rdfs:label "LegalDisputes" ;
+    rdfs:comment "Conflicts requiring formal legal resolution" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:LegalObligations a owl:Class ;
+    rdfs:label "LegalObligations" ;
+    rdfs:comment "Duties and requirements imposed by legal systems" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:LegalSystems a owl:Class ;
+    rdfs:label "LegalSystems" ;
+    rdfs:comment "Formal frameworks of laws, courts, and legal institutions" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:PolicyFormulation a owl:Class ;
+    rdfs:label "PolicyFormulation" ;
+    rdfs:comment "Systematic development of policy proposals and plans" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PolicyImplementation a owl:Class ;
+    rdfs:label "PolicyImplementation" ;
+    rdfs:comment "Putting approved policies into practice" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PoliticalRights a owl:Class ;
+    rdfs:label "PoliticalRights" ;
+    rdfs:comment "Entitlements to participate in political processes" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:Regulations a owl:Class ;
+    rdfs:label "Regulations" ;
+    rdfs:comment "Detailed rules implementing broader legal principles" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:RegulatoryCompliance a owl:Class ;
+    rdfs:label "RegulatoryCompliance" ;
+    rdfs:comment "Adherence to established rules and regulations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:RegulatoryViolations a owl:Class ;
+    rdfs:label "RegulatoryViolations" ;
+    rdfs:comment "Instances of non-adherence to established regulations" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:RepresentativeProcesses a owl:Class ;
+    rdfs:label "RepresentativeProcesses" ;
+    rdfs:comment "Systems where citizens influence governance through elected representatives" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Voting a owl:Class ;
+    rdfs:label "Voting" ;
+    rdfs:comment "Formal selection of representatives or policies" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EnforcementActions a owl:Class ;
+    rdfs:label "EnforcementActions" ;
+    rdfs:comment "Measures taken to ensure compliance with regulations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Laws a owl:Class ;
+    rdfs:label "Laws" ;
+    rdfs:comment "Formal rules established by governmental authority" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:LegalCompliance a owl:Class ;
+    rdfs:label "LegalCompliance" ;
+    rdfs:comment "Adherence to laws and regulatory requirements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PolicyOutcomes a owl:Class ;
+    rdfs:label "PolicyOutcomes" ;
+    rdfs:comment "Results and effects of implemented policies" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:PublicPolicies a owl:Class ;
+    rdfs:label "PublicPolicies" ;
+    rdfs:comment "Government decisions and plans that address societal issues" ;
+    rdfs:subClassOf <dul:InformationObject> .
+

@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e74bd7cb-10c9-4efd-8339-b8bc27df84b1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backup/ontology/complete_macroscenarios_mapping.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/20-scenarios_psychological.md" beforeDir="false" afterPath="$PROJECT_DIR$/backup/20-scenarios_psychological-v1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/20-scenarios_representational.md" beforeDir="false" afterPath="$PROJECT_DIR$/backup/20-scenarios_representational-v1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/20-scenarios_social.md" beforeDir="false" afterPath="$PROJECT_DIR$/backup/20-scenarios_social-v1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/20-scenarios_space_time.md" beforeDir="false" afterPath="$PROJECT_DIR$/backup/20-scenarios_space_time-v1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/gemini-scenarios.md" beforeDir="false" afterPath="$PROJECT_DIR$/backup/gemini-scenarios.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1748698325848</updated>
-      <workItem from="1748698326947" duration="7020000" />
+      <workItem from="1748698326947" duration="10285000" />
     </task>
     <servers />
   </component>

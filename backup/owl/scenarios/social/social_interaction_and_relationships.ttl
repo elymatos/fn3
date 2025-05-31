@@ -1,0 +1,463 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:CommunicationSkillsToInterpersonalCommunication a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:CommunicationSkills ;
+    rdfs:range ex:InterpersonalCommunication ;
+    rdfs:subPropertyOf <dul:enable> .
+
+ex:CommunicatorToSocialInteractions a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:Communicator ;
+    rdfs:range ex:SocialInteractions ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:CommunityBuildingToCollectiveBonds a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:CommunityBuilding ;
+    rdfs:range ex:CollectiveBonds ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:CommunityBuildingToCommunityMembers a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:CommunityBuilding ;
+    rdfs:range ex:CommunityMembers ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:CommunityResilienceToCollectiveCaring a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:CommunityResilience ;
+    rdfs:range ex:CollectiveCaring ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:EmotionalAidToPracticalHelp a owl:ObjectProperty ;
+    rdfs:comment "complements" ;
+    rdfs:domain ex:EmotionalAid ;
+    rdfs:range ex:PracticalHelp ;
+    rdfs:subPropertyOf <dul:complements> .
+
+ex:EmotionalSupportToRelationshipBonds a owl:ObjectProperty ;
+    rdfs:comment "strengthens" ;
+    rdfs:domain ex:EmotionalSupport ;
+    rdfs:range ex:RelationshipBonds ;
+    rdfs:subPropertyOf <dul:strengthens> .
+
+ex:InclusionStrategiesToSocialBarriers a owl:ObjectProperty ;
+    rdfs:comment "reduce" ;
+    rdfs:domain ex:InclusionStrategies ;
+    rdfs:range ex:SocialBarriers ;
+    rdfs:subPropertyOf <dul:reduce> .
+
+ex:InstrumentalSupportToSupportProvider a owl:ObjectProperty ;
+    rdfs:comment "delivered by" ;
+    rdfs:domain ex:InstrumentalSupport ;
+    rdfs:range ex:SupportProvider ;
+    rdfs:subPropertyOf <dul:deliveredBy> .
+
+ex:IntegrationProcessesToMarginalizedCommunities a owl:ObjectProperty ;
+    rdfs:comment "target" ;
+    rdfs:domain ex:IntegrationProcesses ;
+    rdfs:range ex:MarginalizedCommunities ;
+    rdfs:subPropertyOf <dul:target> .
+
+ex:InterpersonalCommunicationToSocialInformation a owl:ObjectProperty ;
+    rdfs:comment "transmits" ;
+    rdfs:domain ex:InterpersonalCommunication ;
+    rdfs:range ex:SocialInformation ;
+    rdfs:subPropertyOf <dul:transmits> .
+
+ex:MutualAssistanceToSupportNetworks a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:MutualAssistance ;
+    rdfs:range ex:SupportNetworks ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:NetworkConnectionsToSocialCircles a owl:ObjectProperty ;
+    rdfs:comment "link" ;
+    rdfs:domain ex:NetworkConnections ;
+    rdfs:range ex:SocialCircles ;
+    rdfs:subPropertyOf <dul:link> .
+
+ex:NetworkParticipantToSocialNetworks a owl:ObjectProperty ;
+    rdfs:comment "connects to" ;
+    rdfs:domain ex:NetworkParticipant ;
+    rdfs:range ex:SocialNetworks ;
+    rdfs:subPropertyOf <dul:connectsTo> .
+
+ex:NewCommunityMembersToIntegrationProcesses a owl:ObjectProperty ;
+    rdfs:comment "participate in" ;
+    rdfs:domain ex:NewCommunityMembers ;
+    rdfs:range ex:IntegrationProcesses ;
+    rdfs:subPropertyOf <dul:participateIn> .
+
+ex:RelationshipBuilderToSocialRelationships a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:RelationshipBuilder ;
+    rdfs:range ex:SocialRelationships ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:RelationshipChallengesToSocialRelationships a owl:ObjectProperty ;
+    rdfs:comment "threaten" ;
+    rdfs:domain ex:RelationshipChallenges ;
+    rdfs:range ex:SocialRelationships ;
+    rdfs:subPropertyOf <dul:threaten> .
+
+ex:RelationshipMaintenanceToSocialRelationships a owl:ObjectProperty ;
+    rdfs:comment "preserves" ;
+    rdfs:domain ex:RelationshipMaintenance ;
+    rdfs:range ex:SocialRelationships ;
+    rdfs:subPropertyOf <dul:preserves> .
+
+ex:SharedActivitiesToGroupCohesion a owl:ObjectProperty ;
+    rdfs:comment "foster" ;
+    rdfs:domain ex:SharedActivities ;
+    rdfs:range ex:GroupCohesion ;
+    rdfs:subPropertyOf <dul:foster> .
+
+ex:SocialBarriersToSocialInclusion a owl:ObjectProperty ;
+    rdfs:comment "inhibit" ;
+    rdfs:domain ex:SocialBarriers ;
+    rdfs:range ex:SocialInclusion ;
+    rdfs:subPropertyOf <dul:inhibit> .
+
+ex:SocialCohesionToBridgeBuilding a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:SocialCohesion ;
+    rdfs:range ex:BridgeBuilding ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:SocialConnectionsToSocialInteractions a owl:ObjectProperty ;
+    rdfs:comment "emerge from" ;
+    rdfs:domain ex:SocialConnections ;
+    rdfs:range ex:SocialInteractions ;
+    rdfs:subPropertyOf <dul:emergeFrom> .
+
+ex:SocialDynamicsToRelationshipBonds a owl:ObjectProperty ;
+    rdfs:comment "modulate" ;
+    rdfs:domain ex:SocialDynamics ;
+    rdfs:range ex:RelationshipBonds ;
+    rdfs:subPropertyOf <dul:modulate> .
+
+ex:SocialEffortToRelationshipDevelopment a owl:ObjectProperty ;
+    rdfs:comment "invested in" ;
+    rdfs:domain ex:SocialEffort ;
+    rdfs:range ex:RelationshipDevelopment ;
+    rdfs:subPropertyOf <dul:investedIn> .
+
+ex:SocialExchangeToSocialConnections a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:SocialExchange ;
+    rdfs:range ex:SocialConnections ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:SocialIntegratorToSocialInclusion a owl:ObjectProperty ;
+    rdfs:comment "promotes" ;
+    rdfs:domain ex:SocialIntegrator ;
+    rdfs:range ex:SocialInclusion ;
+    rdfs:subPropertyOf <dul:promotes> .
+
+ex:SocialInteractionScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SocialInteractionScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SocialInteractionScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SocialInteractionScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SocialInteractionScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SocialInteractionsToInterpersonalCommunication a owl:ObjectProperty ;
+    rdfs:comment "realized by" ;
+    rdfs:domain ex:SocialInteractions ;
+    rdfs:range ex:InterpersonalCommunication ;
+    rdfs:subPropertyOf <dul:realizedBy> .
+
+ex:SocialInteractionsToSocialPartners a owl:ObjectProperty ;
+    rdfs:comment "involve" ;
+    rdfs:domain ex:SocialInteractions ;
+    rdfs:range ex:SocialPartners ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:SocialRelationshipsToRelationshipDevelopment a owl:ObjectProperty ;
+    rdfs:comment "develop through" ;
+    rdfs:domain ex:SocialRelationships ;
+    rdfs:range ex:RelationshipDevelopment ;
+    rdfs:subPropertyOf <dul:developThrough> .
+
+ex:SupportExchangeToReciprocalRelationships a owl:ObjectProperty ;
+    rdfs:comment "strengthens" ;
+    rdfs:domain ex:SupportExchange ;
+    rdfs:range ex:ReciprocalRelationships ;
+    rdfs:subPropertyOf <dul:strengthens> .
+
+ex:SupportProviderToSocialSupport a owl:ObjectProperty ;
+    rdfs:comment "offers" ;
+    rdfs:domain ex:SupportProvider ;
+    rdfs:range ex:SocialSupport ;
+    rdfs:subPropertyOf <dul:offers> .
+
+ex:TrustBuildingToIntimacyLevels a owl:ObjectProperty ;
+    rdfs:comment "enhances" ;
+    rdfs:domain ex:TrustBuilding ;
+    rdfs:range ex:IntimacyLevels ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:WelcomingEnvironmentsToBridgeBuilding a owl:ObjectProperty ;
+    rdfs:comment "facilitate" ;
+    rdfs:domain ex:WelcomingEnvironments ;
+    rdfs:range ex:BridgeBuilding ;
+    rdfs:subPropertyOf <dul:facilitate> .
+
+ex:CollectiveBonds a owl:Class ;
+    rdfs:label "CollectiveBonds" ;
+    rdfs:comment "Connections that unite groups of people" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:CollectiveCaring a owl:Class ;
+    rdfs:label "CollectiveCaring" ;
+    rdfs:comment "Community-wide culture of mutual concern and assistance" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CommunicationSkills a owl:Class ;
+    rdfs:label "CommunicationSkills" ;
+    rdfs:comment "Abilities that facilitate effective social interaction" ;
+    rdfs:subClassOf <dul:Skill> .
+
+ex:Communicator a owl:Class ;
+    rdfs:label "Communicator" ;
+    rdfs:comment "Person actively engaging in social interaction" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CommunityMembers a owl:Class ;
+    rdfs:label "CommunityMembers" ;
+    rdfs:comment "People belonging to shared social groups" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CommunityResilience a owl:Class ;
+    rdfs:label "CommunityResilience" ;
+    rdfs:comment "Community's ability to cope with challenges through mutual support" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:EmotionalAid a owl:Class ;
+    rdfs:label "EmotionalAid" ;
+    rdfs:comment "Providing comfort, empathy, and psychological support" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EmotionalSupport a owl:Class ;
+    rdfs:label "EmotionalSupport" ;
+    rdfs:comment "Providing care, understanding, and encouragement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GroupCohesion a owl:Class ;
+    rdfs:label "GroupCohesion" ;
+    rdfs:comment "Strength of unity and connection within groups" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InclusionStrategies a owl:Class ;
+    rdfs:label "InclusionStrategies" ;
+    rdfs:comment "Planned approaches to promoting social inclusion" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InstrumentalSupport a owl:Class ;
+    rdfs:label "InstrumentalSupport" ;
+    rdfs:comment "Providing resources, tools, or services needed by others" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IntimacyLevels a owl:Class ;
+    rdfs:label "IntimacyLevels" ;
+    rdfs:comment "Degrees of closeness and personal connection" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MarginalizedCommunities a owl:Class ;
+    rdfs:label "MarginalizedCommunities" ;
+    rdfs:comment "Groups that have been excluded or disadvantaged in social participation" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:MutualAssistance a owl:Class ;
+    rdfs:label "MutualAssistance" ;
+    rdfs:comment "Reciprocal helping behavior between community members" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:NetworkConnections a owl:Class ;
+    rdfs:label "NetworkConnections" ;
+    rdfs:comment "Links between individuals across social networks" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:NetworkParticipant a owl:Class ;
+    rdfs:label "NetworkParticipant" ;
+    rdfs:comment "Person actively building and maintaining social networks" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:NewCommunityMembers a owl:Class ;
+    rdfs:label "NewCommunityMembers" ;
+    rdfs:comment "Recent arrivals or people new to the community" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PracticalHelp a owl:Class ;
+    rdfs:label "PracticalHelp" ;
+    rdfs:comment "Offering concrete assistance with daily tasks and challenges" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ReciprocalRelationships a owl:Class ;
+    rdfs:label "ReciprocalRelationships" ;
+    rdfs:comment "Mutual relationships based on shared support and assistance" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:RelationshipBuilder a owl:Class ;
+    rdfs:label "RelationshipBuilder" ;
+    rdfs:comment "Person actively creating and maintaining social relationships" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:RelationshipChallenges a owl:Class ;
+    rdfs:label "RelationshipChallenges" ;
+    rdfs:comment "Difficulties and conflicts that test relationships" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:RelationshipMaintenance a owl:Class ;
+    rdfs:label "RelationshipMaintenance" ;
+    rdfs:comment "Ongoing activities to preserve and strengthen connections" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SharedActivities a owl:Class ;
+    rdfs:label "SharedActivities" ;
+    rdfs:comment "Common pursuits that bring people together" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialCircles a owl:Class ;
+    rdfs:label "SocialCircles" ;
+    rdfs:comment "Distinct groups of connected people" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:SocialCohesion a owl:Class ;
+    rdfs:label "SocialCohesion" ;
+    rdfs:comment "Unity and solidarity within diverse communities" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SocialDynamics a owl:Class ;
+    rdfs:label "SocialDynamics" ;
+    rdfs:comment "Patterns and flows of social interaction" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialEffort a owl:Class ;
+    rdfs:label "SocialEffort" ;
+    rdfs:comment "Time and energy invested in relationship building" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:SocialExchange a owl:Class ;
+    rdfs:label "SocialExchange" ;
+    rdfs:comment "Reciprocal giving and receiving in relationships" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialInformation a owl:Class ;
+    rdfs:label "SocialInformation" ;
+    rdfs:comment "Content shared in social interactions" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SocialIntegrator a owl:Class ;
+    rdfs:label "SocialIntegrator" ;
+    rdfs:comment "Person working to include and integrate diverse community members" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SocialNetworks a owl:Class ;
+    rdfs:label "SocialNetworks" ;
+    rdfs:comment "Interconnected webs of social relationships" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:SocialPartners a owl:Class ;
+    rdfs:label "SocialPartners" ;
+    rdfs:comment "Other people involved in interpersonal exchanges" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SocialSupport a owl:Class ;
+    rdfs:label "SocialSupport" ;
+    rdfs:comment "Providing help, comfort, and assistance to others" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SupportExchange a owl:Class ;
+    rdfs:label "SupportExchange" ;
+    rdfs:comment "Reciprocal giving and receiving of assistance" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SupportNetworks a owl:Class ;
+    rdfs:label "SupportNetworks" ;
+    rdfs:comment "Systems of interconnected relationships providing mutual aid" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:TrustBuilding a owl:Class ;
+    rdfs:label "TrustBuilding" ;
+    rdfs:comment "Development of confidence and reliability in relationships" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:WelcomingEnvironments a owl:Class ;
+    rdfs:label "WelcomingEnvironments" ;
+    rdfs:comment "Social contexts that are open and accepting to diverse participants" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:BridgeBuilding a owl:Class ;
+    rdfs:label "BridgeBuilding" ;
+    rdfs:comment "Creating connections between different community groups" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CommunityBuilding a owl:Class ;
+    rdfs:label "CommunityBuilding" ;
+    rdfs:comment "Activities that create and strengthen group connections" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IntegrationProcesses a owl:Class ;
+    rdfs:label "IntegrationProcesses" ;
+    rdfs:comment "Systematic approaches to incorporating new or marginalized members" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RelationshipBonds a owl:Class ;
+    rdfs:label "RelationshipBonds" ;
+    rdfs:comment "Emotional and social ties between people" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:RelationshipDevelopment a owl:Class ;
+    rdfs:label "RelationshipDevelopment" ;
+    rdfs:comment "Progressive deepening of social connections" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialBarriers a owl:Class ;
+    rdfs:label "SocialBarriers" ;
+    rdfs:comment "Obstacles that prevent full social participation" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:SocialConnections a owl:Class ;
+    rdfs:label "SocialConnections" ;
+    rdfs:comment "Bonds and relationships formed through interaction" ;
+    rdfs:subClassOf <dul:SocialRelation> .
+
+ex:SocialInclusion a owl:Class ;
+    rdfs:label "SocialInclusion" ;
+    rdfs:comment "Ensuring all community members can participate fully in social life" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SupportProvider a owl:Class ;
+    rdfs:label "SupportProvider" ;
+    rdfs:comment "Person offering assistance and support to others in their community" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:InterpersonalCommunication a owl:Class ;
+    rdfs:label "InterpersonalCommunication" ;
+    rdfs:comment "Direct communication between individuals" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialInteractions a owl:Class ;
+    rdfs:label "SocialInteractions" ;
+    rdfs:comment "Exchanges between people involving communication and connection" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialRelationships a owl:Class ;
+    rdfs:label "SocialRelationships" ;
+    rdfs:comment "Ongoing connections between people with mutual significance" ;
+    rdfs:subClassOf <dul:SocialObject> .
+

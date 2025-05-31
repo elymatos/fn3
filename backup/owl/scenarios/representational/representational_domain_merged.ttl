@@ -1,0 +1,2876 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AbstractModelingToComplexPhenomena a owl:ObjectProperty ;
+    rdfs:comment "creates representations of" ;
+    rdfs:domain ex:AbstractModeling ;
+    rdfs:range ex:ComplexPhenomena ;
+    rdfs:subPropertyOf <dul:represents> .
+
+ex:AbstractionMechanismsToLevelNavigation a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:AbstractionMechanisms ;
+    rdfs:range ex:LevelNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:AbstractionSpecialistToAbstractionTransitions a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:AbstractionSpecialist ;
+    rdfs:range ex:AbstractionTransitions ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:AbstractionSpecialistToMultiLevelRepresentations a owl:ObjectProperty ;
+    rdfs:comment "works with" ;
+    rdfs:domain ex:AbstractionSpecialist ;
+    rdfs:range ex:MultiLevelRepresentations ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:AccessibilityFeaturesToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:AccessibilityFeatures ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:AdaptiveAlgorithmsToUsageAnalytics a owl:ObjectProperty ;
+    rdfs:comment "analyze" ;
+    rdfs:domain ex:AdaptiveAlgorithms ;
+    rdfs:range ex:UsageAnalytics ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:AdaptiveInterfacesToAccessibilityNeeds a owl:ObjectProperty ;
+    rdfs:comment "adjust to" ;
+    rdfs:domain ex:AdaptiveInterfaces ;
+    rdfs:range ex:AccessibilityNeeds ;
+    rdfs:subPropertyOf <dul:adaptsTo> .
+
+ex:AdaptiveInterfacesToUserCapabilities a owl:ObjectProperty ;
+    rdfs:comment "adjust to" ;
+    rdfs:domain ex:AdaptiveInterfaces ;
+    rdfs:range ex:UserCapabilities ;
+    rdfs:subPropertyOf <dul:adaptsTo> .
+
+ex:AdaptiveSystemManagerToDynamicInformationSystems a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:AdaptiveSystemManager ;
+    rdfs:range ex:DynamicInformationSystems ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:AlgorithmDesignerToAlgorithmicProcesses a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:AlgorithmDesigner ;
+    rdfs:range ex:AlgorithmicProcesses ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:AlgorithmDesignerToComputationalModels a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:AlgorithmDesigner ;
+    rdfs:range ex:ComputationalModels ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:AlgorithmicProcessesToDefinedProblems a owl:ObjectProperty ;
+    rdfs:comment "solve" ;
+    rdfs:domain ex:AlgorithmicProcesses ;
+    rdfs:range ex:DefinedProblems ;
+    rdfs:subPropertyOf <dul:solves> .
+
+ex:AlgorithmicProcessesToLogicalSequences a owl:ObjectProperty ;
+    rdfs:comment "employ" ;
+    rdfs:domain ex:AlgorithmicProcesses ;
+    rdfs:range ex:LogicalSequences ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:AlgorithmicProcessesToSystematicProcedures a owl:ObjectProperty ;
+    rdfs:comment "employ" ;
+    rdfs:domain ex:AlgorithmicProcesses ;
+    rdfs:range ex:SystematicProcedures ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:ArchivalSystemsToArchivalIntegrity a owl:ObjectProperty ;
+    rdfs:comment "maintain" ;
+    rdfs:domain ex:ArchivalSystems ;
+    rdfs:range ex:ArchivalIntegrity ;
+    rdfs:subPropertyOf <dul:maintains> .
+
+ex:AssistiveTechnologiesToAccessibilityNeeds a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:AssistiveTechnologies ;
+    rdfs:range ex:AccessibilityNeeds ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:AssistiveTechnologiesToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:AssistiveTechnologies ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:AssociativeStructuresToNetworkTopologies a owl:ObjectProperty ;
+    rdfs:comment "form" ;
+    rdfs:domain ex:AssociativeStructures ;
+    rdfs:range ex:NetworkTopologies ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:AutomaticReorganizationToOrganizationalPatterns a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:AutomaticReorganization ;
+    rdfs:range ex:OrganizationalPatterns ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:BarrierRemovalToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:BarrierRemoval ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:CategoryStructuresToTaxonomicPrinciples a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:CategoryStructures ;
+    rdfs:range ex:TaxonomicPrinciples ;
+    rdfs:subPropertyOf <dul:follows> .
+
+ex:ClarificationStrategiesToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "applied to" ;
+    rdfs:domain ex:ClarificationStrategies ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:appliedTo> .
+
+ex:ClassificationSchemesToLogicalGroupings a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:ClassificationSchemes ;
+    rdfs:range ex:LogicalGroupings ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:CommunicationRepairerToCommunicationBreakdowns a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:CommunicationRepairer ;
+    rdfs:range ex:CommunicationBreakdowns ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:CommunicationRepairerToMisunderstandingEvents a owl:ObjectProperty ;
+    rdfs:comment "resolves" ;
+    rdfs:domain ex:CommunicationRepairer ;
+    rdfs:range ex:MisunderstandingEvents ;
+    rdfs:subPropertyOf <dul:resolves> .
+
+ex:CommunicationToolsToOnlineCommunication a owl:ObjectProperty ;
+    rdfs:comment "facilitate" ;
+    rdfs:domain ex:CommunicationTools ;
+    rdfs:range ex:OnlineCommunication ;
+    rdfs:subPropertyOf <dul:facilitates> .
+
+ex:CommunicativeGoalsToDiscourseOrganization a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:CommunicativeGoals ;
+    rdfs:range ex:DiscourseOrganization ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:CommunicatorToNonVerbalSignals a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:Communicator ;
+    rdfs:range ex:NonVerbalSignals ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:CommunicatorToVerbalElements a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:Communicator ;
+    rdfs:range ex:VerbalElements ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:ComputationalModelsToAutomatableProcesses a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:ComputationalModels ;
+    rdfs:range ex:AutomatableProcesses ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:ConceptualBridgesToMultipleDomains a owl:ObjectProperty ;
+    rdfs:comment "connect" ;
+    rdfs:domain ex:ConceptualBridges ;
+    rdfs:range ex:MultipleDomains ;
+    rdfs:subPropertyOf <dul:connects> .
+
+ex:ConceptualFrameworksToKnowledgeMaps a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:ConceptualFrameworks ;
+    rdfs:range ex:KnowledgeMaps ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:ConceptualHierarchiesToKnowledgeNavigation a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:ConceptualHierarchies ;
+    rdfs:range ex:KnowledgeNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:ConceptualModelingToDomainKnowledge a owl:ObjectProperty ;
+    rdfs:comment "organizes" ;
+    rdfs:domain ex:ConceptualModeling ;
+    rdfs:range ex:DomainKnowledge ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:ConceptualNodesToConceptualMeaning a owl:ObjectProperty ;
+    rdfs:comment "carry" ;
+    rdfs:domain ex:ConceptualNodes ;
+    rdfs:range ex:ConceptualMeaning ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:ConsistencyCheckingToKnowledgeConflicts a owl:ObjectProperty ;
+    rdfs:comment "identify" ;
+    rdfs:domain ex:ConsistencyChecking ;
+    rdfs:range ex:KnowledgeConflicts ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:ContentCreationToolsToMediaIntegration a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:ContentCreationTools ;
+    rdfs:range ex:MediaIntegration ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:ContextualAdaptationToOrganizationalPatterns a owl:ObjectProperty ;
+    rdfs:comment "adjusts for" ;
+    rdfs:domain ex:ContextualAdaptation ;
+    rdfs:range ex:OrganizationalPatterns ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:ContextualFactorsToMeaningDecoding a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:ContextualFactors ;
+    rdfs:range ex:MeaningDecoding ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:CrossDomainMappingToKnowledgeConnections a owl:ObjectProperty ;
+    rdfs:comment "identify" ;
+    rdfs:domain ex:CrossDomainMapping ;
+    rdfs:range ex:KnowledgeConnections ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:CrossModalLinkingToUnifiedInformationStructures a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:CrossModalLinking ;
+    rdfs:range ex:UnifiedInformationStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:CulturalUnderstandingToPragmaticSkills a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:CulturalUnderstanding ;
+    rdfs:range ex:PragmaticSkills ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DataProcessingSystemsToDigitalInformation a owl:ObjectProperty ;
+    rdfs:comment "handle" ;
+    rdfs:domain ex:DataProcessingSystems ;
+    rdfs:range ex:DigitalInformation ;
+    rdfs:subPropertyOf <dul:handles> .
+
+ex:DataProcessorToDataIntegrity a owl:ObjectProperty ;
+    rdfs:comment "ensures" ;
+    rdfs:domain ex:DataProcessor ;
+    rdfs:range ex:DataIntegrity ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:DataProcessorToDataProcessingSystems a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:DataProcessor ;
+    rdfs:range ex:DataProcessingSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DataProcessorToDigitalInformation a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:DataProcessor ;
+    rdfs:range ex:DigitalInformation ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:DataTransformationToDataIntegrity a owl:ObjectProperty ;
+    rdfs:comment "maintains" ;
+    rdfs:domain ex:DataTransformation ;
+    rdfs:range ex:DataIntegrity ;
+    rdfs:subPropertyOf <dul:preserves> .
+
+ex:DataTransformationToDigitalInformation a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:DataTransformation ;
+    rdfs:range ex:DigitalInformation ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:DigitalArchivistToDigitalPreservation a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:DigitalArchivist ;
+    rdfs:range ex:DigitalPreservation ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:DigitalCollaborationToCommunicationTools a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalCollaboration ;
+    rdfs:range ex:CommunicationTools ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCollaborationToDigitalPlatforms a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalCollaboration ;
+    rdfs:range ex:DigitalPlatforms ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCommunicatorToDigitalPlatforms a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:DigitalCommunicator ;
+    rdfs:range ex:DigitalPlatforms ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCommunicatorToInteractiveSystems a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:DigitalCommunicator ;
+    rdfs:range ex:InteractiveSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalContentToMultimediaElements a owl:ObjectProperty ;
+    rdfs:comment "incorporates" ;
+    rdfs:domain ex:DigitalContent ;
+    rdfs:range ex:MultimediaElements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:DigitalCreatorToContentCreationTools a owl:ObjectProperty ;
+    rdfs:comment "using" ;
+    rdfs:domain ex:DigitalCreator ;
+    rdfs:range ex:ContentCreationTools ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCreatorToDigitalContent a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:DigitalCreator ;
+    rdfs:range ex:DigitalContent ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:DigitalCreatorToMediaIntegration a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:DigitalCreator ;
+    rdfs:range ex:MediaIntegration ;
+    rdfs:subPropertyOf <dul:employs> .
+
+ex:DigitalPlatformsToDigitalInteraction a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:DigitalPlatforms ;
+    rdfs:range ex:DigitalInteraction ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DigitalPlatformsToOnlineCommunication a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:DigitalPlatforms ;
+    rdfs:range ex:OnlineCommunication ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DigitalPreservationToArchivalSystems a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:ArchivalSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalPreservationToCulturalArtifacts a owl:ObjectProperty ;
+    rdfs:comment "of" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:CulturalArtifacts ;
+    rdfs:subPropertyOf <dul:protects> .
+
+ex:DigitalPreservationToDigitalHeritage a owl:ObjectProperty ;
+    rdfs:comment "of" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:DigitalHeritage ;
+    rdfs:subPropertyOf <dul:protects> .
+
+ex:DigitalPreservationToFutureAccess a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:FutureAccess ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DigitalPreservationToPreservationStrategies a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:PreservationStrategies ;
+    rdfs:subPropertyOf <dul:usesMethod> .
+
+ex:DigitalWorkflowsToSystemEfficiency a owl:ObjectProperty ;
+    rdfs:comment "optimize" ;
+    rdfs:domain ex:DigitalWorkflows ;
+    rdfs:range ex:SystemEfficiency ;
+    rdfs:subPropertyOf <dul:optimizes> .
+
+ex:DiscourseOrganizationToSyntacticStructures a owl:ObjectProperty ;
+    rdfs:comment "structures" ;
+    rdfs:domain ex:DiscourseOrganization ;
+    rdfs:range ex:SyntacticStructures ;
+    rdfs:subPropertyOf <dul:structures> .
+
+ex:DynamicInformationSystemsToAccessPatterns a owl:ObjectProperty ;
+    rdfs:comment "monitor" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:AccessPatterns ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:DynamicInformationSystemsToInformationAccessibility a owl:ObjectProperty ;
+    rdfs:comment "optimize" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:InformationAccessibility ;
+    rdfs:subPropertyOf <dul:optimizes> .
+
+ex:DynamicInformationSystemsToUsageAnalytics a owl:ObjectProperty ;
+    rdfs:comment "monitor" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:UsageAnalytics ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:DynamicInformationSystemsToUserEfficiency a owl:ObjectProperty ;
+    rdfs:comment "optimize" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:UserEfficiency ;
+    rdfs:subPropertyOf <dul:optimizes> .
+
+ex:EmergentInsightsToHolisticPerspectives a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:EmergentInsights ;
+    rdfs:range ex:HolisticPerspectives ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:EssentialRelationshipsToTheoreticalPredictions a owl:ObjectProperty ;
+    rdfs:comment "determine" ;
+    rdfs:domain ex:EssentialRelationships ;
+    rdfs:range ex:TheoreticalPredictions ;
+    rdfs:subPropertyOf <dul:conditions> .
+
+ex:ExistingFormalSystemsToLogicalConsistency a owl:ObjectProperty ;
+    rdfs:comment "must maintain" ;
+    rdfs:domain ex:ExistingFormalSystems ;
+    rdfs:range ex:LogicalConsistency ;
+    rdfs:subPropertyOf <dul:requires> .
+
+ex:FactualValidationToKnowledgeAccuracy a owl:ObjectProperty ;
+    rdfs:comment "ensure" ;
+    rdfs:domain ex:FactualValidation ;
+    rdfs:range ex:KnowledgeAccuracy ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:FluentCommunicationToCommunicativeCompetence a owl:ObjectProperty ;
+    rdfs:comment "indicates" ;
+    rdfs:domain ex:FluentCommunication ;
+    rdfs:range ex:CommunicativeCompetence ;
+    rdfs:subPropertyOf <dul:indicates> .
+
+ex:FormalConclusionsToAbstractProblems a owl:ObjectProperty ;
+    rdfs:comment "solve" ;
+    rdfs:domain ex:FormalConclusions ;
+    rdfs:range ex:AbstractProblems ;
+    rdfs:subPropertyOf <dul:solves> .
+
+ex:FormalSystemUpgradesToSystemExtension a owl:ObjectProperty ;
+    rdfs:comment "implement" ;
+    rdfs:domain ex:FormalSystemUpgrades ;
+    rdfs:range ex:SystemExtension ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:FormalSystemsScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:FormalSystemsScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:FormalSystemsScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:FormalSystemsScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:FormalSystemsScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:FormatMigrationToDigitalLongevity a owl:ObjectProperty ;
+    rdfs:comment "ensure" ;
+    rdfs:domain ex:FormatMigration ;
+    rdfs:range ex:DigitalLongevity ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:GrammarLearningToCommunicativeCompetence a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:GrammarLearning ;
+    rdfs:range ex:CommunicativeCompetence ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:HeterogeneousDataSourcesToAudioContent a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:AudioContent ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HeterogeneousDataSourcesToSpatialInformation a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:SpatialInformation ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HeterogeneousDataSourcesToTextualInformation a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:TextualInformation ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HeterogeneousDataSourcesToVisualData a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:VisualData ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HierarchicalOrganizationToInformationRetrieval a owl:ObjectProperty ;
+    rdfs:comment "facilitates" ;
+    rdfs:domain ex:HierarchicalOrganization ;
+    rdfs:range ex:InformationRetrieval ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:InclusiveDesignToAdaptiveInterfaces a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:InclusiveDesign ;
+    rdfs:range ex:AdaptiveInterfaces ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:InformationManagementToDataInput a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:InformationManagement ;
+    rdfs:range ex:DataInput ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:InformationManagementToDataOutput a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:InformationManagement ;
+    rdfs:range ex:DataOutput ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:InformationManagementToDataTransformation a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:InformationManagement ;
+    rdfs:range ex:DataTransformation ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:InformationNodesToInformationNodes a owl:ObjectProperty ;
+    rdfs:comment "connected through" ;
+    rdfs:domain ex:InformationNodes ;
+    rdfs:range ex:InformationNodes ;
+    rdfs:subPropertyOf <dul:isConnectedTo> .
+
+ex:InformationNodesToLinkagePatterns a owl:ObjectProperty ;
+    rdfs:comment "connected through" ;
+    rdfs:domain ex:InformationNodes ;
+    rdfs:range ex:LinkagePatterns ;
+    rdfs:subPropertyOf <dul:linkedBy> .
+
+ex:InformationOrganizerToOrganizationalSystems a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:InformationOrganizer ;
+    rdfs:range ex:OrganizationalSystems ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:InformationSequencesToLogicalProgression a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:InformationSequences ;
+    rdfs:range ex:LogicalProgression ;
+    rdfs:subPropertyOf <dul:follows> .
+
+ex:InformationSequencesToTemporalOrdering a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:InformationSequences ;
+    rdfs:range ex:TemporalOrdering ;
+    rdfs:subPropertyOf <dul:follows> .
+
+ex:InformationStructuresScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:InformationStructuresScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:InformationStructuresScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:InformationStructuresScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:InformationStructuresScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:IntegratedAccessSystemsToMultimodalRetrieval a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:IntegratedAccessSystems ;
+    rdfs:range ex:MultimodalRetrieval ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:IntegratedMediaToDigitalProducts a owl:ObjectProperty ;
+    rdfs:comment "becomes" ;
+    rdfs:domain ex:IntegratedMedia ;
+    rdfs:range ex:DigitalProducts ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:IntegratedUnderstandingToEmergentInsights a owl:ObjectProperty ;
+    rdfs:comment "reveal" ;
+    rdfs:domain ex:IntegratedUnderstanding ;
+    rdfs:range ex:EmergentInsights ;
+    rdfs:subPropertyOf <dul:reveals> .
+
+ex:InteractiveRepairToMutualUnderstanding a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:InteractiveRepair ;
+    rdfs:range ex:MutualUnderstanding ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:InteractiveSystemsToDigitalCollaboration a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:InteractiveSystems ;
+    rdfs:range ex:DigitalCollaboration ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:InteractiveSystemsToVirtualEngagement a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:InteractiveSystems ;
+    rdfs:range ex:VirtualEngagement ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:InterfaceDesignToUserExperiences a owl:ObjectProperty ;
+    rdfs:comment "shapes" ;
+    rdfs:domain ex:InterfaceDesign ;
+    rdfs:range ex:UserExperiences ;
+    rdfs:subPropertyOf <dul:shapes> .
+
+ex:InterfaceDesignerToAccessibilityFeatures a owl:ObjectProperty ;
+    rdfs:comment "with" ;
+    rdfs:domain ex:InterfaceDesigner ;
+    rdfs:range ex:AccessibilityFeatures ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:InterfaceDesignerToAdaptiveInterfaces a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:InterfaceDesigner ;
+    rdfs:range ex:AdaptiveInterfaces ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:KnowledgeArchitectToConceptualFrameworks a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:KnowledgeArchitect ;
+    rdfs:range ex:ConceptualFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:KnowledgeArchitectToKnowledgeStructures a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:KnowledgeArchitect ;
+    rdfs:range ex:KnowledgeStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:KnowledgeBasesToKnowledgeApplication a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:KnowledgeBases ;
+    rdfs:range ex:KnowledgeApplication ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:KnowledgeBasesToKnowledgeRetrieval a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:KnowledgeBases ;
+    rdfs:range ex:KnowledgeRetrieval ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:KnowledgeEncodingSystemsToExplicitKnowledge a owl:ObjectProperty ;
+    rdfs:comment "capture" ;
+    rdfs:domain ex:KnowledgeEncodingSystems ;
+    rdfs:range ex:ExplicitKnowledge ;
+    rdfs:subPropertyOf <dul:capture> .
+
+ex:KnowledgeEncodingSystemsToInformationalContent a owl:ObjectProperty ;
+    rdfs:comment "preserve" ;
+    rdfs:domain ex:KnowledgeEncodingSystems ;
+    rdfs:range ex:InformationalContent ;
+    rdfs:subPropertyOf <dul:preserves> .
+
+ex:KnowledgeEncodingSystemsToTacitUnderstanding a owl:ObjectProperty ;
+    rdfs:comment "capture" ;
+    rdfs:domain ex:KnowledgeEncodingSystems ;
+    rdfs:range ex:TacitUnderstanding ;
+    rdfs:subPropertyOf <dul:capture> .
+
+ex:KnowledgeEngineerToKnowledgeEncodingSystems a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:KnowledgeEngineer ;
+    rdfs:range ex:KnowledgeEncodingSystems ;
+    rdfs:subPropertyOf <dul:develops> .
+
+ex:KnowledgeEngineerToRepresentationFormats a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:KnowledgeEngineer ;
+    rdfs:range ex:RepresentationFormats ;
+    rdfs:subPropertyOf <dul:develops> .
+
+ex:KnowledgeIntegrationToKnowledgeConnections a owl:ObjectProperty ;
+    rdfs:comment "identify" ;
+    rdfs:domain ex:KnowledgeIntegration ;
+    rdfs:range ex:KnowledgeConnections ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:KnowledgeIntegrationToSyntheticKnowledge a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:KnowledgeIntegration ;
+    rdfs:range ex:SyntheticKnowledge ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:KnowledgeMapsToConceptualRelationships a owl:ObjectProperty ;
+    rdfs:comment "visualize" ;
+    rdfs:domain ex:KnowledgeMaps ;
+    rdfs:range ex:ConceptualRelationships ;
+    rdfs:subPropertyOf <dul:visualizes> .
+
+ex:KnowledgeRepresentationScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:KnowledgeRepresentationScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:KnowledgeRepresentationScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:KnowledgeRepresentationScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:KnowledgeRepresentationScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:KnowledgeRetrievalToExplicitKnowledge a owl:ObjectProperty ;
+    rdfs:comment "access" ;
+    rdfs:domain ex:KnowledgeRetrieval ;
+    rdfs:range ex:ExplicitKnowledge ;
+    rdfs:subPropertyOf <dul:accesses> .
+
+ex:KnowledgeStructuresToKnowledgeStructures a owl:ObjectProperty ;
+    rdfs:comment "connected through ConceptualRelationships" ;
+    rdfs:domain ex:KnowledgeStructures ;
+    rdfs:range ex:KnowledgeStructures ;
+    rdfs:subPropertyOf <dul:isConnectedTo> .
+
+ex:KnowledgeSynthesizerToDisparateKnowledge a owl:ObjectProperty ;
+    rdfs:comment "combines" ;
+    rdfs:domain ex:KnowledgeSynthesizer ;
+    rdfs:range ex:DisparateKnowledge ;
+    rdfs:subPropertyOf <dul:combines> .
+
+ex:KnowledgeSynthesizerToMultipleDomains a owl:ObjectProperty ;
+    rdfs:comment "works across" ;
+    rdfs:domain ex:KnowledgeSynthesizer ;
+    rdfs:range ex:MultipleDomains ;
+    rdfs:subPropertyOf <dul:considers> .
+
+ex:KnowledgeValidatorToValidationSystems a owl:ObjectProperty ;
+    rdfs:comment "implements" ;
+    rdfs:domain ex:KnowledgeValidator ;
+    rdfs:range ex:ValidationSystems ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:KnowledgeValidatorToVerificationProcesses a owl:ObjectProperty ;
+    rdfs:comment "implements" ;
+    rdfs:domain ex:KnowledgeValidator ;
+    rdfs:range ex:VerificationProcesses ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:LanguageAcquisitionToPatternRecognition a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:LanguageAcquisition ;
+    rdfs:range ex:PatternRecognition ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:LanguageAcquisitionToPracticeActivities a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:LanguageAcquisition ;
+    rdfs:range ex:PracticeActivities ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:LanguageAcquisitionToRuleInternalization a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:LanguageAcquisition ;
+    rdfs:range ex:RuleInternalization ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:LanguageLearnerToNewLanguageSkills a owl:ObjectProperty ;
+    rdfs:comment "acquires" ;
+    rdfs:domain ex:LanguageLearner ;
+    rdfs:range ex:NewLanguageSkills ;
+    rdfs:subPropertyOf <dul:acquires> .
+
+ex:LanguageUserToLanguageConventions a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:LanguageUser ;
+    rdfs:range ex:LanguageConventions ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:LanguageUserToLinguisticUnits a owl:ObjectProperty ;
+    rdfs:comment "selects" ;
+    rdfs:domain ex:LanguageUser ;
+    rdfs:range ex:LinguisticUnits ;
+    rdfs:subPropertyOf <dul:selects> .
+
+ex:LevelMappingToAbstractionTransitions a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:LevelMapping ;
+    rdfs:range ex:AbstractionTransitions ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:LinkagePatternsToAssociativeStructures a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:LinkagePatterns ;
+    rdfs:range ex:AssociativeStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:LogicalGroupingsToInformationRetrieval a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:LogicalGroupings ;
+    rdfs:range ex:InformationRetrieval ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:LogicalProgressionToSequentialAccess a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:LogicalProgression ;
+    rdfs:range ex:SequentialAccess ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:LogicalRulesToFormalConclusions a owl:ObjectProperty ;
+    rdfs:comment "guide derivation of" ;
+    rdfs:domain ex:LogicalRules ;
+    rdfs:range ex:FormalConclusions ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:LogicalSequencesToSystematicExecution a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:LogicalSequences ;
+    rdfs:range ex:SystematicExecution ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:LongTermStorageToDigitalLongevity a owl:ObjectProperty ;
+    rdfs:comment "ensure" ;
+    rdfs:domain ex:LongTermStorage ;
+    rdfs:range ex:DigitalLongevity ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:MathematicalOperationsToLogicalRules a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:MathematicalOperations ;
+    rdfs:range ex:LogicalRules ;
+    rdfs:subPropertyOf <dul:conformsTo> .
+
+ex:MathematicalOperationsToSymbolicRepresentations a owl:ObjectProperty ;
+    rdfs:comment "transform" ;
+    rdfs:domain ex:MathematicalOperations ;
+    rdfs:range ex:SymbolicRepresentations ;
+    rdfs:subPropertyOf <dul:transforms> .
+
+ex:MathematicalSystemsToFormalNotations a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:MathematicalSystems ;
+    rdfs:range ex:FormalNotations ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:MathematicalSystemsToSymbolicRepresentations a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:MathematicalSystems ;
+    rdfs:range ex:SymbolicRepresentations ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:MathematicalThinkerToLogicalStructures a owl:ObjectProperty ;
+    rdfs:comment "works with" ;
+    rdfs:domain ex:MathematicalThinker ;
+    rdfs:range ex:LogicalStructures ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:MathematicalThinkerToMathematicalOperations a owl:ObjectProperty ;
+    rdfs:comment "applies" ;
+    rdfs:domain ex:MathematicalThinker ;
+    rdfs:range ex:MathematicalOperations ;
+    rdfs:subPropertyOf <dul:executes> .
+
+ex:MathematicalThinkerToMathematicalSystems a owl:ObjectProperty ;
+    rdfs:comment "works with" ;
+    rdfs:domain ex:MathematicalThinker ;
+    rdfs:range ex:MathematicalSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:MeaningDecodingToInterpretedMeanings a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:MeaningDecoding ;
+    rdfs:range ex:InterpretedMeanings ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:MeaningRelationshipsToSemanticConnections a owl:ObjectProperty ;
+    rdfs:comment "define types of" ;
+    rdfs:domain ex:MeaningRelationships ;
+    rdfs:range ex:SemanticConnections ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:MeaningStructuresToSemanticReasoning a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:MeaningStructures ;
+    rdfs:range ex:SemanticReasoning ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:MediaAndDigitalSystemsScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:MediaAndDigitalSystemsScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:MediaAndDigitalSystemsScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:MediaAndDigitalSystemsScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:MediaAndDigitalSystemsScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:MediaIntegrationToIntegratedMedia a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:MediaIntegration ;
+    rdfs:range ex:IntegratedMedia ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:MessageReceiverToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "decodes" ;
+    rdfs:domain ex:MessageReceiver ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:decodes> .
+
+ex:MessageSenderToIntendedMeanings a owl:ObjectProperty ;
+    rdfs:comment "expresses" ;
+    rdfs:domain ex:MessageSender ;
+    rdfs:range ex:IntendedMeanings ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:MessageSenderToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "encodes" ;
+    rdfs:domain ex:MessageSender ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:encodes> .
+
+ex:MetadataManagementToDigitalPreservation a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:MetadataManagement ;
+    rdfs:range ex:DigitalPreservation ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:ModelBuilderToSystematicFrameworks a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:ModelBuilder ;
+    rdfs:range ex:SystematicFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ModelBuilderToTheoreticalModels a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:ModelBuilder ;
+    rdfs:range ex:TheoreticalModels ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ModelComponentsToEssentialRelationships a owl:ObjectProperty ;
+    rdfs:comment "linked by" ;
+    rdfs:domain ex:ModelComponents ;
+    rdfs:range ex:EssentialRelationships ;
+    rdfs:subPropertyOf <dul:linkedBy> .
+
+ex:ModelComponentsToModelComponents a owl:ObjectProperty ;
+    rdfs:comment "connected through" ;
+    rdfs:domain ex:ModelComponents ;
+    rdfs:range ex:ModelComponents ;
+    rdfs:subPropertyOf <dul:isConnectedTo> .
+
+ex:MultiLevelRepresentationsToAbstractLevel a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultiLevelRepresentations ;
+    rdfs:range ex:AbstractLevel ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultiLevelRepresentationsToDetailedLevel a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultiLevelRepresentations ;
+    rdfs:range ex:DetailedLevel ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultiLevelRepresentationsToIntermediateLevel a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultiLevelRepresentations ;
+    rdfs:range ex:IntermediateLevel ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimediaElementsToAudioElements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:AudioElements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimediaElementsToInteractiveFeatures a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:InteractiveFeatures ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimediaElementsToTextElements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:TextElements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimediaElementsToVisualComponents a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:VisualComponents ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalIntegratorToCrossModalLinking a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:MultimodalIntegrator ;
+    rdfs:range ex:CrossModalLinking ;
+    rdfs:subPropertyOf <dul:employs> .
+
+ex:MultimodalIntegratorToHeterogeneousDataSources a owl:ObjectProperty ;
+    rdfs:comment "combines" ;
+    rdfs:domain ex:MultimodalIntegrator ;
+    rdfs:range ex:HeterogeneousDataSources ;
+    rdfs:subPropertyOf <dul:combines> .
+
+ex:MultimodalIntegratorToSemanticAlignment a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:MultimodalIntegrator ;
+    rdfs:range ex:SemanticAlignment ;
+    rdfs:subPropertyOf <dul:employs> .
+
+ex:MultimodalMessagesToAdditionalMeaning a owl:ObjectProperty ;
+    rdfs:comment "convey" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:AdditionalMeaning ;
+    rdfs:subPropertyOf <dul:conveys> .
+
+ex:MultimodalMessagesToCommunicativeEffectiveness a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:CommunicativeEffectiveness ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:MultimodalMessagesToEmotionalSubtext a owl:ObjectProperty ;
+    rdfs:comment "convey" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:EmotionalSubtext ;
+    rdfs:subPropertyOf <dul:conveys> .
+
+ex:MultimodalMessagesToGesturePatterns a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:GesturePatterns ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalMessagesToProsodicFeatures a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:ProsodicFeatures ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalMessagesToSpacialArrangements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:SpacialArrangements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalMessagesToVisualCues a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:VisualCues ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalRetrievalToCoherentInformationExperience a owl:ObjectProperty ;
+    rdfs:comment "provides" ;
+    rdfs:domain ex:MultimodalRetrieval ;
+    rdfs:range ex:CoherentInformationExperience ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:NetworkBuilderToConnectionSystems a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:NetworkBuilder ;
+    rdfs:range ex:ConnectionSystems ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:NetworkBuilderToInterconnectedRelationships a owl:ObjectProperty ;
+    rdfs:comment "establishes" ;
+    rdfs:domain ex:NetworkBuilder ;
+    rdfs:range ex:InterconnectedRelationships ;
+    rdfs:subPropertyOf <dul:establishes> .
+
+ex:NetworkBuilderToRelationalNetworks a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:NetworkBuilder ;
+    rdfs:range ex:RelationalNetworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:NetworkTopologiesToPathwayNavigation a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:NetworkTopologies ;
+    rdfs:range ex:PathwayNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:OrganizationalSystemsToCategoryStructures a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:OrganizationalSystems ;
+    rdfs:range ex:CategoryStructures ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:OrganizationalSystemsToClassificationSchemes a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:OrganizationalSystems ;
+    rdfs:range ex:ClassificationSchemes ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:OrganizationalSystemsToDataCollections a owl:ObjectProperty ;
+    rdfs:comment "for" ;
+    rdfs:domain ex:OrganizationalSystems ;
+    rdfs:range ex:DataCollections ;
+    rdfs:subPropertyOf <dul:isDefinedIn> .
+
+ex:PathwayNavigationToInterconnectedRelationships a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:PathwayNavigation ;
+    rdfs:range ex:InterconnectedRelationships ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:PersonalizationSystemsToAdaptiveInterfaces a owl:ObjectProperty ;
+    rdfs:comment "enable customization for" ;
+    rdfs:domain ex:PersonalizationSystems ;
+    rdfs:range ex:AdaptiveInterfaces ;
+    rdfs:subPropertyOf <dul:customizes> .
+
+ex:PersonalizationSystemsToUserCapabilities a owl:ObjectProperty ;
+    rdfs:comment "adapt to" ;
+    rdfs:domain ex:PersonalizationSystems ;
+    rdfs:range ex:UserCapabilities ;
+    rdfs:subPropertyOf <dul:adaptsTo> .
+
+ex:PragmaticSkillsToFluentCommunication a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:PragmaticSkills ;
+    rdfs:range ex:FluentCommunication ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:PreservationStrategiesToFormatMigration a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:PreservationStrategies ;
+    rdfs:range ex:FormatMigration ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:PreservationStrategiesToLongTermStorage a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:PreservationStrategies ;
+    rdfs:range ex:LongTermStorage ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:ProceduralFrameworksToStepByStepOrganization a owl:ObjectProperty ;
+    rdfs:comment "employ" ;
+    rdfs:domain ex:ProceduralFrameworks ;
+    rdfs:range ex:StepByStepOrganization ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:ProcessOrganizerToProceduralFrameworks a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:ProcessOrganizer ;
+    rdfs:range ex:ProceduralFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ProcessOrganizerToSequentialStructures a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:ProcessOrganizer ;
+    rdfs:range ex:SequentialStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ProcessualNavigationToProceduralFrameworks a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:ProcessualNavigation ;
+    rdfs:range ex:ProceduralFrameworks ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:RelationalNetworksToInformationNodes a owl:ObjectProperty ;
+    rdfs:comment "composed of" ;
+    rdfs:domain ex:RelationalNetworks ;
+    rdfs:range ex:InformationNodes ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:ReliabilityRankingToKnowledgeQuality a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:ReliabilityRanking ;
+    rdfs:range ex:KnowledgeQuality ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:RepairMechanismsToCommunicativeFlow a owl:ObjectProperty ;
+    rdfs:comment "improve" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:CommunicativeFlow ;
+    rdfs:subPropertyOf <dul:improves> .
+
+ex:RepairMechanismsToConfirmationChecking a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:ConfirmationChecking ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:RepairMechanismsToExplanationExpansion a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:ExplanationExpansion ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:RepairMechanismsToReformulation a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:Reformulation ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:RepresentationFormatsToKnowledgeBases a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:RepresentationFormats ;
+    rdfs:range ex:KnowledgeBases ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:RepresentationFormatsToRepresentationSchemas a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:RepresentationFormats ;
+    rdfs:range ex:RepresentationSchemas ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:RepresentationSchemasToInformationalContent a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:RepresentationSchemas ;
+    rdfs:range ex:InformationalContent ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:RepresentationalCoherenceToMultiLevelRepresentations a owl:ObjectProperty ;
+    rdfs:comment "ensures consistency across" ;
+    rdfs:domain ex:RepresentationalCoherence ;
+    rdfs:range ex:MultiLevelRepresentations ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:RuleGeneralizationToSystemLimitations a owl:ObjectProperty ;
+    rdfs:comment "addresses" ;
+    rdfs:domain ex:RuleGeneralization ;
+    rdfs:range ex:SystemLimitations ;
+    rdfs:subPropertyOf <dul:addresses> .
+
+ex:RuleModificationToSystemCapabilities a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:RuleModification ;
+    rdfs:range ex:SystemCapabilities ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:ScaleTransitionToAbstractionTransitions a owl:ObjectProperty ;
+    rdfs:comment "adjust" ;
+    rdfs:domain ex:ScaleTransition ;
+    rdfs:range ex:AbstractionTransitions ;
+    rdfs:subPropertyOf <dul:adjusts> .
+
+ex:SemanticAlignmentToUnifiedInformationStructures a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:SemanticAlignment ;
+    rdfs:range ex:UnifiedInformationStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SemanticConnectionsToSemanticReasoning a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:SemanticConnections ;
+    rdfs:range ex:SemanticReasoning ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:SemanticMapsToRelationalStructures a owl:ObjectProperty ;
+    rdfs:comment "show" ;
+    rdfs:domain ex:SemanticMaps ;
+    rdfs:range ex:RelationalStructures ;
+    rdfs:subPropertyOf <dul:shows> .
+
+ex:SemanticModelerToMeaningStructures a owl:ObjectProperty ;
+    rdfs:comment "builds" ;
+    rdfs:domain ex:SemanticModeler ;
+    rdfs:range ex:MeaningStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SemanticModelerToSemanticMaps a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:SemanticModeler ;
+    rdfs:range ex:SemanticMaps ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SemanticModelerToSemanticNetworks a owl:ObjectProperty ;
+    rdfs:comment "builds" ;
+    rdfs:domain ex:SemanticModeler ;
+    rdfs:range ex:SemanticNetworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SemanticNetworksToConceptualNodes a owl:ObjectProperty ;
+    rdfs:comment "connect through SemanticConnections" ;
+    rdfs:domain ex:SemanticNetworks ;
+    rdfs:range ex:ConceptualNodes ;
+    rdfs:subPropertyOf <dul:connects> .
+
+ex:SemanticNoiseToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "distort" ;
+    rdfs:domain ex:SemanticNoise ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:distorts> .
+
+ex:SemanticOrganizationToConceptualHierarchies a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:SemanticOrganization ;
+    rdfs:range ex:ConceptualHierarchies ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SentenceConstructionToGrammaticalRules a owl:ObjectProperty ;
+    rdfs:comment "applies" ;
+    rdfs:domain ex:SentenceConstruction ;
+    rdfs:range ex:GrammaticalRules ;
+    rdfs:subPropertyOf <dul:applies> .
+
+ex:SentenceConstructionToSyntacticStructures a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:SentenceConstruction ;
+    rdfs:range ex:SyntacticStructures ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:SequentialStructuresToInformationSequences a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:SequentialStructures ;
+    rdfs:range ex:InformationSequences ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:SignsCommunicationScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SignsCommunicationScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SignsCommunicationScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SignsCommunicationScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SignsCommunicationScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SourceVerificationToInformationReliability a owl:ObjectProperty ;
+    rdfs:comment "confirm" ;
+    rdfs:domain ex:SourceVerification ;
+    rdfs:range ex:InformationReliability ;
+    rdfs:subPropertyOf <dul:confirms> .
+
+ex:StepByStepOrganizationToProcessualNavigation a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:StepByStepOrganization ;
+    rdfs:range ex:ProcessualNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:StepWiseAlgorithmsToComputationalLogic a owl:ObjectProperty ;
+    rdfs:comment "implement" ;
+    rdfs:domain ex:StepWiseAlgorithms ;
+    rdfs:range ex:ComputationalLogic ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:SymbolicMessagesToCommunicationChannels a owl:ObjectProperty ;
+    rdfs:comment "travel through" ;
+    rdfs:domain ex:SymbolicMessages ;
+    rdfs:range ex:CommunicationChannels ;
+    rdfs:subPropertyOf <dul:hasLocation> .
+
+ex:SymbolicMessagesToCommunicationSystems a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:SymbolicMessages ;
+    rdfs:range ex:CommunicationSystems ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:SymbolicRepresentationsToAbstractConcepts a owl:ObjectProperty ;
+    rdfs:comment "express" ;
+    rdfs:domain ex:SymbolicRepresentations ;
+    rdfs:range ex:AbstractConcepts ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:SymbolicRepresentationsToQuantitativeRelationships a owl:ObjectProperty ;
+    rdfs:comment "express" ;
+    rdfs:domain ex:SymbolicRepresentations ;
+    rdfs:range ex:QuantitativeRelationships ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:SyntacticStructuresToSemanticContent a owl:ObjectProperty ;
+    rdfs:comment "express" ;
+    rdfs:domain ex:SyntacticStructures ;
+    rdfs:range ex:SemanticContent ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:SyntheticKnowledgeToIntegratedUnderstanding a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:SyntheticKnowledge ;
+    rdfs:range ex:IntegratedUnderstanding ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:SystemAdaptationToExistingFormalSystems a owl:ObjectProperty ;
+    rdfs:comment "adjusts" ;
+    rdfs:domain ex:SystemAdaptation ;
+    rdfs:range ex:ExistingFormalSystems ;
+    rdfs:subPropertyOf <dul:adjusts> .
+
+ex:SystemEfficiencyToDigitalWorkflows a owl:ObjectProperty ;
+    rdfs:comment "depends on" ;
+    rdfs:domain ex:SystemEfficiency ;
+    rdfs:range ex:DigitalWorkflows ;
+    rdfs:subPropertyOf <dul:dependsOn> .
+
+ex:SystemEvolutionistToExistingFormalSystems a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:ExistingFormalSystems ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:SystemEvolutionistToExpressiveConstraints a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:ExpressiveConstraints ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:SystemEvolutionistToRuleModification a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:RuleModification ;
+    rdfs:subPropertyOf <dul:executes> .
+
+ex:SystemEvolutionistToSystemExtension a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:SystemExtension ;
+    rdfs:subPropertyOf <dul:executes> .
+
+ex:SystemEvolutionistToSystemLimitations a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:SystemLimitations ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:SystemExtensionToSystemCapabilities a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:SystemExtension ;
+    rdfs:range ex:SystemCapabilities ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:SystemLearningToOrganizationalPatterns a owl:ObjectProperty ;
+    rdfs:comment "enables improvement of" ;
+    rdfs:domain ex:SystemLearning ;
+    rdfs:range ex:OrganizationalPatterns ;
+    rdfs:subPropertyOf <dul:improves> .
+
+ex:SystematicFrameworksToFrameworkElements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:SystematicFrameworks ;
+    rdfs:range ex:FrameworkElements ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:SystematicProceduresToAutomatableProcesses a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:SystematicProcedures ;
+    rdfs:range ex:AutomatableProcesses ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:TaxonomicPrinciplesToHierarchicalOrganization a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:TaxonomicPrinciples ;
+    rdfs:range ex:HierarchicalOrganization ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:TemporalOrderingToSequentialAccess a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:TemporalOrdering ;
+    rdfs:range ex:SequentialAccess ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:TheoreticalModelsToConceptualStructures a owl:ObjectProperty ;
+    rdfs:comment "composed of" ;
+    rdfs:domain ex:TheoreticalModels ;
+    rdfs:range ex:ConceptualStructures ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:TheoreticalModelsToModelComponents a owl:ObjectProperty ;
+    rdfs:comment "composed of" ;
+    rdfs:domain ex:TheoreticalModels ;
+    rdfs:range ex:ModelComponents ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:TheoreticalModelsToTheoreticalPredictions a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:TheoreticalModels ;
+    rdfs:range ex:TheoreticalPredictions ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:TruthAssessmentToKnowledgeQuality a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:TruthAssessment ;
+    rdfs:range ex:KnowledgeQuality ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:UnifiedInformationStructuresToIntegratedAccessSystems a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:UnifiedInformationStructures ;
+    rdfs:range ex:IntegratedAccessSystems ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:UsabilityOptimizationToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:UsabilityOptimization ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:UserExperiencesToDigitalInteraction a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:UserExperiences ;
+    rdfs:range ex:DigitalInteraction ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:ValidationSystemsToVerificationProcesses a owl:ObjectProperty ;
+    rdfs:comment "integrate" ;
+    rdfs:domain ex:ValidationSystems ;
+    rdfs:range ex:VerificationProcesses ;
+    rdfs:subPropertyOf <dul:integrates> .
+
+ex:VerificationProcessesToInformationReliability a owl:ObjectProperty ;
+    rdfs:comment "assess" ;
+    rdfs:domain ex:VerificationProcesses ;
+    rdfs:range ex:InformationReliability ;
+    rdfs:subPropertyOf <dul:assesses> .
+
+ex:VerificationProcessesToKnowledgeAccuracy a owl:ObjectProperty ;
+    rdfs:comment "assess" ;
+    rdfs:domain ex:VerificationProcesses ;
+    rdfs:range ex:KnowledgeAccuracy ;
+    rdfs:subPropertyOf <dul:assesses> .
+
+ex:VocabularyAcquisitionToCommunicativeCompetence a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:VocabularyAcquisition ;
+    rdfs:range ex:CommunicativeCompetence ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:WordSelectionToSentenceConstruction a owl:ObjectProperty ;
+    rdfs:comment "precedes" ;
+    rdfs:domain ex:WordSelection ;
+    rdfs:range ex:SentenceConstruction ;
+    rdfs:subPropertyOf <dul:precedes> .
+
+ex:AbstractConcepts a owl:Class ;
+    rdfs:label "AbstractConcepts" ;
+    rdfs:comment "Ideas that exist independent of specific concrete instances" ;
+    rdfs:subClassOf <dul:Concept> .
+
+ex:AbstractLevel a owl:Class ;
+    rdfs:label "AbstractLevel" ;
+    rdfs:comment "Highly general, conceptual representations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:AbstractModeling a owl:Class ;
+    rdfs:label "AbstractModeling" ;
+    rdfs:comment "Creation of simplified representations of complex phenomena" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AbstractProblems a owl:Class ;
+    rdfs:label "AbstractProblems" ;
+    rdfs:comment "Challenges requiring formal mathematical or logical solutions" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:AbstractionMechanisms a owl:Class ;
+    rdfs:label "AbstractionMechanisms" ;
+    rdfs:comment "Systematic methods for changing abstraction levels" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AccessPatterns a owl:Class ;
+    rdfs:label "AccessPatterns" ;
+    rdfs:comment "Regular ways users interact with information" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:AdaptiveAlgorithms a owl:Class ;
+    rdfs:label "AdaptiveAlgorithms" ;
+    rdfs:comment "Computational methods for automatic system adjustment" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AdaptiveSystemManager a owl:Class ;
+    rdfs:label "AdaptiveSystemManager" ;
+    rdfs:comment "Person designing systems that automatically adjust to usage patterns" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AdditionalMeaning a owl:Class ;
+    rdfs:label "AdditionalMeaning" ;
+    rdfs:comment "Information conveyed beyond literal verbal content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ArchivalIntegrity a owl:Class ;
+    rdfs:label "ArchivalIntegrity" ;
+    rdfs:comment "Maintaining authenticity and completeness of preserved materials" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:AudioContent a owl:Class ;
+    rdfs:label "AudioContent" ;
+    rdfs:comment "Sound, speech, and audio information" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:AudioElements a owl:Class ;
+    rdfs:label "AudioElements" ;
+    rdfs:comment "Sound, music, and audio content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:AutomaticReorganization a owl:Class ;
+    rdfs:label "AutomaticReorganization" ;
+    rdfs:comment "Self-modification of information structures" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BarrierRemoval a owl:Class ;
+    rdfs:label "BarrierRemoval" ;
+    rdfs:comment "Eliminating obstacles to system access and use" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ClarificationStrategies a owl:Class ;
+    rdfs:label "ClarificationStrategies" ;
+    rdfs:comment "Methods for making unclear communication clearer" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CoherentInformationExperience a owl:Class ;
+    rdfs:label "CoherentInformationExperience" ;
+    rdfs:comment "Seamless interaction with diverse information types" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CommunicationBreakdowns a owl:Class ;
+    rdfs:label "CommunicationBreakdowns" ;
+    rdfs:comment "Failures in successful message transmission" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:CommunicationChannels a owl:Class ;
+    rdfs:label "CommunicationChannels" ;
+    rdfs:comment "Media through which messages are transmitted" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:CommunicationSystems a owl:Class ;
+    rdfs:label "CommunicationSystems" ;
+    rdfs:comment "Languages, sign systems, or symbolic codes" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:CommunicativeEffectiveness a owl:Class ;
+    rdfs:label "CommunicativeEffectiveness" ;
+    rdfs:comment "Degree of successful meaning transmission" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CommunicativeFlow a owl:Class ;
+    rdfs:label "CommunicativeFlow" ;
+    rdfs:comment "Smooth, uninterrupted communication exchange" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CommunicativeGoals a owl:Class ;
+    rdfs:label "CommunicativeGoals" ;
+    rdfs:comment "Intended outcomes of language use" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:ComplexPhenomena a owl:Class ;
+    rdfs:label "ComplexPhenomena" ;
+    rdfs:comment "Multi-faceted real-world processes or systems" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:ComputationalLogic a owl:Class ;
+    rdfs:label "ComputationalLogic" ;
+    rdfs:comment "Reasoning principles suitable for automated execution" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConceptualBridges a owl:Class ;
+    rdfs:label "ConceptualBridges" ;
+    rdfs:comment "Conceptual links that connect different domains" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ConceptualMeaning a owl:Class ;
+    rdfs:label "ConceptualMeaning" ;
+    rdfs:comment "Significance and understanding associated with concepts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConceptualModeling a owl:Class ;
+    rdfs:label "ConceptualModeling" ;
+    rdfs:comment "Creating abstract representations of knowledge domains" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ConceptualRelationships a owl:Class ;
+    rdfs:label "ConceptualRelationships" ;
+    rdfs:comment "Meaningful connections between concepts" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ConceptualStructures a owl:Class ;
+    rdfs:label "ConceptualStructures" ;
+    rdfs:comment "Organized systems of related concepts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConfirmationChecking a owl:Class ;
+    rdfs:label "ConfirmationChecking" ;
+    rdfs:comment "Verifying that messages have been understood correctly" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ConnectionSystems a owl:Class ;
+    rdfs:label "ConnectionSystems" ;
+    rdfs:comment "Networks of linked information elements" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:ConsistencyChecking a owl:Class ;
+    rdfs:label "ConsistencyChecking" ;
+    rdfs:comment "Verifying logical coherence within knowledge systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ContextualAdaptation a owl:Class ;
+    rdfs:label "ContextualAdaptation" ;
+    rdfs:comment "Adjustment based on situational factors" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ContextualFactors a owl:Class ;
+    rdfs:label "ContextualFactors" ;
+    rdfs:comment "Situational elements affecting meaning interpretation" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CrossDomainMapping a owl:Class ;
+    rdfs:label "CrossDomainMapping" ;
+    rdfs:comment "Identifying connections between different knowledge areas" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CulturalArtifacts a owl:Class ;
+    rdfs:label "CulturalArtifacts" ;
+    rdfs:comment "Digital representations of culturally significant items" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CulturalUnderstanding a owl:Class ;
+    rdfs:label "CulturalUnderstanding" ;
+    rdfs:comment "Comprehension of cultural contexts of language use" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:DataCollections a owl:Class ;
+    rdfs:label "DataCollections" ;
+    rdfs:comment "Sets of information requiring organization" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:DataInput a owl:Class ;
+    rdfs:label "DataInput" ;
+    rdfs:comment "Entry of information into digital systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DataOutput a owl:Class ;
+    rdfs:label "DataOutput" ;
+    rdfs:comment "Extraction of processed information from systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DefinedProblems a owl:Class ;
+    rdfs:label "DefinedProblems" ;
+    rdfs:comment "Well-specified challenges with clear solution criteria" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:DetailedLevel a owl:Class ;
+    rdfs:label "DetailedLevel" ;
+    rdfs:comment "Highly specific, concrete representations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:DigitalArchivist a owl:Class ;
+    rdfs:label "DigitalArchivist" ;
+    rdfs:comment "Person responsible for long-term digital preservation" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DigitalHeritage a owl:Class ;
+    rdfs:label "DigitalHeritage" ;
+    rdfs:comment "Digital materials with historical or cultural value" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DigitalProducts a owl:Class ;
+    rdfs:label "DigitalProducts" ;
+    rdfs:comment "Final multimedia creations" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DisparateKnowledge a owl:Class ;
+    rdfs:label "DisparateKnowledge" ;
+    rdfs:comment "Knowledge from separate, unconnected domains" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DomainKnowledge a owl:Class ;
+    rdfs:label "DomainKnowledge" ;
+    rdfs:comment "Specialized understanding within particular fields" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EmotionalSubtext a owl:Class ;
+    rdfs:label "EmotionalSubtext" ;
+    rdfs:comment "Affective undertones in communication" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ExplanationExpansion a owl:Class ;
+    rdfs:label "ExplanationExpansion" ;
+    rdfs:comment "Providing additional detail to clarify meaning" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ExpressiveConstraints a owl:Class ;
+    rdfs:label "ExpressiveConstraints" ;
+    rdfs:comment "Limits on what can be represented in the system" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:FactualValidation a owl:Class ;
+    rdfs:label "FactualValidation" ;
+    rdfs:comment "Checking claims against reliable evidence" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FormalNotations a owl:Class ;
+    rdfs:label "FormalNotations" ;
+    rdfs:comment "Symbolic systems for representing mathematical and logical concepts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:FormalSystemUpgrades a owl:Class ;
+    rdfs:label "FormalSystemUpgrades" ;
+    rdfs:comment "Systematic improvements to formal systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FrameworkElements a owl:Class ;
+    rdfs:label "FrameworkElements" ;
+    rdfs:comment "Components of systematic frameworks" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:FutureAccess a owl:Class ;
+    rdfs:label "FutureAccess" ;
+    rdfs:comment "Ensuring digital materials remain usable by future users" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:GesturePatterns a owl:Class ;
+    rdfs:label "GesturePatterns" ;
+    rdfs:comment "Hand movements and body language conveying meaning" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:GrammarLearning a owl:Class ;
+    rdfs:label "GrammarLearning" ;
+    rdfs:comment "Mastering structural rules of language" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GrammaticalRules a owl:Class ;
+    rdfs:label "GrammaticalRules" ;
+    rdfs:comment "Principles governing how linguistic units combine" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:HolisticPerspectives a owl:Class ;
+    rdfs:label "HolisticPerspectives" ;
+    rdfs:comment "Comprehensive view incorporating multiple knowledge domains" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InclusiveDesign a owl:Class ;
+    rdfs:label "InclusiveDesign" ;
+    rdfs:comment "Creating interfaces usable by people with diverse abilities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InformationAccessibility a owl:Class ;
+    rdfs:label "InformationAccessibility" ;
+    rdfs:comment "Ease of finding and retrieving information" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InformationOrganizer a owl:Class ;
+    rdfs:label "InformationOrganizer" ;
+    rdfs:comment "Person creating systematic structures for information management" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:IntendedMeanings a owl:Class ;
+    rdfs:label "IntendedMeanings" ;
+    rdfs:comment "Concepts or information the sender wishes to communicate" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InteractiveFeatures a owl:Class ;
+    rdfs:label "InteractiveFeatures" ;
+    rdfs:comment "Elements that enable user interaction and engagement" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InteractiveRepair a owl:Class ;
+    rdfs:label "InteractiveRepair" ;
+    rdfs:comment "Collaborative effort to resolve communication problems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InterfaceDesign a owl:Class ;
+    rdfs:label "InterfaceDesign" ;
+    rdfs:comment "Creation of user interfaces for digital systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IntermediateLevel a owl:Class ;
+    rdfs:label "IntermediateLevel" ;
+    rdfs:comment "Moderate abstraction balancing detail and generality" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InterpretedMeanings a owl:Class ;
+    rdfs:label "InterpretedMeanings" ;
+    rdfs:comment "Concepts understood by the receiver" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:KnowledgeApplication a owl:Class ;
+    rdfs:label "KnowledgeApplication" ;
+    rdfs:comment "Using encoded knowledge for practical purposes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:KnowledgeConflicts a owl:Class ;
+    rdfs:label "KnowledgeConflicts" ;
+    rdfs:comment "Contradictions or inconsistencies in knowledge" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:KnowledgeNavigation a owl:Class ;
+    rdfs:label "KnowledgeNavigation" ;
+    rdfs:comment "Moving through knowledge structures to find information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LanguageConventions a owl:Class ;
+    rdfs:label "LanguageConventions" ;
+    rdfs:comment "Accepted patterns of language use" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:LanguageLearner a owl:Class ;
+    rdfs:label "LanguageLearner" ;
+    rdfs:comment "Person acquiring new language and communication skills" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LevelMapping a owl:Class ;
+    rdfs:label "LevelMapping" ;
+    rdfs:comment "Creating correspondences between abstraction levels" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LevelNavigation a owl:Class ;
+    rdfs:label "LevelNavigation" ;
+    rdfs:comment "Moving between different abstraction levels" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LinguisticUnits a owl:Class ;
+    rdfs:label "LinguisticUnits" ;
+    rdfs:comment "Words, morphemes, phrases, and other language components" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:LogicalConsistency a owl:Class ;
+    rdfs:label "LogicalConsistency" ;
+    rdfs:comment "Freedom from contradictions within the system" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:LogicalStructures a owl:Class ;
+    rdfs:label "LogicalStructures" ;
+    rdfs:comment "Systematic frameworks for reasoning and inference" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MeaningRelationships a owl:Class ;
+    rdfs:label "MeaningRelationships" ;
+    rdfs:comment "Various types of semantic connections between concepts" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:MessageReceiver a owl:Class ;
+    rdfs:label "MessageReceiver" ;
+    rdfs:comment "Person receiving and interpreting symbolic messages" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MetadataManagement a owl:Class ;
+    rdfs:label "MetadataManagement" ;
+    rdfs:comment "Organizing descriptive information about digital materials" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MisunderstandingEvents a owl:Class ;
+    rdfs:label "MisunderstandingEvents" ;
+    rdfs:comment "Instances where intended meaning is not correctly received" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MutualUnderstanding a owl:Class ;
+    rdfs:label "MutualUnderstanding" ;
+    rdfs:comment "Shared comprehension between communication participants" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:NewLanguageSkills a owl:Class ;
+    rdfs:label "NewLanguageSkills" ;
+    rdfs:comment "Abilities in a language not previously known" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:NonVerbalSignals a owl:Class ;
+    rdfs:label "NonVerbalSignals" ;
+    rdfs:comment "Communication elements beyond spoken/written language" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:PatternRecognition a owl:Class ;
+    rdfs:label "PatternRecognition" ;
+    rdfs:comment "Identifying regular structures in language use" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PracticeActivities a owl:Class ;
+    rdfs:label "PracticeActivities" ;
+    rdfs:comment "Exercises designed to develop language skills" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ProsodicFeatures a owl:Class ;
+    rdfs:label "ProsodicFeatures" ;
+    rdfs:comment "Tone, rhythm, stress, and intonation patterns" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:QuantitativeRelationships a owl:Class ;
+    rdfs:label "QuantitativeRelationships" ;
+    rdfs:comment "Mathematical connections between quantities" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:Reformulation a owl:Class ;
+    rdfs:label "Reformulation" ;
+    rdfs:comment "Expressing the same message in different ways" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RelationalStructures a owl:Class ;
+    rdfs:label "RelationalStructures" ;
+    rdfs:comment "Organizations based on relationship patterns" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ReliabilityRanking a owl:Class ;
+    rdfs:label "ReliabilityRanking" ;
+    rdfs:comment "Ordering knowledge sources by trustworthiness" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RepresentationalCoherence a owl:Class ;
+    rdfs:label "RepresentationalCoherence" ;
+    rdfs:comment "Consistency of meaning across abstraction levels" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:RuleGeneralization a owl:Class ;
+    rdfs:label "RuleGeneralization" ;
+    rdfs:comment "Making rules more broadly applicable" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RuleInternalization a owl:Class ;
+    rdfs:label "RuleInternalization" ;
+    rdfs:comment "Making language rules automatic and unconscious" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ScaleTransition a owl:Class ;
+    rdfs:label "ScaleTransition" ;
+    rdfs:comment "Adjusting scope and granularity of representation" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SemanticContent a owl:Class ;
+    rdfs:label "SemanticContent" ;
+    rdfs:comment "Meaning expressed through syntactic structures" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SemanticNoise a owl:Class ;
+    rdfs:label "SemanticNoise" ;
+    rdfs:comment "Factors that distort meaning transmission" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:SemanticOrganization a owl:Class ;
+    rdfs:label "SemanticOrganization" ;
+    rdfs:comment "Organizing knowledge based on meaning relationships" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SourceVerification a owl:Class ;
+    rdfs:label "SourceVerification" ;
+    rdfs:comment "Confirming credibility of knowledge origins" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpacialArrangements a owl:Class ;
+    rdfs:label "SpacialArrangements" ;
+    rdfs:comment "Physical positioning and environmental setup" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:SpatialInformation a owl:Class ;
+    rdfs:label "SpatialInformation" ;
+    rdfs:comment "Location and geographic data" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:StepWiseAlgorithms a owl:Class ;
+    rdfs:label "StepWiseAlgorithms" ;
+    rdfs:comment "Procedures broken down into discrete, executable steps" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SystemAdaptation a owl:Class ;
+    rdfs:label "SystemAdaptation" ;
+    rdfs:comment "Adjusting systems for new applications" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SystemLearning a owl:Class ;
+    rdfs:label "SystemLearning" ;
+    rdfs:comment "Automated improvement based on usage experience" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SystematicExecution a owl:Class ;
+    rdfs:label "SystematicExecution" ;
+    rdfs:comment "Carrying out procedures following established steps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TacitUnderstanding a owl:Class ;
+    rdfs:label "TacitUnderstanding" ;
+    rdfs:comment "Implicit knowledge that is difficult to articulate" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TextElements a owl:Class ;
+    rdfs:label "TextElements" ;
+    rdfs:comment "Written or textual content components" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TextualInformation a owl:Class ;
+    rdfs:label "TextualInformation" ;
+    rdfs:comment "Written or linguistic content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TruthAssessment a owl:Class ;
+    rdfs:label "TruthAssessment" ;
+    rdfs:comment "Evaluating correspondence between claims and reality" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:UsabilityOptimization a owl:Class ;
+    rdfs:label "UsabilityOptimization" ;
+    rdfs:comment "Improving ease and efficiency of system use" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:UserEfficiency a owl:Class ;
+    rdfs:label "UserEfficiency" ;
+    rdfs:comment "Speed and effectiveness of information interaction" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:VerbalElements a owl:Class ;
+    rdfs:label "VerbalElements" ;
+    rdfs:comment "Spoken or written linguistic components" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:VirtualEngagement a owl:Class ;
+    rdfs:label "VirtualEngagement" ;
+    rdfs:comment "Participation in digital environments and activities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:VisualComponents a owl:Class ;
+    rdfs:label "VisualComponents" ;
+    rdfs:comment "Images, graphics, and visual design elements" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:VisualCues a owl:Class ;
+    rdfs:label "VisualCues" ;
+    rdfs:comment "Facial expressions, eye contact, visual displays" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:VisualData a owl:Class ;
+    rdfs:label "VisualData" ;
+    rdfs:comment "Images, graphics, and visual content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:VocabularyAcquisition a owl:Class ;
+    rdfs:label "VocabularyAcquisition" ;
+    rdfs:comment "Learning words and their meanings" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:WordSelection a owl:Class ;
+    rdfs:label "WordSelection" ;
+    rdfs:comment "Choosing appropriate linguistic units" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AbstractionSpecialist a owl:Class ;
+    rdfs:label "AbstractionSpecialist" ;
+    rdfs:comment "Person managing multiple levels of abstraction in representations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AccessibilityFeatures a owl:Class ;
+    rdfs:label "AccessibilityFeatures" ;
+    rdfs:comment "Design elements that support users with disabilities" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:AccessibilityNeeds a owl:Class ;
+    rdfs:label "AccessibilityNeeds" ;
+    rdfs:comment "Specific requirements for barrier-free system use" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:AlgorithmDesigner a owl:Class ;
+    rdfs:label "AlgorithmDesigner" ;
+    rdfs:comment "Person creating systematic computational procedures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ArchivalSystems a owl:Class ;
+    rdfs:label "ArchivalSystems" ;
+    rdfs:comment "Technologies designed for long-term digital storage" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:AssistiveTechnologies a owl:Class ;
+    rdfs:label "AssistiveTechnologies" ;
+    rdfs:comment "Tools that help users with disabilities interact with systems" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:AssociativeStructures a owl:Class ;
+    rdfs:label "AssociativeStructures" ;
+    rdfs:comment "Organizations based on meaningful associations between elements" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:AutomatableProcesses a owl:Class ;
+    rdfs:label "AutomatableProcesses" ;
+    rdfs:comment "Procedures that can be executed without human intervention" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CategoryStructures a owl:Class ;
+    rdfs:label "CategoryStructures" ;
+    rdfs:comment "Systematic groupings based on shared characteristics" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:ClassificationSchemes a owl:Class ;
+    rdfs:label "ClassificationSchemes" ;
+    rdfs:comment "Formal systems for organizing information into categories" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:CommunicationRepairer a owl:Class ;
+    rdfs:label "CommunicationRepairer" ;
+    rdfs:comment "Person working to resolve communication problems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CommunicationTools a owl:Class ;
+    rdfs:label "CommunicationTools" ;
+    rdfs:comment "Software and features that enable digital communication" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:Communicator a owl:Class ;
+    rdfs:label "Communicator" ;
+    rdfs:comment "Person using multiple communication modalities" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ComputationalModels a owl:Class ;
+    rdfs:label "ComputationalModels" ;
+    rdfs:comment "Abstract representations designed for computational processing" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConceptualFrameworks a owl:Class ;
+    rdfs:label "ConceptualFrameworks" ;
+    rdfs:comment "Organized systems for understanding and relating concepts" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:ConceptualHierarchies a owl:Class ;
+    rdfs:label "ConceptualHierarchies" ;
+    rdfs:comment "Multi-level organizations of related concepts" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:ConceptualNodes a owl:Class ;
+    rdfs:label "ConceptualNodes" ;
+    rdfs:comment "Individual concepts within semantic networks" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ContentCreationTools a owl:Class ;
+    rdfs:label "ContentCreationTools" ;
+    rdfs:comment "Software and technologies for producing digital content" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:CrossModalLinking a owl:Class ;
+    rdfs:label "CrossModalLinking" ;
+    rdfs:comment "Creating connections between different information types" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DataIntegrity a owl:Class ;
+    rdfs:label "DataIntegrity" ;
+    rdfs:comment "Accuracy and reliability of digital information" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:DataProcessingSystems a owl:Class ;
+    rdfs:label "DataProcessingSystems" ;
+    rdfs:comment "Technologies for handling and transforming digital data" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:DigitalCommunicator a owl:Class ;
+    rdfs:label "DigitalCommunicator" ;
+    rdfs:comment "Person facilitating communication through digital technologies" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DigitalContent a owl:Class ;
+    rdfs:label "DigitalContent" ;
+    rdfs:comment "Information and media produced using digital technologies" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DigitalInteraction a owl:Class ;
+    rdfs:label "DigitalInteraction" ;
+    rdfs:comment "Engagement between users through digital interfaces" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalLongevity a owl:Class ;
+    rdfs:label "DigitalLongevity" ;
+    rdfs:comment "Ability of digital materials to remain accessible over time" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:DigitalWorkflows a owl:Class ;
+    rdfs:label "DigitalWorkflows" ;
+    rdfs:comment "Systematic procedures for digital information handling" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DiscourseOrganization a owl:Class ;
+    rdfs:label "DiscourseOrganization" ;
+    rdfs:comment "Structuring larger units of communication" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EmergentInsights a owl:Class ;
+    rdfs:label "EmergentInsights" ;
+    rdfs:comment "New understanding that emerges from knowledge integration" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EssentialRelationships a owl:Class ;
+    rdfs:label "EssentialRelationships" ;
+    rdfs:comment "Key connections between model components" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ExplicitKnowledge a owl:Class ;
+    rdfs:label "ExplicitKnowledge" ;
+    rdfs:comment "Clearly articulated and documented understanding" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:FluentCommunication a owl:Class ;
+    rdfs:label "FluentCommunication" ;
+    rdfs:comment "Smooth, natural use of language" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:FormalConclusions a owl:Class ;
+    rdfs:label "FormalConclusions" ;
+    rdfs:comment "Results derived through systematic application of formal rules" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:FormatMigration a owl:Class ;
+    rdfs:label "FormatMigration" ;
+    rdfs:comment "Converting digital materials to current formats" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:HierarchicalOrganization a owl:Class ;
+    rdfs:label "HierarchicalOrganization" ;
+    rdfs:comment "Multi-level structures with nested categories" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InformationReliability a owl:Class ;
+    rdfs:label "InformationReliability" ;
+    rdfs:comment "Trustworthiness and dependability of knowledge sources" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InformationRetrieval a owl:Class ;
+    rdfs:label "InformationRetrieval" ;
+    rdfs:comment "Accessing specific information from organized systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InformationalContent a owl:Class ;
+    rdfs:label "InformationalContent" ;
+    rdfs:comment "The substance and meaning preserved in representations" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:IntegratedAccessSystems a owl:Class ;
+    rdfs:label "IntegratedAccessSystems" ;
+    rdfs:comment "Unified interfaces for multimodal information" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:IntegratedMedia a owl:Class ;
+    rdfs:label "IntegratedMedia" ;
+    rdfs:comment "Combined multimedia experiences" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:IntegratedUnderstanding a owl:Class ;
+    rdfs:label "IntegratedUnderstanding" ;
+    rdfs:comment "Unified comprehension across multiple domains" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InterconnectedRelationships a owl:Class ;
+    rdfs:label "InterconnectedRelationships" ;
+    rdfs:comment "Mutual connections between information elements" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:InterfaceDesigner a owl:Class ;
+    rdfs:label "InterfaceDesigner" ;
+    rdfs:comment "Person creating adaptive and accessible digital interfaces" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeAccuracy a owl:Class ;
+    rdfs:label "KnowledgeAccuracy" ;
+    rdfs:comment "Correctness and precision of represented knowledge" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:KnowledgeArchitect a owl:Class ;
+    rdfs:label "KnowledgeArchitect" ;
+    rdfs:comment "Person designing structures for organizing and representing knowledge" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeConnections a owl:Class ;
+    rdfs:label "KnowledgeConnections" ;
+    rdfs:comment "Links and relationships between separate knowledge areas" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:KnowledgeEngineer a owl:Class ;
+    rdfs:label "KnowledgeEngineer" ;
+    rdfs:comment "Person designing systems for encoding and representing knowledge" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeIntegration a owl:Class ;
+    rdfs:label "KnowledgeIntegration" ;
+    rdfs:comment "Combining separate knowledge into unified understanding" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:KnowledgeMaps a owl:Class ;
+    rdfs:label "KnowledgeMaps" ;
+    rdfs:comment "Visual or structural representations of knowledge relationships" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:KnowledgeQuality a owl:Class ;
+    rdfs:label "KnowledgeQuality" ;
+    rdfs:comment "Overall excellence of knowledge representation" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:KnowledgeRetrieval a owl:Class ;
+    rdfs:label "KnowledgeRetrieval" ;
+    rdfs:comment "Accessing specific knowledge from encoded systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:KnowledgeSynthesizer a owl:Class ;
+    rdfs:label "KnowledgeSynthesizer" ;
+    rdfs:comment "Person combining knowledge from different domains" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeValidator a owl:Class ;
+    rdfs:label "KnowledgeValidator" ;
+    rdfs:comment "Person responsible for verifying knowledge accuracy and reliability" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LanguageUser a owl:Class ;
+    rdfs:label "LanguageUser" ;
+    rdfs:comment "Person constructing or analyzing linguistic structures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LinkagePatterns a owl:Class ;
+    rdfs:label "LinkagePatterns" ;
+    rdfs:comment "Ways in which information elements are connected" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:LogicalGroupings a owl:Class ;
+    rdfs:label "LogicalGroupings" ;
+    rdfs:comment "Categories based on rational or systematic criteria" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:LogicalProgression a owl:Class ;
+    rdfs:label "LogicalProgression" ;
+    rdfs:comment "Organization based on rational or causal sequences" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:LogicalRules a owl:Class ;
+    rdfs:label "LogicalRules" ;
+    rdfs:comment "Principles governing valid reasoning and inference" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:LogicalSequences a owl:Class ;
+    rdfs:label "LogicalSequences" ;
+    rdfs:comment "Ordered steps following logical progression" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:LongTermStorage a owl:Class ;
+    rdfs:label "LongTermStorage" ;
+    rdfs:comment "Secure storage designed for extended time periods" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MeaningDecoding a owl:Class ;
+    rdfs:label "MeaningDecoding" ;
+    rdfs:comment "Extraction of meaning from symbolic messages" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MeaningStructures a owl:Class ;
+    rdfs:label "MeaningStructures" ;
+    rdfs:comment "Organized systems representing conceptual significance" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MessageSender a owl:Class ;
+    rdfs:label "MessageSender" ;
+    rdfs:comment "Person encoding and transmitting symbolic messages" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ModelBuilder a owl:Class ;
+    rdfs:label "ModelBuilder" ;
+    rdfs:comment "Person creating theoretical models and systematic frameworks" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MultimodalRetrieval a owl:Class ;
+    rdfs:label "MultimodalRetrieval" ;
+    rdfs:comment "Searching across different information types simultaneously" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MultipleDomains a owl:Class ;
+    rdfs:label "MultipleDomains" ;
+    rdfs:comment "Different fields or areas of knowledge" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:NetworkTopologies a owl:Class ;
+    rdfs:label "NetworkTopologies" ;
+    rdfs:comment "Overall patterns of connections within networks" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:OnlineCommunication a owl:Class ;
+    rdfs:label "OnlineCommunication" ;
+    rdfs:comment "Communication conducted through digital networks" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PathwayNavigation a owl:Class ;
+    rdfs:label "PathwayNavigation" ;
+    rdfs:comment "Moving through networks by following connections" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PersonalizationSystems a owl:Class ;
+    rdfs:label "PersonalizationSystems" ;
+    rdfs:comment "Technologies that customize interfaces for individual users" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:PragmaticSkills a owl:Class ;
+    rdfs:label "PragmaticSkills" ;
+    rdfs:comment "Abilities to use language appropriately in social contexts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ProcessOrganizer a owl:Class ;
+    rdfs:label "ProcessOrganizer" ;
+    rdfs:comment "Person creating sequential and procedural information structures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ProcessualNavigation a owl:Class ;
+    rdfs:label "ProcessualNavigation" ;
+    rdfs:comment "Moving through information following procedural steps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RelationalNetworks a owl:Class ;
+    rdfs:label "RelationalNetworks" ;
+    rdfs:comment "Information structures organized around relationships and connections" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:RepresentationSchemas a owl:Class ;
+    rdfs:label "RepresentationSchemas" ;
+    rdfs:comment "Systematic frameworks for organizing encoded knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:RuleModification a owl:Class ;
+    rdfs:label "RuleModification" ;
+    rdfs:comment "Changing existing rules within formal systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SemanticAlignment a owl:Class ;
+    rdfs:label "SemanticAlignment" ;
+    rdfs:comment "Ensuring consistent meaning across modalities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SemanticConnections a owl:Class ;
+    rdfs:label "SemanticConnections" ;
+    rdfs:comment "Links between concepts based on meaning relationships" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:SemanticMaps a owl:Class ;
+    rdfs:label "SemanticMaps" ;
+    rdfs:comment "Representations showing meaning relationships spatially" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SemanticNetworks a owl:Class ;
+    rdfs:label "SemanticNetworks" ;
+    rdfs:comment "Networks representing meaning relationships between concepts" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:SemanticReasoning a owl:Class ;
+    rdfs:label "SemanticReasoning" ;
+    rdfs:comment "Drawing inferences based on meaning relationships" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SequentialAccess a owl:Class ;
+    rdfs:label "SequentialAccess" ;
+    rdfs:comment "Accessing information in predetermined order" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SequentialStructures a owl:Class ;
+    rdfs:label "SequentialStructures" ;
+    rdfs:comment "Information organized in temporal or logical order" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:StepByStepOrganization a owl:Class ;
+    rdfs:label "StepByStepOrganization" ;
+    rdfs:comment "Arrangement of information in discrete sequential steps" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SyntheticKnowledge a owl:Class ;
+    rdfs:label "SyntheticKnowledge" ;
+    rdfs:comment "New understanding created by combining existing knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SystemCapabilities a owl:Class ;
+    rdfs:label "SystemCapabilities" ;
+    rdfs:comment "Range of problems the system can address" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SystemEfficiency a owl:Class ;
+    rdfs:label "SystemEfficiency" ;
+    rdfs:comment "Optimal performance of digital processing systems" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SystemLimitations a owl:Class ;
+    rdfs:label "SystemLimitations" ;
+    rdfs:comment "Constraints that restrict formal system capabilities" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:SystematicFrameworks a owl:Class ;
+    rdfs:label "SystematicFrameworks" ;
+    rdfs:comment "Organized structures for understanding complex systems" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:SystematicProcedures a owl:Class ;
+    rdfs:label "SystematicProcedures" ;
+    rdfs:comment "Organized sequences of actions or operations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TaxonomicPrinciples a owl:Class ;
+    rdfs:label "TaxonomicPrinciples" ;
+    rdfs:comment "Rules and criteria for creating categorical hierarchies" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:TemporalOrdering a owl:Class ;
+    rdfs:label "TemporalOrdering" ;
+    rdfs:comment "Organization based on time-based sequences" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TheoreticalPredictions a owl:Class ;
+    rdfs:label "TheoreticalPredictions" ;
+    rdfs:comment "Forecasts derived from model applications" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:UsageAnalytics a owl:Class ;
+    rdfs:label "UsageAnalytics" ;
+    rdfs:comment "Data about how information is accessed and used" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:UserCapabilities a owl:Class ;
+    rdfs:label "UserCapabilities" ;
+    rdfs:comment "Individual abilities and limitations of system users" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:UserExperiences a owl:Class ;
+    rdfs:label "UserExperiences" ;
+    rdfs:comment "Overall experiences people have when using digital systems" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ValidationSystems a owl:Class ;
+    rdfs:label "ValidationSystems" ;
+    rdfs:comment "Systematic frameworks for assessing knowledge validity" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:AbstractionTransitions a owl:Class ;
+    rdfs:label "AbstractionTransitions" ;
+    rdfs:comment "Movement between different levels of abstraction" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CommunicativeCompetence a owl:Class ;
+    rdfs:label "CommunicativeCompetence" ;
+    rdfs:comment "Ability to use language effectively in context" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:DataProcessor a owl:Class ;
+    rdfs:label "DataProcessor" ;
+    rdfs:comment "Person managing and processing digital information" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DataTransformation a owl:Class ;
+    rdfs:label "DataTransformation" ;
+    rdfs:comment "Modification and processing of digital information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalCollaboration a owl:Class ;
+    rdfs:label "DigitalCollaboration" ;
+    rdfs:comment "Cooperative work conducted through digital platforms" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalCreator a owl:Class ;
+    rdfs:label "DigitalCreator" ;
+    rdfs:comment "Person producing content using digital media technologies" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DigitalInformation a owl:Class ;
+    rdfs:label "DigitalInformation" ;
+    rdfs:comment "Information stored and processed in digital formats" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ExistingFormalSystems a owl:Class ;
+    rdfs:label "ExistingFormalSystems" ;
+    rdfs:comment "Established mathematical or logical frameworks" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:InformationManagement a owl:Class ;
+    rdfs:label "InformationManagement" ;
+    rdfs:comment "Systematic handling of digital information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InformationSequences a owl:Class ;
+    rdfs:label "InformationSequences" ;
+    rdfs:comment "Ordered series of related information elements" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:InteractiveSystems a owl:Class ;
+    rdfs:label "InteractiveSystems" ;
+    rdfs:comment "Technologies that support user interaction and engagement" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:KnowledgeBases a owl:Class ;
+    rdfs:label "KnowledgeBases" ;
+    rdfs:comment "Structured collections of encoded knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:KnowledgeStructures a owl:Class ;
+    rdfs:label "KnowledgeStructures" ;
+    rdfs:comment "Systematic organizations of information and understanding" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:LanguageAcquisition a owl:Class ;
+    rdfs:label "LanguageAcquisition" ;
+    rdfs:comment "Natural or systematic learning of language capabilities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MathematicalOperations a owl:Class ;
+    rdfs:label "MathematicalOperations" ;
+    rdfs:comment "Formal procedures for manipulating mathematical expressions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MathematicalSystems a owl:Class ;
+    rdfs:label "MathematicalSystems" ;
+    rdfs:comment "Formal frameworks for quantitative and abstract reasoning" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MathematicalThinker a owl:Class ;
+    rdfs:label "MathematicalThinker" ;
+    rdfs:comment "Person working with formal mathematical and logical systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MediaIntegration a owl:Class ;
+    rdfs:label "MediaIntegration" ;
+    rdfs:comment "Combining different media types into cohesive experiences" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MultimodalIntegrator a owl:Class ;
+    rdfs:label "MultimodalIntegrator" ;
+    rdfs:comment "Person combining different types of information into unified systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:NetworkBuilder a owl:Class ;
+    rdfs:label "NetworkBuilder" ;
+    rdfs:comment "Person creating relational and network-based information structures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:OrganizationalPatterns a owl:Class ;
+    rdfs:label "OrganizationalPatterns" ;
+    rdfs:comment "Current arrangements of information elements" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PreservationStrategies a owl:Class ;
+    rdfs:label "PreservationStrategies" ;
+    rdfs:comment "Planned approaches to maintaining digital materials" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ProceduralFrameworks a owl:Class ;
+    rdfs:label "ProceduralFrameworks" ;
+    rdfs:comment "Systematic organizations for step-based processes" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:RepresentationFormats a owl:Class ;
+    rdfs:label "RepresentationFormats" ;
+    rdfs:comment "Specific structures and formats for encoding knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SemanticModeler a owl:Class ;
+    rdfs:label "SemanticModeler" ;
+    rdfs:comment "Person creating representations of meaning relationships" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SentenceConstruction a owl:Class ;
+    rdfs:label "SentenceConstruction" ;
+    rdfs:comment "Arranging units according to grammatical rules" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SyntacticStructures a owl:Class ;
+    rdfs:label "SyntacticStructures" ;
+    rdfs:comment "Organized arrangements of linguistic units" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SystemExtension a owl:Class ;
+    rdfs:label "SystemExtension" ;
+    rdfs:comment "Adding new capabilities to formal systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:UnifiedInformationStructures a owl:Class ;
+    rdfs:label "UnifiedInformationStructures" ;
+    rdfs:comment "Integrated systems combining multiple data types" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:AlgorithmicProcesses a owl:Class ;
+    rdfs:label "AlgorithmicProcesses" ;
+    rdfs:comment "Systematic step-by-step procedures for problem solving" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalPlatforms a owl:Class ;
+    rdfs:label "DigitalPlatforms" ;
+    rdfs:comment "Online systems that enable digital communication and interaction" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:InformationNodes a owl:Class ;
+    rdfs:label "InformationNodes" ;
+    rdfs:comment "Individual information elements that can be connected to others" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:KnowledgeEncodingSystems a owl:Class ;
+    rdfs:label "KnowledgeEncodingSystems" ;
+    rdfs:comment "Systematic methods for capturing knowledge in representational formats" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:ModelComponents a owl:Class ;
+    rdfs:label "ModelComponents" ;
+    rdfs:comment "Elements that make up theoretical models" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:OrganizationalSystems a owl:Class ;
+    rdfs:label "OrganizationalSystems" ;
+    rdfs:comment "Structured frameworks for organizing and accessing information" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:RepairMechanisms a owl:Class ;
+    rdfs:label "RepairMechanisms" ;
+    rdfs:comment "Systematic approaches to fixing communication problems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SymbolicRepresentations a owl:Class ;
+    rdfs:label "SymbolicRepresentations" ;
+    rdfs:comment "Abstract symbols that represent concepts and relationships" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TheoreticalModels a owl:Class ;
+    rdfs:label "TheoreticalModels" ;
+    rdfs:comment "Abstract representations of real-world phenomena" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:UniversalAccess a owl:Class ;
+    rdfs:label "UniversalAccess" ;
+    rdfs:comment "Ability for all users to access and use systems effectively" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:VerificationProcesses a owl:Class ;
+    rdfs:label "VerificationProcesses" ;
+    rdfs:comment "Methods for confirming knowledge accuracy" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AdaptiveInterfaces a owl:Class ;
+    rdfs:label "AdaptiveInterfaces" ;
+    rdfs:comment "User interfaces that adjust to individual user needs" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:DynamicInformationSystems a owl:Class ;
+    rdfs:label "DynamicInformationSystems" ;
+    rdfs:comment "Information structures that modify themselves based on usage" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:HeterogeneousDataSources a owl:Class ;
+    rdfs:label "HeterogeneousDataSources" ;
+    rdfs:comment "Different types of information repositories" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:MultiLevelRepresentations a owl:Class ;
+    rdfs:label "MultiLevelRepresentations" ;
+    rdfs:comment "Systems with multiple levels of detail and abstraction" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MultimediaElements a owl:Class ;
+    rdfs:label "MultimediaElements" ;
+    rdfs:comment "Various types of media content (text, image, audio, video)" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:SystemEvolutionist a owl:Class ;
+    rdfs:label "SystemEvolutionist" ;
+    rdfs:comment "Person modifying and extending formal systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SymbolicMessages a owl:Class ;
+    rdfs:label "SymbolicMessages" ;
+    rdfs:comment "Encoded representations carrying meaning" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DigitalPreservation a owl:Class ;
+    rdfs:label "DigitalPreservation" ;
+    rdfs:comment "Systematic protection of digital materials over time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MultimodalMessages a owl:Class ;
+    rdfs:label "MultimodalMessages" ;
+    rdfs:comment "Communications combining verbal and non-verbal elements" ;
+    rdfs:subClassOf <dul:InformationObject> .
+

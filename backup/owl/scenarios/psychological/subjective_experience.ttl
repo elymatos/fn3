@@ -1,0 +1,587 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AmbientAwarenessToAtmosphericQualities a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:AmbientAwareness ;
+    rdfs:range ex:AtmosphericQualities ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:AmbientAwarenessToEnvironmentalMoods a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:AmbientAwareness ;
+    rdfs:range ex:EnvironmentalMoods ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:AtmosphericQualitiesToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:AtmosphericQualities ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:BodilyComfortToComfortSensations a owl:ObjectProperty ;
+    rdfs:comment "manifests through" ;
+    rdfs:domain ex:BodilyComfort ;
+    rdfs:range ex:ComfortSensations ;
+    rdfs:subPropertyOf <dul:manifestedBy> .
+
+ex:BodyAwarenessToInteroceptiveSensing a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:BodyAwareness ;
+    rdfs:range ex:InteroceptiveSensing ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:BodyAwarenessToProprioceptiveMonitoring a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:BodyAwareness ;
+    rdfs:range ex:ProprioceptiveMonitoring ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:BodyEmotionsToPhysicalFeelingStates a owl:ObjectProperty ;
+    rdfs:comment "manifest as" ;
+    rdfs:domain ex:BodyEmotions ;
+    rdfs:range ex:PhysicalFeelingStates ;
+    rdfs:subPropertyOf <dul:manifestsAs> .
+
+ex:BodyFeedbackToEmotionalAwareness a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:BodyFeedback ;
+    rdfs:range ex:EmotionalAwareness ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:BodyRhythmsToTimePerception a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:BodyRhythms ;
+    rdfs:range ex:TimePerception ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:BodySchemasToPosturalInformation a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:BodySchemas ;
+    rdfs:range ex:PosturalInformation ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:BodySchemasToSpatialEmbodiment a owl:ObjectProperty ;
+    rdfs:comment "into" ;
+    rdfs:domain ex:BodySchemas ;
+    rdfs:range ex:SpatialEmbodiment ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:BodyTimeAwarenessToTemporalEmbodiment a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:BodyTimeAwareness ;
+    rdfs:range ex:TemporalEmbodiment ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:BodyWellbeingToPhysicalSatisfaction a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:BodyWellbeing ;
+    rdfs:range ex:PhysicalSatisfaction ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:ComfortFactorsToBodilyComfort a owl:ObjectProperty ;
+    rdfs:comment "promote" ;
+    rdfs:domain ex:ComfortFactors ;
+    rdfs:range ex:BodilyComfort ;
+    rdfs:subPropertyOf <dul:promotes> .
+
+ex:ComfortFactorsToBodyWellbeing a owl:ObjectProperty ;
+    rdfs:comment "promote" ;
+    rdfs:domain ex:ComfortFactors ;
+    rdfs:range ex:BodyWellbeing ;
+    rdfs:subPropertyOf <dul:promotes> .
+
+ex:ComfortSeekerToBodilyComfort a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:BodilyComfort ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:ComfortSeekerToComfortSeeking a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:ComfortSeeking ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:ComfortSeekerToDiscomfortAvoidance a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:DiscomfortAvoidance ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:ComfortSeekerToPhysicalDiscomfort a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:PhysicalDiscomfort ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:ComfortSeekingToBodilyComfort a owl:ObjectProperty ;
+    rdfs:comment "to increase" ;
+    rdfs:domain ex:ComfortSeeking ;
+    rdfs:range ex:BodilyComfort ;
+    rdfs:subPropertyOf <dul:aimsTo> .
+
+ex:DiscomfortAvoidanceToPhysicalDiscomfort a owl:ObjectProperty ;
+    rdfs:comment "reduces" ;
+    rdfs:domain ex:DiscomfortAvoidance ;
+    rdfs:range ex:PhysicalDiscomfort ;
+    rdfs:subPropertyOf <dul:reduces> .
+
+ex:DiscomfortCausesToPhysicalDiscomfort a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:DiscomfortCauses ;
+    rdfs:range ex:PhysicalDiscomfort ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:DurationSensationsToPhysiologicalCycles a owl:ObjectProperty ;
+    rdfs:comment "vary with" ;
+    rdfs:domain ex:DurationSensations ;
+    rdfs:range ex:PhysiologicalCycles ;
+    rdfs:subPropertyOf <dul:variesWith> .
+
+ex:EmbodiedEmotionsToSomaticResponses a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:EmbodiedEmotions ;
+    rdfs:range ex:SomaticResponses ;
+    rdfs:subPropertyOf <dul:expressedBy> .
+
+ex:EmbodiedExperiencerToBodyAwareness a owl:ObjectProperty ;
+    rdfs:comment "maintains" ;
+    rdfs:domain ex:EmbodiedExperiencer ;
+    rdfs:range ex:BodyAwareness ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:EmbodiedFeelerToEmbodiedEmotions a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:EmbodiedFeeler ;
+    rdfs:range ex:EmbodiedEmotions ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:EmbodiedPresenceToBodyAwareness a owl:ObjectProperty ;
+    rdfs:comment "integrates all aspects of" ;
+    rdfs:domain ex:EmbodiedPresence ;
+    rdfs:range ex:BodyAwareness ;
+    rdfs:subPropertyOf <dul:integrates> .
+
+ex:EmbodiedTemporalityToBodyTimeAwareness a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:EmbodiedTemporality ;
+    rdfs:range ex:BodyTimeAwareness ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:EmbodiedTemporalityToDurationSensations a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:EmbodiedTemporality ;
+    rdfs:range ex:DurationSensations ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:EmotionalEmbodimentToPhysicalFeelingStates a owl:ObjectProperty ;
+    rdfs:comment "integrates" ;
+    rdfs:domain ex:EmotionalEmbodiment ;
+    rdfs:range ex:PhysicalFeelingStates ;
+    rdfs:subPropertyOf <dul:integrates> .
+
+ex:EnvironmentalConnectionToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "strengthens through" ;
+    rdfs:domain ex:EnvironmentalConnection ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:strengthenedBy> .
+
+ex:EnvironmentalMoodsToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:EnvironmentalMoods ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:EnvironmentalPerceiverToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:EnvironmentalPerceiver ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:EnvironmentalPresenceToAmbientAwareness a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:EnvironmentalPresence ;
+    rdfs:range ex:AmbientAwareness ;
+    rdfs:subPropertyOf <dul:isDescribedBy> .
+
+ex:GutFeelingsToSomaticInformation a owl:ObjectProperty ;
+    rdfs:comment "provide" ;
+    rdfs:domain ex:GutFeelings ;
+    rdfs:range ex:SomaticInformation ;
+    rdfs:subPropertyOf <dul:provides> .
+
+ex:InteroceptiveSensingToSomaticAwareness a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:InteroceptiveSensing ;
+    rdfs:range ex:SomaticAwareness ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:MovementSensationsToBodySchemas a owl:ObjectProperty ;
+    rdfs:comment "update" ;
+    rdfs:domain ex:MovementSensations ;
+    rdfs:range ex:BodySchemas ;
+    rdfs:subPropertyOf <dul:updates> .
+
+ex:PhysicalDiscomfortToDiscomfortSignals a owl:ObjectProperty ;
+    rdfs:comment "manifests through" ;
+    rdfs:domain ex:PhysicalDiscomfort ;
+    rdfs:range ex:DiscomfortSignals ;
+    rdfs:subPropertyOf <dul:manifestedBy> .
+
+ex:PhysiologicalCyclesToTimePerception a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:PhysiologicalCycles ;
+    rdfs:range ex:TimePerception ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:PlaceSenseToEnvironmentalConnection a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:PlaceSense ;
+    rdfs:range ex:EnvironmentalConnection ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:ProprioceptiveMonitoringToMovementSensations a owl:ObjectProperty ;
+    rdfs:comment "provides" ;
+    rdfs:domain ex:ProprioceptiveMonitoring ;
+    rdfs:range ex:MovementSensations ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:ProprioceptiveMonitoringToPosturalInformation a owl:ObjectProperty ;
+    rdfs:comment "provides" ;
+    rdfs:domain ex:ProprioceptiveMonitoring ;
+    rdfs:range ex:PosturalInformation ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:RhythmicProcessesToTemporalFlow a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:RhythmicProcesses ;
+    rdfs:range ex:TemporalFlow ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:SomaticAwarenessToEmbodiedPresence a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:SomaticAwareness ;
+    rdfs:range ex:EmbodiedPresence ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SomaticInformationToEmotionalAwareness a owl:ObjectProperty ;
+    rdfs:comment "enhances" ;
+    rdfs:domain ex:SomaticInformation ;
+    rdfs:range ex:EmotionalAwareness ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:SomaticResponsesToBodyFeedback a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:SomaticResponses ;
+    rdfs:range ex:BodyFeedback ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:SpatialAtmospheresToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:SpatialAtmospheres ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:SpatialEmbodimentToEmbodiedPresence a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:SpatialEmbodiment ;
+    rdfs:range ex:EmbodiedPresence ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SpatialSensingToSpatialAtmospheres a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:SpatialSensing ;
+    rdfs:range ex:SpatialAtmospheres ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:SubjectiveScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SubjectiveScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SubjectiveScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SubjectiveScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SubjectiveScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SubjectiveTimeToEmbodiedTemporality a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:SubjectiveTime ;
+    rdfs:range ex:EmbodiedTemporality ;
+    rdfs:subPropertyOf <dul:mediatedBy> .
+
+ex:TemporalEmbodimentToBodyTimeAwareness a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:TemporalEmbodiment ;
+    rdfs:range ex:BodyTimeAwareness ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:TemporalExperiencerToSubjectiveTime a owl:ObjectProperty ;
+    rdfs:comment "perceives" ;
+    rdfs:domain ex:TemporalExperiencer ;
+    rdfs:range ex:SubjectiveTime ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:BodyEmotions a owl:Class ;
+    rdfs:label "BodyEmotions" ;
+    rdfs:comment "Emotions primarily experienced through physical sensations" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:BodyRhythms a owl:Class ;
+    rdfs:label "BodyRhythms" ;
+    rdfs:comment "Natural cyclical patterns in bodily functions" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ComfortSensations a owl:Class ;
+    rdfs:label "ComfortSensations" ;
+    rdfs:comment "Pleasant bodily feelings indicating good physical conditions" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DiscomfortCauses a owl:Class ;
+    rdfs:label "DiscomfortCauses" ;
+    rdfs:comment "Factors that create unpleasant bodily experiences" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:DiscomfortSignals a owl:Class ;
+    rdfs:label "DiscomfortSignals" ;
+    rdfs:comment "Unpleasant bodily feelings indicating problematic conditions" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EmbodiedExperiencer a owl:Class ;
+    rdfs:label "EmbodiedExperiencer" ;
+    rdfs:comment "Person with conscious awareness of their bodily experience" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:EmbodiedFeeler a owl:Class ;
+    rdfs:label "EmbodiedFeeler" ;
+    rdfs:comment "Person who experiences emotions through bodily sensations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:EmotionalEmbodiment a owl:Class ;
+    rdfs:label "EmotionalEmbodiment" ;
+    rdfs:comment "Experience of emotions as integrated mind-body phenomena" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EnvironmentalPerceiver a owl:Class ;
+    rdfs:label "EnvironmentalPerceiver" ;
+    rdfs:comment "Person attuned to environmental qualities and atmospheric presence" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:GutFeelings a owl:Class ;
+    rdfs:label "GutFeelings" ;
+    rdfs:comment "Intuitive emotional responses felt in the body" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:PhysicalSatisfaction a owl:Class ;
+    rdfs:label "PhysicalSatisfaction" ;
+    rdfs:comment "Contentment with bodily conditions and sensations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PlaceSense a owl:Class ;
+    rdfs:label "PlaceSense" ;
+    rdfs:comment "Feeling of connection and belonging to specific locations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:RhythmicProcesses a owl:Class ;
+    rdfs:label "RhythmicProcesses" ;
+    rdfs:comment "Regular, cyclical bodily functions and movements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialSensing a owl:Class ;
+    rdfs:label "SpatialSensing" ;
+    rdfs:comment "Awareness of spatial relationships and environmental structure" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalExperiencer a owl:Class ;
+    rdfs:label "TemporalExperiencer" ;
+    rdfs:comment "Person experiencing time through bodily sensations and rhythms" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TemporalFlow a owl:Class ;
+    rdfs:label "TemporalFlow" ;
+    rdfs:comment "Sense of time moving and progressing through embodied experience" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:AtmosphericQualities a owl:Class ;
+    rdfs:label "AtmosphericQualities" ;
+    rdfs:comment "Felt characteristics of environmental spaces" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:BodyFeedback a owl:Class ;
+    rdfs:label "BodyFeedback" ;
+    rdfs:comment "Physical sensations that provide information about emotional states" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:BodyWellbeing a owl:Class ;
+    rdfs:label "BodyWellbeing" ;
+    rdfs:comment "Overall positive physical condition and satisfaction" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ComfortFactors a owl:Class ;
+    rdfs:label "ComfortFactors" ;
+    rdfs:comment "Conditions and elements that promote physical comfort" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:ComfortSeeking a owl:Class ;
+    rdfs:label "ComfortSeeking" ;
+    rdfs:comment "Behaviors aimed at achieving pleasant physical states" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DiscomfortAvoidance a owl:Class ;
+    rdfs:label "DiscomfortAvoidance" ;
+    rdfs:comment "Actions taken to prevent or eliminate unpleasant sensations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DurationSensations a owl:Class ;
+    rdfs:label "DurationSensations" ;
+    rdfs:comment "Bodily felt sense of time passage and temporal intervals" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EmbodiedEmotions a owl:Class ;
+    rdfs:label "EmbodiedEmotions" ;
+    rdfs:comment "Emotions experienced as physical sensations and bodily states" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:EmotionalAwareness a owl:Class ;
+    rdfs:label "EmotionalAwareness" ;
+    rdfs:comment "Conscious recognition of emotional states through bodily experience" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EnvironmentalConnection a owl:Class ;
+    rdfs:label "EnvironmentalConnection" ;
+    rdfs:comment "Bond between person and environmental setting" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:EnvironmentalMoods a owl:Class ;
+    rdfs:label "EnvironmentalMoods" ;
+    rdfs:comment "Emotional tones and feelings associated with places" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InteroceptiveSensing a owl:Class ;
+    rdfs:label "InteroceptiveSensing" ;
+    rdfs:comment "Awareness of internal bodily signals and states" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MovementSensations a owl:Class ;
+    rdfs:label "MovementSensations" ;
+    rdfs:comment "Felt experience of bodily motion and position changes" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:PhysicalFeelingStates a owl:Class ;
+    rdfs:label "PhysicalFeelingStates" ;
+    rdfs:comment "Bodily conditions associated with specific emotions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PhysiologicalCycles a owl:Class ;
+    rdfs:label "PhysiologicalCycles" ;
+    rdfs:comment "Biological rhythms affecting temporal experience" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:PosturalInformation a owl:Class ;
+    rdfs:label "PosturalInformation" ;
+    rdfs:comment "Sensory data about body position and balance" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SomaticAwareness a owl:Class ;
+    rdfs:label "SomaticAwareness" ;
+    rdfs:comment "Conscious attention to bodily sensations and feelings" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SomaticInformation a owl:Class ;
+    rdfs:label "SomaticInformation" ;
+    rdfs:comment "Bodily data that contributes to emotional understanding" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SomaticResponses a owl:Class ;
+    rdfs:label "SomaticResponses" ;
+    rdfs:comment "Physical reactions accompanying emotional states" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialAtmospheres a owl:Class ;
+    rdfs:label "SpatialAtmospheres" ;
+    rdfs:comment "Qualitative characteristics of spatial environments" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SpatialEmbodiment a owl:Class ;
+    rdfs:label "SpatialEmbodiment" ;
+    rdfs:comment "Sense of body position and orientation in space" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SubjectiveTime a owl:Class ;
+    rdfs:label "SubjectiveTime" ;
+    rdfs:comment "Personal, felt experience of temporal flow and duration" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalEmbodiment a owl:Class ;
+    rdfs:label "TemporalEmbodiment" ;
+    rdfs:comment "Integration of time perception with bodily awareness" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TimePerception a owl:Class ;
+    rdfs:label "TimePerception" ;
+    rdfs:comment "Subjective awareness and interpretation of temporal duration" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AmbientAwareness a owl:Class ;
+    rdfs:label "AmbientAwareness" ;
+    rdfs:comment "Perception of overall environmental context and mood" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BodySchemas a owl:Class ;
+    rdfs:label "BodySchemas" ;
+    rdfs:comment "Mental representations of body structure and capabilities" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:BodyTimeAwareness a owl:Class ;
+    rdfs:label "BodyTimeAwareness" ;
+    rdfs:comment "Consciousness of temporal aspects of bodily experience" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EmbodiedPresence a owl:Class ;
+    rdfs:label "EmbodiedPresence" ;
+    rdfs:comment "Feeling of being present in and through the body" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EmbodiedTemporality a owl:Class ;
+    rdfs:label "EmbodiedTemporality" ;
+    rdfs:comment "Experience of time as mediated through bodily processes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ProprioceptiveMonitoring a owl:Class ;
+    rdfs:label "ProprioceptiveMonitoring" ;
+    rdfs:comment "Sensing body position and movement through internal receptors" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BodilyComfort a owl:Class ;
+    rdfs:label "BodilyComfort" ;
+    rdfs:comment "Pleasant, satisfied physical sensations and conditions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:BodyAwareness a owl:Class ;
+    rdfs:label "BodyAwareness" ;
+    rdfs:comment "Conscious attention to bodily sensations and positioning" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ComfortSeeker a owl:Class ;
+    rdfs:label "ComfortSeeker" ;
+    rdfs:comment "Person pursuing physical comfort and avoiding discomfort" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PhysicalDiscomfort a owl:Class ;
+    rdfs:label "PhysicalDiscomfort" ;
+    rdfs:comment "Unpleasant, aversive bodily sensations and conditions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EnvironmentalPresence a owl:Class ;
+    rdfs:label "EnvironmentalPresence" ;
+    rdfs:comment "Feeling of being situated within and connected to environment" ;
+    rdfs:subClassOf <dul:State> .
+

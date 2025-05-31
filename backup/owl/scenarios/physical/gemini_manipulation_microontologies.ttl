@@ -1,0 +1,210 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix mip: <http://example.org/gemini/physical/manipulation#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mip: ns1:imports dul: .
+
+mip:CraftManipulationContext a dul:Situation ;
+    dul:hasParticipant mip:CraftingTool,
+        mip:MaterialSurface ;
+    dul:hasSetting mip:DesignIntent,
+        mip:ShapingAction .
+
+mip:FineMotorControlContext a dul:Situation ;
+    dul:hasParticipant mip:Effector ;
+    dul:hasSetting mip:ControlStrategy,
+        mip:ManipulationSequence,
+        mip:PrecisionTask .
+
+mip:InstrumentalManipulationContext a dul:Situation ;
+    dul:hasParticipant mip:ManipulatedObject,
+        mip:Tool,
+        mip:User ;
+    dul:hasSetting mip:ManipulationAction .
+
+mip:LoadManagementContext a dul:Situation ;
+    dul:hasParticipant mip:ObjectWithLoad ;
+    dul:hasSetting mip:ForceApplication,
+        mip:StabilizationStrategy,
+        mip:StructuralResponse .
+
+mip:ObjectAssemblyContext a dul:Situation ;
+    dul:hasParticipant mip:Component,
+        mip:ConstructedObject ;
+    dul:hasSetting mip:AssemblyInstruction,
+        mip:AssemblyProcess .
+
+mip:appliedTo a ns1:ObjectProperty ;
+    rdfs:domain mip:ForceApplication ;
+    rdfs:range mip:ObjectWithLoad ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:assembles a ns1:ObjectProperty ;
+    rdfs:domain mip:AssemblyProcess ;
+    rdfs:range mip:Component ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mip:composedOf a ns1:ObjectProperty ;
+    rdfs:domain mip:ManipulationSequence ;
+    rdfs:range mip:PrecisionTask ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+mip:directedAt a ns1:ObjectProperty ;
+    rdfs:domain mip:ManipulationAction ;
+    rdfs:range mip:ManipulatedObject ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:enables a ns1:ObjectProperty ;
+    rdfs:domain mip:Effector ;
+    rdfs:range mip:MotorSkill ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:executedWith a ns1:ObjectProperty ;
+    rdfs:domain mip:PrecisionTask ;
+    rdfs:range mip:Effector ;
+    rdfs:subPropertyOf dul:hasInstrument .
+
+mip:exhibits a ns1:ObjectProperty ;
+    rdfs:domain mip:ObjectWithLoad ;
+    rdfs:range mip:LoadDistribution ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:follows a ns1:ObjectProperty ;
+    rdfs:domain mip:PrecisionTask ;
+    rdfs:range mip:ControlStrategy ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+mip:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain mip:AssemblyProcess,
+        mip:ShapingAction ;
+    rdfs:range mip:AssemblyInstruction,
+        mip:DesignIntent ;
+    rdfs:subPropertyOf dul:hasDescription,
+        dul:hasTask .
+
+mip:hasStructure a ns1:ObjectProperty ;
+    rdfs:domain mip:ConstructedObject ;
+    rdfs:range mip:StructuralConfiguration ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:manipulates a ns1:ObjectProperty ;
+    rdfs:domain mip:User ;
+    rdfs:range mip:ManipulatedObject ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:performedWith a ns1:ObjectProperty ;
+    rdfs:domain mip:ShapingAction ;
+    rdfs:range mip:CraftingTool ;
+    rdfs:subPropertyOf dul:hasInstrument .
+
+mip:performsFunction a ns1:ObjectProperty ;
+    rdfs:domain mip:ManipulationAction ;
+    rdfs:range mip:IntendedFunction ;
+    rdfs:subPropertyOf dul:hasTask .
+
+mip:respondsWith a ns1:ObjectProperty ;
+    rdfs:domain mip:ObjectWithLoad ;
+    rdfs:range mip:StructuralResponse ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mip:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain mip:AssemblyProcess ;
+    rdfs:range mip:ConstructedObject ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mip:supportedBy a ns1:ObjectProperty ;
+    rdfs:domain mip:ForceApplication ;
+    rdfs:range mip:StabilizationStrategy ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+mip:targets a ns1:ObjectProperty ;
+    rdfs:domain mip:ShapingAction ;
+    rdfs:range mip:MaterialSurface ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:transformedInto a ns1:ObjectProperty ;
+    rdfs:domain mip:MaterialSurface ;
+    rdfs:range mip:CraftedForm ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:usesTool a ns1:ObjectProperty ;
+    rdfs:domain mip:User ;
+    rdfs:range mip:Tool ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mip:CraftedForm a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:IntendedFunction a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:LoadDistribution a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:MotorSkill a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:StructuralConfiguration a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:AssemblyInstruction a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:Component a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ControlStrategy a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:CraftingTool a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:DesignIntent a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:ManipulationSequence a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mip:StabilizationStrategy a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:StructuralResponse a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:Tool a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ConstructedObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:Effector a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ForceApplication a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mip:ManipulatedObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ManipulationAction a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+
+mip:MaterialSurface a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:User a ns1:Class ;
+    rdfs:subClassOf dul:Agent .
+
+mip:AssemblyProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mip:ObjectWithLoad a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:PrecisionTask a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+
+mip:ShapingAction a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+

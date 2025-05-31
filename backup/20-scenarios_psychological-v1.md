@@ -83,7 +83,64 @@
 - DecisionMaking determines BehavioralChoices
 - BehavioralChoices may create new MemoryTriggers
 
+### Scenario 4: Emotional Contagion and Interpersonal Affect
+
+**Description:** In this scenario, an #EmotionReceiver experiences #EmotionalContagion when exposed to #OthersEmotions through #SocialInteraction. The receiver undergoes #AutomaticMimicry and #EmotionalSynchronization, leading to #SharedEmotionalStates and #CollectiveAffect that create #EmotionalResonance and #GroupEmotionalDynamics.
+
+**Elements:**
+
+- **EmotionReceiver** (Entity): Person susceptible to catching emotions from others
+- **EmotionalContagion** (Process): Automatic spreading of emotions between people
+- **OthersEmotions** (Entity): Emotional states displayed by other people in social settings
+- **SocialInteraction** (Process): Direct or indirect contact with emotionally expressive others
+- **AutomaticMimicry** (Process): Unconscious copying of emotional expressions and behaviors
+- **EmotionalSynchronization** (Process): Alignment of emotional states between individuals
+- **SharedEmotionalStates** (State): Common emotional experiences across multiple people
+- **CollectiveAffect** (State): Group-level emotional atmosphere or mood
+- **EmotionalResonance** (Quality): Degree of emotional connection and mutual influence
+- **GroupEmotionalDynamics** (Process): Collective emotional patterns and interactions
+
+**Relations:**
+
+- EmotionReceiver exposed to OthersEmotions through SocialInteraction
+- SocialInteraction triggers EmotionalContagion process
+- EmotionalContagion involves AutomaticMimicry of emotional expressions
+- AutomaticMimicry leads to EmotionalSynchronization
+- EmotionalSynchronization creates SharedEmotionalStates
+- SharedEmotionalStates contribute to CollectiveAffect
+- EmotionalResonance determines strength of EmotionalContagion
+- CollectiveAffect influences GroupEmotionalDynamics
+
+### Scenario 5: Mood Fluctuation and Affective Cycles
+
+**Description:** In this scenario, a #MoodTracker monitors #MoodVariations and #AffectiveCycles through #MoodChanges and #EmotionalRhythms. The tracker observes #MoodShifts, #AffectivePatterns, and #EmotionalFluctuations while understanding #MoodTriggers and #AffectiveStability to predict #EmotionalTrajectories.
+
+**Elements:**
+
+- **MoodTracker** (Entity): Person monitoring and understanding patterns in emotional states
+- **MoodVariations** (Quality): Different levels and types of emotional states over time
+- **AffectiveCycles** (State): Regular patterns of emotional change and fluctuation
+- **MoodChanges** (Process): Transitions between different emotional states
+- **EmotionalRhythms** (State): Predictable timing patterns in emotional experiences
+- **MoodShifts** (Process): Notable alterations in overall emotional tone
+- **AffectivePatterns** (State): Recognizable sequences of emotional states
+- **EmotionalFluctuations** (Process): Variations in emotional intensity and quality
+- **MoodTriggers** (Entity): Events or factors that initiate mood changes
+- **AffectiveStability** (Quality): Consistency and predictability of emotional states
+- **EmotionalTrajectories** (State): Predicted paths of emotional change over time
+
+**Relations:**
+
+- MoodTracker monitors MoodVariations and AffectiveCycles
+- AffectiveCycles include MoodChanges and EmotionalRhythms
+- MoodTracker observes MoodShifts and EmotionalFluctuations
+- EmotionalFluctuations follow identifiable AffectivePatterns
+- MoodTriggers cause MoodShifts and EmotionalFluctuations
+- AffectiveStability influences predictability of AffectiveCycles
+- AffectivePatterns enable prediction of EmotionalTrajectories
+
 ---
+
 
 
 ## Perception and Sensation
@@ -174,7 +231,63 @@
 - PerceptualMechanisms can systematically alter SensoryEvidence
 - InterpretationErrors demonstrate interaction between perception and cognition
 
+### Scenario 4: Sensory Integration and Cross-Modal Processing
+
+**Description:** In this scenario, a #SensoryIntegrator combines #MultiSensoryInputs through #CrossModalProcessing to create #IntegratedPerceptions and #UnifiedSensoryExperience. The integrator manages #SensoryConflicts and #ModalityInteractions while achieving #PerceptualCoherence through #SensoryBinding and #MultimodalIntegration.
+
+**Elements:**
+
+- **SensoryIntegrator** (Entity): Person combining information from multiple sensory modalities
+- **MultiSensoryInputs** (Entity): Simultaneous information from different sensory channels
+- **CrossModalProcessing** (Process): Integration of information across sensory modalities
+- **IntegratedPerceptions** (Entity): Unified sensory experiences combining multiple modalities
+- **UnifiedSensoryExperience** (State): Coherent perception drawing from multiple senses
+- **SensoryConflicts** (Entity): Contradictory information from different sensory modalities
+- **ModalityInteractions** (Process): Ways different sensory channels influence each other
+- **PerceptualCoherence** (Quality): Consistency and unity in multi-sensory experience
+- **SensoryBinding** (Process): Linking related information from different sensory channels
+- **MultimodalIntegration** (Process): Systematic combination of cross-modal information
+
+**Relations:**
+
+- SensoryIntegrator receives MultiSensoryInputs for processing
+- CrossModalProcessing combines information from different sensory channels
+- CrossModalProcessing creates IntegratedPerceptions
+- IntegratedPerceptions contribute to UnifiedSensoryExperience
+- SensoryIntegrator resolves SensoryConflicts between modalities
+- ModalityInteractions influence CrossModalProcessing
+- SensoryBinding enables PerceptualCoherence
+- MultimodalIntegration produces unified UnifiedSensoryExperience
+
+### Scenario 5: Attention and Perceptual Selection
+
+**Description:** In this scenario, an #AttentionController directs #SelectiveAttention toward #RelevantStimuli while filtering #IrrelevantInformation through #AttentionalFiltering. The controller manages #AttentionalCapacity and #FocusControl to optimize #PerceptualSelection and maintain #AttentionalSustainment despite #DistractingElements.
+
+**Elements:**
+
+- **AttentionController** (Entity): Person managing and directing attentional resources
+- **SelectiveAttention** (Process): Focusing on specific sensory information while ignoring others
+- **RelevantStimuli** (Entity): Sensory information important for current goals or tasks
+- **IrrelevantInformation** (Entity): Sensory input not needed for current objectives
+- **AttentionalFiltering** (Process): Screening out unimportant sensory information
+- **AttentionalCapacity** (Quality): Limited cognitive resources available for attention
+- **FocusControl** (Process): Deliberate direction and maintenance of attention
+- **PerceptualSelection** (Process): Choosing which sensory information receives processing
+- **AttentionalSustainment** (Process): Maintaining focus over extended time periods
+- **DistractingElements** (Entity): Competing stimuli that draw attention away from targets
+
+**Relations:**
+
+- AttentionController directs SelectiveAttention toward RelevantStimuli
+- SelectiveAttention uses AttentionalFiltering to exclude IrrelevantInformation
+- AttentionController manages limited AttentionalCapacity
+- FocusControl optimizes PerceptualSelection of important information
+- PerceptualSelection prioritizes RelevantStimuli over DistractingElements
+- AttentionalSustainment maintains SelectiveAttention over time
+- DistractingElements challenge AttentionalSustainment and FocusControl
+
 ---
+
 
 ## Needs and Drives and Motivations
 
@@ -263,7 +376,62 @@
 - InterpersonalBonds can develop into EmotionalIntimacy
 - SocialAcceptance and EmotionalIntimacy satisfy BelongingNeeds
 
+### Scenario 4: Intrinsic Motivation and Self-Determined Behavior
+
+**Description:** In this scenario, a #AutonomousAgent engages in #IntrinsicallyMotivatedBehavior driven by #InternalRewards and #PersonalInterests rather than #ExternalPressures. The agent experiences #AutonomousSatisfaction and #IntrinsicFulfillment through #SelfDirectedActivities and #PersonallyMeaningfulPursuits that align with #InternalValues.
+
+**Elements:**
+
+- **AutonomousAgent** (Entity): Person motivated by internal rather than external factors
+- **IntrinsicallyMotivatedBehavior** (Process): Actions driven by internal satisfaction rather than external rewards
+- **InternalRewards** (Entity): Personal satisfaction and enjoyment derived from activities
+- **PersonalInterests** (Entity): Topics, activities, or domains that naturally attract attention
+- **ExternalPressures** (Entity): Outside forces pushing toward particular behaviors
+- **AutonomousSatisfaction** (State): Fulfillment from self-directed choices and actions
+- **IntrinsicFulfillment** (State): Deep satisfaction from internally motivated activities
+- **SelfDirectedActivities** (Entity): Pursuits chosen based on personal preference rather than obligation
+- **PersonallyMeaningfulPursuits** (Entity): Activities that align with individual values and interests
+- **InternalValues** (Entity): Personal principles and beliefs that guide behavior
+
+**Relations:**
+
+- AutonomousAgent engages in IntrinsicallyMotivatedBehavior
+- IntrinsicallyMotivatedBehavior driven by InternalRewards and PersonalInterests
+- AutonomousAgent resists ExternalPressures in favor of internal motivation
+- SelfDirectedActivities generate AutonomousSatisfaction
+- PersonallyMeaningfulPursuits create IntrinsicFulfillment
+- PersonalInterests guide selection of SelfDirectedActivities
+- InternalValues determine what constitutes PersonallyMeaningfulPursuits
+
+### Scenario 5: Motivational Conflict and Drive Competition
+
+**Description:** In this scenario, a #ConflictedIndividual experiences #MotivationalConflicts between #CompetingDrives and #ConflictingGoals. The individual faces #ApproachAvoidanceConflicts and #MultipleMotivations that create #MotivationalTension and require #ConflictResolution through #PrioritySelection and #MotivationalCompromise.
+
+**Elements:**
+
+- **ConflictedIndividual** (Entity): Person experiencing simultaneous competing motivations
+- **MotivationalConflicts** (State): Situations where different drives pull in opposing directions
+- **CompetingDrives** (Entity): Different motivational forces that cannot be satisfied simultaneously
+- **ConflictingGoals** (Entity): Objectives that are mutually exclusive or contradictory
+- **ApproachAvoidanceConflicts** (Entity): Situations where same target has both attractive and repulsive qualities
+- **MultipleMotivations** (Entity): Several different drives active at the same time
+- **MotivationalTension** (State): Psychological stress from unresolved motivational conflicts
+- **ConflictResolution** (Process): Methods for resolving competing motivational demands
+- **PrioritySelection** (Process): Choosing which motivations take precedence
+- **MotivationalCompromise** (Process): Finding solutions that partially satisfy multiple drives
+
+**Relations:**
+
+- ConflictedIndividual experiences MotivationalConflicts between CompetingDrives
+- CompetingDrives create ConflictingGoals that cannot be pursued simultaneously
+- ApproachAvoidanceConflicts arise from mixed motivations toward same target
+- MultipleMotivations generate MotivationalTension
+- ConflictedIndividual engages in ConflictResolution to manage tension
+- ConflictResolution involves PrioritySelection among competing drives
+- MotivationalCompromise provides alternative to PrioritySelection
+
 ---
+
 
 ## Subjective Experience of the Body and Environment
 
@@ -351,188 +519,6 @@
 - BodyEmotions manifest as distinct PhysicalFeelingStates
 - BodyFeedback contributes to EmotionalAwareness
 - SomaticInformation enhances overall EmotionalAwareness
-
-
-# Psychological Domain - Additional Scenarios
-
-## Emotions and Affective States
-
-### Scenario 4: Emotional Contagion and Interpersonal Affect
-
-**Description:** In this scenario, an #EmotionReceiver experiences #EmotionalContagion when exposed to #OthersEmotions through #SocialInteraction. The receiver undergoes #AutomaticMimicry and #EmotionalSynchronization, leading to #SharedEmotionalStates and #CollectiveAffect that create #EmotionalResonance and #GroupEmotionalDynamics.
-
-**Elements:**
-
-- **EmotionReceiver** (Entity): Person susceptible to catching emotions from others
-- **EmotionalContagion** (Process): Automatic spreading of emotions between people
-- **OthersEmotions** (Entity): Emotional states displayed by other people in social settings
-- **SocialInteraction** (Process): Direct or indirect contact with emotionally expressive others
-- **AutomaticMimicry** (Process): Unconscious copying of emotional expressions and behaviors
-- **EmotionalSynchronization** (Process): Alignment of emotional states between individuals
-- **SharedEmotionalStates** (State): Common emotional experiences across multiple people
-- **CollectiveAffect** (State): Group-level emotional atmosphere or mood
-- **EmotionalResonance** (Quality): Degree of emotional connection and mutual influence
-- **GroupEmotionalDynamics** (Process): Collective emotional patterns and interactions
-
-**Relations:**
-
-- EmotionReceiver exposed to OthersEmotions through SocialInteraction
-- SocialInteraction triggers EmotionalContagion process
-- EmotionalContagion involves AutomaticMimicry of emotional expressions
-- AutomaticMimicry leads to EmotionalSynchronization
-- EmotionalSynchronization creates SharedEmotionalStates
-- SharedEmotionalStates contribute to CollectiveAffect
-- EmotionalResonance determines strength of EmotionalContagion
-- CollectiveAffect influences GroupEmotionalDynamics
-
-### Scenario 5: Mood Fluctuation and Affective Cycles
-
-**Description:** In this scenario, a #MoodTracker monitors #MoodVariations and #AffectiveCycles through #MoodChanges and #EmotionalRhythms. The tracker observes #MoodShifts, #AffectivePatterns, and #EmotionalFluctuations while understanding #MoodTriggers and #AffectiveStability to predict #EmotionalTrajectories.
-
-**Elements:**
-
-- **MoodTracker** (Entity): Person monitoring and understanding patterns in emotional states
-- **MoodVariations** (Quality): Different levels and types of emotional states over time
-- **AffectiveCycles** (State): Regular patterns of emotional change and fluctuation
-- **MoodChanges** (Process): Transitions between different emotional states
-- **EmotionalRhythms** (State): Predictable timing patterns in emotional experiences
-- **MoodShifts** (Process): Notable alterations in overall emotional tone
-- **AffectivePatterns** (State): Recognizable sequences of emotional states
-- **EmotionalFluctuations** (Process): Variations in emotional intensity and quality
-- **MoodTriggers** (Entity): Events or factors that initiate mood changes
-- **AffectiveStability** (Quality): Consistency and predictability of emotional states
-- **EmotionalTrajectories** (State): Predicted paths of emotional change over time
-
-**Relations:**
-
-- MoodTracker monitors MoodVariations and AffectiveCycles
-- AffectiveCycles include MoodChanges and EmotionalRhythms
-- MoodTracker observes MoodShifts and EmotionalFluctuations
-- EmotionalFluctuations follow identifiable AffectivePatterns
-- MoodTriggers cause MoodShifts and EmotionalFluctuations
-- AffectiveStability influences predictability of AffectiveCycles
-- AffectivePatterns enable prediction of EmotionalTrajectories
-
----
-
-## Perception and Sensation
-
-### Scenario 4: Sensory Integration and Cross-Modal Processing
-
-**Description:** In this scenario, a #SensoryIntegrator combines #MultiSensoryInputs through #CrossModalProcessing to create #IntegratedPerceptions and #UnifiedSensoryExperience. The integrator manages #SensoryConflicts and #ModalityInteractions while achieving #PerceptualCoherence through #SensoryBinding and #MultimodalIntegration.
-
-**Elements:**
-
-- **SensoryIntegrator** (Entity): Person combining information from multiple sensory modalities
-- **MultiSensoryInputs** (Entity): Simultaneous information from different sensory channels
-- **CrossModalProcessing** (Process): Integration of information across sensory modalities
-- **IntegratedPerceptions** (Entity): Unified sensory experiences combining multiple modalities
-- **UnifiedSensoryExperience** (State): Coherent perception drawing from multiple senses
-- **SensoryConflicts** (Entity): Contradictory information from different sensory modalities
-- **ModalityInteractions** (Process): Ways different sensory channels influence each other
-- **PerceptualCoherence** (Quality): Consistency and unity in multi-sensory experience
-- **SensoryBinding** (Process): Linking related information from different sensory channels
-- **MultimodalIntegration** (Process): Systematic combination of cross-modal information
-
-**Relations:**
-
-- SensoryIntegrator receives MultiSensoryInputs for processing
-- CrossModalProcessing combines information from different sensory channels
-- CrossModalProcessing creates IntegratedPerceptions
-- IntegratedPerceptions contribute to UnifiedSensoryExperience
-- SensoryIntegrator resolves SensoryConflicts between modalities
-- ModalityInteractions influence CrossModalProcessing
-- SensoryBinding enables PerceptualCoherence
-- MultimodalIntegration produces unified UnifiedSensoryExperience
-
-### Scenario 5: Attention and Perceptual Selection
-
-**Description:** In this scenario, an #AttentionController directs #SelectiveAttention toward #RelevantStimuli while filtering #IrrelevantInformation through #AttentionalFiltering. The controller manages #AttentionalCapacity and #FocusControl to optimize #PerceptualSelection and maintain #AttentionalSustainment despite #DistractingElements.
-
-**Elements:**
-
-- **AttentionController** (Entity): Person managing and directing attentional resources
-- **SelectiveAttention** (Process): Focusing on specific sensory information while ignoring others
-- **RelevantStimuli** (Entity): Sensory information important for current goals or tasks
-- **IrrelevantInformation** (Entity): Sensory input not needed for current objectives
-- **AttentionalFiltering** (Process): Screening out unimportant sensory information
-- **AttentionalCapacity** (Quality): Limited cognitive resources available for attention
-- **FocusControl** (Process): Deliberate direction and maintenance of attention
-- **PerceptualSelection** (Process): Choosing which sensory information receives processing
-- **AttentionalSustainment** (Process): Maintaining focus over extended time periods
-- **DistractingElements** (Entity): Competing stimuli that draw attention away from targets
-
-**Relations:**
-
-- AttentionController directs SelectiveAttention toward RelevantStimuli
-- SelectiveAttention uses AttentionalFiltering to exclude IrrelevantInformation
-- AttentionController manages limited AttentionalCapacity
-- FocusControl optimizes PerceptualSelection of important information
-- PerceptualSelection prioritizes RelevantStimuli over DistractingElements
-- AttentionalSustainment maintains SelectiveAttention over time
-- DistractingElements challenge AttentionalSustainment and FocusControl
-
----
-
-## Needs and Drives and Motivations
-
-### Scenario 4: Intrinsic Motivation and Self-Determined Behavior
-
-**Description:** In this scenario, a #AutonomousAgent engages in #IntrinsicallyMotivatedBehavior driven by #InternalRewards and #PersonalInterests rather than #ExternalPressures. The agent experiences #AutonomousSatisfaction and #IntrinsicFulfillment through #SelfDirectedActivities and #PersonallyMeaningfulPursuits that align with #InternalValues.
-
-**Elements:**
-
-- **AutonomousAgent** (Entity): Person motivated by internal rather than external factors
-- **IntrinsicallyMotivatedBehavior** (Process): Actions driven by internal satisfaction rather than external rewards
-- **InternalRewards** (Entity): Personal satisfaction and enjoyment derived from activities
-- **PersonalInterests** (Entity): Topics, activities, or domains that naturally attract attention
-- **ExternalPressures** (Entity): Outside forces pushing toward particular behaviors
-- **AutonomousSatisfaction** (State): Fulfillment from self-directed choices and actions
-- **IntrinsicFulfillment** (State): Deep satisfaction from internally motivated activities
-- **SelfDirectedActivities** (Entity): Pursuits chosen based on personal preference rather than obligation
-- **PersonallyMeaningfulPursuits** (Entity): Activities that align with individual values and interests
-- **InternalValues** (Entity): Personal principles and beliefs that guide behavior
-
-**Relations:**
-
-- AutonomousAgent engages in IntrinsicallyMotivatedBehavior
-- IntrinsicallyMotivatedBehavior driven by InternalRewards and PersonalInterests
-- AutonomousAgent resists ExternalPressures in favor of internal motivation
-- SelfDirectedActivities generate AutonomousSatisfaction
-- PersonallyMeaningfulPursuits create IntrinsicFulfillment
-- PersonalInterests guide selection of SelfDirectedActivities
-- InternalValues determine what constitutes PersonallyMeaningfulPursuits
-
-### Scenario 5: Motivational Conflict and Drive Competition
-
-**Description:** In this scenario, a #ConflictedIndividual experiences #MotivationalConflicts between #CompetingDrives and #ConflictingGoals. The individual faces #ApproachAvoidanceConflicts and #MultipleMotivations that create #MotivationalTension and require #ConflictResolution through #PrioritySelection and #MotivationalCompromise.
-
-**Elements:**
-
-- **ConflictedIndividual** (Entity): Person experiencing simultaneous competing motivations
-- **MotivationalConflicts** (State): Situations where different drives pull in opposing directions
-- **CompetingDrives** (Entity): Different motivational forces that cannot be satisfied simultaneously
-- **ConflictingGoals** (Entity): Objectives that are mutually exclusive or contradictory
-- **ApproachAvoidanceConflicts** (Entity): Situations where same target has both attractive and repulsive qualities
-- **MultipleMotivations** (Entity): Several different drives active at the same time
-- **MotivationalTension** (State): Psychological stress from unresolved motivational conflicts
-- **ConflictResolution** (Process): Methods for resolving competing motivational demands
-- **PrioritySelection** (Process): Choosing which motivations take precedence
-- **MotivationalCompromise** (Process): Finding solutions that partially satisfy multiple drives
-
-**Relations:**
-
-- ConflictedIndividual experiences MotivationalConflicts between CompetingDrives
-- CompetingDrives create ConflictingGoals that cannot be pursued simultaneously
-- ApproachAvoidanceConflicts arise from mixed motivations toward same target
-- MultipleMotivations generate MotivationalTension
-- ConflictedIndividual engages in ConflictResolution to manage tension
-- ConflictResolution involves PrioritySelection among competing drives
-- MotivationalCompromise provides alternative to PrioritySelection
-
----
-
-## Subjective Experience of the Body and Environment
 
 ### Scenario 4: Temporal Embodiment and Duration Experience
 
