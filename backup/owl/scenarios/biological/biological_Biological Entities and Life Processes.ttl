@@ -1,0 +1,434 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/gemini#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/gemini> a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex:EcologicalStudy a dul:Situation ;
+    dul:hasParticipant ex:EcologyObserver,
+        ex:InteractingSpecies ;
+    dul:hasSetting ex:InterspeciesRelationships ;
+    rdfs:comment "A situation in which an EcologyObserver studies InteractingSpecies engaged in InterspeciesRelationships." .
+
+ex:ReproductiveObservation a dul:Situation ;
+    dul:hasParticipant ex:ReproducingOrganisms,
+        ex:ReproductionObserver ;
+    dul:hasSetting ex:GeneticTransmission,
+        ex:ReproductiveProcesses ;
+    rdfs:comment "A situation in which a ReproductionObserver studies ReproductiveProcesses and GeneticTransmission in ReproducingOrganisms." .
+
+ex:TrackingSituation a dul:Situation ;
+    dul:hasParticipant ex:LifeObserver,
+        ex:LivingOrganisms ;
+    dul:hasSetting ex:DevelopmentalStages ;
+    rdfs:comment "A situation in which a LifeObserver tracks a LivingOrganism through DevelopmentalStages." .
+
+ex:TraitBasedIdentification a dul:Situation ;
+    dul:hasParticipant ex:BiologicalClassifier ;
+    dul:hasSetting ex:BehavioralTraits,
+        ex:MorphologicalFeatures,
+        ex:SpeciesIdentification ;
+    rdfs:comment "A classification act where a BiologicalClassifier identifies species using MorphologicalFeatures and BehavioralTraits." .
+
+ex:VitalSignsObservation a dul:Situation ;
+    dul:hasParticipant ex:ActiveOrganisms,
+        ex:BiologicalMonitor ;
+    dul:hasSetting ex:VitalSigns ;
+    rdfs:comment "A situation in which a BiologicalMonitor observes VitalSigns in ActiveOrganisms." .
+
+ex:appearIn a owl:ObjectProperty ;
+    rdfs:domain ex:HereditaryTraits ;
+    rdfs:range ex:OffspringProduction ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:carriedIn a owl:ObjectProperty ;
+    rdfs:domain ex:HereditaryTraits ;
+    rdfs:range ex:GeneticMaterial .
+
+ex:classifies rdfs:subPropertyOf dul:classifies .
+
+ex:demonstrate a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalActivities ;
+    rdfs:range ex:LifeFunctions ;
+    rdfs:subPropertyOf dul:realizes .
+
+ex:dependsOn a owl:ObjectProperty ;
+    rdfs:domain ex:SpeciesContinuity ;
+    rdfs:range ex:OffspringProduction ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:determinePattern a owl:ObjectProperty ;
+    rdfs:domain ex:SpeciesCharacteristics ;
+    rdfs:range ex:LifeCyclePatterns ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:determinePlacement a owl:ObjectProperty ;
+    rdfs:domain ex:SpeciesDistinctions ;
+    rdfs:range ex:TaxonomicCategories ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:determineTransmission a owl:ObjectProperty ;
+    rdfs:domain ex:InheritancePatterns ;
+    rdfs:range ex:HereditaryTraits .
+
+ex:displayFunction a owl:ObjectProperty ;
+    rdfs:domain ex:ActiveOrganisms ;
+    rdfs:range ex:LifeFunctions .
+
+ex:driveTransitions a owl:ObjectProperty ;
+    rdfs:domain ex:GrowthProcesses ;
+    rdfs:range ex:DevelopmentalStages .
+
+ex:emergeFrom a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalCommunities ;
+    rdfs:range ex:InterspeciesRelationships .
+
+ex:enable a owl:ObjectProperty ;
+    rdfs:domain ex:SurvivalStrategies ;
+    rdfs:range ex:InterspeciesRelationships ;
+    rdfs:subPropertyOf dul:hasRole .
+
+ex:encompasses a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalDiversity ;
+    rdfs:range ex:OrganismVariety .
+
+ex:engageIn a owl:ObjectProperty ;
+    rdfs:domain ex:InteractingSpecies ;
+    rdfs:range ex:InterspeciesRelationships ;
+    rdfs:subPropertyOf dul:isParticipantIn .
+
+ex:ensure a owl:ObjectProperty ;
+    rdfs:domain ex:InheritancePatterns ;
+    rdfs:range ex:SpeciesContinuity ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:followsPattern a owl:ObjectProperty ;
+    rdfs:domain ex:DevelopmentalStages ;
+    rdfs:range ex:LifeCyclePatterns .
+
+ex:foundIn a owl:ObjectProperty ;
+    rdfs:domain ex:VitalSigns ;
+    rdfs:range ex:ActiveOrganisms .
+
+ex:include a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalActivities,
+        ex:ClassificationSystems,
+        ex:InterspeciesRelationships ;
+    rdfs:range ex:Breathing,
+        ex:Competition,
+        ex:Cooperation,
+        ex:Feeding,
+        ex:Movement,
+        ex:Predation,
+        ex:Reproduction,
+        ex:Symbiosis,
+        ex:TaxonomicCategories .
+
+ex:includes rdfs:subPropertyOf dul:hasPart .
+
+ex:involve a owl:ObjectProperty ;
+    rdfs:domain ex:ReproductiveProcesses ;
+    rdfs:range ex:GeneticTransmission,
+        ex:MatingBehaviors ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:maintain a owl:ObjectProperty ;
+    rdfs:domain ex:LifeFunctions ;
+    rdfs:range ex:ActiveOrganisms ;
+    rdfs:subPropertyOf dul:realizes .
+
+ex:markBoundariesOf a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalTransitions ;
+    rdfs:range ex:DevelopmentalStages .
+
+ex:observes a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalMonitor ;
+    rdfs:range ex:VitalSigns ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:observesFor a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalClassifier ;
+    rdfs:range ex:OrganismVariety .
+
+ex:occupy a owl:ObjectProperty ;
+    rdfs:domain ex:InteractingSpecies ;
+    rdfs:range ex:EcologicalNiches ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:organize a owl:ObjectProperty ;
+    rdfs:domain ex:TaxonomicCategories ;
+    rdfs:range ex:BiologicalDiversity .
+
+ex:progressesFrom a owl:ObjectProperty ;
+    rdfs:domain ex:LivingOrganisms ;
+    rdfs:range ex:InitialStates .
+
+ex:progressesTo a owl:ObjectProperty ;
+    rdfs:domain ex:LivingOrganisms ;
+    rdfs:range ex:MatureStates .
+
+ex:recognizesThrough a owl:ObjectProperty ;
+    rdfs:domain ex:LifeObserver ;
+    rdfs:range ex:GrowthProcesses .
+
+ex:reduce a owl:ObjectProperty ;
+    rdfs:domain ex:EcologicalNiches ;
+    rdfs:range ex:Competition ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reflect a owl:ObjectProperty ;
+    rdfs:domain ex:ClassificationSystems ;
+    rdfs:range ex:PhylogeneticRelationships .
+
+ex:reliesOn a owl:ObjectProperty ;
+    rdfs:domain ex:SpeciesIdentification ;
+    rdfs:range ex:BehavioralTraits,
+        ex:MorphologicalFeatures ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:resultsFrom a owl:ObjectProperty ;
+    rdfs:domain ex:OffspringProduction ;
+    rdfs:range ex:ReproductiveProcesses ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:serveAs a owl:ObjectProperty ;
+    rdfs:domain ex:VitalSigns ;
+    rdfs:range ex:LifeIndicators ;
+    rdfs:subPropertyOf dul:hasRole .
+
+ex:studies a owl:ObjectProperty ;
+    rdfs:domain ex:EcologyObserver,
+        ex:ReproductionObserver ;
+    rdfs:range ex:InteractingSpecies,
+        ex:ReproductiveProcesses ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:tracks a owl:ObjectProperty ;
+    rdfs:domain ex:LifeObserver ;
+    rdfs:range ex:LivingOrganisms ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:transfers a owl:ObjectProperty ;
+    rdfs:domain ex:GeneticTransmission ;
+    rdfs:range ex:GeneticMaterial ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:usesSystem a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalClassifier ;
+    rdfs:range ex:ClassificationSystems ;
+    rdfs:subPropertyOf dul:usesDescription .
+
+ex:usesToIdentify a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalMonitor ;
+    rdfs:range ex:LifeIndicators .
+
+ex:BiologicalCommunities a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState .
+
+ex:BiologicalTransitions a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Event .
+
+ex:Breathing a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:Cooperation a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess .
+
+ex:Feeding a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:InitialStates a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:State .
+
+ex:MatingBehaviors a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Action .
+
+ex:MatureStates a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:State .
+
+ex:Movement a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:PhylogeneticRelationships a owl:Class ;
+    rdfs:subClassOf ex:BiologicalRelation,
+        dul:SocialObject .
+
+ex:Predation a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess .
+
+ex:ReproducingOrganisms a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Object .
+
+ex:Reproduction a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:SpeciesCharacteristics a owl:Class ;
+    rdfs:subClassOf ex:BiologicalQuality,
+        dul:Quality .
+
+ex:SpeciesDistinctions a owl:Class ;
+    rdfs:subClassOf ex:BiologicalQuality,
+        dul:Quality .
+
+ex:SurvivalStrategies a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:Symbiosis a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess .
+
+ex:BehavioralTraits a owl:Class ;
+    rdfs:subClassOf ex:BiologicalQuality,
+        dul:Quality .
+
+ex:BiologicalActivities a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:BiologicalDiversity a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:Situation .
+
+ex:BiologicalRelation a owl:Class ;
+    rdfs:subClassOf dul:Relation .
+
+ex:Competition a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess .
+
+ex:EcologicalNiches a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:Situation .
+
+ex:EcologyObserver a owl:Class ;
+    rdfs:subClassOf ex:Observer,
+        dul:Agent .
+
+ex:GeneticMaterial a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Object .
+
+ex:GrowthProcesses a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:InheritancePatterns a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:Description .
+
+ex:LifeCyclePatterns a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:Description .
+
+ex:LifeIndicators a owl:Class ;
+    rdfs:subClassOf ex:BiologicalQuality,
+        dul:Quality .
+
+ex:MorphologicalFeatures a owl:Class ;
+    rdfs:subClassOf ex:BiologicalQuality,
+        dul:Quality .
+
+ex:OrganismVariety a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Object .
+
+ex:ReproductionObserver a owl:Class ;
+    rdfs:subClassOf ex:Observer,
+        dul:Agent .
+
+ex:SpeciesContinuity a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:State .
+
+ex:SpeciesIdentification a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Action .
+
+ex:BiologicalClassifier a owl:Class ;
+    rdfs:subClassOf ex:Observer,
+        dul:Agent .
+
+ex:BiologicalMonitor a owl:Class ;
+    rdfs:subClassOf ex:Observer,
+        dul:Agent .
+
+ex:ClassificationSystems a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Description .
+
+ex:GeneticTransmission a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Event .
+
+ex:HereditaryTraits a owl:Class ;
+    rdfs:subClassOf ex:BiologicalQuality,
+        dul:Quality .
+
+ex:LifeFunctions a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:LifeObserver a owl:Class ;
+    rdfs:subClassOf ex:Observer,
+        dul:Agent .
+
+ex:OffspringProduction a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Event .
+
+ex:TaxonomicCategories a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Concept .
+
+ex:ActiveOrganisms a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Object .
+
+ex:DevelopmentalStages a owl:Class ;
+    rdfs:subClassOf ex:BiologicalState,
+        dul:State .
+
+ex:InteractingSpecies a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Object .
+
+ex:LivingOrganisms a owl:Class ;
+    rdfs:subClassOf ex:Organism,
+        dul:Object .
+
+ex:ReproductiveProcesses a owl:Class ;
+    rdfs:subClassOf ex:BiologicalProcess,
+        dul:Process .
+
+ex:VitalSigns a owl:Class ;
+    rdfs:subClassOf ex:Organism .
+
+ex:InterspeciesRelationships a owl:Class ;
+    rdfs:subClassOf ex:BiologicalRelation,
+        dul:SocialObject .
+
+ex:Observer a owl:Class ;
+    rdfs:subClassOf dul:Entity .
+
+ex:BiologicalQuality a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:BiologicalState a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:Organism a owl:Class ;
+    rdfs:subClassOf dul:Entity .
+
+ex:BiologicalProcess a owl:Class ;
+    rdfs:subClassOf dul:Process .
+

@@ -1,0 +1,223 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix mot: <http://example.org/gemini/physical/motion#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mot: ns1:imports dul: .
+
+mot:CollisionPredictionContext a dul:Situation ;
+    dul:hasParticipant mot:MovingObject ;
+    dul:hasSetting mot:CollisionPrediction,
+        mot:IntersectionPoint,
+        mot:Trajectory .
+
+mot:NavigationTrackingContext a dul:Situation ;
+    dul:hasParticipant mot:MotionTracker,
+        mot:NavigatingAgent ;
+    dul:hasSetting mot:MovementEvent,
+        mot:TrackingProcess .
+
+mot:PositioningContext a dul:Situation ;
+    dul:hasParticipant mot:Object ;
+    dul:hasSetting mot:PositioningProcess,
+        mot:ReferencePoint,
+        mot:SpatialArrangement .
+
+mot:SpatialReferenceContext a dul:Situation ;
+    dul:hasParticipant mot:EnvironmentFeature ;
+    dul:hasSetting mot:LocationalReference,
+        mot:OrientationTerm,
+        mot:SpatialDescriptor .
+
+mot:SpeedPerceptionContext a dul:Situation ;
+    dul:hasParticipant mot:Observer ;
+    dul:hasSetting mot:SpeedAttribute,
+        mot:SpeedComparison,
+        mot:VelocityMeasurement .
+
+mot:analyzes a ns1:ObjectProperty ;
+    rdfs:domain mot:CollisionPrediction ;
+    rdfs:range mot:Trajectory ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:assesses a ns1:ObjectProperty ;
+    rdfs:domain mot:VelocityMeasurement ;
+    rdfs:range mot:SpeedAttribute ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:compares a ns1:ObjectProperty ;
+    rdfs:domain mot:SpeedComparison ;
+    rdfs:range mot:SpeedAttribute ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:definedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialArrangement ;
+    rdfs:range mot:ReferencePoint ;
+    rdfs:subPropertyOf dul:hasReference .
+
+mot:describedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:LocationalReference ;
+    rdfs:range mot:SpatialDescriptor ;
+    rdfs:subPropertyOf dul:hasReference .
+
+mot:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain mot:MotionTracker ;
+    rdfs:range mot:TrackingProcess ;
+    rdfs:subPropertyOf dul:performs .
+
+mot:estimates a ns1:ObjectProperty ;
+    rdfs:domain mot:CollisionPrediction ;
+    rdfs:range mot:CollisionRisk ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mot:expresses a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialDescriptor ;
+    rdfs:range mot:SpatialRelation ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mot:follows a ns1:ObjectProperty ;
+    rdfs:domain mot:MovingObject ;
+    rdfs:range mot:MotionPath ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mot:followsPath a ns1:ObjectProperty ;
+    rdfs:domain mot:NavigatingAgent ;
+    rdfs:range mot:SpatialPath ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mot:identifies a ns1:ObjectProperty ;
+    rdfs:domain mot:CollisionPrediction ;
+    rdfs:range mot:IntersectionPoint ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+mot:involves a ns1:ObjectProperty ;
+    rdfs:domain mot:MovementEvent ;
+    rdfs:range mot:NavigatingAgent ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mot:measures a ns1:ObjectProperty ;
+    rdfs:domain mot:Observer ;
+    rdfs:range mot:MovingEntity ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:monitors a ns1:ObjectProperty ;
+    rdfs:domain mot:TrackingProcess ;
+    rdfs:range mot:MovementEvent ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:occursAt a ns1:ObjectProperty ;
+    rdfs:domain mot:MovementEvent ;
+    rdfs:range mot:LocationPoint ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+mot:performedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:SpeedComparison ;
+    rdfs:range mot:Observer ;
+    rdfs:subPropertyOf dul:hasAgent .
+
+mot:positionedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:Object ;
+    rdfs:range mot:PositioningProcess ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mot:produces a ns1:ObjectProperty ;
+    rdfs:domain mot:PositioningProcess ;
+    rdfs:range mot:SpatialArrangement ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+mot:quantifiedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialArrangement ;
+    rdfs:range mot:RelativeDistance ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mot:relatedTo a ns1:ObjectProperty ;
+    rdfs:domain mot:LocationalReference ;
+    rdfs:range mot:EnvironmentFeature ;
+    rdfs:subPropertyOf dul:hasRelatedEntity .
+
+mot:uses a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialDescriptor ;
+    rdfs:range mot:OrientationTerm ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mot:CollisionRisk a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:LocationPoint a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MotionPath a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MovingEntity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:RelativeDistance a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:SpatialPath a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:SpatialRelation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mot:EnvironmentFeature a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:IntersectionPoint a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MotionTracker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MovingObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:Object a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:OrientationTerm a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mot:ReferencePoint a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:Trajectory a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:VelocityMeasurement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mot:LocationalReference a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:NavigatingAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:Observer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:PositioningProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:SpeedAttribute a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:SpeedComparison a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:TrackingProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:CollisionPrediction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:MovementEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mot:SpatialArrangement a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:SpatialDescriptor a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+

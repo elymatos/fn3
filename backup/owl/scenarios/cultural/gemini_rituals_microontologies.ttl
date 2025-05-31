@@ -1,0 +1,239 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rtl: <http://example.org/gemini/cultural/rituals#> .
+
+rtl: ns1:imports dul: .
+
+rtl:KnowledgeTransmissionContext a dul:Situation ;
+    dul:hasParticipant rtl:Elder,
+        rtl:Youth ;
+    dul:hasSetting rtl:CulturalKnowledge,
+        rtl:OralTradition .
+
+rtl:LifecycleRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:CommunityParticipant ;
+    dul:hasSetting rtl:CeremonialStructure,
+        rtl:LifecycleEvent,
+        rtl:RitualPractice .
+
+rtl:PassageRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:Initiate ;
+    dul:hasSetting rtl:CulturalSymbols,
+        rtl:Mentorship,
+        rtl:RiteOfPassage .
+
+rtl:ReligiousRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:FaithGroup ;
+    dul:hasSetting rtl:DoctrinalElements,
+        rtl:ReligiousRitual,
+        rtl:SacredSymbols .
+
+rtl:SeasonalRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:AgriculturalCommunity ;
+    dul:hasSetting rtl:AgrarianRituals,
+        rtl:HarvestCelebration,
+        rtl:SeasonalCycle .
+
+rtl:basedOn a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual ;
+    rdfs:range rtl:DoctrinalElements ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:celebrates a ns1:ObjectProperty ;
+    rdfs:domain rtl:AgriculturalCommunity ;
+    rdfs:range rtl:HarvestCelebration ;
+    rdfs:subPropertyOf dul:performs .
+
+rtl:conformsTo a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:CulturalNorms ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:employs a ns1:ObjectProperty ;
+    rdfs:domain rtl:AgrarianRituals ;
+    rdfs:range rtl:FertilitySymbolism ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:expresses a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:SymbolicActs ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rtl:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:AgrarianRituals ;
+    rdfs:range rtl:EnvironmentalObservation ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:includes a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual ;
+    rdfs:range rtl:SpiritualPractices ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rtl:inspires a ns1:ObjectProperty ;
+    rdfs:domain rtl:SeasonalCycle ;
+    rdfs:range rtl:AgrarianRituals ;
+    rdfs:subPropertyOf dul:hasCause .
+
+rtl:involves a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:CommunityParticipant ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain rtl:RiteOfPassage ;
+    rdfs:range rtl:SocialStatusTransition ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+rtl:markedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:LifecycleEvent ;
+    rdfs:range rtl:RitualPractice ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+rtl:observedAs a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual ;
+    rdfs:range rtl:RitualObservance ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+rtl:performs a ns1:ObjectProperty ;
+    rdfs:domain rtl:FaithGroup ;
+    rdfs:range rtl:ReligiousRitual ;
+    rdfs:subPropertyOf dul:performs .
+
+rtl:realizedIn a ns1:ObjectProperty ;
+    rdfs:domain rtl:OralTradition ;
+    rdfs:range rtl:StorytellingEvent ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+rtl:receives a ns1:ObjectProperty ;
+    rdfs:domain rtl:Youth ;
+    rdfs:range rtl:CulturalKnowledge ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:recognizedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:RiteOfPassage ;
+    rdfs:range rtl:CommunityRecognition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:reinforces a ns1:ObjectProperty ;
+    rdfs:domain rtl:StorytellingEvent ;
+    rdfs:range rtl:IntergenerationalBond ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+rtl:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:CeremonialStructure ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rtl:supportedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:RiteOfPassage ;
+    rdfs:range rtl:Mentorship ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:transmits a ns1:ObjectProperty ;
+    rdfs:domain rtl:Elder ;
+    rdfs:range rtl:CulturalKnowledge ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:undergoes a ns1:ObjectProperty ;
+    rdfs:domain rtl:Initiate ;
+    rdfs:range rtl:RiteOfPassage ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:uses a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual,
+        rtl:RiteOfPassage ;
+    rdfs:range rtl:CulturalSymbols,
+        rtl:SacredSymbols ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:CommunityRecognition a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:CulturalNorms a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:EnvironmentalObservation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:FertilitySymbolism a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:IntergenerationalBond a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+rtl:RitualObservance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:SocialStatusTransition a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:SpiritualPractices a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:SymbolicActs a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:AgriculturalCommunity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CeremonialStructure a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CommunityParticipant a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CulturalSymbols a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:DoctrinalElements a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+rtl:Elder a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:FaithGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:HarvestCelebration a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:Initiate a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:LifecycleEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:Mentorship a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:OralTradition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:SacredSymbols a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:SeasonalCycle a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:StorytellingEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:Youth a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CulturalKnowledge a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+rtl:AgrarianRituals a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:ReligiousRitual a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:RiteOfPassage a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:RitualPractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

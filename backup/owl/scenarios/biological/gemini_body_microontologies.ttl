@@ -1,0 +1,368 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/gemini/health#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/gemini/body> a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex:AnatomicalDevelopmentSituation a dul:Situation ;
+    dul:hasParticipant ex:DevelopmentalObserver ;
+    dul:hasSetting ex:BodyGrowth,
+        ex:DevelopmentalMilestones,
+        ex:StructuralChanges ;
+    rdfs:comment "A situation where a DevelopmentalObserver monitors BodyGrowth and StructuralChanges through DevelopmentalMilestones." .
+
+ex:AnatomyMappingSituation a dul:Situation ;
+    dul:hasParticipant ex:AnatomicalObserver ;
+    dul:hasSetting ex:AnatomicalStructures,
+        ex:BodyParts,
+        ex:SpatialRelationships ;
+    rdfs:comment "A situation in which an AnatomicalObserver identifies BodyParts and understands their SpatialRelationships within AnatomicalStructures." .
+
+ex:BodyAwarenessSituation a dul:Situation ;
+    dul:hasParticipant ex:BodyPerceiver ;
+    dul:hasSetting ex:ExternalFeatures,
+        ex:InternalStructures,
+        ex:VisibilityDifferences ;
+    rdfs:comment "A situation in which a BodyPerceiver uses DirectObservation and ProprioceptiveAwareness to distinguish ExternalFeatures from InternalStructures." .
+
+ex:BodyProportionAnalysisSituation a dul:Situation ;
+    dul:hasParticipant ex:ProportionAnalyst ;
+    dul:hasSetting ex:BodyProportions,
+        ex:BodySymmetry,
+        ex:ProportionalRelationships ;
+    rdfs:comment "A situation where a ProportionAnalyst examines BodySymmetry and ProportionalRelationships to understand BodyProportions." .
+
+ex:SystemIntegrationSituation a dul:Situation ;
+    dul:hasParticipant ex:SystemAnalyst ;
+    dul:hasSetting ex:BodySystemIntegration,
+        ex:BodySystems,
+        ex:OrganFunctions ;
+    rdfs:comment "A situation where a SystemAnalyst examines how BodySystems coordinate OrganFunctions toward BodySystemIntegration." .
+
+ex:achieves a owl:ObjectProperty ;
+    rdfs:domain ex:SystemicCoordination ;
+    rdfs:range ex:BodySystemIntegration ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:analyzes a owl:ObjectProperty ;
+    rdfs:domain ex:ProportionAnalyst ;
+    rdfs:range ex:ProportionalRelationships ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:arePartOf a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:AnatomicalStructures ;
+    rdfs:subPropertyOf dul:isPartOf .
+
+ex:characterize a owl:ObjectProperty ;
+    rdfs:domain ex:GrowthPatterns ;
+    rdfs:range ex:DevelopmentalPhases ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:compose a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalDimensions ;
+    rdfs:range ex:BodyProportions ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:comprise a owl:ObjectProperty ;
+    rdfs:domain ex:BodySystems ;
+    rdfs:range ex:FunctionalUnits ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:connectedBy a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:FunctionalConnections ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:containedIn a owl:ObjectProperty ;
+    rdfs:domain ex:InternalStructures ;
+    rdfs:range ex:BodyCavities ;
+    rdfs:subPropertyOf dul:isPartOf .
+
+ex:contributeTo a owl:ObjectProperty ;
+    rdfs:domain ex:BodyRegions ;
+    rdfs:range ex:StructuralOrganization ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:coordinateVia a owl:ObjectProperty ;
+    rdfs:domain ex:OrganFunctions ;
+    rdfs:range ex:SystemicCoordination ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:define a owl:ObjectProperty ;
+    rdfs:domain ex:SizeRelationships ;
+    rdfs:range ex:BodyProportions ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:demonstrate a owl:ObjectProperty ;
+    rdfs:domain ex:BilateralPatterns ;
+    rdfs:range ex:BodySymmetry ;
+    rdfs:subPropertyOf dul:realizes .
+
+ex:determineAccessibilityOf a owl:ObjectProperty ;
+    rdfs:domain ex:VisibilityDifferences ;
+    rdfs:range ex:BodyParts ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:distinguishes a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver ;
+    rdfs:range ex:ExternalFeatures ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:distinguishesFrom a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver ;
+    rdfs:range ex:InternalStructures ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:enable a owl:ObjectProperty ;
+    rdfs:domain ex:OrganInterconnections ;
+    rdfs:range ex:SystemicCoordination ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:examines a owl:ObjectProperty ;
+    rdfs:domain ex:ProportionAnalyst,
+        ex:SystemAnalyst ;
+    rdfs:range ex:BodySymmetry,
+        ex:BodySystems,
+        ex:OrganNetworks ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:existIn a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:identifies a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalObserver,
+        ex:ProportionAnalyst ;
+    rdfs:range ex:BodyParts,
+        ex:SymmetryDeviations ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:integrateInto a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalStructures ;
+    rdfs:range ex:BodySystem ;
+    rdfs:subPropertyOf dul:isComponentOf .
+
+ex:involves a owl:ObjectProperty ;
+    rdfs:domain ex:BodyGrowth ;
+    rdfs:range ex:ProportionalShifts,
+        ex:StructuralChanges ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:leadToward a owl:ObjectProperty ;
+    rdfs:domain ex:StructuralChanges ;
+    rdfs:range ex:AnatomicalMaturation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:link a owl:ObjectProperty ;
+    rdfs:domain ex:SystemicDependencies ;
+    rdfs:range ex:BodySystems ;
+    rdfs:subPropertyOf dul:hasRelation .
+
+ex:locatedIn a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:BodyRegions ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:locatedOn a owl:ObjectProperty ;
+    rdfs:domain ex:ExternalFeatures ;
+    rdfs:range ex:BodySurfaces ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:maps a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalObserver ;
+    rdfs:range ex:AnatomicalLocations ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:markProgressIn a owl:ObjectProperty ;
+    rdfs:domain ex:DevelopmentalMilestones ;
+    rdfs:range ex:AnatomicalDevelopment ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:occursThrough a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalDevelopment ;
+    rdfs:range ex:DevelopmentalPhases ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:perform a owl:ObjectProperty ;
+    rdfs:domain ex:FunctionalUnits ;
+    rdfs:range ex:OrganFunctions ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:provides a owl:ObjectProperty ;
+    rdfs:domain ex:DirectObservation,
+        ex:ProprioceptiveAwareness ;
+    rdfs:range ex:BodyKnowledge ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reflect a owl:ObjectProperty ;
+    rdfs:domain ex:ProportionalShifts,
+        ex:ProportionalVariations ;
+    rdfs:range ex:GrowthPatterns,
+        ex:SizeRelationships ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:reflects a owl:ObjectProperty ;
+    rdfs:domain ex:StructuralOrganization ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:reliesOn a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver ;
+    rdfs:range ex:ProprioceptiveAwareness ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:support a owl:ObjectProperty ;
+    rdfs:domain ex:OrganInterconnections ;
+    rdfs:range ex:PhysiologicalCoordination ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:tracks a owl:ObjectProperty ;
+    rdfs:domain ex:DevelopmentalObserver ;
+    rdfs:range ex:AnatomicalDevelopment,
+        ex:BodyGrowth ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:uses a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver ;
+    rdfs:range ex:DirectObservation ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:AnatomicalDimensions a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:AnatomicalLocations a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:AnatomicalMaturation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BilateralPatterns a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:BodyCavities a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodySurfaces a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodySystem a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:FunctionalConnections a owl:Class ;
+    rdfs:subClassOf dul:SocialObject .
+
+ex:OrganNetworks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PhysiologicalCoordination a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ProportionalVariations a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:SymmetryDeviations a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:SystemicDependencies a owl:Class ;
+    rdfs:subClassOf dul:SocialObject .
+
+ex:BodyRegions a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodySystemIntegration a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:DevelopmentalMilestones a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:DevelopmentalObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:DevelopmentalPhases a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:DirectObservation a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:FunctionalUnits a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:GrowthPatterns a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:OrganInterconnections a owl:Class ;
+    rdfs:subClassOf dul:SocialObject .
+
+ex:ProportionalRelationships a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:ProportionalShifts a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ProprioceptiveAwareness a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:SizeRelationships a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:StructuralOrganization a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:SystemAnalyst a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:VisibilityDifferences a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:AnatomicalDevelopment a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:AnatomicalObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:AnatomicalStructures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodyGrowth a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BodyProportions a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:BodySymmetry a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:ExternalFeatures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:InternalStructures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:OrganFunctions a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SpatialRelationships a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:StructuralChanges a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SystemicCoordination a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BodySystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:ProportionAnalyst a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:BodyPerceiver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:BodyParts a owl:Class ;
+    rdfs:subClassOf dul:Object .
+

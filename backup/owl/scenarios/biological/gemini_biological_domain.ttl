@@ -1,0 +1,2068 @@
+@prefix bio: <http://example.org/gemini/biological#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/gemini/health#> .
+@prefix ex1: <http://example.org/gemini#> .
+@prefix ex2: <http://example.org/gemini/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/gemini> a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex1:EcologicalStudy a dul:Situation ;
+    dul:hasParticipant ex1:EcologyObserver,
+        ex1:InteractingSpecies ;
+    dul:hasSetting ex1:InterspeciesRelationships ;
+    rdfs:comment "A situation in which an EcologyObserver studies InteractingSpecies engaged in InterspeciesRelationships." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex1:ReproductiveObservation a dul:Situation ;
+    dul:hasParticipant ex1:ReproducingOrganisms,
+        ex1:ReproductionObserver ;
+    dul:hasSetting ex1:GeneticTransmission,
+        ex1:ReproductiveProcesses ;
+    rdfs:comment "A situation in which a ReproductionObserver studies ReproductiveProcesses and GeneticTransmission in ReproducingOrganisms." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex1:TrackingSituation a dul:Situation ;
+    dul:hasParticipant ex1:LifeObserver,
+        ex1:LivingOrganisms ;
+    dul:hasSetting ex1:DevelopmentalStages ;
+    rdfs:comment "A situation in which a LifeObserver tracks a LivingOrganism through DevelopmentalStages." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex1:TraitBasedIdentification a dul:Situation ;
+    dul:hasParticipant ex1:BiologicalClassifier ;
+    dul:hasSetting ex1:BehavioralTraits,
+        ex1:MorphologicalFeatures,
+        ex1:SpeciesIdentification ;
+    rdfs:comment "A classification act where a BiologicalClassifier identifies species using MorphologicalFeatures and BehavioralTraits." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex1:VitalSignsObservation a dul:Situation ;
+    dul:hasParticipant ex1:ActiveOrganisms,
+        ex1:BiologicalMonitor ;
+    dul:hasSetting ex1:VitalSigns ;
+    rdfs:comment "A situation in which a BiologicalMonitor observes VitalSigns in ActiveOrganisms." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex1:appearIn a owl:ObjectProperty ;
+    rdfs:domain ex1:HereditaryTraits ;
+    rdfs:range ex1:OffspringProduction ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex1:carriedIn a owl:ObjectProperty ;
+    rdfs:domain ex1:HereditaryTraits ;
+    rdfs:range ex1:GeneticMaterial .
+
+ex1:classifies rdfs:subPropertyOf dul:classifies .
+
+ex1:demonstrate a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalActivities ;
+    rdfs:range ex1:LifeFunctions ;
+    rdfs:subPropertyOf dul:realizes .
+
+ex1:dependsOn a owl:ObjectProperty ;
+    rdfs:domain ex1:SpeciesContinuity ;
+    rdfs:range ex1:OffspringProduction ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex1:determinePattern a owl:ObjectProperty ;
+    rdfs:domain ex1:SpeciesCharacteristics ;
+    rdfs:range ex1:LifeCyclePatterns ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex1:determinePlacement a owl:ObjectProperty ;
+    rdfs:domain ex1:SpeciesDistinctions ;
+    rdfs:range ex1:TaxonomicCategories ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex1:determineTransmission a owl:ObjectProperty ;
+    rdfs:domain ex1:InheritancePatterns ;
+    rdfs:range ex1:HereditaryTraits .
+
+ex1:displayFunction a owl:ObjectProperty ;
+    rdfs:domain ex1:ActiveOrganisms ;
+    rdfs:range ex1:LifeFunctions .
+
+ex1:driveTransitions a owl:ObjectProperty ;
+    rdfs:domain ex1:GrowthProcesses ;
+    rdfs:range ex1:DevelopmentalStages .
+
+ex1:emergeFrom a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalCommunities ;
+    rdfs:range ex1:InterspeciesRelationships .
+
+ex1:enable a owl:ObjectProperty ;
+    rdfs:domain ex1:SurvivalStrategies ;
+    rdfs:range ex1:InterspeciesRelationships ;
+    rdfs:subPropertyOf dul:hasRole .
+
+ex1:encompasses a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalDiversity ;
+    rdfs:range ex1:OrganismVariety .
+
+ex1:engageIn a owl:ObjectProperty ;
+    rdfs:domain ex1:InteractingSpecies ;
+    rdfs:range ex1:InterspeciesRelationships ;
+    rdfs:subPropertyOf dul:isParticipantIn .
+
+ex1:ensure a owl:ObjectProperty ;
+    rdfs:domain ex1:InheritancePatterns ;
+    rdfs:range ex1:SpeciesContinuity ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex1:followsPattern a owl:ObjectProperty ;
+    rdfs:domain ex1:DevelopmentalStages ;
+    rdfs:range ex1:LifeCyclePatterns .
+
+ex1:foundIn a owl:ObjectProperty ;
+    rdfs:domain ex1:VitalSigns ;
+    rdfs:range ex1:ActiveOrganisms .
+
+ex1:include a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalActivities,
+        ex1:ClassificationSystems,
+        ex1:InterspeciesRelationships ;
+    rdfs:range ex1:Breathing,
+        ex1:Competition,
+        ex1:Cooperation,
+        ex1:Feeding,
+        ex1:Movement,
+        ex1:Predation,
+        ex1:Reproduction,
+        ex1:Symbiosis,
+        ex1:TaxonomicCategories .
+
+ex1:includes rdfs:subPropertyOf dul:hasPart .
+
+ex1:involve a owl:ObjectProperty ;
+    rdfs:domain ex1:ReproductiveProcesses ;
+    rdfs:range ex1:GeneticTransmission,
+        ex1:MatingBehaviors ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex1:maintain a owl:ObjectProperty ;
+    rdfs:domain ex1:LifeFunctions ;
+    rdfs:range ex1:ActiveOrganisms ;
+    rdfs:subPropertyOf dul:realizes .
+
+ex1:markBoundariesOf a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalTransitions ;
+    rdfs:range ex1:DevelopmentalStages .
+
+ex1:observes a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalMonitor ;
+    rdfs:range ex1:VitalSigns ;
+    rdfs:subPropertyOf dul:observes .
+
+ex1:observesFor a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalClassifier ;
+    rdfs:range ex1:OrganismVariety .
+
+ex1:occupy a owl:ObjectProperty ;
+    rdfs:domain ex1:InteractingSpecies ;
+    rdfs:range ex1:EcologicalNiches ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex1:organize a owl:ObjectProperty ;
+    rdfs:domain ex1:TaxonomicCategories ;
+    rdfs:range ex1:BiologicalDiversity .
+
+ex1:progressesFrom a owl:ObjectProperty ;
+    rdfs:domain ex1:LivingOrganisms ;
+    rdfs:range ex1:InitialStates .
+
+ex1:progressesTo a owl:ObjectProperty ;
+    rdfs:domain ex1:LivingOrganisms ;
+    rdfs:range ex1:MatureStates .
+
+ex1:recognizesThrough a owl:ObjectProperty ;
+    rdfs:domain ex1:LifeObserver ;
+    rdfs:range ex1:GrowthProcesses .
+
+ex1:reduce a owl:ObjectProperty ;
+    rdfs:domain ex1:EcologicalNiches ;
+    rdfs:range ex1:Competition ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex1:reflect a owl:ObjectProperty ;
+    rdfs:domain ex1:ClassificationSystems ;
+    rdfs:range ex1:PhylogeneticRelationships .
+
+ex1:reliesOn a owl:ObjectProperty ;
+    rdfs:domain ex1:SpeciesIdentification ;
+    rdfs:range ex1:BehavioralTraits,
+        ex1:MorphologicalFeatures ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex1:resultsFrom a owl:ObjectProperty ;
+    rdfs:domain ex1:OffspringProduction ;
+    rdfs:range ex1:ReproductiveProcesses ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex1:serveAs a owl:ObjectProperty ;
+    rdfs:domain ex1:VitalSigns ;
+    rdfs:range ex1:LifeIndicators ;
+    rdfs:subPropertyOf dul:hasRole .
+
+ex1:studies a owl:ObjectProperty ;
+    rdfs:domain ex1:EcologyObserver,
+        ex1:ReproductionObserver ;
+    rdfs:range ex1:InteractingSpecies,
+        ex1:ReproductiveProcesses ;
+    rdfs:subPropertyOf dul:observes .
+
+ex1:tracks a owl:ObjectProperty ;
+    rdfs:domain ex1:LifeObserver ;
+    rdfs:range ex1:LivingOrganisms ;
+    rdfs:subPropertyOf dul:observes .
+
+ex1:transfers a owl:ObjectProperty ;
+    rdfs:domain ex1:GeneticTransmission ;
+    rdfs:range ex1:GeneticMaterial ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex1:usesSystem a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalClassifier ;
+    rdfs:range ex1:ClassificationSystems ;
+    rdfs:subPropertyOf dul:usesDescription .
+
+ex1:usesToIdentify a owl:ObjectProperty ;
+    rdfs:domain ex1:BiologicalMonitor ;
+    rdfs:range ex1:LifeIndicators .
+
+ex2:AdaptationProcesses rdfs:subClassOf bio:BiologicalProcess .
+
+ex2:BodyGrowth rdfs:subClassOf bio:BiologicalProcess .
+
+ex2:BodyParts rdfs:subClassOf bio:BiologicalStructure .
+
+ex2:BodyPerceiver rdfs:subClassOf bio:BiologicalAgent .
+
+ex2:ChangeObserver rdfs:subClassOf bio:BiologicalObserver .
+
+ex2:ChronobiologyExpert rdfs:subClassOf bio:BiologicalObserver .
+
+ex2:ConservationBiologist rdfs:subClassOf bio:BiologicalObserver .
+
+ex2:ConservationStrategies rdfs:subClassOf bio:BiologicalProcess .
+
+ex2:EcologicalFitness rdfs:subClassOf bio:BiologicalQuality .
+
+ex2:EcologicalObserver rdfs:subClassOf bio:BiologicalObserver .
+
+ex2:EcosystemAnalyst rdfs:subClassOf bio:BiologicalObserver .
+
+ex2:EcosystemValue rdfs:subClassOf bio:BiologicalQuality .
+
+ex2:EnvironmentalConditions rdfs:subClassOf bio:EnvironmentalFactor .
+
+ex2:EnvironmentalPressures rdfs:subClassOf bio:EnvironmentalFactor .
+
+ex2:EnvironmentalStressors rdfs:subClassOf bio:EnvironmentalFactor .
+
+ex2:InternalStructures rdfs:subClassOf bio:BiologicalStructure .
+
+ex2:MotorController rdfs:subClassOf bio:BiologicalAgent .
+
+ex2:MotorPlanning rdfs:subClassOf bio:BiologicalProcess .
+
+ex2:MovementExecution rdfs:subClassOf bio:BiologicalProcess .
+
+ex2:NaturalDisruptions rdfs:subClassOf bio:EnvironmentalFactor .
+
+ex2:PhysiologicalChallenges rdfs:subClassOf bio:EnvironmentalFactor .
+
+ex2:PhysiologyMonitor rdfs:subClassOf bio:BiologicalObserver .
+
+ex2:RecoveryProcesses rdfs:subClassOf bio:BiologicalProcess .
+
+ex2:ResourceAvailability rdfs:subClassOf bio:BiologicalState .
+
+ex2:SpeciesDistribution rdfs:subClassOf bio:BiologicalState .
+
+ex2:SpeciesRichness rdfs:subClassOf bio:BiologicalQuality .
+
+ex2:StressResearcher rdfs:subClassOf bio:BiologicalObserver .
+
+ex2:StressResilience rdfs:subClassOf bio:BiologicalQuality .
+
+ex2:StressResponses rdfs:subClassOf bio:BiologicalProcess .
+
+ex2:body a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex2:ecology a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex2:health a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex:AnatomicalDevelopmentSituation a dul:Situation ;
+    dul:hasParticipant ex:DevelopmentalObserver ;
+    dul:hasSetting ex:BodyGrowth,
+        ex:DevelopmentalMilestones,
+        ex:StructuralChanges ;
+    rdfs:comment "A situation where a DevelopmentalObserver monitors BodyGrowth and StructuralChanges through DevelopmentalMilestones." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:AnatomyMappingSituation a dul:Situation ;
+    dul:hasParticipant ex:AnatomicalObserver ;
+    dul:hasSetting ex:AnatomicalStructures,
+        ex:BodyParts,
+        ex:SpatialRelationships ;
+    rdfs:comment "A situation in which an AnatomicalObserver identifies BodyParts and understands their SpatialRelationships within AnatomicalStructures." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:BiodiversityProtectionSituation a dul:Situation ;
+    dul:hasParticipant ex:ConservationBiologist ;
+    dul:hasSetting ex:ConservationStrategies,
+        ex:ProtectionMeasures,
+        ex:ThreatenedSpecies ;
+    rdfs:comment "A situation in which a ConservationBiologist implements ProtectionMeasures and ConservationStrategies to safeguard ThreatenedSpecies." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:BodyAwarenessSituation a dul:Situation ;
+    dul:hasParticipant ex:BodyPerceiver ;
+    dul:hasSetting ex:ExternalFeatures,
+        ex:InternalStructures,
+        ex:VisibilityDifferences ;
+    rdfs:comment "A situation in which a BodyPerceiver uses DirectObservation and ProprioceptiveAwareness to distinguish ExternalFeatures from InternalStructures." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:BodyProportionAnalysisSituation a dul:Situation ;
+    dul:hasParticipant ex:ProportionAnalyst ;
+    dul:hasSetting ex:BodyProportions,
+        ex:BodySymmetry,
+        ex:ProportionalRelationships ;
+    rdfs:comment "A situation where a ProportionAnalyst examines BodySymmetry and ProportionalRelationships to understand BodyProportions." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:ChronobiologicalCoordinationSituation a dul:Situation ;
+    dul:hasParticipant ex:ChronobiologyExpert ;
+    dul:hasSetting ex:CircadianRhythms,
+        ex:RhythmicHarmony,
+        ex:SynchronizationMechanisms ;
+    rdfs:comment "A situation where a ChronobiologyExpert studies CircadianRhythms and SynchronizationMechanisms leading to RhythmicHarmony." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:DisturbanceResponseSituation a dul:Situation ;
+    dul:hasParticipant ex:ChangeObserver ;
+    dul:hasSetting ex:AdaptationProcesses,
+        ex:EcosystemRecovery,
+        ex:EnvironmentalDisturbances ;
+    rdfs:comment "A situation where a ChangeObserver monitors EnvironmentalDisturbances and their effect on AdaptationProcesses and EcosystemRecovery." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:EcosystemFlowSituation a dul:Situation ;
+    dul:hasParticipant ex:EcosystemAnalyst ;
+    dul:hasSetting ex:EcologicalNetworks,
+        ex:EnergyTransfer,
+        ex:ResourceFlows ;
+    rdfs:comment "A situation where an EcosystemAnalyst tracks ResourceFlows and EnergyTransfer within EcologicalNetworks." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:EcosystemServiceSituation a dul:Situation ;
+    dul:hasParticipant ex:EcosystemManager ;
+    dul:hasSetting ex:EcosystemServices,
+        ex:HumanCommunities,
+        ex:ServiceProvision ;
+    rdfs:comment "A situation in which an EcosystemManager evaluates the ServiceProvision of EcosystemServices to HumanCommunities." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:HabitatAdaptationSituation a dul:Situation ;
+    dul:hasParticipant ex:EcologicalObserver ;
+    dul:hasSetting ex:AdaptiveTraits,
+        ex:EnvironmentalConditions,
+        ex:OrganismGroups ;
+    rdfs:comment "A situation in which an EcologicalObserver studies how OrganismGroups develop AdaptiveTraits in response to EnvironmentalConditions." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:HealthAssessmentSituation a dul:Situation ;
+    dul:hasParticipant ex:HealthMonitor,
+        ex:Individual ;
+    dul:hasSetting ex:BehavioralChanges,
+        ex:BodySignals,
+        ex:IllnessSymptoms ;
+    rdfs:comment "A situation where a HealthMonitor interprets BodySignals and BehavioralChanges in an Individual to assess IllnessSymptoms." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:LivingSystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MentalHealthSupportSituation a dul:Situation ;
+    dul:hasParticipant ex:MentalHealthAssessor ;
+    dul:hasSetting ex:CopingMechanisms,
+        ex:MentalHealthStatus,
+        ex:PsychologicalRecovery ;
+    rdfs:comment "A situation in which a MentalHealthAssessor evaluates MentalHealthStatus and provides CopingMechanisms to support PsychologicalRecovery." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:MotorExecutionSituation a dul:Situation ;
+    dul:hasParticipant ex:MotorController ;
+    dul:hasSetting ex:MotorPlanning,
+        ex:MovementExecution,
+        ex:MovementPrecision ;
+    rdfs:comment "A situation where a MotorController performs MotorPlanning and MovementExecution with MovementPrecision." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:Populations a owl:Class ;
+    rdfs:subClassOf dul:Collection .
+
+ex:PublicHealthResponseSituation a dul:Situation ;
+    dul:hasParticipant ex:PublicHealthMonitor ;
+    dul:hasSetting ex:CommunityHealth,
+        ex:DiseaseTransmission,
+        ex:PreventionMeasures ;
+    rdfs:comment "A situation in which a PublicHealthMonitor tracks DiseaseTransmission and applies PreventionMeasures to preserve CommunityHealth." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:SensoryIntegrationSituation a dul:Situation ;
+    dul:hasParticipant ex:SensoryProcessor ;
+    dul:hasSetting ex:MultimodalInformation,
+        ex:PerceptualIntegration,
+        ex:SensoryExperience ;
+    rdfs:comment "A situation where a SensoryProcessor integrates MultimodalInformation via PerceptualIntegration to generate SensoryExperience." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:ServiceDependency a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:StressAdaptationSituation a dul:Situation ;
+    dul:hasParticipant ex:StressResearcher ;
+    dul:hasSetting ex:AdaptationMechanisms,
+        ex:RecoveryProcesses,
+        ex:StressResponses ;
+    rdfs:comment "A situation where a StressResearcher examines StressResponses, AdaptationMechanisms, and RecoveryProcesses." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:SystemIntegrationSituation a dul:Situation ;
+    dul:hasParticipant ex:SystemAnalyst ;
+    dul:hasSetting ex:BodySystemIntegration,
+        ex:BodySystems,
+        ex:OrganFunctions ;
+    rdfs:comment "A situation where a SystemAnalyst examines how BodySystems coordinate OrganFunctions toward BodySystemIntegration." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:TherapeuticCareSituation a dul:Situation ;
+    dul:hasParticipant ex:Caregiver,
+        ex:Patient ;
+    dul:hasSetting ex:RecoveryProgress,
+        ex:TreatmentMethods ;
+    rdfs:comment "A situation where a Caregiver applies TreatmentMethods to a Patient and monitors RecoveryProgress." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:VitalSystemRegulationSituation a dul:Situation ;
+    dul:hasParticipant ex:PhysiologyMonitor ;
+    dul:hasSetting ex:HomeostasisMaintenance,
+        ex:RegulatoryFunctions,
+        ex:VitalSystems ;
+    rdfs:comment "A situation in which a PhysiologyMonitor observes VitalSystems performing RegulatoryFunctions to maintain Homeostasis." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:WellnessMaintenanceSituation a dul:Situation ;
+    dul:hasParticipant ex:HealthMaintainer ;
+    dul:hasSetting ex:HealthyBehaviors,
+        ex:PreventiveActions,
+        ex:WellnessRoutines ;
+    rdfs:comment "A situation in which a HealthMaintainer engages in PreventiveActions, HealthyBehaviors, and WellnessRoutines to maintain OptimalWellness." ;
+    rdfs:subClassOf bio:BiologicalScenario .
+
+ex:achieves a owl:ObjectProperty ;
+    rdfs:domain ex:MovementExecution,
+        ex:SystemicCoordination ;
+    rdfs:range ex:BodySystemIntegration,
+        ex:IntendedActions ;
+    rdfs:subPropertyOf dul:executes,
+        dul:hasEffect .
+
+ex:achievesPrecisionWith a owl:ObjectProperty ;
+    rdfs:domain ex:MovementExecution ;
+    rdfs:range ex:MovementPrecision ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:activate a owl:ObjectProperty ;
+    rdfs:domain ex:StressResponses ;
+    rdfs:range ex:AdaptationMechanisms ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:addresses a owl:ObjectProperty ;
+    rdfs:domain ex:TreatmentMethods ;
+    rdfs:range ex:HealthProblems ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:affects a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemDynamics,
+        ex:EmotionalDistress ;
+    rdfs:range ex:EcologicalProductivity,
+        ex:PsychologicalWellbeing ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:affectsStability a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemDynamics ;
+    rdfs:range ex:SystemStability ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:aimToMaintain a owl:ObjectProperty ;
+    rdfs:domain ex:HealthyBehaviors,
+        ex:PreventiveActions ;
+    rdfs:range ex:OptimalWellness ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:analyzes a owl:ObjectProperty ;
+    rdfs:domain ex:ProportionAnalyst ;
+    rdfs:range ex:ProportionalRelationships ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:appliedTo a owl:ObjectProperty ;
+    rdfs:domain ex:TreatmentMethods ;
+    rdfs:range ex:Patient ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:applies a owl:ObjectProperty ;
+    rdfs:domain ex:Caregiver ;
+    rdfs:range ex:TreatmentMethods ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:arePartOf a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:AnatomicalStructures ;
+    rdfs:subPropertyOf dul:isPartOf .
+
+ex:assesses a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:SeverityLevels ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:avoids a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMaintainer ;
+    rdfs:range ex:HealthRisks ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:benefit a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemServices ;
+    rdfs:range ex:HumanCommunities ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:characterize a owl:ObjectProperty ;
+    rdfs:domain ex:GrowthPatterns ;
+    rdfs:range ex:DevelopmentalPhases ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:characterizedBy a owl:ObjectProperty ;
+    rdfs:domain ex:NaturalHabitats ;
+    rdfs:range ex:EnvironmentalConditions ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:combinedBy a owl:ObjectProperty ;
+    rdfs:domain ex:MultimodalInformation ;
+    rdfs:range ex:PerceptualIntegration ;
+    rdfs:subPropertyOf dul:isSettingFor .
+
+ex:combinesInputFrom a owl:ObjectProperty ;
+    rdfs:domain ex:MultimodalInformation ;
+    rdfs:range ex:SensoryOrgans ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:combinesWith a owl:ObjectProperty ;
+    rdfs:domain ex:MuscleActivation ;
+    rdfs:range ex:JointMovements ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:completes a owl:ObjectProperty ;
+    rdfs:domain ex:HomeostasisRestoration ;
+    rdfs:range ex:RecoveryProcesses ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+ex:compose a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalDimensions ;
+    rdfs:range ex:BodyProportions ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:comprise a owl:ObjectProperty ;
+    rdfs:domain ex:BodySystems ;
+    rdfs:range ex:FunctionalUnits ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:connectLevelsOf a owl:ObjectProperty ;
+    rdfs:domain ex:EnergyPathways ;
+    rdfs:range ex:EcologicalNetworks ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:connectedBy a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:FunctionalConnections ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:contain a owl:ObjectProperty ;
+    rdfs:domain ex:EcologicalNetworks ;
+    rdfs:range ex:FoodChains ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:containEnergyPaths a owl:ObjectProperty ;
+    rdfs:domain ex:EcologicalNetworks ;
+    rdfs:range ex:EnergyPathways ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:containedIn a owl:ObjectProperty ;
+    rdfs:domain ex:InternalStructures ;
+    rdfs:range ex:BodyCavities ;
+    rdfs:subPropertyOf dul:isPartOf .
+
+ex:contributeTo a owl:ObjectProperty ;
+    rdfs:domain ex:BodyRegions,
+        ex:CopingMechanisms ;
+    rdfs:range ex:PsychologicalResilience,
+        ex:StructuralOrganization ;
+    rdfs:subPropertyOf dul:hasComponent,
+        dul:hasEffect .
+
+ex:contributesTo a owl:ObjectProperty ;
+    rdfs:domain ex:GeneticDiversity ;
+    rdfs:range ex:SpeciesRichness ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:control a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalClocks,
+        ex:PublicHealthInterventions ;
+    rdfs:range ex:DiseaseOutbreaks,
+        ex:TemporalRegulation ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasFunction .
+
+ex:coordinate a owl:ObjectProperty ;
+    rdfs:domain ex:SynchronizationMechanisms ;
+    rdfs:range ex:CircadianRhythms ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:coordinateThrough a owl:ObjectProperty ;
+    rdfs:domain ex:VitalSystems ;
+    rdfs:range ex:SystemicProcesses ;
+    rdfs:subPropertyOf dul:hasProcess .
+
+ex:coordinateVia a owl:ObjectProperty ;
+    rdfs:domain ex:OrganFunctions ;
+    rdfs:range ex:SystemicCoordination ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:copeWith a owl:ObjectProperty ;
+    rdfs:domain ex:AdaptiveResponses ;
+    rdfs:range ex:EnvironmentalStressors ;
+    rdfs:subPropertyOf dul:solves .
+
+ex:creates a owl:ObjectProperty ;
+    rdfs:domain ex:PerceptualIntegration ;
+    rdfs:range ex:SensoryExperience ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:define a owl:ObjectProperty ;
+    rdfs:domain ex:SizeRelationships ;
+    rdfs:range ex:BodyProportions ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:deliver a owl:ObjectProperty ;
+    rdfs:domain ex:NaturalSystems ;
+    rdfs:range ex:EnvironmentalBenefits ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+ex:demonstrate a owl:ObjectProperty ;
+    rdfs:domain ex:BilateralPatterns,
+        ex:FoodChains ;
+    rdfs:range ex:BodySymmetry,
+        ex:EnergyTransfer ;
+    rdfs:subPropertyOf dul:hasParticipant,
+        dul:realizes .
+
+ex:dependOn a owl:ObjectProperty ;
+    rdfs:domain ex:HumanCommunities ;
+    rdfs:range ex:EcosystemServices ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:detectedBy a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryInput ;
+    rdfs:range ex:SensoryOrgans ;
+    rdfs:subPropertyOf dul:isRegionIn .
+
+ex:determineAccessibilityOf a owl:ObjectProperty ;
+    rdfs:domain ex:VisibilityDifferences ;
+    rdfs:range ex:BodyParts ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:determinesEffectivenessOf a owl:ObjectProperty ;
+    rdfs:domain ex:StressResilience ;
+    rdfs:range ex:AdaptationMechanisms ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:develop a owl:ObjectProperty ;
+    rdfs:domain ex:OrganismGroups ;
+    rdfs:range ex:AdaptiveTraits ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:disrupt a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalDisturbances ;
+    rdfs:range ex:EcologicalBalance ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:distinguishes a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver,
+        ex:HealthMonitor ;
+    rdfs:range ex:ExternalFeatures,
+        ex:NormalVariations ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:distinguishesFrom a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver,
+        ex:HealthMonitor ;
+    rdfs:range ex:InternalStructures,
+        ex:PathologicalSigns ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:drive a owl:ObjectProperty ;
+    rdfs:domain ex:NutrientCycles ;
+    rdfs:range ex:ResourceFlows ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:enable a owl:ObjectProperty ;
+    rdfs:domain ex:AdaptationProcesses,
+        ex:AdaptiveTraits,
+        ex:OrganInterconnections ;
+    rdfs:range ex:Adjustment,
+        ex:SurvivalStrategies,
+        ex:SystemicCoordination ;
+    rdfs:subPropertyOf dul:hasCause,
+        dul:hasEffect,
+        dul:hasFunction .
+
+ex:enabledBy a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalBenefits ;
+    rdfs:range ex:ServiceProvision ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:enables a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryExperience ;
+    rdfs:range ex:EnvironmentalAwareness ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:engagesIn a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMaintainer ;
+    rdfs:range ex:HealthyBehaviors,
+        ex:PreventiveActions ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:ensures a owl:ObjectProperty ;
+    rdfs:domain ex:BalanceControl,
+        ex:EnvironmentalStewardship,
+        ex:TemporalCoordination ;
+    rdfs:range ex:PhysiologicalTiming,
+        ex:PosturalStability,
+        ex:ServiceProvision ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasQuality .
+
+ex:ensuresFunctionOf a owl:ObjectProperty ;
+    rdfs:domain ex:HomeostasisMaintenance ;
+    rdfs:range ex:VitalSystems ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:evaluates a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemManager,
+        ex:MentalHealthAssessor ;
+    rdfs:range ex:EcosystemValue,
+        ex:MentalHealthStatus,
+        ex:PsychologicalWellbeing ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:examines a owl:ObjectProperty ;
+    rdfs:domain ex:ProportionAnalyst,
+        ex:SystemAnalyst ;
+    rdfs:range ex:BodySymmetry,
+        ex:BodySystems,
+        ex:OrganNetworks ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:existIn a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:facilitates a owl:ObjectProperty ;
+    rdfs:domain ex:MentalHealthSupport ;
+    rdfs:range ex:PsychologicalRecovery ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:follow a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemResponses,
+        ex:SystemicProcesses ;
+    rdfs:range ex:EnvironmentalDisturbances,
+        ex:PhysiologicalRhythms ;
+    rdfs:subPropertyOf dul:hasRegion,
+        dul:isConsequenceOf .
+
+ex:guideResponseTo a owl:ObjectProperty ;
+    rdfs:domain ex:SeverityLevels ;
+    rdfs:range ex:IllnessSymptoms ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:helpManage a owl:ObjectProperty ;
+    rdfs:domain ex:CopingMechanisms ;
+    rdfs:range ex:EmotionalDistress ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:helpsManage a owl:ObjectProperty ;
+    rdfs:domain ex:PsychologicalResilience ;
+    rdfs:range ex:EmotionalDistress ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:identifies a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalObserver,
+        ex:ConservationBiologist,
+        ex:ProportionAnalyst ;
+    rdfs:range ex:BodyParts,
+        ex:ConservationPriorities,
+        ex:SymmetryDeviations ;
+    rdfs:subPropertyOf dul:classifies,
+        dul:observes .
+
+ex:implement a owl:ObjectProperty ;
+    rdfs:domain ex:ProtectionMeasures ;
+    rdfs:range ex:ConservationStrategies ;
+    rdfs:subPropertyOf dul:realizes .
+
+ex:implements a owl:ObjectProperty ;
+    rdfs:domain ex:PublicHealthMonitor ;
+    rdfs:range ex:PreventionMeasures ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:impose a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalConditions ;
+    rdfs:range ex:EnvironmentalPressures ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:include a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationPriorities,
+        ex:EnvironmentalDisturbances,
+        ex:HealthyBehaviors,
+        ex:RegulatoryFunctions ;
+    rdfs:range ex:Circulation,
+        ex:ClimateVariations,
+        ex:ProtectiveMeasures,
+        ex:ThreatenedSpecies ;
+    rdfs:subPropertyOf dul:hasComponent,
+        dul:hasPart .
+
+ex:includeAdaptation a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemResponses ;
+    rdfs:range ex:AdaptationProcesses ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeHumanImpacts a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalDisturbances ;
+    rdfs:range ex:HumanImpacts ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeMetabolism a owl:ObjectProperty ;
+    rdfs:domain ex:RegulatoryFunctions ;
+    rdfs:range ex:Metabolism ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeNaturalDisruptions a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalDisturbances ;
+    rdfs:range ex:NaturalDisruptions ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeResilience a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemResponses ;
+    rdfs:range ex:ResilienceMechanisms ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeRespiration a owl:ObjectProperty ;
+    rdfs:domain ex:RegulatoryFunctions ;
+    rdfs:range ex:Respiration ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includes a owl:ObjectProperty ;
+    rdfs:domain ex:TreatmentMethods ;
+    rdfs:range ex:CareStrategies,
+        ex:TherapeuticInterventions ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:increaseLikelihoodOf a owl:ObjectProperty ;
+    rdfs:domain ex:RiskFactors ;
+    rdfs:range ex:InfectionSpread ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:indicate a owl:ObjectProperty ;
+    rdfs:domain ex:MentalHealthSymptoms ;
+    rdfs:range ex:MentalHealthStatus ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:indicatesEffectivenessOf a owl:ObjectProperty ;
+    rdfs:domain ex:RecoveryProgress ;
+    rdfs:range ex:TreatmentMethods ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:influence a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalPressures ;
+    rdfs:range ex:OrganismGroups ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:influences a owl:ObjectProperty ;
+    rdfs:domain ex:ResourceAvailability ;
+    rdfs:range ex:EcosystemDynamics ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:inhabit a owl:ObjectProperty ;
+    rdfs:domain ex:OrganismGroups ;
+    rdfs:range ex:NaturalHabitats ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:integrateInto a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalStructures ;
+    rdfs:range ex:BodySystem ;
+    rdfs:subPropertyOf dul:isComponentOf .
+
+ex:integrates a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryProcessor,
+        ex:TemporalCoordination ;
+    rdfs:range ex:BiologicalClocks,
+        ex:MultimodalInformation ;
+    rdfs:subPropertyOf dul:hasInput .
+
+ex:interrupt a owl:ObjectProperty ;
+    rdfs:domain ex:PreventionMeasures ;
+    rdfs:range ex:TransmissionPathways ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:investigates a owl:ObjectProperty ;
+    rdfs:domain ex:ChronobiologyExpert ;
+    rdfs:range ex:CircadianRhythms ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:investigatesTiming a owl:ObjectProperty ;
+    rdfs:domain ex:ChronobiologyExpert ;
+    rdfs:range ex:BiologicalTiming ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:involves a owl:ObjectProperty ;
+    rdfs:domain ex:BodyGrowth,
+        ex:MovementExecution ;
+    rdfs:range ex:MuscleActivation,
+        ex:ProportionalShifts,
+        ex:StructuralChanges ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:involvesJoint a owl:ObjectProperty ;
+    rdfs:domain ex:MovementExecution ;
+    rdfs:range ex:JointMovements ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:leadTo a owl:ObjectProperty ;
+    rdfs:domain ex:AdaptiveResponses,
+        ex:HealingProcesses ;
+    rdfs:range ex:HealthRestoration,
+        ex:RecoveryProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:leadToward a owl:ObjectProperty ;
+    rdfs:domain ex:StructuralChanges ;
+    rdfs:range ex:AnatomicalMaturation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:leadsTo a owl:ObjectProperty ;
+    rdfs:domain ex:MotorPlanning,
+        ex:PsychologicalRecovery ;
+    rdfs:range ex:MentalWellness,
+        ex:MovementExecution ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:link a owl:ObjectProperty ;
+    rdfs:domain ex:SystemicDependencies ;
+    rdfs:range ex:BodySystems ;
+    rdfs:subPropertyOf dul:hasRelation .
+
+ex:locatedIn a owl:ObjectProperty ;
+    rdfs:domain ex:BodyParts ;
+    rdfs:range ex:BodyRegions ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:locatedOn a owl:ObjectProperty ;
+    rdfs:domain ex:ExternalFeatures ;
+    rdfs:range ex:BodySurfaces ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:maintain a owl:ObjectProperty ;
+    rdfs:domain ex:PublicHealthInterventions,
+        ex:RegulatoryFunctions ;
+    rdfs:range ex:CommunityHealth,
+        ex:HomeostasisMaintenance ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:maintains a owl:ObjectProperty ;
+    rdfs:domain ex:MotorController ;
+    rdfs:range ex:BalanceControl ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+ex:maps a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalObserver ;
+    rdfs:range ex:AnatomicalLocations ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:markProgressIn a owl:ObjectProperty ;
+    rdfs:domain ex:DevelopmentalMilestones ;
+    rdfs:range ex:AnatomicalDevelopment ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:mayIndicate a owl:ObjectProperty ;
+    rdfs:domain ex:BehavioralChanges,
+        ex:BodySignals ;
+    rdfs:range ex:IllnessSymptoms ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:measures a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationBiologist ;
+    rdfs:range ex:SpeciesRichness ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:modulates a owl:ObjectProperty ;
+    rdfs:domain ex:TemporalRegulation ;
+    rdfs:range ex:RhythmicProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:monitors a owl:ObjectProperty ;
+    rdfs:domain ex:Caregiver,
+        ex:ChangeObserver ;
+    rdfs:range ex:EnvironmentalDisturbances,
+        ex:RecoveryProgress ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:observes a owl:ObjectProperty ;
+    rdfs:domain ex:PhysiologyMonitor ;
+    rdfs:range ex:VitalSystems ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:observesBehaviors a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:BehavioralChanges ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:observesSignals a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:BodySignals ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:occurIn a owl:ObjectProperty ;
+    rdfs:domain ex:ResourceFlows ;
+    rdfs:range ex:EcologicalNetworks ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:occursThrough a owl:ObjectProperty ;
+    rdfs:domain ex:AnatomicalDevelopment,
+        ex:DiseaseTransmission ;
+    rdfs:range ex:DevelopmentalPhases,
+        ex:TransmissionPathways ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:organizedBy a owl:ObjectProperty ;
+    rdfs:domain ex:MovementPatterns ;
+    rdfs:range ex:MotorPlanning ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+ex:perform a owl:ObjectProperty ;
+    rdfs:domain ex:FunctionalUnits,
+        ex:SensoryOrgans,
+        ex:VitalSystems ;
+    rdfs:range ex:OrganFunctions,
+        ex:RegulatoryFunctions,
+        ex:SensoryTransduction ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:plans a owl:ObjectProperty ;
+    rdfs:domain ex:MotorController ;
+    rdfs:range ex:MovementPatterns ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+ex:preserves a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemMaintenance ;
+    rdfs:range ex:EcosystemValue ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:preservesGenetics a owl:ObjectProperty ;
+    rdfs:domain ex:BiodiversityConservation ;
+    rdfs:range ex:GeneticDiversity ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:preservesRichness a owl:ObjectProperty ;
+    rdfs:domain ex:BiodiversityConservation ;
+    rdfs:range ex:SpeciesRichness ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:produce a owl:ObjectProperty ;
+    rdfs:domain ex:SynchronizationMechanisms ;
+    rdfs:range ex:RhythmicHarmony ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+ex:produces a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryTransduction ;
+    rdfs:range ex:NeuralSignals ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+ex:promote a owl:ObjectProperty ;
+    rdfs:domain ex:ResilienceMechanisms,
+        ex:TherapeuticInterventions ;
+    rdfs:range ex:EcosystemRecovery,
+        ex:HealingProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:provide a owl:ObjectProperty ;
+    rdfs:domain ex:NaturalSystems ;
+    rdfs:range ex:EcosystemServices ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+ex:provides a owl:ObjectProperty ;
+    rdfs:domain ex:DirectObservation,
+        ex:ProprioceptiveAwareness ;
+    rdfs:range ex:BodyKnowledge ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:receives a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryProcessor ;
+    rdfs:range ex:SensoryInput ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:recognizes a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemManager ;
+    rdfs:range ex:EcosystemServices ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:reduce a owl:ObjectProperty ;
+    rdfs:domain ex:PreventionMeasures ;
+    rdfs:range ex:RiskFactors ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reduceImpactOf a owl:ObjectProperty ;
+    rdfs:domain ex:ProtectiveMeasures ;
+    rdfs:range ex:RiskFactors ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reflect a owl:ObjectProperty ;
+    rdfs:domain ex:IllnessSymptoms,
+        ex:ProportionalShifts,
+        ex:ProportionalVariations ;
+    rdfs:range ex:GrowthPatterns,
+        ex:HealthStatus,
+        ex:SizeRelationships ;
+    rdfs:subPropertyOf dul:associatedWith,
+        dul:hasRegion .
+
+ex:reflects a owl:ObjectProperty ;
+    rdfs:domain ex:SpeciesDistribution,
+        ex:StructuralOrganization ;
+    rdfs:range ex:NaturalHabitats,
+        ex:SpatialRelationships ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:regulateTimingOf a owl:ObjectProperty ;
+    rdfs:domain ex:PhysiologicalRhythms ;
+    rdfs:range ex:SystemicProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reliesOn a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver ;
+    rdfs:range ex:ProprioceptiveAwareness ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:represent a owl:ObjectProperty ;
+    rdfs:domain ex:CircadianRhythms ;
+    rdfs:range ex:RhythmicProcesses ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+ex:require a owl:ObjectProperty ;
+    rdfs:domain ex:OrganismGroups ;
+    rdfs:range ex:HabitatRequirements ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:restores a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemRecovery ;
+    rdfs:range ex:EcologicalBalance ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:resultsFromMatchOf a owl:ObjectProperty ;
+    rdfs:domain ex:EcologicalFitness ;
+    rdfs:range ex:AdaptiveTraits ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:reveal a owl:ObjectProperty ;
+    rdfs:domain ex:StressIndicators ;
+    rdfs:range ex:StressResponses ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+ex:studies a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationBiologist,
+        ex:EcologicalObserver,
+        ex:StressResearcher ;
+    rdfs:range ex:BiodiversityPatterns,
+        ex:OrganismGroups,
+        ex:StressResponses ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:suggest a owl:ObjectProperty ;
+    rdfs:domain ex:PathologicalSigns ;
+    rdfs:range ex:HealthStatus ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:support a owl:ObjectProperty ;
+    rdfs:domain ex:CareStrategies,
+        ex:OrganInterconnections,
+        ex:SustainabilityPractices,
+        ex:WellnessRoutines ;
+    rdfs:range ex:EcosystemMaintenance,
+        ex:OptimalWellness,
+        ex:Patient,
+        ex:PhysiologicalCoordination ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasFunction,
+        dul:hasParticipant .
+
+ex:target a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationStrategies,
+        ex:PreventiveActions ;
+    rdfs:range ex:HealthRisks,
+        ex:ThreatenedSpecies ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:tracks a owl:ObjectProperty ;
+    rdfs:domain ex:DevelopmentalObserver,
+        ex:EcosystemAnalyst,
+        ex:PublicHealthMonitor ;
+    rdfs:range ex:AnatomicalDevelopment,
+        ex:BodyGrowth,
+        ex:DiseaseTransmission,
+        ex:InfectionSpread,
+        ex:ResourceFlows ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:tracksEnergy a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemAnalyst ;
+    rdfs:range ex:EnergyTransfer ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:triggeredAlsoBy a owl:ObjectProperty ;
+    rdfs:domain ex:StressResponses ;
+    rdfs:range ex:PhysiologicalChallenges ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:triggeredBy a owl:ObjectProperty ;
+    rdfs:domain ex:StressResponses ;
+    rdfs:range ex:EnvironmentalStressors ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:uses a owl:ObjectProperty ;
+    rdfs:domain ex:BodyPerceiver ;
+    rdfs:range ex:DirectObservation ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:varyAcross a owl:ObjectProperty ;
+    rdfs:domain ex:BiodiversityPatterns ;
+    rdfs:range ex:EcologicalRegions ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex2:physiology a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex1:BiologicalCommunities a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState .
+
+ex1:BiologicalTransitions a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Event .
+
+ex1:Breathing a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:Cooperation a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess .
+
+ex1:Feeding a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:InitialStates a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:State .
+
+ex1:MatingBehaviors a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Action .
+
+ex1:MatureStates a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:State .
+
+ex1:Movement a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:PhylogeneticRelationships a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalRelation,
+        dul:SocialObject .
+
+ex1:Predation a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess .
+
+ex1:ReproducingOrganisms a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Object .
+
+ex1:Reproduction a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:SpeciesCharacteristics a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalQuality,
+        dul:Quality .
+
+ex1:SpeciesDistinctions a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalQuality,
+        dul:Quality .
+
+ex1:SurvivalStrategies a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:Symbiosis a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess .
+
+ex:AnatomicalDimensions a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:AnatomicalLocations a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:AnatomicalMaturation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BilateralPatterns a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:BiologicalTiming a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BodyCavities a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodySurfaces a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodySystem a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:Circulation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ClimateVariations a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:DiseaseOutbreaks a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:EcologicalFitness a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:EcologicalProductivity a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:EcologicalRegions a owl:Class ;
+    rdfs:subClassOf dul:Place .
+
+ex:EnvironmentalAwareness a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:EnvironmentalStewardship a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:FunctionalConnections a owl:Class ;
+    rdfs:subClassOf dul:SocialObject .
+
+ex:HabitatRequirements a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HealthProblems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HealthRestoration a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:HomeostasisRestoration a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:HumanImpacts a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:Individual a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:IntendedActions a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MentalHealthSupport a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:MentalHealthSymptoms a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MentalWellness a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:Metabolism a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:NaturalDisruptions a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:NeuralSignals a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:NormalVariations a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:NutrientCycles a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:OrganNetworks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PhysiologicalChallenges a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PhysiologicalCoordination a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:PhysiologicalTiming a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:PosturalStability a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:ProportionalVariations a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:ResourceAvailability a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:Respiration a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SpeciesDistribution a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:StressIndicators a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:StressResilience a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:SurvivalStrategies a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SustainabilityPractices a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SymmetryDeviations a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:SystemStability a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:SystemicDependencies a owl:Class ;
+    rdfs:subClassOf dul:SocialObject .
+
+ex1:BehavioralTraits a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalQuality,
+        dul:Quality .
+
+ex1:BiologicalActivities a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:BiologicalDiversity a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:Situation .
+
+ex1:BiologicalRelation a owl:Class ;
+    rdfs:subClassOf dul:Relation .
+
+ex1:Competition a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess .
+
+ex1:EcologicalNiches a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:Situation .
+
+ex1:EcologyObserver a owl:Class ;
+    rdfs:subClassOf ex1:Observer,
+        dul:Agent .
+
+ex1:GeneticMaterial a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Object .
+
+ex1:GrowthProcesses a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:InheritancePatterns a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:Description .
+
+ex1:LifeCyclePatterns a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:Description .
+
+ex1:LifeIndicators a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalQuality,
+        dul:Quality .
+
+ex1:MorphologicalFeatures a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalQuality,
+        dul:Quality .
+
+ex1:OrganismVariety a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Object .
+
+ex1:ReproductionObserver a owl:Class ;
+    rdfs:subClassOf ex1:Observer,
+        dul:Agent .
+
+ex1:SpeciesContinuity a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:State .
+
+ex1:SpeciesIdentification a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Action .
+
+bio:BiologicalAgent a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+bio:BiologicalState a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+bio:BiologicalStructure a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:AdaptiveResponses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BalanceControl a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BiodiversityConservation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BiodiversityPatterns a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:BiologicalClocks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodyRegions a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodySystemIntegration a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:CareStrategies a owl:Class ;
+    rdfs:subClassOf dul:Description .
+
+ex:ChangeObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:CommunityHealth a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:ConservationPriorities a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:DevelopmentalMilestones a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:DevelopmentalObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:DevelopmentalPhases a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:DirectObservation a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:EcologicalBalance a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:EcologicalObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:EcosystemMaintenance a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemValue a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:EnergyPathways a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalBenefits a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalPressures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalStressors a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:FoodChains a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:FunctionalUnits a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:GeneticDiversity a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:GrowthPatterns a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:HealingProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:HealthRisks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HealthStatus a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:InfectionSpread a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:JointMovements a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:MentalHealthAssessor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:MovementPatterns a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MovementPrecision a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:MuscleActivation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:NaturalSystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:OptimalWellness a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:OrganInterconnections a owl:Class ;
+    rdfs:subClassOf dul:SocialObject .
+
+ex:PathologicalSigns a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PhysiologicalRhythms a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:PhysiologyMonitor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:ProportionalRelationships a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:ProportionalShifts a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ProprioceptiveAwareness a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:ProtectionMeasures a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ProtectiveMeasures a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:PsychologicalResilience a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:PsychologicalWellbeing a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:PublicHealthInterventions a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:ResilienceMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:RhythmicHarmony a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:RhythmicProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SensoryInput a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:SensoryTransduction a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SeverityLevels a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:SizeRelationships a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:StressResearcher a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:StructuralOrganization a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:SystemAnalyst a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:TemporalCoordination a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:TemporalRegulation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:TherapeuticInterventions a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:TransmissionPathways a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:VisibilityDifferences a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:WellnessRoutines a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex1:BiologicalClassifier a owl:Class ;
+    rdfs:subClassOf ex1:Observer,
+        dul:Agent .
+
+ex1:BiologicalMonitor a owl:Class ;
+    rdfs:subClassOf ex1:Observer,
+        dul:Agent .
+
+ex1:ClassificationSystems a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Description .
+
+ex1:GeneticTransmission a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Event .
+
+ex1:HereditaryTraits a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalQuality,
+        dul:Quality .
+
+ex1:LifeFunctions a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:LifeObserver a owl:Class ;
+    rdfs:subClassOf ex1:Observer,
+        dul:Agent .
+
+ex1:OffspringProduction a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Event .
+
+ex1:TaxonomicCategories a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Concept .
+
+ex:AdaptationMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:AdaptationProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:AnatomicalDevelopment a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:AnatomicalObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:AnatomicalStructures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BehavioralChanges a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:BodyGrowth a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BodyProportions a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:BodySignals a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodySymmetry a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:Caregiver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:ChronobiologyExpert a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:ConservationStrategies a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:CopingMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:DiseaseTransmission a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemAnalyst a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:EcosystemDynamics a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemManager a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:EcosystemRecovery a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemResponses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EmotionalDistress a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:EnergyTransfer a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EnvironmentalConditions a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:ExternalFeatures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HealthMaintainer a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:HomeostasisMaintenance a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:HumanCommunities a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:InternalStructures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MentalHealthStatus a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:MotorController a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:MotorPlanning a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:NaturalHabitats a owl:Class ;
+    rdfs:subClassOf dul:Place .
+
+ex:OrganFunctions a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:Patient a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:PerceptualIntegration a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:PsychologicalRecovery a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:PublicHealthMonitor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:RecoveryProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:RecoveryProgress a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:RiskFactors a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:SensoryExperience a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:SensoryOrgans a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:SensoryProcessor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:ServiceProvision a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SpatialRelationships a owl:Class ;
+    rdfs:subClassOf dul:Region .
+
+ex:SpeciesRichness a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:StructuralChanges a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SynchronizationMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SystemicCoordination a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SystemicProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ThreatenedSpecies a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex1:ActiveOrganisms a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Object .
+
+ex1:DevelopmentalStages a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalState,
+        dul:State .
+
+ex1:InteractingSpecies a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Object .
+
+ex1:LivingOrganisms a owl:Class ;
+    rdfs:subClassOf ex1:Organism,
+        dul:Object .
+
+ex1:ReproductiveProcesses a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalProcess,
+        dul:Process .
+
+ex1:VitalSigns a owl:Class ;
+    rdfs:subClassOf ex1:Organism .
+
+bio:BiologicalQuality a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:AdaptiveTraits a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:BodySystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:CircadianRhythms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ConservationBiologist a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:HealthyBehaviors a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:IllnessSymptoms a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MultimodalInformation a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PreventionMeasures a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:PreventiveActions a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:ProportionAnalyst a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:ResourceFlows a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex1:InterspeciesRelationships a owl:Class ;
+    rdfs:subClassOf ex1:BiologicalRelation,
+        dul:SocialObject .
+
+ex1:Observer a owl:Class ;
+    rdfs:subClassOf dul:Entity .
+
+bio:EnvironmentalFactor a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:BodyPerceiver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:EcologicalNetworks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EcosystemServices a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:VitalSystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex1:BiologicalQuality a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:HealthMonitor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:MovementExecution a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:OrganismGroups a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:RegulatoryFunctions a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:StressResponses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:TreatmentMethods a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+bio:BiologicalObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+bio:BiologicalProcess a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BodyParts a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalDisturbances a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex1:BiologicalState a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex1:Organism a owl:Class ;
+    rdfs:subClassOf dul:Entity .
+
+ex1:BiologicalProcess a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+bio:BiologicalScenario a owl:Class ;
+    rdfs:subClassOf dul:Situation .
+

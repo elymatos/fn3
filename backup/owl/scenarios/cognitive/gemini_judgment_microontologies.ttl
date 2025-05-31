@@ -1,0 +1,284 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix eva: <http://example.org/gemini/cognitive/evaluation#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+eva: ns1:imports dul: .
+
+eva:AestheticEvaluationSituation a dul:Situation ;
+    dul:hasParticipant eva:AestheticJudge ;
+    dul:hasSetting eva:AestheticEvaluation,
+        eva:AestheticQualities,
+        eva:SensoryExperience .
+
+eva:ComparativeEvaluationSituation a dul:Situation ;
+    dul:hasParticipant eva:ValueComparer ;
+    dul:hasSetting eva:ComparativeJudgment,
+        eva:DecisionCriteria,
+        eva:TradeOffEvaluations .
+
+eva:MoralEvaluationSituation a dul:Situation ;
+    dul:hasParticipant eva:MoralEvaluator ;
+    dul:hasSetting eva:EthicalPrinciples,
+        eva:MoralJudgments,
+        eva:MoralReasoning .
+
+eva:PragmaticJudgmentSituation a dul:Situation ;
+    dul:hasParticipant eva:PragmaticEvaluator ;
+    dul:hasSetting eva:FeasibilityAssessments,
+        eva:GoalSatisfaction,
+        eva:PracticalJudgments .
+
+eva:QualityAssessmentSituation a dul:Situation ;
+    dul:hasParticipant eva:Evaluator ;
+    dul:hasSetting eva:EvaluativeThinking,
+        eva:QualityAssessment,
+        eva:QualityJudgments .
+
+eva:aimFor a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:GoalSatisfaction ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+eva:applies a ns1:ObjectProperty ;
+    rdfs:domain eva:MoralReasoning,
+        eva:QualityAssessment ;
+    rdfs:range eva:EthicalPrinciples,
+        eva:EvaluationCriteria ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:appliesTo a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment ;
+    rdfs:range eva:ValueDimensions ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:conducts a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticJudge,
+        eva:Evaluator ;
+    rdfs:range eva:AestheticEvaluation,
+        eva:QualityAssessment ;
+    rdfs:subPropertyOf dul:performs .
+
+eva:consider a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:ContextualFactors ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:determine a ns1:ObjectProperty ;
+    rdfs:domain eva:QualityJudgments ;
+    rdfs:range eva:ObjectValue ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+eva:determineContext a ns1:ObjectProperty ;
+    rdfs:domain eva:QualityJudgments ;
+    rdfs:range eva:SituationalQuality ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+eva:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment,
+        eva:Evaluator,
+        eva:MoralEvaluator ;
+    rdfs:range eva:EvaluativeThinking,
+        eva:MoralReasoning,
+        eva:TradeOffEvaluations ;
+    rdfs:subPropertyOf dul:hasPart,
+        dul:performs .
+
+eva:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation ;
+    rdfs:range eva:AestheticStandards ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:influencedBy a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation ;
+    rdfs:range eva:SubjectiveImpressions ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:involves a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation ;
+    rdfs:range eva:SensoryExperience ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:makes a ns1:ObjectProperty ;
+    rdfs:domain eva:PragmaticEvaluator ;
+    rdfs:range eva:PracticalJudgments ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:performs a ns1:ObjectProperty ;
+    rdfs:domain eva:ValueComparer ;
+    rdfs:range eva:ComparativeJudgment ;
+    rdfs:subPropertyOf dul:performs .
+
+eva:produces a ns1:ObjectProperty ;
+    rdfs:domain eva:EvaluativeThinking,
+        eva:MoralReasoning ;
+    rdfs:range eva:MoralJudgments,
+        eva:QualityJudgments ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+eva:referTo a ns1:ObjectProperty ;
+    rdfs:domain eva:MoralJudgments ;
+    rdfs:range eva:NormativeFrameworks ;
+    rdfs:subPropertyOf dul:hasReference .
+
+eva:require a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:FeasibilityAssessments ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:requireUtility a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:UtilityEvaluations ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:respondTo a ns1:ObjectProperty ;
+    rdfs:domain eva:MoralJudgments ;
+    rdfs:range eva:MoralConflicts ;
+    rdfs:subPropertyOf dul:hasCause .
+
+eva:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment ;
+    rdfs:range eva:PreferenceStructures ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:targets a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation,
+        eva:QualityAssessment ;
+    rdfs:range eva:AestheticQualities,
+        eva:TargetObjects ;
+    rdfs:subPropertyOf dul:hasParticipant,
+        dul:hasQuality .
+
+eva:targetsContext a ns1:ObjectProperty ;
+    rdfs:domain eva:QualityAssessment ;
+    rdfs:range eva:TargetSituations ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:useMethods a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeEvaluations ;
+    rdfs:range eva:EvaluationMethods ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:useStandards a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeEvaluations ;
+    rdfs:range eva:AssessmentStandards ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:usesCriteria a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment ;
+    rdfs:range eva:DecisionCriteria ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:yields a ns1:ObjectProperty ;
+    rdfs:domain eva:EvaluativeThinking ;
+    rdfs:range eva:ComparativeEvaluations ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+eva:AestheticStandards a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:AssessmentStandards a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:ContextualFactors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:EvaluationCriteria a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:EvaluationMethods a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:MoralConflicts a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+eva:NormativeFrameworks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:ObjectValue a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:PreferenceStructures a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:SituationalQuality a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:SubjectiveImpressions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:TargetObjects a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:TargetSituations a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:UtilityEvaluations a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:ValueDimensions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:AestheticJudge a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:AestheticQualities a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:DecisionCriteria a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:EthicalPrinciples a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:FeasibilityAssessments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:GoalSatisfaction a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:MoralEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:PragmaticEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:SensoryExperience a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:TradeOffEvaluations a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:ValueComparer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:ComparativeEvaluations a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:Evaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:EvaluativeThinking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:MoralJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:MoralReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:QualityJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:QualityAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:AestheticEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:ComparativeJudgment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:PracticalJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+

@@ -1,0 +1,214 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix trf: <http://example.org/gemini/physical/transformation#> .
+
+trf: ns1:imports dul: .
+
+trf:ChemicalReactionContext a dul:Situation ;
+    dul:hasParticipant trf:Product,
+        trf:Reactant ;
+    dul:hasSetting trf:ChemicalReaction,
+        trf:ReactionCondition .
+
+trf:DecompositionContext a dul:Situation ;
+    dul:hasParticipant trf:BreakingComponent,
+        trf:ResidualMaterial ;
+    dul:hasSetting trf:DecayCondition,
+        trf:DecompositionProcess .
+
+trf:MechanicalAlterationContext a dul:Situation ;
+    dul:hasParticipant trf:MechanicalObject,
+        trf:ToolUsed ;
+    dul:hasSetting trf:AlterationProcess,
+        trf:PhysicalModification .
+
+trf:PhaseTransitionContext a dul:Situation ;
+    dul:hasParticipant trf:MaterialSubstance ;
+    dul:hasSetting trf:FinalState,
+        trf:InitialState,
+        trf:PhaseTransition .
+
+trf:ThermalTransformationContext a dul:Situation ;
+    dul:hasParticipant trf:ThermalMedium ;
+    dul:hasSetting trf:HeatEffect,
+        trf:ThermalInput,
+        trf:TransformationProcess .
+
+trf:acceleratedBy a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction ;
+    rdfs:range trf:Catalyst ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:affects a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:ThermalState ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+trf:alteredBy a ns1:ObjectProperty ;
+    rdfs:domain trf:MechanicalObject ;
+    rdfs:range trf:AlterationProcess ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+trf:applies a ns1:ObjectProperty ;
+    rdfs:domain trf:AlterationProcess ;
+    rdfs:range trf:AppliedForce ;
+    rdfs:subPropertyOf dul:hasCause .
+
+trf:breaksDown a ns1:ObjectProperty ;
+    rdfs:domain trf:DecompositionProcess ;
+    rdfs:range trf:BreakingComponent ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:causes a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:HeatEffect ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+trf:conditionedBy a ns1:ObjectProperty ;
+    rdfs:domain trf:DecompositionProcess,
+        trf:PhaseTransition ;
+    rdfs:range trf:DecayCondition,
+        trf:TransitionCondition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+trf:endsWith a ns1:ObjectProperty ;
+    rdfs:domain trf:PhaseTransition ;
+    rdfs:range trf:FinalState ;
+    rdfs:subPropertyOf dul:hasPostcondition .
+
+trf:involves a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction ;
+    rdfs:range trf:Reactant ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:modifies a ns1:ObjectProperty ;
+    rdfs:domain trf:DecompositionProcess ;
+    rdfs:range trf:StructuralChange ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+trf:produces a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction,
+        trf:DecompositionProcess ;
+    rdfs:range trf:Product,
+        trf:ResidualMaterial ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+trf:receives a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:ThermalInput ;
+    rdfs:subPropertyOf dul:hasInput .
+
+trf:requires a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction ;
+    rdfs:range trf:ReactionCondition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+trf:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain trf:AlterationProcess ;
+    rdfs:range trf:PhysicalModification ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+trf:startsFrom a ns1:ObjectProperty ;
+    rdfs:domain trf:PhaseTransition ;
+    rdfs:range trf:InitialState ;
+    rdfs:subPropertyOf dul:hasPrecondition .
+
+trf:triggeredBy a ns1:ObjectProperty ;
+    rdfs:domain trf:PhaseTransition ;
+    rdfs:range trf:TemperatureChange ;
+    rdfs:subPropertyOf dul:hasCause .
+
+trf:undergoes a ns1:ObjectProperty ;
+    rdfs:domain trf:MaterialSubstance ;
+    rdfs:range trf:PhaseTransition ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+trf:uses a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:ThermalMedium ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:usesTool a ns1:ObjectProperty ;
+    rdfs:domain trf:AlterationProcess ;
+    rdfs:range trf:ToolUsed ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:AppliedForce a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+trf:Catalyst a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:StructuralChange a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:TemperatureChange a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+trf:ThermalState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:TransitionCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+trf:BreakingComponent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:DecayCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+trf:FinalState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:HeatEffect a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:InitialState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:MaterialSubstance a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:MechanicalObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:PhysicalModification a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:Product a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:Reactant a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:ReactionCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+trf:ResidualMaterial a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:ThermalInput a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+trf:ThermalMedium a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:ToolUsed a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:AlterationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:ChemicalReaction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:DecompositionProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:TransformationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:PhaseTransition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

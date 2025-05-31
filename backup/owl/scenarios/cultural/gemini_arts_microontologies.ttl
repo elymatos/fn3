@@ -1,0 +1,243 @@
+@prefix art: <http://example.org/gemini/cultural/arts#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+art: ns1:imports dul: .
+
+art:ArtisticCreationContext a dul:Situation ;
+    dul:hasParticipant art:Artist ;
+    dul:hasSetting art:AestheticExperience,
+        art:ArtisticMedium,
+        art:CreativeProcess .
+
+art:CollaborativeArtContext a dul:Situation ;
+    dul:hasParticipant art:CreativeTeam ;
+    dul:hasSetting art:CoCreatedWork,
+        art:CollectiveCreation,
+        art:IdeaExchange .
+
+art:CraftsmanshipContext a dul:Situation ;
+    dul:hasParticipant art:Craftsperson ;
+    dul:hasSetting art:ArtisanalObject,
+        art:CraftingProcess,
+        art:Material .
+
+art:PerformanceContext a dul:Situation ;
+    dul:hasParticipant art:Performer ;
+    dul:hasSetting art:Choreography,
+        art:EmbodiedPerformance,
+        art:StageEnvironment .
+
+art:TraditionalArtContext a dul:Situation ;
+    dul:hasParticipant art:CulturalArtPractitioner ;
+    dul:hasSetting art:CulturalExpression,
+        art:CulturalTechnique,
+        art:TraditionalArtForm .
+
+art:assigns a ns1:ObjectProperty ;
+    rdfs:domain art:CreativeTeam ;
+    rdfs:range art:CollaborativeRoles ;
+    rdfs:subPropertyOf dul:hasPart .
+
+art:basedOn a ns1:ObjectProperty ;
+    rdfs:domain art:EmbodiedPerformance ;
+    rdfs:range art:Choreography ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+art:creates a ns1:ObjectProperty ;
+    rdfs:domain art:Artist ;
+    rdfs:range art:ArtWork ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:elicits a ns1:ObjectProperty ;
+    rdfs:domain art:ArtWork ;
+    rdfs:range art:AestheticExperience ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+art:emergesFrom a ns1:ObjectProperty ;
+    rdfs:domain art:CollectiveCreation ;
+    rdfs:range art:IdeaExchange ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+art:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain art:Artist,
+        art:CreativeTeam ;
+    rdfs:range art:CollectiveCreation,
+        art:CreativeProcess ;
+    rdfs:subPropertyOf dul:performs .
+
+art:executes a ns1:ObjectProperty ;
+    rdfs:domain art:Performer ;
+    rdfs:range art:EmbodiedPerformance ;
+    rdfs:subPropertyOf dul:performs .
+
+art:experiences a ns1:ObjectProperty ;
+    rdfs:domain art:Audience ;
+    rdfs:range art:AestheticExperience ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:includes a ns1:ObjectProperty ;
+    rdfs:domain art:EmbodiedPerformance ;
+    rdfs:range art:ExpressiveMovement ;
+    rdfs:subPropertyOf dul:hasPart .
+
+art:integrates a ns1:ObjectProperty ;
+    rdfs:domain art:TraditionalArtForm ;
+    rdfs:range art:CulturalTechnique ;
+    rdfs:subPropertyOf dul:hasPart .
+
+art:occursIn a ns1:ObjectProperty ;
+    rdfs:domain art:EmbodiedPerformance ;
+    rdfs:range art:StageEnvironment ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+art:performs a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson,
+        art:CulturalArtPractitioner ;
+    rdfs:range art:CraftingProcess,
+        art:TraditionalArtForm ;
+    rdfs:subPropertyOf dul:performs .
+
+art:possesses a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson ;
+    rdfs:range art:Skill ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+art:produces a ns1:ObjectProperty ;
+    rdfs:domain art:CraftingProcess ;
+    rdfs:range art:ArtisanalObject ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+art:realizedAs a ns1:ObjectProperty ;
+    rdfs:domain art:TraditionalArtForm ;
+    rdfs:range art:CulturalExpression ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+art:respondsWith a ns1:ObjectProperty ;
+    rdfs:domain art:Audience ;
+    rdfs:range art:SensoryEngagement ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+art:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain art:CollectiveCreation ;
+    rdfs:range art:CoCreatedWork ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+art:shares a ns1:ObjectProperty ;
+    rdfs:domain art:CreativeTeam ;
+    rdfs:range art:SharedVision ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+art:transmittedThrough a ns1:ObjectProperty ;
+    rdfs:domain art:TraditionalArtForm ;
+    rdfs:range art:IntergenerationalLearning ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+art:uses a ns1:ObjectProperty ;
+    rdfs:domain art:CreativeProcess,
+        art:TraditionalArtForm ;
+    rdfs:range art:ArtisticMedium,
+        art:HeritageSymbol ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:usesTool a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson ;
+    rdfs:range art:Tool ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:worksWith a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson ;
+    rdfs:range art:Material ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:CollaborativeRoles a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:ExpressiveMovement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:HeritageSymbol a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:IntergenerationalLearning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:SensoryEngagement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+art:SharedVision a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Skill a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+art:Tool a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:ArtWork a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:ArtisanalObject a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:ArtisticMedium a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Audience a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Choreography a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:CoCreatedWork a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:CulturalArtPractitioner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:CulturalExpression a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:CulturalTechnique a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:IdeaExchange a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:Material a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Performer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:StageEnvironment a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:AestheticExperience a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+art:Artist a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:CraftingProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:CreativeProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:CollectiveCreation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:CreativeTeam a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Craftsperson a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:EmbodiedPerformance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:TraditionalArtForm a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

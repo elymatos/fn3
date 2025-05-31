@@ -1,0 +1,232 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix eth: <http://example.org/gemini/moral/convention#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+eth: ns1:imports dul: .
+
+eth:ConventionComplianceContext a dul:Situation ;
+    dul:hasParticipant eth:SocialActor ;
+    dul:hasSetting eth:BehavioralAdaptation,
+        eth:ConventionalCompliance,
+        eth:SocialConvention .
+
+eth:EthicalReasoningContext a dul:Situation ;
+    dul:hasParticipant eth:EthicalReasoner ;
+    dul:hasSetting eth:EthicalJustification,
+        eth:EthicalPrinciple,
+        eth:ReasoningProcess .
+
+eth:NormInnovationContext a dul:Situation ;
+    dul:hasParticipant eth:MoralInnovator ;
+    dul:hasSetting eth:AlternativeValue,
+        eth:EthicalDebate,
+        eth:NormChallengingAction .
+
+eth:NormViolationContext a dul:Situation ;
+    dul:hasSetting eth:CommunityResponse,
+        eth:MoralEvaluation,
+        eth:NormViolation,
+        eth:NormativeExpectation .
+
+eth:ProfessionalEthicsContext a dul:Situation ;
+    dul:hasParticipant eth:ProfessionalRole ;
+    dul:hasSetting eth:EthicalDilemma,
+        eth:EthicalObligation,
+        eth:ProfessionalEthic .
+
+eth:applies a ns1:ObjectProperty ;
+    rdfs:domain eth:EthicalReasoner ;
+    rdfs:range eth:EthicalPrinciple ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eth:basedOn a ns1:ObjectProperty ;
+    rdfs:domain eth:ConventionalCompliance ;
+    rdfs:range eth:SocialConvention ;
+    rdfs:subPropertyOf dul:hasReference .
+
+eth:compliesWith a ns1:ObjectProperty ;
+    rdfs:domain eth:SocialActor ;
+    rdfs:range eth:SocialConvention ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+eth:considers a ns1:ObjectProperty ;
+    rdfs:domain eth:ReasoningProcess ;
+    rdfs:range eth:ContextualFactor ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eth:constrainedBy a ns1:ObjectProperty ;
+    rdfs:domain eth:RoleBasedAction ;
+    rdfs:range eth:EthicalDilemma ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eth:defines a ns1:ObjectProperty ;
+    rdfs:domain eth:ProfessionalEthic ;
+    rdfs:range eth:EthicalObligation ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+eth:detects a ns1:ObjectProperty ;
+    rdfs:domain eth:SocialMonitoring ;
+    rdfs:range eth:DeviationEvent ;
+    rdfs:subPropertyOf dul:hasObject .
+
+eth:emergesFrom a ns1:ObjectProperty ;
+    rdfs:domain eth:NormReform ;
+    rdfs:range eth:EthicalDebate ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+eth:evaluatedBy a ns1:ObjectProperty ;
+    rdfs:domain eth:NormViolation ;
+    rdfs:range eth:MoralEvaluation ;
+    rdfs:subPropertyOf dul:hasObject .
+
+eth:follows a ns1:ObjectProperty ;
+    rdfs:domain eth:EthicalDebate ;
+    rdfs:range eth:NormChallengingAction ;
+    rdfs:subPropertyOf dul:hasCause .
+
+eth:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain eth:ProfessionalRole ;
+    rdfs:range eth:InstitutionalCode ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eth:includes a ns1:ObjectProperty ;
+    rdfs:domain eth:CommunityResponse ;
+    rdfs:range eth:SocialSanction ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+eth:justifiedBy a ns1:ObjectProperty ;
+    rdfs:domain eth:MoralJudgment ;
+    rdfs:range eth:EthicalJustification ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+eth:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain eth:NormReform ;
+    rdfs:range eth:MoralProgress ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+eth:measuredAgainst a ns1:ObjectProperty ;
+    rdfs:domain eth:MoralEvaluation ;
+    rdfs:range eth:NormativeExpectation ;
+    rdfs:subPropertyOf dul:hasReference .
+
+eth:motivatedBy a ns1:ObjectProperty ;
+    rdfs:domain eth:RoleBasedAction ;
+    rdfs:range eth:EthicalObligation ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+eth:performs a ns1:ObjectProperty ;
+    rdfs:domain eth:MoralInnovator ;
+    rdfs:range eth:NormChallengingAction ;
+    rdfs:subPropertyOf dul:performs .
+
+eth:produces a ns1:ObjectProperty ;
+    rdfs:domain eth:ReasoningProcess ;
+    rdfs:range eth:MoralJudgment ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+eth:promotes a ns1:ObjectProperty ;
+    rdfs:domain eth:CommunityResponse ;
+    rdfs:range eth:RestorativeAction ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+eth:proposes a ns1:ObjectProperty ;
+    rdfs:domain eth:NormChallengingAction ;
+    rdfs:range eth:AlternativeValue ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+eth:triggers a ns1:ObjectProperty ;
+    rdfs:domain eth:SocialMonitoring ;
+    rdfs:range eth:BehavioralAdaptation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+eth:ContextualFactor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eth:DeviationEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+eth:InstitutionalCode a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:MoralProgress a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+eth:RestorativeAction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:SocialSanction a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+eth:AlternativeValue a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:BehavioralAdaptation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:ConventionalCompliance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:EthicalDilemma a ns1:Class ;
+    rdfs:subClassOf dul:Situation .
+
+eth:EthicalJustification a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:EthicalPrinciple a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:EthicalReasoner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eth:MoralInnovator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eth:MoralJudgment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:NormReform a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:NormViolation a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+eth:NormativeExpectation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:ProfessionalEthic a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:ProfessionalRole a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eth:RoleBasedAction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:SocialActor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eth:SocialMonitoring a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:CommunityResponse a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:EthicalDebate a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:EthicalObligation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:MoralEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:ReasoningProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eth:SocialConvention a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+eth:NormChallengingAction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

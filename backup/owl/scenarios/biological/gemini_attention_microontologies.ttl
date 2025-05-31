@@ -1,0 +1,324 @@
+@prefix att: <http://example.org/gemini/cognitive/attention#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+att: ns1:imports dul: .
+
+att:AttentionalLimitations a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:ConsciousMonitoringSituation a dul:Situation ;
+    dul:hasParticipant att:ConsciousObserver ;
+    dul:hasSetting att:AwarenessStates,
+        att:MetaAwareness,
+        att:SelfReflection ;
+    rdfs:comment "Situation where a ConsciousObserver monitors AwarenessStates and engages in MetaAwareness and SelfReflection." .
+
+att:DistractiveThoughts a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MindfulnessSituation a dul:Situation ;
+    dul:hasParticipant att:MindfulPractitioner ;
+    dul:hasSetting att:AttentionalTraining,
+        att:ClarityOfMind,
+        att:MindfulnessExercises ;
+    rdfs:comment "Situation where a MindfulPractitioner engages in MindfulnessExercises to develop AttentionalTraining and attain ClarityOfMind." .
+
+att:MultitaskingSituation a dul:Situation ;
+    dul:hasParticipant att:Multitasker ;
+    dul:hasSetting att:ConcurrentTasks,
+        att:DividedAttention,
+        att:MultitaskingStrategies ;
+    rdfs:comment "Situation where a Multitasker uses DividedAttention across ConcurrentTasks with specific MultitaskingStrategies." .
+
+att:PresentMomentAwareness a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:SelectiveAttentionSituation a dul:Situation ;
+    dul:hasParticipant att:AttentionalController ;
+    dul:hasSetting att:AttentionalStrategies,
+        att:RelevantStimuli,
+        att:SelectiveAttention ;
+    rdfs:comment "Situation where an AttentionalController directs SelectiveAttention to RelevantStimuli using AttentionalStrategies." .
+
+att:TargetEvents a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:VigilanceSituation a dul:Situation ;
+    dul:hasParticipant att:VigilanceOperator ;
+    dul:hasSetting att:AlertMonitoring,
+        att:CriticalSignals,
+        att:ResponseReadiness ;
+    rdfs:comment "Situation where a VigilanceOperator performs AlertMonitoring to detect CriticalSignals and maintain ResponseReadiness." .
+
+att:affects a ns1:ObjectProperty ;
+    rdfs:domain att:TaskSwitching ;
+    rdfs:range att:PerformanceTradeoffs ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+att:allocatesTo a ns1:ObjectProperty ;
+    rdfs:domain att:DividedAttention ;
+    rdfs:range att:MultipleTargets ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:detects a ns1:ObjectProperty ;
+    rdfs:domain att:AlertMonitoring ;
+    rdfs:range att:CriticalSignals ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:develop a ns1:ObjectProperty ;
+    rdfs:domain att:MindfulnessExercises ;
+    rdfs:range att:AttentionalTraining ;
+    rdfs:subPropertyOf dul:realizes .
+
+att:directsAttentionTo a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalController ;
+    rdfs:range att:RelevantStimuli ;
+    rdfs:subPropertyOf dul:directlyFollows .
+
+att:distributesOver a ns1:ObjectProperty ;
+    rdfs:domain att:DividedAttention ;
+    rdfs:range att:ConcurrentTasks ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+att:enables a ns1:ObjectProperty ;
+    rdfs:domain att:MetaAwareness ;
+    rdfs:range att:SelfReflection ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+att:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain att:MindfulPractitioner,
+        att:Multitasker ;
+    rdfs:range att:DividedAttention,
+        att:MindfulnessExercises ;
+    rdfs:subPropertyOf dul:performs .
+
+att:enhances a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalTraining,
+        att:SelfReflection ;
+    rdfs:range att:ConsciousnessLevels,
+        att:SustainedAwareness ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+att:experiences a ns1:ObjectProperty ;
+    rdfs:domain att:ConsciousObserver ;
+    rdfs:range att:AwarenessStates ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:filtersOut a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalController ;
+    rdfs:range att:DistractingElements ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+att:influence a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalModes ;
+    rdfs:range att:AwarenessStates ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+att:involves a ns1:ObjectProperty ;
+    rdfs:domain att:AlertMonitoring,
+        att:ConsciousMonitoring ;
+    rdfs:range att:CognitiveProcesses,
+        att:MonitoringTasks ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain att:SelectiveAttention,
+        att:VigilanceDecrement ;
+    rdfs:range att:AttentionalFatigue,
+        att:ConcentrationStates ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasOutcome .
+
+att:maintain a ns1:ObjectProperty ;
+    rdfs:domain att:AlertnessStrategies ;
+    rdfs:range att:ResponseReadiness ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+att:modulates a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalCompetition ;
+    rdfs:range att:FocusControl ;
+    rdfs:subPropertyOf dul:hasCause .
+
+att:monitors a ns1:ObjectProperty ;
+    rdfs:domain att:ConsciousObserver ;
+    rdfs:range att:MentalStates ;
+    rdfs:subPropertyOf dul:observes .
+
+att:optimize a ns1:ObjectProperty ;
+    rdfs:domain att:MultitaskingStrategies ;
+    rdfs:range att:CognitiveEfficiency ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+att:performs a ns1:ObjectProperty ;
+    rdfs:domain att:VigilanceOperator ;
+    rdfs:range att:AlertMonitoring ;
+    rdfs:subPropertyOf dul:performs .
+
+att:reduces a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalTraining ;
+    rdfs:range att:MindWandering ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+att:resultsFrom a ns1:ObjectProperty ;
+    rdfs:domain att:ClarityOfMind,
+        att:MindfulPresence,
+        att:OptimalFocus ;
+    rdfs:range att:FocusControl,
+        att:MindfulPresence,
+        att:NonJudgmentalAttention ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasOutcome,
+        dul:hasQuality .
+
+att:supports a ns1:ObjectProperty ;
+    rdfs:domain att:SustainedVigilance ;
+    rdfs:range att:DetectionAccuracy ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+att:uses a ns1:ObjectProperty ;
+    rdfs:domain att:SelectiveAttention ;
+    rdfs:range att:AttentionalStrategies ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:utilizes a ns1:ObjectProperty ;
+    rdfs:domain att:DividedAttention ;
+    rdfs:range att:AttentionalResources ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:AlertnessStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AttentionalCompetition a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:AttentionalFatigue a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:AttentionalModes a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:AttentionalResources a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:CognitiveEfficiency a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:CognitiveProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:ConcentrationStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:ConsciousMonitoring a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:ConsciousnessLevels a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:DetectionAccuracy a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:DistractingElements a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MentalStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:MindWandering a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:MonitoringTasks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MultipleTargets a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:NonJudgmentalAttention a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:OptimalFocus a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:PerformanceTradeoffs a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:SustainedAwareness a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:SustainedVigilance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:TaskSwitching a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:VigilanceDecrement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AttentionalStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:ClarityOfMind a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:ConcurrentTasks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:CriticalSignals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:FocusControl a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:MetaAwareness a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:MindfulPractitioner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MindfulPresence a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:Multitasker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MultitaskingStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:RelevantStimuli a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:ResponseReadiness a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:VigilanceOperator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:AttentionalController a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:AwarenessStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:ConsciousObserver a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MindfulnessExercises a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:SelectiveAttention a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:SelfReflection a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AlertMonitoring a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AttentionalTraining a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:DividedAttention a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

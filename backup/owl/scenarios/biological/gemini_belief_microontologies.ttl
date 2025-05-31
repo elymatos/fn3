@@ -1,0 +1,237 @@
+@prefix bel: <http://example.org/gemini/cognitive/belief#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+bel: ns1:imports dul: .
+
+bel:AssumptionManagementSituation a dul:Situation ;
+    dul:hasParticipant bel:AssumptionManager ;
+    dul:hasSetting bel:AssumptionTracking,
+        bel:CoherenceAssessment,
+        bel:LogicalConsistency .
+
+bel:BeliefConflictSituation a dul:Situation ;
+    dul:hasParticipant bel:EpistemicNegotiator ;
+    dul:hasSetting bel:BeliefIntegration,
+        bel:BeliefResolution,
+        bel:EpistemicDialogue .
+
+bel:BeliefFormationSituation a dul:Situation ;
+    dul:hasParticipant bel:BeliefAgent ;
+    dul:hasSetting bel:BeliefFormation,
+        bel:EpistemicSupport,
+        bel:JustificationProcesses .
+
+bel:CertaintyEvaluationSituation a dul:Situation ;
+    dul:hasParticipant bel:CertaintyEvaluator ;
+    dul:hasSetting bel:BeliefStability,
+        bel:CertaintyAssessment,
+        bel:DoubtRecognition .
+
+bel:KnowledgeRevisionSituation a dul:Situation ;
+    dul:hasParticipant bel:KnowledgeSeeker ;
+    dul:hasSetting bel:CognitiveReorganization,
+        bel:ContradictoryEvidence,
+        bel:KnowledgeAcquisition .
+
+bel:benefitsFrom a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefResolution ;
+    rdfs:range bel:ConsensusStrategies ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel:conducts a ns1:ObjectProperty ;
+    rdfs:domain bel:CertaintyEvaluator ;
+    rdfs:range bel:CertaintyAssessment ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain bel:KnowledgeSeeker ;
+    rdfs:range bel:KnowledgeAcquisition ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:evaluate a ns1:ObjectProperty ;
+    rdfs:domain bel:ConfidenceJudgments ;
+    rdfs:range bel:BeliefStability ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+bel:evaluates a ns1:ObjectProperty ;
+    rdfs:domain bel:CoherenceAssessment ;
+    rdfs:range bel:CognitiveAssumptions ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+bel:identifies a ns1:ObjectProperty ;
+    rdfs:domain bel:AssumptionTracking ;
+    rdfs:range bel:ImplicitAssumptions ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel:includes a ns1:ObjectProperty ;
+    rdfs:domain bel:CertaintyAssessment ;
+    rdfs:range bel:DoubtRecognition ;
+    rdfs:subPropertyOf dul:hasPart .
+
+bel:informs a ns1:ObjectProperty ;
+    rdfs:domain bel:EvidenceEvaluation ;
+    rdfs:range bel:JustificationProcesses ;
+    rdfs:subPropertyOf dul:hasCause .
+
+bel:initiates a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefAgent ;
+    rdfs:range bel:BeliefFormation ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:leadTo a ns1:ObjectProperty ;
+    rdfs:domain bel:ConsensusStrategies ;
+    rdfs:range bel:BeliefIntegration ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+bel:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefFormation ;
+    rdfs:range bel:BeliefStates ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+bel:monitors a ns1:ObjectProperty ;
+    rdfs:domain bel:AssumptionManager ;
+    rdfs:range bel:AssumptionTracking ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:produces a ns1:ObjectProperty ;
+    rdfs:domain bel:CognitiveReorganization ;
+    rdfs:range bel:LearningOutcomes ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+bel:requires a ns1:ObjectProperty ;
+    rdfs:domain bel:KnowledgeRevision ;
+    rdfs:range bel:CognitiveReorganization ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel:resolves a ns1:ObjectProperty ;
+    rdfs:domain bel:EpistemicNegotiator ;
+    rdfs:range bel:ConflictingBeliefs ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:resultsFrom a ns1:ObjectProperty ;
+    rdfs:domain bel:KnowledgeRevision ;
+    rdfs:range bel:ContradictoryEvidence ;
+    rdfs:subPropertyOf dul:hasCause .
+
+bel:reveals a ns1:ObjectProperty ;
+    rdfs:domain bel:DoubtRecognition ;
+    rdfs:range bel:EpistemicUncertainty ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+bel:shouldSatisfy a ns1:ObjectProperty ;
+    rdfs:domain bel:CognitiveAssumptions ;
+    rdfs:range bel:LogicalConsistency ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+bel:support a ns1:ObjectProperty ;
+    rdfs:domain bel:JustificationProcesses ;
+    rdfs:range bel:BeliefFormation ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+bel:supportedBy a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefStates ;
+    rdfs:range bel:EpistemicSupport ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+bel:uses a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefResolution,
+        bel:KnowledgeAcquisition ;
+    rdfs:range bel:ConceptualFrameworks,
+        bel:EpistemicDialogue ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel:ConceptualFrameworks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:ConfidenceJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ConflictingBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:EpistemicUncertainty a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+bel:EvidenceEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ImplicitAssumptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:LearningOutcomes a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:AssumptionManager a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:BeliefAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:BeliefIntegration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:BeliefStability a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+bel:BeliefStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+bel:CertaintyEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:CognitiveAssumptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:CoherenceAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ConsensusStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ContradictoryEvidence a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:EpistemicDialogue a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:EpistemicNegotiator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:EpistemicSupport a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:KnowledgeRevision a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:KnowledgeSeeker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:LogicalConsistency a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+bel:AssumptionTracking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:BeliefResolution a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:CertaintyAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:CognitiveReorganization a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:DoubtRecognition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:JustificationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:KnowledgeAcquisition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:BeliefFormation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

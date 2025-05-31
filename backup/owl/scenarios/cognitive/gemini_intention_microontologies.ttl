@@ -1,0 +1,222 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix int: <http://example.org/gemini/cognitive/intention#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+int: ns1:imports dul: .
+
+int:ActionPlanningSituation a dul:Situation ;
+    dul:hasParticipant int:ActionPlanner ;
+    dul:hasSetting int:ActionPlans,
+        int:ExecutionProcesses,
+        int:ImplementationIntentions .
+
+int:GoalPersistenceSituation a dul:Situation ;
+    dul:hasParticipant int:LongTermPlanner ;
+    dul:hasSetting int:IntentionSustainment,
+        int:LongTermGoals,
+        int:PersistenceStrategies .
+
+int:HabitualActionSituation a dul:Situation ;
+    dul:hasParticipant int:HabitualActor ;
+    dul:hasSetting int:ContextualTriggers,
+        int:HabitualActions,
+        int:IntentionalOverride .
+
+int:IntentionFormationSituation a dul:Situation ;
+    dul:hasParticipant int:IntentionalAgent ;
+    dul:hasSetting int:CommitmentState,
+        int:GoalIntention,
+        int:IntentionFormation .
+
+int:IntentionReconsiderationSituation a dul:Situation ;
+    dul:hasParticipant int:ReconsideringAgent ;
+    dul:hasSetting int:ConflictingIntentions,
+        int:GoalAdjustment,
+        int:ReconsiderationProcesses .
+
+int:compare a ns1:ObjectProperty ;
+    rdfs:domain int:ReconsiderationProcesses ;
+    rdfs:range int:ConflictingIntentions ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+int:creates a ns1:ObjectProperty ;
+    rdfs:domain int:ActionPlanner ;
+    rdfs:range int:ActionPlans ;
+    rdfs:subPropertyOf dul:designs .
+
+int:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain int:ReconsideringAgent ;
+    rdfs:range int:ReconsiderationProcesses ;
+    rdfs:subPropertyOf dul:performs .
+
+int:establishes a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionFormation ;
+    rdfs:range int:CommitmentState ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+int:executes a ns1:ObjectProperty ;
+    rdfs:domain int:HabitualActor ;
+    rdfs:range int:HabitualActions ;
+    rdfs:subPropertyOf dul:performs .
+
+int:follow a ns1:ObjectProperty ;
+    rdfs:domain int:ExecutionProcesses ;
+    rdfs:range int:PlanSequencing ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+int:forms a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionalAgent ;
+    rdfs:range int:GoalIntention ;
+    rdfs:subPropertyOf dul:initiates .
+
+int:govern a ns1:ObjectProperty ;
+    rdfs:domain int:ImplementationIntentions ;
+    rdfs:range int:ExecutionProcesses ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+int:include a ns1:ObjectProperty ;
+    rdfs:domain int:ActionPlans ;
+    rdfs:range int:SubGoals ;
+    rdfs:subPropertyOf dul:hasPart .
+
+int:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain int:CommitmentState ;
+    rdfs:range int:ActionInitiation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+int:maintain a ns1:ObjectProperty ;
+    rdfs:domain int:PersistenceStrategies ;
+    rdfs:range int:GoalMaintenance ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+int:modulates a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionalOverride ;
+    rdfs:range int:VolitionalControl ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+int:pursues a ns1:ObjectProperty ;
+    rdfs:domain int:LongTermPlanner ;
+    rdfs:range int:LongTermGoals ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+int:resultsFrom a ns1:ObjectProperty ;
+    rdfs:domain int:GoalAdjustment ;
+    rdfs:range int:CognitiveConflict ;
+    rdfs:subPropertyOf dul:hasCause .
+
+int:support a ns1:ObjectProperty ;
+    rdfs:domain int:AutomaticityMechanisms ;
+    rdfs:range int:HabitualActions ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+int:sustain a ns1:ObjectProperty ;
+    rdfs:domain int:MotivationalFactors ;
+    rdfs:range int:IntentionSustainment ;
+    rdfs:subPropertyOf dul:hasCause .
+
+int:targets a ns1:ObjectProperty ;
+    rdfs:domain int:GoalIntention ;
+    rdfs:range int:GoalRepresentation ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+int:triggeredBy a ns1:ObjectProperty ;
+    rdfs:domain int:HabitualActions ;
+    rdfs:range int:ContextualTriggers ;
+    rdfs:subPropertyOf dul:hasCause .
+
+int:updates a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionalRevision ;
+    rdfs:range int:GoalIntention ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+int:ActionInitiation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:AutomaticityMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:CognitiveConflict a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:GoalMaintenance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:GoalRepresentation a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:IntentionalRevision a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:MotivationalFactors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:PlanSequencing a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:SubGoals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:VolitionalControl a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+int:ActionPlanner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ConflictingIntentions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ContextualTriggers a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:GoalAdjustment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:HabitualActor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ImplementationIntentions a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:IntentionFormation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:IntentionSustainment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:IntentionalAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:IntentionalOverride a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:LongTermGoals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:LongTermPlanner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:PersistenceStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:ReconsideringAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ActionPlans a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:CommitmentState a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:ExecutionProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:ReconsiderationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:GoalIntention a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:HabitualActions a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

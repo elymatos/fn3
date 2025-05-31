@@ -1,0 +1,234 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rsn: <http://example.org/gemini/cognitive/reasoning#> .
+
+rsn: ns1:imports dul: .
+
+rsn:AnalogicalReasoningSituation a dul:Situation ;
+    dul:hasParticipant rsn:AnalogicalThinker ;
+    dul:hasSetting rsn:AnalogicalReasoning,
+        rsn:CrossDomainInference,
+        rsn:MappingStructures .
+
+rsn:CreativeProblemSolvingSituation a dul:Situation ;
+    dul:hasParticipant rsn:CreativeAgent ;
+    dul:hasSetting rsn:CreativeProblemSolving,
+        rsn:DivergentThinking,
+        rsn:ProblemConstraints .
+
+rsn:HypothesisTestingSituation a dul:Situation ;
+    dul:hasParticipant rsn:HypothesisTester ;
+    dul:hasSetting rsn:ContradictionDetection,
+        rsn:HypothesisTesting,
+        rsn:KnowledgeRefinement .
+
+rsn:InsightReasoningSituation a dul:Situation ;
+    dul:hasParticipant rsn:InsightfulThinker ;
+    dul:hasSetting rsn:AhaMoments,
+        rsn:InsightGeneration,
+        rsn:IntuitiveJudgments .
+
+rsn:StructuredReasoningSituation a dul:Situation ;
+    dul:hasParticipant rsn:ReasoningAgent ;
+    dul:hasSetting rsn:InferenceChains,
+        rsn:ProblemDecomposition,
+        rsn:StructuredReasoning .
+
+rsn:activates a ns1:ObjectProperty ;
+    rdfs:domain rsn:ContradictionDetection ;
+    rdfs:range rsn:RefutationStrategies ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+rsn:conducts a ns1:ObjectProperty ;
+    rdfs:domain rsn:HypothesisTester ;
+    rdfs:range rsn:HypothesisTesting ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:contributesTo a ns1:ObjectProperty ;
+    rdfs:domain rsn:DivergentThinking ;
+    rdfs:range rsn:NovelSolution ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+rsn:detects a ns1:ObjectProperty ;
+    rdfs:domain rsn:DeductiveReasoning ;
+    rdfs:range rsn:ContradictionDetection ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+rsn:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain rsn:InsightfulThinker ;
+    rdfs:range rsn:IntuitiveJudgments ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:facilitates a ns1:ObjectProperty ;
+    rdfs:domain rsn:InsightGeneration ;
+    rdfs:range rsn:ProblemRecognition ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+rsn:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain rsn:InferenceChains ;
+    rdfs:range rsn:LogicRules ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rsn:includes a ns1:ObjectProperty ;
+    rdfs:domain rsn:CreativeProblemSolving,
+        rsn:StructuredReasoning ;
+    rdfs:range rsn:IdeationProcesses,
+        rsn:ProblemDecomposition ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rsn:initiates a ns1:ObjectProperty ;
+    rdfs:domain rsn:AnalogicalThinker ;
+    rdfs:range rsn:AnalogicalReasoning ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:involves a ns1:ObjectProperty ;
+    rdfs:domain rsn:HypothesisTesting ;
+    rdfs:range rsn:DeductiveReasoning ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn:mapsFrom a ns1:ObjectProperty ;
+    rdfs:domain rsn:AnalogicalReasoning ;
+    rdfs:range rsn:SourceDomain ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn:mapsTo a ns1:ObjectProperty ;
+    rdfs:domain rsn:AnalogicalReasoning ;
+    rdfs:range rsn:TargetDomain ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn:performs a ns1:ObjectProperty ;
+    rdfs:domain rsn:ReasoningAgent ;
+    rdfs:range rsn:StructuredReasoning ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:produces a ns1:ObjectProperty ;
+    rdfs:domain rsn:StructuredReasoning ;
+    rdfs:range rsn:InferenceChains ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+rsn:requires a ns1:ObjectProperty ;
+    rdfs:domain rsn:ProblemDecomposition ;
+    rdfs:range rsn:CognitiveSteps ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn:shape a ns1:ObjectProperty ;
+    rdfs:domain rsn:ProblemConstraints ;
+    rdfs:range rsn:CreativeProblemSolving ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rsn:support a ns1:ObjectProperty ;
+    rdfs:domain rsn:MappingStructures ;
+    rdfs:range rsn:CrossDomainInference ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+rsn:trigger a ns1:ObjectProperty ;
+    rdfs:domain rsn:IntuitiveJudgments ;
+    rdfs:range rsn:AhaMoments ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+rsn:underlies a ns1:ObjectProperty ;
+    rdfs:domain rsn:ImplicitKnowledge ;
+    rdfs:range rsn:InsightGeneration ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rsn:undertakes a ns1:ObjectProperty ;
+    rdfs:domain rsn:CreativeAgent ;
+    rdfs:range rsn:CreativeProblemSolving ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:update a ns1:ObjectProperty ;
+    rdfs:domain rsn:RefutationStrategies ;
+    rdfs:range rsn:KnowledgeRefinement ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+rsn:CognitiveSteps a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:IdeationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:ImplicitKnowledge a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:LogicRules a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:NovelSolution a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:ProblemRecognition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:SourceDomain a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:TargetDomain a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:AhaMoments a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+rsn:AnalogicalThinker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:CreativeAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:CrossDomainInference a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:DeductiveReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:DivergentThinking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:HypothesisTester a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:InsightfulThinker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:KnowledgeRefinement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:MappingStructures a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:ProblemConstraints a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:ReasoningAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:RefutationStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:ContradictionDetection a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:HypothesisTesting a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:InferenceChains a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:InsightGeneration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:IntuitiveJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:ProblemDecomposition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:AnalogicalReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:CreativeProblemSolving a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:StructuredReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

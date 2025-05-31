@@ -1,0 +1,452 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/gemini/health#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/gemini/ecology> a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex:BiodiversityProtectionSituation a dul:Situation ;
+    dul:hasParticipant ex:ConservationBiologist ;
+    dul:hasSetting ex:ConservationStrategies,
+        ex:ProtectionMeasures,
+        ex:ThreatenedSpecies ;
+    rdfs:comment "A situation in which a ConservationBiologist implements ProtectionMeasures and ConservationStrategies to safeguard ThreatenedSpecies." .
+
+ex:DisturbanceResponseSituation a dul:Situation ;
+    dul:hasParticipant ex:ChangeObserver ;
+    dul:hasSetting ex:AdaptationProcesses,
+        ex:EcosystemRecovery,
+        ex:EnvironmentalDisturbances ;
+    rdfs:comment "A situation where a ChangeObserver monitors EnvironmentalDisturbances and their effect on AdaptationProcesses and EcosystemRecovery." .
+
+ex:EcosystemFlowSituation a dul:Situation ;
+    dul:hasParticipant ex:EcosystemAnalyst ;
+    dul:hasSetting ex:EcologicalNetworks,
+        ex:EnergyTransfer,
+        ex:ResourceFlows ;
+    rdfs:comment "A situation where an EcosystemAnalyst tracks ResourceFlows and EnergyTransfer within EcologicalNetworks." .
+
+ex:EcosystemServiceSituation a dul:Situation ;
+    dul:hasParticipant ex:EcosystemManager ;
+    dul:hasSetting ex:EcosystemServices,
+        ex:HumanCommunities,
+        ex:ServiceProvision ;
+    rdfs:comment "A situation in which an EcosystemManager evaluates the ServiceProvision of EcosystemServices to HumanCommunities." .
+
+ex:HabitatAdaptationSituation a dul:Situation ;
+    dul:hasParticipant ex:EcologicalObserver ;
+    dul:hasSetting ex:AdaptiveTraits,
+        ex:EnvironmentalConditions,
+        ex:OrganismGroups ;
+    rdfs:comment "A situation in which an EcologicalObserver studies how OrganismGroups develop AdaptiveTraits in response to EnvironmentalConditions." .
+
+ex:ServiceDependency a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:affects a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemDynamics ;
+    rdfs:range ex:EcologicalProductivity ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:affectsStability a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemDynamics ;
+    rdfs:range ex:SystemStability ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:benefit a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemServices ;
+    rdfs:range ex:HumanCommunities ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:characterizedBy a owl:ObjectProperty ;
+    rdfs:domain ex:NaturalHabitats ;
+    rdfs:range ex:EnvironmentalConditions ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:connectLevelsOf a owl:ObjectProperty ;
+    rdfs:domain ex:EnergyPathways ;
+    rdfs:range ex:EcologicalNetworks ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:contain a owl:ObjectProperty ;
+    rdfs:domain ex:EcologicalNetworks ;
+    rdfs:range ex:FoodChains ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:containEnergyPaths a owl:ObjectProperty ;
+    rdfs:domain ex:EcologicalNetworks ;
+    rdfs:range ex:EnergyPathways ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:contributesTo a owl:ObjectProperty ;
+    rdfs:domain ex:GeneticDiversity ;
+    rdfs:range ex:SpeciesRichness ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:deliver a owl:ObjectProperty ;
+    rdfs:domain ex:NaturalSystems ;
+    rdfs:range ex:EnvironmentalBenefits ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+ex:demonstrate a owl:ObjectProperty ;
+    rdfs:domain ex:FoodChains ;
+    rdfs:range ex:EnergyTransfer ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:dependOn a owl:ObjectProperty ;
+    rdfs:domain ex:HumanCommunities ;
+    rdfs:range ex:EcosystemServices ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:develop a owl:ObjectProperty ;
+    rdfs:domain ex:OrganismGroups ;
+    rdfs:range ex:AdaptiveTraits ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:disrupt a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalDisturbances ;
+    rdfs:range ex:EcologicalBalance ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:drive a owl:ObjectProperty ;
+    rdfs:domain ex:NutrientCycles ;
+    rdfs:range ex:ResourceFlows ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:enable a owl:ObjectProperty ;
+    rdfs:domain ex:AdaptationProcesses,
+        ex:AdaptiveTraits ;
+    rdfs:range ex:Adjustment,
+        ex:SurvivalStrategies ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasFunction .
+
+ex:enabledBy a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalBenefits ;
+    rdfs:range ex:ServiceProvision ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:ensures a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalStewardship ;
+    rdfs:range ex:ServiceProvision ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:evaluates a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemManager ;
+    rdfs:range ex:EcosystemValue ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:follow a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemResponses ;
+    rdfs:range ex:EnvironmentalDisturbances ;
+    rdfs:subPropertyOf dul:isConsequenceOf .
+
+ex:identifies a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationBiologist ;
+    rdfs:range ex:ConservationPriorities ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:implement a owl:ObjectProperty ;
+    rdfs:domain ex:ProtectionMeasures ;
+    rdfs:range ex:ConservationStrategies ;
+    rdfs:subPropertyOf dul:realizes .
+
+ex:impose a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalConditions ;
+    rdfs:range ex:EnvironmentalPressures ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:include a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationPriorities,
+        ex:EnvironmentalDisturbances ;
+    rdfs:range ex:ClimateVariations,
+        ex:ThreatenedSpecies ;
+    rdfs:subPropertyOf dul:hasComponent,
+        dul:hasPart .
+
+ex:includeAdaptation a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemResponses ;
+    rdfs:range ex:AdaptationProcesses ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeHumanImpacts a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalDisturbances ;
+    rdfs:range ex:HumanImpacts ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeNaturalDisruptions a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalDisturbances ;
+    rdfs:range ex:NaturalDisruptions ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeResilience a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemResponses ;
+    rdfs:range ex:ResilienceMechanisms ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:influence a owl:ObjectProperty ;
+    rdfs:domain ex:EnvironmentalPressures ;
+    rdfs:range ex:OrganismGroups ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:influences a owl:ObjectProperty ;
+    rdfs:domain ex:ResourceAvailability ;
+    rdfs:range ex:EcosystemDynamics ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:inhabit a owl:ObjectProperty ;
+    rdfs:domain ex:OrganismGroups ;
+    rdfs:range ex:NaturalHabitats ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:measures a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationBiologist ;
+    rdfs:range ex:SpeciesRichness ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:monitors a owl:ObjectProperty ;
+    rdfs:domain ex:ChangeObserver ;
+    rdfs:range ex:EnvironmentalDisturbances ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:occurIn a owl:ObjectProperty ;
+    rdfs:domain ex:ResourceFlows ;
+    rdfs:range ex:EcologicalNetworks ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+ex:preserves a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemMaintenance ;
+    rdfs:range ex:EcosystemValue ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:preservesGenetics a owl:ObjectProperty ;
+    rdfs:domain ex:BiodiversityConservation ;
+    rdfs:range ex:GeneticDiversity ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:preservesRichness a owl:ObjectProperty ;
+    rdfs:domain ex:BiodiversityConservation ;
+    rdfs:range ex:SpeciesRichness ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:promote a owl:ObjectProperty ;
+    rdfs:domain ex:ResilienceMechanisms ;
+    rdfs:range ex:EcosystemRecovery ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:provide a owl:ObjectProperty ;
+    rdfs:domain ex:NaturalSystems ;
+    rdfs:range ex:EcosystemServices ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+ex:recognizes a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemManager ;
+    rdfs:range ex:EcosystemServices ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:reflects a owl:ObjectProperty ;
+    rdfs:domain ex:SpeciesDistribution ;
+    rdfs:range ex:NaturalHabitats ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:require a owl:ObjectProperty ;
+    rdfs:domain ex:OrganismGroups ;
+    rdfs:range ex:HabitatRequirements ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:restores a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemRecovery ;
+    rdfs:range ex:EcologicalBalance ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:resultsFromMatchOf a owl:ObjectProperty ;
+    rdfs:domain ex:EcologicalFitness ;
+    rdfs:range ex:AdaptiveTraits ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:studies a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationBiologist,
+        ex:EcologicalObserver ;
+    rdfs:range ex:BiodiversityPatterns,
+        ex:OrganismGroups ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:support a owl:ObjectProperty ;
+    rdfs:domain ex:SustainabilityPractices ;
+    rdfs:range ex:EcosystemMaintenance ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+ex:target a owl:ObjectProperty ;
+    rdfs:domain ex:ConservationStrategies ;
+    rdfs:range ex:ThreatenedSpecies ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:tracks a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemAnalyst ;
+    rdfs:range ex:ResourceFlows ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:tracksEnergy a owl:ObjectProperty ;
+    rdfs:domain ex:EcosystemAnalyst ;
+    rdfs:range ex:EnergyTransfer ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:varyAcross a owl:ObjectProperty ;
+    rdfs:domain ex:BiodiversityPatterns ;
+    rdfs:range ex:EcologicalRegions ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:ClimateVariations a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcologicalFitness a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:EcologicalProductivity a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:EcologicalRegions a owl:Class ;
+    rdfs:subClassOf dul:Place .
+
+ex:EnvironmentalStewardship a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:HabitatRequirements a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HumanImpacts a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:NaturalDisruptions a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:NutrientCycles a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ResourceAvailability a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:SpeciesDistribution a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:SurvivalStrategies a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SustainabilityPractices a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SystemStability a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:BiodiversityConservation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BiodiversityPatterns a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:ChangeObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:ConservationPriorities a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EcologicalBalance a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:EcologicalObserver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:EcosystemMaintenance a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemValue a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:EnergyPathways a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalBenefits a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalPressures a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:FoodChains a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:GeneticDiversity a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:NaturalSystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:ProtectionMeasures a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ResilienceMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:AdaptationProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ConservationStrategies a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemAnalyst a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:EcosystemDynamics a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemManager a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:EcosystemRecovery a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcosystemResponses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EnergyTransfer a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EnvironmentalConditions a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:HumanCommunities a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:NaturalHabitats a owl:Class ;
+    rdfs:subClassOf dul:Place .
+
+ex:ServiceProvision a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SpeciesRichness a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:ThreatenedSpecies a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:AdaptiveTraits a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:ConservationBiologist a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:ResourceFlows a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EcologicalNetworks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EcosystemServices a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:OrganismGroups a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalDisturbances a owl:Class ;
+    rdfs:subClassOf dul:Event .
+

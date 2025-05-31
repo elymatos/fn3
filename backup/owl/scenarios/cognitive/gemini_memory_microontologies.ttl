@@ -1,0 +1,292 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix mem: <http://example.org/gemini/cognitive/memory#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mem: ns1:imports dul: .
+
+mem:ForgettingInterferenceSituation a dul:Situation ;
+    dul:hasParticipant mem:MemoryEvaluator ;
+    dul:hasSetting mem:ForgettingProcesses,
+        mem:InterferenceEffects,
+        mem:RecallImpairment .
+
+mem:LearningAdaptationSituation a dul:Situation ;
+    dul:hasParticipant mem:LearningAgent ;
+    dul:hasSetting mem:LearningEfficiency,
+        mem:LearningProcesses,
+        mem:SkillAcquisition .
+
+mem:MemoryConsolidationSituation a dul:Situation ;
+    dul:hasParticipant mem:Neuroscientist ;
+    dul:hasSetting mem:ConsolidationProcesses,
+        mem:LongTermMemory,
+        mem:MemoryPersistence .
+
+mem:MemoryEncodingSituation a dul:Situation ;
+    dul:hasParticipant mem:MemoryResearcher ;
+    dul:hasSetting mem:MemoryEncoding,
+        mem:MemoryTraces,
+        mem:RetrievalCues .
+
+mem:WorkingMemorySituation a dul:Situation ;
+    dul:hasParticipant mem:CognitiveScientist ;
+    dul:hasSetting mem:InformationChunks,
+        mem:RehearsalMechanisms,
+        mem:WorkingMemory .
+
+mem:affects a ns1:ObjectProperty ;
+    rdfs:domain mem:InformationDecay,
+        mem:RetroactiveInterference ;
+    rdfs:range mem:InformationChunks,
+        mem:MemoryRecall ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem:analyzes a ns1:ObjectProperty ;
+    rdfs:domain mem:CognitiveScientist ;
+    rdfs:range mem:WorkingMemory ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:assesses a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryEvaluator ;
+    rdfs:range mem:MemoryErrors ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:canFailDueTo a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryRecall ;
+    rdfs:range mem:AccessFailures ;
+    rdfs:subPropertyOf dul:hasCause .
+
+mem:cause a ns1:ObjectProperty ;
+    rdfs:domain mem:InterferenceEffects ;
+    rdfs:range mem:MemoryErrors ;
+    rdfs:subPropertyOf dul:hasCause .
+
+mem:creates a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryEncoding ;
+    rdfs:range mem:MemoryTraces ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+mem:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningAgent ;
+    rdfs:range mem:LearningProcesses ;
+    rdfs:subPropertyOf dul:performs .
+
+mem:enhance a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningProcesses ;
+    rdfs:range mem:SkillAcquisition ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+mem:exhibit a ns1:ObjectProperty ;
+    rdfs:domain mem:DurableMemories ;
+    rdfs:range mem:MemoryPersistence ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mem:holds a ns1:ObjectProperty ;
+    rdfs:domain mem:WorkingMemory ;
+    rdfs:range mem:InformationChunks ;
+    rdfs:subPropertyOf dul:hasPart .
+
+mem:improve a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningStrategies ;
+    rdfs:range mem:LearningEfficiency ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+mem:include a ns1:ObjectProperty ;
+    rdfs:domain mem:ForgettingProcesses ;
+    rdfs:range mem:MemoryDecay ;
+    rdfs:subPropertyOf dul:hasPart .
+
+mem:influences a ns1:ObjectProperty ;
+    rdfs:domain mem:CognitiveLoad ;
+    rdfs:range mem:WorkingMemory ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mem:investigates a ns1:ObjectProperty ;
+    rdfs:domain mem:Neuroscientist ;
+    rdfs:range mem:LongTermMemory ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:involve a ns1:ObjectProperty ;
+    rdfs:domain mem:ConsolidationProcesses ;
+    rdfs:range mem:NeuralStabilization ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mem:leadTo a ns1:ObjectProperty ;
+    rdfs:domain mem:ForgettingProcesses,
+        mem:SynapticChanges ;
+    rdfs:range mem:DurableMemories,
+        mem:RecallImpairment ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem:limitedBy a ns1:ObjectProperty ;
+    rdfs:domain mem:WorkingMemory ;
+    rdfs:range mem:BufferCapacity ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mem:mitigate a ns1:ObjectProperty ;
+    rdfs:domain mem:RehearsalMechanisms ;
+    rdfs:range mem:InformationDecay ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+mem:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryRetrieval ;
+    rdfs:range mem:MemoryRecall ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem:stabilize a ns1:ObjectProperty ;
+    rdfs:domain mem:ConsolidationProcesses ;
+    rdfs:range mem:LongTermMemory ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem:studies a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryResearcher ;
+    rdfs:range mem:MemoryEncoding ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:support a ns1:ObjectProperty ;
+    rdfs:domain mem:AdaptationMechanisms,
+        mem:StorageMechanisms ;
+    rdfs:range mem:LearningProcesses,
+        mem:MemoryEncoding ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+mem:supports a ns1:ObjectProperty ;
+    rdfs:domain mem:WorkingMemory ;
+    rdfs:range mem:TaskGoals ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+mem:trigger a ns1:ObjectProperty ;
+    rdfs:domain mem:ReinforcementEvents ;
+    rdfs:range mem:SynapticChanges ;
+    rdfs:subPropertyOf dul:hasCause .
+
+mem:use a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningProcesses ;
+    rdfs:range mem:InstructionalCues ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mem:uses a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryEncoding,
+        mem:MemoryRetrieval ;
+    rdfs:range mem:EncodingStrategies,
+        mem:RetrievalCues ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mem:AccessFailures a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:AdaptationMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:BufferCapacity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:CognitiveLoad a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:EncodingStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:InstructionalCues a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:LearningStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:MemoryDecay a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:NeuralStabilization a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:ReinforcementEvents a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:RetroactiveInterference a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:StorageMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:TaskGoals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:CognitiveScientist a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:DurableMemories a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:InformationDecay a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:InterferenceEffects a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:LearningAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:LearningEfficiency a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:MemoryErrors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:MemoryEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:MemoryPersistence a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:MemoryResearcher a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:MemoryRetrieval a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:MemoryTraces a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:Neuroscientist a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:RecallImpairment a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:RehearsalMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:RetrievalCues a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:SkillAcquisition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:SynapticChanges a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:ConsolidationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:ForgettingProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:InformationChunks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:LongTermMemory a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+mem:MemoryRecall a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:LearningProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:MemoryEncoding a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:WorkingMemory a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
