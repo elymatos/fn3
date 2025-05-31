@@ -1,0 +1,542 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AccomplishmentPursuitToRecognition a owl:ObjectProperty ;
+    rdfs:comment "seeking" ;
+    rdfs:domain ex:AccomplishmentPursuit ;
+    rdfs:range ex:Recognition ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+ex:AccomplishmentPursuitToSelfActualization a owl:ObjectProperty ;
+    rdfs:comment "successful pursuit" ;
+    rdfs:domain ex:AccomplishmentPursuit ;
+    rdfs:range ex:SelfActualization ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:AccomplishmentPursuitToSkillDevelopment a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:AccomplishmentPursuit ;
+    rdfs:range ex:SkillDevelopment ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:AchievementMotivationToCompetencyNeeds a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:AchievementMotivation ;
+    rdfs:range ex:CompetencyNeeds ;
+    rdfs:subPropertyOf <dul:isCausedBy> .
+
+ex:AchieverToPerformanceImprovement a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:Achiever ;
+    rdfs:range ex:PerformanceImprovement ;
+    rdfs:subPropertyOf <dul:performsTask> .
+
+ex:AchieverToPsychologicalGoals a owl:ObjectProperty ;
+    rdfs:comment "pursues" ;
+    rdfs:domain ex:Achiever ;
+    rdfs:range ex:PsychologicalGoals ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:AchieverToSkillDevelopment a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:Achiever ;
+    rdfs:range ex:SkillDevelopment ;
+    rdfs:subPropertyOf <dul:performsTask> .
+
+ex:ApproachAvoidanceConflictsToMultipleMotivations a owl:ObjectProperty ;
+    rdfs:comment "arise from" ;
+    rdfs:domain ex:ApproachAvoidanceConflicts ;
+    rdfs:range ex:MultipleMotivations ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:AutonomousAgentToExternalPressures a owl:ObjectProperty ;
+    rdfs:comment "resists" ;
+    rdfs:domain ex:AutonomousAgent ;
+    rdfs:range ex:ExternalPressures ;
+    rdfs:subPropertyOf <dul:resists> .
+
+ex:AutonomousAgentToIntrinsicallyMotivatedBehavior a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:AutonomousAgent ;
+    rdfs:range ex:IntrinsicallyMotivatedBehavior ;
+    rdfs:subPropertyOf <dul:performsTask> .
+
+ex:BasicNeedsToBiologicalDrives a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:BasicNeeds ;
+    rdfs:range ex:BiologicalDrives ;
+    rdfs:subPropertyOf <dul:hasQuality> .
+
+ex:BelongingNeedsToSocialConnections a owl:ObjectProperty ;
+    rdfs:comment "motivate" ;
+    rdfs:domain ex:BelongingNeeds ;
+    rdfs:range ex:SocialConnections ;
+    rdfs:subPropertyOf <dul:triggers> .
+
+ex:BiologicalDrivesToMotivationalStates a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:BiologicalDrives ;
+    rdfs:range ex:MotivationalStates ;
+    rdfs:subPropertyOf <dul:hasConstituent> .
+
+ex:CompetingDrivesToConflictingGoals a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:CompetingDrives ;
+    rdfs:range ex:ConflictingGoals ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:ConflictResolutionToMotivationalCompromise a owl:ObjectProperty ;
+    rdfs:comment "provides alternative to" ;
+    rdfs:domain ex:ConflictResolution ;
+    rdfs:range ex:MotivationalCompromise ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:ConflictResolutionToPrioritySelection a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:ConflictResolution ;
+    rdfs:range ex:PrioritySelection ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:ConflictedIndividualToConflictResolution a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:ConflictedIndividual ;
+    rdfs:range ex:ConflictResolution ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:ConflictedIndividualToMotivationalConflicts a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:ConflictedIndividual ;
+    rdfs:range ex:MotivationalConflicts ;
+    rdfs:subPropertyOf <dul:experiences> .
+
+ex:DriveReductionToHomeostasisBalance a owl:ObjectProperty ;
+    rdfs:comment "restores" ;
+    rdfs:domain ex:DriveReduction ;
+    rdfs:range ex:HomeostasisBalance ;
+    rdfs:subPropertyOf <dul:restores> .
+
+ex:DriveSignalsToGoalDirectedBehavior a owl:ObjectProperty ;
+    rdfs:comment "motivate" ;
+    rdfs:domain ex:DriveSignals ;
+    rdfs:range ex:GoalDirectedBehavior ;
+    rdfs:subPropertyOf <dul:triggers> .
+
+ex:EmotionalIntimacyToBelongingNeeds a owl:ObjectProperty ;
+    rdfs:comment "satisfy" ;
+    rdfs:domain ex:EmotionalIntimacy ;
+    rdfs:range ex:BelongingNeeds ;
+    rdfs:subPropertyOf <dul:satisfies> .
+
+ex:GoalDirectedBehaviorToNeedSatisfaction a owl:ObjectProperty ;
+    rdfs:comment "toward" ;
+    rdfs:domain ex:GoalDirectedBehavior ;
+    rdfs:range ex:NeedSatisfaction ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:HomeostasisBalanceToMotivationalStates a owl:ObjectProperty ;
+    rdfs:comment "reduces until new needs emerge" ;
+    rdfs:domain ex:HomeostasisBalance ;
+    rdfs:range ex:MotivationalStates ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:InternalValuesToPersonallyMeaningfulPursuits a owl:ObjectProperty ;
+    rdfs:comment "determine" ;
+    rdfs:domain ex:InternalValues ;
+    rdfs:range ex:PersonallyMeaningfulPursuits ;
+    rdfs:subPropertyOf <dul:determines> .
+
+ex:InterpersonalBondsToEmotionalIntimacy a owl:ObjectProperty ;
+    rdfs:comment "develop into" ;
+    rdfs:domain ex:InterpersonalBonds ;
+    rdfs:range ex:EmotionalIntimacy ;
+    rdfs:subPropertyOf <dul:evolvesInto> .
+
+ex:IntrinsicallyMotivatedBehaviorToInternalRewards a owl:ObjectProperty ;
+    rdfs:comment "driven by" ;
+    rdfs:domain ex:IntrinsicallyMotivatedBehavior ;
+    rdfs:range ex:InternalRewards ;
+    rdfs:subPropertyOf <dul:isDrivenBy> .
+
+ex:IntrinsicallyMotivatedBehaviorToPersonalInterests a owl:ObjectProperty ;
+    rdfs:comment "driven by" ;
+    rdfs:domain ex:IntrinsicallyMotivatedBehavior ;
+    rdfs:range ex:PersonalInterests ;
+    rdfs:subPropertyOf <dul:isDrivenBy> .
+
+ex:MotivatedAgentToBasicNeeds a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:MotivatedAgent ;
+    rdfs:range ex:BasicNeeds ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+ex:MotivatedAgentToDriveSignals a owl:ObjectProperty ;
+    rdfs:comment "recognizes" ;
+    rdfs:domain ex:MotivatedAgent ;
+    rdfs:range ex:DriveSignals ;
+    rdfs:subPropertyOf <dul:hasPerceptualQuality> .
+
+ex:MotivationalConflictsToCompetingDrives a owl:ObjectProperty ;
+    rdfs:comment "between" ;
+    rdfs:domain ex:MotivationalConflicts ;
+    rdfs:range ex:CompetingDrives ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultipleMotivationsToMotivationalTension a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:MultipleMotivations ;
+    rdfs:range ex:MotivationalTension ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:NeedSatisfactionToDriveReduction a owl:ObjectProperty ;
+    rdfs:comment "leads to" ;
+    rdfs:domain ex:NeedSatisfaction ;
+    rdfs:range ex:DriveReduction ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:PerformanceImprovementToCompetencyNeeds a owl:ObjectProperty ;
+    rdfs:comment "serves" ;
+    rdfs:domain ex:PerformanceImprovement ;
+    rdfs:range ex:CompetencyNeeds ;
+    rdfs:subPropertyOf <dul:satisfies> .
+
+ex:PerformanceImprovementToRecognition a owl:ObjectProperty ;
+    rdfs:comment "serves" ;
+    rdfs:domain ex:PerformanceImprovement ;
+    rdfs:range ex:Recognition ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+ex:PersonalInterestsToSelfDirectedActivities a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:PersonalInterests ;
+    rdfs:range ex:SelfDirectedActivities ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:PersonallyMeaningfulPursuitsToIntrinsicFulfillment a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:PersonallyMeaningfulPursuits ;
+    rdfs:range ex:IntrinsicFulfillment ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:PsychologicalGoalsToAchievementMotivation a owl:ObjectProperty ;
+    rdfs:comment "driven by" ;
+    rdfs:domain ex:PsychologicalGoals ;
+    rdfs:range ex:AchievementMotivation ;
+    rdfs:subPropertyOf <dul:isDescribedBy> .
+
+ex:RelationshipBuildingToInterpersonalBonds a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:RelationshipBuilding ;
+    rdfs:range ex:InterpersonalBonds ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:RelationshipBuildingToSocialConnections a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:RelationshipBuilding ;
+    rdfs:range ex:SocialConnections ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:RelationshipDrivesToSocialApproachBehavior a owl:ObjectProperty ;
+    rdfs:comment "energize" ;
+    rdfs:domain ex:RelationshipDrives ;
+    rdfs:range ex:SocialApproachBehavior ;
+    rdfs:subPropertyOf <dul:triggers> .
+
+ex:Scenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:Scenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:Scenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:Scenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:Scenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SelfDirectedActivitiesToAutonomousSatisfaction a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:SelfDirectedActivities ;
+    rdfs:range ex:AutonomousSatisfaction ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:SkillDevelopmentToMasteryOrientation a owl:ObjectProperty ;
+    rdfs:comment "guided by" ;
+    rdfs:domain ex:SkillDevelopment ;
+    rdfs:range ex:MasteryOrientation ;
+    rdfs:subPropertyOf <dul:isGuidedBy> .
+
+ex:SocialAcceptanceToBelongingNeeds a owl:ObjectProperty ;
+    rdfs:comment "satisfy" ;
+    rdfs:domain ex:SocialAcceptance ;
+    rdfs:range ex:BelongingNeeds ;
+    rdfs:subPropertyOf <dul:satisfies> .
+
+ex:SocialApproachBehaviorToRelationshipBuilding a owl:ObjectProperty ;
+    rdfs:comment "initiates" ;
+    rdfs:domain ex:SocialApproachBehavior ;
+    rdfs:range ex:RelationshipBuilding ;
+    rdfs:subPropertyOf <dul:initiates> .
+
+ex:SocialConnectionsToSocialAcceptance a owl:ObjectProperty ;
+    rdfs:comment "provide" ;
+    rdfs:domain ex:SocialConnections ;
+    rdfs:range ex:SocialAcceptance ;
+    rdfs:subPropertyOf <dul:provides> .
+
+ex:SocialSeekerToBelongingNeeds a owl:ObjectProperty ;
+    rdfs:comment "motivated by" ;
+    rdfs:domain ex:SocialSeeker ;
+    rdfs:range ex:BelongingNeeds ;
+    rdfs:subPropertyOf <dul:hasGoal> .
+
+ex:SocialSeekerToRelationshipDrives a owl:ObjectProperty ;
+    rdfs:comment "motivated by" ;
+    rdfs:domain ex:SocialSeeker ;
+    rdfs:range ex:RelationshipDrives ;
+    rdfs:subPropertyOf <dul:hasGoal> .
+
+ex:ApproachAvoidanceConflicts a owl:Class ;
+    rdfs:label "ApproachAvoidanceConflicts" ;
+    rdfs:comment "Situations where same target has both attractive and repulsive qualities" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:AutonomousSatisfaction a owl:Class ;
+    rdfs:label "AutonomousSatisfaction" ;
+    rdfs:comment "Fulfillment from self-directed choices and actions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ConflictingGoals a owl:Class ;
+    rdfs:label "ConflictingGoals" ;
+    rdfs:comment "Objectives that are mutually exclusive or contradictory" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:ExternalPressures a owl:Class ;
+    rdfs:label "ExternalPressures" ;
+    rdfs:comment "Outside forces pushing toward particular behaviors" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:InternalRewards a owl:Class ;
+    rdfs:label "InternalRewards" ;
+    rdfs:comment "Personal satisfaction and enjoyment derived from activities" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:InternalValues a owl:Class ;
+    rdfs:label "InternalValues" ;
+    rdfs:comment "Personal principles and beliefs that guide behavior" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:IntrinsicFulfillment a owl:Class ;
+    rdfs:label "IntrinsicFulfillment" ;
+    rdfs:comment "Deep satisfaction from internally motivated activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MasteryOrientation a owl:Class ;
+    rdfs:label "MasteryOrientation" ;
+    rdfs:comment "Focus on learning and skill development rather than just outcomes" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MotivationalCompromise a owl:Class ;
+    rdfs:label "MotivationalCompromise" ;
+    rdfs:comment "Finding solutions that partially satisfy multiple drives" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotivationalTension a owl:Class ;
+    rdfs:label "MotivationalTension" ;
+    rdfs:comment "Psychological stress from unresolved motivational conflicts" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PrioritySelection a owl:Class ;
+    rdfs:label "PrioritySelection" ;
+    rdfs:comment "Choosing which motivations take precedence" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SelfActualization a owl:Class ;
+    rdfs:label "SelfActualization" ;
+    rdfs:comment "Realization of personal potential and authentic self-expression" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AchievementMotivation a owl:Class ;
+    rdfs:label "AchievementMotivation" ;
+    rdfs:comment "Drive to accomplish challenging tasks and reach standards of excellence" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:AutonomousAgent a owl:Class ;
+    rdfs:label "AutonomousAgent" ;
+    rdfs:comment "Person motivated by internal rather than external factors" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:BasicNeeds a owl:Class ;
+    rdfs:label "BasicNeeds" ;
+    rdfs:comment "Fundamental requirements for survival and wellbeing (hunger, thirst, safety, etc.)" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:BiologicalDrives a owl:Class ;
+    rdfs:label "BiologicalDrives" ;
+    rdfs:comment "Internal forces that energize behavior toward need satisfaction" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:CompetencyNeeds a owl:Class ;
+    rdfs:label "CompetencyNeeds" ;
+    rdfs:comment "Requirements for feeling capable and effective" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:CompetingDrives a owl:Class ;
+    rdfs:label "CompetingDrives" ;
+    rdfs:comment "Different motivational forces that cannot be satisfied simultaneously" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ConflictedIndividual a owl:Class ;
+    rdfs:label "ConflictedIndividual" ;
+    rdfs:comment "Person experiencing simultaneous competing motivations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DriveReduction a owl:Class ;
+    rdfs:label "DriveReduction" ;
+    rdfs:comment "Decrease in motivational pressure following need satisfaction" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DriveSignals a owl:Class ;
+    rdfs:label "DriveSignals" ;
+    rdfs:comment "Internal cues indicating need states and motivational pressure" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:EmotionalIntimacy a owl:Class ;
+    rdfs:label "EmotionalIntimacy" ;
+    rdfs:comment "Deep emotional connection and closeness with others" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:GoalDirectedBehavior a owl:Class ;
+    rdfs:label "GoalDirectedBehavior" ;
+    rdfs:comment "Actions specifically aimed at achieving need satisfaction" ;
+    rdfs:subClassOf <dul:Action> .
+
+ex:HomeostasisBalance a owl:Class ;
+    rdfs:label "HomeostasisBalance" ;
+    rdfs:comment "Optimal internal conditions maintained through need satisfaction" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InterpersonalBonds a owl:Class ;
+    rdfs:label "InterpersonalBonds" ;
+    rdfs:comment "Emotional and social ties between individuals" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:MotivatedAgent a owl:Class ;
+    rdfs:label "MotivatedAgent" ;
+    rdfs:comment "Person experiencing and responding to motivational forces" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MotivationalConflicts a owl:Class ;
+    rdfs:label "MotivationalConflicts" ;
+    rdfs:comment "Situations where different drives pull in opposing directions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MotivationalStates a owl:Class ;
+    rdfs:label "MotivationalStates" ;
+    rdfs:comment "Internal conditions that direct and energize behavior" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MultipleMotivations a owl:Class ;
+    rdfs:label "MultipleMotivations" ;
+    rdfs:comment "Several different drives active at the same time" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:NeedSatisfaction a owl:Class ;
+    rdfs:label "NeedSatisfaction" ;
+    rdfs:comment "Fulfillment of basic requirements through appropriate actions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PersonalInterests a owl:Class ;
+    rdfs:label "PersonalInterests" ;
+    rdfs:comment "Topics, activities, or domains that naturally attract attention" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:PersonallyMeaningfulPursuits a owl:Class ;
+    rdfs:label "PersonallyMeaningfulPursuits" ;
+    rdfs:comment "Activities that align with individual values and interests" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:PsychologicalGoals a owl:Class ;
+    rdfs:label "PsychologicalGoals" ;
+    rdfs:comment "Objectives related to personal growth, competence, and self-realization" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:Recognition a owl:Class ;
+    rdfs:label "Recognition" ;
+    rdfs:comment "Acknowledgment and appreciation from others for achievements" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:RelationshipDrives a owl:Class ;
+    rdfs:label "RelationshipDrives" ;
+    rdfs:comment "Motivational forces toward forming and maintaining interpersonal connections" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:SelfDirectedActivities a owl:Class ;
+    rdfs:label "SelfDirectedActivities" ;
+    rdfs:comment "Pursuits chosen based on personal preference rather than obligation" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:SocialAcceptance a owl:Class ;
+    rdfs:label "SocialAcceptance" ;
+    rdfs:comment "Being welcomed and valued by others or groups" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:SocialApproachBehavior a owl:Class ;
+    rdfs:label "SocialApproachBehavior" ;
+    rdfs:comment "Actions aimed at initiating social contact and connection" ;
+    rdfs:subClassOf <dul:Action> .
+
+ex:SocialSeeker a owl:Class ;
+    rdfs:label "SocialSeeker" ;
+    rdfs:comment "Person motivated by social connection and belonging needs" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AccomplishmentPursuit a owl:Class ;
+    rdfs:label "AccomplishmentPursuit" ;
+    rdfs:comment "Active efforts to achieve significant goals" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Achiever a owl:Class ;
+    rdfs:label "Achiever" ;
+    rdfs:comment "Person motivated by achievement and competency goals" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ConflictResolution a owl:Class ;
+    rdfs:label "ConflictResolution" ;
+    rdfs:comment "Methods for resolving competing motivational demands" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IntrinsicallyMotivatedBehavior a owl:Class ;
+    rdfs:label "IntrinsicallyMotivatedBehavior" ;
+    rdfs:comment "Actions driven by internal satisfaction rather than external rewards" ;
+    rdfs:subClassOf <dul:Action> .
+
+ex:PerformanceImprovement a owl:Class ;
+    rdfs:label "PerformanceImprovement" ;
+    rdfs:comment "Enhancement of task execution and outcomes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RelationshipBuilding a owl:Class ;
+    rdfs:label "RelationshipBuilding" ;
+    rdfs:comment "Development and strengthening of interpersonal bonds" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SkillDevelopment a owl:Class ;
+    rdfs:label "SkillDevelopment" ;
+    rdfs:comment "Improvement of abilities and expertise" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialConnections a owl:Class ;
+    rdfs:label "SocialConnections" ;
+    rdfs:comment "Bonds and relationships formed with other people" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:BelongingNeeds a owl:Class ;
+    rdfs:label "BelongingNeeds" ;
+    rdfs:comment "Fundamental requirements for social inclusion and group membership" ;
+    rdfs:subClassOf <dul:Object> .
+

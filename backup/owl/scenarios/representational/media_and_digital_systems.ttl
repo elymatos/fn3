@@ -1,0 +1,632 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AccessibilityFeaturesToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:AccessibilityFeatures ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:AdaptiveInterfacesToAccessibilityNeeds a owl:ObjectProperty ;
+    rdfs:comment "adjust to" ;
+    rdfs:domain ex:AdaptiveInterfaces ;
+    rdfs:range ex:AccessibilityNeeds ;
+    rdfs:subPropertyOf <dul:adaptsTo> .
+
+ex:AdaptiveInterfacesToUserCapabilities a owl:ObjectProperty ;
+    rdfs:comment "adjust to" ;
+    rdfs:domain ex:AdaptiveInterfaces ;
+    rdfs:range ex:UserCapabilities ;
+    rdfs:subPropertyOf <dul:adaptsTo> .
+
+ex:ArchivalSystemsToArchivalIntegrity a owl:ObjectProperty ;
+    rdfs:comment "maintain" ;
+    rdfs:domain ex:ArchivalSystems ;
+    rdfs:range ex:ArchivalIntegrity ;
+    rdfs:subPropertyOf <dul:maintains> .
+
+ex:AssistiveTechnologiesToAccessibilityNeeds a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:AssistiveTechnologies ;
+    rdfs:range ex:AccessibilityNeeds ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:AssistiveTechnologiesToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:AssistiveTechnologies ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:BarrierRemovalToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:BarrierRemoval ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:CommunicationToolsToOnlineCommunication a owl:ObjectProperty ;
+    rdfs:comment "facilitate" ;
+    rdfs:domain ex:CommunicationTools ;
+    rdfs:range ex:OnlineCommunication ;
+    rdfs:subPropertyOf <dul:facilitates> .
+
+ex:ContentCreationToolsToMediaIntegration a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:ContentCreationTools ;
+    rdfs:range ex:MediaIntegration ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DataProcessingSystemsToDigitalInformation a owl:ObjectProperty ;
+    rdfs:comment "handle" ;
+    rdfs:domain ex:DataProcessingSystems ;
+    rdfs:range ex:DigitalInformation ;
+    rdfs:subPropertyOf <dul:handles> .
+
+ex:DataProcessorToDataIntegrity a owl:ObjectProperty ;
+    rdfs:comment "ensures" ;
+    rdfs:domain ex:DataProcessor ;
+    rdfs:range ex:DataIntegrity ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:DataProcessorToDataProcessingSystems a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:DataProcessor ;
+    rdfs:range ex:DataProcessingSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DataProcessorToDigitalInformation a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:DataProcessor ;
+    rdfs:range ex:DigitalInformation ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:DataTransformationToDataIntegrity a owl:ObjectProperty ;
+    rdfs:comment "maintains" ;
+    rdfs:domain ex:DataTransformation ;
+    rdfs:range ex:DataIntegrity ;
+    rdfs:subPropertyOf <dul:preserves> .
+
+ex:DataTransformationToDigitalInformation a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:DataTransformation ;
+    rdfs:range ex:DigitalInformation ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:DigitalArchivistToDigitalPreservation a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:DigitalArchivist ;
+    rdfs:range ex:DigitalPreservation ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:DigitalCollaborationToCommunicationTools a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalCollaboration ;
+    rdfs:range ex:CommunicationTools ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCollaborationToDigitalPlatforms a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalCollaboration ;
+    rdfs:range ex:DigitalPlatforms ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCommunicatorToDigitalPlatforms a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:DigitalCommunicator ;
+    rdfs:range ex:DigitalPlatforms ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCommunicatorToInteractiveSystems a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:DigitalCommunicator ;
+    rdfs:range ex:InteractiveSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalContentToMultimediaElements a owl:ObjectProperty ;
+    rdfs:comment "incorporates" ;
+    rdfs:domain ex:DigitalContent ;
+    rdfs:range ex:MultimediaElements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:DigitalCreatorToContentCreationTools a owl:ObjectProperty ;
+    rdfs:comment "using" ;
+    rdfs:domain ex:DigitalCreator ;
+    rdfs:range ex:ContentCreationTools ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalCreatorToDigitalContent a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:DigitalCreator ;
+    rdfs:range ex:DigitalContent ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:DigitalCreatorToMediaIntegration a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:DigitalCreator ;
+    rdfs:range ex:MediaIntegration ;
+    rdfs:subPropertyOf <dul:employs> .
+
+ex:DigitalPlatformsToDigitalInteraction a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:DigitalPlatforms ;
+    rdfs:range ex:DigitalInteraction ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DigitalPlatformsToOnlineCommunication a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:DigitalPlatforms ;
+    rdfs:range ex:OnlineCommunication ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DigitalPreservationToArchivalSystems a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:ArchivalSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:DigitalPreservationToCulturalArtifacts a owl:ObjectProperty ;
+    rdfs:comment "of" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:CulturalArtifacts ;
+    rdfs:subPropertyOf <dul:protects> .
+
+ex:DigitalPreservationToDigitalHeritage a owl:ObjectProperty ;
+    rdfs:comment "of" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:DigitalHeritage ;
+    rdfs:subPropertyOf <dul:protects> .
+
+ex:DigitalPreservationToFutureAccess a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:FutureAccess ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DigitalPreservationToPreservationStrategies a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:DigitalPreservation ;
+    rdfs:range ex:PreservationStrategies ;
+    rdfs:subPropertyOf <dul:usesMethod> .
+
+ex:DigitalWorkflowsToSystemEfficiency a owl:ObjectProperty ;
+    rdfs:comment "optimize" ;
+    rdfs:domain ex:DigitalWorkflows ;
+    rdfs:range ex:SystemEfficiency ;
+    rdfs:subPropertyOf <dul:optimizes> .
+
+ex:FormatMigrationToDigitalLongevity a owl:ObjectProperty ;
+    rdfs:comment "ensure" ;
+    rdfs:domain ex:FormatMigration ;
+    rdfs:range ex:DigitalLongevity ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:InclusiveDesignToAdaptiveInterfaces a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:InclusiveDesign ;
+    rdfs:range ex:AdaptiveInterfaces ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:InformationManagementToDataInput a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:InformationManagement ;
+    rdfs:range ex:DataInput ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:InformationManagementToDataOutput a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:InformationManagement ;
+    rdfs:range ex:DataOutput ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:InformationManagementToDataTransformation a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:InformationManagement ;
+    rdfs:range ex:DataTransformation ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:IntegratedMediaToDigitalProducts a owl:ObjectProperty ;
+    rdfs:comment "becomes" ;
+    rdfs:domain ex:IntegratedMedia ;
+    rdfs:range ex:DigitalProducts ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:InteractiveSystemsToDigitalCollaboration a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:InteractiveSystems ;
+    rdfs:range ex:DigitalCollaboration ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:InteractiveSystemsToVirtualEngagement a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:InteractiveSystems ;
+    rdfs:range ex:VirtualEngagement ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:InterfaceDesignToUserExperiences a owl:ObjectProperty ;
+    rdfs:comment "shapes" ;
+    rdfs:domain ex:InterfaceDesign ;
+    rdfs:range ex:UserExperiences ;
+    rdfs:subPropertyOf <dul:shapes> .
+
+ex:InterfaceDesignerToAccessibilityFeatures a owl:ObjectProperty ;
+    rdfs:comment "with" ;
+    rdfs:domain ex:InterfaceDesigner ;
+    rdfs:range ex:AccessibilityFeatures ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:InterfaceDesignerToAdaptiveInterfaces a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:InterfaceDesigner ;
+    rdfs:range ex:AdaptiveInterfaces ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:LongTermStorageToDigitalLongevity a owl:ObjectProperty ;
+    rdfs:comment "ensure" ;
+    rdfs:domain ex:LongTermStorage ;
+    rdfs:range ex:DigitalLongevity ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:MediaAndDigitalSystemsScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:MediaAndDigitalSystemsScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:MediaAndDigitalSystemsScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:MediaAndDigitalSystemsScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:MediaAndDigitalSystemsScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:MediaIntegrationToIntegratedMedia a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:MediaIntegration ;
+    rdfs:range ex:IntegratedMedia ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:MetadataManagementToDigitalPreservation a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:MetadataManagement ;
+    rdfs:range ex:DigitalPreservation ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:MultimediaElementsToAudioElements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:AudioElements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimediaElementsToInteractiveFeatures a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:InteractiveFeatures ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimediaElementsToTextElements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:TextElements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimediaElementsToVisualComponents a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimediaElements ;
+    rdfs:range ex:VisualComponents ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:PersonalizationSystemsToAdaptiveInterfaces a owl:ObjectProperty ;
+    rdfs:comment "enable customization for" ;
+    rdfs:domain ex:PersonalizationSystems ;
+    rdfs:range ex:AdaptiveInterfaces ;
+    rdfs:subPropertyOf <dul:customizes> .
+
+ex:PersonalizationSystemsToUserCapabilities a owl:ObjectProperty ;
+    rdfs:comment "adapt to" ;
+    rdfs:domain ex:PersonalizationSystems ;
+    rdfs:range ex:UserCapabilities ;
+    rdfs:subPropertyOf <dul:adaptsTo> .
+
+ex:PreservationStrategiesToFormatMigration a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:PreservationStrategies ;
+    rdfs:range ex:FormatMigration ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:PreservationStrategiesToLongTermStorage a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:PreservationStrategies ;
+    rdfs:range ex:LongTermStorage ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:SystemEfficiencyToDigitalWorkflows a owl:ObjectProperty ;
+    rdfs:comment "depends on" ;
+    rdfs:domain ex:SystemEfficiency ;
+    rdfs:range ex:DigitalWorkflows ;
+    rdfs:subPropertyOf <dul:dependsOn> .
+
+ex:UsabilityOptimizationToUniversalAccess a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:UsabilityOptimization ;
+    rdfs:range ex:UniversalAccess ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:UserExperiencesToDigitalInteraction a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:UserExperiences ;
+    rdfs:range ex:DigitalInteraction ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:ArchivalIntegrity a owl:Class ;
+    rdfs:label "ArchivalIntegrity" ;
+    rdfs:comment "Maintaining authenticity and completeness of preserved materials" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:AudioElements a owl:Class ;
+    rdfs:label "AudioElements" ;
+    rdfs:comment "Sound, music, and audio content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:BarrierRemoval a owl:Class ;
+    rdfs:label "BarrierRemoval" ;
+    rdfs:comment "Eliminating obstacles to system access and use" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CulturalArtifacts a owl:Class ;
+    rdfs:label "CulturalArtifacts" ;
+    rdfs:comment "Digital representations of culturally significant items" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DataInput a owl:Class ;
+    rdfs:label "DataInput" ;
+    rdfs:comment "Entry of information into digital systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DataOutput a owl:Class ;
+    rdfs:label "DataOutput" ;
+    rdfs:comment "Extraction of processed information from systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalArchivist a owl:Class ;
+    rdfs:label "DigitalArchivist" ;
+    rdfs:comment "Person responsible for long-term digital preservation" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DigitalHeritage a owl:Class ;
+    rdfs:label "DigitalHeritage" ;
+    rdfs:comment "Digital materials with historical or cultural value" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DigitalProducts a owl:Class ;
+    rdfs:label "DigitalProducts" ;
+    rdfs:comment "Final multimedia creations" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:FutureAccess a owl:Class ;
+    rdfs:label "FutureAccess" ;
+    rdfs:comment "Ensuring digital materials remain usable by future users" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InclusiveDesign a owl:Class ;
+    rdfs:label "InclusiveDesign" ;
+    rdfs:comment "Creating interfaces usable by people with diverse abilities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InteractiveFeatures a owl:Class ;
+    rdfs:label "InteractiveFeatures" ;
+    rdfs:comment "Elements that enable user interaction and engagement" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InterfaceDesign a owl:Class ;
+    rdfs:label "InterfaceDesign" ;
+    rdfs:comment "Creation of user interfaces for digital systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MetadataManagement a owl:Class ;
+    rdfs:label "MetadataManagement" ;
+    rdfs:comment "Organizing descriptive information about digital materials" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TextElements a owl:Class ;
+    rdfs:label "TextElements" ;
+    rdfs:comment "Written or textual content components" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:UsabilityOptimization a owl:Class ;
+    rdfs:label "UsabilityOptimization" ;
+    rdfs:comment "Improving ease and efficiency of system use" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:VirtualEngagement a owl:Class ;
+    rdfs:label "VirtualEngagement" ;
+    rdfs:comment "Participation in digital environments and activities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:VisualComponents a owl:Class ;
+    rdfs:label "VisualComponents" ;
+    rdfs:comment "Images, graphics, and visual design elements" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:AccessibilityFeatures a owl:Class ;
+    rdfs:label "AccessibilityFeatures" ;
+    rdfs:comment "Design elements that support users with disabilities" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:AccessibilityNeeds a owl:Class ;
+    rdfs:label "AccessibilityNeeds" ;
+    rdfs:comment "Specific requirements for barrier-free system use" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:ArchivalSystems a owl:Class ;
+    rdfs:label "ArchivalSystems" ;
+    rdfs:comment "Technologies designed for long-term digital storage" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:AssistiveTechnologies a owl:Class ;
+    rdfs:label "AssistiveTechnologies" ;
+    rdfs:comment "Tools that help users with disabilities interact with systems" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:CommunicationTools a owl:Class ;
+    rdfs:label "CommunicationTools" ;
+    rdfs:comment "Software and features that enable digital communication" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:ContentCreationTools a owl:Class ;
+    rdfs:label "ContentCreationTools" ;
+    rdfs:comment "Software and technologies for producing digital content" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:DataIntegrity a owl:Class ;
+    rdfs:label "DataIntegrity" ;
+    rdfs:comment "Accuracy and reliability of digital information" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:DataProcessingSystems a owl:Class ;
+    rdfs:label "DataProcessingSystems" ;
+    rdfs:comment "Technologies for handling and transforming digital data" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:DigitalCommunicator a owl:Class ;
+    rdfs:label "DigitalCommunicator" ;
+    rdfs:comment "Person facilitating communication through digital technologies" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DigitalContent a owl:Class ;
+    rdfs:label "DigitalContent" ;
+    rdfs:comment "Information and media produced using digital technologies" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DigitalInteraction a owl:Class ;
+    rdfs:label "DigitalInteraction" ;
+    rdfs:comment "Engagement between users through digital interfaces" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalLongevity a owl:Class ;
+    rdfs:label "DigitalLongevity" ;
+    rdfs:comment "Ability of digital materials to remain accessible over time" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:DigitalWorkflows a owl:Class ;
+    rdfs:label "DigitalWorkflows" ;
+    rdfs:comment "Systematic procedures for digital information handling" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FormatMigration a owl:Class ;
+    rdfs:label "FormatMigration" ;
+    rdfs:comment "Converting digital materials to current formats" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IntegratedMedia a owl:Class ;
+    rdfs:label "IntegratedMedia" ;
+    rdfs:comment "Combined multimedia experiences" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InterfaceDesigner a owl:Class ;
+    rdfs:label "InterfaceDesigner" ;
+    rdfs:comment "Person creating adaptive and accessible digital interfaces" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LongTermStorage a owl:Class ;
+    rdfs:label "LongTermStorage" ;
+    rdfs:comment "Secure storage designed for extended time periods" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OnlineCommunication a owl:Class ;
+    rdfs:label "OnlineCommunication" ;
+    rdfs:comment "Communication conducted through digital networks" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PersonalizationSystems a owl:Class ;
+    rdfs:label "PersonalizationSystems" ;
+    rdfs:comment "Technologies that customize interfaces for individual users" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:SystemEfficiency a owl:Class ;
+    rdfs:label "SystemEfficiency" ;
+    rdfs:comment "Optimal performance of digital processing systems" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:UserCapabilities a owl:Class ;
+    rdfs:label "UserCapabilities" ;
+    rdfs:comment "Individual abilities and limitations of system users" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:UserExperiences a owl:Class ;
+    rdfs:label "UserExperiences" ;
+    rdfs:comment "Overall experiences people have when using digital systems" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DataProcessor a owl:Class ;
+    rdfs:label "DataProcessor" ;
+    rdfs:comment "Person managing and processing digital information" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DataTransformation a owl:Class ;
+    rdfs:label "DataTransformation" ;
+    rdfs:comment "Modification and processing of digital information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalCollaboration a owl:Class ;
+    rdfs:label "DigitalCollaboration" ;
+    rdfs:comment "Cooperative work conducted through digital platforms" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalCreator a owl:Class ;
+    rdfs:label "DigitalCreator" ;
+    rdfs:comment "Person producing content using digital media technologies" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DigitalInformation a owl:Class ;
+    rdfs:label "DigitalInformation" ;
+    rdfs:comment "Information stored and processed in digital formats" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InformationManagement a owl:Class ;
+    rdfs:label "InformationManagement" ;
+    rdfs:comment "Systematic handling of digital information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InteractiveSystems a owl:Class ;
+    rdfs:label "InteractiveSystems" ;
+    rdfs:comment "Technologies that support user interaction and engagement" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MediaIntegration a owl:Class ;
+    rdfs:label "MediaIntegration" ;
+    rdfs:comment "Combining different media types into cohesive experiences" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PreservationStrategies a owl:Class ;
+    rdfs:label "PreservationStrategies" ;
+    rdfs:comment "Planned approaches to maintaining digital materials" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DigitalPlatforms a owl:Class ;
+    rdfs:label "DigitalPlatforms" ;
+    rdfs:comment "Online systems that enable digital communication and interaction" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:UniversalAccess a owl:Class ;
+    rdfs:label "UniversalAccess" ;
+    rdfs:comment "Ability for all users to access and use systems effectively" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:AdaptiveInterfaces a owl:Class ;
+    rdfs:label "AdaptiveInterfaces" ;
+    rdfs:comment "User interfaces that adjust to individual user needs" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:MultimediaElements a owl:Class ;
+    rdfs:label "MultimediaElements" ;
+    rdfs:comment "Various types of media content (text, image, audio, video)" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:DigitalPreservation a owl:Class ;
+    rdfs:label "DigitalPreservation" ;
+    rdfs:comment "Systematic protection of digital materials over time" ;
+    rdfs:subClassOf <dul:Process> .
+

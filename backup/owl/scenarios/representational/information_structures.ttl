@@ -1,0 +1,570 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AdaptiveAlgorithmsToUsageAnalytics a owl:ObjectProperty ;
+    rdfs:comment "analyze" ;
+    rdfs:domain ex:AdaptiveAlgorithms ;
+    rdfs:range ex:UsageAnalytics ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:AdaptiveSystemManagerToDynamicInformationSystems a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:AdaptiveSystemManager ;
+    rdfs:range ex:DynamicInformationSystems ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:AssociativeStructuresToNetworkTopologies a owl:ObjectProperty ;
+    rdfs:comment "form" ;
+    rdfs:domain ex:AssociativeStructures ;
+    rdfs:range ex:NetworkTopologies ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:AutomaticReorganizationToOrganizationalPatterns a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:AutomaticReorganization ;
+    rdfs:range ex:OrganizationalPatterns ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:CategoryStructuresToTaxonomicPrinciples a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:CategoryStructures ;
+    rdfs:range ex:TaxonomicPrinciples ;
+    rdfs:subPropertyOf <dul:follows> .
+
+ex:ClassificationSchemesToLogicalGroupings a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:ClassificationSchemes ;
+    rdfs:range ex:LogicalGroupings ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ContextualAdaptationToOrganizationalPatterns a owl:ObjectProperty ;
+    rdfs:comment "adjusts for" ;
+    rdfs:domain ex:ContextualAdaptation ;
+    rdfs:range ex:OrganizationalPatterns ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:CrossModalLinkingToUnifiedInformationStructures a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:CrossModalLinking ;
+    rdfs:range ex:UnifiedInformationStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:DynamicInformationSystemsToAccessPatterns a owl:ObjectProperty ;
+    rdfs:comment "monitor" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:AccessPatterns ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:DynamicInformationSystemsToInformationAccessibility a owl:ObjectProperty ;
+    rdfs:comment "optimize" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:InformationAccessibility ;
+    rdfs:subPropertyOf <dul:optimizes> .
+
+ex:DynamicInformationSystemsToUsageAnalytics a owl:ObjectProperty ;
+    rdfs:comment "monitor" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:UsageAnalytics ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:DynamicInformationSystemsToUserEfficiency a owl:ObjectProperty ;
+    rdfs:comment "optimize" ;
+    rdfs:domain ex:DynamicInformationSystems ;
+    rdfs:range ex:UserEfficiency ;
+    rdfs:subPropertyOf <dul:optimizes> .
+
+ex:HeterogeneousDataSourcesToAudioContent a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:AudioContent ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HeterogeneousDataSourcesToSpatialInformation a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:SpatialInformation ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HeterogeneousDataSourcesToTextualInformation a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:TextualInformation ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HeterogeneousDataSourcesToVisualData a owl:ObjectProperty ;
+    rdfs:comment "contain" ;
+    rdfs:domain ex:HeterogeneousDataSources ;
+    rdfs:range ex:VisualData ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:HierarchicalOrganizationToInformationRetrieval a owl:ObjectProperty ;
+    rdfs:comment "facilitates" ;
+    rdfs:domain ex:HierarchicalOrganization ;
+    rdfs:range ex:InformationRetrieval ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:InformationNodesToInformationNodes a owl:ObjectProperty ;
+    rdfs:comment "connected through" ;
+    rdfs:domain ex:InformationNodes ;
+    rdfs:range ex:InformationNodes ;
+    rdfs:subPropertyOf <dul:isConnectedTo> .
+
+ex:InformationNodesToLinkagePatterns a owl:ObjectProperty ;
+    rdfs:comment "connected through" ;
+    rdfs:domain ex:InformationNodes ;
+    rdfs:range ex:LinkagePatterns ;
+    rdfs:subPropertyOf <dul:linkedBy> .
+
+ex:InformationOrganizerToOrganizationalSystems a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:InformationOrganizer ;
+    rdfs:range ex:OrganizationalSystems ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:InformationSequencesToLogicalProgression a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:InformationSequences ;
+    rdfs:range ex:LogicalProgression ;
+    rdfs:subPropertyOf <dul:follows> .
+
+ex:InformationSequencesToTemporalOrdering a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:InformationSequences ;
+    rdfs:range ex:TemporalOrdering ;
+    rdfs:subPropertyOf <dul:follows> .
+
+ex:InformationStructuresScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:InformationStructuresScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:InformationStructuresScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:InformationStructuresScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:InformationStructuresScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:IntegratedAccessSystemsToMultimodalRetrieval a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:IntegratedAccessSystems ;
+    rdfs:range ex:MultimodalRetrieval ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:LinkagePatternsToAssociativeStructures a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:LinkagePatterns ;
+    rdfs:range ex:AssociativeStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:LogicalGroupingsToInformationRetrieval a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:LogicalGroupings ;
+    rdfs:range ex:InformationRetrieval ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:LogicalProgressionToSequentialAccess a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:LogicalProgression ;
+    rdfs:range ex:SequentialAccess ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:MultimodalIntegratorToCrossModalLinking a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:MultimodalIntegrator ;
+    rdfs:range ex:CrossModalLinking ;
+    rdfs:subPropertyOf <dul:employs> .
+
+ex:MultimodalIntegratorToHeterogeneousDataSources a owl:ObjectProperty ;
+    rdfs:comment "combines" ;
+    rdfs:domain ex:MultimodalIntegrator ;
+    rdfs:range ex:HeterogeneousDataSources ;
+    rdfs:subPropertyOf <dul:combines> .
+
+ex:MultimodalIntegratorToSemanticAlignment a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:MultimodalIntegrator ;
+    rdfs:range ex:SemanticAlignment ;
+    rdfs:subPropertyOf <dul:employs> .
+
+ex:MultimodalRetrievalToCoherentInformationExperience a owl:ObjectProperty ;
+    rdfs:comment "provides" ;
+    rdfs:domain ex:MultimodalRetrieval ;
+    rdfs:range ex:CoherentInformationExperience ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:NetworkBuilderToConnectionSystems a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:NetworkBuilder ;
+    rdfs:range ex:ConnectionSystems ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:NetworkBuilderToInterconnectedRelationships a owl:ObjectProperty ;
+    rdfs:comment "establishes" ;
+    rdfs:domain ex:NetworkBuilder ;
+    rdfs:range ex:InterconnectedRelationships ;
+    rdfs:subPropertyOf <dul:establishes> .
+
+ex:NetworkBuilderToRelationalNetworks a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:NetworkBuilder ;
+    rdfs:range ex:RelationalNetworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:NetworkTopologiesToPathwayNavigation a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:NetworkTopologies ;
+    rdfs:range ex:PathwayNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:OrganizationalSystemsToCategoryStructures a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:OrganizationalSystems ;
+    rdfs:range ex:CategoryStructures ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:OrganizationalSystemsToClassificationSchemes a owl:ObjectProperty ;
+    rdfs:comment "employs" ;
+    rdfs:domain ex:OrganizationalSystems ;
+    rdfs:range ex:ClassificationSchemes ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:OrganizationalSystemsToDataCollections a owl:ObjectProperty ;
+    rdfs:comment "for" ;
+    rdfs:domain ex:OrganizationalSystems ;
+    rdfs:range ex:DataCollections ;
+    rdfs:subPropertyOf <dul:isDefinedIn> .
+
+ex:PathwayNavigationToInterconnectedRelationships a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:PathwayNavigation ;
+    rdfs:range ex:InterconnectedRelationships ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:ProceduralFrameworksToStepByStepOrganization a owl:ObjectProperty ;
+    rdfs:comment "employ" ;
+    rdfs:domain ex:ProceduralFrameworks ;
+    rdfs:range ex:StepByStepOrganization ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:ProcessOrganizerToProceduralFrameworks a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:ProcessOrganizer ;
+    rdfs:range ex:ProceduralFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ProcessOrganizerToSequentialStructures a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:ProcessOrganizer ;
+    rdfs:range ex:SequentialStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ProcessualNavigationToProceduralFrameworks a owl:ObjectProperty ;
+    rdfs:comment "utilizes" ;
+    rdfs:domain ex:ProcessualNavigation ;
+    rdfs:range ex:ProceduralFrameworks ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:RelationalNetworksToInformationNodes a owl:ObjectProperty ;
+    rdfs:comment "composed of" ;
+    rdfs:domain ex:RelationalNetworks ;
+    rdfs:range ex:InformationNodes ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:SemanticAlignmentToUnifiedInformationStructures a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:SemanticAlignment ;
+    rdfs:range ex:UnifiedInformationStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SequentialStructuresToInformationSequences a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:SequentialStructures ;
+    rdfs:range ex:InformationSequences ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:StepByStepOrganizationToProcessualNavigation a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:StepByStepOrganization ;
+    rdfs:range ex:ProcessualNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:SystemLearningToOrganizationalPatterns a owl:ObjectProperty ;
+    rdfs:comment "enables improvement of" ;
+    rdfs:domain ex:SystemLearning ;
+    rdfs:range ex:OrganizationalPatterns ;
+    rdfs:subPropertyOf <dul:improves> .
+
+ex:TaxonomicPrinciplesToHierarchicalOrganization a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:TaxonomicPrinciples ;
+    rdfs:range ex:HierarchicalOrganization ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:TemporalOrderingToSequentialAccess a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:TemporalOrdering ;
+    rdfs:range ex:SequentialAccess ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:UnifiedInformationStructuresToIntegratedAccessSystems a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:UnifiedInformationStructures ;
+    rdfs:range ex:IntegratedAccessSystems ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:AccessPatterns a owl:Class ;
+    rdfs:label "AccessPatterns" ;
+    rdfs:comment "Regular ways users interact with information" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:AdaptiveAlgorithms a owl:Class ;
+    rdfs:label "AdaptiveAlgorithms" ;
+    rdfs:comment "Computational methods for automatic system adjustment" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AdaptiveSystemManager a owl:Class ;
+    rdfs:label "AdaptiveSystemManager" ;
+    rdfs:comment "Person designing systems that automatically adjust to usage patterns" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AudioContent a owl:Class ;
+    rdfs:label "AudioContent" ;
+    rdfs:comment "Sound, speech, and audio information" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:AutomaticReorganization a owl:Class ;
+    rdfs:label "AutomaticReorganization" ;
+    rdfs:comment "Self-modification of information structures" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CoherentInformationExperience a owl:Class ;
+    rdfs:label "CoherentInformationExperience" ;
+    rdfs:comment "Seamless interaction with diverse information types" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ConnectionSystems a owl:Class ;
+    rdfs:label "ConnectionSystems" ;
+    rdfs:comment "Networks of linked information elements" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:ContextualAdaptation a owl:Class ;
+    rdfs:label "ContextualAdaptation" ;
+    rdfs:comment "Adjustment based on situational factors" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DataCollections a owl:Class ;
+    rdfs:label "DataCollections" ;
+    rdfs:comment "Sets of information requiring organization" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:InformationAccessibility a owl:Class ;
+    rdfs:label "InformationAccessibility" ;
+    rdfs:comment "Ease of finding and retrieving information" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InformationOrganizer a owl:Class ;
+    rdfs:label "InformationOrganizer" ;
+    rdfs:comment "Person creating systematic structures for information management" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SpatialInformation a owl:Class ;
+    rdfs:label "SpatialInformation" ;
+    rdfs:comment "Location and geographic data" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SystemLearning a owl:Class ;
+    rdfs:label "SystemLearning" ;
+    rdfs:comment "Automated improvement based on usage experience" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TextualInformation a owl:Class ;
+    rdfs:label "TextualInformation" ;
+    rdfs:comment "Written or linguistic content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:UserEfficiency a owl:Class ;
+    rdfs:label "UserEfficiency" ;
+    rdfs:comment "Speed and effectiveness of information interaction" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:VisualData a owl:Class ;
+    rdfs:label "VisualData" ;
+    rdfs:comment "Images, graphics, and visual content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:AssociativeStructures a owl:Class ;
+    rdfs:label "AssociativeStructures" ;
+    rdfs:comment "Organizations based on meaningful associations between elements" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:CategoryStructures a owl:Class ;
+    rdfs:label "CategoryStructures" ;
+    rdfs:comment "Systematic groupings based on shared characteristics" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:ClassificationSchemes a owl:Class ;
+    rdfs:label "ClassificationSchemes" ;
+    rdfs:comment "Formal systems for organizing information into categories" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:CrossModalLinking a owl:Class ;
+    rdfs:label "CrossModalLinking" ;
+    rdfs:comment "Creating connections between different information types" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:HierarchicalOrganization a owl:Class ;
+    rdfs:label "HierarchicalOrganization" ;
+    rdfs:comment "Multi-level structures with nested categories" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InformationRetrieval a owl:Class ;
+    rdfs:label "InformationRetrieval" ;
+    rdfs:comment "Accessing specific information from organized systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:IntegratedAccessSystems a owl:Class ;
+    rdfs:label "IntegratedAccessSystems" ;
+    rdfs:comment "Unified interfaces for multimodal information" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:InterconnectedRelationships a owl:Class ;
+    rdfs:label "InterconnectedRelationships" ;
+    rdfs:comment "Mutual connections between information elements" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:LinkagePatterns a owl:Class ;
+    rdfs:label "LinkagePatterns" ;
+    rdfs:comment "Ways in which information elements are connected" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:LogicalGroupings a owl:Class ;
+    rdfs:label "LogicalGroupings" ;
+    rdfs:comment "Categories based on rational or systematic criteria" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:LogicalProgression a owl:Class ;
+    rdfs:label "LogicalProgression" ;
+    rdfs:comment "Organization based on rational or causal sequences" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MultimodalRetrieval a owl:Class ;
+    rdfs:label "MultimodalRetrieval" ;
+    rdfs:comment "Searching across different information types simultaneously" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:NetworkTopologies a owl:Class ;
+    rdfs:label "NetworkTopologies" ;
+    rdfs:comment "Overall patterns of connections within networks" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:PathwayNavigation a owl:Class ;
+    rdfs:label "PathwayNavigation" ;
+    rdfs:comment "Moving through networks by following connections" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ProcessOrganizer a owl:Class ;
+    rdfs:label "ProcessOrganizer" ;
+    rdfs:comment "Person creating sequential and procedural information structures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ProcessualNavigation a owl:Class ;
+    rdfs:label "ProcessualNavigation" ;
+    rdfs:comment "Moving through information following procedural steps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RelationalNetworks a owl:Class ;
+    rdfs:label "RelationalNetworks" ;
+    rdfs:comment "Information structures organized around relationships and connections" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:SemanticAlignment a owl:Class ;
+    rdfs:label "SemanticAlignment" ;
+    rdfs:comment "Ensuring consistent meaning across modalities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SequentialAccess a owl:Class ;
+    rdfs:label "SequentialAccess" ;
+    rdfs:comment "Accessing information in predetermined order" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SequentialStructures a owl:Class ;
+    rdfs:label "SequentialStructures" ;
+    rdfs:comment "Information organized in temporal or logical order" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:StepByStepOrganization a owl:Class ;
+    rdfs:label "StepByStepOrganization" ;
+    rdfs:comment "Arrangement of information in discrete sequential steps" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TaxonomicPrinciples a owl:Class ;
+    rdfs:label "TaxonomicPrinciples" ;
+    rdfs:comment "Rules and criteria for creating categorical hierarchies" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:TemporalOrdering a owl:Class ;
+    rdfs:label "TemporalOrdering" ;
+    rdfs:comment "Organization based on time-based sequences" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:UsageAnalytics a owl:Class ;
+    rdfs:label "UsageAnalytics" ;
+    rdfs:comment "Data about how information is accessed and used" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InformationSequences a owl:Class ;
+    rdfs:label "InformationSequences" ;
+    rdfs:comment "Ordered series of related information elements" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:MultimodalIntegrator a owl:Class ;
+    rdfs:label "MultimodalIntegrator" ;
+    rdfs:comment "Person combining different types of information into unified systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:NetworkBuilder a owl:Class ;
+    rdfs:label "NetworkBuilder" ;
+    rdfs:comment "Person creating relational and network-based information structures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:OrganizationalPatterns a owl:Class ;
+    rdfs:label "OrganizationalPatterns" ;
+    rdfs:comment "Current arrangements of information elements" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ProceduralFrameworks a owl:Class ;
+    rdfs:label "ProceduralFrameworks" ;
+    rdfs:comment "Systematic organizations for step-based processes" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:UnifiedInformationStructures a owl:Class ;
+    rdfs:label "UnifiedInformationStructures" ;
+    rdfs:comment "Integrated systems combining multiple data types" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:InformationNodes a owl:Class ;
+    rdfs:label "InformationNodes" ;
+    rdfs:comment "Individual information elements that can be connected to others" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:OrganizationalSystems a owl:Class ;
+    rdfs:label "OrganizationalSystems" ;
+    rdfs:comment "Structured frameworks for organizing and accessing information" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:DynamicInformationSystems a owl:Class ;
+    rdfs:label "DynamicInformationSystems" ;
+    rdfs:comment "Information structures that modify themselves based on usage" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:HeterogeneousDataSources a owl:Class ;
+    rdfs:label "HeterogeneousDataSources" ;
+    rdfs:comment "Different types of information repositories" ;
+    rdfs:subClassOf <dul:Collection> .
+

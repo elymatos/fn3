@@ -82,6 +82,66 @@
 - SpatialPatterns exist at different DimensionalLevels
 - DimensionalLevels connected through ScaleRelationships
 - ScaleRelationships form HierarchicalOrganization
+
+### Scenario 4: Spatial Boundaries and Territory Organization
+
+**Description:** In this scenario, a #TerritoryManager establishes and maintains #SpatialBoundaries and #TerritorialZones through #BoundaryDefinition and #SpaceAllocation processes. The manager uses #BoundaryMarkers and #TerritorialIndicators to create #FunctionalZones and manage #SpatialAccess while resolving #BoundaryConflicts and ensuring #TerritorialOrder.
+
+**Elements:**
+
+- **TerritoryManager** (Entity): Person organizing and managing spatial boundaries and territories
+- **SpatialBoundaries** (Entity): Defined limits and divisions within spatial areas
+- **TerritorialZones** (Entity): Designated areas with specific functions or ownership
+- **BoundaryDefinition** (Process): Establishing clear spatial limits and divisions
+- **SpaceAllocation** (Process): Assigning spatial areas for specific purposes
+- **BoundaryMarkers** (Entity): Physical or conceptual indicators of spatial limits
+- **TerritorialIndicators** (Entity): Signs that communicate territorial organization
+- **FunctionalZones** (Entity): Areas designated for particular activities or purposes
+- **SpatialAccess** (Process): Control and regulation of movement through territories
+- **BoundaryConflicts** (Entity): Disputes or tensions over spatial limits
+- **TerritorialOrder** (State): Organized system of spatial boundaries and zones
+
+**Relations:**
+
+- TerritoryManager establishes SpatialBoundaries through BoundaryDefinition
+- BoundaryDefinition creates TerritorialZones via SpaceAllocation
+- BoundaryMarkers and TerritorialIndicators mark SpatialBoundaries
+- TerritorialZones organize into FunctionalZones
+- TerritoryManager controls SpatialAccess across boundaries
+- BoundaryConflicts arise from unclear SpatialBoundaries
+- TerritorialOrder emerges from effective BoundaryDefinition and SpaceAllocation
+
+### Scenario 5: Spatial Optimization and Layout Design
+
+**Description:** In this scenario, a #LayoutDesigner creates #OptimalConfigurations through #SpatialOptimization and #LayoutPlanning, considering #EfficiencyFactors and #SpatialConstraints. The designer uses #DesignPrinciples and #SpatialAnalysis to achieve #FunctionalLayouts that maximize #SpatialEfficiency and create #HarmoniousArrangements.
+
+**Elements:**
+
+- **LayoutDesigner** (Entity): Person creating optimized spatial arrangements and designs
+- **OptimalConfigurations** (State): Spatial arrangements that best serve intended purposes
+- **SpatialOptimization** (Process): Systematic improvement of spatial arrangements
+- **LayoutPlanning** (Process): Strategic design of spatial configurations
+- **EfficiencyFactors** (Quality): Elements that contribute to effective space utilization
+- **SpatialConstraints** (Entity): Limitations and restrictions affecting layout design
+- **DesignPrinciples** (Entity): Guidelines for creating effective spatial arrangements
+- **SpatialAnalysis** (Process): Systematic examination of spatial relationships and flows
+- **FunctionalLayouts** (Entity): Spatial arrangements that effectively support intended activities
+- **SpatialEfficiency** (Quality): Degree of optimal space utilization
+- **HarmoniousArrangements** (State): Spatial configurations that create aesthetic and functional balance
+
+**Relations:**
+
+- LayoutDesigner creates OptimalConfigurations through SpatialOptimization
+- SpatialOptimization involves LayoutPlanning considering EfficiencyFactors
+- SpatialConstraints limit possible OptimalConfigurations
+- DesignPrinciples guide LayoutPlanning decisions
+- SpatialAnalysis evaluates potential FunctionalLayouts
+- FunctionalLayouts maximize SpatialEfficiency
+- OptimalConfigurations achieve HarmoniousArrangements
+
+---
+
+
 ## Temporal Structure
 
 **Domain:** Space-Time  
@@ -169,7 +229,63 @@
 - ActivityEngagement affects TemporalPerception
 - TemporalAwareness enables recognition of TimeDistortion
 
+### Scenario 4: Temporal Coordination and Synchronization
+
+**Description:** In this scenario, a #TemporalCoordinator manages #TemporalSynchronization and #TimingCoordination across #MultipleActors and #ConcurrentActivities. The coordinator uses #SynchronizationMethods and #TimingProtocols to ensure #TemporalAlignment and prevent #TimingConflicts while maintaining #TemporalHarmony and #CoordinatedTiming.
+
+**Elements:**
+
+- **TemporalCoordinator** (Entity): Person managing timing and synchronization across multiple activities
+- **TemporalSynchronization** (Process): Aligning activities and events in time
+- **TimingCoordination** (Process): Managing temporal relationships between different activities
+- **MultipleActors** (Entity): Different people or groups requiring temporal coordination
+- **ConcurrentActivities** (Entity): Activities happening simultaneously that need coordination
+- **SynchronizationMethods** (Process): Techniques for aligning temporal activities
+- **TimingProtocols** (Entity): Established procedures for temporal coordination
+- **TemporalAlignment** (State): Proper timing relationships between activities
+- **TimingConflicts** (Entity): Clashes or incompatibilities in temporal scheduling
+- **TemporalHarmony** (State): Smooth coordination of temporal activities
+- **CoordinatedTiming** (Quality): Successfully synchronized temporal relationships
+
+**Relations:**
+
+- TemporalCoordinator manages TemporalSynchronization across MultipleActors
+- TimingCoordination organizes ConcurrentActivities
+- SynchronizationMethods and TimingProtocols enable TemporalAlignment
+- TemporalCoordinator prevents TimingConflicts
+- TemporalAlignment creates TemporalHarmony
+- CoordinatedTiming emerges from effective SynchronizationMethods
+- TemporalHarmony depends on resolution of TimingConflicts
+
+### Scenario 5: Temporal Flexibility and Adaptive Timing
+
+**Description:** In this scenario, a #TimingAdapter manages #TemporalFlexibility and #AdaptiveTiming in response to #ChangingCircumstances and #TemporalUncertainties. The adapter uses #FlexibilityStrategies and #TimingAdjustments to maintain #TemporalAdaptability while balancing #ScheduleStability and #ResponsiveFlexibility.
+
+**Elements:**
+
+- **TimingAdapter** (Entity): Person managing flexible and adaptive temporal arrangements
+- **TemporalFlexibility** (Quality): Ability to adjust timing in response to circumstances
+- **AdaptiveTiming** (Process): Modifying temporal arrangements based on changing needs
+- **ChangingCircumstances** (Entity): Evolving conditions that affect temporal planning
+- **TemporalUncertainties** (Entity): Unknown factors that may affect timing
+- **FlexibilityStrategies** (Process): Approaches for maintaining temporal adaptability
+- **TimingAdjustments** (Process): Modifications to temporal arrangements
+- **TemporalAdaptability** (Quality): Capacity to modify timing as needed
+- **ScheduleStability** (Quality): Maintenance of reliable temporal structure
+- **ResponsiveFlexibility** (Quality): Ability to adjust timing appropriately to circumstances
+
+**Relations:**
+
+- TimingAdapter manages TemporalFlexibility through AdaptiveTiming
+- AdaptiveTiming responds to ChangingCircumstances and TemporalUncertainties
+- FlexibilityStrategies enable TimingAdjustments
+- TimingAdjustments maintain TemporalAdaptability
+- TimingAdapter balances ScheduleStability with ResponsiveFlexibility
+- TemporalAdaptability helps manage TemporalUncertainties
+- ResponsiveFlexibility emerges from effective FlexibilityStrategies
+
 ---
+
 
 ## Motion and Trajectory
 
@@ -261,7 +377,64 @@
 - MotionExtrapolation enables prediction of CollisionPotentials
 - TrajectoryModeling optimizes accuracy of FuturePositions
 
+### Scenario 4: Movement Coordination and Collective Motion
+
+**Description:** In this scenario, a #MovementCoordinator orchestrates #CollectiveMotion and #GroupMovement of #MovingGroups through #MovementSynchronization and #MotionCoordination. The coordinator uses #MovementPatterns and #CoordinationSignals to achieve #SynchronizedMovement and maintain #GroupCohesion while managing #MovementConflicts.
+
+**Elements:**
+
+- **MovementCoordinator** (Entity): Person organizing and directing collective movement
+- **CollectiveMotion** (Process): Coordinated movement involving multiple entities
+- **GroupMovement** (Process): Motion of groups as unified entities
+- **MovingGroups** (Entity): Collections of entities moving together in coordination
+- **MovementSynchronization** (Process): Aligning the timing and direction of group movement
+- **MotionCoordination** (Process): Managing the spatial and temporal aspects of collective motion
+- **MovementPatterns** (Entity): Organized structures for collective motion
+- **CoordinationSignals** (Entity): Cues and indicators that guide group movement
+- **SynchronizedMovement** (State): Aligned motion of multiple entities
+- **GroupCohesion** (Quality): Unity and coordination within moving groups
+- **MovementConflicts** (Entity): Clashes or interference in collective motion
+
+**Relations:**
+
+- MovementCoordinator orchestrates CollectiveMotion of MovingGroups
+- CollectiveMotion involves GroupMovement through MovementSynchronization
+- MotionCoordination uses MovementPatterns and CoordinationSignals
+- MovementSynchronization creates SynchronizedMovement
+- SynchronizedMovement maintains GroupCohesion
+- MovementCoordinator resolves MovementConflicts
+- GroupCohesion depends on effective MotionCoordination
+
+### Scenario 5: Motion Efficiency and Energy Optimization
+
+**Description:** In this scenario, a #MotionOptimizer analyzes #MovementEfficiency and #EnergyExpenditure in #MotionSystems, using #EfficiencyMetrics and #OptimizationStrategies to improve #MotionPerformance. The optimizer minimizes #EnergyWaste and maximizes #MovementOutput while achieving #OptimalMotion and #EfficientTrajectories.
+
+**Elements:**
+
+- **MotionOptimizer** (Entity): Person analyzing and improving movement efficiency
+- **MovementEfficiency** (Quality): Ratio of useful motion output to energy input
+- **EnergyExpenditure** (Quality): Amount of energy consumed in movement
+- **MotionSystems** (Entity): Organized arrangements that produce movement
+- **EfficiencyMetrics** (Entity): Measures used to evaluate movement performance
+- **OptimizationStrategies** (Process): Approaches for improving movement efficiency
+- **MotionPerformance** (Quality): Overall effectiveness of movement systems
+- **EnergyWaste** (Entity): Inefficient use of energy in movement
+- **MovementOutput** (Quality): Useful motion produced by systems
+- **OptimalMotion** (State): Most efficient possible movement
+- **EfficientTrajectories** (Entity): Paths that minimize energy while achieving movement goals
+
+**Relations:**
+
+- MotionOptimizer analyzes MovementEfficiency and EnergyExpenditure in MotionSystems
+- EfficiencyMetrics measure MotionPerformance
+- OptimizationStrategies reduce EnergyWaste and increase MovementOutput
+- MotionOptimizer seeks OptimalMotion through improved efficiency
+- EfficientTrajectories minimize EnergyExpenditure
+- OptimalMotion maximizes MovementEfficiency
+- OptimizationStrategies create EfficientTrajectories
+
 ---
+
 
 ## Change over Time
 
@@ -350,202 +523,6 @@
 - TransitionCausation explains why SuddenChanges happen
 - RapidTransformations produce significant TransformationOutcomes
 - ChangeThresholds determine timing of AbruptTransitions
-
-
-# Space-Time Domain - Additional Scenarios (4 & 5)
-
-## Spatial Configuration
-
-**Domain:** Space-Time  
-**Subdomain:** Spatial Configuration
-
-### Scenario 4: Spatial Boundaries and Territory Organization
-
-**Description:** In this scenario, a #TerritoryManager establishes and maintains #SpatialBoundaries and #TerritorialZones through #BoundaryDefinition and #SpaceAllocation processes. The manager uses #BoundaryMarkers and #TerritorialIndicators to create #FunctionalZones and manage #SpatialAccess while resolving #BoundaryConflicts and ensuring #TerritorialOrder.
-
-**Elements:**
-
-- **TerritoryManager** (Entity): Person organizing and managing spatial boundaries and territories
-- **SpatialBoundaries** (Entity): Defined limits and divisions within spatial areas
-- **TerritorialZones** (Entity): Designated areas with specific functions or ownership
-- **BoundaryDefinition** (Process): Establishing clear spatial limits and divisions
-- **SpaceAllocation** (Process): Assigning spatial areas for specific purposes
-- **BoundaryMarkers** (Entity): Physical or conceptual indicators of spatial limits
-- **TerritorialIndicators** (Entity): Signs that communicate territorial organization
-- **FunctionalZones** (Entity): Areas designated for particular activities or purposes
-- **SpatialAccess** (Process): Control and regulation of movement through territories
-- **BoundaryConflicts** (Entity): Disputes or tensions over spatial limits
-- **TerritorialOrder** (State): Organized system of spatial boundaries and zones
-
-**Relations:**
-
-- TerritoryManager establishes SpatialBoundaries through BoundaryDefinition
-- BoundaryDefinition creates TerritorialZones via SpaceAllocation
-- BoundaryMarkers and TerritorialIndicators mark SpatialBoundaries
-- TerritorialZones organize into FunctionalZones
-- TerritoryManager controls SpatialAccess across boundaries
-- BoundaryConflicts arise from unclear SpatialBoundaries
-- TerritorialOrder emerges from effective BoundaryDefinition and SpaceAllocation
-
-### Scenario 5: Spatial Optimization and Layout Design
-
-**Description:** In this scenario, a #LayoutDesigner creates #OptimalConfigurations through #SpatialOptimization and #LayoutPlanning, considering #EfficiencyFactors and #SpatialConstraints. The designer uses #DesignPrinciples and #SpatialAnalysis to achieve #FunctionalLayouts that maximize #SpatialEfficiency and create #HarmoniousArrangements.
-
-**Elements:**
-
-- **LayoutDesigner** (Entity): Person creating optimized spatial arrangements and designs
-- **OptimalConfigurations** (State): Spatial arrangements that best serve intended purposes
-- **SpatialOptimization** (Process): Systematic improvement of spatial arrangements
-- **LayoutPlanning** (Process): Strategic design of spatial configurations
-- **EfficiencyFactors** (Quality): Elements that contribute to effective space utilization
-- **SpatialConstraints** (Entity): Limitations and restrictions affecting layout design
-- **DesignPrinciples** (Entity): Guidelines for creating effective spatial arrangements
-- **SpatialAnalysis** (Process): Systematic examination of spatial relationships and flows
-- **FunctionalLayouts** (Entity): Spatial arrangements that effectively support intended activities
-- **SpatialEfficiency** (Quality): Degree of optimal space utilization
-- **HarmoniousArrangements** (State): Spatial configurations that create aesthetic and functional balance
-
-**Relations:**
-
-- LayoutDesigner creates OptimalConfigurations through SpatialOptimization
-- SpatialOptimization involves LayoutPlanning considering EfficiencyFactors
-- SpatialConstraints limit possible OptimalConfigurations
-- DesignPrinciples guide LayoutPlanning decisions
-- SpatialAnalysis evaluates potential FunctionalLayouts
-- FunctionalLayouts maximize SpatialEfficiency
-- OptimalConfigurations achieve HarmoniousArrangements
-
----
-
-## Temporal Structure
-
-**Domain:** Space-Time  
-**Subdomain:** Temporal Structure
-
-### Scenario 4: Temporal Coordination and Synchronization
-
-**Description:** In this scenario, a #TemporalCoordinator manages #TemporalSynchronization and #TimingCoordination across #MultipleActors and #ConcurrentActivities. The coordinator uses #SynchronizationMethods and #TimingProtocols to ensure #TemporalAlignment and prevent #TimingConflicts while maintaining #TemporalHarmony and #CoordinatedTiming.
-
-**Elements:**
-
-- **TemporalCoordinator** (Entity): Person managing timing and synchronization across multiple activities
-- **TemporalSynchronization** (Process): Aligning activities and events in time
-- **TimingCoordination** (Process): Managing temporal relationships between different activities
-- **MultipleActors** (Entity): Different people or groups requiring temporal coordination
-- **ConcurrentActivities** (Entity): Activities happening simultaneously that need coordination
-- **SynchronizationMethods** (Process): Techniques for aligning temporal activities
-- **TimingProtocols** (Entity): Established procedures for temporal coordination
-- **TemporalAlignment** (State): Proper timing relationships between activities
-- **TimingConflicts** (Entity): Clashes or incompatibilities in temporal scheduling
-- **TemporalHarmony** (State): Smooth coordination of temporal activities
-- **CoordinatedTiming** (Quality): Successfully synchronized temporal relationships
-
-**Relations:**
-
-- TemporalCoordinator manages TemporalSynchronization across MultipleActors
-- TimingCoordination organizes ConcurrentActivities
-- SynchronizationMethods and TimingProtocols enable TemporalAlignment
-- TemporalCoordinator prevents TimingConflicts
-- TemporalAlignment creates TemporalHarmony
-- CoordinatedTiming emerges from effective SynchronizationMethods
-- TemporalHarmony depends on resolution of TimingConflicts
-
-### Scenario 5: Temporal Flexibility and Adaptive Timing
-
-**Description:** In this scenario, a #TimingAdapter manages #TemporalFlexibility and #AdaptiveTiming in response to #ChangingCircumstances and #TemporalUncertainties. The adapter uses #FlexibilityStrategies and #TimingAdjustments to maintain #TemporalAdaptability while balancing #ScheduleStability and #ResponsiveFlexibility.
-
-**Elements:**
-
-- **TimingAdapter** (Entity): Person managing flexible and adaptive temporal arrangements
-- **TemporalFlexibility** (Quality): Ability to adjust timing in response to circumstances
-- **AdaptiveTiming** (Process): Modifying temporal arrangements based on changing needs
-- **ChangingCircumstances** (Entity): Evolving conditions that affect temporal planning
-- **TemporalUncertainties** (Entity): Unknown factors that may affect timing
-- **FlexibilityStrategies** (Process): Approaches for maintaining temporal adaptability
-- **TimingAdjustments** (Process): Modifications to temporal arrangements
-- **TemporalAdaptability** (Quality): Capacity to modify timing as needed
-- **ScheduleStability** (Quality): Maintenance of reliable temporal structure
-- **ResponsiveFlexibility** (Quality): Ability to adjust timing appropriately to circumstances
-
-**Relations:**
-
-- TimingAdapter manages TemporalFlexibility through AdaptiveTiming
-- AdaptiveTiming responds to ChangingCircumstances and TemporalUncertainties
-- FlexibilityStrategies enable TimingAdjustments
-- TimingAdjustments maintain TemporalAdaptability
-- TimingAdapter balances ScheduleStability with ResponsiveFlexibility
-- TemporalAdaptability helps manage TemporalUncertainties
-- ResponsiveFlexibility emerges from effective FlexibilityStrategies
-
----
-
-## Motion and Trajectory
-
-**Domain:** Space-Time  
-**Subdomain:** Motion and Trajectory
-
-### Scenario 4: Movement Coordination and Collective Motion
-
-**Description:** In this scenario, a #MovementCoordinator orchestrates #CollectiveMotion and #GroupMovement of #MovingGroups through #MovementSynchronization and #MotionCoordination. The coordinator uses #MovementPatterns and #CoordinationSignals to achieve #SynchronizedMovement and maintain #GroupCohesion while managing #MovementConflicts.
-
-**Elements:**
-
-- **MovementCoordinator** (Entity): Person organizing and directing collective movement
-- **CollectiveMotion** (Process): Coordinated movement involving multiple entities
-- **GroupMovement** (Process): Motion of groups as unified entities
-- **MovingGroups** (Entity): Collections of entities moving together in coordination
-- **MovementSynchronization** (Process): Aligning the timing and direction of group movement
-- **MotionCoordination** (Process): Managing the spatial and temporal aspects of collective motion
-- **MovementPatterns** (Entity): Organized structures for collective motion
-- **CoordinationSignals** (Entity): Cues and indicators that guide group movement
-- **SynchronizedMovement** (State): Aligned motion of multiple entities
-- **GroupCohesion** (Quality): Unity and coordination within moving groups
-- **MovementConflicts** (Entity): Clashes or interference in collective motion
-
-**Relations:**
-
-- MovementCoordinator orchestrates CollectiveMotion of MovingGroups
-- CollectiveMotion involves GroupMovement through MovementSynchronization
-- MotionCoordination uses MovementPatterns and CoordinationSignals
-- MovementSynchronization creates SynchronizedMovement
-- SynchronizedMovement maintains GroupCohesion
-- MovementCoordinator resolves MovementConflicts
-- GroupCohesion depends on effective MotionCoordination
-
-### Scenario 5: Motion Efficiency and Energy Optimization
-
-**Description:** In this scenario, a #MotionOptimizer analyzes #MovementEfficiency and #EnergyExpenditure in #MotionSystems, using #EfficiencyMetrics and #OptimizationStrategies to improve #MotionPerformance. The optimizer minimizes #EnergyWaste and maximizes #MovementOutput while achieving #OptimalMotion and #EfficientTrajectories.
-
-**Elements:**
-
-- **MotionOptimizer** (Entity): Person analyzing and improving movement efficiency
-- **MovementEfficiency** (Quality): Ratio of useful motion output to energy input
-- **EnergyExpenditure** (Quality): Amount of energy consumed in movement
-- **MotionSystems** (Entity): Organized arrangements that produce movement
-- **EfficiencyMetrics** (Entity): Measures used to evaluate movement performance
-- **OptimizationStrategies** (Process): Approaches for improving movement efficiency
-- **MotionPerformance** (Quality): Overall effectiveness of movement systems
-- **EnergyWaste** (Entity): Inefficient use of energy in movement
-- **MovementOutput** (Quality): Useful motion produced by systems
-- **OptimalMotion** (State): Most efficient possible movement
-- **EfficientTrajectories** (Entity): Paths that minimize energy while achieving movement goals
-
-**Relations:**
-
-- MotionOptimizer analyzes MovementEfficiency and EnergyExpenditure in MotionSystems
-- EfficiencyMetrics measure MotionPerformance
-- OptimizationStrategies reduce EnergyWaste and increase MovementOutput
-- MotionOptimizer seeks OptimalMotion through improved efficiency
-- EfficientTrajectories minimize EnergyExpenditure
-- OptimalMotion maximizes MovementEfficiency
-- OptimizationStrategies create EfficientTrajectories
-
----
-
-## Change over Time
-
-**Domain:** Space-Time  
-**Subdomain:** Change over Time
 
 ### Scenario 4: Change Management and Transition Planning
 

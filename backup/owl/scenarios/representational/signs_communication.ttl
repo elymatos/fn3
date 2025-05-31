@@ -1,0 +1,542 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:ClarificationStrategiesToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "applied to" ;
+    rdfs:domain ex:ClarificationStrategies ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:appliedTo> .
+
+ex:CommunicationRepairerToCommunicationBreakdowns a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:CommunicationRepairer ;
+    rdfs:range ex:CommunicationBreakdowns ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:CommunicationRepairerToMisunderstandingEvents a owl:ObjectProperty ;
+    rdfs:comment "resolves" ;
+    rdfs:domain ex:CommunicationRepairer ;
+    rdfs:range ex:MisunderstandingEvents ;
+    rdfs:subPropertyOf <dul:resolves> .
+
+ex:CommunicativeGoalsToDiscourseOrganization a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:CommunicativeGoals ;
+    rdfs:range ex:DiscourseOrganization ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:CommunicatorToNonVerbalSignals a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:Communicator ;
+    rdfs:range ex:NonVerbalSignals ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:CommunicatorToVerbalElements a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:Communicator ;
+    rdfs:range ex:VerbalElements ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:ContextualFactorsToMeaningDecoding a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:ContextualFactors ;
+    rdfs:range ex:MeaningDecoding ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:CulturalUnderstandingToPragmaticSkills a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:CulturalUnderstanding ;
+    rdfs:range ex:PragmaticSkills ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:DiscourseOrganizationToSyntacticStructures a owl:ObjectProperty ;
+    rdfs:comment "structures" ;
+    rdfs:domain ex:DiscourseOrganization ;
+    rdfs:range ex:SyntacticStructures ;
+    rdfs:subPropertyOf <dul:structures> .
+
+ex:FluentCommunicationToCommunicativeCompetence a owl:ObjectProperty ;
+    rdfs:comment "indicates" ;
+    rdfs:domain ex:FluentCommunication ;
+    rdfs:range ex:CommunicativeCompetence ;
+    rdfs:subPropertyOf <dul:indicates> .
+
+ex:GrammarLearningToCommunicativeCompetence a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:GrammarLearning ;
+    rdfs:range ex:CommunicativeCompetence ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:InteractiveRepairToMutualUnderstanding a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:InteractiveRepair ;
+    rdfs:range ex:MutualUnderstanding ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:LanguageAcquisitionToPatternRecognition a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:LanguageAcquisition ;
+    rdfs:range ex:PatternRecognition ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:LanguageAcquisitionToPracticeActivities a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:LanguageAcquisition ;
+    rdfs:range ex:PracticeActivities ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:LanguageAcquisitionToRuleInternalization a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:LanguageAcquisition ;
+    rdfs:range ex:RuleInternalization ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:LanguageLearnerToNewLanguageSkills a owl:ObjectProperty ;
+    rdfs:comment "acquires" ;
+    rdfs:domain ex:LanguageLearner ;
+    rdfs:range ex:NewLanguageSkills ;
+    rdfs:subPropertyOf <dul:acquires> .
+
+ex:LanguageUserToLanguageConventions a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:LanguageUser ;
+    rdfs:range ex:LanguageConventions ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:LanguageUserToLinguisticUnits a owl:ObjectProperty ;
+    rdfs:comment "selects" ;
+    rdfs:domain ex:LanguageUser ;
+    rdfs:range ex:LinguisticUnits ;
+    rdfs:subPropertyOf <dul:selects> .
+
+ex:MeaningDecodingToInterpretedMeanings a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:MeaningDecoding ;
+    rdfs:range ex:InterpretedMeanings ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:MessageReceiverToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "decodes" ;
+    rdfs:domain ex:MessageReceiver ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:decodes> .
+
+ex:MessageSenderToIntendedMeanings a owl:ObjectProperty ;
+    rdfs:comment "expresses" ;
+    rdfs:domain ex:MessageSender ;
+    rdfs:range ex:IntendedMeanings ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:MessageSenderToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "encodes" ;
+    rdfs:domain ex:MessageSender ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:encodes> .
+
+ex:MultimodalMessagesToAdditionalMeaning a owl:ObjectProperty ;
+    rdfs:comment "convey" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:AdditionalMeaning ;
+    rdfs:subPropertyOf <dul:conveys> .
+
+ex:MultimodalMessagesToCommunicativeEffectiveness a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:CommunicativeEffectiveness ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:MultimodalMessagesToEmotionalSubtext a owl:ObjectProperty ;
+    rdfs:comment "convey" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:EmotionalSubtext ;
+    rdfs:subPropertyOf <dul:conveys> .
+
+ex:MultimodalMessagesToGesturePatterns a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:GesturePatterns ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalMessagesToProsodicFeatures a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:ProsodicFeatures ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalMessagesToSpacialArrangements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:SpacialArrangements ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultimodalMessagesToVisualCues a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultimodalMessages ;
+    rdfs:range ex:VisualCues ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:PragmaticSkillsToFluentCommunication a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:PragmaticSkills ;
+    rdfs:range ex:FluentCommunication ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:RepairMechanismsToCommunicativeFlow a owl:ObjectProperty ;
+    rdfs:comment "improve" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:CommunicativeFlow ;
+    rdfs:subPropertyOf <dul:improves> .
+
+ex:RepairMechanismsToConfirmationChecking a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:ConfirmationChecking ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:RepairMechanismsToExplanationExpansion a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:ExplanationExpansion ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:RepairMechanismsToReformulation a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:RepairMechanisms ;
+    rdfs:range ex:Reformulation ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:SemanticNoiseToSymbolicMessages a owl:ObjectProperty ;
+    rdfs:comment "distort" ;
+    rdfs:domain ex:SemanticNoise ;
+    rdfs:range ex:SymbolicMessages ;
+    rdfs:subPropertyOf <dul:distorts> .
+
+ex:SentenceConstructionToGrammaticalRules a owl:ObjectProperty ;
+    rdfs:comment "applies" ;
+    rdfs:domain ex:SentenceConstruction ;
+    rdfs:range ex:GrammaticalRules ;
+    rdfs:subPropertyOf <dul:applies> .
+
+ex:SentenceConstructionToSyntacticStructures a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:SentenceConstruction ;
+    rdfs:range ex:SyntacticStructures ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:SignsCommunicationScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SignsCommunicationScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SignsCommunicationScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SignsCommunicationScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SignsCommunicationScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SymbolicMessagesToCommunicationChannels a owl:ObjectProperty ;
+    rdfs:comment "travel through" ;
+    rdfs:domain ex:SymbolicMessages ;
+    rdfs:range ex:CommunicationChannels ;
+    rdfs:subPropertyOf <dul:hasLocation> .
+
+ex:SymbolicMessagesToCommunicationSystems a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:SymbolicMessages ;
+    rdfs:range ex:CommunicationSystems ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:SyntacticStructuresToSemanticContent a owl:ObjectProperty ;
+    rdfs:comment "express" ;
+    rdfs:domain ex:SyntacticStructures ;
+    rdfs:range ex:SemanticContent ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:VocabularyAcquisitionToCommunicativeCompetence a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:VocabularyAcquisition ;
+    rdfs:range ex:CommunicativeCompetence ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:WordSelectionToSentenceConstruction a owl:ObjectProperty ;
+    rdfs:comment "precedes" ;
+    rdfs:domain ex:WordSelection ;
+    rdfs:range ex:SentenceConstruction ;
+    rdfs:subPropertyOf <dul:precedes> .
+
+ex:AdditionalMeaning a owl:Class ;
+    rdfs:label "AdditionalMeaning" ;
+    rdfs:comment "Information conveyed beyond literal verbal content" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ClarificationStrategies a owl:Class ;
+    rdfs:label "ClarificationStrategies" ;
+    rdfs:comment "Methods for making unclear communication clearer" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CommunicationBreakdowns a owl:Class ;
+    rdfs:label "CommunicationBreakdowns" ;
+    rdfs:comment "Failures in successful message transmission" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:CommunicationChannels a owl:Class ;
+    rdfs:label "CommunicationChannels" ;
+    rdfs:comment "Media through which messages are transmitted" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:CommunicationSystems a owl:Class ;
+    rdfs:label "CommunicationSystems" ;
+    rdfs:comment "Languages, sign systems, or symbolic codes" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:CommunicativeEffectiveness a owl:Class ;
+    rdfs:label "CommunicativeEffectiveness" ;
+    rdfs:comment "Degree of successful meaning transmission" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CommunicativeFlow a owl:Class ;
+    rdfs:label "CommunicativeFlow" ;
+    rdfs:comment "Smooth, uninterrupted communication exchange" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CommunicativeGoals a owl:Class ;
+    rdfs:label "CommunicativeGoals" ;
+    rdfs:comment "Intended outcomes of language use" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:ConfirmationChecking a owl:Class ;
+    rdfs:label "ConfirmationChecking" ;
+    rdfs:comment "Verifying that messages have been understood correctly" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ContextualFactors a owl:Class ;
+    rdfs:label "ContextualFactors" ;
+    rdfs:comment "Situational elements affecting meaning interpretation" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CulturalUnderstanding a owl:Class ;
+    rdfs:label "CulturalUnderstanding" ;
+    rdfs:comment "Comprehension of cultural contexts of language use" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EmotionalSubtext a owl:Class ;
+    rdfs:label "EmotionalSubtext" ;
+    rdfs:comment "Affective undertones in communication" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ExplanationExpansion a owl:Class ;
+    rdfs:label "ExplanationExpansion" ;
+    rdfs:comment "Providing additional detail to clarify meaning" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GesturePatterns a owl:Class ;
+    rdfs:label "GesturePatterns" ;
+    rdfs:comment "Hand movements and body language conveying meaning" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:GrammarLearning a owl:Class ;
+    rdfs:label "GrammarLearning" ;
+    rdfs:comment "Mastering structural rules of language" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GrammaticalRules a owl:Class ;
+    rdfs:label "GrammaticalRules" ;
+    rdfs:comment "Principles governing how linguistic units combine" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:IntendedMeanings a owl:Class ;
+    rdfs:label "IntendedMeanings" ;
+    rdfs:comment "Concepts or information the sender wishes to communicate" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InteractiveRepair a owl:Class ;
+    rdfs:label "InteractiveRepair" ;
+    rdfs:comment "Collaborative effort to resolve communication problems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InterpretedMeanings a owl:Class ;
+    rdfs:label "InterpretedMeanings" ;
+    rdfs:comment "Concepts understood by the receiver" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:LanguageConventions a owl:Class ;
+    rdfs:label "LanguageConventions" ;
+    rdfs:comment "Accepted patterns of language use" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:LanguageLearner a owl:Class ;
+    rdfs:label "LanguageLearner" ;
+    rdfs:comment "Person acquiring new language and communication skills" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LinguisticUnits a owl:Class ;
+    rdfs:label "LinguisticUnits" ;
+    rdfs:comment "Words, morphemes, phrases, and other language components" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MessageReceiver a owl:Class ;
+    rdfs:label "MessageReceiver" ;
+    rdfs:comment "Person receiving and interpreting symbolic messages" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MisunderstandingEvents a owl:Class ;
+    rdfs:label "MisunderstandingEvents" ;
+    rdfs:comment "Instances where intended meaning is not correctly received" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MutualUnderstanding a owl:Class ;
+    rdfs:label "MutualUnderstanding" ;
+    rdfs:comment "Shared comprehension between communication participants" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:NewLanguageSkills a owl:Class ;
+    rdfs:label "NewLanguageSkills" ;
+    rdfs:comment "Abilities in a language not previously known" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:NonVerbalSignals a owl:Class ;
+    rdfs:label "NonVerbalSignals" ;
+    rdfs:comment "Communication elements beyond spoken/written language" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:PatternRecognition a owl:Class ;
+    rdfs:label "PatternRecognition" ;
+    rdfs:comment "Identifying regular structures in language use" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PracticeActivities a owl:Class ;
+    rdfs:label "PracticeActivities" ;
+    rdfs:comment "Exercises designed to develop language skills" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ProsodicFeatures a owl:Class ;
+    rdfs:label "ProsodicFeatures" ;
+    rdfs:comment "Tone, rhythm, stress, and intonation patterns" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:Reformulation a owl:Class ;
+    rdfs:label "Reformulation" ;
+    rdfs:comment "Expressing the same message in different ways" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RuleInternalization a owl:Class ;
+    rdfs:label "RuleInternalization" ;
+    rdfs:comment "Making language rules automatic and unconscious" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SemanticContent a owl:Class ;
+    rdfs:label "SemanticContent" ;
+    rdfs:comment "Meaning expressed through syntactic structures" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SemanticNoise a owl:Class ;
+    rdfs:label "SemanticNoise" ;
+    rdfs:comment "Factors that distort meaning transmission" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:SpacialArrangements a owl:Class ;
+    rdfs:label "SpacialArrangements" ;
+    rdfs:comment "Physical positioning and environmental setup" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:VerbalElements a owl:Class ;
+    rdfs:label "VerbalElements" ;
+    rdfs:comment "Spoken or written linguistic components" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:VisualCues a owl:Class ;
+    rdfs:label "VisualCues" ;
+    rdfs:comment "Facial expressions, eye contact, visual displays" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:VocabularyAcquisition a owl:Class ;
+    rdfs:label "VocabularyAcquisition" ;
+    rdfs:comment "Learning words and their meanings" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:WordSelection a owl:Class ;
+    rdfs:label "WordSelection" ;
+    rdfs:comment "Choosing appropriate linguistic units" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CommunicationRepairer a owl:Class ;
+    rdfs:label "CommunicationRepairer" ;
+    rdfs:comment "Person working to resolve communication problems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:Communicator a owl:Class ;
+    rdfs:label "Communicator" ;
+    rdfs:comment "Person using multiple communication modalities" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DiscourseOrganization a owl:Class ;
+    rdfs:label "DiscourseOrganization" ;
+    rdfs:comment "Structuring larger units of communication" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FluentCommunication a owl:Class ;
+    rdfs:label "FluentCommunication" ;
+    rdfs:comment "Smooth, natural use of language" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:LanguageUser a owl:Class ;
+    rdfs:label "LanguageUser" ;
+    rdfs:comment "Person constructing or analyzing linguistic structures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MeaningDecoding a owl:Class ;
+    rdfs:label "MeaningDecoding" ;
+    rdfs:comment "Extraction of meaning from symbolic messages" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MessageSender a owl:Class ;
+    rdfs:label "MessageSender" ;
+    rdfs:comment "Person encoding and transmitting symbolic messages" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PragmaticSkills a owl:Class ;
+    rdfs:label "PragmaticSkills" ;
+    rdfs:comment "Abilities to use language appropriately in social contexts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CommunicativeCompetence a owl:Class ;
+    rdfs:label "CommunicativeCompetence" ;
+    rdfs:comment "Ability to use language effectively in context" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:LanguageAcquisition a owl:Class ;
+    rdfs:label "LanguageAcquisition" ;
+    rdfs:comment "Natural or systematic learning of language capabilities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SentenceConstruction a owl:Class ;
+    rdfs:label "SentenceConstruction" ;
+    rdfs:comment "Arranging units according to grammatical rules" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SyntacticStructures a owl:Class ;
+    rdfs:label "SyntacticStructures" ;
+    rdfs:comment "Organized arrangements of linguistic units" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:RepairMechanisms a owl:Class ;
+    rdfs:label "RepairMechanisms" ;
+    rdfs:comment "Systematic approaches to fixing communication problems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SymbolicMessages a owl:Class ;
+    rdfs:label "SymbolicMessages" ;
+    rdfs:comment "Encoded representations carrying meaning" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MultimodalMessages a owl:Class ;
+    rdfs:label "MultimodalMessages" ;
+    rdfs:comment "Communications combining verbal and non-verbal elements" ;
+    rdfs:subClassOf <dul:InformationObject> .
+

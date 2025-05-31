@@ -1,0 +1,585 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AbstractModelingToComplexPhenomena a owl:ObjectProperty ;
+    rdfs:comment "creates representations of" ;
+    rdfs:domain ex:AbstractModeling ;
+    rdfs:range ex:ComplexPhenomena ;
+    rdfs:subPropertyOf <dul:represents> .
+
+ex:AbstractionMechanismsToLevelNavigation a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:AbstractionMechanisms ;
+    rdfs:range ex:LevelNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:AbstractionSpecialistToAbstractionTransitions a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:AbstractionSpecialist ;
+    rdfs:range ex:AbstractionTransitions ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:AbstractionSpecialistToMultiLevelRepresentations a owl:ObjectProperty ;
+    rdfs:comment "works with" ;
+    rdfs:domain ex:AbstractionSpecialist ;
+    rdfs:range ex:MultiLevelRepresentations ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:AlgorithmDesignerToAlgorithmicProcesses a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:AlgorithmDesigner ;
+    rdfs:range ex:AlgorithmicProcesses ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:AlgorithmDesignerToComputationalModels a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:AlgorithmDesigner ;
+    rdfs:range ex:ComputationalModels ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:AlgorithmicProcessesToDefinedProblems a owl:ObjectProperty ;
+    rdfs:comment "solve" ;
+    rdfs:domain ex:AlgorithmicProcesses ;
+    rdfs:range ex:DefinedProblems ;
+    rdfs:subPropertyOf <dul:solves> .
+
+ex:AlgorithmicProcessesToLogicalSequences a owl:ObjectProperty ;
+    rdfs:comment "employ" ;
+    rdfs:domain ex:AlgorithmicProcesses ;
+    rdfs:range ex:LogicalSequences ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:AlgorithmicProcessesToSystematicProcedures a owl:ObjectProperty ;
+    rdfs:comment "employ" ;
+    rdfs:domain ex:AlgorithmicProcesses ;
+    rdfs:range ex:SystematicProcedures ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:ComputationalModelsToAutomatableProcesses a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:ComputationalModels ;
+    rdfs:range ex:AutomatableProcesses ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:EssentialRelationshipsToTheoreticalPredictions a owl:ObjectProperty ;
+    rdfs:comment "determine" ;
+    rdfs:domain ex:EssentialRelationships ;
+    rdfs:range ex:TheoreticalPredictions ;
+    rdfs:subPropertyOf <dul:conditions> .
+
+ex:ExistingFormalSystemsToLogicalConsistency a owl:ObjectProperty ;
+    rdfs:comment "must maintain" ;
+    rdfs:domain ex:ExistingFormalSystems ;
+    rdfs:range ex:LogicalConsistency ;
+    rdfs:subPropertyOf <dul:requires> .
+
+ex:FormalConclusionsToAbstractProblems a owl:ObjectProperty ;
+    rdfs:comment "solve" ;
+    rdfs:domain ex:FormalConclusions ;
+    rdfs:range ex:AbstractProblems ;
+    rdfs:subPropertyOf <dul:solves> .
+
+ex:FormalSystemUpgradesToSystemExtension a owl:ObjectProperty ;
+    rdfs:comment "implement" ;
+    rdfs:domain ex:FormalSystemUpgrades ;
+    rdfs:range ex:SystemExtension ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:FormalSystemsScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:FormalSystemsScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:FormalSystemsScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:FormalSystemsScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:FormalSystemsScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:LevelMappingToAbstractionTransitions a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:LevelMapping ;
+    rdfs:range ex:AbstractionTransitions ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:LogicalRulesToFormalConclusions a owl:ObjectProperty ;
+    rdfs:comment "guide derivation of" ;
+    rdfs:domain ex:LogicalRules ;
+    rdfs:range ex:FormalConclusions ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:LogicalSequencesToSystematicExecution a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:LogicalSequences ;
+    rdfs:range ex:SystematicExecution ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:MathematicalOperationsToLogicalRules a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:MathematicalOperations ;
+    rdfs:range ex:LogicalRules ;
+    rdfs:subPropertyOf <dul:conformsTo> .
+
+ex:MathematicalOperationsToSymbolicRepresentations a owl:ObjectProperty ;
+    rdfs:comment "transform" ;
+    rdfs:domain ex:MathematicalOperations ;
+    rdfs:range ex:SymbolicRepresentations ;
+    rdfs:subPropertyOf <dul:transforms> .
+
+ex:MathematicalSystemsToFormalNotations a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:MathematicalSystems ;
+    rdfs:range ex:FormalNotations ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:MathematicalSystemsToSymbolicRepresentations a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:MathematicalSystems ;
+    rdfs:range ex:SymbolicRepresentations ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:MathematicalThinkerToLogicalStructures a owl:ObjectProperty ;
+    rdfs:comment "works with" ;
+    rdfs:domain ex:MathematicalThinker ;
+    rdfs:range ex:LogicalStructures ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:MathematicalThinkerToMathematicalOperations a owl:ObjectProperty ;
+    rdfs:comment "applies" ;
+    rdfs:domain ex:MathematicalThinker ;
+    rdfs:range ex:MathematicalOperations ;
+    rdfs:subPropertyOf <dul:executes> .
+
+ex:MathematicalThinkerToMathematicalSystems a owl:ObjectProperty ;
+    rdfs:comment "works with" ;
+    rdfs:domain ex:MathematicalThinker ;
+    rdfs:range ex:MathematicalSystems ;
+    rdfs:subPropertyOf <dul:usesInstrument> .
+
+ex:ModelBuilderToSystematicFrameworks a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:ModelBuilder ;
+    rdfs:range ex:SystematicFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ModelBuilderToTheoreticalModels a owl:ObjectProperty ;
+    rdfs:comment "constructs" ;
+    rdfs:domain ex:ModelBuilder ;
+    rdfs:range ex:TheoreticalModels ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:ModelComponentsToEssentialRelationships a owl:ObjectProperty ;
+    rdfs:comment "linked by" ;
+    rdfs:domain ex:ModelComponents ;
+    rdfs:range ex:EssentialRelationships ;
+    rdfs:subPropertyOf <dul:linkedBy> .
+
+ex:ModelComponentsToModelComponents a owl:ObjectProperty ;
+    rdfs:comment "connected through" ;
+    rdfs:domain ex:ModelComponents ;
+    rdfs:range ex:ModelComponents ;
+    rdfs:subPropertyOf <dul:isConnectedTo> .
+
+ex:MultiLevelRepresentationsToAbstractLevel a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultiLevelRepresentations ;
+    rdfs:range ex:AbstractLevel ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultiLevelRepresentationsToDetailedLevel a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultiLevelRepresentations ;
+    rdfs:range ex:DetailedLevel ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MultiLevelRepresentationsToIntermediateLevel a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:MultiLevelRepresentations ;
+    rdfs:range ex:IntermediateLevel ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:RepresentationalCoherenceToMultiLevelRepresentations a owl:ObjectProperty ;
+    rdfs:comment "ensures consistency across" ;
+    rdfs:domain ex:RepresentationalCoherence ;
+    rdfs:range ex:MultiLevelRepresentations ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:RuleGeneralizationToSystemLimitations a owl:ObjectProperty ;
+    rdfs:comment "addresses" ;
+    rdfs:domain ex:RuleGeneralization ;
+    rdfs:range ex:SystemLimitations ;
+    rdfs:subPropertyOf <dul:addresses> .
+
+ex:RuleModificationToSystemCapabilities a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:RuleModification ;
+    rdfs:range ex:SystemCapabilities ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:ScaleTransitionToAbstractionTransitions a owl:ObjectProperty ;
+    rdfs:comment "adjust" ;
+    rdfs:domain ex:ScaleTransition ;
+    rdfs:range ex:AbstractionTransitions ;
+    rdfs:subPropertyOf <dul:adjusts> .
+
+ex:StepWiseAlgorithmsToComputationalLogic a owl:ObjectProperty ;
+    rdfs:comment "implement" ;
+    rdfs:domain ex:StepWiseAlgorithms ;
+    rdfs:range ex:ComputationalLogic ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:SymbolicRepresentationsToAbstractConcepts a owl:ObjectProperty ;
+    rdfs:comment "express" ;
+    rdfs:domain ex:SymbolicRepresentations ;
+    rdfs:range ex:AbstractConcepts ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:SymbolicRepresentationsToQuantitativeRelationships a owl:ObjectProperty ;
+    rdfs:comment "express" ;
+    rdfs:domain ex:SymbolicRepresentations ;
+    rdfs:range ex:QuantitativeRelationships ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:SystemAdaptationToExistingFormalSystems a owl:ObjectProperty ;
+    rdfs:comment "adjusts" ;
+    rdfs:domain ex:SystemAdaptation ;
+    rdfs:range ex:ExistingFormalSystems ;
+    rdfs:subPropertyOf <dul:adjusts> .
+
+ex:SystemEvolutionistToExistingFormalSystems a owl:ObjectProperty ;
+    rdfs:comment "modifies" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:ExistingFormalSystems ;
+    rdfs:subPropertyOf <dul:modifies> .
+
+ex:SystemEvolutionistToExpressiveConstraints a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:ExpressiveConstraints ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:SystemEvolutionistToRuleModification a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:RuleModification ;
+    rdfs:subPropertyOf <dul:executes> .
+
+ex:SystemEvolutionistToSystemExtension a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:SystemExtension ;
+    rdfs:subPropertyOf <dul:executes> .
+
+ex:SystemEvolutionistToSystemLimitations a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:SystemEvolutionist ;
+    rdfs:range ex:SystemLimitations ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:SystemExtensionToSystemCapabilities a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:SystemExtension ;
+    rdfs:range ex:SystemCapabilities ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:SystematicFrameworksToFrameworkElements a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:SystematicFrameworks ;
+    rdfs:range ex:FrameworkElements ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:SystematicProceduresToAutomatableProcesses a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:SystematicProcedures ;
+    rdfs:range ex:AutomatableProcesses ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:TheoreticalModelsToConceptualStructures a owl:ObjectProperty ;
+    rdfs:comment "composed of" ;
+    rdfs:domain ex:TheoreticalModels ;
+    rdfs:range ex:ConceptualStructures ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:TheoreticalModelsToModelComponents a owl:ObjectProperty ;
+    rdfs:comment "composed of" ;
+    rdfs:domain ex:TheoreticalModels ;
+    rdfs:range ex:ModelComponents ;
+    rdfs:subPropertyOf <dul:hasPart> .
+
+ex:TheoreticalModelsToTheoreticalPredictions a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:TheoreticalModels ;
+    rdfs:range ex:TheoreticalPredictions ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:AbstractConcepts a owl:Class ;
+    rdfs:label "AbstractConcepts" ;
+    rdfs:comment "Ideas that exist independent of specific concrete instances" ;
+    rdfs:subClassOf <dul:Concept> .
+
+ex:AbstractLevel a owl:Class ;
+    rdfs:label "AbstractLevel" ;
+    rdfs:comment "Highly general, conceptual representations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:AbstractModeling a owl:Class ;
+    rdfs:label "AbstractModeling" ;
+    rdfs:comment "Creation of simplified representations of complex phenomena" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AbstractProblems a owl:Class ;
+    rdfs:label "AbstractProblems" ;
+    rdfs:comment "Challenges requiring formal mathematical or logical solutions" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:AbstractionMechanisms a owl:Class ;
+    rdfs:label "AbstractionMechanisms" ;
+    rdfs:comment "Systematic methods for changing abstraction levels" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ComplexPhenomena a owl:Class ;
+    rdfs:label "ComplexPhenomena" ;
+    rdfs:comment "Multi-faceted real-world processes or systems" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:ComputationalLogic a owl:Class ;
+    rdfs:label "ComputationalLogic" ;
+    rdfs:comment "Reasoning principles suitable for automated execution" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConceptualStructures a owl:Class ;
+    rdfs:label "ConceptualStructures" ;
+    rdfs:comment "Organized systems of related concepts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DefinedProblems a owl:Class ;
+    rdfs:label "DefinedProblems" ;
+    rdfs:comment "Well-specified challenges with clear solution criteria" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:DetailedLevel a owl:Class ;
+    rdfs:label "DetailedLevel" ;
+    rdfs:comment "Highly specific, concrete representations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ExpressiveConstraints a owl:Class ;
+    rdfs:label "ExpressiveConstraints" ;
+    rdfs:comment "Limits on what can be represented in the system" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:FormalNotations a owl:Class ;
+    rdfs:label "FormalNotations" ;
+    rdfs:comment "Symbolic systems for representing mathematical and logical concepts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:FormalSystemUpgrades a owl:Class ;
+    rdfs:label "FormalSystemUpgrades" ;
+    rdfs:comment "Systematic improvements to formal systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FrameworkElements a owl:Class ;
+    rdfs:label "FrameworkElements" ;
+    rdfs:comment "Components of systematic frameworks" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:IntermediateLevel a owl:Class ;
+    rdfs:label "IntermediateLevel" ;
+    rdfs:comment "Moderate abstraction balancing detail and generality" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:LevelMapping a owl:Class ;
+    rdfs:label "LevelMapping" ;
+    rdfs:comment "Creating correspondences between abstraction levels" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LevelNavigation a owl:Class ;
+    rdfs:label "LevelNavigation" ;
+    rdfs:comment "Moving between different abstraction levels" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LogicalConsistency a owl:Class ;
+    rdfs:label "LogicalConsistency" ;
+    rdfs:comment "Freedom from contradictions within the system" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:LogicalStructures a owl:Class ;
+    rdfs:label "LogicalStructures" ;
+    rdfs:comment "Systematic frameworks for reasoning and inference" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:QuantitativeRelationships a owl:Class ;
+    rdfs:label "QuantitativeRelationships" ;
+    rdfs:comment "Mathematical connections between quantities" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:RepresentationalCoherence a owl:Class ;
+    rdfs:label "RepresentationalCoherence" ;
+    rdfs:comment "Consistency of meaning across abstraction levels" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:RuleGeneralization a owl:Class ;
+    rdfs:label "RuleGeneralization" ;
+    rdfs:comment "Making rules more broadly applicable" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ScaleTransition a owl:Class ;
+    rdfs:label "ScaleTransition" ;
+    rdfs:comment "Adjusting scope and granularity of representation" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:StepWiseAlgorithms a owl:Class ;
+    rdfs:label "StepWiseAlgorithms" ;
+    rdfs:comment "Procedures broken down into discrete, executable steps" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SystemAdaptation a owl:Class ;
+    rdfs:label "SystemAdaptation" ;
+    rdfs:comment "Adjusting systems for new applications" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SystematicExecution a owl:Class ;
+    rdfs:label "SystematicExecution" ;
+    rdfs:comment "Carrying out procedures following established steps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AbstractionSpecialist a owl:Class ;
+    rdfs:label "AbstractionSpecialist" ;
+    rdfs:comment "Person managing multiple levels of abstraction in representations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AlgorithmDesigner a owl:Class ;
+    rdfs:label "AlgorithmDesigner" ;
+    rdfs:comment "Person creating systematic computational procedures" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AutomatableProcesses a owl:Class ;
+    rdfs:label "AutomatableProcesses" ;
+    rdfs:comment "Procedures that can be executed without human intervention" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ComputationalModels a owl:Class ;
+    rdfs:label "ComputationalModels" ;
+    rdfs:comment "Abstract representations designed for computational processing" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EssentialRelationships a owl:Class ;
+    rdfs:label "EssentialRelationships" ;
+    rdfs:comment "Key connections between model components" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:FormalConclusions a owl:Class ;
+    rdfs:label "FormalConclusions" ;
+    rdfs:comment "Results derived through systematic application of formal rules" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:LogicalRules a owl:Class ;
+    rdfs:label "LogicalRules" ;
+    rdfs:comment "Principles governing valid reasoning and inference" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:LogicalSequences a owl:Class ;
+    rdfs:label "LogicalSequences" ;
+    rdfs:comment "Ordered steps following logical progression" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ModelBuilder a owl:Class ;
+    rdfs:label "ModelBuilder" ;
+    rdfs:comment "Person creating theoretical models and systematic frameworks" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:RuleModification a owl:Class ;
+    rdfs:label "RuleModification" ;
+    rdfs:comment "Changing existing rules within formal systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SystemCapabilities a owl:Class ;
+    rdfs:label "SystemCapabilities" ;
+    rdfs:comment "Range of problems the system can address" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SystemLimitations a owl:Class ;
+    rdfs:label "SystemLimitations" ;
+    rdfs:comment "Constraints that restrict formal system capabilities" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:SystematicFrameworks a owl:Class ;
+    rdfs:label "SystematicFrameworks" ;
+    rdfs:comment "Organized structures for understanding complex systems" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:SystematicProcedures a owl:Class ;
+    rdfs:label "SystematicProcedures" ;
+    rdfs:comment "Organized sequences of actions or operations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TheoreticalPredictions a owl:Class ;
+    rdfs:label "TheoreticalPredictions" ;
+    rdfs:comment "Forecasts derived from model applications" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:AbstractionTransitions a owl:Class ;
+    rdfs:label "AbstractionTransitions" ;
+    rdfs:comment "Movement between different levels of abstraction" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ExistingFormalSystems a owl:Class ;
+    rdfs:label "ExistingFormalSystems" ;
+    rdfs:comment "Established mathematical or logical frameworks" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MathematicalOperations a owl:Class ;
+    rdfs:label "MathematicalOperations" ;
+    rdfs:comment "Formal procedures for manipulating mathematical expressions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MathematicalSystems a owl:Class ;
+    rdfs:label "MathematicalSystems" ;
+    rdfs:comment "Formal frameworks for quantitative and abstract reasoning" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MathematicalThinker a owl:Class ;
+    rdfs:label "MathematicalThinker" ;
+    rdfs:comment "Person working with formal mathematical and logical systems" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SystemExtension a owl:Class ;
+    rdfs:label "SystemExtension" ;
+    rdfs:comment "Adding new capabilities to formal systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AlgorithmicProcesses a owl:Class ;
+    rdfs:label "AlgorithmicProcesses" ;
+    rdfs:comment "Systematic step-by-step procedures for problem solving" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ModelComponents a owl:Class ;
+    rdfs:label "ModelComponents" ;
+    rdfs:comment "Elements that make up theoretical models" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:SymbolicRepresentations a owl:Class ;
+    rdfs:label "SymbolicRepresentations" ;
+    rdfs:comment "Abstract symbols that represent concepts and relationships" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TheoreticalModels a owl:Class ;
+    rdfs:label "TheoreticalModels" ;
+    rdfs:comment "Abstract representations of real-world phenomena" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MultiLevelRepresentations a owl:Class ;
+    rdfs:label "MultiLevelRepresentations" ;
+    rdfs:comment "Systems with multiple levels of detail and abstraction" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SystemEvolutionist a owl:Class ;
+    rdfs:label "SystemEvolutionist" ;
+    rdfs:comment "Person modifying and extending formal systems" ;
+    rdfs:subClassOf <dul:Agent> .
+

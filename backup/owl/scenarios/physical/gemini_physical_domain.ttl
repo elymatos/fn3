@@ -1,0 +1,1050 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix mip: <http://example.org/gemini/physical/manipulation#> .
+@prefix mot: <http://example.org/gemini/physical/motion#> .
+@prefix nat: <http://example.org/gemini/physical/nature#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix phy: <http://example.org/gemini/physical/matter#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix trf: <http://example.org/gemini/physical/transformation#> .
+
+mip: ns1:imports dul: .
+
+mip:CraftManipulationContext a dul:Situation ;
+    dul:hasParticipant mip:CraftingTool,
+        mip:MaterialSurface ;
+    dul:hasSetting mip:DesignIntent,
+        mip:ShapingAction .
+
+mip:FineMotorControlContext a dul:Situation ;
+    dul:hasParticipant mip:Effector ;
+    dul:hasSetting mip:ControlStrategy,
+        mip:ManipulationSequence,
+        mip:PrecisionTask .
+
+mip:InstrumentalManipulationContext a dul:Situation ;
+    dul:hasParticipant mip:ManipulatedObject,
+        mip:Tool,
+        mip:User ;
+    dul:hasSetting mip:ManipulationAction .
+
+mip:LoadManagementContext a dul:Situation ;
+    dul:hasParticipant mip:ObjectWithLoad ;
+    dul:hasSetting mip:ForceApplication,
+        mip:StabilizationStrategy,
+        mip:StructuralResponse .
+
+mip:ObjectAssemblyContext a dul:Situation ;
+    dul:hasParticipant mip:Component,
+        mip:ConstructedObject ;
+    dul:hasSetting mip:AssemblyInstruction,
+        mip:AssemblyProcess .
+
+mip:appliedTo a ns1:ObjectProperty ;
+    rdfs:domain mip:ForceApplication ;
+    rdfs:range mip:ObjectWithLoad ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:assembles a ns1:ObjectProperty ;
+    rdfs:domain mip:AssemblyProcess ;
+    rdfs:range mip:Component ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mip:composedOf a ns1:ObjectProperty ;
+    rdfs:domain mip:ManipulationSequence ;
+    rdfs:range mip:PrecisionTask ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+mip:directedAt a ns1:ObjectProperty ;
+    rdfs:domain mip:ManipulationAction ;
+    rdfs:range mip:ManipulatedObject ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:enables a ns1:ObjectProperty ;
+    rdfs:domain mip:Effector ;
+    rdfs:range mip:MotorSkill ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:executedWith a ns1:ObjectProperty ;
+    rdfs:domain mip:PrecisionTask ;
+    rdfs:range mip:Effector ;
+    rdfs:subPropertyOf dul:hasInstrument .
+
+mip:exhibits a ns1:ObjectProperty ;
+    rdfs:domain mip:ObjectWithLoad ;
+    rdfs:range mip:LoadDistribution ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:follows a ns1:ObjectProperty ;
+    rdfs:domain mip:PrecisionTask ;
+    rdfs:range mip:ControlStrategy ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+mip:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain mip:AssemblyProcess,
+        mip:ShapingAction ;
+    rdfs:range mip:AssemblyInstruction,
+        mip:DesignIntent ;
+    rdfs:subPropertyOf dul:hasDescription,
+        dul:hasTask .
+
+mip:hasStructure a ns1:ObjectProperty ;
+    rdfs:domain mip:ConstructedObject ;
+    rdfs:range mip:StructuralConfiguration ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:manipulates a ns1:ObjectProperty ;
+    rdfs:domain mip:User ;
+    rdfs:range mip:ManipulatedObject ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:performedWith a ns1:ObjectProperty ;
+    rdfs:domain mip:ShapingAction ;
+    rdfs:range mip:CraftingTool ;
+    rdfs:subPropertyOf dul:hasInstrument .
+
+mip:performsFunction a ns1:ObjectProperty ;
+    rdfs:domain mip:ManipulationAction ;
+    rdfs:range mip:IntendedFunction ;
+    rdfs:subPropertyOf dul:hasTask .
+
+mip:respondsWith a ns1:ObjectProperty ;
+    rdfs:domain mip:ObjectWithLoad ;
+    rdfs:range mip:StructuralResponse ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mip:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain mip:AssemblyProcess ;
+    rdfs:range mip:ConstructedObject ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mip:supportedBy a ns1:ObjectProperty ;
+    rdfs:domain mip:ForceApplication ;
+    rdfs:range mip:StabilizationStrategy ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+mip:targets a ns1:ObjectProperty ;
+    rdfs:domain mip:ShapingAction ;
+    rdfs:range mip:MaterialSurface ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mip:transformedInto a ns1:ObjectProperty ;
+    rdfs:domain mip:MaterialSurface ;
+    rdfs:range mip:CraftedForm ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mip:usesTool a ns1:ObjectProperty ;
+    rdfs:domain mip:User ;
+    rdfs:range mip:Tool ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+phy: ns1:imports dul: .
+
+phy:DegradationContext a dul:Situation ;
+    dul:hasParticipant phy:EnvironmentalFactor ;
+    dul:hasSetting phy:AgingEffect,
+        phy:DegradationProcess,
+        phy:TimeExposure .
+
+phy:MaterialCompositionContext a dul:Situation ;
+    dul:hasSetting phy:CompositeStructure,
+        phy:MaterialComposition,
+        phy:StructuralAnalysis .
+
+phy:MaterialInteractionContext a dul:Situation ;
+    dul:hasParticipant phy:Agent ;
+    dul:hasSetting phy:MaterialInteraction,
+        phy:PhysicalProperty,
+        phy:PropertyMeasurement .
+
+phy:MaterialMixingContext a dul:Situation ;
+    dul:hasParticipant phy:ComponentMaterial ;
+    dul:hasSetting phy:InteractionOutcome,
+        phy:MixingProcess,
+        phy:Mixture .
+
+phy:MixingRatio a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:PhaseChangeContext a dul:Situation ;
+    dul:hasSetting phy:MaterialPhase,
+        phy:PhaseChange,
+        phy:StateTransitionCondition,
+        phy:ThermalInteraction .
+
+phy:analyzes a ns1:ObjectProperty ;
+    rdfs:domain phy:StructuralAnalysis ;
+    rdfs:range phy:MaterialComposition ;
+    rdfs:subPropertyOf dul:hasObject .
+
+phy:combines a ns1:ObjectProperty ;
+    rdfs:domain phy:MixingProcess ;
+    rdfs:range phy:ComponentMaterial ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+phy:composedOf a ns1:ObjectProperty ;
+    rdfs:domain phy:CompositeStructure ;
+    rdfs:range phy:ConstituentElement ;
+    rdfs:subPropertyOf dul:hasPart .
+
+phy:correlatesWith a ns1:ObjectProperty ;
+    rdfs:domain phy:AgingEffect ;
+    rdfs:range phy:TimeExposure ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+phy:describes a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialComposition ;
+    rdfs:range phy:CompositeStructure ;
+    rdfs:subPropertyOf dul:hasReference .
+
+phy:formedBy a ns1:ObjectProperty ;
+    rdfs:domain phy:Mixture ;
+    rdfs:range phy:MixingProcess ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+phy:hasProportion a ns1:ObjectProperty ;
+    rdfs:domain phy:ConstituentElement ;
+    rdfs:range phy:ConstituentProportion ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+phy:impacts a ns1:ObjectProperty ;
+    rdfs:domain phy:DegradationProcess ;
+    rdfs:range phy:MaterialIntegrity ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+phy:induces a ns1:ObjectProperty ;
+    rdfs:domain phy:ThermalInteraction ;
+    rdfs:range phy:PhaseChange ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+phy:influences a ns1:ObjectProperty ;
+    rdfs:domain phy:EnvironmentalFactor ;
+    rdfs:range phy:DegradationProcess ;
+    rdfs:subPropertyOf dul:hasCause .
+
+phy:interactsWith a ns1:ObjectProperty ;
+    rdfs:domain phy:Agent ;
+    rdfs:range phy:MaterialSample ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+phy:involves a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialInteraction ;
+    rdfs:range phy:MaterialEntity ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+phy:measures a ns1:ObjectProperty ;
+    rdfs:domain phy:PropertyMeasurement ;
+    rdfs:range phy:PhysicalProperty ;
+    rdfs:subPropertyOf dul:hasObject .
+
+phy:presentIn a ns1:ObjectProperty ;
+    rdfs:domain phy:ComponentMaterial ;
+    rdfs:range phy:Mixture ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+phy:produces a ns1:ObjectProperty ;
+    rdfs:domain phy:MixingProcess ;
+    rdfs:range phy:InteractionOutcome ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+phy:requires a ns1:ObjectProperty ;
+    rdfs:domain phy:PhaseChange ;
+    rdfs:range phy:StateTransitionCondition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+phy:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain phy:PhaseChange ;
+    rdfs:range phy:MaterialState ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+phy:targets a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialInteraction ;
+    rdfs:range phy:PhysicalProperty ;
+    rdfs:subPropertyOf dul:hasObject .
+
+phy:undergoes a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialPhase ;
+    rdfs:range phy:PhaseChange ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+mot: ns1:imports dul: .
+
+mot:CollisionPredictionContext a dul:Situation ;
+    dul:hasParticipant mot:MovingObject ;
+    dul:hasSetting mot:CollisionPrediction,
+        mot:IntersectionPoint,
+        mot:Trajectory .
+
+mot:NavigationTrackingContext a dul:Situation ;
+    dul:hasParticipant mot:MotionTracker,
+        mot:NavigatingAgent ;
+    dul:hasSetting mot:MovementEvent,
+        mot:TrackingProcess .
+
+mot:PositioningContext a dul:Situation ;
+    dul:hasParticipant mot:Object ;
+    dul:hasSetting mot:PositioningProcess,
+        mot:ReferencePoint,
+        mot:SpatialArrangement .
+
+mot:SpatialReferenceContext a dul:Situation ;
+    dul:hasParticipant mot:EnvironmentFeature ;
+    dul:hasSetting mot:LocationalReference,
+        mot:OrientationTerm,
+        mot:SpatialDescriptor .
+
+mot:SpeedPerceptionContext a dul:Situation ;
+    dul:hasParticipant mot:Observer ;
+    dul:hasSetting mot:SpeedAttribute,
+        mot:SpeedComparison,
+        mot:VelocityMeasurement .
+
+mot:analyzes a ns1:ObjectProperty ;
+    rdfs:domain mot:CollisionPrediction ;
+    rdfs:range mot:Trajectory ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:assesses a ns1:ObjectProperty ;
+    rdfs:domain mot:VelocityMeasurement ;
+    rdfs:range mot:SpeedAttribute ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:compares a ns1:ObjectProperty ;
+    rdfs:domain mot:SpeedComparison ;
+    rdfs:range mot:SpeedAttribute ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:definedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialArrangement ;
+    rdfs:range mot:ReferencePoint ;
+    rdfs:subPropertyOf dul:hasReference .
+
+mot:describedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:LocationalReference ;
+    rdfs:range mot:SpatialDescriptor ;
+    rdfs:subPropertyOf dul:hasReference .
+
+mot:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain mot:MotionTracker ;
+    rdfs:range mot:TrackingProcess ;
+    rdfs:subPropertyOf dul:performs .
+
+mot:estimates a ns1:ObjectProperty ;
+    rdfs:domain mot:CollisionPrediction ;
+    rdfs:range mot:CollisionRisk ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mot:expresses a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialDescriptor ;
+    rdfs:range mot:SpatialRelation ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mot:follows a ns1:ObjectProperty ;
+    rdfs:domain mot:MovingObject ;
+    rdfs:range mot:MotionPath ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mot:followsPath a ns1:ObjectProperty ;
+    rdfs:domain mot:NavigatingAgent ;
+    rdfs:range mot:SpatialPath ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mot:identifies a ns1:ObjectProperty ;
+    rdfs:domain mot:CollisionPrediction ;
+    rdfs:range mot:IntersectionPoint ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+mot:involves a ns1:ObjectProperty ;
+    rdfs:domain mot:MovementEvent ;
+    rdfs:range mot:NavigatingAgent ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mot:measures a ns1:ObjectProperty ;
+    rdfs:domain mot:Observer ;
+    rdfs:range mot:MovingEntity ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:monitors a ns1:ObjectProperty ;
+    rdfs:domain mot:TrackingProcess ;
+    rdfs:range mot:MovementEvent ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mot:occursAt a ns1:ObjectProperty ;
+    rdfs:domain mot:MovementEvent ;
+    rdfs:range mot:LocationPoint ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+mot:performedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:SpeedComparison ;
+    rdfs:range mot:Observer ;
+    rdfs:subPropertyOf dul:hasAgent .
+
+mot:positionedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:Object ;
+    rdfs:range mot:PositioningProcess ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mot:produces a ns1:ObjectProperty ;
+    rdfs:domain mot:PositioningProcess ;
+    rdfs:range mot:SpatialArrangement ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+mot:quantifiedBy a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialArrangement ;
+    rdfs:range mot:RelativeDistance ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mot:relatedTo a ns1:ObjectProperty ;
+    rdfs:domain mot:LocationalReference ;
+    rdfs:range mot:EnvironmentFeature ;
+    rdfs:subPropertyOf dul:hasRelatedEntity .
+
+mot:uses a ns1:ObjectProperty ;
+    rdfs:domain mot:SpatialDescriptor ;
+    rdfs:range mot:OrientationTerm ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+nat: ns1:imports dul: .
+
+nat:AstronomicalCycleContext a dul:Situation ;
+    dul:hasParticipant nat:CelestialBody ;
+    dul:hasSetting nat:AstronomicalCycle,
+        nat:CelestialPhenomenon,
+        nat:ObservationRecord .
+
+nat:GeologicalEventContext a dul:Situation ;
+    dul:hasParticipant nat:EarthSystemComponent ;
+    dul:hasSetting nat:GeologicalEvent,
+        nat:StructuralChange,
+        nat:TectonicActivity .
+
+nat:NaturalForceContext a dul:Situation ;
+    dul:hasParticipant nat:AffectedEnvironment ;
+    dul:hasSetting nat:DynamicEffect,
+        nat:ForceType,
+        nat:NaturalForceEvent .
+
+nat:SeasonalRhythmContext a dul:Situation ;
+    dul:hasSetting nat:BiologicalAdaptation,
+        nat:CycleIndicator,
+        nat:EnvironmentalRhythm,
+        nat:SeasonalCycle .
+
+nat:WeatherResponseContext a dul:Situation ;
+    dul:hasParticipant nat:SensorSystem ;
+    dul:hasSetting nat:AdaptationBehavior,
+        nat:EnvironmentalResponse,
+        nat:WeatherPattern .
+
+nat:affects a ns1:ObjectProperty ;
+    rdfs:domain nat:GeologicalEvent ;
+    rdfs:range nat:EarthSystemComponent ;
+    rdfs:subPropertyOf dul:hasObject .
+
+nat:associatedWith a ns1:ObjectProperty ;
+    rdfs:domain nat:CycleIndicator ;
+    rdfs:range nat:TemporalMarker ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:causes a ns1:ObjectProperty ;
+    rdfs:domain nat:GeologicalEvent ;
+    rdfs:range nat:StructuralChange ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+nat:characterizedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:GeologicalEvent ;
+    rdfs:range nat:SeismicImpact ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:classifiedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:NaturalForceEvent ;
+    rdfs:range nat:ForceType ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+nat:contributesTo a ns1:ObjectProperty ;
+    rdfs:domain nat:AtmosphericCondition ;
+    rdfs:range nat:WeatherPattern ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+nat:drives a ns1:ObjectProperty ;
+    rdfs:domain nat:EnvironmentalRhythm ;
+    rdfs:range nat:BiologicalAdaptation ;
+    rdfs:subPropertyOf dul:hasCause .
+
+nat:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain nat:CelestialBody ;
+    rdfs:range nat:AstronomicalCycle ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+nat:generates a ns1:ObjectProperty ;
+    rdfs:domain nat:TectonicActivity ;
+    rdfs:range nat:GeologicalEvent ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+nat:impacts a ns1:ObjectProperty ;
+    rdfs:domain nat:DynamicEffect ;
+    rdfs:range nat:AffectedEnvironment ;
+    rdfs:subPropertyOf dul:hasObject .
+
+nat:includes a ns1:ObjectProperty ;
+    rdfs:domain nat:EnvironmentalResponse ;
+    rdfs:range nat:AdaptationBehavior ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+nat:indicatedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:SeasonalCycle ;
+    rdfs:range nat:CycleIndicator ;
+    rdfs:subPropertyOf dul:hasReference .
+
+nat:influences a ns1:ObjectProperty ;
+    rdfs:domain nat:SeasonalCycle ;
+    rdfs:range nat:EnvironmentalRhythm ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+nat:monitoredBy a ns1:ObjectProperty ;
+    rdfs:domain nat:EnvironmentalResponse ;
+    rdfs:range nat:SensorSystem ;
+    rdfs:subPropertyOf dul:hasAgent .
+
+nat:movesAlong a ns1:ObjectProperty ;
+    rdfs:domain nat:CelestialBody ;
+    rdfs:range nat:OrbitalPath ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:produces a ns1:ObjectProperty ;
+    rdfs:domain nat:AstronomicalCycle,
+        nat:NaturalForceEvent ;
+    rdfs:range nat:CelestialPhenomenon,
+        nat:DynamicEffect ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasOutput .
+
+nat:quantifiedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:NaturalForceEvent ;
+    rdfs:range nat:ImpactExtent ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+nat:trackedBy a ns1:ObjectProperty ;
+    rdfs:domain nat:CelestialPhenomenon ;
+    rdfs:range nat:ObservationRecord ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+nat:triggers a ns1:ObjectProperty ;
+    rdfs:domain nat:WeatherPattern ;
+    rdfs:range nat:EnvironmentalResponse ;
+    rdfs:subPropertyOf dul:hasCause .
+
+trf: ns1:imports dul: .
+
+trf:ChemicalReactionContext a dul:Situation ;
+    dul:hasParticipant trf:Product,
+        trf:Reactant ;
+    dul:hasSetting trf:ChemicalReaction,
+        trf:ReactionCondition .
+
+trf:DecompositionContext a dul:Situation ;
+    dul:hasParticipant trf:BreakingComponent,
+        trf:ResidualMaterial ;
+    dul:hasSetting trf:DecayCondition,
+        trf:DecompositionProcess .
+
+trf:MechanicalAlterationContext a dul:Situation ;
+    dul:hasParticipant trf:MechanicalObject,
+        trf:ToolUsed ;
+    dul:hasSetting trf:AlterationProcess,
+        trf:PhysicalModification .
+
+trf:PhaseTransitionContext a dul:Situation ;
+    dul:hasParticipant trf:MaterialSubstance ;
+    dul:hasSetting trf:FinalState,
+        trf:InitialState,
+        trf:PhaseTransition .
+
+trf:ThermalTransformationContext a dul:Situation ;
+    dul:hasParticipant trf:ThermalMedium ;
+    dul:hasSetting trf:HeatEffect,
+        trf:ThermalInput,
+        trf:TransformationProcess .
+
+trf:acceleratedBy a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction ;
+    rdfs:range trf:Catalyst ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:affects a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:ThermalState ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+trf:alteredBy a ns1:ObjectProperty ;
+    rdfs:domain trf:MechanicalObject ;
+    rdfs:range trf:AlterationProcess ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+trf:applies a ns1:ObjectProperty ;
+    rdfs:domain trf:AlterationProcess ;
+    rdfs:range trf:AppliedForce ;
+    rdfs:subPropertyOf dul:hasCause .
+
+trf:breaksDown a ns1:ObjectProperty ;
+    rdfs:domain trf:DecompositionProcess ;
+    rdfs:range trf:BreakingComponent ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:causes a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:HeatEffect ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+trf:conditionedBy a ns1:ObjectProperty ;
+    rdfs:domain trf:DecompositionProcess,
+        trf:PhaseTransition ;
+    rdfs:range trf:DecayCondition,
+        trf:TransitionCondition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+trf:endsWith a ns1:ObjectProperty ;
+    rdfs:domain trf:PhaseTransition ;
+    rdfs:range trf:FinalState ;
+    rdfs:subPropertyOf dul:hasPostcondition .
+
+trf:involves a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction ;
+    rdfs:range trf:Reactant ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:modifies a ns1:ObjectProperty ;
+    rdfs:domain trf:DecompositionProcess ;
+    rdfs:range trf:StructuralChange ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+trf:produces a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction,
+        trf:DecompositionProcess ;
+    rdfs:range trf:Product,
+        trf:ResidualMaterial ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+trf:receives a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:ThermalInput ;
+    rdfs:subPropertyOf dul:hasInput .
+
+trf:requires a ns1:ObjectProperty ;
+    rdfs:domain trf:ChemicalReaction ;
+    rdfs:range trf:ReactionCondition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+trf:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain trf:AlterationProcess ;
+    rdfs:range trf:PhysicalModification ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+trf:startsFrom a ns1:ObjectProperty ;
+    rdfs:domain trf:PhaseTransition ;
+    rdfs:range trf:InitialState ;
+    rdfs:subPropertyOf dul:hasPrecondition .
+
+trf:triggeredBy a ns1:ObjectProperty ;
+    rdfs:domain trf:PhaseTransition ;
+    rdfs:range trf:TemperatureChange ;
+    rdfs:subPropertyOf dul:hasCause .
+
+trf:undergoes a ns1:ObjectProperty ;
+    rdfs:domain trf:MaterialSubstance ;
+    rdfs:range trf:PhaseTransition ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+trf:uses a ns1:ObjectProperty ;
+    rdfs:domain trf:TransformationProcess ;
+    rdfs:range trf:ThermalMedium ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+trf:usesTool a ns1:ObjectProperty ;
+    rdfs:domain trf:AlterationProcess ;
+    rdfs:range trf:ToolUsed ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mip:CraftedForm a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:IntendedFunction a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:LoadDistribution a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:MotorSkill a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:StructuralConfiguration a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:ConstituentProportion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:MaterialEntity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:MaterialIntegrity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:MaterialSample a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:MaterialState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:CollisionRisk a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:LocationPoint a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MotionPath a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MovingEntity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:RelativeDistance a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:SpatialPath a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:SpatialRelation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:AtmosphericCondition a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:ImpactExtent a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:OrbitalPath a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:SeismicImpact a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:TemporalMarker a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:AppliedForce a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+trf:Catalyst a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:StructuralChange a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:TemperatureChange a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+trf:ThermalState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:TransitionCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:AssemblyInstruction a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:Component a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ControlStrategy a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:CraftingTool a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:DesignIntent a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:ManipulationSequence a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mip:StabilizationStrategy a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mip:StructuralResponse a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:Tool a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:Agent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:AgingEffect a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:ConstituentElement a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:EnvironmentalFactor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:InteractionOutcome a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+phy:MaterialPhase a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:PropertyMeasurement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+phy:StateTransitionCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+phy:StructuralAnalysis a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+phy:ThermalInteraction a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+phy:TimeExposure a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:EnvironmentFeature a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:IntersectionPoint a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MotionTracker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:MovingObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:Object a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:OrientationTerm a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mot:ReferencePoint a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:Trajectory a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:VelocityMeasurement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+nat:AdaptationBehavior a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:AffectedEnvironment a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:BiologicalAdaptation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:EarthSystemComponent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:ForceType a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:ObservationRecord a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:SensorSystem a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:StructuralChange a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:TectonicActivity a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:BreakingComponent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:DecayCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+trf:FinalState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:HeatEffect a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:InitialState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:MaterialSubstance a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:MechanicalObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:PhysicalModification a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+trf:Product a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:Reactant a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:ReactionCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+trf:ResidualMaterial a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:ThermalInput a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+trf:ThermalMedium a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+trf:ToolUsed a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ConstructedObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:Effector a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ForceApplication a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mip:ManipulatedObject a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:ManipulationAction a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+
+mip:MaterialSurface a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:User a ns1:Class ;
+    rdfs:subClassOf dul:Agent .
+
+phy:ComponentMaterial a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:CompositeStructure a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:DegradationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+phy:MaterialComposition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+phy:MaterialInteraction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+phy:Mixture a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:PhysicalProperty a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:LocationalReference a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:NavigatingAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:Observer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mot:PositioningProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:SpeedAttribute a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:SpeedComparison a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:TrackingProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:AstronomicalCycle a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:CelestialBody a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+nat:CelestialPhenomenon a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+nat:CycleIndicator a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:DynamicEffect a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:EnvironmentalRhythm a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+nat:SeasonalCycle a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:WeatherPattern a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mip:AssemblyProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mip:ObjectWithLoad a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mip:PrecisionTask a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+
+mip:ShapingAction a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+
+phy:MixingProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:CollisionPrediction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mot:MovementEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mot:SpatialArrangement a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mot:SpatialDescriptor a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+nat:EnvironmentalResponse a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:NaturalForceEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+phy:PhaseChange a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+nat:GeologicalEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+trf:AlterationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:ChemicalReaction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:DecompositionProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:TransformationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+trf:PhaseTransition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

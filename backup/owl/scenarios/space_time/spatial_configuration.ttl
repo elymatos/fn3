@@ -1,0 +1,504 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/space-time/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:BoundaryConflictsToTerritorialOrder a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:BoundaryConflicts ;
+    rdfs:range ex:TerritorialOrder ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:BoundaryDefinitionToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:BoundaryDefinition ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:BoundaryMarkersToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "indicate" ;
+    rdfs:domain ex:BoundaryMarkers ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:indicate> .
+
+ex:ContainmentRelationsToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "specialize" ;
+    rdfs:domain ex:ContainmentRelations ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:specializes> .
+
+ex:DirectionalOrientationsToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "specialize" ;
+    rdfs:domain ex:DirectionalOrientations ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:specializes> .
+
+ex:DistanceRelationsToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "specialize" ;
+    rdfs:domain ex:DistanceRelations ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:specializes> .
+
+ex:EfficiencyFactorsToSpatialEfficiency a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:EfficiencyFactors ;
+    rdfs:range ex:SpatialEfficiency ;
+    rdfs:subPropertyOf <dul:contributeTo> .
+
+ex:FunctionalLayoutsToLayoutPlanning a owl:ObjectProperty ;
+    rdfs:comment "result from" ;
+    rdfs:domain ex:FunctionalLayouts ;
+    rdfs:range ex:LayoutPlanning ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:GeographicEnvironmentsToSpatialExploration a owl:ObjectProperty ;
+    rdfs:comment "contextualize" ;
+    rdfs:domain ex:GeographicEnvironments ;
+    rdfs:range ex:SpatialExploration ;
+    rdfs:subPropertyOf <dul:contextualize> .
+
+ex:HarmoniousArrangementsToOptimalConfigurations a owl:ObjectProperty ;
+    rdfs:comment "realize" ;
+    rdfs:domain ex:HarmoniousArrangements ;
+    rdfs:range ex:OptimalConfigurations ;
+    rdfs:subPropertyOf <dul:realize> .
+
+ex:HierarchicalOrganizationToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "describes" ;
+    rdfs:domain ex:HierarchicalOrganization ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:describes> .
+
+ex:LandmarkIdentificationToRouteMemorization a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:LandmarkIdentification ;
+    rdfs:range ex:RouteMemorization ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:LayoutDesignerToOptimalConfigurations a owl:ObjectProperty ;
+    rdfs:comment "plans" ;
+    rdfs:domain ex:LayoutDesigner ;
+    rdfs:range ex:OptimalConfigurations ;
+    rdfs:subPropertyOf <dul:plans> .
+
+ex:LayoutPlanningToDesignPrinciples a owl:ObjectProperty ;
+    rdfs:comment "guided by" ;
+    rdfs:domain ex:LayoutPlanning ;
+    rdfs:range ex:DesignPrinciples ;
+    rdfs:subPropertyOf <dul:guidedBy> .
+
+ex:MacroscaleStructuresToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "included in" ;
+    rdfs:domain ex:MacroscaleStructures ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:includedIn> .
+
+ex:MicroscaleFeaturesToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "included in" ;
+    rdfs:domain ex:MicroscaleFeatures ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:includedIn> .
+
+ex:NavigationPlanningToCognitiveMaps a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:NavigationPlanning ;
+    rdfs:range ex:CognitiveMaps ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:NavigatorToMentalMaps a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:Navigator ;
+    rdfs:range ex:MentalMaps ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:ObserverToSpatialConfiguration a owl:ObjectProperty ;
+    rdfs:comment "observes" ;
+    rdfs:domain ex:Observer ;
+    rdfs:range ex:SpatialConfiguration ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:RouteMemorizationToSpatialKnowledgeIntegration a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:RouteMemorization ;
+    rdfs:range ex:SpatialKnowledgeIntegration ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:ScaleRelationshipsToDimensionalLevels a owl:ObjectProperty ;
+    rdfs:comment "connect" ;
+    rdfs:domain ex:ScaleRelationships ;
+    rdfs:range ex:DimensionalLevels ;
+    rdfs:subPropertyOf <dul:connect> .
+
+ex:ScaleTransitionToDimensionalLevels a owl:ObjectProperty ;
+    rdfs:comment "relates" ;
+    rdfs:domain ex:ScaleTransition ;
+    rdfs:range ex:DimensionalLevels ;
+    rdfs:subPropertyOf <dul:relates> .
+
+ex:SpaceAllocationToFunctionalZones a owl:ObjectProperty ;
+    rdfs:comment "assigns" ;
+    rdfs:domain ex:SpaceAllocation ;
+    rdfs:range ex:FunctionalZones ;
+    rdfs:subPropertyOf <dul:assigns> .
+
+ex:SpatialAccessToTerritoryManager a owl:ObjectProperty ;
+    rdfs:comment "regulated by" ;
+    rdfs:domain ex:SpatialAccess ;
+    rdfs:range ex:TerritoryManager ;
+    rdfs:subPropertyOf <dul:regulatedBy> .
+
+ex:SpatialAnalysisToSpatialOptimization a owl:ObjectProperty ;
+    rdfs:comment "enhances" ;
+    rdfs:domain ex:SpatialAnalysis ;
+    rdfs:range ex:SpatialOptimization ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:SpatialConfigurationScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SpatialConfigurationScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SpatialConfigurationScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SpatialConfigurationScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SpatialConfigurationScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SpatialConstraintsToLayoutPlanning a owl:ObjectProperty ;
+    rdfs:comment "restrict" ;
+    rdfs:domain ex:SpatialConstraints ;
+    rdfs:range ex:LayoutPlanning ;
+    rdfs:subPropertyOf <dul:restrict> .
+
+ex:SpatialExplorationToMentalMaps a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:SpatialExploration ;
+    rdfs:range ex:MentalMaps ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:SpatialFrameworkToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "provides context for" ;
+    rdfs:domain ex:SpatialFramework ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:providesContextFor> .
+
+ex:SpatialKnowledgeIntegrationToCognitiveMaps a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:SpatialKnowledgeIntegration ;
+    rdfs:range ex:CognitiveMaps ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:SpatialObjectsToSpatialConfiguration a owl:ObjectProperty ;
+    rdfs:comment "participate in" ;
+    rdfs:domain ex:SpatialObjects ;
+    rdfs:range ex:SpatialConfiguration ;
+    rdfs:subPropertyOf <dul:participatesIn> .
+
+ex:SpatialOptimizationToOptimalConfigurations a owl:ObjectProperty ;
+    rdfs:comment "aims at" ;
+    rdfs:domain ex:SpatialOptimization ;
+    rdfs:range ex:OptimalConfigurations ;
+    rdfs:subPropertyOf <dul:aimsAt> .
+
+ex:SpatialPatternsToDimensionalLevels a owl:ObjectProperty ;
+    rdfs:comment "emerge at" ;
+    rdfs:domain ex:SpatialPatterns ;
+    rdfs:range ex:DimensionalLevels ;
+    rdfs:subPropertyOf <dul:emergeAt> .
+
+ex:SpatialReasoningToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "uses concept of" ;
+    rdfs:domain ex:SpatialReasoning ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:SpatialRelationshipsToSpatialConfiguration a owl:ObjectProperty ;
+    rdfs:comment "define" ;
+    rdfs:domain ex:SpatialRelationships ;
+    rdfs:range ex:SpatialConfiguration ;
+    rdfs:subPropertyOf <dul:define> .
+
+ex:SpatialThinkerToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:SpatialThinker ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:TerritorialIndicatorsToTerritorialZones a owl:ObjectProperty ;
+    rdfs:comment "represent" ;
+    rdfs:domain ex:TerritorialIndicators ;
+    rdfs:range ex:TerritorialZones ;
+    rdfs:subPropertyOf <dul:represent> .
+
+ex:TerritorialZonesToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "delimited by" ;
+    rdfs:domain ex:TerritorialZones ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:delimitedBy> .
+
+ex:TerritoryManagerToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "defines" ;
+    rdfs:domain ex:TerritoryManager ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:WayfindingBehaviorToNavigationPlanning a owl:ObjectProperty ;
+    rdfs:comment "realizes" ;
+    rdfs:domain ex:WayfindingBehavior ;
+    rdfs:range ex:NavigationPlanning ;
+    rdfs:subPropertyOf <dul:realizes> .
+
+ex:BoundaryConflicts a owl:Class ;
+    rdfs:label "BoundaryConflicts" ;
+    rdfs:comment "Disputes or tensions over spatial limits" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:BoundaryDefinition a owl:Class ;
+    rdfs:label "BoundaryDefinition" ;
+    rdfs:comment "Establishing clear spatial limits and divisions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BoundaryMarkers a owl:Class ;
+    rdfs:label "BoundaryMarkers" ;
+    rdfs:comment "Physical or conceptual indicators of spatial limits" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:ContainmentRelations a owl:Class ;
+    rdfs:label "ContainmentRelations" ;
+    rdfs:comment "Inside/outside, enclosure relationships" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:DesignPrinciples a owl:Class ;
+    rdfs:label "DesignPrinciples" ;
+    rdfs:comment "Guidelines for creating effective spatial arrangements" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:DirectionalOrientations a owl:Class ;
+    rdfs:label "DirectionalOrientations" ;
+    rdfs:comment "Angular or compass-based positioning" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:DistanceRelations a owl:Class ;
+    rdfs:label "DistanceRelations" ;
+    rdfs:comment "Near/far relationships between objects" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:EfficiencyFactors a owl:Class ;
+    rdfs:label "EfficiencyFactors" ;
+    rdfs:comment "Elements that contribute to effective space utilization" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:FunctionalLayouts a owl:Class ;
+    rdfs:label "FunctionalLayouts" ;
+    rdfs:comment "Spatial arrangements that effectively support intended activities" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:FunctionalZones a owl:Class ;
+    rdfs:label "FunctionalZones" ;
+    rdfs:comment "Areas designated for particular activities or purposes" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:GeographicEnvironments a owl:Class ;
+    rdfs:label "GeographicEnvironments" ;
+    rdfs:comment "Physical spaces with navigable features" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:HarmoniousArrangements a owl:Class ;
+    rdfs:label "HarmoniousArrangements" ;
+    rdfs:comment "Spatial configurations that create aesthetic and functional balance" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:HierarchicalOrganization a owl:Class ;
+    rdfs:label "HierarchicalOrganization" ;
+    rdfs:comment "Nested structure of spatial scales" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:LandmarkIdentification a owl:Class ;
+    rdfs:label "LandmarkIdentification" ;
+    rdfs:comment "Recognition of distinctive spatial features" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LayoutDesigner a owl:Class ;
+    rdfs:label "LayoutDesigner" ;
+    rdfs:comment "Person creating optimized spatial arrangements and designs" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MacroscaleStructures a owl:Class ;
+    rdfs:label "MacroscaleStructures" ;
+    rdfs:comment "Large-scale spatial organizations" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:MicroscaleFeatures a owl:Class ;
+    rdfs:label "MicroscaleFeatures" ;
+    rdfs:comment "Small-scale spatial patterns and structures" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:Navigator a owl:Class ;
+    rdfs:label "Navigator" ;
+    rdfs:comment "Person exploring and mapping spatial environments" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:Observer a owl:Class ;
+    rdfs:label "Observer" ;
+    rdfs:comment "Person perceiving and reasoning about spatial arrangements" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ScaleRelationships a owl:Class ;
+    rdfs:label "ScaleRelationships" ;
+    rdfs:comment "Connections between phenomena at different scales" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ScaleTransition a owl:Class ;
+    rdfs:label "ScaleTransition" ;
+    rdfs:comment "Moving between different levels of spatial analysis" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpaceAllocation a owl:Class ;
+    rdfs:label "SpaceAllocation" ;
+    rdfs:comment "Assigning spatial areas for specific purposes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialAccess a owl:Class ;
+    rdfs:label "SpatialAccess" ;
+    rdfs:comment "Control and regulation of movement through territories" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialAnalysis a owl:Class ;
+    rdfs:label "SpatialAnalysis" ;
+    rdfs:comment "Systematic examination of spatial relationships and flows" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialConstraints a owl:Class ;
+    rdfs:label "SpatialConstraints" ;
+    rdfs:comment "Limitations and restrictions affecting layout design" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:SpatialEfficiency a owl:Class ;
+    rdfs:label "SpatialEfficiency" ;
+    rdfs:comment "Degree of optimal space utilization" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SpatialFramework a owl:Class ;
+    rdfs:label "SpatialFramework" ;
+    rdfs:comment "Reference system for determining spatial positions" ;
+    rdfs:subClassOf <dul:ReferenceSystem> .
+
+ex:SpatialObjects a owl:Class ;
+    rdfs:label "SpatialObjects" ;
+    rdfs:comment "Entities with location and extent in space" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:SpatialPatterns a owl:Class ;
+    rdfs:label "SpatialPatterns" ;
+    rdfs:comment "Recurring arrangements or structures at specific scales" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:SpatialReasoning a owl:Class ;
+    rdfs:label "SpatialReasoning" ;
+    rdfs:comment "Cognitive processing of spatial information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialThinker a owl:Class ;
+    rdfs:label "SpatialThinker" ;
+    rdfs:comment "Person reasoning about multi-scale spatial phenomena" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TerritorialIndicators a owl:Class ;
+    rdfs:label "TerritorialIndicators" ;
+    rdfs:comment "Signs that communicate territorial organization" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TerritorialOrder a owl:Class ;
+    rdfs:label "TerritorialOrder" ;
+    rdfs:comment "Organized system of spatial boundaries and zones" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:WayfindingBehavior a owl:Class ;
+    rdfs:label "WayfindingBehavior" ;
+    rdfs:comment "Actual movement through space using cognitive maps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CognitiveMaps a owl:Class ;
+    rdfs:label "CognitiveMaps" ;
+    rdfs:comment "Integrated mental representations of space" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MentalMaps a owl:Class ;
+    rdfs:label "MentalMaps" ;
+    rdfs:comment "Internal cognitive representations of spatial layouts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:NavigationPlanning a owl:Class ;
+    rdfs:label "NavigationPlanning" ;
+    rdfs:comment "Using spatial knowledge to plan routes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RouteMemorization a owl:Class ;
+    rdfs:label "RouteMemorization" ;
+    rdfs:comment "Learning pathways between locations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialExploration a owl:Class ;
+    rdfs:label "SpatialExploration" ;
+    rdfs:comment "Active investigation of spatial environments" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialKnowledgeIntegration a owl:Class ;
+    rdfs:label "SpatialKnowledgeIntegration" ;
+    rdfs:comment "Combining spatial information into coherent maps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialOptimization a owl:Class ;
+    rdfs:label "SpatialOptimization" ;
+    rdfs:comment "Systematic improvement of spatial arrangements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TerritorialZones a owl:Class ;
+    rdfs:label "TerritorialZones" ;
+    rdfs:comment "Designated areas with specific functions or ownership" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:TerritoryManager a owl:Class ;
+    rdfs:label "TerritoryManager" ;
+    rdfs:comment "Person organizing and managing spatial boundaries and territories" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DimensionalLevels a owl:Class ;
+    rdfs:label "DimensionalLevels" ;
+    rdfs:comment "Different scales of spatial organization" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:LayoutPlanning a owl:Class ;
+    rdfs:label "LayoutPlanning" ;
+    rdfs:comment "Strategic design of spatial configurations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OptimalConfigurations a owl:Class ;
+    rdfs:label "OptimalConfigurations" ;
+    rdfs:comment "Spatial arrangements that best serve intended purposes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SpatialConfiguration a owl:Class ;
+    rdfs:label "SpatialConfiguration" ;
+    rdfs:comment "Overall arrangement of objects in space" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SpatialBoundaries a owl:Class ;
+    rdfs:label "SpatialBoundaries" ;
+    rdfs:comment "Defined limits and divisions within spatial areas" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:SpatialScales a owl:Class ;
+    rdfs:label "SpatialScales" ;
+    rdfs:comment "Different levels of spatial magnitude" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:SpatialRelationships a owl:Class ;
+    rdfs:label "SpatialRelationships" ;
+    rdfs:comment "Positional connections between spatial objects" ;
+    rdfs:subClassOf <dul:Relation> .
+

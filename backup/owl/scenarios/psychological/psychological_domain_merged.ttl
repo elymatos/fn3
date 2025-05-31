@@ -1,0 +1,1633 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix dul1: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix emo: <http://example.org/gemini/psychological/emotion#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix perc: <http://example.org/gemini/psychological/perception#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+emo: owl:imports dul: .
+
+emo:AffectiveContagionContext a dul:Situation ;
+    dul:hasParticipant emo:InteractingAgents ;
+    dul:hasSetting emo:ContagionProcess,
+        emo:ObservedEmotion,
+        emo:SharedEmotion .
+
+emo:EmotionRegulationContext a dul:Situation ;
+    dul:hasParticipant emo:RegulatingAgent ;
+    dul:hasSetting emo:CopingAction,
+        emo:RegulatedEmotion,
+        emo:RegulationStrategy .
+
+emo:EmotionalExpressionContext a dul:Situation ;
+    dul:hasParticipant emo:ObservedAgent ;
+    dul:hasSetting emo:EmotionalCue,
+        emo:ExpressiveBehavior,
+        emo:RecognitionProcess .
+
+emo:EmotionalMemoryContext a dul:Situation ;
+    dul:hasSetting emo:AssociatedFeeling,
+        emo:EmotionalEvent,
+        emo:MemoryAssociation,
+        emo:MemoryContext .
+
+emo:MoodFluctuationContext a dul:Situation ;
+    dul:hasSetting emo:FluctuationCycle,
+        emo:MoodRegulation,
+        emo:MoodState,
+        emo:TemporalPattern .
+
+emo:activates a owl:ObjectProperty ;
+    rdfs:domain emo:AffectiveTrigger ;
+    rdfs:range emo:RegulatedEmotion ;
+    rdfs:subPropertyOf dul:hasCause .
+
+emo:anchoredIn a owl:ObjectProperty ;
+    rdfs:domain emo:MemoryAssociation ;
+    rdfs:range emo:MemoryContext ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+emo:detects a owl:ObjectProperty ;
+    rdfs:domain emo:RecognitionProcess ;
+    rdfs:range emo:EmotionalCue ;
+    rdfs:subPropertyOf dul:hasObject .
+
+emo:emergesAmong a owl:ObjectProperty ;
+    rdfs:domain emo:AffectiveSynchronization ;
+    rdfs:range emo:InteractingAgents ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+emo:engagesIn a owl:ObjectProperty ;
+    rdfs:domain emo:RegulatingAgent ;
+    rdfs:range emo:RegulationStrategy ;
+    rdfs:subPropertyOf dul:hasTask .
+
+emo:experiencedIn a owl:ObjectProperty ;
+    rdfs:domain emo:SharedEmotion ;
+    rdfs:range emo:AffectiveSynchronization ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+emo:expresses a owl:ObjectProperty ;
+    rdfs:domain emo:ExpressiveBehavior ;
+    rdfs:range emo:EmotionState ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+emo:fluctuatesWithin a owl:ObjectProperty ;
+    rdfs:domain emo:MoodState ;
+    rdfs:range emo:FluctuationCycle ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+emo:induces a owl:ObjectProperty ;
+    rdfs:domain emo:ContagionProcess ;
+    rdfs:range emo:SharedEmotion ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:infers a owl:ObjectProperty ;
+    rdfs:domain emo:RecognitionProcess ;
+    rdfs:range emo:EmotionState ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+emo:influences a owl:ObjectProperty ;
+    rdfs:domain emo:EnvironmentalCue ;
+    rdfs:range emo:MoodState ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:linkedTo a owl:ObjectProperty ;
+    rdfs:domain emo:MemoryAssociation ;
+    rdfs:range emo:AssociatedFeeling ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+emo:modifies a owl:ObjectProperty ;
+    rdfs:domain emo:CopingAction ;
+    rdfs:range emo:RegulatedEmotion ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:patternedBy a owl:ObjectProperty ;
+    rdfs:domain emo:MoodState ;
+    rdfs:range emo:TemporalPattern ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+emo:performs a owl:ObjectProperty ;
+    rdfs:domain emo:ObservedAgent ;
+    rdfs:range emo:ExpressiveBehavior ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+emo:resultsIn a owl:ObjectProperty ;
+    rdfs:domain emo:RegulationStrategy ;
+    rdfs:range emo:CopingAction ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:retrieves a owl:ObjectProperty ;
+    rdfs:domain emo:EmotionalRecall ;
+    rdfs:range emo:MemoryAssociation ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+emo:stabilizes a owl:ObjectProperty ;
+    rdfs:domain emo:MoodRegulation ;
+    rdfs:range emo:MoodState ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:storedAs a owl:ObjectProperty ;
+    rdfs:domain emo:EmotionalEvent ;
+    rdfs:range emo:MemoryAssociation ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+emo:transferredThrough a owl:ObjectProperty ;
+    rdfs:domain emo:ObservedEmotion ;
+    rdfs:range emo:ContagionProcess ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+perc: owl:imports dul: .
+
+perc:AttentionalCapacity a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:AttentionalPerceptionContext a dul:Situation ;
+    dul:hasParticipant perc:AttentionController ;
+    dul:hasSetting perc:AttentionalFiltering,
+        perc:FocusControl,
+        perc:SelectiveAttention .
+
+perc:DiscriminationAbilities a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:PerceptualAccuracy a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:PerceptualCoherence a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:PerceptualDistortions a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualIllusionContext a dul:Situation ;
+    dul:hasParticipant perc:PerceptualExplorer ;
+    dul:hasSetting perc:CognitiveInfluences,
+        perc:PerceptualIllusions,
+        perc:SensoryEvidence .
+
+perc:PerceptualOrganizationContext a dul:Situation ;
+    dul:hasParticipant perc:Perceiver ;
+    dul:hasSetting perc:PerceptualObjects,
+        perc:PerceptualProcessing,
+        perc:SensoryInput .
+
+perc:PerceptualSensitivityContext a dul:Situation ;
+    dul:hasParticipant perc:SensoryMonitor ;
+    dul:hasSetting perc:SensitivityLevels,
+        perc:SensoryAdaptation,
+        perc:SensoryModalities .
+
+perc:SensoryAwareness a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+perc:SensoryChannels a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryIntegrationContext a dul:Situation ;
+    dul:hasParticipant perc:SensoryIntegrator ;
+    dul:hasSetting perc:CrossModalProcessing,
+        perc:IntegratedPerceptions,
+        perc:UnifiedSensoryExperience .
+
+perc:SensoryStimuli a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:affects a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryAdaptation ;
+    rdfs:range perc:PerceptualChanges ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:combines a owl:ObjectProperty ;
+    rdfs:domain perc:CrossModalProcessing ;
+    rdfs:range perc:MultiSensoryInputs ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:deviateFrom a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryMisinterpretations ;
+    rdfs:range perc:ActualReality ;
+    rdfs:subPropertyOf dul:hasReference .
+
+perc:enables a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryBinding ;
+    rdfs:range perc:MultimodalIntegration ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+perc:exhibit a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryModalities ;
+    rdfs:range perc:SensitivityLevels ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+perc:generates a owl:ObjectProperty ;
+    rdfs:domain perc:CrossModalProcessing ;
+    rdfs:range perc:IntegratedPerceptions ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+perc:guidedBy a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualSelection ;
+    rdfs:range perc:AttentionalSustainment ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+perc:have a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryModalities ;
+    rdfs:range perc:PerceptualThresholds ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+perc:highlights a owl:ObjectProperty ;
+    rdfs:domain perc:SelectiveAttention ;
+    rdfs:range perc:RelevantStimuli ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:interfereWith a owl:ObjectProperty ;
+    rdfs:domain perc:DistractingElements ;
+    rdfs:range perc:FocusControl ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:involve a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualIllusions ;
+    rdfs:range perc:SensoryMisinterpretations ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+perc:leadsTo a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryEvidence ;
+    rdfs:range perc:InterpretationErrors ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:limit a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryModalities ;
+    rdfs:range perc:DetectionLimits ;
+    rdfs:subPropertyOf dul:hasConstraint .
+
+perc:manages a owl:ObjectProperty ;
+    rdfs:domain perc:AttentionController ;
+    rdfs:range perc:FocusControl ;
+    rdfs:subPropertyOf dul:hasTask .
+
+perc:modulatedBy a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:AttentionalFocus ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:organizes a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:SensoryPatterns ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:produces a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:PerceptualObjects ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+perc:receivesInputFrom a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:SensoryInput ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:refines a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualFiltering ;
+    rdfs:range perc:OrganizedExperience ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:resolve a owl:ObjectProperty ;
+    rdfs:domain perc:ModalityInteractions ;
+    rdfs:range perc:SensoryConflicts ;
+    rdfs:subPropertyOf dul:hasTask .
+
+perc:resultIn a owl:ObjectProperty ;
+    rdfs:domain perc:IntegratedPerceptions ;
+    rdfs:range perc:UnifiedSensoryExperience ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+perc:shapedBy a owl:ObjectProperty ;
+    rdfs:domain perc:PerceptualMechanisms ;
+    rdfs:range perc:CognitiveInfluences ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:suppresses a owl:ObjectProperty ;
+    rdfs:domain perc:AttentionalFiltering ;
+    rdfs:range perc:IrrelevantInformation ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:tracks a owl:ObjectProperty ;
+    rdfs:domain perc:SensoryMonitor ;
+    rdfs:range perc:SensoryModalities ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:AccomplishmentPursuitToRecognition a owl:ObjectProperty ;
+    rdfs:comment "seeking" ;
+    rdfs:domain ex:AccomplishmentPursuit ;
+    rdfs:range ex:Recognition ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+ex:AccomplishmentPursuitToSelfActualization a owl:ObjectProperty ;
+    rdfs:comment "successful pursuit" ;
+    rdfs:domain ex:AccomplishmentPursuit ;
+    rdfs:range ex:SelfActualization ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:AccomplishmentPursuitToSkillDevelopment a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:AccomplishmentPursuit ;
+    rdfs:range ex:SkillDevelopment ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:AchievementMotivationToCompetencyNeeds a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:AchievementMotivation ;
+    rdfs:range ex:CompetencyNeeds ;
+    rdfs:subPropertyOf <dul:isCausedBy> .
+
+ex:AchieverToPerformanceImprovement a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:Achiever ;
+    rdfs:range ex:PerformanceImprovement ;
+    rdfs:subPropertyOf <dul:performsTask> .
+
+ex:AchieverToPsychologicalGoals a owl:ObjectProperty ;
+    rdfs:comment "pursues" ;
+    rdfs:domain ex:Achiever ;
+    rdfs:range ex:PsychologicalGoals ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:AchieverToSkillDevelopment a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:Achiever ;
+    rdfs:range ex:SkillDevelopment ;
+    rdfs:subPropertyOf <dul:performsTask> .
+
+ex:AmbientAwarenessToAtmosphericQualities a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:AmbientAwareness ;
+    rdfs:range ex:AtmosphericQualities ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:AmbientAwarenessToEnvironmentalMoods a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:AmbientAwareness ;
+    rdfs:range ex:EnvironmentalMoods ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:ApproachAvoidanceConflictsToMultipleMotivations a owl:ObjectProperty ;
+    rdfs:comment "arise from" ;
+    rdfs:domain ex:ApproachAvoidanceConflicts ;
+    rdfs:range ex:MultipleMotivations ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:AtmosphericQualitiesToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:AtmosphericQualities ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:AutonomousAgentToExternalPressures a owl:ObjectProperty ;
+    rdfs:comment "resists" ;
+    rdfs:domain ex:AutonomousAgent ;
+    rdfs:range ex:ExternalPressures ;
+    rdfs:subPropertyOf <dul:resists> .
+
+ex:AutonomousAgentToIntrinsicallyMotivatedBehavior a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:AutonomousAgent ;
+    rdfs:range ex:IntrinsicallyMotivatedBehavior ;
+    rdfs:subPropertyOf <dul:performsTask> .
+
+ex:BasicNeedsToBiologicalDrives a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:BasicNeeds ;
+    rdfs:range ex:BiologicalDrives ;
+    rdfs:subPropertyOf <dul:hasQuality> .
+
+ex:BelongingNeedsToSocialConnections a owl:ObjectProperty ;
+    rdfs:comment "motivate" ;
+    rdfs:domain ex:BelongingNeeds ;
+    rdfs:range ex:SocialConnections ;
+    rdfs:subPropertyOf <dul:triggers> .
+
+ex:BiologicalDrivesToMotivationalStates a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:BiologicalDrives ;
+    rdfs:range ex:MotivationalStates ;
+    rdfs:subPropertyOf <dul:hasConstituent> .
+
+ex:BodilyComfortToComfortSensations a owl:ObjectProperty ;
+    rdfs:comment "manifests through" ;
+    rdfs:domain ex:BodilyComfort ;
+    rdfs:range ex:ComfortSensations ;
+    rdfs:subPropertyOf <dul:manifestedBy> .
+
+ex:BodyAwarenessToInteroceptiveSensing a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:BodyAwareness ;
+    rdfs:range ex:InteroceptiveSensing ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:BodyAwarenessToProprioceptiveMonitoring a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:BodyAwareness ;
+    rdfs:range ex:ProprioceptiveMonitoring ;
+    rdfs:subPropertyOf <dul:includesEvent> .
+
+ex:BodyEmotionsToPhysicalFeelingStates a owl:ObjectProperty ;
+    rdfs:comment "manifest as" ;
+    rdfs:domain ex:BodyEmotions ;
+    rdfs:range ex:PhysicalFeelingStates ;
+    rdfs:subPropertyOf <dul:manifestsAs> .
+
+ex:BodyFeedbackToEmotionalAwareness a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:BodyFeedback ;
+    rdfs:range ex:EmotionalAwareness ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:BodyRhythmsToTimePerception a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:BodyRhythms ;
+    rdfs:range ex:TimePerception ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:BodySchemasToPosturalInformation a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:BodySchemas ;
+    rdfs:range ex:PosturalInformation ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:BodySchemasToSpatialEmbodiment a owl:ObjectProperty ;
+    rdfs:comment "into" ;
+    rdfs:domain ex:BodySchemas ;
+    rdfs:range ex:SpatialEmbodiment ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:BodyTimeAwarenessToTemporalEmbodiment a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:BodyTimeAwareness ;
+    rdfs:range ex:TemporalEmbodiment ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:BodyWellbeingToPhysicalSatisfaction a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:BodyWellbeing ;
+    rdfs:range ex:PhysicalSatisfaction ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:ComfortFactorsToBodilyComfort a owl:ObjectProperty ;
+    rdfs:comment "promote" ;
+    rdfs:domain ex:ComfortFactors ;
+    rdfs:range ex:BodilyComfort ;
+    rdfs:subPropertyOf <dul:promotes> .
+
+ex:ComfortFactorsToBodyWellbeing a owl:ObjectProperty ;
+    rdfs:comment "promote" ;
+    rdfs:domain ex:ComfortFactors ;
+    rdfs:range ex:BodyWellbeing ;
+    rdfs:subPropertyOf <dul:promotes> .
+
+ex:ComfortSeekerToBodilyComfort a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:BodilyComfort ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:ComfortSeekerToComfortSeeking a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:ComfortSeeking ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:ComfortSeekerToDiscomfortAvoidance a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:DiscomfortAvoidance ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:ComfortSeekerToPhysicalDiscomfort a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:ComfortSeeker ;
+    rdfs:range ex:PhysicalDiscomfort ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:ComfortSeekingToBodilyComfort a owl:ObjectProperty ;
+    rdfs:comment "to increase" ;
+    rdfs:domain ex:ComfortSeeking ;
+    rdfs:range ex:BodilyComfort ;
+    rdfs:subPropertyOf <dul:aimsTo> .
+
+ex:CompetingDrivesToConflictingGoals a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:CompetingDrives ;
+    rdfs:range ex:ConflictingGoals ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:ConflictResolutionToMotivationalCompromise a owl:ObjectProperty ;
+    rdfs:comment "provides alternative to" ;
+    rdfs:domain ex:ConflictResolution ;
+    rdfs:range ex:MotivationalCompromise ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:ConflictResolutionToPrioritySelection a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:ConflictResolution ;
+    rdfs:range ex:PrioritySelection ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:ConflictedIndividualToConflictResolution a owl:ObjectProperty ;
+    rdfs:comment "engages in" ;
+    rdfs:domain ex:ConflictedIndividual ;
+    rdfs:range ex:ConflictResolution ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:ConflictedIndividualToMotivationalConflicts a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:ConflictedIndividual ;
+    rdfs:range ex:MotivationalConflicts ;
+    rdfs:subPropertyOf <dul:experiences> .
+
+ex:DiscomfortAvoidanceToPhysicalDiscomfort a owl:ObjectProperty ;
+    rdfs:comment "reduces" ;
+    rdfs:domain ex:DiscomfortAvoidance ;
+    rdfs:range ex:PhysicalDiscomfort ;
+    rdfs:subPropertyOf <dul:reduces> .
+
+ex:DiscomfortCausesToPhysicalDiscomfort a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:DiscomfortCauses ;
+    rdfs:range ex:PhysicalDiscomfort ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:DriveReductionToHomeostasisBalance a owl:ObjectProperty ;
+    rdfs:comment "restores" ;
+    rdfs:domain ex:DriveReduction ;
+    rdfs:range ex:HomeostasisBalance ;
+    rdfs:subPropertyOf <dul:restores> .
+
+ex:DriveSignalsToGoalDirectedBehavior a owl:ObjectProperty ;
+    rdfs:comment "motivate" ;
+    rdfs:domain ex:DriveSignals ;
+    rdfs:range ex:GoalDirectedBehavior ;
+    rdfs:subPropertyOf <dul:triggers> .
+
+ex:DurationSensationsToPhysiologicalCycles a owl:ObjectProperty ;
+    rdfs:comment "vary with" ;
+    rdfs:domain ex:DurationSensations ;
+    rdfs:range ex:PhysiologicalCycles ;
+    rdfs:subPropertyOf <dul:variesWith> .
+
+ex:EmbodiedEmotionsToSomaticResponses a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:EmbodiedEmotions ;
+    rdfs:range ex:SomaticResponses ;
+    rdfs:subPropertyOf <dul:expressedBy> .
+
+ex:EmbodiedExperiencerToBodyAwareness a owl:ObjectProperty ;
+    rdfs:comment "maintains" ;
+    rdfs:domain ex:EmbodiedExperiencer ;
+    rdfs:range ex:BodyAwareness ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:EmbodiedFeelerToEmbodiedEmotions a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:EmbodiedFeeler ;
+    rdfs:range ex:EmbodiedEmotions ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:EmbodiedPresenceToBodyAwareness a owl:ObjectProperty ;
+    rdfs:comment "integrates all aspects of" ;
+    rdfs:domain ex:EmbodiedPresence ;
+    rdfs:range ex:BodyAwareness ;
+    rdfs:subPropertyOf <dul:integrates> .
+
+ex:EmbodiedTemporalityToBodyTimeAwareness a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:EmbodiedTemporality ;
+    rdfs:range ex:BodyTimeAwareness ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:EmbodiedTemporalityToDurationSensations a owl:ObjectProperty ;
+    rdfs:comment "includes" ;
+    rdfs:domain ex:EmbodiedTemporality ;
+    rdfs:range ex:DurationSensations ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:EmotionalEmbodimentToPhysicalFeelingStates a owl:ObjectProperty ;
+    rdfs:comment "integrates" ;
+    rdfs:domain ex:EmotionalEmbodiment ;
+    rdfs:range ex:PhysicalFeelingStates ;
+    rdfs:subPropertyOf <dul:integrates> .
+
+ex:EmotionalIntimacyToBelongingNeeds a owl:ObjectProperty ;
+    rdfs:comment "satisfy" ;
+    rdfs:domain ex:EmotionalIntimacy ;
+    rdfs:range ex:BelongingNeeds ;
+    rdfs:subPropertyOf <dul:satisfies> .
+
+ex:EnvironmentalConnectionToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "strengthens through" ;
+    rdfs:domain ex:EnvironmentalConnection ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:strengthenedBy> .
+
+ex:EnvironmentalMoodsToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:EnvironmentalMoods ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:EnvironmentalPerceiverToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:EnvironmentalPerceiver ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+ex:EnvironmentalPresenceToAmbientAwareness a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:EnvironmentalPresence ;
+    rdfs:range ex:AmbientAwareness ;
+    rdfs:subPropertyOf <dul:isDescribedBy> .
+
+ex:GoalDirectedBehaviorToNeedSatisfaction a owl:ObjectProperty ;
+    rdfs:comment "toward" ;
+    rdfs:domain ex:GoalDirectedBehavior ;
+    rdfs:range ex:NeedSatisfaction ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:GutFeelingsToSomaticInformation a owl:ObjectProperty ;
+    rdfs:comment "provide" ;
+    rdfs:domain ex:GutFeelings ;
+    rdfs:range ex:SomaticInformation ;
+    rdfs:subPropertyOf <dul:provides> .
+
+ex:HomeostasisBalanceToMotivationalStates a owl:ObjectProperty ;
+    rdfs:comment "reduces until new needs emerge" ;
+    rdfs:domain ex:HomeostasisBalance ;
+    rdfs:range ex:MotivationalStates ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:InternalValuesToPersonallyMeaningfulPursuits a owl:ObjectProperty ;
+    rdfs:comment "determine" ;
+    rdfs:domain ex:InternalValues ;
+    rdfs:range ex:PersonallyMeaningfulPursuits ;
+    rdfs:subPropertyOf <dul:determines> .
+
+ex:InteroceptiveSensingToSomaticAwareness a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:InteroceptiveSensing ;
+    rdfs:range ex:SomaticAwareness ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:InterpersonalBondsToEmotionalIntimacy a owl:ObjectProperty ;
+    rdfs:comment "develop into" ;
+    rdfs:domain ex:InterpersonalBonds ;
+    rdfs:range ex:EmotionalIntimacy ;
+    rdfs:subPropertyOf <dul:evolvesInto> .
+
+ex:IntrinsicallyMotivatedBehaviorToInternalRewards a owl:ObjectProperty ;
+    rdfs:comment "driven by" ;
+    rdfs:domain ex:IntrinsicallyMotivatedBehavior ;
+    rdfs:range ex:InternalRewards ;
+    rdfs:subPropertyOf <dul:isDrivenBy> .
+
+ex:IntrinsicallyMotivatedBehaviorToPersonalInterests a owl:ObjectProperty ;
+    rdfs:comment "driven by" ;
+    rdfs:domain ex:IntrinsicallyMotivatedBehavior ;
+    rdfs:range ex:PersonalInterests ;
+    rdfs:subPropertyOf <dul:isDrivenBy> .
+
+ex:MotivatedAgentToBasicNeeds a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:MotivatedAgent ;
+    rdfs:range ex:BasicNeeds ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+ex:MotivatedAgentToDriveSignals a owl:ObjectProperty ;
+    rdfs:comment "recognizes" ;
+    rdfs:domain ex:MotivatedAgent ;
+    rdfs:range ex:DriveSignals ;
+    rdfs:subPropertyOf <dul:hasPerceptualQuality> .
+
+ex:MotivationalConflictsToCompetingDrives a owl:ObjectProperty ;
+    rdfs:comment "between" ;
+    rdfs:domain ex:MotivationalConflicts ;
+    rdfs:range ex:CompetingDrives ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:MovementSensationsToBodySchemas a owl:ObjectProperty ;
+    rdfs:comment "update" ;
+    rdfs:domain ex:MovementSensations ;
+    rdfs:range ex:BodySchemas ;
+    rdfs:subPropertyOf <dul:updates> .
+
+ex:MultipleMotivationsToMotivationalTension a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:MultipleMotivations ;
+    rdfs:range ex:MotivationalTension ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:NeedSatisfactionToDriveReduction a owl:ObjectProperty ;
+    rdfs:comment "leads to" ;
+    rdfs:domain ex:NeedSatisfaction ;
+    rdfs:range ex:DriveReduction ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:PerformanceImprovementToCompetencyNeeds a owl:ObjectProperty ;
+    rdfs:comment "serves" ;
+    rdfs:domain ex:PerformanceImprovement ;
+    rdfs:range ex:CompetencyNeeds ;
+    rdfs:subPropertyOf <dul:satisfies> .
+
+ex:PerformanceImprovementToRecognition a owl:ObjectProperty ;
+    rdfs:comment "serves" ;
+    rdfs:domain ex:PerformanceImprovement ;
+    rdfs:range ex:Recognition ;
+    rdfs:subPropertyOf <dul:hasParticipant> .
+
+ex:PersonalInterestsToSelfDirectedActivities a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:PersonalInterests ;
+    rdfs:range ex:SelfDirectedActivities ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:PersonallyMeaningfulPursuitsToIntrinsicFulfillment a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:PersonallyMeaningfulPursuits ;
+    rdfs:range ex:IntrinsicFulfillment ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:PhysicalDiscomfortToDiscomfortSignals a owl:ObjectProperty ;
+    rdfs:comment "manifests through" ;
+    rdfs:domain ex:PhysicalDiscomfort ;
+    rdfs:range ex:DiscomfortSignals ;
+    rdfs:subPropertyOf <dul:manifestedBy> .
+
+ex:PhysiologicalCyclesToTimePerception a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:PhysiologicalCycles ;
+    rdfs:range ex:TimePerception ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:PlaceSenseToEnvironmentalConnection a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:PlaceSense ;
+    rdfs:range ex:EnvironmentalConnection ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:ProprioceptiveMonitoringToMovementSensations a owl:ObjectProperty ;
+    rdfs:comment "provides" ;
+    rdfs:domain ex:ProprioceptiveMonitoring ;
+    rdfs:range ex:MovementSensations ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:ProprioceptiveMonitoringToPosturalInformation a owl:ObjectProperty ;
+    rdfs:comment "provides" ;
+    rdfs:domain ex:ProprioceptiveMonitoring ;
+    rdfs:range ex:PosturalInformation ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:PsychologicalGoalsToAchievementMotivation a owl:ObjectProperty ;
+    rdfs:comment "driven by" ;
+    rdfs:domain ex:PsychologicalGoals ;
+    rdfs:range ex:AchievementMotivation ;
+    rdfs:subPropertyOf <dul:isDescribedBy> .
+
+ex:RelationshipBuildingToInterpersonalBonds a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:RelationshipBuilding ;
+    rdfs:range ex:InterpersonalBonds ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:RelationshipBuildingToSocialConnections a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:RelationshipBuilding ;
+    rdfs:range ex:SocialConnections ;
+    rdfs:subPropertyOf <dul:hasOutcome> .
+
+ex:RelationshipDrivesToSocialApproachBehavior a owl:ObjectProperty ;
+    rdfs:comment "energize" ;
+    rdfs:domain ex:RelationshipDrives ;
+    rdfs:range ex:SocialApproachBehavior ;
+    rdfs:subPropertyOf <dul:triggers> .
+
+ex:RhythmicProcessesToTemporalFlow a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:RhythmicProcesses ;
+    rdfs:range ex:TemporalFlow ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:Scenario1 a dul1:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:Scenario2 a dul1:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:Scenario3 a dul1:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:Scenario4 a dul1:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:Scenario5 a dul1:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SelfDirectedActivitiesToAutonomousSatisfaction a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:SelfDirectedActivities ;
+    rdfs:range ex:AutonomousSatisfaction ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:SkillDevelopmentToMasteryOrientation a owl:ObjectProperty ;
+    rdfs:comment "guided by" ;
+    rdfs:domain ex:SkillDevelopment ;
+    rdfs:range ex:MasteryOrientation ;
+    rdfs:subPropertyOf <dul:isGuidedBy> .
+
+ex:SocialAcceptanceToBelongingNeeds a owl:ObjectProperty ;
+    rdfs:comment "satisfy" ;
+    rdfs:domain ex:SocialAcceptance ;
+    rdfs:range ex:BelongingNeeds ;
+    rdfs:subPropertyOf <dul:satisfies> .
+
+ex:SocialApproachBehaviorToRelationshipBuilding a owl:ObjectProperty ;
+    rdfs:comment "initiates" ;
+    rdfs:domain ex:SocialApproachBehavior ;
+    rdfs:range ex:RelationshipBuilding ;
+    rdfs:subPropertyOf <dul:initiates> .
+
+ex:SocialConnectionsToSocialAcceptance a owl:ObjectProperty ;
+    rdfs:comment "provide" ;
+    rdfs:domain ex:SocialConnections ;
+    rdfs:range ex:SocialAcceptance ;
+    rdfs:subPropertyOf <dul:provides> .
+
+ex:SocialSeekerToBelongingNeeds a owl:ObjectProperty ;
+    rdfs:comment "motivated by" ;
+    rdfs:domain ex:SocialSeeker ;
+    rdfs:range ex:BelongingNeeds ;
+    rdfs:subPropertyOf <dul:hasGoal> .
+
+ex:SocialSeekerToRelationshipDrives a owl:ObjectProperty ;
+    rdfs:comment "motivated by" ;
+    rdfs:domain ex:SocialSeeker ;
+    rdfs:range ex:RelationshipDrives ;
+    rdfs:subPropertyOf <dul:hasGoal> .
+
+ex:SomaticAwarenessToEmbodiedPresence a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:SomaticAwareness ;
+    rdfs:range ex:EmbodiedPresence ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SomaticInformationToEmotionalAwareness a owl:ObjectProperty ;
+    rdfs:comment "enhances" ;
+    rdfs:domain ex:SomaticInformation ;
+    rdfs:range ex:EmotionalAwareness ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:SomaticResponsesToBodyFeedback a owl:ObjectProperty ;
+    rdfs:comment "generate" ;
+    rdfs:domain ex:SomaticResponses ;
+    rdfs:range ex:BodyFeedback ;
+    rdfs:subPropertyOf <dul:generates> .
+
+ex:SpatialAtmospheresToEnvironmentalPresence a owl:ObjectProperty ;
+    rdfs:comment "influence" ;
+    rdfs:domain ex:SpatialAtmospheres ;
+    rdfs:range ex:EnvironmentalPresence ;
+    rdfs:subPropertyOf <dul:influences> .
+
+ex:SpatialEmbodimentToEmbodiedPresence a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:SpatialEmbodiment ;
+    rdfs:range ex:EmbodiedPresence ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SpatialSensingToSpatialAtmospheres a owl:ObjectProperty ;
+    rdfs:comment "contributes to" ;
+    rdfs:domain ex:SpatialSensing ;
+    rdfs:range ex:SpatialAtmospheres ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:SubjectiveScenario1 a dul1:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SubjectiveScenario2 a dul1:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SubjectiveScenario3 a dul1:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SubjectiveScenario4 a dul1:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SubjectiveScenario5 a dul1:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SubjectiveTimeToEmbodiedTemporality a owl:ObjectProperty ;
+    rdfs:comment "through" ;
+    rdfs:domain ex:SubjectiveTime ;
+    rdfs:range ex:EmbodiedTemporality ;
+    rdfs:subPropertyOf <dul:mediatedBy> .
+
+ex:TemporalEmbodimentToBodyTimeAwareness a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:TemporalEmbodiment ;
+    rdfs:range ex:BodyTimeAwareness ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:TemporalExperiencerToSubjectiveTime a owl:ObjectProperty ;
+    rdfs:comment "perceives" ;
+    rdfs:domain ex:TemporalExperiencer ;
+    rdfs:range ex:SubjectiveTime ;
+    rdfs:subPropertyOf <dul:hasTask> .
+
+emo:AffectiveTrigger a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:EmotionalRecall a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:EnvironmentalCue a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+perc:ActualReality a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:AttentionalFocus a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:AttentionalSustainment a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:DetectionLimits a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:DistractingElements a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:InterpretationErrors a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:IrrelevantInformation a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:ModalityInteractions a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:MultiSensoryInputs a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:MultimodalIntegration a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:OrganizedExperience a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+perc:Perceiver a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualChanges a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualExplorer a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualFiltering a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualSelection a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualThresholds a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:RelevantStimuli a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryBinding a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryConflicts a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryIntegrator a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryPatterns a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:ApproachAvoidanceConflicts a owl:Class ;
+    rdfs:label "ApproachAvoidanceConflicts" ;
+    rdfs:comment "Situations where same target has both attractive and repulsive qualities" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:AutonomousSatisfaction a owl:Class ;
+    rdfs:label "AutonomousSatisfaction" ;
+    rdfs:comment "Fulfillment from self-directed choices and actions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:BodyEmotions a owl:Class ;
+    rdfs:label "BodyEmotions" ;
+    rdfs:comment "Emotions primarily experienced through physical sensations" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:BodyRhythms a owl:Class ;
+    rdfs:label "BodyRhythms" ;
+    rdfs:comment "Natural cyclical patterns in bodily functions" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ComfortSensations a owl:Class ;
+    rdfs:label "ComfortSensations" ;
+    rdfs:comment "Pleasant bodily feelings indicating good physical conditions" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConflictingGoals a owl:Class ;
+    rdfs:label "ConflictingGoals" ;
+    rdfs:comment "Objectives that are mutually exclusive or contradictory" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:DiscomfortCauses a owl:Class ;
+    rdfs:label "DiscomfortCauses" ;
+    rdfs:comment "Factors that create unpleasant bodily experiences" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:DiscomfortSignals a owl:Class ;
+    rdfs:label "DiscomfortSignals" ;
+    rdfs:comment "Unpleasant bodily feelings indicating problematic conditions" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EmbodiedExperiencer a owl:Class ;
+    rdfs:label "EmbodiedExperiencer" ;
+    rdfs:comment "Person with conscious awareness of their bodily experience" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:EmbodiedFeeler a owl:Class ;
+    rdfs:label "EmbodiedFeeler" ;
+    rdfs:comment "Person who experiences emotions through bodily sensations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:EmotionalEmbodiment a owl:Class ;
+    rdfs:label "EmotionalEmbodiment" ;
+    rdfs:comment "Experience of emotions as integrated mind-body phenomena" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EnvironmentalPerceiver a owl:Class ;
+    rdfs:label "EnvironmentalPerceiver" ;
+    rdfs:comment "Person attuned to environmental qualities and atmospheric presence" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ExternalPressures a owl:Class ;
+    rdfs:label "ExternalPressures" ;
+    rdfs:comment "Outside forces pushing toward particular behaviors" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:GutFeelings a owl:Class ;
+    rdfs:label "GutFeelings" ;
+    rdfs:comment "Intuitive emotional responses felt in the body" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InternalRewards a owl:Class ;
+    rdfs:label "InternalRewards" ;
+    rdfs:comment "Personal satisfaction and enjoyment derived from activities" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:InternalValues a owl:Class ;
+    rdfs:label "InternalValues" ;
+    rdfs:comment "Personal principles and beliefs that guide behavior" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:IntrinsicFulfillment a owl:Class ;
+    rdfs:label "IntrinsicFulfillment" ;
+    rdfs:comment "Deep satisfaction from internally motivated activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MasteryOrientation a owl:Class ;
+    rdfs:label "MasteryOrientation" ;
+    rdfs:comment "Focus on learning and skill development rather than just outcomes" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MotivationalCompromise a owl:Class ;
+    rdfs:label "MotivationalCompromise" ;
+    rdfs:comment "Finding solutions that partially satisfy multiple drives" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotivationalTension a owl:Class ;
+    rdfs:label "MotivationalTension" ;
+    rdfs:comment "Psychological stress from unresolved motivational conflicts" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PhysicalSatisfaction a owl:Class ;
+    rdfs:label "PhysicalSatisfaction" ;
+    rdfs:comment "Contentment with bodily conditions and sensations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PlaceSense a owl:Class ;
+    rdfs:label "PlaceSense" ;
+    rdfs:comment "Feeling of connection and belonging to specific locations" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PrioritySelection a owl:Class ;
+    rdfs:label "PrioritySelection" ;
+    rdfs:comment "Choosing which motivations take precedence" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RhythmicProcesses a owl:Class ;
+    rdfs:label "RhythmicProcesses" ;
+    rdfs:comment "Regular, cyclical bodily functions and movements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SelfActualization a owl:Class ;
+    rdfs:label "SelfActualization" ;
+    rdfs:comment "Realization of personal potential and authentic self-expression" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialSensing a owl:Class ;
+    rdfs:label "SpatialSensing" ;
+    rdfs:comment "Awareness of spatial relationships and environmental structure" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalExperiencer a owl:Class ;
+    rdfs:label "TemporalExperiencer" ;
+    rdfs:comment "Person experiencing time through bodily sensations and rhythms" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TemporalFlow a owl:Class ;
+    rdfs:label "TemporalFlow" ;
+    rdfs:comment "Sense of time moving and progressing through embodied experience" ;
+    rdfs:subClassOf <dul:State> .
+
+emo:AffectiveSynchronization a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+emo:AssociatedFeeling a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:EmotionState a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:EmotionalCue a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:EmotionalEvent a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:FluctuationCycle a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:InteractingAgents a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+emo:MemoryContext a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:MoodRegulation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:ObservedAgent a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+emo:ObservedEmotion a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:RegulatingAgent a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+emo:TemporalPattern a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:AttentionController a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:AttentionalFiltering a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:CognitiveInfluences a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualIllusions a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualObjects a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SelectiveAttention a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensitivityLevels a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:SensoryAdaptation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryEvidence a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryInput a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryMisinterpretations a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryMonitor a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:UnifiedSensoryExperience a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:AchievementMotivation a owl:Class ;
+    rdfs:label "AchievementMotivation" ;
+    rdfs:comment "Drive to accomplish challenging tasks and reach standards of excellence" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:AtmosphericQualities a owl:Class ;
+    rdfs:label "AtmosphericQualities" ;
+    rdfs:comment "Felt characteristics of environmental spaces" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:AutonomousAgent a owl:Class ;
+    rdfs:label "AutonomousAgent" ;
+    rdfs:comment "Person motivated by internal rather than external factors" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:BasicNeeds a owl:Class ;
+    rdfs:label "BasicNeeds" ;
+    rdfs:comment "Fundamental requirements for survival and wellbeing (hunger, thirst, safety, etc.)" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:BiologicalDrives a owl:Class ;
+    rdfs:label "BiologicalDrives" ;
+    rdfs:comment "Internal forces that energize behavior toward need satisfaction" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:BodyFeedback a owl:Class ;
+    rdfs:label "BodyFeedback" ;
+    rdfs:comment "Physical sensations that provide information about emotional states" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:BodyWellbeing a owl:Class ;
+    rdfs:label "BodyWellbeing" ;
+    rdfs:comment "Overall positive physical condition and satisfaction" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ComfortFactors a owl:Class ;
+    rdfs:label "ComfortFactors" ;
+    rdfs:comment "Conditions and elements that promote physical comfort" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:ComfortSeeking a owl:Class ;
+    rdfs:label "ComfortSeeking" ;
+    rdfs:comment "Behaviors aimed at achieving pleasant physical states" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CompetencyNeeds a owl:Class ;
+    rdfs:label "CompetencyNeeds" ;
+    rdfs:comment "Requirements for feeling capable and effective" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:CompetingDrives a owl:Class ;
+    rdfs:label "CompetingDrives" ;
+    rdfs:comment "Different motivational forces that cannot be satisfied simultaneously" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ConflictedIndividual a owl:Class ;
+    rdfs:label "ConflictedIndividual" ;
+    rdfs:comment "Person experiencing simultaneous competing motivations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:DiscomfortAvoidance a owl:Class ;
+    rdfs:label "DiscomfortAvoidance" ;
+    rdfs:comment "Actions taken to prevent or eliminate unpleasant sensations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DriveReduction a owl:Class ;
+    rdfs:label "DriveReduction" ;
+    rdfs:comment "Decrease in motivational pressure following need satisfaction" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DriveSignals a owl:Class ;
+    rdfs:label "DriveSignals" ;
+    rdfs:comment "Internal cues indicating need states and motivational pressure" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:DurationSensations a owl:Class ;
+    rdfs:label "DurationSensations" ;
+    rdfs:comment "Bodily felt sense of time passage and temporal intervals" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EmbodiedEmotions a owl:Class ;
+    rdfs:label "EmbodiedEmotions" ;
+    rdfs:comment "Emotions experienced as physical sensations and bodily states" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:EmotionalAwareness a owl:Class ;
+    rdfs:label "EmotionalAwareness" ;
+    rdfs:comment "Conscious recognition of emotional states through bodily experience" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EmotionalIntimacy a owl:Class ;
+    rdfs:label "EmotionalIntimacy" ;
+    rdfs:comment "Deep emotional connection and closeness with others" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EnvironmentalConnection a owl:Class ;
+    rdfs:label "EnvironmentalConnection" ;
+    rdfs:comment "Bond between person and environmental setting" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:EnvironmentalMoods a owl:Class ;
+    rdfs:label "EnvironmentalMoods" ;
+    rdfs:comment "Emotional tones and feelings associated with places" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:GoalDirectedBehavior a owl:Class ;
+    rdfs:label "GoalDirectedBehavior" ;
+    rdfs:comment "Actions specifically aimed at achieving need satisfaction" ;
+    rdfs:subClassOf <dul:Action> .
+
+ex:HomeostasisBalance a owl:Class ;
+    rdfs:label "HomeostasisBalance" ;
+    rdfs:comment "Optimal internal conditions maintained through need satisfaction" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InteroceptiveSensing a owl:Class ;
+    rdfs:label "InteroceptiveSensing" ;
+    rdfs:comment "Awareness of internal bodily signals and states" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InterpersonalBonds a owl:Class ;
+    rdfs:label "InterpersonalBonds" ;
+    rdfs:comment "Emotional and social ties between individuals" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:MotivatedAgent a owl:Class ;
+    rdfs:label "MotivatedAgent" ;
+    rdfs:comment "Person experiencing and responding to motivational forces" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MotivationalConflicts a owl:Class ;
+    rdfs:label "MotivationalConflicts" ;
+    rdfs:comment "Situations where different drives pull in opposing directions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MotivationalStates a owl:Class ;
+    rdfs:label "MotivationalStates" ;
+    rdfs:comment "Internal conditions that direct and energize behavior" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MovementSensations a owl:Class ;
+    rdfs:label "MovementSensations" ;
+    rdfs:comment "Felt experience of bodily motion and position changes" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MultipleMotivations a owl:Class ;
+    rdfs:label "MultipleMotivations" ;
+    rdfs:comment "Several different drives active at the same time" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:NeedSatisfaction a owl:Class ;
+    rdfs:label "NeedSatisfaction" ;
+    rdfs:comment "Fulfillment of basic requirements through appropriate actions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PersonalInterests a owl:Class ;
+    rdfs:label "PersonalInterests" ;
+    rdfs:comment "Topics, activities, or domains that naturally attract attention" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:PersonallyMeaningfulPursuits a owl:Class ;
+    rdfs:label "PersonallyMeaningfulPursuits" ;
+    rdfs:comment "Activities that align with individual values and interests" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:PhysicalFeelingStates a owl:Class ;
+    rdfs:label "PhysicalFeelingStates" ;
+    rdfs:comment "Bodily conditions associated with specific emotions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:PhysiologicalCycles a owl:Class ;
+    rdfs:label "PhysiologicalCycles" ;
+    rdfs:comment "Biological rhythms affecting temporal experience" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:PosturalInformation a owl:Class ;
+    rdfs:label "PosturalInformation" ;
+    rdfs:comment "Sensory data about body position and balance" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:PsychologicalGoals a owl:Class ;
+    rdfs:label "PsychologicalGoals" ;
+    rdfs:comment "Objectives related to personal growth, competence, and self-realization" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:Recognition a owl:Class ;
+    rdfs:label "Recognition" ;
+    rdfs:comment "Acknowledgment and appreciation from others for achievements" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:RelationshipDrives a owl:Class ;
+    rdfs:label "RelationshipDrives" ;
+    rdfs:comment "Motivational forces toward forming and maintaining interpersonal connections" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:SelfDirectedActivities a owl:Class ;
+    rdfs:label "SelfDirectedActivities" ;
+    rdfs:comment "Pursuits chosen based on personal preference rather than obligation" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:SocialAcceptance a owl:Class ;
+    rdfs:label "SocialAcceptance" ;
+    rdfs:comment "Being welcomed and valued by others or groups" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:SocialApproachBehavior a owl:Class ;
+    rdfs:label "SocialApproachBehavior" ;
+    rdfs:comment "Actions aimed at initiating social contact and connection" ;
+    rdfs:subClassOf <dul:Action> .
+
+ex:SocialSeeker a owl:Class ;
+    rdfs:label "SocialSeeker" ;
+    rdfs:comment "Person motivated by social connection and belonging needs" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SomaticAwareness a owl:Class ;
+    rdfs:label "SomaticAwareness" ;
+    rdfs:comment "Conscious attention to bodily sensations and feelings" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SomaticInformation a owl:Class ;
+    rdfs:label "SomaticInformation" ;
+    rdfs:comment "Bodily data that contributes to emotional understanding" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SomaticResponses a owl:Class ;
+    rdfs:label "SomaticResponses" ;
+    rdfs:comment "Physical reactions accompanying emotional states" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialAtmospheres a owl:Class ;
+    rdfs:label "SpatialAtmospheres" ;
+    rdfs:comment "Qualitative characteristics of spatial environments" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SpatialEmbodiment a owl:Class ;
+    rdfs:label "SpatialEmbodiment" ;
+    rdfs:comment "Sense of body position and orientation in space" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SubjectiveTime a owl:Class ;
+    rdfs:label "SubjectiveTime" ;
+    rdfs:comment "Personal, felt experience of temporal flow and duration" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalEmbodiment a owl:Class ;
+    rdfs:label "TemporalEmbodiment" ;
+    rdfs:comment "Integration of time perception with bodily awareness" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TimePerception a owl:Class ;
+    rdfs:label "TimePerception" ;
+    rdfs:comment "Subjective awareness and interpretation of temporal duration" ;
+    rdfs:subClassOf <dul:Process> .
+
+emo:ContagionProcess a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:CopingAction a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+emo:ExpressiveBehavior a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:RecognitionProcess a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:RegulatedEmotion a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:RegulationStrategy a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:SharedEmotion a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:CrossModalProcessing a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:FocusControl a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:IntegratedPerceptions a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:AccomplishmentPursuit a owl:Class ;
+    rdfs:label "AccomplishmentPursuit" ;
+    rdfs:comment "Active efforts to achieve significant goals" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Achiever a owl:Class ;
+    rdfs:label "Achiever" ;
+    rdfs:comment "Person motivated by achievement and competency goals" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AmbientAwareness a owl:Class ;
+    rdfs:label "AmbientAwareness" ;
+    rdfs:comment "Perception of overall environmental context and mood" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BodySchemas a owl:Class ;
+    rdfs:label "BodySchemas" ;
+    rdfs:comment "Mental representations of body structure and capabilities" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:BodyTimeAwareness a owl:Class ;
+    rdfs:label "BodyTimeAwareness" ;
+    rdfs:comment "Consciousness of temporal aspects of bodily experience" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ConflictResolution a owl:Class ;
+    rdfs:label "ConflictResolution" ;
+    rdfs:comment "Methods for resolving competing motivational demands" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EmbodiedPresence a owl:Class ;
+    rdfs:label "EmbodiedPresence" ;
+    rdfs:comment "Feeling of being present in and through the body" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:EmbodiedTemporality a owl:Class ;
+    rdfs:label "EmbodiedTemporality" ;
+    rdfs:comment "Experience of time as mediated through bodily processes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:IntrinsicallyMotivatedBehavior a owl:Class ;
+    rdfs:label "IntrinsicallyMotivatedBehavior" ;
+    rdfs:comment "Actions driven by internal satisfaction rather than external rewards" ;
+    rdfs:subClassOf <dul:Action> .
+
+ex:PerformanceImprovement a owl:Class ;
+    rdfs:label "PerformanceImprovement" ;
+    rdfs:comment "Enhancement of task execution and outcomes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ProprioceptiveMonitoring a owl:Class ;
+    rdfs:label "ProprioceptiveMonitoring" ;
+    rdfs:comment "Sensing body position and movement through internal receptors" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RelationshipBuilding a owl:Class ;
+    rdfs:label "RelationshipBuilding" ;
+    rdfs:comment "Development and strengthening of interpersonal bonds" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SkillDevelopment a owl:Class ;
+    rdfs:label "SkillDevelopment" ;
+    rdfs:comment "Improvement of abilities and expertise" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialConnections a owl:Class ;
+    rdfs:label "SocialConnections" ;
+    rdfs:comment "Bonds and relationships formed with other people" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:BelongingNeeds a owl:Class ;
+    rdfs:label "BelongingNeeds" ;
+    rdfs:comment "Fundamental requirements for social inclusion and group membership" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:BodilyComfort a owl:Class ;
+    rdfs:label "BodilyComfort" ;
+    rdfs:comment "Pleasant, satisfied physical sensations and conditions" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:BodyAwareness a owl:Class ;
+    rdfs:label "BodyAwareness" ;
+    rdfs:comment "Conscious attention to bodily sensations and positioning" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ComfortSeeker a owl:Class ;
+    rdfs:label "ComfortSeeker" ;
+    rdfs:comment "Person pursuing physical comfort and avoiding discomfort" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PhysicalDiscomfort a owl:Class ;
+    rdfs:label "PhysicalDiscomfort" ;
+    rdfs:comment "Unpleasant, aversive bodily sensations and conditions" ;
+    rdfs:subClassOf <dul:State> .
+
+emo:MemoryAssociation a owl:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+emo:MoodState a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:PerceptualProcessing a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryModalities a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalPresence a owl:Class ;
+    rdfs:label "EnvironmentalPresence" ;
+    rdfs:comment "Feeling of being situated within and connected to environment" ;
+    rdfs:subClassOf <dul:State> .
+

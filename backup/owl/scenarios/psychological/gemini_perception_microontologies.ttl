@@ -1,0 +1,304 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix perc: <http://example.org/gemini/psychological/perception#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+perc: ns1:imports dul: .
+
+perc:AttentionalCapacity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:AttentionalPerceptionContext a dul:Situation ;
+    dul:hasParticipant perc:AttentionController ;
+    dul:hasSetting perc:AttentionalFiltering,
+        perc:FocusControl,
+        perc:SelectiveAttention .
+
+perc:DiscriminationAbilities a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:PerceptualAccuracy a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:PerceptualCoherence a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:PerceptualDistortions a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualIllusionContext a dul:Situation ;
+    dul:hasParticipant perc:PerceptualExplorer ;
+    dul:hasSetting perc:CognitiveInfluences,
+        perc:PerceptualIllusions,
+        perc:SensoryEvidence .
+
+perc:PerceptualOrganizationContext a dul:Situation ;
+    dul:hasParticipant perc:Perceiver ;
+    dul:hasSetting perc:PerceptualObjects,
+        perc:PerceptualProcessing,
+        perc:SensoryInput .
+
+perc:PerceptualSensitivityContext a dul:Situation ;
+    dul:hasParticipant perc:SensoryMonitor ;
+    dul:hasSetting perc:SensitivityLevels,
+        perc:SensoryAdaptation,
+        perc:SensoryModalities .
+
+perc:SensoryAwareness a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+perc:SensoryChannels a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryIntegrationContext a dul:Situation ;
+    dul:hasParticipant perc:SensoryIntegrator ;
+    dul:hasSetting perc:CrossModalProcessing,
+        perc:IntegratedPerceptions,
+        perc:UnifiedSensoryExperience .
+
+perc:SensoryStimuli a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:affects a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryAdaptation ;
+    rdfs:range perc:PerceptualChanges ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:combines a ns1:ObjectProperty ;
+    rdfs:domain perc:CrossModalProcessing ;
+    rdfs:range perc:MultiSensoryInputs ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:deviateFrom a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryMisinterpretations ;
+    rdfs:range perc:ActualReality ;
+    rdfs:subPropertyOf dul:hasReference .
+
+perc:enables a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryBinding ;
+    rdfs:range perc:MultimodalIntegration ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+perc:exhibit a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryModalities ;
+    rdfs:range perc:SensitivityLevels ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+perc:generates a ns1:ObjectProperty ;
+    rdfs:domain perc:CrossModalProcessing ;
+    rdfs:range perc:IntegratedPerceptions ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+perc:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualSelection ;
+    rdfs:range perc:AttentionalSustainment ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+perc:have a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryModalities ;
+    rdfs:range perc:PerceptualThresholds ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+perc:highlights a ns1:ObjectProperty ;
+    rdfs:domain perc:SelectiveAttention ;
+    rdfs:range perc:RelevantStimuli ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:interfereWith a ns1:ObjectProperty ;
+    rdfs:domain perc:DistractingElements ;
+    rdfs:range perc:FocusControl ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:involve a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualIllusions ;
+    rdfs:range perc:SensoryMisinterpretations ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+perc:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryEvidence ;
+    rdfs:range perc:InterpretationErrors ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:limit a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryModalities ;
+    rdfs:range perc:DetectionLimits ;
+    rdfs:subPropertyOf dul:hasConstraint .
+
+perc:manages a ns1:ObjectProperty ;
+    rdfs:domain perc:AttentionController ;
+    rdfs:range perc:FocusControl ;
+    rdfs:subPropertyOf dul:hasTask .
+
+perc:modulatedBy a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:AttentionalFocus ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:organizes a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:SensoryPatterns ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:produces a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:PerceptualObjects ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+perc:receivesInputFrom a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualProcessing ;
+    rdfs:range perc:SensoryInput ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:refines a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualFiltering ;
+    rdfs:range perc:OrganizedExperience ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+perc:resolve a ns1:ObjectProperty ;
+    rdfs:domain perc:ModalityInteractions ;
+    rdfs:range perc:SensoryConflicts ;
+    rdfs:subPropertyOf dul:hasTask .
+
+perc:resultIn a ns1:ObjectProperty ;
+    rdfs:domain perc:IntegratedPerceptions ;
+    rdfs:range perc:UnifiedSensoryExperience ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+perc:shapedBy a ns1:ObjectProperty ;
+    rdfs:domain perc:PerceptualMechanisms ;
+    rdfs:range perc:CognitiveInfluences ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:suppresses a ns1:ObjectProperty ;
+    rdfs:domain perc:AttentionalFiltering ;
+    rdfs:range perc:IrrelevantInformation ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:tracks a ns1:ObjectProperty ;
+    rdfs:domain perc:SensoryMonitor ;
+    rdfs:range perc:SensoryModalities ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+perc:ActualReality a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:AttentionalFocus a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:AttentionalSustainment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:DetectionLimits a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:DistractingElements a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:InterpretationErrors a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:IrrelevantInformation a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:ModalityInteractions a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:MultiSensoryInputs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:MultimodalIntegration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:OrganizedExperience a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+perc:Perceiver a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualChanges a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualExplorer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualFiltering a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualSelection a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:PerceptualThresholds a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:RelevantStimuli a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryBinding a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryConflicts a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryIntegrator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryPatterns a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:AttentionController a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:AttentionalFiltering a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:CognitiveInfluences a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualIllusions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualObjects a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SelectiveAttention a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensitivityLevels a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+perc:SensoryAdaptation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryEvidence a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryInput a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:SensoryMisinterpretations a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryMonitor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:UnifiedSensoryExperience a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+perc:CrossModalProcessing a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:FocusControl a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:IntegratedPerceptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+perc:PerceptualProcessing a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+perc:SensoryModalities a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+

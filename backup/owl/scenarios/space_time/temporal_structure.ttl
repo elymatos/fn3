@@ -1,0 +1,479 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/space-time/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:ActivityEngagementToTemporalPerception a owl:ObjectProperty ;
+    rdfs:comment "modulates" ;
+    rdfs:domain ex:ActivityEngagement ;
+    rdfs:range ex:TemporalPerception ;
+    rdfs:subPropertyOf <dul:modulates> .
+
+ex:AdaptiveTimingToChangingCircumstances a owl:ObjectProperty ;
+    rdfs:comment "responds to" ;
+    rdfs:domain ex:AdaptiveTiming ;
+    rdfs:range ex:ChangingCircumstances ;
+    rdfs:subPropertyOf <dul:respondsTo> .
+
+ex:CalendarSystemsToSchedulingMethods a owl:ObjectProperty ;
+    rdfs:comment "used in" ;
+    rdfs:domain ex:CalendarSystems ;
+    rdfs:range ex:SchedulingMethods ;
+    rdfs:subPropertyOf <dul:usedIn> .
+
+ex:ChronologicalSystemsToTimeUnits a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:ChronologicalSystems ;
+    rdfs:range ex:TimeUnits ;
+    rdfs:subPropertyOf <dul:organize> .
+
+ex:CoordinatedTimingToTemporalHarmony a owl:ObjectProperty ;
+    rdfs:comment "exemplifies" ;
+    rdfs:domain ex:CoordinatedTiming ;
+    rdfs:range ex:TemporalHarmony ;
+    rdfs:subPropertyOf <dul:exemplifies> .
+
+ex:CyclicalOccurrencesToTemporalCycles a owl:ObjectProperty ;
+    rdfs:comment "manifest" ;
+    rdfs:domain ex:CyclicalOccurrences ;
+    rdfs:range ex:TemporalCycles ;
+    rdfs:subPropertyOf <dul:manifest> .
+
+ex:CyclicalPatternsToTemporalRhythms a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:CyclicalPatterns ;
+    rdfs:range ex:TemporalRhythms ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:FlexibilityStrategiesToTemporalUncertainties a owl:ObjectProperty ;
+    rdfs:comment "address" ;
+    rdfs:domain ex:FlexibilityStrategies ;
+    rdfs:range ex:TemporalUncertainties ;
+    rdfs:subPropertyOf <dul:address> .
+
+ex:PeriodicPhenomenaToTemporalCycles a owl:ObjectProperty ;
+    rdfs:comment "exemplify" ;
+    rdfs:domain ex:PeriodicPhenomena ;
+    rdfs:range ex:TemporalCycles ;
+    rdfs:subPropertyOf <dul:exemplify> .
+
+ex:RecurringEventsToTemporalRhythms a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:RecurringEvents ;
+    rdfs:range ex:TemporalRhythms ;
+    rdfs:subPropertyOf <dul:follow> .
+
+ex:RhythmRecognizerToCyclicalPatterns a owl:ObjectProperty ;
+    rdfs:comment "identifies" ;
+    rdfs:domain ex:RhythmRecognizer ;
+    rdfs:range ex:CyclicalPatterns ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:RhythmicSequencesToTemporalRegularities a owl:ObjectProperty ;
+    rdfs:comment "represent" ;
+    rdfs:domain ex:RhythmicSequences ;
+    rdfs:range ex:TemporalRegularities ;
+    rdfs:subPropertyOf <dul:represent> .
+
+ex:SchedulingMethodsToTemporalEvents a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:SchedulingMethods ;
+    rdfs:range ex:TemporalEvents ;
+    rdfs:subPropertyOf <dul:enable> .
+
+ex:SubjectiveTimeToTemporalAwareness a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:SubjectiveTime ;
+    rdfs:range ex:TemporalAwareness ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:SynchronizationMethodsToTimingProtocols a owl:ObjectProperty ;
+    rdfs:comment "realize" ;
+    rdfs:domain ex:SynchronizationMethods ;
+    rdfs:range ex:TimingProtocols ;
+    rdfs:subPropertyOf <dul:realize> .
+
+ex:TemporalAdaptabilityToResponsiveFlexibility a owl:ObjectProperty ;
+    rdfs:comment "characterizes" ;
+    rdfs:domain ex:TemporalAdaptability ;
+    rdfs:range ex:ResponsiveFlexibility ;
+    rdfs:subPropertyOf <dul:characterizes> .
+
+ex:TemporalAlignmentToTimingCoordination a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:TemporalAlignment ;
+    rdfs:range ex:TimingCoordination ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:TemporalCoordinatorToMultipleActors a owl:ObjectProperty ;
+    rdfs:comment "aligns" ;
+    rdfs:domain ex:TemporalCoordinator ;
+    rdfs:range ex:MultipleActors ;
+    rdfs:subPropertyOf <dul:aligns> .
+
+ex:TemporalCyclesToSeasonalPatterns a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:TemporalCycles ;
+    rdfs:range ex:SeasonalPatterns ;
+    rdfs:subPropertyOf <dul:include> .
+
+ex:TemporalDurationToTemporalContext a owl:ObjectProperty ;
+    rdfs:comment "influenced by" ;
+    rdfs:domain ex:TemporalDuration ;
+    rdfs:range ex:TemporalContext ;
+    rdfs:subPropertyOf <dul:influencedBy> .
+
+ex:TemporalExperiencerToTimePassage a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:TemporalExperiencer ;
+    rdfs:range ex:TimePassage ;
+    rdfs:subPropertyOf <dul:experiences> .
+
+ex:TemporalFlexibilityToTimingAdjustments a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:TemporalFlexibility ;
+    rdfs:range ex:TimingAdjustments ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:TemporalOrganizationToTimeManagement a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:TemporalOrganization ;
+    rdfs:range ex:TimeManagement ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:TemporalSequencesToCalendarSystems a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:TemporalSequences ;
+    rdfs:range ex:CalendarSystems ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:TemporalStructureScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:TemporalStructureScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:TemporalStructureScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:TemporalStructureScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:TemporalStructureScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:TemporalSynchronizationToConcurrentActivities a owl:ObjectProperty ;
+    rdfs:comment "aligns" ;
+    rdfs:domain ex:TemporalSynchronization ;
+    rdfs:range ex:ConcurrentActivities ;
+    rdfs:subPropertyOf <dul:aligns> .
+
+ex:TimeDistortionToDurationVariations a owl:ObjectProperty ;
+    rdfs:comment "causes" ;
+    rdfs:domain ex:TimeDistortion ;
+    rdfs:range ex:DurationVariations ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:TimeManagementToTemporalEvents a owl:ObjectProperty ;
+    rdfs:comment "applies to" ;
+    rdfs:domain ex:TimeManagement ;
+    rdfs:range ex:TemporalEvents ;
+    rdfs:subPropertyOf <dul:appliesTo> .
+
+ex:TimeOrganizerToTemporalFrameworks a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:TimeOrganizer ;
+    rdfs:range ex:TemporalFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:TimePassageToTemporalDuration a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:TimePassage ;
+    rdfs:range ex:TemporalDuration ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:TimeUnitsToTemporalSequences a owl:ObjectProperty ;
+    rdfs:comment "used in" ;
+    rdfs:domain ex:TimeUnits ;
+    rdfs:range ex:TemporalSequences ;
+    rdfs:subPropertyOf <dul:usedIn> .
+
+ex:TimingAdapterToAdaptiveTiming a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:TimingAdapter ;
+    rdfs:range ex:AdaptiveTiming ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:TimingAdjustmentsToScheduleStability a owl:ObjectProperty ;
+    rdfs:comment "maintain" ;
+    rdfs:domain ex:TimingAdjustments ;
+    rdfs:range ex:ScheduleStability ;
+    rdfs:subPropertyOf <dul:maintain> .
+
+ex:TimingConflictsToTemporalHarmony a owl:ObjectProperty ;
+    rdfs:comment "disrupt" ;
+    rdfs:domain ex:TimingConflicts ;
+    rdfs:range ex:TemporalHarmony ;
+    rdfs:subPropertyOf <dul:disrupt> .
+
+ex:TimingCoordinationToSynchronizationMethods a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:TimingCoordination ;
+    rdfs:range ex:SynchronizationMethods ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:ActivityEngagement a owl:Class ;
+    rdfs:label "ActivityEngagement" ;
+    rdfs:comment "Level of involvement and attention devoted to current activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ChangingCircumstances a owl:Class ;
+    rdfs:label "ChangingCircumstances" ;
+    rdfs:comment "Evolving conditions that affect temporal planning" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:ChronologicalSystems a owl:Class ;
+    rdfs:label "ChronologicalSystems" ;
+    rdfs:comment "Ordered arrangements for measuring and tracking time" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConcurrentActivities a owl:Class ;
+    rdfs:label "ConcurrentActivities" ;
+    rdfs:comment "Activities happening simultaneously that need coordination" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CoordinatedTiming a owl:Class ;
+    rdfs:label "CoordinatedTiming" ;
+    rdfs:comment "Successfully synchronized temporal relationships" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CyclicalOccurrences a owl:Class ;
+    rdfs:label "CyclicalOccurrences" ;
+    rdfs:comment "Events that happen as part of recurring temporal cycles" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:DurationVariations a owl:Class ;
+    rdfs:label "DurationVariations" ;
+    rdfs:comment "Differences in perceived length of similar objective time periods" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:FlexibilityStrategies a owl:Class ;
+    rdfs:label "FlexibilityStrategies" ;
+    rdfs:comment "Approaches for maintaining temporal adaptability" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MultipleActors a owl:Class ;
+    rdfs:label "MultipleActors" ;
+    rdfs:comment "Different people or groups requiring temporal coordination" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PeriodicPhenomena a owl:Class ;
+    rdfs:label "PeriodicPhenomena" ;
+    rdfs:comment "Natural or cultural occurrences that follow cyclical timing" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:RecurringEvents a owl:Class ;
+    rdfs:label "RecurringEvents" ;
+    rdfs:comment "Events that happen repeatedly according to temporal patterns" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ResponsiveFlexibility a owl:Class ;
+    rdfs:label "ResponsiveFlexibility" ;
+    rdfs:comment "Ability to adjust timing appropriately to circumstances" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:RhythmRecognizer a owl:Class ;
+    rdfs:label "RhythmRecognizer" ;
+    rdfs:comment "Person identifying and understanding cyclical temporal patterns" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:RhythmicSequences a owl:Class ;
+    rdfs:label "RhythmicSequences" ;
+    rdfs:comment "Ordered patterns of temporal intervals" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ScheduleStability a owl:Class ;
+    rdfs:label "ScheduleStability" ;
+    rdfs:comment "Maintenance of reliable temporal structure" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SeasonalPatterns a owl:Class ;
+    rdfs:label "SeasonalPatterns" ;
+    rdfs:comment "Cyclical changes associated with annual environmental cycles" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SubjectiveTime a owl:Class ;
+    rdfs:label "SubjectiveTime" ;
+    rdfs:comment "Personal, experiential sense of temporal flow and duration" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalAdaptability a owl:Class ;
+    rdfs:label "TemporalAdaptability" ;
+    rdfs:comment "Capacity to modify timing as needed" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalAlignment a owl:Class ;
+    rdfs:label "TemporalAlignment" ;
+    rdfs:comment "Proper timing relationships between activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalAwareness a owl:Class ;
+    rdfs:label "TemporalAwareness" ;
+    rdfs:comment "Conscious attention to temporal experience and passage" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalContext a owl:Class ;
+    rdfs:label "TemporalContext" ;
+    rdfs:comment "Situational factors affecting temporal perception" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalCoordinator a owl:Class ;
+    rdfs:label "TemporalCoordinator" ;
+    rdfs:comment "Person managing timing and synchronization across multiple activities" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TemporalExperiencer a owl:Class ;
+    rdfs:label "TemporalExperiencer" ;
+    rdfs:comment "Person experiencing and perceiving temporal duration subjectively" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TemporalFlexibility a owl:Class ;
+    rdfs:label "TemporalFlexibility" ;
+    rdfs:comment "Ability to adjust timing in response to circumstances" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalFrameworks a owl:Class ;
+    rdfs:label "TemporalFrameworks" ;
+    rdfs:comment "Systematic structures for understanding and organizing time" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TemporalOrganization a owl:Class ;
+    rdfs:label "TemporalOrganization" ;
+    rdfs:comment "Structured arrangement of time periods and temporal relationships" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalPerception a owl:Class ;
+    rdfs:label "TemporalPerception" ;
+    rdfs:comment "Cognitive processing of temporal information and duration" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalRegularities a owl:Class ;
+    rdfs:label "TemporalRegularities" ;
+    rdfs:comment "Predictable aspects of cyclical time patterns" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalSynchronization a owl:Class ;
+    rdfs:label "TemporalSynchronization" ;
+    rdfs:comment "Aligning activities and events in time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalUncertainties a owl:Class ;
+    rdfs:label "TemporalUncertainties" ;
+    rdfs:comment "Unknown factors that may affect timing" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:TimeDistortion a owl:Class ;
+    rdfs:label "TimeDistortion" ;
+    rdfs:comment "Alterations in perceived duration relative to objective time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimeOrganizer a owl:Class ;
+    rdfs:label "TimeOrganizer" ;
+    rdfs:comment "Person creating systematic structures for organizing temporal experience" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TimingAdapter a owl:Class ;
+    rdfs:label "TimingAdapter" ;
+    rdfs:comment "Person managing flexible and adaptive temporal arrangements" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TimingConflicts a owl:Class ;
+    rdfs:label "TimingConflicts" ;
+    rdfs:comment "Clashes or incompatibilities in temporal scheduling" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:TimingProtocols a owl:Class ;
+    rdfs:label "TimingProtocols" ;
+    rdfs:comment "Established procedures for temporal coordination" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:AdaptiveTiming a owl:Class ;
+    rdfs:label "AdaptiveTiming" ;
+    rdfs:comment "Modifying temporal arrangements based on changing needs" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CalendarSystems a owl:Class ;
+    rdfs:label "CalendarSystems" ;
+    rdfs:comment "Systematic methods for organizing longer time periods" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CyclicalPatterns a owl:Class ;
+    rdfs:label "CyclicalPatterns" ;
+    rdfs:comment "Recurring temporal arrangements that repeat over time" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SchedulingMethods a owl:Class ;
+    rdfs:label "SchedulingMethods" ;
+    rdfs:comment "Techniques for organizing activities within temporal frameworks" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SynchronizationMethods a owl:Class ;
+    rdfs:label "SynchronizationMethods" ;
+    rdfs:comment "Techniques for aligning temporal activities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalDuration a owl:Class ;
+    rdfs:label "TemporalDuration" ;
+    rdfs:comment "Experienced length of time periods" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalEvents a owl:Class ;
+    rdfs:label "TemporalEvents" ;
+    rdfs:comment "Occurrences situated within time structures" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:TemporalHarmony a owl:Class ;
+    rdfs:label "TemporalHarmony" ;
+    rdfs:comment "Smooth coordination of temporal activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalRhythms a owl:Class ;
+    rdfs:label "TemporalRhythms" ;
+    rdfs:comment "Regular temporal beats or patterns of occurrence" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalSequences a owl:Class ;
+    rdfs:label "TemporalSequences" ;
+    rdfs:comment "Ordered progressions of time periods or events" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TimeManagement a owl:Class ;
+    rdfs:label "TimeManagement" ;
+    rdfs:comment "Systematic use of temporal organization for efficient activity coordination" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimePassage a owl:Class ;
+    rdfs:label "TimePassage" ;
+    rdfs:comment "Subjective experience of time flowing or progressing" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimeUnits a owl:Class ;
+    rdfs:label "TimeUnits" ;
+    rdfs:comment "Discrete measurements of temporal duration" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TimingAdjustments a owl:Class ;
+    rdfs:label "TimingAdjustments" ;
+    rdfs:comment "Modifications to temporal arrangements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimingCoordination a owl:Class ;
+    rdfs:label "TimingCoordination" ;
+    rdfs:comment "Managing temporal relationships between different activities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalCycles a owl:Class ;
+    rdfs:label "TemporalCycles" ;
+    rdfs:comment "Complete sequences of recurring temporal patterns" ;
+    rdfs:subClassOf <dul:InformationObject> .
+

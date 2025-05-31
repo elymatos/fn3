@@ -1,0 +1,212 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix emo: <http://example.org/gemini/psychological/emotion#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+emo: ns1:imports dul: .
+
+emo:AffectiveContagionContext a dul:Situation ;
+    dul:hasParticipant emo:InteractingAgents ;
+    dul:hasSetting emo:ContagionProcess,
+        emo:ObservedEmotion,
+        emo:SharedEmotion .
+
+emo:EmotionRegulationContext a dul:Situation ;
+    dul:hasParticipant emo:RegulatingAgent ;
+    dul:hasSetting emo:CopingAction,
+        emo:RegulatedEmotion,
+        emo:RegulationStrategy .
+
+emo:EmotionalExpressionContext a dul:Situation ;
+    dul:hasParticipant emo:ObservedAgent ;
+    dul:hasSetting emo:EmotionalCue,
+        emo:ExpressiveBehavior,
+        emo:RecognitionProcess .
+
+emo:EmotionalMemoryContext a dul:Situation ;
+    dul:hasSetting emo:AssociatedFeeling,
+        emo:EmotionalEvent,
+        emo:MemoryAssociation,
+        emo:MemoryContext .
+
+emo:MoodFluctuationContext a dul:Situation ;
+    dul:hasSetting emo:FluctuationCycle,
+        emo:MoodRegulation,
+        emo:MoodState,
+        emo:TemporalPattern .
+
+emo:activates a ns1:ObjectProperty ;
+    rdfs:domain emo:AffectiveTrigger ;
+    rdfs:range emo:RegulatedEmotion ;
+    rdfs:subPropertyOf dul:hasCause .
+
+emo:anchoredIn a ns1:ObjectProperty ;
+    rdfs:domain emo:MemoryAssociation ;
+    rdfs:range emo:MemoryContext ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+emo:detects a ns1:ObjectProperty ;
+    rdfs:domain emo:RecognitionProcess ;
+    rdfs:range emo:EmotionalCue ;
+    rdfs:subPropertyOf dul:hasObject .
+
+emo:emergesAmong a ns1:ObjectProperty ;
+    rdfs:domain emo:AffectiveSynchronization ;
+    rdfs:range emo:InteractingAgents ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+emo:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain emo:RegulatingAgent ;
+    rdfs:range emo:RegulationStrategy ;
+    rdfs:subPropertyOf dul:hasTask .
+
+emo:experiencedIn a ns1:ObjectProperty ;
+    rdfs:domain emo:SharedEmotion ;
+    rdfs:range emo:AffectiveSynchronization ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+emo:expresses a ns1:ObjectProperty ;
+    rdfs:domain emo:ExpressiveBehavior ;
+    rdfs:range emo:EmotionState ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+emo:fluctuatesWithin a ns1:ObjectProperty ;
+    rdfs:domain emo:MoodState ;
+    rdfs:range emo:FluctuationCycle ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+emo:induces a ns1:ObjectProperty ;
+    rdfs:domain emo:ContagionProcess ;
+    rdfs:range emo:SharedEmotion ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:infers a ns1:ObjectProperty ;
+    rdfs:domain emo:RecognitionProcess ;
+    rdfs:range emo:EmotionState ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+emo:influences a ns1:ObjectProperty ;
+    rdfs:domain emo:EnvironmentalCue ;
+    rdfs:range emo:MoodState ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:linkedTo a ns1:ObjectProperty ;
+    rdfs:domain emo:MemoryAssociation ;
+    rdfs:range emo:AssociatedFeeling ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+emo:modifies a ns1:ObjectProperty ;
+    rdfs:domain emo:CopingAction ;
+    rdfs:range emo:RegulatedEmotion ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:patternedBy a ns1:ObjectProperty ;
+    rdfs:domain emo:MoodState ;
+    rdfs:range emo:TemporalPattern ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+emo:performs a ns1:ObjectProperty ;
+    rdfs:domain emo:ObservedAgent ;
+    rdfs:range emo:ExpressiveBehavior ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+emo:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain emo:RegulationStrategy ;
+    rdfs:range emo:CopingAction ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:retrieves a ns1:ObjectProperty ;
+    rdfs:domain emo:EmotionalRecall ;
+    rdfs:range emo:MemoryAssociation ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+emo:stabilizes a ns1:ObjectProperty ;
+    rdfs:domain emo:MoodRegulation ;
+    rdfs:range emo:MoodState ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:storedAs a ns1:ObjectProperty ;
+    rdfs:domain emo:EmotionalEvent ;
+    rdfs:range emo:MemoryAssociation ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+emo:transferredThrough a ns1:ObjectProperty ;
+    rdfs:domain emo:ObservedEmotion ;
+    rdfs:range emo:ContagionProcess ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+emo:AffectiveTrigger a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:EmotionalRecall a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:EnvironmentalCue a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:AffectiveSynchronization a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+
+emo:AssociatedFeeling a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:EmotionState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:EmotionalCue a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:EmotionalEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:FluctuationCycle a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:InteractingAgents a ns1:Class ;
+    rdfs:subClassOf dul:Agent .
+
+emo:MemoryContext a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:MoodRegulation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:ObservedAgent a ns1:Class ;
+    rdfs:subClassOf dul:Agent .
+
+emo:ObservedEmotion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:RegulatingAgent a ns1:Class ;
+    rdfs:subClassOf dul:Agent .
+
+emo:TemporalPattern a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:ContagionProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:CopingAction a ns1:Class ;
+    rdfs:subClassOf dul:Action .
+
+emo:ExpressiveBehavior a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:RecognitionProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:RegulatedEmotion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:RegulationStrategy a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:SharedEmotion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:MemoryAssociation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+emo:MoodState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+

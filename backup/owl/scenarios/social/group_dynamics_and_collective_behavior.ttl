@@ -1,0 +1,383 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:ActionStrategiesToCampaignTactics a owl:ObjectProperty ;
+    rdfs:comment "operationalized by" ;
+    rdfs:domain ex:ActionStrategies ;
+    rdfs:range ex:CampaignTactics ;
+    rdfs:subPropertyOf <dul:operationalizedBy> .
+
+ex:ActivistMobilizationToMovementBuilding a owl:ObjectProperty ;
+    rdfs:comment "initiates" ;
+    rdfs:domain ex:ActivistMobilization ;
+    rdfs:range ex:MovementBuilding ;
+    rdfs:subPropertyOf <dul:initiates> .
+
+ex:AuthorityPatternsToInfluenceStrategies a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:AuthorityPatterns ;
+    rdfs:range ex:InfluenceStrategies ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:CollectiveActionToGroupDirection a owl:ObjectProperty ;
+    rdfs:comment "realizes" ;
+    rdfs:domain ex:CollectiveAction ;
+    rdfs:range ex:GroupDirection ;
+    rdfs:subPropertyOf <dul:realizes> .
+
+ex:CollectiveEmotionsToMassParticipants a owl:ObjectProperty ;
+    rdfs:comment "shared by" ;
+    rdfs:domain ex:CollectiveEmotions ;
+    rdfs:range ex:MassParticipants ;
+    rdfs:subPropertyOf <dul:sharedBy> .
+
+ex:CrowdDynamicsToMassMovements a owl:ObjectProperty ;
+    rdfs:comment "emerge in" ;
+    rdfs:domain ex:CrowdDynamics ;
+    rdfs:range ex:MassMovements ;
+    rdfs:subPropertyOf <dul:emergeIn> .
+
+ex:EmergentPropertiesToCrowdDynamics a owl:ObjectProperty ;
+    rdfs:comment "arise from" ;
+    rdfs:domain ex:EmergentProperties ;
+    rdfs:range ex:CrowdDynamics ;
+    rdfs:subPropertyOf <dul:ariseFrom> .
+
+ex:ExclusionMechanismsToGroupBoundaries a owl:ObjectProperty ;
+    rdfs:comment "enforce" ;
+    rdfs:domain ex:ExclusionMechanisms ;
+    rdfs:range ex:GroupBoundaries ;
+    rdfs:subPropertyOf <dul:enforce> .
+
+ex:GroupCohesionToInclusionProcesses a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:GroupCohesion ;
+    rdfs:range ex:InclusionProcesses ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:GroupDecisionsToCollectiveActions a owl:ObjectProperty ;
+    rdfs:comment "direct" ;
+    rdfs:domain ex:GroupDecisions ;
+    rdfs:range ex:CollectiveActions ;
+    rdfs:subPropertyOf <dul:direct> .
+
+ex:GroupDirectionToGroupDecisions a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:GroupDirection ;
+    rdfs:range ex:GroupDecisions ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:GroupDynamicsScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:GroupDynamicsScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:GroupDynamicsScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:GroupDynamicsScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:GroupDynamicsScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:GroupFormationToSocialGroups a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:GroupFormation ;
+    rdfs:range ex:SocialGroups ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:GroupIdentityToGroupFormation a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:GroupIdentity ;
+    rdfs:range ex:GroupFormation ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:GroupLeadersToSocialCollectives a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:GroupLeaders ;
+    rdfs:range ex:SocialCollectives ;
+    rdfs:subPropertyOf <dul:guide> .
+
+ex:GroupMembershipToIndividuals a owl:ObjectProperty ;
+    rdfs:comment "applies to" ;
+    rdfs:domain ex:GroupMembership ;
+    rdfs:range ex:Individuals ;
+    rdfs:subPropertyOf <dul:appliesTo> .
+
+ex:GroupMomentumToCollectiveBehavior a owl:ObjectProperty ;
+    rdfs:comment "drives" ;
+    rdfs:domain ex:GroupMomentum ;
+    rdfs:range ex:CollectiveBehavior ;
+    rdfs:subPropertyOf <dul:drives> .
+
+ex:InclusionProcessesToGroupMembership a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:InclusionProcesses ;
+    rdfs:range ex:GroupMembership ;
+    rdfs:subPropertyOf <dul:enable> .
+
+ex:IndividualsToSocialGroups a owl:ObjectProperty ;
+    rdfs:comment "form" ;
+    rdfs:domain ex:Individuals ;
+    rdfs:range ex:SocialGroups ;
+    rdfs:subPropertyOf <dul:form> .
+
+ex:InfluenceProcessesToLeadershipInfluence a owl:ObjectProperty ;
+    rdfs:comment "facilitate" ;
+    rdfs:domain ex:InfluenceProcesses ;
+    rdfs:range ex:LeadershipInfluence ;
+    rdfs:subPropertyOf <dul:facilitate> .
+
+ex:LeadershipInfluenceToFollowerBehavior a owl:ObjectProperty ;
+    rdfs:comment "affects" ;
+    rdfs:domain ex:LeadershipInfluence ;
+    rdfs:range ex:FollowerBehavior ;
+    rdfs:subPropertyOf <dul:affects> .
+
+ex:MassMobilizationToMassParticipants a owl:ObjectProperty ;
+    rdfs:comment "organizes" ;
+    rdfs:domain ex:MassMobilization ;
+    rdfs:range ex:MassParticipants ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:MassParticipantsToCollectiveBehavior a owl:ObjectProperty ;
+    rdfs:comment "engage in" ;
+    rdfs:domain ex:MassParticipants ;
+    rdfs:range ex:CollectiveBehavior ;
+    rdfs:subPropertyOf <dul:engageIn> .
+
+ex:MembershipCriteriaToGroupBoundaries a owl:ObjectProperty ;
+    rdfs:comment "define" ;
+    rdfs:domain ex:MembershipCriteria ;
+    rdfs:range ex:GroupBoundaries ;
+    rdfs:subPropertyOf <dul:define> .
+
+ex:MovementBuildingToSocialMovements a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:MovementBuilding ;
+    rdfs:range ex:SocialMovements ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:MovementOrganizerToSocialMovements a owl:ObjectProperty ;
+    rdfs:comment "leads" ;
+    rdfs:domain ex:MovementOrganizer ;
+    rdfs:range ex:SocialMovements ;
+    rdfs:subPropertyOf <dul:leads> .
+
+ex:MovementSolidarityToLongTermCommitment a owl:ObjectProperty ;
+    rdfs:comment "sustains" ;
+    rdfs:domain ex:MovementSolidarity ;
+    rdfs:range ex:LongTermCommitment ;
+    rdfs:subPropertyOf <dul:sustains> .
+
+ex:SocialChangeToSocialMovements a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:SocialChange ;
+    rdfs:range ex:SocialMovements ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:SocialContagionToCollectiveEmotions a owl:ObjectProperty ;
+    rdfs:comment "amplifies" ;
+    rdfs:domain ex:SocialContagion ;
+    rdfs:range ex:CollectiveEmotions ;
+    rdfs:subPropertyOf <dul:amplifies> .
+
+ex:ActionStrategies a owl:Class ;
+    rdfs:label "ActionStrategies" ;
+    rdfs:comment "Planned approaches to achieving movement goals" ;
+    rdfs:subClassOf <dul:Plan> .
+
+ex:ActivistMobilization a owl:Class ;
+    rdfs:label "ActivistMobilization" ;
+    rdfs:comment "Recruiting and organizing people for movement participation" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AuthorityPatterns a owl:Class ;
+    rdfs:label "AuthorityPatterns" ;
+    rdfs:comment "Recognized structures of legitimate influence" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CampaignTactics a owl:Class ;
+    rdfs:label "CampaignTactics" ;
+    rdfs:comment "Specific methods used to advance movement objectives" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CollectiveAction a owl:Class ;
+    rdfs:label "CollectiveAction" ;
+    rdfs:comment "Coordinated group activities directed toward common social goals" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CollectiveActions a owl:Class ;
+    rdfs:label "CollectiveActions" ;
+    rdfs:comment "Coordinated activities undertaken by groups" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EmergentProperties a owl:Class ;
+    rdfs:label "EmergentProperties" ;
+    rdfs:comment "Group characteristics not present in individuals alone" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:ExclusionMechanisms a owl:Class ;
+    rdfs:label "ExclusionMechanisms" ;
+    rdfs:comment "Processes that keep certain people out of groups" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FollowerBehavior a owl:Class ;
+    rdfs:label "FollowerBehavior" ;
+    rdfs:comment "Responses of group members to leadership" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GroupCohesion a owl:Class ;
+    rdfs:label "GroupCohesion" ;
+    rdfs:comment "Strength of bonds and unity within groups" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:GroupIdentity a owl:Class ;
+    rdfs:label "GroupIdentity" ;
+    rdfs:comment "Shared sense of collective self and group characteristics" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:GroupLeaders a owl:Class ;
+    rdfs:label "GroupLeaders" ;
+    rdfs:comment "People who guide and direct group activities" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:GroupMomentum a owl:Class ;
+    rdfs:label "GroupMomentum" ;
+    rdfs:comment "Building energy and direction in collective behavior" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InfluenceProcesses a owl:Class ;
+    rdfs:label "InfluenceProcesses" ;
+    rdfs:comment "Methods through which leaders affect group behavior" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:InfluenceStrategies a owl:Class ;
+    rdfs:label "InfluenceStrategies" ;
+    rdfs:comment "Approaches leaders use to guide group behavior" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LongTermCommitment a owl:Class ;
+    rdfs:label "LongTermCommitment" ;
+    rdfs:comment "Sustained dedication to movement goals over time" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MassMobilization a owl:Class ;
+    rdfs:label "MassMobilization" ;
+    rdfs:comment "Large-scale coordination of people for collective action" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MassMovements a owl:Class ;
+    rdfs:label "MassMovements" ;
+    rdfs:comment "Large-scale organized efforts involving many participants" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:MembershipCriteria a owl:Class ;
+    rdfs:label "MembershipCriteria" ;
+    rdfs:comment "Standards and requirements for group belonging" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:MovementOrganizer a owl:Class ;
+    rdfs:label "MovementOrganizer" ;
+    rdfs:comment "Person coordinating social movements for collective action" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MovementSolidarity a owl:Class ;
+    rdfs:label "MovementSolidarity" ;
+    rdfs:comment "Unity and mutual support among movement participants" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SocialChange a owl:Class ;
+    rdfs:label "SocialChange" ;
+    rdfs:comment "Transformations in social structures, policies, or cultural norms" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:SocialCollectives a owl:Class ;
+    rdfs:label "SocialCollectives" ;
+    rdfs:comment "Organized groups capable of coordinated action" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:SocialContagion a owl:Class ;
+    rdfs:label "SocialContagion" ;
+    rdfs:comment "Spread of behaviors and emotions through groups" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CollectiveBehavior a owl:Class ;
+    rdfs:label "CollectiveBehavior" ;
+    rdfs:comment "Coordinated actions involving many people simultaneously" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CollectiveEmotions a owl:Class ;
+    rdfs:label "CollectiveEmotions" ;
+    rdfs:comment "Shared emotional states in group settings" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CrowdDynamics a owl:Class ;
+    rdfs:label "CrowdDynamics" ;
+    rdfs:comment "Patterns of behavior specific to large group settings" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GroupBoundaries a owl:Class ;
+    rdfs:label "GroupBoundaries" ;
+    rdfs:comment "Distinctions between group members and non-members" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:GroupDecisions a owl:Class ;
+    rdfs:label "GroupDecisions" ;
+    rdfs:comment "Choices made on behalf of or by the collective" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:GroupDirection a owl:Class ;
+    rdfs:label "GroupDirection" ;
+    rdfs:comment "Overall goals and purposes guiding collective activity" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:GroupFormation a owl:Class ;
+    rdfs:label "GroupFormation" ;
+    rdfs:comment "Development of organized collectives from individual relationships" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GroupMembership a owl:Class ;
+    rdfs:label "GroupMembership" ;
+    rdfs:comment "Belonging to and being recognized as part of a group" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:InclusionProcesses a owl:Class ;
+    rdfs:label "InclusionProcesses" ;
+    rdfs:comment "Mechanisms for bringing new people into groups" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:Individuals a owl:Class ;
+    rdfs:label "Individuals" ;
+    rdfs:comment "People potentially forming or joining social groups" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:LeadershipInfluence a owl:Class ;
+    rdfs:label "LeadershipInfluence" ;
+    rdfs:comment "Exercise of guidance and direction over group members" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MovementBuilding a owl:Class ;
+    rdfs:label "MovementBuilding" ;
+    rdfs:comment "Developing and strengthening social movement organizations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialGroups a owl:Class ;
+    rdfs:label "SocialGroups" ;
+    rdfs:comment "Collections of people with shared identity and purposes" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:MassParticipants a owl:Class ;
+    rdfs:label "MassParticipants" ;
+    rdfs:comment "People involved in large-scale collective behaviors" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SocialMovements a owl:Class ;
+    rdfs:label "SocialMovements" ;
+    rdfs:comment "Organized efforts by groups to create social or political change" ;
+    rdfs:subClassOf <dul:SocialObject> .
+

@@ -1,0 +1,502 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/space-time/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AcceleratingObjectsToAccelerationPatterns a owl:ObjectProperty ;
+    rdfs:comment "undergo" ;
+    rdfs:domain ex:AcceleratingObjects ;
+    rdfs:range ex:AccelerationPatterns ;
+    rdfs:subPropertyOf <dul:undergo> .
+
+ex:AccelerationPatternsToDynamicMotion a owl:ObjectProperty ;
+    rdfs:comment "describe" ;
+    rdfs:domain ex:AccelerationPatterns ;
+    rdfs:range ex:DynamicMotion ;
+    rdfs:subPropertyOf <dul:describe> .
+
+ex:CollisionPotentialsToTrajectoryModeling a owl:ObjectProperty ;
+    rdfs:comment "result from" ;
+    rdfs:domain ex:CollisionPotentials ;
+    rdfs:range ex:TrajectoryModeling ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:CurrentMotionToMotionExtrapolation a owl:ObjectProperty ;
+    rdfs:comment "informs" ;
+    rdfs:domain ex:CurrentMotion ;
+    rdfs:range ex:MotionExtrapolation ;
+    rdfs:subPropertyOf <dul:informs> .
+
+ex:DeceleratingMovementToDynamicMotion a owl:ObjectProperty ;
+    rdfs:comment "modulates" ;
+    rdfs:domain ex:DeceleratingMovement ;
+    rdfs:range ex:DynamicMotion ;
+    rdfs:subPropertyOf <dul:modulates> .
+
+ex:DirectionalMovementToMovingEntities a owl:ObjectProperty ;
+    rdfs:comment "performed by" ;
+    rdfs:domain ex:DirectionalMovement ;
+    rdfs:range ex:MovingEntities ;
+    rdfs:subPropertyOf <dul:performedBy> .
+
+ex:EfficientTrajectoriesToOptimalMotion a owl:ObjectProperty ;
+    rdfs:comment "exemplify" ;
+    rdfs:domain ex:EfficientTrajectories ;
+    rdfs:range ex:OptimalMotion ;
+    rdfs:subPropertyOf <dul:exemplify> .
+
+ex:EnergyExpenditureToEfficiencyMetrics a owl:ObjectProperty ;
+    rdfs:comment "measured by" ;
+    rdfs:domain ex:EnergyExpenditure ;
+    rdfs:range ex:EfficiencyMetrics ;
+    rdfs:subPropertyOf <dul:measuredBy> .
+
+ex:ForceEffectsToVelocityChanges a owl:ObjectProperty ;
+    rdfs:comment "cause" ;
+    rdfs:domain ex:ForceEffects ;
+    rdfs:range ex:VelocityChanges ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:GroupCohesionToSynchronizedMovement a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:GroupCohesion ;
+    rdfs:range ex:SynchronizedMovement ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:GroupMovementToMovingGroups a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:GroupMovement ;
+    rdfs:range ex:MovingGroups ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:MotionAnalysisToDirectionalMovement a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:MotionAnalysis ;
+    rdfs:range ex:DirectionalMovement ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:MotionAnalystToVelocityChanges a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:MotionAnalyst ;
+    rdfs:range ex:VelocityChanges ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:MotionCausationToForceEffects a owl:ObjectProperty ;
+    rdfs:comment "relates" ;
+    rdfs:domain ex:MotionCausation ;
+    rdfs:range ex:ForceEffects ;
+    rdfs:subPropertyOf <dul:relates> .
+
+ex:MotionCoordinationToCoordinationSignals a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:MotionCoordination ;
+    rdfs:range ex:CoordinationSignals ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:MotionDirectionsToDirectionalMovement a owl:ObjectProperty ;
+    rdfs:comment "characterizes" ;
+    rdfs:domain ex:MotionDirections ;
+    rdfs:range ex:DirectionalMovement ;
+    rdfs:subPropertyOf <dul:characterizes> .
+
+ex:MotionExtrapolationToMotionOutcomes a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:MotionExtrapolation ;
+    rdfs:range ex:MotionOutcomes ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:MotionOptimizerToMovementEfficiency a owl:ObjectProperty ;
+    rdfs:comment "improves" ;
+    rdfs:domain ex:MotionOptimizer ;
+    rdfs:range ex:MovementEfficiency ;
+    rdfs:subPropertyOf <dul:improves> .
+
+ex:MotionPerformanceToMotionSystems a owl:ObjectProperty ;
+    rdfs:comment "evaluates" ;
+    rdfs:domain ex:MotionPerformance ;
+    rdfs:range ex:MotionSystems ;
+    rdfs:subPropertyOf <dul:evaluates> .
+
+ex:MotionSystemsToMovementOutput a owl:ObjectProperty ;
+    rdfs:comment "produce" ;
+    rdfs:domain ex:MotionSystems ;
+    rdfs:range ex:MovementOutput ;
+    rdfs:subPropertyOf <dul:produce> .
+
+ex:MotionTrajectoryScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:MotionTrajectoryScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:MotionTrajectoryScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:MotionTrajectoryScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:MotionTrajectoryScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:MovementConflictsToGroupCohesion a owl:ObjectProperty ;
+    rdfs:comment "disrupt" ;
+    rdfs:domain ex:MovementConflicts ;
+    rdfs:range ex:GroupCohesion ;
+    rdfs:subPropertyOf <dul:disrupt> .
+
+ex:MovementCoordinatorToCollectiveMotion a owl:ObjectProperty ;
+    rdfs:comment "coordinates" ;
+    rdfs:domain ex:MovementCoordinator ;
+    rdfs:range ex:CollectiveMotion ;
+    rdfs:subPropertyOf <dul:coordinates> .
+
+ex:MovementOutputToMotionPerformance a owl:ObjectProperty ;
+    rdfs:comment "indicates" ;
+    rdfs:domain ex:MovementOutput ;
+    rdfs:range ex:MotionPerformance ;
+    rdfs:subPropertyOf <dul:indicates> .
+
+ex:MovementSynchronizationToMovingGroups a owl:ObjectProperty ;
+    rdfs:comment "aligns" ;
+    rdfs:domain ex:MovementSynchronization ;
+    rdfs:range ex:MovingGroups ;
+    rdfs:subPropertyOf <dul:aligns> .
+
+ex:MovementTrackerToMovementPatterns a owl:ObjectProperty ;
+    rdfs:comment "observes" ;
+    rdfs:domain ex:MovementTracker ;
+    rdfs:range ex:MovementPatterns ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:MovementTrendsToPredictedPaths a owl:ObjectProperty ;
+    rdfs:comment "inform" ;
+    rdfs:domain ex:MovementTrends ;
+    rdfs:range ex:PredictedPaths ;
+    rdfs:subPropertyOf <dul:inform> .
+
+ex:MovingTargetsToTrajectoryModeling a owl:ObjectProperty ;
+    rdfs:comment "represented in" ;
+    rdfs:domain ex:MovingTargets ;
+    rdfs:range ex:TrajectoryModeling ;
+    rdfs:subPropertyOf <dul:representedIn> .
+
+ex:NavigationalCuesToPathPlanning a owl:ObjectProperty ;
+    rdfs:comment "guides" ;
+    rdfs:domain ex:NavigationalCues ;
+    rdfs:range ex:PathPlanning ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:OptimalMotionToOptimizationStrategies a owl:ObjectProperty ;
+    rdfs:comment "achieved by" ;
+    rdfs:domain ex:OptimalMotion ;
+    rdfs:range ex:OptimizationStrategies ;
+    rdfs:subPropertyOf <dul:achievedBy> .
+
+ex:OptimizationStrategiesToEnergyWaste a owl:ObjectProperty ;
+    rdfs:comment "reduce" ;
+    rdfs:domain ex:OptimizationStrategies ;
+    rdfs:range ex:EnergyWaste ;
+    rdfs:subPropertyOf <dul:reduce> .
+
+ex:PathPlanningToMovementOutcomes a owl:ObjectProperty ;
+    rdfs:comment "determines" ;
+    rdfs:domain ex:PathPlanning ;
+    rdfs:range ex:MovementOutcomes ;
+    rdfs:subPropertyOf <dul:determines> .
+
+ex:PredictedPathsToFuturePositions a owl:ObjectProperty ;
+    rdfs:comment "project" ;
+    rdfs:domain ex:PredictedPaths ;
+    rdfs:range ex:FuturePositions ;
+    rdfs:subPropertyOf <dul:project> .
+
+ex:SpatialReferenceToTrajectoryPaths a owl:ObjectProperty ;
+    rdfs:comment "provides context for" ;
+    rdfs:domain ex:SpatialReference ;
+    rdfs:range ex:TrajectoryPaths ;
+    rdfs:subPropertyOf <dul:providesContextFor> .
+
+ex:SpeedVariationsToMotionDynamics a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:SpeedVariations ;
+    rdfs:range ex:MotionDynamics ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:SynchronizedMovementToMotionCoordination a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:SynchronizedMovement ;
+    rdfs:range ex:MotionCoordination ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:TrajectoryPathsToMovingEntities a owl:ObjectProperty ;
+    rdfs:comment "followed by" ;
+    rdfs:domain ex:TrajectoryPaths ;
+    rdfs:range ex:MovingEntities ;
+    rdfs:subPropertyOf <dul:followedBy> .
+
+ex:TrajectoryPredictorToFuturePositions a owl:ObjectProperty ;
+    rdfs:comment "predicts" ;
+    rdfs:domain ex:TrajectoryPredictor ;
+    rdfs:range ex:FuturePositions ;
+    rdfs:subPropertyOf <dul:predicts> .
+
+ex:AcceleratingObjects a owl:Class ;
+    rdfs:label "AcceleratingObjects" ;
+    rdfs:comment "Things that are increasing their speed or changing direction" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:CollectiveMotion a owl:Class ;
+    rdfs:label "CollectiveMotion" ;
+    rdfs:comment "Coordinated movement involving multiple entities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CollisionPotentials a owl:Class ;
+    rdfs:label "CollisionPotentials" ;
+    rdfs:comment "Anticipated intersections or conflicts between moving objects" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:CoordinationSignals a owl:Class ;
+    rdfs:label "CoordinationSignals" ;
+    rdfs:comment "Cues and indicators that guide group movement" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CurrentMotion a owl:Class ;
+    rdfs:label "CurrentMotion" ;
+    rdfs:comment "Present movement characteristics and trajectory information" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:DeceleratingMovement a owl:Class ;
+    rdfs:label "DeceleratingMovement" ;
+    rdfs:comment "Motion that is slowing down or reducing speed" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EfficiencyMetrics a owl:Class ;
+    rdfs:label "EfficiencyMetrics" ;
+    rdfs:comment "Measures used to evaluate movement performance" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:EfficientTrajectories a owl:Class ;
+    rdfs:label "EfficientTrajectories" ;
+    rdfs:comment "Paths that minimize energy while achieving movement goals" ;
+    rdfs:subClassOf <dul:Path> .
+
+ex:EnergyExpenditure a owl:Class ;
+    rdfs:label "EnergyExpenditure" ;
+    rdfs:comment "Amount of energy consumed in movement" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:EnergyWaste a owl:Class ;
+    rdfs:label "EnergyWaste" ;
+    rdfs:comment "Inefficient use of energy in movement" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:GroupMovement a owl:Class ;
+    rdfs:label "GroupMovement" ;
+    rdfs:comment "Motion of groups as unified entities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionAnalysis a owl:Class ;
+    rdfs:label "MotionAnalysis" ;
+    rdfs:comment "Systematic examination of movement characteristics" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionAnalyst a owl:Class ;
+    rdfs:label "MotionAnalyst" ;
+    rdfs:comment "Person studying the dynamics and changes in motion" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MotionCausation a owl:Class ;
+    rdfs:label "MotionCausation" ;
+    rdfs:comment "Causal relationships between forces and movement changes" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:MotionDirections a owl:Class ;
+    rdfs:label "MotionDirections" ;
+    rdfs:comment "Orientations and headings of movement" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MotionDynamics a owl:Class ;
+    rdfs:label "MotionDynamics" ;
+    rdfs:comment "Forces and factors that create changes in motion" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionOptimizer a owl:Class ;
+    rdfs:label "MotionOptimizer" ;
+    rdfs:comment "Person analyzing and improving movement efficiency" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MotionOutcomes a owl:Class ;
+    rdfs:label "MotionOutcomes" ;
+    rdfs:comment "Final results or destinations of predicted movement" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MovementConflicts a owl:Class ;
+    rdfs:label "MovementConflicts" ;
+    rdfs:comment "Clashes or interference in collective motion" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MovementCoordinator a owl:Class ;
+    rdfs:label "MovementCoordinator" ;
+    rdfs:comment "Person organizing and directing collective movement" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MovementEfficiency a owl:Class ;
+    rdfs:label "MovementEfficiency" ;
+    rdfs:comment "Ratio of useful motion output to energy input" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MovementOutcomes a owl:Class ;
+    rdfs:label "MovementOutcomes" ;
+    rdfs:comment "Results or destinations achieved through movement" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MovementPatterns a owl:Class ;
+    rdfs:label "MovementPatterns" ;
+    rdfs:comment "Characteristic ways in which entities move through space" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MovementSynchronization a owl:Class ;
+    rdfs:label "MovementSynchronization" ;
+    rdfs:comment "Aligning timing and direction of group movement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MovementTracker a owl:Class ;
+    rdfs:label "MovementTracker" ;
+    rdfs:comment "Person observing and analyzing movement and trajectory patterns" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MovementTrends a owl:Class ;
+    rdfs:label "MovementTrends" ;
+    rdfs:comment "Patterns and directions observable in ongoing motion" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MovingTargets a owl:Class ;
+    rdfs:label "MovingTargets" ;
+    rdfs:comment "Objects whose future motion is being predicted" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:NavigationalCues a owl:Class ;
+    rdfs:label "NavigationalCues" ;
+    rdfs:comment "Environmental or spatial information that guides movement" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SpatialReference a owl:Class ;
+    rdfs:label "SpatialReference" ;
+    rdfs:comment "Fixed points or frameworks used for orientation" ;
+    rdfs:subClassOf <dul:ReferenceSystem> .
+
+ex:SpeedVariations a owl:Class ;
+    rdfs:label "SpeedVariations" ;
+    rdfs:comment "Different rates of movement over time" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TrajectoryPredictor a owl:Class ;
+    rdfs:label "TrajectoryPredictor" ;
+    rdfs:comment "Person forecasting future movement paths and positions" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AccelerationPatterns a owl:Class ;
+    rdfs:label "AccelerationPatterns" ;
+    rdfs:comment "Characteristic ways objects change their motion" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:DynamicMotion a owl:Class ;
+    rdfs:label "DynamicMotion" ;
+    rdfs:comment "Movement involving changes in speed or direction" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ForceEffects a owl:Class ;
+    rdfs:label "ForceEffects" ;
+    rdfs:comment "Influences that cause changes in motion" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:FuturePositions a owl:Class ;
+    rdfs:label "FuturePositions" ;
+    rdfs:comment "Anticipated locations where moving objects will be" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:GroupCohesion a owl:Class ;
+    rdfs:label "GroupCohesion" ;
+    rdfs:comment "Unity and coordination within moving groups" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MotionCoordination a owl:Class ;
+    rdfs:label "MotionCoordination" ;
+    rdfs:comment "Managing spatial and temporal aspects of collective motion" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionExtrapolation a owl:Class ;
+    rdfs:label "MotionExtrapolation" ;
+    rdfs:comment "Extending current motion patterns into future predictions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionPerformance a owl:Class ;
+    rdfs:label "MotionPerformance" ;
+    rdfs:comment "Overall effectiveness of movement systems" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MotionSystems a owl:Class ;
+    rdfs:label "MotionSystems" ;
+    rdfs:comment "Organized arrangements that produce movement" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MovementOutput a owl:Class ;
+    rdfs:label "MovementOutput" ;
+    rdfs:comment "Useful motion produced by systems" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MovingEntities a owl:Class ;
+    rdfs:label "MovingEntities" ;
+    rdfs:comment "Objects, people, or phenomena that change position over time" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:MovingGroups a owl:Class ;
+    rdfs:label "MovingGroups" ;
+    rdfs:comment "Collections of entities moving together in coordination" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:OptimalMotion a owl:Class ;
+    rdfs:label "OptimalMotion" ;
+    rdfs:comment "Most efficient possible movement" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:OptimizationStrategies a owl:Class ;
+    rdfs:label "OptimizationStrategies" ;
+    rdfs:comment "Approaches for improving movement efficiency" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PathPlanning a owl:Class ;
+    rdfs:label "PathPlanning" ;
+    rdfs:comment "Determining optimal routes for movement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PredictedPaths a owl:Class ;
+    rdfs:label "PredictedPaths" ;
+    rdfs:comment "Forecasted routes that moving objects will follow" ;
+    rdfs:subClassOf <dul:Path> .
+
+ex:SynchronizedMovement a owl:Class ;
+    rdfs:label "SynchronizedMovement" ;
+    rdfs:comment "Aligned motion of multiple entities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TrajectoryModeling a owl:Class ;
+    rdfs:label "TrajectoryModeling" ;
+    rdfs:comment "Creating models of movement paths" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TrajectoryPaths a owl:Class ;
+    rdfs:label "TrajectoryPaths" ;
+    rdfs:comment "Routes or courses followed by moving entities" ;
+    rdfs:subClassOf <dul:Path> .
+
+ex:VelocityChanges a owl:Class ;
+    rdfs:label "VelocityChanges" ;
+    rdfs:comment "Alterations in speed or direction of movement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DirectionalMovement a owl:Class ;
+    rdfs:label "DirectionalMovement" ;
+    rdfs:comment "Motion oriented toward specific directions or destinations" ;
+    rdfs:subClassOf <dul:Process> .
+

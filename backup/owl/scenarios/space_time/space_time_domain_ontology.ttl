@@ -1,0 +1,1977 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/space-time/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:AcceleratingObjectsToAccelerationPatterns a owl:ObjectProperty ;
+    rdfs:comment "undergo" ;
+    rdfs:domain ex:AcceleratingObjects ;
+    rdfs:range ex:AccelerationPatterns ;
+    rdfs:subPropertyOf <dul:undergo> .
+
+ex:AccelerationPatternsToDynamicMotion a owl:ObjectProperty ;
+    rdfs:comment "describe" ;
+    rdfs:domain ex:AccelerationPatterns ;
+    rdfs:range ex:DynamicMotion ;
+    rdfs:subPropertyOf <dul:describe> .
+
+ex:ActivityEngagementToTemporalPerception a owl:ObjectProperty ;
+    rdfs:comment "modulates" ;
+    rdfs:domain ex:ActivityEngagement ;
+    rdfs:range ex:TemporalPerception ;
+    rdfs:subPropertyOf <dul:modulates> .
+
+ex:AdaptiveResponsesToChangeCorrections a owl:ObjectProperty ;
+    rdfs:comment "implement" ;
+    rdfs:domain ex:AdaptiveResponses ;
+    rdfs:range ex:ChangeCorrections ;
+    rdfs:subPropertyOf <dul:implement> .
+
+ex:AdaptiveTimingToChangingCircumstances a owl:ObjectProperty ;
+    rdfs:comment "responds to" ;
+    rdfs:domain ex:AdaptiveTiming ;
+    rdfs:range ex:ChangingCircumstances ;
+    rdfs:subPropertyOf <dul:respondsTo> .
+
+ex:BoundaryConflictsToTerritorialOrder a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:BoundaryConflicts ;
+    rdfs:range ex:TerritorialOrder ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:BoundaryDefinitionToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:BoundaryDefinition ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:BoundaryMarkersToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "indicate" ;
+    rdfs:domain ex:BoundaryMarkers ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:indicate> .
+
+ex:CalendarSystemsToSchedulingMethods a owl:ObjectProperty ;
+    rdfs:comment "used in" ;
+    rdfs:domain ex:CalendarSystems ;
+    rdfs:range ex:SchedulingMethods ;
+    rdfs:subPropertyOf <dul:usedIn> .
+
+ex:ChangeDetectionToAdaptiveResponses a owl:ObjectProperty ;
+    rdfs:comment "triggers" ;
+    rdfs:domain ex:ChangeDetection ;
+    rdfs:range ex:AdaptiveResponses ;
+    rdfs:subPropertyOf <dul:triggers> .
+
+ex:ChangeImplementationToSuccessfulTransitions a owl:ObjectProperty ;
+    rdfs:comment "facilitates" ;
+    rdfs:domain ex:ChangeImplementation ;
+    rdfs:range ex:SuccessfulTransitions ;
+    rdfs:subPropertyOf <dul:facilitates> .
+
+ex:ChangeManagerToPlannedChanges a owl:ObjectProperty ;
+    rdfs:comment "directs" ;
+    rdfs:domain ex:ChangeManager ;
+    rdfs:range ex:PlannedChanges ;
+    rdfs:subPropertyOf <dul:directs> .
+
+ex:ChangeMonitorToChangeIndicators a owl:ObjectProperty ;
+    rdfs:comment "detects" ;
+    rdfs:domain ex:ChangeMonitor ;
+    rdfs:range ex:ChangeIndicators ;
+    rdfs:subPropertyOf <dul:detects> .
+
+ex:ChangeObserverToDevelopmentalProcesses a owl:ObjectProperty ;
+    rdfs:comment "monitors" ;
+    rdfs:domain ex:ChangeObserver ;
+    rdfs:range ex:DevelopmentalProcesses ;
+    rdfs:subPropertyOf <dul:monitors> .
+
+ex:ChangeOpportunitiesToPositiveChange a owl:ObjectProperty ;
+    rdfs:comment "promote" ;
+    rdfs:domain ex:ChangeOpportunities ;
+    rdfs:range ex:PositiveChange ;
+    rdfs:subPropertyOf <dul:promote> .
+
+ex:ChangeOverTimeScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:ChangeOverTimeScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:ChangeOverTimeScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:ChangeOverTimeScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:ChangeOverTimeScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:ChangePatternsToDevelopmentalProcesses a owl:ObjectProperty ;
+    rdfs:comment "emerge from" ;
+    rdfs:domain ex:ChangePatterns ;
+    rdfs:range ex:DevelopmentalProcesses ;
+    rdfs:subPropertyOf <dul:emergeFrom> .
+
+ex:ChangeResistanceToChangeImplementation a owl:ObjectProperty ;
+    rdfs:comment "impedes" ;
+    rdfs:domain ex:ChangeResistance ;
+    rdfs:range ex:ChangeImplementation ;
+    rdfs:subPropertyOf <dul:impedes> .
+
+ex:ChangeRhythmsToCyclicalChanges a owl:ObjectProperty ;
+    rdfs:comment "characterize" ;
+    rdfs:domain ex:ChangeRhythms ;
+    rdfs:range ex:CyclicalChanges ;
+    rdfs:subPropertyOf <dul:characterize> .
+
+ex:ChangeStrategiesToTransitionPlanning a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:ChangeStrategies ;
+    rdfs:range ex:TransitionPlanning ;
+    rdfs:subPropertyOf <dul:guide> .
+
+ex:ChangeThreatsToSystemStability a owl:ObjectProperty ;
+    rdfs:comment "threaten" ;
+    rdfs:domain ex:ChangeThreats ;
+    rdfs:range ex:SystemStability ;
+    rdfs:subPropertyOf <dul:threaten> .
+
+ex:ChangeThresholdsToSuddenChanges a owl:ObjectProperty ;
+    rdfs:comment "lead to" ;
+    rdfs:domain ex:ChangeThresholds ;
+    rdfs:range ex:SuddenChanges ;
+    rdfs:subPropertyOf <dul:leadTo> .
+
+ex:ChronologicalSystemsToTimeUnits a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:ChronologicalSystems ;
+    rdfs:range ex:TimeUnits ;
+    rdfs:subPropertyOf <dul:organize> .
+
+ex:CollisionPotentialsToTrajectoryModeling a owl:ObjectProperty ;
+    rdfs:comment "result from" ;
+    rdfs:domain ex:CollisionPotentials ;
+    rdfs:range ex:TrajectoryModeling ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:ContainmentRelationsToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "specialize" ;
+    rdfs:domain ex:ContainmentRelations ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:specializes> .
+
+ex:CoordinatedTimingToTemporalHarmony a owl:ObjectProperty ;
+    rdfs:comment "exemplifies" ;
+    rdfs:domain ex:CoordinatedTiming ;
+    rdfs:range ex:TemporalHarmony ;
+    rdfs:subPropertyOf <dul:exemplifies> .
+
+ex:CriticalPointsToTransformationalEvents a owl:ObjectProperty ;
+    rdfs:comment "correspond to" ;
+    rdfs:domain ex:CriticalPoints ;
+    rdfs:range ex:TransformationalEvents ;
+    rdfs:subPropertyOf <dul:correspondTo> .
+
+ex:CurrentMotionToMotionExtrapolation a owl:ObjectProperty ;
+    rdfs:comment "informs" ;
+    rdfs:domain ex:CurrentMotion ;
+    rdfs:range ex:MotionExtrapolation ;
+    rdfs:subPropertyOf <dul:informs> .
+
+ex:CycleTrackerToCyclicalChanges a owl:ObjectProperty ;
+    rdfs:comment "identifies" ;
+    rdfs:domain ex:CycleTracker ;
+    rdfs:range ex:CyclicalChanges ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:CyclicalOccurrencesToTemporalCycles a owl:ObjectProperty ;
+    rdfs:comment "manifest" ;
+    rdfs:domain ex:CyclicalOccurrences ;
+    rdfs:range ex:TemporalCycles ;
+    rdfs:subPropertyOf <dul:manifest> .
+
+ex:CyclicalPatternsToTemporalRhythms a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:CyclicalPatterns ;
+    rdfs:range ex:TemporalRhythms ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:CyclicalPredictabilityToTemporalRecurrence a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:CyclicalPredictability ;
+    rdfs:range ex:TemporalRecurrence ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:CyclicalTrendsToCyclicalChanges a owl:ObjectProperty ;
+    rdfs:comment "pattern of" ;
+    rdfs:domain ex:CyclicalTrends ;
+    rdfs:range ex:CyclicalChanges ;
+    rdfs:subPropertyOf <dul:patternOf> .
+
+ex:DeceleratingMovementToDynamicMotion a owl:ObjectProperty ;
+    rdfs:comment "modulates" ;
+    rdfs:domain ex:DeceleratingMovement ;
+    rdfs:range ex:DynamicMotion ;
+    rdfs:subPropertyOf <dul:modulates> .
+
+ex:DevelopmentalTrendsToProcessContinuity a owl:ObjectProperty ;
+    rdfs:comment "indicate" ;
+    rdfs:domain ex:DevelopmentalTrends ;
+    rdfs:range ex:ProcessContinuity ;
+    rdfs:subPropertyOf <dul:indicate> .
+
+ex:DirectionalMovementToMovingEntities a owl:ObjectProperty ;
+    rdfs:comment "performed by" ;
+    rdfs:domain ex:DirectionalMovement ;
+    rdfs:range ex:MovingEntities ;
+    rdfs:subPropertyOf <dul:performedBy> .
+
+ex:DirectionalOrientationsToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "specialize" ;
+    rdfs:domain ex:DirectionalOrientations ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:specializes> .
+
+ex:DistanceRelationsToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "specialize" ;
+    rdfs:domain ex:DistanceRelations ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:specializes> .
+
+ex:EfficiencyFactorsToSpatialEfficiency a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:EfficiencyFactors ;
+    rdfs:range ex:SpatialEfficiency ;
+    rdfs:subPropertyOf <dul:contributeTo> .
+
+ex:EfficientTrajectoriesToOptimalMotion a owl:ObjectProperty ;
+    rdfs:comment "exemplify" ;
+    rdfs:domain ex:EfficientTrajectories ;
+    rdfs:range ex:OptimalMotion ;
+    rdfs:subPropertyOf <dul:exemplify> .
+
+ex:EnergyExpenditureToEfficiencyMetrics a owl:ObjectProperty ;
+    rdfs:comment "measured by" ;
+    rdfs:domain ex:EnergyExpenditure ;
+    rdfs:range ex:EfficiencyMetrics ;
+    rdfs:subPropertyOf <dul:measuredBy> .
+
+ex:EvolutionarySequencesToDevelopmentalProcesses a owl:ObjectProperty ;
+    rdfs:comment "describe" ;
+    rdfs:domain ex:EvolutionarySequences ;
+    rdfs:range ex:DevelopmentalProcesses ;
+    rdfs:subPropertyOf <dul:describe> .
+
+ex:EvolvingSystemsToTransformationPhases a owl:ObjectProperty ;
+    rdfs:comment "undergo" ;
+    rdfs:domain ex:EvolvingSystems ;
+    rdfs:range ex:TransformationPhases ;
+    rdfs:subPropertyOf <dul:undergo> .
+
+ex:FlexibilityStrategiesToTemporalUncertainties a owl:ObjectProperty ;
+    rdfs:comment "address" ;
+    rdfs:domain ex:FlexibilityStrategies ;
+    rdfs:range ex:TemporalUncertainties ;
+    rdfs:subPropertyOf <dul:address> .
+
+ex:ForceEffectsToVelocityChanges a owl:ObjectProperty ;
+    rdfs:comment "cause" ;
+    rdfs:domain ex:ForceEffects ;
+    rdfs:range ex:VelocityChanges ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:FunctionalLayoutsToLayoutPlanning a owl:ObjectProperty ;
+    rdfs:comment "result from" ;
+    rdfs:domain ex:FunctionalLayouts ;
+    rdfs:range ex:LayoutPlanning ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:GeographicEnvironmentsToSpatialExploration a owl:ObjectProperty ;
+    rdfs:comment "contextualize" ;
+    rdfs:domain ex:GeographicEnvironments ;
+    rdfs:range ex:SpatialExploration ;
+    rdfs:subPropertyOf <dul:contextualize> .
+
+ex:GradualChangesToEvolvingSystems a owl:ObjectProperty ;
+    rdfs:comment "occur in" ;
+    rdfs:domain ex:GradualChanges ;
+    rdfs:range ex:EvolvingSystems ;
+    rdfs:subPropertyOf <dul:occurIn> .
+
+ex:GroupCohesionToSynchronizedMovement a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:GroupCohesion ;
+    rdfs:range ex:SynchronizedMovement ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:GroupMovementToMovingGroups a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:GroupMovement ;
+    rdfs:range ex:MovingGroups ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:HarmoniousArrangementsToOptimalConfigurations a owl:ObjectProperty ;
+    rdfs:comment "realize" ;
+    rdfs:domain ex:HarmoniousArrangements ;
+    rdfs:range ex:OptimalConfigurations ;
+    rdfs:subPropertyOf <dul:realize> .
+
+ex:HierarchicalOrganizationToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "describes" ;
+    rdfs:domain ex:HierarchicalOrganization ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:describes> .
+
+ex:LandmarkIdentificationToRouteMemorization a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:LandmarkIdentification ;
+    rdfs:range ex:RouteMemorization ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:LayoutDesignerToOptimalConfigurations a owl:ObjectProperty ;
+    rdfs:comment "plans" ;
+    rdfs:domain ex:LayoutDesigner ;
+    rdfs:range ex:OptimalConfigurations ;
+    rdfs:subPropertyOf <dul:plans> .
+
+ex:LayoutPlanningToDesignPrinciples a owl:ObjectProperty ;
+    rdfs:comment "guided by" ;
+    rdfs:domain ex:LayoutPlanning ;
+    rdfs:range ex:DesignPrinciples ;
+    rdfs:subPropertyOf <dul:guidedBy> .
+
+ex:MacroscaleStructuresToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "included in" ;
+    rdfs:domain ex:MacroscaleStructures ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:includedIn> .
+
+ex:MicroscaleFeaturesToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "included in" ;
+    rdfs:domain ex:MicroscaleFeatures ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:includedIn> .
+
+ex:MonitoringMethodsToChangeDetection a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:MonitoringMethods ;
+    rdfs:range ex:ChangeDetection ;
+    rdfs:subPropertyOf <dul:enable> .
+
+ex:MotionAnalysisToDirectionalMovement a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:MotionAnalysis ;
+    rdfs:range ex:DirectionalMovement ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:MotionAnalystToVelocityChanges a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:MotionAnalyst ;
+    rdfs:range ex:VelocityChanges ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:MotionCausationToForceEffects a owl:ObjectProperty ;
+    rdfs:comment "relates" ;
+    rdfs:domain ex:MotionCausation ;
+    rdfs:range ex:ForceEffects ;
+    rdfs:subPropertyOf <dul:relates> .
+
+ex:MotionCoordinationToCoordinationSignals a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:MotionCoordination ;
+    rdfs:range ex:CoordinationSignals ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:MotionDirectionsToDirectionalMovement a owl:ObjectProperty ;
+    rdfs:comment "characterizes" ;
+    rdfs:domain ex:MotionDirections ;
+    rdfs:range ex:DirectionalMovement ;
+    rdfs:subPropertyOf <dul:characterizes> .
+
+ex:MotionExtrapolationToMotionOutcomes a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:MotionExtrapolation ;
+    rdfs:range ex:MotionOutcomes ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:MotionOptimizerToMovementEfficiency a owl:ObjectProperty ;
+    rdfs:comment "improves" ;
+    rdfs:domain ex:MotionOptimizer ;
+    rdfs:range ex:MovementEfficiency ;
+    rdfs:subPropertyOf <dul:improves> .
+
+ex:MotionPerformanceToMotionSystems a owl:ObjectProperty ;
+    rdfs:comment "evaluates" ;
+    rdfs:domain ex:MotionPerformance ;
+    rdfs:range ex:MotionSystems ;
+    rdfs:subPropertyOf <dul:evaluates> .
+
+ex:MotionSystemsToMovementOutput a owl:ObjectProperty ;
+    rdfs:comment "produce" ;
+    rdfs:domain ex:MotionSystems ;
+    rdfs:range ex:MovementOutput ;
+    rdfs:subPropertyOf <dul:produce> .
+
+ex:MotionTrajectoryScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:MotionTrajectoryScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:MotionTrajectoryScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:MotionTrajectoryScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:MotionTrajectoryScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:MovementConflictsToGroupCohesion a owl:ObjectProperty ;
+    rdfs:comment "disrupt" ;
+    rdfs:domain ex:MovementConflicts ;
+    rdfs:range ex:GroupCohesion ;
+    rdfs:subPropertyOf <dul:disrupt> .
+
+ex:MovementCoordinatorToCollectiveMotion a owl:ObjectProperty ;
+    rdfs:comment "coordinates" ;
+    rdfs:domain ex:MovementCoordinator ;
+    rdfs:range ex:CollectiveMotion ;
+    rdfs:subPropertyOf <dul:coordinates> .
+
+ex:MovementOutputToMotionPerformance a owl:ObjectProperty ;
+    rdfs:comment "indicates" ;
+    rdfs:domain ex:MovementOutput ;
+    rdfs:range ex:MotionPerformance ;
+    rdfs:subPropertyOf <dul:indicates> .
+
+ex:MovementSynchronizationToMovingGroups a owl:ObjectProperty ;
+    rdfs:comment "aligns" ;
+    rdfs:domain ex:MovementSynchronization ;
+    rdfs:range ex:MovingGroups ;
+    rdfs:subPropertyOf <dul:aligns> .
+
+ex:MovementTrackerToMovementPatterns a owl:ObjectProperty ;
+    rdfs:comment "observes" ;
+    rdfs:domain ex:MovementTracker ;
+    rdfs:range ex:MovementPatterns ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:MovementTrendsToPredictedPaths a owl:ObjectProperty ;
+    rdfs:comment "inform" ;
+    rdfs:domain ex:MovementTrends ;
+    rdfs:range ex:PredictedPaths ;
+    rdfs:subPropertyOf <dul:inform> .
+
+ex:MovingTargetsToTrajectoryModeling a owl:ObjectProperty ;
+    rdfs:comment "represented in" ;
+    rdfs:domain ex:MovingTargets ;
+    rdfs:range ex:TrajectoryModeling ;
+    rdfs:subPropertyOf <dul:representedIn> .
+
+ex:NavigationPlanningToCognitiveMaps a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:NavigationPlanning ;
+    rdfs:range ex:CognitiveMaps ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:NavigationalCuesToPathPlanning a owl:ObjectProperty ;
+    rdfs:comment "guides" ;
+    rdfs:domain ex:NavigationalCues ;
+    rdfs:range ex:PathPlanning ;
+    rdfs:subPropertyOf <dul:guides> .
+
+ex:NavigatorToMentalMaps a owl:ObjectProperty ;
+    rdfs:comment "uses" ;
+    rdfs:domain ex:Navigator ;
+    rdfs:range ex:MentalMaps ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:ObserverToSpatialConfiguration a owl:ObjectProperty ;
+    rdfs:comment "observes" ;
+    rdfs:domain ex:Observer ;
+    rdfs:range ex:SpatialConfiguration ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:OptimalMotionToOptimizationStrategies a owl:ObjectProperty ;
+    rdfs:comment "achieved by" ;
+    rdfs:domain ex:OptimalMotion ;
+    rdfs:range ex:OptimizationStrategies ;
+    rdfs:subPropertyOf <dul:achievedBy> .
+
+ex:OptimizationStrategiesToEnergyWaste a owl:ObjectProperty ;
+    rdfs:comment "reduce" ;
+    rdfs:domain ex:OptimizationStrategies ;
+    rdfs:range ex:EnergyWaste ;
+    rdfs:subPropertyOf <dul:reduce> .
+
+ex:PathPlanningToMovementOutcomes a owl:ObjectProperty ;
+    rdfs:comment "determines" ;
+    rdfs:domain ex:PathPlanning ;
+    rdfs:range ex:MovementOutcomes ;
+    rdfs:subPropertyOf <dul:determines> .
+
+ex:PeriodicPhenomenaToTemporalCycles a owl:ObjectProperty ;
+    rdfs:comment "exemplify" ;
+    rdfs:domain ex:PeriodicPhenomena ;
+    rdfs:range ex:TemporalCycles ;
+    rdfs:subPropertyOf <dul:exemplify> .
+
+ex:PeriodicVariationsToCyclicalTrends a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:PeriodicVariations ;
+    rdfs:range ex:CyclicalTrends ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:PredictedPathsToFuturePositions a owl:ObjectProperty ;
+    rdfs:comment "project" ;
+    rdfs:domain ex:PredictedPaths ;
+    rdfs:range ex:FuturePositions ;
+    rdfs:subPropertyOf <dul:project> .
+
+ex:ProgressionStagesToDevelopmentalProcesses a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:ProgressionStages ;
+    rdfs:range ex:DevelopmentalProcesses ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:RapidTransformationsToChangingSystems a owl:ObjectProperty ;
+    rdfs:comment "occur in" ;
+    rdfs:domain ex:RapidTransformations ;
+    rdfs:range ex:ChangingSystems ;
+    rdfs:subPropertyOf <dul:occurIn> .
+
+ex:RecurringEventsToTemporalRhythms a owl:ObjectProperty ;
+    rdfs:comment "follow" ;
+    rdfs:domain ex:RecurringEvents ;
+    rdfs:range ex:TemporalRhythms ;
+    rdfs:subPropertyOf <dul:follow> .
+
+ex:RecurringTransformationsToCyclicalSystems a owl:ObjectProperty ;
+    rdfs:comment "occur in" ;
+    rdfs:domain ex:RecurringTransformations ;
+    rdfs:range ex:CyclicalSystems ;
+    rdfs:subPropertyOf <dul:occurIn> .
+
+ex:RhythmRecognizerToCyclicalPatterns a owl:ObjectProperty ;
+    rdfs:comment "identifies" ;
+    rdfs:domain ex:RhythmRecognizer ;
+    rdfs:range ex:CyclicalPatterns ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:RhythmicSequencesToTemporalRegularities a owl:ObjectProperty ;
+    rdfs:comment "represent" ;
+    rdfs:domain ex:RhythmicSequences ;
+    rdfs:range ex:TemporalRegularities ;
+    rdfs:subPropertyOf <dul:represent> .
+
+ex:RouteMemorizationToSpatialKnowledgeIntegration a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:RouteMemorization ;
+    rdfs:range ex:SpatialKnowledgeIntegration ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:ScaleRelationshipsToDimensionalLevels a owl:ObjectProperty ;
+    rdfs:comment "connect" ;
+    rdfs:domain ex:ScaleRelationships ;
+    rdfs:range ex:DimensionalLevels ;
+    rdfs:subPropertyOf <dul:connect> .
+
+ex:ScaleTransitionToDimensionalLevels a owl:ObjectProperty ;
+    rdfs:comment "relates" ;
+    rdfs:domain ex:ScaleTransition ;
+    rdfs:range ex:DimensionalLevels ;
+    rdfs:subPropertyOf <dul:relates> .
+
+ex:SchedulingMethodsToTemporalEvents a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:SchedulingMethods ;
+    rdfs:range ex:TemporalEvents ;
+    rdfs:subPropertyOf <dul:enable> .
+
+ex:SpaceAllocationToFunctionalZones a owl:ObjectProperty ;
+    rdfs:comment "assigns" ;
+    rdfs:domain ex:SpaceAllocation ;
+    rdfs:range ex:FunctionalZones ;
+    rdfs:subPropertyOf <dul:assigns> .
+
+ex:SpatialAccessToTerritoryManager a owl:ObjectProperty ;
+    rdfs:comment "regulated by" ;
+    rdfs:domain ex:SpatialAccess ;
+    rdfs:range ex:TerritoryManager ;
+    rdfs:subPropertyOf <dul:regulatedBy> .
+
+ex:SpatialAnalysisToSpatialOptimization a owl:ObjectProperty ;
+    rdfs:comment "enhances" ;
+    rdfs:domain ex:SpatialAnalysis ;
+    rdfs:range ex:SpatialOptimization ;
+    rdfs:subPropertyOf <dul:enhances> .
+
+ex:SpatialConfigurationScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:SpatialConfigurationScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:SpatialConfigurationScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:SpatialConfigurationScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:SpatialConfigurationScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:SpatialConstraintsToLayoutPlanning a owl:ObjectProperty ;
+    rdfs:comment "restrict" ;
+    rdfs:domain ex:SpatialConstraints ;
+    rdfs:range ex:LayoutPlanning ;
+    rdfs:subPropertyOf <dul:restrict> .
+
+ex:SpatialExplorationToMentalMaps a owl:ObjectProperty ;
+    rdfs:comment "produces" ;
+    rdfs:domain ex:SpatialExploration ;
+    rdfs:range ex:MentalMaps ;
+    rdfs:subPropertyOf <dul:produces> .
+
+ex:SpatialFrameworkToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "provides context for" ;
+    rdfs:domain ex:SpatialFramework ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:providesContextFor> .
+
+ex:SpatialKnowledgeIntegrationToCognitiveMaps a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:SpatialKnowledgeIntegration ;
+    rdfs:range ex:CognitiveMaps ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:SpatialObjectsToSpatialConfiguration a owl:ObjectProperty ;
+    rdfs:comment "participate in" ;
+    rdfs:domain ex:SpatialObjects ;
+    rdfs:range ex:SpatialConfiguration ;
+    rdfs:subPropertyOf <dul:participatesIn> .
+
+ex:SpatialOptimizationToOptimalConfigurations a owl:ObjectProperty ;
+    rdfs:comment "aims at" ;
+    rdfs:domain ex:SpatialOptimization ;
+    rdfs:range ex:OptimalConfigurations ;
+    rdfs:subPropertyOf <dul:aimsAt> .
+
+ex:SpatialPatternsToDimensionalLevels a owl:ObjectProperty ;
+    rdfs:comment "emerge at" ;
+    rdfs:domain ex:SpatialPatterns ;
+    rdfs:range ex:DimensionalLevels ;
+    rdfs:subPropertyOf <dul:emergeAt> .
+
+ex:SpatialReasoningToSpatialRelationships a owl:ObjectProperty ;
+    rdfs:comment "uses concept of" ;
+    rdfs:domain ex:SpatialReasoning ;
+    rdfs:range ex:SpatialRelationships ;
+    rdfs:subPropertyOf <dul:usesConcept> .
+
+ex:SpatialReferenceToTrajectoryPaths a owl:ObjectProperty ;
+    rdfs:comment "provides context for" ;
+    rdfs:domain ex:SpatialReference ;
+    rdfs:range ex:TrajectoryPaths ;
+    rdfs:subPropertyOf <dul:providesContextFor> .
+
+ex:SpatialRelationshipsToSpatialConfiguration a owl:ObjectProperty ;
+    rdfs:comment "define" ;
+    rdfs:domain ex:SpatialRelationships ;
+    rdfs:range ex:SpatialConfiguration ;
+    rdfs:subPropertyOf <dul:define> .
+
+ex:SpatialThinkerToSpatialScales a owl:ObjectProperty ;
+    rdfs:comment "analyzes" ;
+    rdfs:domain ex:SpatialThinker ;
+    rdfs:range ex:SpatialScales ;
+    rdfs:subPropertyOf <dul:analyzes> .
+
+ex:SpeedVariationsToMotionDynamics a owl:ObjectProperty ;
+    rdfs:comment "affect" ;
+    rdfs:domain ex:SpeedVariations ;
+    rdfs:range ex:MotionDynamics ;
+    rdfs:subPropertyOf <dul:affect> .
+
+ex:SubjectiveTimeToTemporalAwareness a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:SubjectiveTime ;
+    rdfs:range ex:TemporalAwareness ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:SynchronizationMethodsToTimingProtocols a owl:ObjectProperty ;
+    rdfs:comment "realize" ;
+    rdfs:domain ex:SynchronizationMethods ;
+    rdfs:range ex:TimingProtocols ;
+    rdfs:subPropertyOf <dul:realize> .
+
+ex:SynchronizedMovementToMotionCoordination a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:SynchronizedMovement ;
+    rdfs:range ex:MotionCoordination ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:TemporalAdaptabilityToResponsiveFlexibility a owl:ObjectProperty ;
+    rdfs:comment "characterizes" ;
+    rdfs:domain ex:TemporalAdaptability ;
+    rdfs:range ex:ResponsiveFlexibility ;
+    rdfs:subPropertyOf <dul:characterizes> .
+
+ex:TemporalAlignmentToTimingCoordination a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:TemporalAlignment ;
+    rdfs:range ex:TimingCoordination ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:TemporalCoordinatorToMultipleActors a owl:ObjectProperty ;
+    rdfs:comment "aligns" ;
+    rdfs:domain ex:TemporalCoordinator ;
+    rdfs:range ex:MultipleActors ;
+    rdfs:subPropertyOf <dul:aligns> .
+
+ex:TemporalCyclesToSeasonalPatterns a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:TemporalCycles ;
+    rdfs:range ex:SeasonalPatterns ;
+    rdfs:subPropertyOf <dul:include> .
+
+ex:TemporalDurationToTemporalContext a owl:ObjectProperty ;
+    rdfs:comment "influenced by" ;
+    rdfs:domain ex:TemporalDuration ;
+    rdfs:range ex:TemporalContext ;
+    rdfs:subPropertyOf <dul:influencedBy> .
+
+ex:TemporalExperiencerToTimePassage a owl:ObjectProperty ;
+    rdfs:comment "experiences" ;
+    rdfs:domain ex:TemporalExperiencer ;
+    rdfs:range ex:TimePassage ;
+    rdfs:subPropertyOf <dul:experiences> .
+
+ex:TemporalFlexibilityToTimingAdjustments a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:TemporalFlexibility ;
+    rdfs:range ex:TimingAdjustments ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:TemporalOrganizationToTimeManagement a owl:ObjectProperty ;
+    rdfs:comment "emerges from" ;
+    rdfs:domain ex:TemporalOrganization ;
+    rdfs:range ex:TimeManagement ;
+    rdfs:subPropertyOf <dul:emergesFrom> .
+
+ex:TemporalRecurrenceToTransformationCycles a owl:ObjectProperty ;
+    rdfs:comment "defines" ;
+    rdfs:domain ex:TemporalRecurrence ;
+    rdfs:range ex:TransformationCycles ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:TemporalSequencesToCalendarSystems a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:TemporalSequences ;
+    rdfs:range ex:CalendarSystems ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:TemporalStructureScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:TemporalStructureScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:TemporalStructureScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:TemporalStructureScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:TemporalStructureScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:TemporalSynchronizationToConcurrentActivities a owl:ObjectProperty ;
+    rdfs:comment "aligns" ;
+    rdfs:domain ex:TemporalSynchronization ;
+    rdfs:range ex:ConcurrentActivities ;
+    rdfs:subPropertyOf <dul:aligns> .
+
+ex:TerritorialIndicatorsToTerritorialZones a owl:ObjectProperty ;
+    rdfs:comment "represent" ;
+    rdfs:domain ex:TerritorialIndicators ;
+    rdfs:range ex:TerritorialZones ;
+    rdfs:subPropertyOf <dul:represent> .
+
+ex:TerritorialZonesToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "delimited by" ;
+    rdfs:domain ex:TerritorialZones ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:delimitedBy> .
+
+ex:TerritoryManagerToSpatialBoundaries a owl:ObjectProperty ;
+    rdfs:comment "defines" ;
+    rdfs:domain ex:TerritoryManager ;
+    rdfs:range ex:SpatialBoundaries ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:TimeDistortionToDurationVariations a owl:ObjectProperty ;
+    rdfs:comment "causes" ;
+    rdfs:domain ex:TimeDistortion ;
+    rdfs:range ex:DurationVariations ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:TimeManagementToTemporalEvents a owl:ObjectProperty ;
+    rdfs:comment "applies to" ;
+    rdfs:domain ex:TimeManagement ;
+    rdfs:range ex:TemporalEvents ;
+    rdfs:subPropertyOf <dul:appliesTo> .
+
+ex:TimeOrganizerToTemporalFrameworks a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:TimeOrganizer ;
+    rdfs:range ex:TemporalFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:TimePassageToTemporalDuration a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:TimePassage ;
+    rdfs:range ex:TemporalDuration ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:TimeUnitsToTemporalSequences a owl:ObjectProperty ;
+    rdfs:comment "used in" ;
+    rdfs:domain ex:TimeUnits ;
+    rdfs:range ex:TemporalSequences ;
+    rdfs:subPropertyOf <dul:usedIn> .
+
+ex:TimingAdapterToAdaptiveTiming a owl:ObjectProperty ;
+    rdfs:comment "manages" ;
+    rdfs:domain ex:TimingAdapter ;
+    rdfs:range ex:AdaptiveTiming ;
+    rdfs:subPropertyOf <dul:manages> .
+
+ex:TimingAdjustmentsToScheduleStability a owl:ObjectProperty ;
+    rdfs:comment "maintain" ;
+    rdfs:domain ex:TimingAdjustments ;
+    rdfs:range ex:ScheduleStability ;
+    rdfs:subPropertyOf <dul:maintain> .
+
+ex:TimingConflictsToTemporalHarmony a owl:ObjectProperty ;
+    rdfs:comment "disrupt" ;
+    rdfs:domain ex:TimingConflicts ;
+    rdfs:range ex:TemporalHarmony ;
+    rdfs:subPropertyOf <dul:disrupt> .
+
+ex:TimingCoordinationToSynchronizationMethods a owl:ObjectProperty ;
+    rdfs:comment "involves" ;
+    rdfs:domain ex:TimingCoordination ;
+    rdfs:range ex:SynchronizationMethods ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:TrajectoryPathsToMovingEntities a owl:ObjectProperty ;
+    rdfs:comment "followed by" ;
+    rdfs:domain ex:TrajectoryPaths ;
+    rdfs:range ex:MovingEntities ;
+    rdfs:subPropertyOf <dul:followedBy> .
+
+ex:TrajectoryPredictorToFuturePositions a owl:ObjectProperty ;
+    rdfs:comment "predicts" ;
+    rdfs:domain ex:TrajectoryPredictor ;
+    rdfs:range ex:FuturePositions ;
+    rdfs:subPropertyOf <dul:predicts> .
+
+ex:TransformationCyclesToRecurringTransformations a owl:ObjectProperty ;
+    rdfs:comment "structure" ;
+    rdfs:domain ex:TransformationCycles ;
+    rdfs:range ex:RecurringTransformations ;
+    rdfs:subPropertyOf <dul:structure> .
+
+ex:TransformationOutcomesToTransformationalEvents a owl:ObjectProperty ;
+    rdfs:comment "result from" ;
+    rdfs:domain ex:TransformationOutcomes ;
+    rdfs:range ex:TransformationalEvents ;
+    rdfs:subPropertyOf <dul:resultFrom> .
+
+ex:TransformationPhasesToChangePatterns a owl:ObjectProperty ;
+    rdfs:comment "included in" ;
+    rdfs:domain ex:TransformationPhases ;
+    rdfs:range ex:ChangePatterns ;
+    rdfs:subPropertyOf <dul:includedIn> .
+
+ex:TransformationSignalsToDynamicSystems a owl:ObjectProperty ;
+    rdfs:comment "signal" ;
+    rdfs:domain ex:TransformationSignals ;
+    rdfs:range ex:DynamicSystems ;
+    rdfs:subPropertyOf <dul:signal> .
+
+ex:TransformationalEventsToAbruptTransitions a owl:ObjectProperty ;
+    rdfs:comment "trigger" ;
+    rdfs:domain ex:TransformationalEvents ;
+    rdfs:range ex:AbruptTransitions ;
+    rdfs:subPropertyOf <dul:trigger> .
+
+ex:TransitionCausationToRapidTransformations a owl:ObjectProperty ;
+    rdfs:comment "causes" ;
+    rdfs:domain ex:TransitionCausation ;
+    rdfs:range ex:RapidTransformations ;
+    rdfs:subPropertyOf <dul:causes> .
+
+ex:TransitionPlanningToChangeImplementation a owl:ObjectProperty ;
+    rdfs:comment "precedes" ;
+    rdfs:domain ex:TransitionPlanning ;
+    rdfs:range ex:ChangeImplementation ;
+    rdfs:subPropertyOf <dul:precedes> .
+
+ex:TransitionProcessesToAdaptingSystems a owl:ObjectProperty ;
+    rdfs:comment "transform" ;
+    rdfs:domain ex:TransitionProcesses ;
+    rdfs:range ex:AdaptingSystems ;
+    rdfs:subPropertyOf <dul:transform> .
+
+ex:TransitionSupportToControlledChange a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:TransitionSupport ;
+    rdfs:range ex:ControlledChange ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:TransitionWitnessToSuddenChanges a owl:ObjectProperty ;
+    rdfs:comment "observes" ;
+    rdfs:domain ex:TransitionWitness ;
+    rdfs:range ex:SuddenChanges ;
+    rdfs:subPropertyOf <dul:observes> .
+
+ex:WayfindingBehaviorToNavigationPlanning a owl:ObjectProperty ;
+    rdfs:comment "realizes" ;
+    rdfs:domain ex:WayfindingBehavior ;
+    rdfs:range ex:NavigationPlanning ;
+    rdfs:subPropertyOf <dul:realizes> .
+
+ex:AbruptTransitions a owl:Class ;
+    rdfs:label "AbruptTransitions" ;
+    rdfs:comment "Quick shifts from one state or condition to another" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AcceleratingObjects a owl:Class ;
+    rdfs:label "AcceleratingObjects" ;
+    rdfs:comment "Things that are increasing their speed or changing direction" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:ActivityEngagement a owl:Class ;
+    rdfs:label "ActivityEngagement" ;
+    rdfs:comment "Level of involvement and attention devoted to current activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:AdaptingSystems a owl:Class ;
+    rdfs:label "AdaptingSystems" ;
+    rdfs:comment "Systems undergoing intentional modification" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:BoundaryConflicts a owl:Class ;
+    rdfs:label "BoundaryConflicts" ;
+    rdfs:comment "Disputes or tensions over spatial limits" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:BoundaryDefinition a owl:Class ;
+    rdfs:label "BoundaryDefinition" ;
+    rdfs:comment "Establishing clear spatial limits and divisions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:BoundaryMarkers a owl:Class ;
+    rdfs:label "BoundaryMarkers" ;
+    rdfs:comment "Physical or conceptual indicators of spatial limits" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:ChangeCorrections a owl:Class ;
+    rdfs:label "ChangeCorrections" ;
+    rdfs:comment "Interventions to redirect or modify changes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ChangeIndicators a owl:Class ;
+    rdfs:label "ChangeIndicators" ;
+    rdfs:comment "Signs and signals that reveal ongoing changes" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ChangeManager a owl:Class ;
+    rdfs:label "ChangeManager" ;
+    rdfs:comment "Person directing and facilitating planned organizational or system changes" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ChangeMonitor a owl:Class ;
+    rdfs:label "ChangeMonitor" ;
+    rdfs:comment "Person observing and responding to system changes" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ChangeObserver a owl:Class ;
+    rdfs:label "ChangeObserver" ;
+    rdfs:comment "Person monitoring and understanding processes of change over time" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:ChangeOpportunities a owl:Class ;
+    rdfs:label "ChangeOpportunities" ;
+    rdfs:comment "Beneficial changes that can be encouraged" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ChangeResistance a owl:Class ;
+    rdfs:label "ChangeResistance" ;
+    rdfs:comment "Opposition or reluctance to undergo change" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:ChangeRhythms a owl:Class ;
+    rdfs:label "ChangeRhythms" ;
+    rdfs:comment "Temporal patterns in the timing of changes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:ChangeStrategies a owl:Class ;
+    rdfs:label "ChangeStrategies" ;
+    rdfs:comment "Systematic approaches for implementing change" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ChangeThreats a owl:Class ;
+    rdfs:label "ChangeThreats" ;
+    rdfs:comment "Harmful changes that need to be addressed" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ChangeThresholds a owl:Class ;
+    rdfs:label "ChangeThresholds" ;
+    rdfs:comment "Critical points where sudden changes are triggered" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ChangingCircumstances a owl:Class ;
+    rdfs:label "ChangingCircumstances" ;
+    rdfs:comment "Evolving conditions that affect temporal planning" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:ChangingSystems a owl:Class ;
+    rdfs:label "ChangingSystems" ;
+    rdfs:comment "Systems undergoing sudden or transformational change" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:ChronologicalSystems a owl:Class ;
+    rdfs:label "ChronologicalSystems" ;
+    rdfs:comment "Ordered arrangements for measuring and tracking time" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CollectiveMotion a owl:Class ;
+    rdfs:label "CollectiveMotion" ;
+    rdfs:comment "Coordinated movement involving multiple entities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CollisionPotentials a owl:Class ;
+    rdfs:label "CollisionPotentials" ;
+    rdfs:comment "Anticipated intersections or conflicts between moving objects" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:ConcurrentActivities a owl:Class ;
+    rdfs:label "ConcurrentActivities" ;
+    rdfs:comment "Activities happening simultaneously that need coordination" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ContainmentRelations a owl:Class ;
+    rdfs:label "ContainmentRelations" ;
+    rdfs:comment "Inside/outside, enclosure relationships" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ControlledChange a owl:Class ;
+    rdfs:label "ControlledChange" ;
+    rdfs:comment "Managed and directed modification processes" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CoordinatedTiming a owl:Class ;
+    rdfs:label "CoordinatedTiming" ;
+    rdfs:comment "Successfully synchronized temporal relationships" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CoordinationSignals a owl:Class ;
+    rdfs:label "CoordinationSignals" ;
+    rdfs:comment "Cues and indicators that guide group movement" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CriticalPoints a owl:Class ;
+    rdfs:label "CriticalPoints" ;
+    rdfs:comment "Specific conditions where transformational events occur" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:CurrentMotion a owl:Class ;
+    rdfs:label "CurrentMotion" ;
+    rdfs:comment "Present movement characteristics and trajectory information" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CycleTracker a owl:Class ;
+    rdfs:label "CycleTracker" ;
+    rdfs:comment "Person identifying and monitoring cyclical patterns of change" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CyclicalOccurrences a owl:Class ;
+    rdfs:label "CyclicalOccurrences" ;
+    rdfs:comment "Events that happen as part of recurring temporal cycles" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:CyclicalPredictability a owl:Class ;
+    rdfs:label "CyclicalPredictability" ;
+    rdfs:comment "Ability to anticipate future changes based on cyclical patterns" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:CyclicalSystems a owl:Class ;
+    rdfs:label "CyclicalSystems" ;
+    rdfs:comment "Systems that undergo regular, repeating changes" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:DeceleratingMovement a owl:Class ;
+    rdfs:label "DeceleratingMovement" ;
+    rdfs:comment "Motion that is slowing down or reducing speed" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DesignPrinciples a owl:Class ;
+    rdfs:label "DesignPrinciples" ;
+    rdfs:comment "Guidelines for creating effective spatial arrangements" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:DevelopmentalTrends a owl:Class ;
+    rdfs:label "DevelopmentalTrends" ;
+    rdfs:comment "Directional tendencies in ongoing change processes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:DirectionalOrientations a owl:Class ;
+    rdfs:label "DirectionalOrientations" ;
+    rdfs:comment "Angular or compass-based positioning" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:DistanceRelations a owl:Class ;
+    rdfs:label "DistanceRelations" ;
+    rdfs:comment "Near/far relationships between objects" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:DurationVariations a owl:Class ;
+    rdfs:label "DurationVariations" ;
+    rdfs:comment "Differences in perceived length of similar objective time periods" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:DynamicSystems a owl:Class ;
+    rdfs:label "DynamicSystems" ;
+    rdfs:comment "Systems that naturally undergo continuous change" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:EfficiencyFactors a owl:Class ;
+    rdfs:label "EfficiencyFactors" ;
+    rdfs:comment "Elements that contribute to effective space utilization" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:EfficiencyMetrics a owl:Class ;
+    rdfs:label "EfficiencyMetrics" ;
+    rdfs:comment "Measures used to evaluate movement performance" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:EfficientTrajectories a owl:Class ;
+    rdfs:label "EfficientTrajectories" ;
+    rdfs:comment "Paths that minimize energy while achieving movement goals" ;
+    rdfs:subClassOf <dul:Path> .
+
+ex:EnergyExpenditure a owl:Class ;
+    rdfs:label "EnergyExpenditure" ;
+    rdfs:comment "Amount of energy consumed in movement" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:EnergyWaste a owl:Class ;
+    rdfs:label "EnergyWaste" ;
+    rdfs:comment "Inefficient use of energy in movement" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:EvolutionarySequences a owl:Class ;
+    rdfs:label "EvolutionarySequences" ;
+    rdfs:comment "Ordered progressions of change over extended time periods" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:FlexibilityStrategies a owl:Class ;
+    rdfs:label "FlexibilityStrategies" ;
+    rdfs:comment "Approaches for maintaining temporal adaptability" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:FunctionalLayouts a owl:Class ;
+    rdfs:label "FunctionalLayouts" ;
+    rdfs:comment "Spatial arrangements that effectively support intended activities" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:FunctionalZones a owl:Class ;
+    rdfs:label "FunctionalZones" ;
+    rdfs:comment "Areas designated for particular activities or purposes" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:GeographicEnvironments a owl:Class ;
+    rdfs:label "GeographicEnvironments" ;
+    rdfs:comment "Physical spaces with navigable features" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:GradualChanges a owl:Class ;
+    rdfs:label "GradualChanges" ;
+    rdfs:comment "Slow, incremental alterations that accumulate over time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:GroupMovement a owl:Class ;
+    rdfs:label "GroupMovement" ;
+    rdfs:comment "Motion of groups as unified entities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:HarmoniousArrangements a owl:Class ;
+    rdfs:label "HarmoniousArrangements" ;
+    rdfs:comment "Spatial configurations that create aesthetic and functional balance" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:HierarchicalOrganization a owl:Class ;
+    rdfs:label "HierarchicalOrganization" ;
+    rdfs:comment "Nested structure of spatial scales" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:LandmarkIdentification a owl:Class ;
+    rdfs:label "LandmarkIdentification" ;
+    rdfs:comment "Recognition of distinctive spatial features" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LayoutDesigner a owl:Class ;
+    rdfs:label "LayoutDesigner" ;
+    rdfs:comment "Person creating optimized spatial arrangements and designs" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MacroscaleStructures a owl:Class ;
+    rdfs:label "MacroscaleStructures" ;
+    rdfs:comment "Large-scale spatial organizations" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:MicroscaleFeatures a owl:Class ;
+    rdfs:label "MicroscaleFeatures" ;
+    rdfs:comment "Small-scale spatial patterns and structures" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:MonitoringMethods a owl:Class ;
+    rdfs:label "MonitoringMethods" ;
+    rdfs:comment "Systematic approaches for tracking change" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionAnalysis a owl:Class ;
+    rdfs:label "MotionAnalysis" ;
+    rdfs:comment "Systematic examination of movement characteristics" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionAnalyst a owl:Class ;
+    rdfs:label "MotionAnalyst" ;
+    rdfs:comment "Person studying the dynamics and changes in motion" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MotionCausation a owl:Class ;
+    rdfs:label "MotionCausation" ;
+    rdfs:comment "Causal relationships between forces and movement changes" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:MotionDirections a owl:Class ;
+    rdfs:label "MotionDirections" ;
+    rdfs:comment "Orientations and headings of movement" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MotionDynamics a owl:Class ;
+    rdfs:label "MotionDynamics" ;
+    rdfs:comment "Forces and factors that create changes in motion" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionOptimizer a owl:Class ;
+    rdfs:label "MotionOptimizer" ;
+    rdfs:comment "Person analyzing and improving movement efficiency" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MotionOutcomes a owl:Class ;
+    rdfs:label "MotionOutcomes" ;
+    rdfs:comment "Final results or destinations of predicted movement" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MovementConflicts a owl:Class ;
+    rdfs:label "MovementConflicts" ;
+    rdfs:comment "Clashes or interference in collective motion" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MovementCoordinator a owl:Class ;
+    rdfs:label "MovementCoordinator" ;
+    rdfs:comment "Person organizing and directing collective movement" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MovementEfficiency a owl:Class ;
+    rdfs:label "MovementEfficiency" ;
+    rdfs:comment "Ratio of useful motion output to energy input" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MovementOutcomes a owl:Class ;
+    rdfs:label "MovementOutcomes" ;
+    rdfs:comment "Results or destinations achieved through movement" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:MovementPatterns a owl:Class ;
+    rdfs:label "MovementPatterns" ;
+    rdfs:comment "Characteristic ways in which entities move through space" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MovementSynchronization a owl:Class ;
+    rdfs:label "MovementSynchronization" ;
+    rdfs:comment "Aligning timing and direction of group movement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MovementTracker a owl:Class ;
+    rdfs:label "MovementTracker" ;
+    rdfs:comment "Person observing and analyzing movement and trajectory patterns" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MovementTrends a owl:Class ;
+    rdfs:label "MovementTrends" ;
+    rdfs:comment "Patterns and directions observable in ongoing motion" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:MovingTargets a owl:Class ;
+    rdfs:label "MovingTargets" ;
+    rdfs:comment "Objects whose future motion is being predicted" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:MultipleActors a owl:Class ;
+    rdfs:label "MultipleActors" ;
+    rdfs:comment "Different people or groups requiring temporal coordination" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:NavigationalCues a owl:Class ;
+    rdfs:label "NavigationalCues" ;
+    rdfs:comment "Environmental or spatial information that guides movement" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:Navigator a owl:Class ;
+    rdfs:label "Navigator" ;
+    rdfs:comment "Person exploring and mapping spatial environments" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:Observer a owl:Class ;
+    rdfs:label "Observer" ;
+    rdfs:comment "Person perceiving and reasoning about spatial arrangements" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:PeriodicPhenomena a owl:Class ;
+    rdfs:label "PeriodicPhenomena" ;
+    rdfs:comment "Natural or cultural occurrences that follow cyclical timing" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:PeriodicVariations a owl:Class ;
+    rdfs:label "PeriodicVariations" ;
+    rdfs:comment "Regular alterations that occur within cycles" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:PlannedChanges a owl:Class ;
+    rdfs:label "PlannedChanges" ;
+    rdfs:comment "Intentional modifications designed to improve systems" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:PositiveChange a owl:Class ;
+    rdfs:label "PositiveChange" ;
+    rdfs:comment "Beneficial modifications that improve system functioning" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:ProcessContinuity a owl:Class ;
+    rdfs:label "ProcessContinuity" ;
+    rdfs:comment "Unbroken connection between sequential change stages" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:ProgressionStages a owl:Class ;
+    rdfs:label "ProgressionStages" ;
+    rdfs:comment "Distinct phases in developmental or change processes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:RecurringEvents a owl:Class ;
+    rdfs:label "RecurringEvents" ;
+    rdfs:comment "Events that happen repeatedly according to temporal patterns" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:ResponsiveFlexibility a owl:Class ;
+    rdfs:label "ResponsiveFlexibility" ;
+    rdfs:comment "Ability to adjust timing appropriately to circumstances" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:RhythmRecognizer a owl:Class ;
+    rdfs:label "RhythmRecognizer" ;
+    rdfs:comment "Person identifying and understanding cyclical temporal patterns" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:RhythmicSequences a owl:Class ;
+    rdfs:label "RhythmicSequences" ;
+    rdfs:comment "Ordered patterns of temporal intervals" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ScaleRelationships a owl:Class ;
+    rdfs:label "ScaleRelationships" ;
+    rdfs:comment "Connections between phenomena at different scales" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ScaleTransition a owl:Class ;
+    rdfs:label "ScaleTransition" ;
+    rdfs:comment "Moving between different levels of spatial analysis" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ScheduleStability a owl:Class ;
+    rdfs:label "ScheduleStability" ;
+    rdfs:comment "Maintenance of reliable temporal structure" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SeasonalPatterns a owl:Class ;
+    rdfs:label "SeasonalPatterns" ;
+    rdfs:comment "Cyclical changes associated with annual environmental cycles" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SpaceAllocation a owl:Class ;
+    rdfs:label "SpaceAllocation" ;
+    rdfs:comment "Assigning spatial areas for specific purposes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialAccess a owl:Class ;
+    rdfs:label "SpatialAccess" ;
+    rdfs:comment "Control and regulation of movement through territories" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialAnalysis a owl:Class ;
+    rdfs:label "SpatialAnalysis" ;
+    rdfs:comment "Systematic examination of spatial relationships and flows" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialConstraints a owl:Class ;
+    rdfs:label "SpatialConstraints" ;
+    rdfs:comment "Limitations and restrictions affecting layout design" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:SpatialEfficiency a owl:Class ;
+    rdfs:label "SpatialEfficiency" ;
+    rdfs:comment "Degree of optimal space utilization" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SpatialFramework a owl:Class ;
+    rdfs:label "SpatialFramework" ;
+    rdfs:comment "Reference system for determining spatial positions" ;
+    rdfs:subClassOf <dul:ReferenceSystem> .
+
+ex:SpatialObjects a owl:Class ;
+    rdfs:label "SpatialObjects" ;
+    rdfs:comment "Entities with location and extent in space" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:SpatialPatterns a owl:Class ;
+    rdfs:label "SpatialPatterns" ;
+    rdfs:comment "Recurring arrangements or structures at specific scales" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:SpatialReasoning a owl:Class ;
+    rdfs:label "SpatialReasoning" ;
+    rdfs:comment "Cognitive processing of spatial information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialReference a owl:Class ;
+    rdfs:label "SpatialReference" ;
+    rdfs:comment "Fixed points or frameworks used for orientation" ;
+    rdfs:subClassOf <dul:ReferenceSystem> .
+
+ex:SpatialThinker a owl:Class ;
+    rdfs:label "SpatialThinker" ;
+    rdfs:comment "Person reasoning about multi-scale spatial phenomena" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:SpeedVariations a owl:Class ;
+    rdfs:label "SpeedVariations" ;
+    rdfs:comment "Different rates of movement over time" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:SubjectiveTime a owl:Class ;
+    rdfs:label "SubjectiveTime" ;
+    rdfs:comment "Personal, experiential sense of temporal flow and duration" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SuccessfulTransitions a owl:Class ;
+    rdfs:label "SuccessfulTransitions" ;
+    rdfs:comment "Effective completion of change processes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SystemStability a owl:Class ;
+    rdfs:label "SystemStability" ;
+    rdfs:comment "Maintenance of essential system functions during change" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalAdaptability a owl:Class ;
+    rdfs:label "TemporalAdaptability" ;
+    rdfs:comment "Capacity to modify timing as needed" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalAlignment a owl:Class ;
+    rdfs:label "TemporalAlignment" ;
+    rdfs:comment "Proper timing relationships between activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalAwareness a owl:Class ;
+    rdfs:label "TemporalAwareness" ;
+    rdfs:comment "Conscious attention to temporal experience and passage" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalContext a owl:Class ;
+    rdfs:label "TemporalContext" ;
+    rdfs:comment "Situational factors affecting temporal perception" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalCoordinator a owl:Class ;
+    rdfs:label "TemporalCoordinator" ;
+    rdfs:comment "Person managing timing and synchronization across multiple activities" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TemporalExperiencer a owl:Class ;
+    rdfs:label "TemporalExperiencer" ;
+    rdfs:comment "Person experiencing and perceiving temporal duration subjectively" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TemporalFlexibility a owl:Class ;
+    rdfs:label "TemporalFlexibility" ;
+    rdfs:comment "Ability to adjust timing in response to circumstances" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalFrameworks a owl:Class ;
+    rdfs:label "TemporalFrameworks" ;
+    rdfs:comment "Systematic structures for understanding and organizing time" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TemporalOrganization a owl:Class ;
+    rdfs:label "TemporalOrganization" ;
+    rdfs:comment "Structured arrangement of time periods and temporal relationships" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalPerception a owl:Class ;
+    rdfs:label "TemporalPerception" ;
+    rdfs:comment "Cognitive processing of temporal information and duration" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalRegularities a owl:Class ;
+    rdfs:label "TemporalRegularities" ;
+    rdfs:comment "Predictable aspects of cyclical time patterns" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalSynchronization a owl:Class ;
+    rdfs:label "TemporalSynchronization" ;
+    rdfs:comment "Aligning activities and events in time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TemporalUncertainties a owl:Class ;
+    rdfs:label "TemporalUncertainties" ;
+    rdfs:comment "Unknown factors that may affect timing" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:TerritorialIndicators a owl:Class ;
+    rdfs:label "TerritorialIndicators" ;
+    rdfs:comment "Signs that communicate territorial organization" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TerritorialOrder a owl:Class ;
+    rdfs:label "TerritorialOrder" ;
+    rdfs:comment "Organized system of spatial boundaries and zones" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TimeDistortion a owl:Class ;
+    rdfs:label "TimeDistortion" ;
+    rdfs:comment "Alterations in perceived duration relative to objective time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimeOrganizer a owl:Class ;
+    rdfs:label "TimeOrganizer" ;
+    rdfs:comment "Person creating systematic structures for organizing temporal experience" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TimingAdapter a owl:Class ;
+    rdfs:label "TimingAdapter" ;
+    rdfs:comment "Person managing flexible and adaptive temporal arrangements" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TimingConflicts a owl:Class ;
+    rdfs:label "TimingConflicts" ;
+    rdfs:comment "Clashes or incompatibilities in temporal scheduling" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:TimingProtocols a owl:Class ;
+    rdfs:label "TimingProtocols" ;
+    rdfs:comment "Established procedures for temporal coordination" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:TrajectoryPredictor a owl:Class ;
+    rdfs:label "TrajectoryPredictor" ;
+    rdfs:comment "Person forecasting future movement paths and positions" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TransformationOutcomes a owl:Class ;
+    rdfs:label "TransformationOutcomes" ;
+    rdfs:comment "Results produced by transformational events" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:TransformationSignals a owl:Class ;
+    rdfs:label "TransformationSignals" ;
+    rdfs:comment "Cues that suggest significant system modifications" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TransitionCausation a owl:Class ;
+    rdfs:label "TransitionCausation" ;
+    rdfs:comment "Causal factors that trigger sudden changes" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:TransitionProcesses a owl:Class ;
+    rdfs:label "TransitionProcesses" ;
+    rdfs:comment "Systematic approaches to moving from current to desired states" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TransitionSupport a owl:Class ;
+    rdfs:label "TransitionSupport" ;
+    rdfs:comment "Assistance provided during change processes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TransitionWitness a owl:Class ;
+    rdfs:label "TransitionWitness" ;
+    rdfs:comment "Person observing and understanding sudden changes and transformations" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:WayfindingBehavior a owl:Class ;
+    rdfs:label "WayfindingBehavior" ;
+    rdfs:comment "Actual movement through space using cognitive maps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AccelerationPatterns a owl:Class ;
+    rdfs:label "AccelerationPatterns" ;
+    rdfs:comment "Characteristic ways objects change their motion" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:AdaptiveResponses a owl:Class ;
+    rdfs:label "AdaptiveResponses" ;
+    rdfs:comment "Flexible reactions to detected changes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AdaptiveTiming a owl:Class ;
+    rdfs:label "AdaptiveTiming" ;
+    rdfs:comment "Modifying temporal arrangements based on changing needs" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CalendarSystems a owl:Class ;
+    rdfs:label "CalendarSystems" ;
+    rdfs:comment "Systematic methods for organizing longer time periods" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ChangeDetection a owl:Class ;
+    rdfs:label "ChangeDetection" ;
+    rdfs:comment "Identification of emerging changes and trends" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ChangePatterns a owl:Class ;
+    rdfs:label "ChangePatterns" ;
+    rdfs:comment "Recognizable regularities in how change occurs" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CognitiveMaps a owl:Class ;
+    rdfs:label "CognitiveMaps" ;
+    rdfs:comment "Integrated mental representations of space" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CyclicalPatterns a owl:Class ;
+    rdfs:label "CyclicalPatterns" ;
+    rdfs:comment "Recurring temporal arrangements that repeat over time" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:CyclicalTrends a owl:Class ;
+    rdfs:label "CyclicalTrends" ;
+    rdfs:comment "Directional tendencies within repeating change patterns" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:DynamicMotion a owl:Class ;
+    rdfs:label "DynamicMotion" ;
+    rdfs:comment "Movement involving changes in speed or direction" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:EvolvingSystems a owl:Class ;
+    rdfs:label "EvolvingSystems" ;
+    rdfs:comment "Systems, organisms, or entities undergoing change" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:ForceEffects a owl:Class ;
+    rdfs:label "ForceEffects" ;
+    rdfs:comment "Influences that cause changes in motion" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:FuturePositions a owl:Class ;
+    rdfs:label "FuturePositions" ;
+    rdfs:comment "Anticipated locations where moving objects will be" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:GroupCohesion a owl:Class ;
+    rdfs:label "GroupCohesion" ;
+    rdfs:comment "Unity and coordination within moving groups" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MentalMaps a owl:Class ;
+    rdfs:label "MentalMaps" ;
+    rdfs:comment "Internal cognitive representations of spatial layouts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MotionCoordination a owl:Class ;
+    rdfs:label "MotionCoordination" ;
+    rdfs:comment "Managing spatial and temporal aspects of collective motion" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionExtrapolation a owl:Class ;
+    rdfs:label "MotionExtrapolation" ;
+    rdfs:comment "Extending current motion patterns into future predictions" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MotionPerformance a owl:Class ;
+    rdfs:label "MotionPerformance" ;
+    rdfs:comment "Overall effectiveness of movement systems" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MotionSystems a owl:Class ;
+    rdfs:label "MotionSystems" ;
+    rdfs:comment "Organized arrangements that produce movement" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MovementOutput a owl:Class ;
+    rdfs:label "MovementOutput" ;
+    rdfs:comment "Useful motion produced by systems" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MovingEntities a owl:Class ;
+    rdfs:label "MovingEntities" ;
+    rdfs:comment "Objects, people, or phenomena that change position over time" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:MovingGroups a owl:Class ;
+    rdfs:label "MovingGroups" ;
+    rdfs:comment "Collections of entities moving together in coordination" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:NavigationPlanning a owl:Class ;
+    rdfs:label "NavigationPlanning" ;
+    rdfs:comment "Using spatial knowledge to plan routes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OptimalMotion a owl:Class ;
+    rdfs:label "OptimalMotion" ;
+    rdfs:comment "Most efficient possible movement" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:OptimizationStrategies a owl:Class ;
+    rdfs:label "OptimizationStrategies" ;
+    rdfs:comment "Approaches for improving movement efficiency" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PathPlanning a owl:Class ;
+    rdfs:label "PathPlanning" ;
+    rdfs:comment "Determining optimal routes for movement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PredictedPaths a owl:Class ;
+    rdfs:label "PredictedPaths" ;
+    rdfs:comment "Forecasted routes that moving objects will follow" ;
+    rdfs:subClassOf <dul:Path> .
+
+ex:RapidTransformations a owl:Class ;
+    rdfs:label "RapidTransformations" ;
+    rdfs:comment "Fast, comprehensive changes in system characteristics" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RecurringTransformations a owl:Class ;
+    rdfs:label "RecurringTransformations" ;
+    rdfs:comment "Transformations that happen repeatedly according to cycles" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RouteMemorization a owl:Class ;
+    rdfs:label "RouteMemorization" ;
+    rdfs:comment "Learning pathways between locations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SchedulingMethods a owl:Class ;
+    rdfs:label "SchedulingMethods" ;
+    rdfs:comment "Techniques for organizing activities within temporal frameworks" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialExploration a owl:Class ;
+    rdfs:label "SpatialExploration" ;
+    rdfs:comment "Active investigation of spatial environments" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialKnowledgeIntegration a owl:Class ;
+    rdfs:label "SpatialKnowledgeIntegration" ;
+    rdfs:comment "Combining spatial information into coherent maps" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialOptimization a owl:Class ;
+    rdfs:label "SpatialOptimization" ;
+    rdfs:comment "Systematic improvement of spatial arrangements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SuddenChanges a owl:Class ;
+    rdfs:label "SuddenChanges" ;
+    rdfs:comment "Rapid alterations that occur quickly rather than gradually" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SynchronizationMethods a owl:Class ;
+    rdfs:label "SynchronizationMethods" ;
+    rdfs:comment "Techniques for aligning temporal activities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SynchronizedMovement a owl:Class ;
+    rdfs:label "SynchronizedMovement" ;
+    rdfs:comment "Aligned motion of multiple entities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalDuration a owl:Class ;
+    rdfs:label "TemporalDuration" ;
+    rdfs:comment "Experienced length of time periods" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalEvents a owl:Class ;
+    rdfs:label "TemporalEvents" ;
+    rdfs:comment "Occurrences situated within time structures" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:TemporalHarmony a owl:Class ;
+    rdfs:label "TemporalHarmony" ;
+    rdfs:comment "Smooth coordination of temporal activities" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalRecurrence a owl:Class ;
+    rdfs:label "TemporalRecurrence" ;
+    rdfs:comment "Regularity of cyclical change timing" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:TemporalRhythms a owl:Class ;
+    rdfs:label "TemporalRhythms" ;
+    rdfs:comment "Regular temporal beats or patterns of occurrence" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalSequences a owl:Class ;
+    rdfs:label "TemporalSequences" ;
+    rdfs:comment "Ordered progressions of time periods or events" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TerritorialZones a owl:Class ;
+    rdfs:label "TerritorialZones" ;
+    rdfs:comment "Designated areas with specific functions or ownership" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:TerritoryManager a owl:Class ;
+    rdfs:label "TerritoryManager" ;
+    rdfs:comment "Person organizing and managing spatial boundaries and territories" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:TimeManagement a owl:Class ;
+    rdfs:label "TimeManagement" ;
+    rdfs:comment "Systematic use of temporal organization for efficient activity coordination" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimePassage a owl:Class ;
+    rdfs:label "TimePassage" ;
+    rdfs:comment "Subjective experience of time flowing or progressing" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimeUnits a owl:Class ;
+    rdfs:label "TimeUnits" ;
+    rdfs:comment "Discrete measurements of temporal duration" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TimingAdjustments a owl:Class ;
+    rdfs:label "TimingAdjustments" ;
+    rdfs:comment "Modifications to temporal arrangements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TimingCoordination a owl:Class ;
+    rdfs:label "TimingCoordination" ;
+    rdfs:comment "Managing temporal relationships between different activities" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TrajectoryModeling a owl:Class ;
+    rdfs:label "TrajectoryModeling" ;
+    rdfs:comment "Creating models of movement paths" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TrajectoryPaths a owl:Class ;
+    rdfs:label "TrajectoryPaths" ;
+    rdfs:comment "Routes or courses followed by moving entities" ;
+    rdfs:subClassOf <dul:Path> .
+
+ex:TransformationCycles a owl:Class ;
+    rdfs:label "TransformationCycles" ;
+    rdfs:comment "Complete sequences of cyclical change" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TransformationPhases a owl:Class ;
+    rdfs:label "TransformationPhases" ;
+    rdfs:comment "Periods of significant alteration within change processes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TransitionPlanning a owl:Class ;
+    rdfs:label "TransitionPlanning" ;
+    rdfs:comment "Preparation for moving through change processes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:VelocityChanges a owl:Class ;
+    rdfs:label "VelocityChanges" ;
+    rdfs:comment "Alterations in speed or direction of movement" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ChangeImplementation a owl:Class ;
+    rdfs:label "ChangeImplementation" ;
+    rdfs:comment "Execution of planned modifications" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CyclicalChanges a owl:Class ;
+    rdfs:label "CyclicalChanges" ;
+    rdfs:comment "Changes that repeat in regular patterns over time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DimensionalLevels a owl:Class ;
+    rdfs:label "DimensionalLevels" ;
+    rdfs:comment "Different scales of spatial organization" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:DirectionalMovement a owl:Class ;
+    rdfs:label "DirectionalMovement" ;
+    rdfs:comment "Motion oriented toward specific directions or destinations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:LayoutPlanning a owl:Class ;
+    rdfs:label "LayoutPlanning" ;
+    rdfs:comment "Strategic design of spatial configurations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:OptimalConfigurations a owl:Class ;
+    rdfs:label "OptimalConfigurations" ;
+    rdfs:comment "Spatial arrangements that best serve intended purposes" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:SpatialConfiguration a owl:Class ;
+    rdfs:label "SpatialConfiguration" ;
+    rdfs:comment "Overall arrangement of objects in space" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:TemporalCycles a owl:Class ;
+    rdfs:label "TemporalCycles" ;
+    rdfs:comment "Complete sequences of recurring temporal patterns" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TransformationalEvents a owl:Class ;
+    rdfs:label "TransformationalEvents" ;
+    rdfs:comment "Specific occurrences that trigger major changes" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:DevelopmentalProcesses a owl:Class ;
+    rdfs:label "DevelopmentalProcesses" ;
+    rdfs:comment "Systematic changes that occur through stages over time" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SpatialBoundaries a owl:Class ;
+    rdfs:label "SpatialBoundaries" ;
+    rdfs:comment "Defined limits and divisions within spatial areas" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:SpatialScales a owl:Class ;
+    rdfs:label "SpatialScales" ;
+    rdfs:comment "Different levels of spatial magnitude" ;
+    rdfs:subClassOf <dul:Region> .
+
+ex:SpatialRelationships a owl:Class ;
+    rdfs:label "SpatialRelationships" ;
+    rdfs:comment "Positional connections between spatial objects" ;
+    rdfs:subClassOf <dul:Relation> .
+

@@ -1,0 +1,567 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:ConceptualBridgesToMultipleDomains a owl:ObjectProperty ;
+    rdfs:comment "connect" ;
+    rdfs:domain ex:ConceptualBridges ;
+    rdfs:range ex:MultipleDomains ;
+    rdfs:subPropertyOf <dul:connects> .
+
+ex:ConceptualFrameworksToKnowledgeMaps a owl:ObjectProperty ;
+    rdfs:comment "include" ;
+    rdfs:domain ex:ConceptualFrameworks ;
+    rdfs:range ex:KnowledgeMaps ;
+    rdfs:subPropertyOf <dul:includes> .
+
+ex:ConceptualHierarchiesToKnowledgeNavigation a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:ConceptualHierarchies ;
+    rdfs:range ex:KnowledgeNavigation ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:ConceptualModelingToDomainKnowledge a owl:ObjectProperty ;
+    rdfs:comment "organizes" ;
+    rdfs:domain ex:ConceptualModeling ;
+    rdfs:range ex:DomainKnowledge ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:ConceptualNodesToConceptualMeaning a owl:ObjectProperty ;
+    rdfs:comment "carry" ;
+    rdfs:domain ex:ConceptualNodes ;
+    rdfs:range ex:ConceptualMeaning ;
+    rdfs:subPropertyOf <dul:expresses> .
+
+ex:ConsistencyCheckingToKnowledgeConflicts a owl:ObjectProperty ;
+    rdfs:comment "identify" ;
+    rdfs:domain ex:ConsistencyChecking ;
+    rdfs:range ex:KnowledgeConflicts ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:CrossDomainMappingToKnowledgeConnections a owl:ObjectProperty ;
+    rdfs:comment "identify" ;
+    rdfs:domain ex:CrossDomainMapping ;
+    rdfs:range ex:KnowledgeConnections ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:EmergentInsightsToHolisticPerspectives a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:EmergentInsights ;
+    rdfs:range ex:HolisticPerspectives ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:FactualValidationToKnowledgeAccuracy a owl:ObjectProperty ;
+    rdfs:comment "ensure" ;
+    rdfs:domain ex:FactualValidation ;
+    rdfs:range ex:KnowledgeAccuracy ;
+    rdfs:subPropertyOf <dul:ensures> .
+
+ex:IntegratedUnderstandingToEmergentInsights a owl:ObjectProperty ;
+    rdfs:comment "reveal" ;
+    rdfs:domain ex:IntegratedUnderstanding ;
+    rdfs:range ex:EmergentInsights ;
+    rdfs:subPropertyOf <dul:reveals> .
+
+ex:KnowledgeArchitectToConceptualFrameworks a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:KnowledgeArchitect ;
+    rdfs:range ex:ConceptualFrameworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:KnowledgeArchitectToKnowledgeStructures a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:KnowledgeArchitect ;
+    rdfs:range ex:KnowledgeStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:KnowledgeBasesToKnowledgeApplication a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:KnowledgeBases ;
+    rdfs:range ex:KnowledgeApplication ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:KnowledgeBasesToKnowledgeRetrieval a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:KnowledgeBases ;
+    rdfs:range ex:KnowledgeRetrieval ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:KnowledgeEncodingSystemsToExplicitKnowledge a owl:ObjectProperty ;
+    rdfs:comment "capture" ;
+    rdfs:domain ex:KnowledgeEncodingSystems ;
+    rdfs:range ex:ExplicitKnowledge ;
+    rdfs:subPropertyOf <dul:capture> .
+
+ex:KnowledgeEncodingSystemsToInformationalContent a owl:ObjectProperty ;
+    rdfs:comment "preserve" ;
+    rdfs:domain ex:KnowledgeEncodingSystems ;
+    rdfs:range ex:InformationalContent ;
+    rdfs:subPropertyOf <dul:preserves> .
+
+ex:KnowledgeEncodingSystemsToTacitUnderstanding a owl:ObjectProperty ;
+    rdfs:comment "capture" ;
+    rdfs:domain ex:KnowledgeEncodingSystems ;
+    rdfs:range ex:TacitUnderstanding ;
+    rdfs:subPropertyOf <dul:capture> .
+
+ex:KnowledgeEngineerToKnowledgeEncodingSystems a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:KnowledgeEngineer ;
+    rdfs:range ex:KnowledgeEncodingSystems ;
+    rdfs:subPropertyOf <dul:develops> .
+
+ex:KnowledgeEngineerToRepresentationFormats a owl:ObjectProperty ;
+    rdfs:comment "develops" ;
+    rdfs:domain ex:KnowledgeEngineer ;
+    rdfs:range ex:RepresentationFormats ;
+    rdfs:subPropertyOf <dul:develops> .
+
+ex:KnowledgeIntegrationToKnowledgeConnections a owl:ObjectProperty ;
+    rdfs:comment "identify" ;
+    rdfs:domain ex:KnowledgeIntegration ;
+    rdfs:range ex:KnowledgeConnections ;
+    rdfs:subPropertyOf <dul:identifies> .
+
+ex:KnowledgeIntegrationToSyntheticKnowledge a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:KnowledgeIntegration ;
+    rdfs:range ex:SyntheticKnowledge ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:KnowledgeMapsToConceptualRelationships a owl:ObjectProperty ;
+    rdfs:comment "visualize" ;
+    rdfs:domain ex:KnowledgeMaps ;
+    rdfs:range ex:ConceptualRelationships ;
+    rdfs:subPropertyOf <dul:visualizes> .
+
+ex:KnowledgeRepresentationScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:KnowledgeRepresentationScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:KnowledgeRepresentationScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:KnowledgeRepresentationScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:KnowledgeRepresentationScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:KnowledgeRetrievalToExplicitKnowledge a owl:ObjectProperty ;
+    rdfs:comment "access" ;
+    rdfs:domain ex:KnowledgeRetrieval ;
+    rdfs:range ex:ExplicitKnowledge ;
+    rdfs:subPropertyOf <dul:accesses> .
+
+ex:KnowledgeStructuresToKnowledgeStructures a owl:ObjectProperty ;
+    rdfs:comment "connected through ConceptualRelationships" ;
+    rdfs:domain ex:KnowledgeStructures ;
+    rdfs:range ex:KnowledgeStructures ;
+    rdfs:subPropertyOf <dul:isConnectedTo> .
+
+ex:KnowledgeSynthesizerToDisparateKnowledge a owl:ObjectProperty ;
+    rdfs:comment "combines" ;
+    rdfs:domain ex:KnowledgeSynthesizer ;
+    rdfs:range ex:DisparateKnowledge ;
+    rdfs:subPropertyOf <dul:combines> .
+
+ex:KnowledgeSynthesizerToMultipleDomains a owl:ObjectProperty ;
+    rdfs:comment "works across" ;
+    rdfs:domain ex:KnowledgeSynthesizer ;
+    rdfs:range ex:MultipleDomains ;
+    rdfs:subPropertyOf <dul:considers> .
+
+ex:KnowledgeValidatorToValidationSystems a owl:ObjectProperty ;
+    rdfs:comment "implements" ;
+    rdfs:domain ex:KnowledgeValidator ;
+    rdfs:range ex:ValidationSystems ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:KnowledgeValidatorToVerificationProcesses a owl:ObjectProperty ;
+    rdfs:comment "implements" ;
+    rdfs:domain ex:KnowledgeValidator ;
+    rdfs:range ex:VerificationProcesses ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:MeaningRelationshipsToSemanticConnections a owl:ObjectProperty ;
+    rdfs:comment "define types of" ;
+    rdfs:domain ex:MeaningRelationships ;
+    rdfs:range ex:SemanticConnections ;
+    rdfs:subPropertyOf <dul:defines> .
+
+ex:MeaningStructuresToSemanticReasoning a owl:ObjectProperty ;
+    rdfs:comment "support" ;
+    rdfs:domain ex:MeaningStructures ;
+    rdfs:range ex:SemanticReasoning ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:ReliabilityRankingToKnowledgeQuality a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:ReliabilityRanking ;
+    rdfs:range ex:KnowledgeQuality ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:RepresentationFormatsToKnowledgeBases a owl:ObjectProperty ;
+    rdfs:comment "create" ;
+    rdfs:domain ex:RepresentationFormats ;
+    rdfs:range ex:KnowledgeBases ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:RepresentationFormatsToRepresentationSchemas a owl:ObjectProperty ;
+    rdfs:comment "use" ;
+    rdfs:domain ex:RepresentationFormats ;
+    rdfs:range ex:RepresentationSchemas ;
+    rdfs:subPropertyOf <dul:uses> .
+
+ex:RepresentationSchemasToInformationalContent a owl:ObjectProperty ;
+    rdfs:comment "organize" ;
+    rdfs:domain ex:RepresentationSchemas ;
+    rdfs:range ex:InformationalContent ;
+    rdfs:subPropertyOf <dul:organizes> .
+
+ex:SemanticConnectionsToSemanticReasoning a owl:ObjectProperty ;
+    rdfs:comment "enable" ;
+    rdfs:domain ex:SemanticConnections ;
+    rdfs:range ex:SemanticReasoning ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:SemanticMapsToRelationalStructures a owl:ObjectProperty ;
+    rdfs:comment "show" ;
+    rdfs:domain ex:SemanticMaps ;
+    rdfs:range ex:RelationalStructures ;
+    rdfs:subPropertyOf <dul:shows> .
+
+ex:SemanticModelerToMeaningStructures a owl:ObjectProperty ;
+    rdfs:comment "builds" ;
+    rdfs:domain ex:SemanticModeler ;
+    rdfs:range ex:MeaningStructures ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SemanticModelerToSemanticMaps a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:SemanticModeler ;
+    rdfs:range ex:SemanticMaps ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SemanticModelerToSemanticNetworks a owl:ObjectProperty ;
+    rdfs:comment "builds" ;
+    rdfs:domain ex:SemanticModeler ;
+    rdfs:range ex:SemanticNetworks ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SemanticNetworksToConceptualNodes a owl:ObjectProperty ;
+    rdfs:comment "connect through SemanticConnections" ;
+    rdfs:domain ex:SemanticNetworks ;
+    rdfs:range ex:ConceptualNodes ;
+    rdfs:subPropertyOf <dul:connects> .
+
+ex:SemanticOrganizationToConceptualHierarchies a owl:ObjectProperty ;
+    rdfs:comment "creates" ;
+    rdfs:domain ex:SemanticOrganization ;
+    rdfs:range ex:ConceptualHierarchies ;
+    rdfs:subPropertyOf <dul:creates> .
+
+ex:SourceVerificationToInformationReliability a owl:ObjectProperty ;
+    rdfs:comment "confirm" ;
+    rdfs:domain ex:SourceVerification ;
+    rdfs:range ex:InformationReliability ;
+    rdfs:subPropertyOf <dul:confirms> .
+
+ex:SyntheticKnowledgeToIntegratedUnderstanding a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:SyntheticKnowledge ;
+    rdfs:range ex:IntegratedUnderstanding ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:TruthAssessmentToKnowledgeQuality a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:TruthAssessment ;
+    rdfs:range ex:KnowledgeQuality ;
+    rdfs:subPropertyOf <dul:contributesTo> .
+
+ex:ValidationSystemsToVerificationProcesses a owl:ObjectProperty ;
+    rdfs:comment "integrate" ;
+    rdfs:domain ex:ValidationSystems ;
+    rdfs:range ex:VerificationProcesses ;
+    rdfs:subPropertyOf <dul:integrates> .
+
+ex:VerificationProcessesToInformationReliability a owl:ObjectProperty ;
+    rdfs:comment "assess" ;
+    rdfs:domain ex:VerificationProcesses ;
+    rdfs:range ex:InformationReliability ;
+    rdfs:subPropertyOf <dul:assesses> .
+
+ex:VerificationProcessesToKnowledgeAccuracy a owl:ObjectProperty ;
+    rdfs:comment "assess" ;
+    rdfs:domain ex:VerificationProcesses ;
+    rdfs:range ex:KnowledgeAccuracy ;
+    rdfs:subPropertyOf <dul:assesses> .
+
+ex:ConceptualBridges a owl:Class ;
+    rdfs:label "ConceptualBridges" ;
+    rdfs:comment "Conceptual links that connect different domains" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ConceptualMeaning a owl:Class ;
+    rdfs:label "ConceptualMeaning" ;
+    rdfs:comment "Significance and understanding associated with concepts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ConceptualModeling a owl:Class ;
+    rdfs:label "ConceptualModeling" ;
+    rdfs:comment "Creating abstract representations of knowledge domains" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ConceptualRelationships a owl:Class ;
+    rdfs:label "ConceptualRelationships" ;
+    rdfs:comment "Meaningful connections between concepts" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:ConsistencyChecking a owl:Class ;
+    rdfs:label "ConsistencyChecking" ;
+    rdfs:comment "Verifying logical coherence within knowledge systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CrossDomainMapping a owl:Class ;
+    rdfs:label "CrossDomainMapping" ;
+    rdfs:comment "Identifying connections between different knowledge areas" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DisparateKnowledge a owl:Class ;
+    rdfs:label "DisparateKnowledge" ;
+    rdfs:comment "Knowledge from separate, unconnected domains" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:DomainKnowledge a owl:Class ;
+    rdfs:label "DomainKnowledge" ;
+    rdfs:comment "Specialized understanding within particular fields" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:FactualValidation a owl:Class ;
+    rdfs:label "FactualValidation" ;
+    rdfs:comment "Checking claims against reliable evidence" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:HolisticPerspectives a owl:Class ;
+    rdfs:label "HolisticPerspectives" ;
+    rdfs:comment "Comprehensive view incorporating multiple knowledge domains" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:KnowledgeApplication a owl:Class ;
+    rdfs:label "KnowledgeApplication" ;
+    rdfs:comment "Using encoded knowledge for practical purposes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:KnowledgeConflicts a owl:Class ;
+    rdfs:label "KnowledgeConflicts" ;
+    rdfs:comment "Contradictions or inconsistencies in knowledge" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:KnowledgeNavigation a owl:Class ;
+    rdfs:label "KnowledgeNavigation" ;
+    rdfs:comment "Moving through knowledge structures to find information" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MeaningRelationships a owl:Class ;
+    rdfs:label "MeaningRelationships" ;
+    rdfs:comment "Various types of semantic connections between concepts" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:RelationalStructures a owl:Class ;
+    rdfs:label "RelationalStructures" ;
+    rdfs:comment "Organizations based on relationship patterns" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ReliabilityRanking a owl:Class ;
+    rdfs:label "ReliabilityRanking" ;
+    rdfs:comment "Ordering knowledge sources by trustworthiness" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SemanticOrganization a owl:Class ;
+    rdfs:label "SemanticOrganization" ;
+    rdfs:comment "Organizing knowledge based on meaning relationships" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SourceVerification a owl:Class ;
+    rdfs:label "SourceVerification" ;
+    rdfs:comment "Confirming credibility of knowledge origins" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:TacitUnderstanding a owl:Class ;
+    rdfs:label "TacitUnderstanding" ;
+    rdfs:comment "Implicit knowledge that is difficult to articulate" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:TruthAssessment a owl:Class ;
+    rdfs:label "TruthAssessment" ;
+    rdfs:comment "Evaluating correspondence between claims and reality" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ConceptualFrameworks a owl:Class ;
+    rdfs:label "ConceptualFrameworks" ;
+    rdfs:comment "Organized systems for understanding and relating concepts" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:ConceptualHierarchies a owl:Class ;
+    rdfs:label "ConceptualHierarchies" ;
+    rdfs:comment "Multi-level organizations of related concepts" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:ConceptualNodes a owl:Class ;
+    rdfs:label "ConceptualNodes" ;
+    rdfs:comment "Individual concepts within semantic networks" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:EmergentInsights a owl:Class ;
+    rdfs:label "EmergentInsights" ;
+    rdfs:comment "New understanding that emerges from knowledge integration" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ExplicitKnowledge a owl:Class ;
+    rdfs:label "ExplicitKnowledge" ;
+    rdfs:comment "Clearly articulated and documented understanding" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:InformationReliability a owl:Class ;
+    rdfs:label "InformationReliability" ;
+    rdfs:comment "Trustworthiness and dependability of knowledge sources" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:InformationalContent a owl:Class ;
+    rdfs:label "InformationalContent" ;
+    rdfs:comment "The substance and meaning preserved in representations" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:IntegratedUnderstanding a owl:Class ;
+    rdfs:label "IntegratedUnderstanding" ;
+    rdfs:comment "Unified comprehension across multiple domains" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:KnowledgeAccuracy a owl:Class ;
+    rdfs:label "KnowledgeAccuracy" ;
+    rdfs:comment "Correctness and precision of represented knowledge" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:KnowledgeArchitect a owl:Class ;
+    rdfs:label "KnowledgeArchitect" ;
+    rdfs:comment "Person designing structures for organizing and representing knowledge" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeConnections a owl:Class ;
+    rdfs:label "KnowledgeConnections" ;
+    rdfs:comment "Links and relationships between separate knowledge areas" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:KnowledgeEngineer a owl:Class ;
+    rdfs:label "KnowledgeEngineer" ;
+    rdfs:comment "Person designing systems for encoding and representing knowledge" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeIntegration a owl:Class ;
+    rdfs:label "KnowledgeIntegration" ;
+    rdfs:comment "Combining separate knowledge into unified understanding" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:KnowledgeMaps a owl:Class ;
+    rdfs:label "KnowledgeMaps" ;
+    rdfs:comment "Visual or structural representations of knowledge relationships" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:KnowledgeQuality a owl:Class ;
+    rdfs:label "KnowledgeQuality" ;
+    rdfs:comment "Overall excellence of knowledge representation" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:KnowledgeRetrieval a owl:Class ;
+    rdfs:label "KnowledgeRetrieval" ;
+    rdfs:comment "Accessing specific knowledge from encoded systems" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:KnowledgeSynthesizer a owl:Class ;
+    rdfs:label "KnowledgeSynthesizer" ;
+    rdfs:comment "Person combining knowledge from different domains" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeValidator a owl:Class ;
+    rdfs:label "KnowledgeValidator" ;
+    rdfs:comment "Person responsible for verifying knowledge accuracy and reliability" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MeaningStructures a owl:Class ;
+    rdfs:label "MeaningStructures" ;
+    rdfs:comment "Organized systems representing conceptual significance" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:MultipleDomains a owl:Class ;
+    rdfs:label "MultipleDomains" ;
+    rdfs:comment "Different fields or areas of knowledge" ;
+    rdfs:subClassOf <dul:Collection> .
+
+ex:RepresentationSchemas a owl:Class ;
+    rdfs:label "RepresentationSchemas" ;
+    rdfs:comment "Systematic frameworks for organizing encoded knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SemanticConnections a owl:Class ;
+    rdfs:label "SemanticConnections" ;
+    rdfs:comment "Links between concepts based on meaning relationships" ;
+    rdfs:subClassOf <dul:Relation> .
+
+ex:SemanticMaps a owl:Class ;
+    rdfs:label "SemanticMaps" ;
+    rdfs:comment "Representations showing meaning relationships spatially" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SemanticNetworks a owl:Class ;
+    rdfs:label "SemanticNetworks" ;
+    rdfs:comment "Networks representing meaning relationships between concepts" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:SemanticReasoning a owl:Class ;
+    rdfs:label "SemanticReasoning" ;
+    rdfs:comment "Drawing inferences based on meaning relationships" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SyntheticKnowledge a owl:Class ;
+    rdfs:label "SyntheticKnowledge" ;
+    rdfs:comment "New understanding created by combining existing knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:ValidationSystems a owl:Class ;
+    rdfs:label "ValidationSystems" ;
+    rdfs:comment "Systematic frameworks for assessing knowledge validity" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:KnowledgeBases a owl:Class ;
+    rdfs:label "KnowledgeBases" ;
+    rdfs:comment "Structured collections of encoded knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:KnowledgeStructures a owl:Class ;
+    rdfs:label "KnowledgeStructures" ;
+    rdfs:comment "Systematic organizations of information and understanding" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:RepresentationFormats a owl:Class ;
+    rdfs:label "RepresentationFormats" ;
+    rdfs:comment "Specific structures and formats for encoding knowledge" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SemanticModeler a owl:Class ;
+    rdfs:label "SemanticModeler" ;
+    rdfs:comment "Person creating representations of meaning relationships" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:KnowledgeEncodingSystems a owl:Class ;
+    rdfs:label "KnowledgeEncodingSystems" ;
+    rdfs:comment "Systematic methods for capturing knowledge in representational formats" ;
+    rdfs:subClassOf <dul:System> .
+
+ex:VerificationProcesses a owl:Class ;
+    rdfs:label "VerificationProcesses" ;
+    rdfs:comment "Methods for confirming knowledge accuracy" ;
+    rdfs:subClassOf <dul:Process> .
+

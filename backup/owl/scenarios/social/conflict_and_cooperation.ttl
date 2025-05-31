@@ -1,0 +1,485 @@
+@prefix dul: <http://www.loa-cnr.it/ontologies/DUL.owl#> .
+@prefix ex: <http://example.org/needs/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:ActivistMobilizationToMovementBuilding a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:ActivistMobilization ;
+    rdfs:range ex:MovementBuilding ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:AllianceBuilderToStrategicAlliances a owl:ObjectProperty ;
+    rdfs:comment "forms" ;
+    rdfs:domain ex:AllianceBuilder ;
+    rdfs:range ex:StrategicAlliances ;
+    rdfs:subPropertyOf <dul:forms> .
+
+ex:AllianceStrategiesToPartnershipAgreements a owl:ObjectProperty ;
+    rdfs:comment "governed by" ;
+    rdfs:domain ex:AllianceStrategies ;
+    rdfs:range ex:PartnershipAgreements ;
+    rdfs:subPropertyOf <dul:governedBy> .
+
+ex:AllianceTensionsToPartnershipStability a owl:ObjectProperty ;
+    rdfs:comment "threaten" ;
+    rdfs:domain ex:AllianceTensions ;
+    rdfs:range ex:PartnershipStability ;
+    rdfs:subPropertyOf <dul:threaten> .
+
+ex:CampaignTacticsToActionStrategies a owl:ObjectProperty ;
+    rdfs:comment "implements" ;
+    rdfs:domain ex:CampaignTactics ;
+    rdfs:range ex:ActionStrategies ;
+    rdfs:subPropertyOf <dul:implements> .
+
+ex:CoalitionPartnershipsToCommonInterests a owl:ObjectProperty ;
+    rdfs:comment "formed around" ;
+    rdfs:domain ex:CoalitionPartnerships ;
+    rdfs:range ex:CommonInterests ;
+    rdfs:subPropertyOf <dul:formedAround> .
+
+ex:CollaboratorsToSharedGoals a owl:ObjectProperty ;
+    rdfs:comment "share" ;
+    rdfs:domain ex:Collaborators ;
+    rdfs:range ex:SharedGoals ;
+    rdfs:subPropertyOf <dul:share> .
+
+ex:CompetitiveProcessesToDesiredOutcomes a owl:ObjectProperty ;
+    rdfs:comment "aim at" ;
+    rdfs:domain ex:CompetitiveProcesses ;
+    rdfs:range ex:DesiredOutcomes ;
+    rdfs:subPropertyOf <dul:aimsAt> .
+
+ex:CompetitiveProcessesToScarceResources a owl:ObjectProperty ;
+    rdfs:comment "target" ;
+    rdfs:domain ex:CompetitiveProcesses ;
+    rdfs:range ex:ScarceResources ;
+    rdfs:subPropertyOf <dul:target> .
+
+ex:CompetitiveStrategiesToCompetitiveAdvantages a owl:ObjectProperty ;
+    rdfs:comment "enhance" ;
+    rdfs:domain ex:CompetitiveStrategies ;
+    rdfs:range ex:CompetitiveAdvantages ;
+    rdfs:subPropertyOf <dul:enhance> .
+
+ex:CompetitiveSuccessToCompetitiveAdvantages a owl:ObjectProperty ;
+    rdfs:comment "results from" ;
+    rdfs:domain ex:CompetitiveSuccess ;
+    rdfs:range ex:CompetitiveAdvantages ;
+    rdfs:subPropertyOf <dul:resultsFrom> .
+
+ex:CompetitorsToCompetitiveProcesses a owl:ObjectProperty ;
+    rdfs:comment "engage in" ;
+    rdfs:domain ex:Competitors ;
+    rdfs:range ex:CompetitiveProcesses ;
+    rdfs:subPropertyOf <dul:engagesIn> .
+
+ex:ComplementarySkillsToTeamWork a owl:ObjectProperty ;
+    rdfs:comment "contribute to" ;
+    rdfs:domain ex:ComplementarySkills ;
+    rdfs:range ex:TeamWork ;
+    rdfs:subPropertyOf <dul:contributeTo> .
+
+ex:CompromiseSolutionsToSocialConflicts a owl:ObjectProperty ;
+    rdfs:comment "resolve" ;
+    rdfs:domain ex:CompromiseSolutions ;
+    rdfs:range ex:SocialConflicts ;
+    rdfs:subPropertyOf <dul:resolve> .
+
+ex:ConflictCooperationScenario1 a dul:Situation ;
+    rdfs:label "Scenario 1" .
+
+ex:ConflictCooperationScenario2 a dul:Situation ;
+    rdfs:label "Scenario 2" .
+
+ex:ConflictCooperationScenario3 a dul:Situation ;
+    rdfs:label "Scenario 3" .
+
+ex:ConflictCooperationScenario4 a dul:Situation ;
+    rdfs:label "Scenario 4" .
+
+ex:ConflictCooperationScenario5 a dul:Situation ;
+    rdfs:label "Scenario 5" .
+
+ex:ConflictResolutionProcessesToSocialConflicts a owl:ObjectProperty ;
+    rdfs:comment "address" ;
+    rdfs:domain ex:ConflictResolutionProcesses ;
+    rdfs:range ex:SocialConflicts ;
+    rdfs:subPropertyOf <dul:address> .
+
+ex:ConflictingParties a owl:Class ;
+    rdfs:label "ConflictingParties" ;
+    rdfs:comment "People or groups involved in disputes or disagreements" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CooperativeProcessesToCollectiveResources a owl:ObjectProperty ;
+    rdfs:comment "involve" ;
+    rdfs:domain ex:CooperativeProcesses ;
+    rdfs:range ex:CollectiveResources ;
+    rdfs:subPropertyOf <dul:involves> .
+
+ex:CoordinatedEffortsToCollectiveOutcomes a owl:ObjectProperty ;
+    rdfs:comment "produce" ;
+    rdfs:domain ex:CoordinatedEfforts ;
+    rdfs:range ex:CollectiveOutcomes ;
+    rdfs:subPropertyOf <dul:produce> .
+
+ex:DisputeResolutionToPeacefulOutcomes a owl:ObjectProperty ;
+    rdfs:comment "results in" ;
+    rdfs:domain ex:DisputeResolution ;
+    rdfs:range ex:PeacefulOutcomes ;
+    rdfs:subPropertyOf <dul:resultsIn> .
+
+ex:LongTermCommitmentToSocialMovements a owl:ObjectProperty ;
+    rdfs:comment "sustains" ;
+    rdfs:domain ex:LongTermCommitment ;
+    rdfs:range ex:SocialMovements ;
+    rdfs:subPropertyOf <dul:sustains> .
+
+ex:LosersToPerformanceComparisons a owl:ObjectProperty ;
+    rdfs:comment "identified through" ;
+    rdfs:domain ex:Losers ;
+    rdfs:range ex:PerformanceComparisons ;
+    rdfs:subPropertyOf <dul:identifiedThrough> .
+
+ex:MediatorToConflictResolutionProcesses a owl:ObjectProperty ;
+    rdfs:comment "facilitates" ;
+    rdfs:domain ex:Mediator ;
+    rdfs:range ex:ConflictResolutionProcesses ;
+    rdfs:subPropertyOf <dul:facilitates> .
+
+ex:MovementBuildingToMovementSolidarity a owl:ObjectProperty ;
+    rdfs:comment "strengthens" ;
+    rdfs:domain ex:MovementBuilding ;
+    rdfs:range ex:MovementSolidarity ;
+    rdfs:subPropertyOf <dul:strengthens> .
+
+ex:MovementOrganizerToSocialMovements a owl:ObjectProperty ;
+    rdfs:comment "leads" ;
+    rdfs:domain ex:MovementOrganizer ;
+    rdfs:range ex:SocialMovements ;
+    rdfs:subPropertyOf <dul:leads> .
+
+ex:MutualUnderstandingToDisputeResolution a owl:ObjectProperty ;
+    rdfs:comment "supports" ;
+    rdfs:domain ex:MutualUnderstanding ;
+    rdfs:range ex:DisputeResolution ;
+    rdfs:subPropertyOf <dul:supports> .
+
+ex:NegotiationToCompromiseSolutions a owl:ObjectProperty ;
+    rdfs:comment "leads to" ;
+    rdfs:domain ex:Negotiation ;
+    rdfs:range ex:CompromiseSolutions ;
+    rdfs:subPropertyOf <dul:leadsTo> .
+
+ex:PartnershipAgreementsToCollectiveGoals a owl:ObjectProperty ;
+    rdfs:comment "guide" ;
+    rdfs:domain ex:PartnershipAgreements ;
+    rdfs:range ex:CollectiveGoals ;
+    rdfs:subPropertyOf <dul:guide> .
+
+ex:PerformanceComparisonsToCompetitors a owl:ObjectProperty ;
+    rdfs:comment "evaluate" ;
+    rdfs:domain ex:PerformanceComparisons ;
+    rdfs:range ex:Competitors ;
+    rdfs:subPropertyOf <dul:evaluate> .
+
+ex:ResourceSharingToMutualBenefits a owl:ObjectProperty ;
+    rdfs:comment "enables" ;
+    rdfs:domain ex:ResourceSharing ;
+    rdfs:range ex:MutualBenefits ;
+    rdfs:subPropertyOf <dul:enables> .
+
+ex:RivalryDynamicsToCompetitiveProcesses a owl:ObjectProperty ;
+    rdfs:comment "emerge from" ;
+    rdfs:domain ex:RivalryDynamics ;
+    rdfs:range ex:CompetitiveProcesses ;
+    rdfs:subPropertyOf <dul:emergeFrom> .
+
+ex:SharedBenefitsToAllianceStrategies a owl:ObjectProperty ;
+    rdfs:comment "motivate" ;
+    rdfs:domain ex:SharedBenefits ;
+    rdfs:range ex:AllianceStrategies ;
+    rdfs:subPropertyOf <dul:motivate> .
+
+ex:SocialChangeToCollectiveAction a owl:ObjectProperty ;
+    rdfs:comment "achieved through" ;
+    rdfs:domain ex:SocialChange ;
+    rdfs:range ex:CollectiveAction ;
+    rdfs:subPropertyOf <dul:achievedThrough> .
+
+ex:SocialMovementsToCollectiveAction a owl:ObjectProperty ;
+    rdfs:comment "realize" ;
+    rdfs:domain ex:SocialMovements ;
+    rdfs:range ex:CollectiveAction ;
+    rdfs:subPropertyOf <dul:realize> .
+
+ex:TeamWorkToCoordinatedEfforts a owl:ObjectProperty ;
+    rdfs:comment "realized by" ;
+    rdfs:domain ex:TeamWork ;
+    rdfs:range ex:CoordinatedEfforts ;
+    rdfs:subPropertyOf <dul:realizedBy> .
+
+ex:UnderlyingInterestsToSocialConflicts a owl:ObjectProperty ;
+    rdfs:comment "explained by" ;
+    rdfs:domain ex:UnderlyingInterests ;
+    rdfs:range ex:SocialConflicts ;
+    rdfs:subPropertyOf <dul:explainedBy> .
+
+ex:WinnersToPerformanceComparisons a owl:ObjectProperty ;
+    rdfs:comment "identified through" ;
+    rdfs:domain ex:Winners ;
+    rdfs:range ex:PerformanceComparisons ;
+    rdfs:subPropertyOf <dul:identifiedThrough> .
+
+ex:ActionStrategies a owl:Class ;
+    rdfs:label "ActionStrategies" ;
+    rdfs:comment "Planned approaches to achieving movement goals" ;
+    rdfs:subClassOf <dul:Plan> .
+
+ex:ActivistMobilization a owl:Class ;
+    rdfs:label "ActivistMobilization" ;
+    rdfs:comment "Recruiting and organizing people for movement participation" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:AllianceBuilder a owl:Class ;
+    rdfs:label "AllianceBuilder" ;
+    rdfs:comment "Person creating and managing strategic partnerships between groups" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AllianceTensions a owl:Class ;
+    rdfs:label "AllianceTensions" ;
+    rdfs:comment "Conflicts or disagreements within partnerships" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:CampaignTactics a owl:Class ;
+    rdfs:label "CampaignTactics" ;
+    rdfs:comment "Specific methods used to advance movement objectives" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CoalitionPartnerships a owl:Class ;
+    rdfs:label "CoalitionPartnerships" ;
+    rdfs:comment "Temporary alliances formed around shared goals or interests" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:Collaborators a owl:Class ;
+    rdfs:label "Collaborators" ;
+    rdfs:comment "People working together toward common objectives" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CollectiveGoals a owl:Class ;
+    rdfs:label "CollectiveGoals" ;
+    rdfs:comment "Objectives that can only be achieved through joint effort" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CollectiveOutcomes a owl:Class ;
+    rdfs:label "CollectiveOutcomes" ;
+    rdfs:comment "Results achieved through combined group effort" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CollectiveResources a owl:Class ;
+    rdfs:label "CollectiveResources" ;
+    rdfs:comment "Combined assets and capabilities of group members" ;
+    rdfs:subClassOf <dul:Object> .
+
+ex:CommonInterests a owl:Class ;
+    rdfs:label "CommonInterests" ;
+    rdfs:comment "Shared concerns or objectives that unite potential partners" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:CompetitiveStrategies a owl:Class ;
+    rdfs:label "CompetitiveStrategies" ;
+    rdfs:comment "Planned approaches to gaining competitive advantage" ;
+    rdfs:subClassOf <dul:Plan> .
+
+ex:CompetitiveSuccess a owl:Class ;
+    rdfs:label "CompetitiveSuccess" ;
+    rdfs:comment "Achievement of desired outcomes through superior performance" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:ComplementarySkills a owl:Class ;
+    rdfs:label "ComplementarySkills" ;
+    rdfs:comment "Different abilities that enhance group effectiveness" ;
+    rdfs:subClassOf <dul:Skill> .
+
+ex:CooperativeProcesses a owl:Class ;
+    rdfs:label "CooperativeProcesses" ;
+    rdfs:comment "Systematic approaches to working together" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DesiredOutcomes a owl:Class ;
+    rdfs:label "DesiredOutcomes" ;
+    rdfs:comment "Valued results that competitors seek to achieve" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:LongTermCommitment a owl:Class ;
+    rdfs:label "LongTermCommitment" ;
+    rdfs:comment "Sustained dedication to movement goals over time" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:Losers a owl:Class ;
+    rdfs:label "Losers" ;
+    rdfs:comment "Competitors who achieve inferior outcomes" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:Mediator a owl:Class ;
+    rdfs:label "Mediator" ;
+    rdfs:comment "Person facilitating resolution between conflicting parties" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MovementOrganizer a owl:Class ;
+    rdfs:label "MovementOrganizer" ;
+    rdfs:comment "Person coordinating social movements for collective action" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:MovementSolidarity a owl:Class ;
+    rdfs:label "MovementSolidarity" ;
+    rdfs:comment "Unity and mutual support among movement participants" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:MutualBenefits a owl:Class ;
+    rdfs:label "MutualBenefits" ;
+    rdfs:comment "Advantages gained by all participants through cooperation" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:MutualUnderstanding a owl:Class ;
+    rdfs:label "MutualUnderstanding" ;
+    rdfs:comment "Shared comprehension of different perspectives" ;
+    rdfs:subClassOf <dul:State> .
+
+ex:Negotiation a owl:Class ;
+    rdfs:label "Negotiation" ;
+    rdfs:comment "Discussion aimed at reaching mutually acceptable agreements" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PartnershipStability a owl:Class ;
+    rdfs:label "PartnershipStability" ;
+    rdfs:comment "Durability and reliability of alliance relationships" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:PeacefulOutcomes a owl:Class ;
+    rdfs:label "PeacefulOutcomes" ;
+    rdfs:comment "Resolutions that restore harmony between parties" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:ResourceSharing a owl:Class ;
+    rdfs:label "ResourceSharing" ;
+    rdfs:comment "Distribution of assets and capabilities among collaborators" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:RivalryDynamics a owl:Class ;
+    rdfs:label "RivalryDynamics" ;
+    rdfs:comment "Interactive patterns of competitive behavior" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:ScarceResources a owl:Class ;
+    rdfs:label "ScarceResources" ;
+    rdfs:comment "Limited assets or opportunities that create competitive pressure" ;
+    rdfs:subClassOf <dul:PhysicalObject> .
+
+ex:SharedBenefits a owl:Class ;
+    rdfs:label "SharedBenefits" ;
+    rdfs:comment "Mutual advantages gained through partnership" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SharedGoals a owl:Class ;
+    rdfs:label "SharedGoals" ;
+    rdfs:comment "Common objectives that unite collaborative efforts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:SocialChange a owl:Class ;
+    rdfs:label "SocialChange" ;
+    rdfs:comment "Transformations in social structures, policies, or cultural norms" ;
+    rdfs:subClassOf <dul:Event> .
+
+ex:StrategicAlliances a owl:Class ;
+    rdfs:label "StrategicAlliances" ;
+    rdfs:comment "Formal partnerships created to achieve specific objectives" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:UnderlyingInterests a owl:Class ;
+    rdfs:label "UnderlyingInterests" ;
+    rdfs:comment "Fundamental needs and concerns driving conflicts" ;
+    rdfs:subClassOf <dul:InformationObject> .
+
+ex:Winners a owl:Class ;
+    rdfs:label "Winners" ;
+    rdfs:comment "Competitors who achieve superior outcomes" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:AllianceStrategies a owl:Class ;
+    rdfs:label "AllianceStrategies" ;
+    rdfs:comment "Planned approaches to forming and maintaining partnerships" ;
+    rdfs:subClassOf <dul:Plan> .
+
+ex:CollectiveAction a owl:Class ;
+    rdfs:label "CollectiveAction" ;
+    rdfs:comment "Coordinated group activities directed toward common social goals" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CompetitiveAdvantages a owl:Class ;
+    rdfs:label "CompetitiveAdvantages" ;
+    rdfs:comment "Superior capabilities or positions in competition" ;
+    rdfs:subClassOf <dul:Quality> .
+
+ex:Competitors a owl:Class ;
+    rdfs:label "Competitors" ;
+    rdfs:comment "People or groups competing for resources or outcomes" ;
+    rdfs:subClassOf <dul:Agent> .
+
+ex:CompromiseSolutions a owl:Class ;
+    rdfs:label "CompromiseSolutions" ;
+    rdfs:comment "Agreements involving mutual concessions" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:ConflictResolutionProcesses a owl:Class ;
+    rdfs:label "ConflictResolutionProcesses" ;
+    rdfs:comment "Systematic approaches to resolving disputes" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:CoordinatedEfforts a owl:Class ;
+    rdfs:label "CoordinatedEfforts" ;
+    rdfs:comment "Synchronized activities directed toward common goals" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:DisputeResolution a owl:Class ;
+    rdfs:label "DisputeResolution" ;
+    rdfs:comment "Successful conclusion of conflicts" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:MovementBuilding a owl:Class ;
+    rdfs:label "MovementBuilding" ;
+    rdfs:comment "Developing and strengthening social movement organizations" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PartnershipAgreements a owl:Class ;
+    rdfs:label "PartnershipAgreements" ;
+    rdfs:comment "Formal or informal understandings governing alliance relationships" ;
+    rdfs:subClassOf <dul:Description> .
+
+ex:TeamWork a owl:Class ;
+    rdfs:label "TeamWork" ;
+    rdfs:comment "Coordinated group effort toward shared objectives" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:PerformanceComparisons a owl:Class ;
+    rdfs:label "PerformanceComparisons" ;
+    rdfs:comment "Evaluation of relative competitive success" ;
+    rdfs:subClassOf <dul:Process> .
+
+ex:SocialConflicts a owl:Class ;
+    rdfs:label "SocialConflicts" ;
+    rdfs:comment "Disputes arising from incompatible goals or interests" ;
+    rdfs:subClassOf <dul:Situation> .
+
+ex:SocialMovements a owl:Class ;
+    rdfs:label "SocialMovements" ;
+    rdfs:comment "Organized efforts by groups to create social or political change" ;
+    rdfs:subClassOf <dul:SocialObject> .
+
+ex:CompetitiveProcesses a owl:Class ;
+    rdfs:label "CompetitiveProcesses" ;
+    rdfs:comment "Systematic contests involving rivalry and performance comparison" ;
+    rdfs:subClassOf <dul:Process> .
+
