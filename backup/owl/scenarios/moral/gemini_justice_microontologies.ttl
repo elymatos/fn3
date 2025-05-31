@@ -1,0 +1,237 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix jus: <http://example.org/gemini/moral/justice#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+jus: ns1:imports dul: .
+
+jus:DutyAssignmentContext a dul:Situation ;
+    dul:hasParticipant jus:MoralAgent ;
+    dul:hasSetting jus:EthicalDuty,
+        jus:ResponsibilityAssignment,
+        jus:SocialExpectation .
+
+jus:JusticeProcedureContext a dul:Situation ;
+    dul:hasParticipant jus:InstitutionalContext ;
+    dul:hasSetting jus:DisputeResolution,
+        jus:FairTreatment,
+        jus:JusticeProcedure .
+
+jus:RestorativeJusticeContext a dul:Situation ;
+    dul:hasParticipant jus:HarmedParty,
+        jus:OffendingParty ;
+    dul:hasSetting jus:AmendsAgreement,
+        jus:HealingDialogue .
+
+jus:RightsConflictContext a dul:Situation ;
+    dul:hasParticipant jus:StakeholderGroup ;
+    dul:hasSetting jus:ConflictingRights,
+        jus:MediationProcess,
+        jus:NormativeFramework .
+
+jus:RightsProtectionContext a dul:Situation ;
+    dul:hasParticipant jus:RightBearer ;
+    dul:hasSetting jus:LegalRight,
+        jus:ProtectionMechanism,
+        jus:ViolationEvent .
+
+jus:acknowledges a ns1:ObjectProperty ;
+    rdfs:domain jus:RightsRecognition ;
+    rdfs:range jus:LegalRight ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+jus:administers a ns1:ObjectProperty ;
+    rdfs:domain jus:JusticeSystem ;
+    rdfs:range jus:ProtectionMechanism ;
+    rdfs:subPropertyOf dul:performs .
+
+jus:assignedTo a ns1:ObjectProperty ;
+    rdfs:domain jus:MoralAgent ;
+    rdfs:range jus:EthicalDuty ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+jus:assigns a ns1:ObjectProperty ;
+    rdfs:domain jus:ResponsibilityAssignment ;
+    rdfs:range jus:MoralObligation ;
+    rdfs:subPropertyOf dul:hasObject .
+
+jus:basedOn a ns1:ObjectProperty ;
+    rdfs:domain jus:JusticeProcedure ;
+    rdfs:range jus:JusticePrinciple ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+jus:ensures a ns1:ObjectProperty ;
+    rdfs:domain jus:JusticeProcedure ;
+    rdfs:range jus:FairTreatment ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+jus:facilitates a ns1:ObjectProperty ;
+    rdfs:domain jus:HealingDialogue ;
+    rdfs:range jus:RestorativeJustice ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+jus:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain jus:MediationProcess ;
+    rdfs:range jus:NormativeFramework ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+jus:hasRight a ns1:ObjectProperty ;
+    rdfs:domain jus:RightBearer ;
+    rdfs:range jus:LegalRight ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+jus:includes a ns1:ObjectProperty ;
+    rdfs:domain jus:MediationProcess,
+        jus:NegotiatedOutcome ;
+    rdfs:range jus:RightLimitation,
+        jus:StakeholderGroup ;
+    rdfs:subPropertyOf dul:hasPart,
+        dul:hasParticipant .
+
+jus:involves a ns1:ObjectProperty ;
+    rdfs:domain jus:DisputeResolution,
+        jus:RestorativeJustice ;
+    rdfs:range jus:HarmedParty,
+        jus:JusticeProcedure,
+        jus:OffendingParty ;
+    rdfs:subPropertyOf dul:hasConstituent,
+        dul:hasParticipant .
+
+jus:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain jus:RestorativeJustice ;
+    rdfs:range jus:SocialReintegration ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+jus:occursIn a ns1:ObjectProperty ;
+    rdfs:domain jus:JusticeProcedure ;
+    rdfs:range jus:InstitutionalContext ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+jus:produces a ns1:ObjectProperty ;
+    rdfs:domain jus:MediationProcess ;
+    rdfs:range jus:NegotiatedOutcome ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+jus:protects a ns1:ObjectProperty ;
+    rdfs:domain jus:ProtectionMechanism ;
+    rdfs:range jus:LegalRight ;
+    rdfs:subPropertyOf dul:hasObject .
+
+jus:realizes a ns1:ObjectProperty ;
+    rdfs:domain jus:DutyFulfillment ;
+    rdfs:range jus:EthicalDuty ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+jus:resolvedBy a ns1:ObjectProperty ;
+    rdfs:domain jus:ConflictingRights ;
+    rdfs:range jus:MediationProcess ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+jus:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain jus:DisputeResolution,
+        jus:RestorativeJustice ;
+    rdfs:range jus:AmendsAgreement,
+        jus:JudicialDecision ;
+    rdfs:subPropertyOf dul:hasOutcome,
+        dul:hasOutput .
+
+jus:supportedBy a ns1:ObjectProperty ;
+    rdfs:domain jus:MoralObligation ;
+    rdfs:range jus:SocialExpectation ;
+    rdfs:subPropertyOf dul:hasReference .
+
+jus:targets a ns1:ObjectProperty ;
+    rdfs:domain jus:ViolationEvent ;
+    rdfs:range jus:LegalRight ;
+    rdfs:subPropertyOf dul:hasObject .
+
+jus:DutyFulfillment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:JudicialDecision a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+jus:JusticePrinciple a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:JusticeSystem a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+jus:RightLimitation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:RightsRecognition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:SocialReintegration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:AmendsAgreement a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:ConflictingRights a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:FairTreatment a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+jus:HarmedParty a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+jus:HealingDialogue a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:InstitutionalContext a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+jus:MoralAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+jus:MoralObligation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:NegotiatedOutcome a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+jus:NormativeFramework a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:OffendingParty a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+jus:ResponsibilityAssignment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:RightBearer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+jus:SocialExpectation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:StakeholderGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+jus:ViolationEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+jus:DisputeResolution a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:EthicalDuty a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:ProtectionMechanism a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:RestorativeJustice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:JusticeProcedure a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+jus:LegalRight a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+jus:MediationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

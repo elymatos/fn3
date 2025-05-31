@@ -1,0 +1,233 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix emo: <http://example.org/gemini/moral/emotion#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+emo: ns1:imports dul: .
+
+emo:CollectiveOutrageContext a dul:Situation ;
+    dul:hasParticipant emo:OutragedAgent ;
+    dul:hasSetting emo:CollectiveResponse,
+        emo:InjusticeEvent,
+        emo:MoralSolidarity .
+
+emo:ConscienceReflectionContext a dul:Situation ;
+    dul:hasParticipant emo:ConscientiousAgent ;
+    dul:hasSetting emo:ConscienceNorm,
+        emo:GuiltFeeling,
+        emo:SelfAssessment .
+
+emo:EmpathicResponseContext a dul:Situation ;
+    dul:hasParticipant emo:EmpathicWitness ;
+    dul:hasSetting emo:CorrectiveIntention,
+        emo:MoralSupport,
+        emo:MoralViolation .
+
+emo:ForgivenessContext a dul:Situation ;
+    dul:hasParticipant emo:InjuredParty,
+        emo:Offender ;
+    dul:hasSetting emo:RepairInitiative,
+        emo:TrustRestoration .
+
+emo:MoralGrowthContext a dul:Situation ;
+    dul:hasSetting emo:AdmirableModel,
+        emo:MoralIdeal,
+        emo:MoralStruggle,
+        emo:VirtueDevelopment .
+
+emo:affects a ns1:ObjectProperty ;
+    rdfs:domain emo:ForgivenessAct ;
+    rdfs:range emo:TrustRestoration ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:elicits a ns1:ObjectProperty ;
+    rdfs:domain emo:SelfAssessment ;
+    rdfs:range emo:GuiltFeeling ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:emergesFrom a ns1:ObjectProperty ;
+    rdfs:domain emo:VirtueDevelopment ;
+    rdfs:range emo:MoralStruggle ;
+    rdfs:subPropertyOf dul:hasCause .
+
+emo:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain emo:ConscientiousAgent ;
+    rdfs:range emo:SelfAssessment ;
+    rdfs:subPropertyOf dul:performs .
+
+emo:experiences a ns1:ObjectProperty ;
+    rdfs:domain emo:EmpathicWitness ;
+    rdfs:range emo:EmpathyEmotion ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+emo:generates a ns1:ObjectProperty ;
+    rdfs:domain emo:VirtueDevelopment ;
+    rdfs:range emo:VirtuousEmotion ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+emo:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain emo:VirtueDevelopment ;
+    rdfs:range emo:MoralIdeal ;
+    rdfs:subPropertyOf dul:hasReference .
+
+emo:includes a ns1:ObjectProperty ;
+    rdfs:domain emo:CollectiveResponse,
+        emo:RepairInitiative ;
+    rdfs:range emo:ProtestMovement,
+        emo:ReparativeGesture ;
+    rdfs:subPropertyOf dul:hasConstituent,
+        dul:hasPart .
+
+emo:influences a ns1:ObjectProperty ;
+    rdfs:domain emo:MoralSupport ;
+    rdfs:range emo:BehaviorInfluence ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+emo:initiates a ns1:ObjectProperty ;
+    rdfs:domain emo:CorrectiveIntention,
+        emo:Offender ;
+    rdfs:range emo:MoralSupport,
+        emo:RepairInitiative ;
+    rdfs:subPropertyOf dul:hasConstituent,
+        dul:performs .
+
+emo:inspiredBy a ns1:ObjectProperty ;
+    rdfs:domain emo:VirtueDevelopment ;
+    rdfs:range emo:AdmirableModel ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+emo:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain emo:ReflectiveEvaluation ;
+    rdfs:range emo:MoralAwareness ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+emo:motivates a ns1:ObjectProperty ;
+    rdfs:domain emo:EmpathyEmotion ;
+    rdfs:range emo:CorrectiveIntention ;
+    rdfs:subPropertyOf dul:hasCause .
+
+emo:participatesIn a ns1:ObjectProperty ;
+    rdfs:domain emo:OutragedAgent ;
+    rdfs:range emo:CollectiveResponse ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+emo:perceives a ns1:ObjectProperty ;
+    rdfs:domain emo:EmpathicWitness ;
+    rdfs:range emo:MoralViolation ;
+    rdfs:subPropertyOf dul:hasObject .
+
+emo:respondsTo a ns1:ObjectProperty ;
+    rdfs:domain emo:OutragedAgent ;
+    rdfs:range emo:InjusticeEvent ;
+    rdfs:subPropertyOf dul:hasCause .
+
+emo:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain emo:VirtueDevelopment ;
+    rdfs:range emo:ReflectiveGrowth ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+emo:supports a ns1:ObjectProperty ;
+    rdfs:domain emo:EmotionalMobilization ;
+    rdfs:range emo:MoralSolidarity ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+emo:targets a ns1:ObjectProperty ;
+    rdfs:domain emo:RepairInitiative ;
+    rdfs:range emo:InjuredParty ;
+    rdfs:subPropertyOf dul:hasObject .
+
+emo:uses a ns1:ObjectProperty ;
+    rdfs:domain emo:SelfAssessment ;
+    rdfs:range emo:ConscienceNorm ;
+    rdfs:subPropertyOf dul:hasReference .
+
+emo:BehaviorInfluence a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:EmotionalMobilization a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:ForgivenessAct a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:MoralAwareness a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:ProtestMovement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:ReflectiveEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:ReflectiveGrowth a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:ReparativeGesture a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+emo:VirtuousEmotion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:AdmirableModel a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+emo:ConscienceNorm a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+emo:ConscientiousAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+emo:EmpathyEmotion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:GuiltFeeling a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:InjuredParty a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+emo:InjusticeEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:MoralIdeal a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+emo:MoralSolidarity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+emo:MoralStruggle a ns1:Class ;
+    rdfs:subClassOf dul:Situation .
+
+emo:MoralViolation a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+emo:Offender a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+emo:TrustRestoration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:CollectiveResponse a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:CorrectiveIntention a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+emo:EmpathicWitness a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+emo:MoralSupport a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:OutragedAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+emo:RepairInitiative a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:SelfAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+emo:VirtueDevelopment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

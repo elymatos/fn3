@@ -1,0 +1,250 @@
+@prefix cnm: <http://example.org/gemini/cultural/narrative#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+cnm: ns1:imports dul: .
+
+cnm:AudienceInterpretation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:DiasporicMemoryContext a dul:Situation ;
+    dul:hasParticipant cnm:MigratoryGroup ;
+    dul:hasSetting cnm:DiasporicNarrative,
+        cnm:DisplacementMemory,
+        cnm:NarrativeTransmission .
+
+cnm:HistoricalMemoryContext a dul:Situation ;
+    dul:hasParticipant cnm:CollectiveMemory ;
+    dul:hasSetting cnm:CommemorativePractice,
+        cnm:HistoricalEvent,
+        cnm:MemorialSite .
+
+cnm:MediaRepresentationContext a dul:Situation ;
+    dul:hasParticipant cnm:MediaNarrative ;
+    dul:hasSetting cnm:CulturalRepresentation,
+        cnm:DigitalPlatform,
+        cnm:FramingStrategy .
+
+cnm:MythicTraditionContext a dul:Situation ;
+    dul:hasParticipant cnm:CulturalHero ;
+    dul:hasSetting cnm:FolkloreTradition,
+        cnm:MythNarrative,
+        cnm:NarrativeTheme .
+
+cnm:PersonalStoryContext a dul:Situation ;
+    dul:hasParticipant cnm:IndividualNarrator ;
+    dul:hasSetting cnm:IdentityConstruction,
+        cnm:LifeStory,
+        cnm:NarrativeVoice .
+
+cnm:causes a ns1:ObjectProperty ;
+    rdfs:domain cnm:HistoricalEvent ;
+    rdfs:range cnm:CulturalTrauma ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+cnm:contains a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory ;
+    rdfs:range cnm:AnecdotalFragment ;
+    rdfs:subPropertyOf dul:hasPart .
+
+cnm:conveyedThrough a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory ;
+    rdfs:range cnm:NarrativeVoice ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+cnm:distributedOn a ns1:ObjectProperty ;
+    rdfs:domain cnm:MediaNarrative ;
+    rdfs:range cnm:DigitalPlatform ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+cnm:expresses a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:NarrativeTheme ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:facilitates a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:CulturalAdaptation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+cnm:features a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:CulturalHero ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:includes a ns1:ObjectProperty ;
+    rdfs:domain cnm:FolkloreTradition ;
+    rdfs:range cnm:MythNarrative ;
+    rdfs:subPropertyOf dul:hasPart .
+
+cnm:interprets a ns1:ObjectProperty ;
+    rdfs:domain cnm:Audience ;
+    rdfs:range cnm:MediaNarrative ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:involves a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:SupernaturalElement ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:maintains a ns1:ObjectProperty ;
+    rdfs:domain cnm:SocialRemembrance ;
+    rdfs:range cnm:CollectiveMemory ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:occursAt a ns1:ObjectProperty ;
+    rdfs:domain cnm:CommemorativePractice ;
+    rdfs:range cnm:MemorialSite ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+cnm:preservedAs a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:IntergenerationalStory ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+cnm:produces a ns1:ObjectProperty ;
+    rdfs:domain cnm:MigratoryGroup ;
+    rdfs:range cnm:DiasporicNarrative ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:recalls a ns1:ObjectProperty ;
+    rdfs:domain cnm:CollectiveMemory ;
+    rdfs:range cnm:HistoricalEvent ;
+    rdfs:subPropertyOf dul:hasReference .
+
+cnm:remembers a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:DisplacementMemory ;
+    rdfs:subPropertyOf dul:hasReference .
+
+cnm:represents a ns1:ObjectProperty ;
+    rdfs:domain cnm:CommemorativePractice ;
+    rdfs:range cnm:HistoricalEvent ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:shapes a ns1:ObjectProperty ;
+    rdfs:domain cnm:MediaNarrative ;
+    rdfs:range cnm:CulturalRepresentation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+cnm:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory,
+        cnm:MediaNarrative ;
+    rdfs:range cnm:FramingStrategy,
+        cnm:TemporalSequence ;
+    rdfs:subPropertyOf dul:hasPart,
+        dul:hasSetting .
+
+cnm:supports a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory ;
+    rdfs:range cnm:IdentityConstruction ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:tells a ns1:ObjectProperty ;
+    rdfs:domain cnm:IndividualNarrator ;
+    rdfs:range cnm:LifeStory ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:transmittedBy a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:OralTransmission ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:transmittedVia a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:NarrativeTransmission ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:uses a ns1:ObjectProperty ;
+    rdfs:domain cnm:MediaNarrative ;
+    rdfs:range cnm:VisualSymbolism ;
+    rdfs:subPropertyOf dul:hasPart .
+
+cnm:AnecdotalFragment a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:CulturalAdaptation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:CulturalTrauma a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+cnm:IntergenerationalStory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:OralTransmission a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:SocialRemembrance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:SupernaturalElement a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:TemporalSequence a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:VisualSymbolism a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:CulturalHero a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:CulturalRepresentation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:DigitalPlatform a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:DisplacementMemory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:FolkloreTradition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:FramingStrategy a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:IdentityConstruction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:IndividualNarrator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:MemorialSite a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:MigratoryGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:NarrativeTheme a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:NarrativeTransmission a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:NarrativeVoice a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+cnm:CollectiveMemory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:CommemorativePractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:HistoricalEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+cnm:DiasporicNarrative a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:LifeStory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:MediaNarrative a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:MythNarrative a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+

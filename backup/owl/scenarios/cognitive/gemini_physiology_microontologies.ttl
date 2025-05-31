@@ -1,0 +1,417 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/gemini/health#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:ChronobiologicalCoordinationSituation a dul:Situation ;
+    dul:hasParticipant ex:ChronobiologyExpert ;
+    dul:hasSetting ex:CircadianRhythms,
+        ex:RhythmicHarmony,
+        ex:SynchronizationMechanisms ;
+    rdfs:comment "A situation where a ChronobiologyExpert studies CircadianRhythms and SynchronizationMechanisms leading to RhythmicHarmony." .
+
+ex:LivingSystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MotorExecutionSituation a dul:Situation ;
+    dul:hasParticipant ex:MotorController ;
+    dul:hasSetting ex:MotorPlanning,
+        ex:MovementExecution,
+        ex:MovementPrecision ;
+    rdfs:comment "A situation where a MotorController performs MotorPlanning and MovementExecution with MovementPrecision." .
+
+ex:SensoryIntegrationSituation a dul:Situation ;
+    dul:hasParticipant ex:SensoryProcessor ;
+    dul:hasSetting ex:MultimodalInformation,
+        ex:PerceptualIntegration,
+        ex:SensoryExperience ;
+    rdfs:comment "A situation where a SensoryProcessor integrates MultimodalInformation via PerceptualIntegration to generate SensoryExperience." .
+
+ex:StressAdaptationSituation a dul:Situation ;
+    dul:hasParticipant ex:StressResearcher ;
+    dul:hasSetting ex:AdaptationMechanisms,
+        ex:RecoveryProcesses,
+        ex:StressResponses ;
+    rdfs:comment "A situation where a StressResearcher examines StressResponses, AdaptationMechanisms, and RecoveryProcesses." .
+
+ex:VitalSystemRegulationSituation a dul:Situation ;
+    dul:hasParticipant ex:PhysiologyMonitor ;
+    dul:hasSetting ex:HomeostasisMaintenance,
+        ex:RegulatoryFunctions,
+        ex:VitalSystems ;
+    rdfs:comment "A situation in which a PhysiologyMonitor observes VitalSystems performing RegulatoryFunctions to maintain Homeostasis." .
+
+ex:achieves a owl:ObjectProperty ;
+    rdfs:domain ex:MovementExecution ;
+    rdfs:range ex:IntendedActions ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:achievesPrecisionWith a owl:ObjectProperty ;
+    rdfs:domain ex:MovementExecution ;
+    rdfs:range ex:MovementPrecision ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:activate a owl:ObjectProperty ;
+    rdfs:domain ex:StressResponses ;
+    rdfs:range ex:AdaptationMechanisms ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:combinedBy a owl:ObjectProperty ;
+    rdfs:domain ex:MultimodalInformation ;
+    rdfs:range ex:PerceptualIntegration ;
+    rdfs:subPropertyOf dul:isSettingFor .
+
+ex:combinesInputFrom a owl:ObjectProperty ;
+    rdfs:domain ex:MultimodalInformation ;
+    rdfs:range ex:SensoryOrgans ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:combinesWith a owl:ObjectProperty ;
+    rdfs:domain ex:MuscleActivation ;
+    rdfs:range ex:JointMovements ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:completes a owl:ObjectProperty ;
+    rdfs:domain ex:HomeostasisRestoration ;
+    rdfs:range ex:RecoveryProcesses ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+ex:control a owl:ObjectProperty ;
+    rdfs:domain ex:BiologicalClocks ;
+    rdfs:range ex:TemporalRegulation ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+ex:coordinate a owl:ObjectProperty ;
+    rdfs:domain ex:SynchronizationMechanisms ;
+    rdfs:range ex:CircadianRhythms ;
+    rdfs:subPropertyOf dul:hasComponent .
+
+ex:coordinateThrough a owl:ObjectProperty ;
+    rdfs:domain ex:VitalSystems ;
+    rdfs:range ex:SystemicProcesses ;
+    rdfs:subPropertyOf dul:hasProcess .
+
+ex:copeWith a owl:ObjectProperty ;
+    rdfs:domain ex:AdaptiveResponses ;
+    rdfs:range ex:EnvironmentalStressors ;
+    rdfs:subPropertyOf dul:solves .
+
+ex:creates a owl:ObjectProperty ;
+    rdfs:domain ex:PerceptualIntegration ;
+    rdfs:range ex:SensoryExperience ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:detectedBy a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryInput ;
+    rdfs:range ex:SensoryOrgans ;
+    rdfs:subPropertyOf dul:isRegionIn .
+
+ex:determinesEffectivenessOf a owl:ObjectProperty ;
+    rdfs:domain ex:StressResilience ;
+    rdfs:range ex:AdaptationMechanisms ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+ex:enables a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryExperience ;
+    rdfs:range ex:EnvironmentalAwareness ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:ensures a owl:ObjectProperty ;
+    rdfs:domain ex:BalanceControl,
+        ex:TemporalCoordination ;
+    rdfs:range ex:PhysiologicalTiming,
+        ex:PosturalStability ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasQuality .
+
+ex:ensuresFunctionOf a owl:ObjectProperty ;
+    rdfs:domain ex:HomeostasisMaintenance ;
+    rdfs:range ex:VitalSystems ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:follow a owl:ObjectProperty ;
+    rdfs:domain ex:SystemicProcesses ;
+    rdfs:range ex:PhysiologicalRhythms ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:include a owl:ObjectProperty ;
+    rdfs:domain ex:RegulatoryFunctions ;
+    rdfs:range ex:Circulation ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeMetabolism a owl:ObjectProperty ;
+    rdfs:domain ex:RegulatoryFunctions ;
+    rdfs:range ex:Metabolism ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includeRespiration a owl:ObjectProperty ;
+    rdfs:domain ex:RegulatoryFunctions ;
+    rdfs:range ex:Respiration ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:integrates a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryProcessor,
+        ex:TemporalCoordination ;
+    rdfs:range ex:BiologicalClocks,
+        ex:MultimodalInformation ;
+    rdfs:subPropertyOf dul:hasInput .
+
+ex:investigates a owl:ObjectProperty ;
+    rdfs:domain ex:ChronobiologyExpert ;
+    rdfs:range ex:CircadianRhythms ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:investigatesTiming a owl:ObjectProperty ;
+    rdfs:domain ex:ChronobiologyExpert ;
+    rdfs:range ex:BiologicalTiming ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:involves a owl:ObjectProperty ;
+    rdfs:domain ex:MovementExecution ;
+    rdfs:range ex:MuscleActivation ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:involvesJoint a owl:ObjectProperty ;
+    rdfs:domain ex:MovementExecution ;
+    rdfs:range ex:JointMovements ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:leadTo a owl:ObjectProperty ;
+    rdfs:domain ex:AdaptiveResponses ;
+    rdfs:range ex:RecoveryProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:leadsTo a owl:ObjectProperty ;
+    rdfs:domain ex:MotorPlanning ;
+    rdfs:range ex:MovementExecution ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:maintain a owl:ObjectProperty ;
+    rdfs:domain ex:RegulatoryFunctions ;
+    rdfs:range ex:HomeostasisMaintenance ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:maintains a owl:ObjectProperty ;
+    rdfs:domain ex:MotorController ;
+    rdfs:range ex:BalanceControl ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+ex:modulates a owl:ObjectProperty ;
+    rdfs:domain ex:TemporalRegulation ;
+    rdfs:range ex:RhythmicProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:observes a owl:ObjectProperty ;
+    rdfs:domain ex:PhysiologyMonitor ;
+    rdfs:range ex:VitalSystems ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:organizedBy a owl:ObjectProperty ;
+    rdfs:domain ex:MovementPatterns ;
+    rdfs:range ex:MotorPlanning ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+ex:perform a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryOrgans,
+        ex:VitalSystems ;
+    rdfs:range ex:RegulatoryFunctions,
+        ex:SensoryTransduction ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:plans a owl:ObjectProperty ;
+    rdfs:domain ex:MotorController ;
+    rdfs:range ex:MovementPatterns ;
+    rdfs:subPropertyOf dul:hasPlan .
+
+ex:produce a owl:ObjectProperty ;
+    rdfs:domain ex:SynchronizationMechanisms ;
+    rdfs:range ex:RhythmicHarmony ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+ex:produces a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryTransduction ;
+    rdfs:range ex:NeuralSignals ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+ex:receives a owl:ObjectProperty ;
+    rdfs:domain ex:SensoryProcessor ;
+    rdfs:range ex:SensoryInput ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:regulateTimingOf a owl:ObjectProperty ;
+    rdfs:domain ex:PhysiologicalRhythms ;
+    rdfs:range ex:SystemicProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:represent a owl:ObjectProperty ;
+    rdfs:domain ex:CircadianRhythms ;
+    rdfs:range ex:RhythmicProcesses ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+ex:reveal a owl:ObjectProperty ;
+    rdfs:domain ex:StressIndicators ;
+    rdfs:range ex:StressResponses ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+ex:studies a owl:ObjectProperty ;
+    rdfs:domain ex:StressResearcher ;
+    rdfs:range ex:StressResponses ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:triggeredAlsoBy a owl:ObjectProperty ;
+    rdfs:domain ex:StressResponses ;
+    rdfs:range ex:PhysiologicalChallenges ;
+    rdfs:subPropertyOf dul:hasCause .
+
+ex:triggeredBy a owl:ObjectProperty ;
+    rdfs:domain ex:StressResponses ;
+    rdfs:range ex:EnvironmentalStressors ;
+    rdfs:subPropertyOf dul:hasCause .
+
+<http://example.org/gemini/physiology> a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex:BiologicalTiming a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:Circulation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EnvironmentalAwareness a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:HomeostasisRestoration a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:IntendedActions a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:Metabolism a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:NeuralSignals a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PhysiologicalChallenges a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PhysiologicalTiming a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:PosturalStability a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:Respiration a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:StressIndicators a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:StressResilience a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:AdaptiveResponses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BalanceControl a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:BiologicalClocks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:EnvironmentalStressors a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:JointMovements a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:MovementPatterns a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MovementPrecision a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:MuscleActivation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:PhysiologicalRhythms a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:PhysiologyMonitor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:RhythmicHarmony a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:RhythmicProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SensoryInput a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:SensoryTransduction a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:StressResearcher a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:TemporalCoordination a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:TemporalRegulation a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:AdaptationMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:ChronobiologyExpert a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:HomeostasisMaintenance a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:MotorController a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:MotorPlanning a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:PerceptualIntegration a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:RecoveryProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SensoryExperience a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:SensoryOrgans a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:SensoryProcessor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:SynchronizationMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:SystemicProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:CircadianRhythms a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:MultimodalInformation a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:VitalSystems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MovementExecution a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:RegulatoryFunctions a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:StressResponses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+

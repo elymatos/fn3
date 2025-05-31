@@ -1,0 +1,246 @@
+@prefix dec: <http://example.org/gemini/cognitive/decision#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dec: ns1:imports dul: .
+
+dec:DeliberationSituation a dul:Situation ;
+    dul:hasParticipant dec:Deliberator ;
+    dul:hasSetting dec:CostBenefitAnalysis,
+        dec:DecisionMaking,
+        dec:TradeOffResolution .
+
+dec:ExecutionMonitoringSituation a dul:Situation ;
+    dul:hasParticipant dec:ActionExecutor ;
+    dul:hasSetting dec:ActionImplementation,
+        dec:FeedbackIntegration,
+        dec:PerformanceEvaluation .
+
+dec:GoalFormulationSituation a dul:Situation ;
+    dul:hasParticipant dec:DecisionAgent ;
+    dul:hasSetting dec:GoalFormulation,
+        dec:GoalHierarchy,
+        dec:ValueAssessment .
+
+dec:PlanningSituation a dul:Situation ;
+    dul:hasParticipant dec:Planner ;
+    dul:hasSetting dec:ContingencyPlans,
+        dec:OutcomeAnticipation,
+        dec:PlanningProcesses .
+
+dec:RiskEvaluationSituation a dul:Situation ;
+    dul:hasParticipant dec:RiskEvaluator ;
+    dul:hasSetting dec:MitigationStrategies,
+        dec:ProbabilityJudgments,
+        dec:RiskAssessment .
+
+dec:TemporalReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:considers a ns1:ObjectProperty ;
+    rdfs:domain dec:PlanningProcesses ;
+    rdfs:range dec:FutureScenarios ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+dec:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain dec:Deliberator ;
+    rdfs:range dec:DecisionMaking ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:evaluates a ns1:ObjectProperty ;
+    rdfs:domain dec:DecisionMaking ;
+    rdfs:range dec:AlternativeOptions ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec:executes a ns1:ObjectProperty ;
+    rdfs:domain dec:Planner ;
+    rdfs:range dec:PlanningProcesses ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:feeds a ns1:ObjectProperty ;
+    rdfs:domain dec:CostBenefitAnalysis ;
+    rdfs:range dec:TradeOffResolution ;
+    rdfs:subPropertyOf dul:hasCause .
+
+dec:formulates a ns1:ObjectProperty ;
+    rdfs:domain dec:DecisionAgent ;
+    rdfs:range dec:GoalFormulation ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:guides a ns1:ObjectProperty ;
+    rdfs:domain dec:OutcomeAnticipation ;
+    rdfs:range dec:PlanningProcesses ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+dec:includes a ns1:ObjectProperty ;
+    rdfs:domain dec:PlanningProcesses ;
+    rdfs:range dec:ActionSequences ;
+    rdfs:subPropertyOf dul:hasPart .
+
+dec:inform a ns1:ObjectProperty ;
+    rdfs:domain dec:ProbabilityJudgments ;
+    rdfs:range dec:DecisionConfidence ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+dec:informs a ns1:ObjectProperty ;
+    rdfs:domain dec:FeedbackIntegration ;
+    rdfs:range dec:AdjustmentActions ;
+    rdfs:subPropertyOf dul:hasCause .
+
+dec:initiates a ns1:ObjectProperty ;
+    rdfs:domain dec:ActionExecutor ;
+    rdfs:range dec:ActionImplementation ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:involves a ns1:ObjectProperty ;
+    rdfs:domain dec:RiskAssessment ;
+    rdfs:range dec:UncertaintyFactors ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+dec:monitors a ns1:ObjectProperty ;
+    rdfs:domain dec:PerformanceEvaluation ;
+    rdfs:range dec:ActionImplementation ;
+    rdfs:subPropertyOf dul:observes .
+
+dec:organizes a ns1:ObjectProperty ;
+    rdfs:domain dec:GoalHierarchy ;
+    rdfs:range dec:GoalStates ;
+    rdfs:subPropertyOf dul:hasPart .
+
+dec:performs a ns1:ObjectProperty ;
+    rdfs:domain dec:RiskEvaluator ;
+    rdfs:range dec:RiskAssessment ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:reduce a ns1:ObjectProperty ;
+    rdfs:domain dec:MitigationStrategies ;
+    rdfs:range dec:RiskSensitivity ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+dec:respondTo a ns1:ObjectProperty ;
+    rdfs:domain dec:ContingencyPlans ;
+    rdfs:range dec:FutureScenarios ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+dec:supports a ns1:ObjectProperty ;
+    rdfs:domain dec:ValueAssessment ;
+    rdfs:range dec:DecisionCriteria ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+dec:targets a ns1:ObjectProperty ;
+    rdfs:domain dec:GoalFormulation ;
+    rdfs:range dec:GoalStates ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+dec:track a ns1:ObjectProperty ;
+    rdfs:domain dec:MonitoringMechanisms ;
+    rdfs:range dec:DecisionOutcomes ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec:uses a ns1:ObjectProperty ;
+    rdfs:domain dec:DecisionMaking,
+        dec:GoalFormulation ;
+    rdfs:range dec:DeliberativeStrategies,
+        dec:PrioritizationCriteria ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec:ActionSequences a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:AdjustmentActions a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:AlternativeOptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:DecisionConfidence a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+dec:DecisionCriteria a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:DecisionOutcomes a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:DeliberativeStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:MonitoringMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:PrioritizationCriteria a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:RiskSensitivity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+dec:UncertaintyFactors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:ActionExecutor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:ContingencyPlans a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:CostBenefitAnalysis a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:DecisionAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:Deliberator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:FeedbackIntegration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:FutureScenarios a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:GoalHierarchy a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:GoalStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+dec:MitigationStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:OutcomeAnticipation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:PerformanceEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:Planner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:ProbabilityJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:RiskEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:TradeOffResolution a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:ValueAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:ActionImplementation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:RiskAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:DecisionMaking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:GoalFormulation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:PlanningProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

@@ -1,0 +1,209 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix phy: <http://example.org/gemini/physical/matter#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+phy: ns1:imports dul: .
+
+phy:DegradationContext a dul:Situation ;
+    dul:hasParticipant phy:EnvironmentalFactor ;
+    dul:hasSetting phy:AgingEffect,
+        phy:DegradationProcess,
+        phy:TimeExposure .
+
+phy:MaterialCompositionContext a dul:Situation ;
+    dul:hasSetting phy:CompositeStructure,
+        phy:MaterialComposition,
+        phy:StructuralAnalysis .
+
+phy:MaterialInteractionContext a dul:Situation ;
+    dul:hasParticipant phy:Agent ;
+    dul:hasSetting phy:MaterialInteraction,
+        phy:PhysicalProperty,
+        phy:PropertyMeasurement .
+
+phy:MaterialMixingContext a dul:Situation ;
+    dul:hasParticipant phy:ComponentMaterial ;
+    dul:hasSetting phy:InteractionOutcome,
+        phy:MixingProcess,
+        phy:Mixture .
+
+phy:MixingRatio a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:PhaseChangeContext a dul:Situation ;
+    dul:hasSetting phy:MaterialPhase,
+        phy:PhaseChange,
+        phy:StateTransitionCondition,
+        phy:ThermalInteraction .
+
+phy:analyzes a ns1:ObjectProperty ;
+    rdfs:domain phy:StructuralAnalysis ;
+    rdfs:range phy:MaterialComposition ;
+    rdfs:subPropertyOf dul:hasObject .
+
+phy:combines a ns1:ObjectProperty ;
+    rdfs:domain phy:MixingProcess ;
+    rdfs:range phy:ComponentMaterial ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+phy:composedOf a ns1:ObjectProperty ;
+    rdfs:domain phy:CompositeStructure ;
+    rdfs:range phy:ConstituentElement ;
+    rdfs:subPropertyOf dul:hasPart .
+
+phy:correlatesWith a ns1:ObjectProperty ;
+    rdfs:domain phy:AgingEffect ;
+    rdfs:range phy:TimeExposure ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+phy:describes a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialComposition ;
+    rdfs:range phy:CompositeStructure ;
+    rdfs:subPropertyOf dul:hasReference .
+
+phy:formedBy a ns1:ObjectProperty ;
+    rdfs:domain phy:Mixture ;
+    rdfs:range phy:MixingProcess ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+phy:hasProportion a ns1:ObjectProperty ;
+    rdfs:domain phy:ConstituentElement ;
+    rdfs:range phy:ConstituentProportion ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+phy:impacts a ns1:ObjectProperty ;
+    rdfs:domain phy:DegradationProcess ;
+    rdfs:range phy:MaterialIntegrity ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+phy:induces a ns1:ObjectProperty ;
+    rdfs:domain phy:ThermalInteraction ;
+    rdfs:range phy:PhaseChange ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+phy:influences a ns1:ObjectProperty ;
+    rdfs:domain phy:EnvironmentalFactor ;
+    rdfs:range phy:DegradationProcess ;
+    rdfs:subPropertyOf dul:hasCause .
+
+phy:interactsWith a ns1:ObjectProperty ;
+    rdfs:domain phy:Agent ;
+    rdfs:range phy:MaterialSample ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+phy:involves a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialInteraction ;
+    rdfs:range phy:MaterialEntity ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+phy:measures a ns1:ObjectProperty ;
+    rdfs:domain phy:PropertyMeasurement ;
+    rdfs:range phy:PhysicalProperty ;
+    rdfs:subPropertyOf dul:hasObject .
+
+phy:presentIn a ns1:ObjectProperty ;
+    rdfs:domain phy:ComponentMaterial ;
+    rdfs:range phy:Mixture ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+phy:produces a ns1:ObjectProperty ;
+    rdfs:domain phy:MixingProcess ;
+    rdfs:range phy:InteractionOutcome ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+phy:requires a ns1:ObjectProperty ;
+    rdfs:domain phy:PhaseChange ;
+    rdfs:range phy:StateTransitionCondition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+phy:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain phy:PhaseChange ;
+    rdfs:range phy:MaterialState ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+phy:targets a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialInteraction ;
+    rdfs:range phy:PhysicalProperty ;
+    rdfs:subPropertyOf dul:hasObject .
+
+phy:undergoes a ns1:ObjectProperty ;
+    rdfs:domain phy:MaterialPhase ;
+    rdfs:range phy:PhaseChange ;
+    rdfs:subPropertyOf dul:hasEvent .
+
+phy:ConstituentProportion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:MaterialEntity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:MaterialIntegrity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:MaterialSample a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:MaterialState a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:Agent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:AgingEffect a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:ConstituentElement a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:EnvironmentalFactor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:InteractionOutcome a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+phy:MaterialPhase a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:PropertyMeasurement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+phy:StateTransitionCondition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+phy:StructuralAnalysis a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+phy:ThermalInteraction a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+phy:TimeExposure a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:ComponentMaterial a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:CompositeStructure a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:DegradationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+phy:MaterialComposition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+phy:MaterialInteraction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+phy:Mixture a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+phy:PhysicalProperty a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+phy:MixingProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+phy:PhaseChange a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

@@ -1,0 +1,388 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ex: <http://example.org/gemini/health#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://example.org/gemini/health> a owl:Ontology ;
+    owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> .
+
+ex:HealthAssessmentSituation a dul:Situation ;
+    dul:hasParticipant ex:HealthMonitor,
+        ex:Individual ;
+    dul:hasSetting ex:BehavioralChanges,
+        ex:BodySignals,
+        ex:IllnessSymptoms ;
+    rdfs:comment "A situation where a HealthMonitor interprets BodySignals and BehavioralChanges in an Individual to assess IllnessSymptoms." .
+
+ex:MentalHealthSupportSituation a dul:Situation ;
+    dul:hasParticipant ex:MentalHealthAssessor ;
+    dul:hasSetting ex:CopingMechanisms,
+        ex:MentalHealthStatus,
+        ex:PsychologicalRecovery ;
+    rdfs:comment "A situation in which a MentalHealthAssessor evaluates MentalHealthStatus and provides CopingMechanisms to support PsychologicalRecovery." .
+
+ex:Populations a owl:Class ;
+    rdfs:subClassOf dul:Collection .
+
+ex:PublicHealthResponseSituation a dul:Situation ;
+    dul:hasParticipant ex:PublicHealthMonitor ;
+    dul:hasSetting ex:CommunityHealth,
+        ex:DiseaseTransmission,
+        ex:PreventionMeasures ;
+    rdfs:comment "A situation in which a PublicHealthMonitor tracks DiseaseTransmission and applies PreventionMeasures to preserve CommunityHealth." .
+
+ex:TherapeuticCareSituation a dul:Situation ;
+    dul:hasParticipant ex:Caregiver,
+        ex:Patient ;
+    dul:hasSetting ex:RecoveryProgress,
+        ex:TreatmentMethods ;
+    rdfs:comment "A situation where a Caregiver applies TreatmentMethods to a Patient and monitors RecoveryProgress." .
+
+ex:WellnessMaintenanceSituation a dul:Situation ;
+    dul:hasParticipant ex:HealthMaintainer ;
+    dul:hasSetting ex:HealthyBehaviors,
+        ex:PreventiveActions,
+        ex:WellnessRoutines ;
+    rdfs:comment "A situation in which a HealthMaintainer engages in PreventiveActions, HealthyBehaviors, and WellnessRoutines to maintain OptimalWellness." .
+
+ex:addresses a owl:ObjectProperty ;
+    rdfs:domain ex:TreatmentMethods ;
+    rdfs:range ex:HealthProblems ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:affects a owl:ObjectProperty ;
+    rdfs:domain ex:EmotionalDistress ;
+    rdfs:range ex:PsychologicalWellbeing ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:aimToMaintain a owl:ObjectProperty ;
+    rdfs:domain ex:HealthyBehaviors,
+        ex:PreventiveActions ;
+    rdfs:range ex:OptimalWellness ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:appliedTo a owl:ObjectProperty ;
+    rdfs:domain ex:TreatmentMethods ;
+    rdfs:range ex:Patient ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+ex:applies a owl:ObjectProperty ;
+    rdfs:domain ex:Caregiver ;
+    rdfs:range ex:TreatmentMethods ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:assesses a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:SeverityLevels ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:avoids a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMaintainer ;
+    rdfs:range ex:HealthRisks ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:contributeTo a owl:ObjectProperty ;
+    rdfs:domain ex:CopingMechanisms ;
+    rdfs:range ex:PsychologicalResilience ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:control a owl:ObjectProperty ;
+    rdfs:domain ex:PublicHealthInterventions ;
+    rdfs:range ex:DiseaseOutbreaks ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:distinguishes a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:NormalVariations ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:distinguishesFrom a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:PathologicalSigns ;
+    rdfs:subPropertyOf dul:classifies .
+
+ex:engagesIn a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMaintainer ;
+    rdfs:range ex:HealthyBehaviors,
+        ex:PreventiveActions ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:evaluates a owl:ObjectProperty ;
+    rdfs:domain ex:MentalHealthAssessor ;
+    rdfs:range ex:MentalHealthStatus,
+        ex:PsychologicalWellbeing ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:facilitates a owl:ObjectProperty ;
+    rdfs:domain ex:MentalHealthSupport ;
+    rdfs:range ex:PsychologicalRecovery ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:guideResponseTo a owl:ObjectProperty ;
+    rdfs:domain ex:SeverityLevels ;
+    rdfs:range ex:IllnessSymptoms ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:helpManage a owl:ObjectProperty ;
+    rdfs:domain ex:CopingMechanisms ;
+    rdfs:range ex:EmotionalDistress ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:helpsManage a owl:ObjectProperty ;
+    rdfs:domain ex:PsychologicalResilience ;
+    rdfs:range ex:EmotionalDistress ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:implements a owl:ObjectProperty ;
+    rdfs:domain ex:PublicHealthMonitor ;
+    rdfs:range ex:PreventionMeasures ;
+    rdfs:subPropertyOf dul:executes .
+
+ex:include a owl:ObjectProperty ;
+    rdfs:domain ex:HealthyBehaviors ;
+    rdfs:range ex:ProtectiveMeasures ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:includes a owl:ObjectProperty ;
+    rdfs:domain ex:TreatmentMethods ;
+    rdfs:range ex:CareStrategies,
+        ex:TherapeuticInterventions ;
+    rdfs:subPropertyOf dul:hasPart .
+
+ex:increaseLikelihoodOf a owl:ObjectProperty ;
+    rdfs:domain ex:RiskFactors ;
+    rdfs:range ex:InfectionSpread ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:indicate a owl:ObjectProperty ;
+    rdfs:domain ex:MentalHealthSymptoms ;
+    rdfs:range ex:MentalHealthStatus ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:indicatesEffectivenessOf a owl:ObjectProperty ;
+    rdfs:domain ex:RecoveryProgress ;
+    rdfs:range ex:TreatmentMethods ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:interrupt a owl:ObjectProperty ;
+    rdfs:domain ex:PreventionMeasures ;
+    rdfs:range ex:TransmissionPathways ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:leadTo a owl:ObjectProperty ;
+    rdfs:domain ex:HealingProcesses ;
+    rdfs:range ex:HealthRestoration ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:leadsTo a owl:ObjectProperty ;
+    rdfs:domain ex:PsychologicalRecovery ;
+    rdfs:range ex:MentalWellness ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:maintain a owl:ObjectProperty ;
+    rdfs:domain ex:PublicHealthInterventions ;
+    rdfs:range ex:CommunityHealth ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:mayIndicate a owl:ObjectProperty ;
+    rdfs:domain ex:BehavioralChanges,
+        ex:BodySignals ;
+    rdfs:range ex:IllnessSymptoms ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:monitors a owl:ObjectProperty ;
+    rdfs:domain ex:Caregiver ;
+    rdfs:range ex:RecoveryProgress ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:observesBehaviors a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:BehavioralChanges ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:observesSignals a owl:ObjectProperty ;
+    rdfs:domain ex:HealthMonitor ;
+    rdfs:range ex:BodySignals ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:occursThrough a owl:ObjectProperty ;
+    rdfs:domain ex:DiseaseTransmission ;
+    rdfs:range ex:TransmissionPathways ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+ex:promote a owl:ObjectProperty ;
+    rdfs:domain ex:TherapeuticInterventions ;
+    rdfs:range ex:HealingProcesses ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reduce a owl:ObjectProperty ;
+    rdfs:domain ex:PreventionMeasures ;
+    rdfs:range ex:RiskFactors ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reduceImpactOf a owl:ObjectProperty ;
+    rdfs:domain ex:ProtectiveMeasures ;
+    rdfs:range ex:RiskFactors ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+ex:reflect a owl:ObjectProperty ;
+    rdfs:domain ex:IllnessSymptoms ;
+    rdfs:range ex:HealthStatus ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:suggest a owl:ObjectProperty ;
+    rdfs:domain ex:PathologicalSigns ;
+    rdfs:range ex:HealthStatus ;
+    rdfs:subPropertyOf dul:associatedWith .
+
+ex:support a owl:ObjectProperty ;
+    rdfs:domain ex:CareStrategies,
+        ex:WellnessRoutines ;
+    rdfs:range ex:OptimalWellness,
+        ex:Patient ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasParticipant .
+
+ex:target a owl:ObjectProperty ;
+    rdfs:domain ex:PreventiveActions ;
+    rdfs:range ex:HealthRisks ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+ex:tracks a owl:ObjectProperty ;
+    rdfs:domain ex:PublicHealthMonitor ;
+    rdfs:range ex:DiseaseTransmission,
+        ex:InfectionSpread ;
+    rdfs:subPropertyOf dul:observes .
+
+ex:DiseaseOutbreaks a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:HealthProblems a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HealthRestoration a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:Individual a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:MentalHealthSupport a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:MentalHealthSymptoms a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:MentalWellness a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:NormalVariations a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:CareStrategies a owl:Class ;
+    rdfs:subClassOf dul:Description .
+
+ex:CommunityHealth a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:HealingProcesses a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:HealthRisks a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HealthStatus a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:InfectionSpread a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:MentalHealthAssessor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:OptimalWellness a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:PathologicalSigns a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:ProtectiveMeasures a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:PsychologicalResilience a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:PsychologicalWellbeing a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:PublicHealthInterventions a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:SeverityLevels a owl:Class ;
+    rdfs:subClassOf dul:Quality .
+
+ex:TherapeuticInterventions a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:TransmissionPathways a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:WellnessRoutines a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:BehavioralChanges a owl:Class ;
+    rdfs:subClassOf dul:Event .
+
+ex:BodySignals a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:Caregiver a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:CopingMechanisms a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:DiseaseTransmission a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:EmotionalDistress a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:HealthMaintainer a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:MentalHealthStatus a owl:Class ;
+    rdfs:subClassOf dul:State .
+
+ex:Patient a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:PsychologicalRecovery a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:PublicHealthMonitor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:RecoveryProgress a owl:Class ;
+    rdfs:subClassOf dul:Process .
+
+ex:RiskFactors a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:HealthyBehaviors a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:IllnessSymptoms a owl:Class ;
+    rdfs:subClassOf dul:Object .
+
+ex:PreventionMeasures a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:PreventiveActions a owl:Class ;
+    rdfs:subClassOf dul:Action .
+
+ex:HealthMonitor a owl:Class ;
+    rdfs:subClassOf dul:Agent .
+
+ex:TreatmentMethods a owl:Class ;
+    rdfs:subClassOf dul:Process .
+

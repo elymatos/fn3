@@ -1,0 +1,1189 @@
+@prefix art: <http://example.org/gemini/cultural/arts#> .
+@prefix blv: <http://example.org/gemini/cultural/beliefs#> .
+@prefix cnm: <http://example.org/gemini/cultural/narrative#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix her: <http://example.org/gemini/cultural/heritage#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rtl: <http://example.org/gemini/cultural/rituals#> .
+
+art: ns1:imports dul: .
+
+art:ArtisticCreationContext a dul:Situation ;
+    dul:hasParticipant art:Artist ;
+    dul:hasSetting art:AestheticExperience,
+        art:ArtisticMedium,
+        art:CreativeProcess .
+
+art:CollaborativeArtContext a dul:Situation ;
+    dul:hasParticipant art:CreativeTeam ;
+    dul:hasSetting art:CoCreatedWork,
+        art:CollectiveCreation,
+        art:IdeaExchange .
+
+art:CraftsmanshipContext a dul:Situation ;
+    dul:hasParticipant art:Craftsperson ;
+    dul:hasSetting art:ArtisanalObject,
+        art:CraftingProcess,
+        art:Material .
+
+art:PerformanceContext a dul:Situation ;
+    dul:hasParticipant art:Performer ;
+    dul:hasSetting art:Choreography,
+        art:EmbodiedPerformance,
+        art:StageEnvironment .
+
+art:TraditionalArtContext a dul:Situation ;
+    dul:hasParticipant art:CulturalArtPractitioner ;
+    dul:hasSetting art:CulturalExpression,
+        art:CulturalTechnique,
+        art:TraditionalArtForm .
+
+art:assigns a ns1:ObjectProperty ;
+    rdfs:domain art:CreativeTeam ;
+    rdfs:range art:CollaborativeRoles ;
+    rdfs:subPropertyOf dul:hasPart .
+
+art:basedOn a ns1:ObjectProperty ;
+    rdfs:domain art:EmbodiedPerformance ;
+    rdfs:range art:Choreography ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+art:creates a ns1:ObjectProperty ;
+    rdfs:domain art:Artist ;
+    rdfs:range art:ArtWork ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:elicits a ns1:ObjectProperty ;
+    rdfs:domain art:ArtWork ;
+    rdfs:range art:AestheticExperience ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+art:emergesFrom a ns1:ObjectProperty ;
+    rdfs:domain art:CollectiveCreation ;
+    rdfs:range art:IdeaExchange ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+art:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain art:Artist,
+        art:CreativeTeam ;
+    rdfs:range art:CollectiveCreation,
+        art:CreativeProcess ;
+    rdfs:subPropertyOf dul:performs .
+
+art:executes a ns1:ObjectProperty ;
+    rdfs:domain art:Performer ;
+    rdfs:range art:EmbodiedPerformance ;
+    rdfs:subPropertyOf dul:performs .
+
+art:experiences a ns1:ObjectProperty ;
+    rdfs:domain art:Audience ;
+    rdfs:range art:AestheticExperience ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:includes a ns1:ObjectProperty ;
+    rdfs:domain art:EmbodiedPerformance ;
+    rdfs:range art:ExpressiveMovement ;
+    rdfs:subPropertyOf dul:hasPart .
+
+art:integrates a ns1:ObjectProperty ;
+    rdfs:domain art:TraditionalArtForm ;
+    rdfs:range art:CulturalTechnique ;
+    rdfs:subPropertyOf dul:hasPart .
+
+art:occursIn a ns1:ObjectProperty ;
+    rdfs:domain art:EmbodiedPerformance ;
+    rdfs:range art:StageEnvironment ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+art:performs a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson,
+        art:CulturalArtPractitioner ;
+    rdfs:range art:CraftingProcess,
+        art:TraditionalArtForm ;
+    rdfs:subPropertyOf dul:performs .
+
+art:possesses a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson ;
+    rdfs:range art:Skill ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+art:produces a ns1:ObjectProperty ;
+    rdfs:domain art:CraftingProcess ;
+    rdfs:range art:ArtisanalObject ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+art:realizedAs a ns1:ObjectProperty ;
+    rdfs:domain art:TraditionalArtForm ;
+    rdfs:range art:CulturalExpression ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+art:respondsWith a ns1:ObjectProperty ;
+    rdfs:domain art:Audience ;
+    rdfs:range art:SensoryEngagement ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+art:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain art:CollectiveCreation ;
+    rdfs:range art:CoCreatedWork ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+art:shares a ns1:ObjectProperty ;
+    rdfs:domain art:CreativeTeam ;
+    rdfs:range art:SharedVision ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+art:transmittedThrough a ns1:ObjectProperty ;
+    rdfs:domain art:TraditionalArtForm ;
+    rdfs:range art:IntergenerationalLearning ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+art:uses a ns1:ObjectProperty ;
+    rdfs:domain art:CreativeProcess,
+        art:TraditionalArtForm ;
+    rdfs:range art:ArtisticMedium,
+        art:HeritageSymbol ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:usesTool a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson ;
+    rdfs:range art:Tool ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:worksWith a ns1:ObjectProperty ;
+    rdfs:domain art:Craftsperson ;
+    rdfs:range art:Material ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv: ns1:imports dul: .
+
+blv:CollectiveIdeologyFormation a dul:Situation ;
+    dul:hasParticipant blv:GroupEntity ;
+    dul:hasSetting blv:BeliefTransmission,
+        blv:IdeologicalSystems,
+        blv:SharedBeliefs .
+
+blv:CulturalBeliefConflict a dul:Situation ;
+    dul:hasParticipant blv:CulturalGroup ;
+    dul:hasSetting blv:BeliefDiversity,
+        blv:InterculturalDialogue,
+        blv:WorldviewConflicts .
+
+blv:PersonalBeliefFormation a dul:Situation ;
+    dul:hasParticipant blv:BeliefHolder ;
+    dul:hasSetting blv:BeliefFormation,
+        blv:CoreBeliefs,
+        blv:ReflectionProcesses .
+
+blv:PhilosophicalBeliefSystem a dul:Situation ;
+    dul:hasParticipant blv:Philosopher ;
+    dul:hasSetting blv:ConceptualFrameworks,
+        blv:OntologicalAssumptions,
+        blv:PhilosophicalReasoning .
+
+blv:ReligiousWorldviewSituation a dul:Situation ;
+    dul:hasParticipant blv:ReligiousCommunity ;
+    dul:hasSetting blv:FaithPractices,
+        blv:SacredTexts,
+        blv:SpiritualWorldview .
+
+blv:builds a ns1:ObjectProperty ;
+    rdfs:domain blv:PhilosophicalReasoning ;
+    rdfs:range blv:ConceptualFrameworks ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+blv:drawFrom a ns1:ObjectProperty ;
+    rdfs:domain blv:IdeologicalSystems ;
+    rdfs:range blv:CulturalNarratives ;
+    rdfs:subPropertyOf dul:hasReference .
+
+blv:engages a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefFormation ;
+    rdfs:range blv:ReflectionProcesses ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain blv:Philosopher ;
+    rdfs:range blv:PhilosophicalReasoning ;
+    rdfs:subPropertyOf dul:performs .
+
+blv:exhibits a ns1:ObjectProperty ;
+    rdfs:domain blv:CulturalGroup ;
+    rdfs:range blv:BeliefDiversity ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+blv:express a ns1:ObjectProperty ;
+    rdfs:domain blv:FaithPractices ;
+    rdfs:range blv:TranscendentBeliefs ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:follows a ns1:ObjectProperty ;
+    rdfs:domain blv:ReligiousCommunity ;
+    rdfs:range blv:SacredTexts ;
+    rdfs:subPropertyOf dul:hasReference .
+
+blv:include a ns1:ObjectProperty ;
+    rdfs:domain blv:ConceptualFrameworks ;
+    rdfs:range blv:EpistemologicalPrinciples,
+        blv:EthicalTheories,
+        blv:OntologicalAssumptions ;
+    rdfs:subPropertyOf dul:hasPart .
+
+blv:influencedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefFormation ;
+    rdfs:range blv:LifeExperiences ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:interpretedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:SacredTexts ;
+    rdfs:range blv:DoctrinalInterpretation ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+blv:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefDiversity,
+        blv:BeliefFormation ;
+    rdfs:range blv:BeliefRevision,
+        blv:WorldviewConflicts ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+blv:mediatedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:WorldviewConflicts ;
+    rdfs:range blv:InterculturalDialogue ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:performs a ns1:ObjectProperty ;
+    rdfs:domain blv:ReligiousCommunity ;
+    rdfs:range blv:FaithPractices ;
+    rdfs:subPropertyOf dul:performs .
+
+blv:promotes a ns1:ObjectProperty ;
+    rdfs:domain blv:InterculturalDialogue ;
+    rdfs:range blv:ToleranceNorms ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+blv:refines a ns1:ObjectProperty ;
+    rdfs:domain blv:ReflectionProcesses ;
+    rdfs:range blv:CoreBeliefs ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+blv:reinforcedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefTransmission ;
+    rdfs:range blv:SocialReinforcement ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:shape a ns1:ObjectProperty ;
+    rdfs:domain blv:FaithPractices ;
+    rdfs:range blv:SpiritualWorldview ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:shares a ns1:ObjectProperty ;
+    rdfs:domain blv:GroupEntity ;
+    rdfs:range blv:SharedBeliefs ;
+    rdfs:subPropertyOf dul:hasMember .
+
+blv:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain blv:SharedBeliefs ;
+    rdfs:range blv:IdeologicalSystems ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:support a ns1:ObjectProperty ;
+    rdfs:domain blv:ToleranceNorms ;
+    rdfs:range blv:CoexistenceModels ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+blv:transmittedThrough a ns1:ObjectProperty ;
+    rdfs:domain blv:SharedBeliefs ;
+    rdfs:range blv:BeliefTransmission ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:undergoes a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefHolder ;
+    rdfs:range blv:BeliefFormation ;
+    rdfs:subPropertyOf dul:performs .
+
+her: ns1:imports dul: .
+
+her:DiasporaAdaptationContext a dul:Situation ;
+    dul:hasParticipant her:DiasporicGroup ;
+    dul:hasSetting her:CulturalNegotiation,
+        her:HybridIdentity,
+        her:NarrativeReconstruction .
+
+her:HeritageRecoveryContext a dul:Situation ;
+    dul:hasParticipant her:DisruptedCommunity ;
+    dul:hasSetting her:HeritageRecovery,
+        her:MemoryRestoration,
+        her:ReconnectionExperience .
+
+her:HeritageTransmissionContext a dul:Situation ;
+    dul:hasParticipant her:Custodian ;
+    dul:hasSetting her:ContinuityBelief,
+        her:CulturalHeritageItem,
+        her:TransmissionProcess .
+
+her:IdentityExpressionContext a dul:Situation ;
+    dul:hasParticipant her:Community ;
+    dul:hasSetting her:BelongingSentiment,
+        her:CulturalSymbol,
+        her:IdentityExpression .
+
+her:RevivalContext a dul:Situation ;
+    dul:hasParticipant her:CulturalPractitioner ;
+    dul:hasSetting her:CulturalRenewal,
+        her:HistoricalTradition,
+        her:RevivalMovement .
+
+her:acknowledges a ns1:ObjectProperty ;
+    rdfs:domain her:RecognitionEvent ;
+    rdfs:range her:CulturalSymbol ;
+    rdfs:subPropertyOf dul:hasReference .
+
+her:engagesWith a ns1:ObjectProperty ;
+    rdfs:domain her:CulturalNegotiation ;
+    rdfs:range her:HostCulture ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+her:expresses a ns1:ObjectProperty ;
+    rdfs:domain her:Community ;
+    rdfs:range her:IdentityExpression ;
+    rdfs:subPropertyOf dul:performs .
+
+her:facilitates a ns1:ObjectProperty ;
+    rdfs:domain her:ReconnectionExperience ;
+    rdfs:range her:ReintegrationProcess ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+her:generates a ns1:ObjectProperty ;
+    rdfs:domain her:CulturalNegotiation ;
+    rdfs:range her:AdaptivePractice ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+her:influences a ns1:ObjectProperty ;
+    rdfs:domain her:IdentityExpression ;
+    rdfs:range her:BelongingSentiment ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+her:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain her:RevivalMovement ;
+    rdfs:range her:CulturalRenewal ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+her:materializedIn a ns1:ObjectProperty ;
+    rdfs:domain her:IdentityExpression ;
+    rdfs:range her:SymbolicObject ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+her:motivatedBy a ns1:ObjectProperty ;
+    rdfs:domain her:TransmissionProcess ;
+    rdfs:range her:ContinuityBelief ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+her:negotiates a ns1:ObjectProperty ;
+    rdfs:domain her:DiasporicGroup ;
+    rdfs:range her:HybridIdentity ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:occursWithin a ns1:ObjectProperty ;
+    rdfs:domain her:TransmissionProcess ;
+    rdfs:range her:CulturalLineage ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+her:participatesIn a ns1:ObjectProperty ;
+    rdfs:domain her:CulturalPractitioner ;
+    rdfs:range her:RevivalMovement ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:preserves a ns1:ObjectProperty ;
+    rdfs:domain her:Custodian ;
+    rdfs:range her:CulturalHeritageItem ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:respondsTo a ns1:ObjectProperty ;
+    rdfs:domain her:HeritageRecovery ;
+    rdfs:range her:HistoricalDisplacement ;
+    rdfs:subPropertyOf dul:hasCause .
+
+her:revives a ns1:ObjectProperty ;
+    rdfs:domain her:RevivalMovement ;
+    rdfs:range her:HistoricalTradition ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+her:supports a ns1:ObjectProperty ;
+    rdfs:domain her:MemoryRestoration,
+        her:NarrativeReconstruction,
+        her:PreservationPractice ;
+    rdfs:range her:HeritageRecovery,
+        her:HybridIdentity,
+        her:TransmissionProcess ;
+    rdfs:subPropertyOf dul:hasConstituent,
+        dul:hasSetting .
+
+her:targets a ns1:ObjectProperty ;
+    rdfs:domain her:RestorationEffort ;
+    rdfs:range her:NeglectedForm ;
+    rdfs:subPropertyOf dul:hasObject .
+
+her:transmits a ns1:ObjectProperty ;
+    rdfs:domain her:TransmissionProcess ;
+    rdfs:range her:CulturalHeritageItem ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:undergoes a ns1:ObjectProperty ;
+    rdfs:domain her:DisruptedCommunity ;
+    rdfs:range her:HeritageRecovery ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:uses a ns1:ObjectProperty ;
+    rdfs:domain her:IdentityExpression ;
+    rdfs:range her:CulturalSymbol ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm: ns1:imports dul: .
+
+cnm:AudienceInterpretation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:DiasporicMemoryContext a dul:Situation ;
+    dul:hasParticipant cnm:MigratoryGroup ;
+    dul:hasSetting cnm:DiasporicNarrative,
+        cnm:DisplacementMemory,
+        cnm:NarrativeTransmission .
+
+cnm:HistoricalMemoryContext a dul:Situation ;
+    dul:hasParticipant cnm:CollectiveMemory ;
+    dul:hasSetting cnm:CommemorativePractice,
+        cnm:HistoricalEvent,
+        cnm:MemorialSite .
+
+cnm:MediaRepresentationContext a dul:Situation ;
+    dul:hasParticipant cnm:MediaNarrative ;
+    dul:hasSetting cnm:CulturalRepresentation,
+        cnm:DigitalPlatform,
+        cnm:FramingStrategy .
+
+cnm:MythicTraditionContext a dul:Situation ;
+    dul:hasParticipant cnm:CulturalHero ;
+    dul:hasSetting cnm:FolkloreTradition,
+        cnm:MythNarrative,
+        cnm:NarrativeTheme .
+
+cnm:PersonalStoryContext a dul:Situation ;
+    dul:hasParticipant cnm:IndividualNarrator ;
+    dul:hasSetting cnm:IdentityConstruction,
+        cnm:LifeStory,
+        cnm:NarrativeVoice .
+
+cnm:causes a ns1:ObjectProperty ;
+    rdfs:domain cnm:HistoricalEvent ;
+    rdfs:range cnm:CulturalTrauma ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+cnm:contains a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory ;
+    rdfs:range cnm:AnecdotalFragment ;
+    rdfs:subPropertyOf dul:hasPart .
+
+cnm:conveyedThrough a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory ;
+    rdfs:range cnm:NarrativeVoice ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+cnm:distributedOn a ns1:ObjectProperty ;
+    rdfs:domain cnm:MediaNarrative ;
+    rdfs:range cnm:DigitalPlatform ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+cnm:expresses a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:NarrativeTheme ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:facilitates a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:CulturalAdaptation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+cnm:features a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:CulturalHero ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:includes a ns1:ObjectProperty ;
+    rdfs:domain cnm:FolkloreTradition ;
+    rdfs:range cnm:MythNarrative ;
+    rdfs:subPropertyOf dul:hasPart .
+
+cnm:interprets a ns1:ObjectProperty ;
+    rdfs:domain cnm:Audience ;
+    rdfs:range cnm:MediaNarrative ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:involves a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:SupernaturalElement ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:maintains a ns1:ObjectProperty ;
+    rdfs:domain cnm:SocialRemembrance ;
+    rdfs:range cnm:CollectiveMemory ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:occursAt a ns1:ObjectProperty ;
+    rdfs:domain cnm:CommemorativePractice ;
+    rdfs:range cnm:MemorialSite ;
+    rdfs:subPropertyOf dul:hasLocation .
+
+cnm:preservedAs a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:IntergenerationalStory ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+cnm:produces a ns1:ObjectProperty ;
+    rdfs:domain cnm:MigratoryGroup ;
+    rdfs:range cnm:DiasporicNarrative ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:recalls a ns1:ObjectProperty ;
+    rdfs:domain cnm:CollectiveMemory ;
+    rdfs:range cnm:HistoricalEvent ;
+    rdfs:subPropertyOf dul:hasReference .
+
+cnm:remembers a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:DisplacementMemory ;
+    rdfs:subPropertyOf dul:hasReference .
+
+cnm:represents a ns1:ObjectProperty ;
+    rdfs:domain cnm:CommemorativePractice ;
+    rdfs:range cnm:HistoricalEvent ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:shapes a ns1:ObjectProperty ;
+    rdfs:domain cnm:MediaNarrative ;
+    rdfs:range cnm:CulturalRepresentation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+cnm:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory,
+        cnm:MediaNarrative ;
+    rdfs:range cnm:FramingStrategy,
+        cnm:TemporalSequence ;
+    rdfs:subPropertyOf dul:hasPart,
+        dul:hasSetting .
+
+cnm:supports a ns1:ObjectProperty ;
+    rdfs:domain cnm:LifeStory ;
+    rdfs:range cnm:IdentityConstruction ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:tells a ns1:ObjectProperty ;
+    rdfs:domain cnm:IndividualNarrator ;
+    rdfs:range cnm:LifeStory ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+cnm:transmittedBy a ns1:ObjectProperty ;
+    rdfs:domain cnm:MythNarrative ;
+    rdfs:range cnm:OralTransmission ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:transmittedVia a ns1:ObjectProperty ;
+    rdfs:domain cnm:DiasporicNarrative ;
+    rdfs:range cnm:NarrativeTransmission ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+cnm:uses a ns1:ObjectProperty ;
+    rdfs:domain cnm:MediaNarrative ;
+    rdfs:range cnm:VisualSymbolism ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rtl: ns1:imports dul: .
+
+rtl:KnowledgeTransmissionContext a dul:Situation ;
+    dul:hasParticipant rtl:Elder,
+        rtl:Youth ;
+    dul:hasSetting rtl:CulturalKnowledge,
+        rtl:OralTradition .
+
+rtl:LifecycleRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:CommunityParticipant ;
+    dul:hasSetting rtl:CeremonialStructure,
+        rtl:LifecycleEvent,
+        rtl:RitualPractice .
+
+rtl:PassageRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:Initiate ;
+    dul:hasSetting rtl:CulturalSymbols,
+        rtl:Mentorship,
+        rtl:RiteOfPassage .
+
+rtl:ReligiousRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:FaithGroup ;
+    dul:hasSetting rtl:DoctrinalElements,
+        rtl:ReligiousRitual,
+        rtl:SacredSymbols .
+
+rtl:SeasonalRitualContext a dul:Situation ;
+    dul:hasParticipant rtl:AgriculturalCommunity ;
+    dul:hasSetting rtl:AgrarianRituals,
+        rtl:HarvestCelebration,
+        rtl:SeasonalCycle .
+
+rtl:basedOn a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual ;
+    rdfs:range rtl:DoctrinalElements ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:celebrates a ns1:ObjectProperty ;
+    rdfs:domain rtl:AgriculturalCommunity ;
+    rdfs:range rtl:HarvestCelebration ;
+    rdfs:subPropertyOf dul:performs .
+
+rtl:conformsTo a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:CulturalNorms ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:employs a ns1:ObjectProperty ;
+    rdfs:domain rtl:AgrarianRituals ;
+    rdfs:range rtl:FertilitySymbolism ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:expresses a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:SymbolicActs ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rtl:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:AgrarianRituals ;
+    rdfs:range rtl:EnvironmentalObservation ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:includes a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual ;
+    rdfs:range rtl:SpiritualPractices ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rtl:inspires a ns1:ObjectProperty ;
+    rdfs:domain rtl:SeasonalCycle ;
+    rdfs:range rtl:AgrarianRituals ;
+    rdfs:subPropertyOf dul:hasCause .
+
+rtl:involves a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:CommunityParticipant ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain rtl:RiteOfPassage ;
+    rdfs:range rtl:SocialStatusTransition ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+rtl:markedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:LifecycleEvent ;
+    rdfs:range rtl:RitualPractice ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+rtl:observedAs a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual ;
+    rdfs:range rtl:RitualObservance ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+rtl:performs a ns1:ObjectProperty ;
+    rdfs:domain rtl:FaithGroup ;
+    rdfs:range rtl:ReligiousRitual ;
+    rdfs:subPropertyOf dul:performs .
+
+rtl:realizedIn a ns1:ObjectProperty ;
+    rdfs:domain rtl:OralTradition ;
+    rdfs:range rtl:StorytellingEvent ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+rtl:receives a ns1:ObjectProperty ;
+    rdfs:domain rtl:Youth ;
+    rdfs:range rtl:CulturalKnowledge ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:recognizedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:RiteOfPassage ;
+    rdfs:range rtl:CommunityRecognition ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rtl:reinforces a ns1:ObjectProperty ;
+    rdfs:domain rtl:StorytellingEvent ;
+    rdfs:range rtl:IntergenerationalBond ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+rtl:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:RitualPractice ;
+    rdfs:range rtl:CeremonialStructure ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rtl:supportedBy a ns1:ObjectProperty ;
+    rdfs:domain rtl:RiteOfPassage ;
+    rdfs:range rtl:Mentorship ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:transmits a ns1:ObjectProperty ;
+    rdfs:domain rtl:Elder ;
+    rdfs:range rtl:CulturalKnowledge ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:undergoes a ns1:ObjectProperty ;
+    rdfs:domain rtl:Initiate ;
+    rdfs:range rtl:RiteOfPassage ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rtl:uses a ns1:ObjectProperty ;
+    rdfs:domain rtl:ReligiousRitual,
+        rtl:RiteOfPassage ;
+    rdfs:range rtl:CulturalSymbols,
+        rtl:SacredSymbols ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+art:CollaborativeRoles a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:ExpressiveMovement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:HeritageSymbol a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:IntergenerationalLearning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:SensoryEngagement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+art:SharedVision a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Skill a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+art:Tool a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:BeliefRevision a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:CoexistenceModels a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:CulturalNarratives a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:DoctrinalInterpretation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:EpistemologicalPrinciples a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:EthicalTheories a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:LifeExperiences a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:SocialReinforcement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:TranscendentBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:AdaptivePractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:CulturalLineage a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HistoricalDisplacement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+her:HostCulture a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:NeglectedForm a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:PreservationPractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:RecognitionEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+her:ReintegrationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:RestorationEffort a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:SymbolicObject a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:AnecdotalFragment a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:CulturalAdaptation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:CulturalTrauma a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+cnm:IntergenerationalStory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:OralTransmission a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:SocialRemembrance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:SupernaturalElement a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:TemporalSequence a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:VisualSymbolism a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CommunityRecognition a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:CulturalNorms a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:EnvironmentalObservation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:FertilitySymbolism a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:IntergenerationalBond a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+rtl:RitualObservance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:SocialStatusTransition a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:SpiritualPractices a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:SymbolicActs a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:ArtWork a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:ArtisanalObject a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:ArtisticMedium a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Audience a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Choreography a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:CoCreatedWork a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:CulturalArtPractitioner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:CulturalExpression a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:CulturalTechnique a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:IdeaExchange a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:Material a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:Performer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:StageEnvironment a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:BeliefHolder a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:CoreBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:CulturalGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:GroupEntity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:OntologicalAssumptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:Philosopher a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:SpiritualWorldview a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:ToleranceNorms a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:BelongingSentiment a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+her:Community a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:ContinuityBelief a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:CulturalPractitioner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:CulturalRenewal a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:Custodian a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:DiasporicGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:DisruptedCommunity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HistoricalTradition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:MemoryRestoration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:NarrativeReconstruction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:ReconnectionExperience a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+cnm:CulturalHero a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:CulturalRepresentation a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:DigitalPlatform a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:DisplacementMemory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:FolkloreTradition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:FramingStrategy a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:IdentityConstruction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:IndividualNarrator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:MemorialSite a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:MigratoryGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:NarrativeTheme a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:NarrativeTransmission a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:NarrativeVoice a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+rtl:AgriculturalCommunity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CeremonialStructure a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CommunityParticipant a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:CulturalSymbols a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:DoctrinalElements a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+rtl:Elder a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:FaithGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:HarvestCelebration a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:Initiate a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:LifecycleEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:Mentorship a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:OralTradition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:SacredSymbols a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rtl:SeasonalCycle a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:StorytellingEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:Youth a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:AestheticExperience a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+art:Artist a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:CraftingProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:CreativeProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:BeliefDiversity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:BeliefTransmission a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:ConceptualFrameworks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:IdeologicalSystems a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:InterculturalDialogue a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:PhilosophicalReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:ReflectionProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:ReligiousCommunity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:SacredTexts a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+blv:WorldviewConflicts a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+her:CulturalHeritageItem a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:CulturalNegotiation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:CulturalSymbol a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HybridIdentity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+cnm:CollectiveMemory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:CommemorativePractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:CulturalKnowledge a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+art:CollectiveCreation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:CreativeTeam a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:FaithPractices a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:SharedBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HeritageRecovery a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:RevivalMovement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:HistoricalEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+rtl:AgrarianRituals a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:Craftsperson a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+art:EmbodiedPerformance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:BeliefFormation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:IdentityExpression a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:TransmissionProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+art:TraditionalArtForm a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+cnm:DiasporicNarrative a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:LifeStory a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:MediaNarrative a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+cnm:MythNarrative a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+rtl:ReligiousRitual a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:RiteOfPassage a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rtl:RitualPractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

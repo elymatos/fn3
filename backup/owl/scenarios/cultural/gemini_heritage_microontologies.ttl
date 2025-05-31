@@ -1,0 +1,232 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix her: <http://example.org/gemini/cultural/heritage#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+her: ns1:imports dul: .
+
+her:DiasporaAdaptationContext a dul:Situation ;
+    dul:hasParticipant her:DiasporicGroup ;
+    dul:hasSetting her:CulturalNegotiation,
+        her:HybridIdentity,
+        her:NarrativeReconstruction .
+
+her:HeritageRecoveryContext a dul:Situation ;
+    dul:hasParticipant her:DisruptedCommunity ;
+    dul:hasSetting her:HeritageRecovery,
+        her:MemoryRestoration,
+        her:ReconnectionExperience .
+
+her:HeritageTransmissionContext a dul:Situation ;
+    dul:hasParticipant her:Custodian ;
+    dul:hasSetting her:ContinuityBelief,
+        her:CulturalHeritageItem,
+        her:TransmissionProcess .
+
+her:IdentityExpressionContext a dul:Situation ;
+    dul:hasParticipant her:Community ;
+    dul:hasSetting her:BelongingSentiment,
+        her:CulturalSymbol,
+        her:IdentityExpression .
+
+her:RevivalContext a dul:Situation ;
+    dul:hasParticipant her:CulturalPractitioner ;
+    dul:hasSetting her:CulturalRenewal,
+        her:HistoricalTradition,
+        her:RevivalMovement .
+
+her:acknowledges a ns1:ObjectProperty ;
+    rdfs:domain her:RecognitionEvent ;
+    rdfs:range her:CulturalSymbol ;
+    rdfs:subPropertyOf dul:hasReference .
+
+her:engagesWith a ns1:ObjectProperty ;
+    rdfs:domain her:CulturalNegotiation ;
+    rdfs:range her:HostCulture ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+her:expresses a ns1:ObjectProperty ;
+    rdfs:domain her:Community ;
+    rdfs:range her:IdentityExpression ;
+    rdfs:subPropertyOf dul:performs .
+
+her:facilitates a ns1:ObjectProperty ;
+    rdfs:domain her:ReconnectionExperience ;
+    rdfs:range her:ReintegrationProcess ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+her:generates a ns1:ObjectProperty ;
+    rdfs:domain her:CulturalNegotiation ;
+    rdfs:range her:AdaptivePractice ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+her:influences a ns1:ObjectProperty ;
+    rdfs:domain her:IdentityExpression ;
+    rdfs:range her:BelongingSentiment ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+her:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain her:RevivalMovement ;
+    rdfs:range her:CulturalRenewal ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+her:materializedIn a ns1:ObjectProperty ;
+    rdfs:domain her:IdentityExpression ;
+    rdfs:range her:SymbolicObject ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+her:motivatedBy a ns1:ObjectProperty ;
+    rdfs:domain her:TransmissionProcess ;
+    rdfs:range her:ContinuityBelief ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+her:negotiates a ns1:ObjectProperty ;
+    rdfs:domain her:DiasporicGroup ;
+    rdfs:range her:HybridIdentity ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:occursWithin a ns1:ObjectProperty ;
+    rdfs:domain her:TransmissionProcess ;
+    rdfs:range her:CulturalLineage ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+her:participatesIn a ns1:ObjectProperty ;
+    rdfs:domain her:CulturalPractitioner ;
+    rdfs:range her:RevivalMovement ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:preserves a ns1:ObjectProperty ;
+    rdfs:domain her:Custodian ;
+    rdfs:range her:CulturalHeritageItem ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:respondsTo a ns1:ObjectProperty ;
+    rdfs:domain her:HeritageRecovery ;
+    rdfs:range her:HistoricalDisplacement ;
+    rdfs:subPropertyOf dul:hasCause .
+
+her:revives a ns1:ObjectProperty ;
+    rdfs:domain her:RevivalMovement ;
+    rdfs:range her:HistoricalTradition ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+her:supports a ns1:ObjectProperty ;
+    rdfs:domain her:MemoryRestoration,
+        her:NarrativeReconstruction,
+        her:PreservationPractice ;
+    rdfs:range her:HeritageRecovery,
+        her:HybridIdentity,
+        her:TransmissionProcess ;
+    rdfs:subPropertyOf dul:hasConstituent,
+        dul:hasSetting .
+
+her:targets a ns1:ObjectProperty ;
+    rdfs:domain her:RestorationEffort ;
+    rdfs:range her:NeglectedForm ;
+    rdfs:subPropertyOf dul:hasObject .
+
+her:transmits a ns1:ObjectProperty ;
+    rdfs:domain her:TransmissionProcess ;
+    rdfs:range her:CulturalHeritageItem ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:undergoes a ns1:ObjectProperty ;
+    rdfs:domain her:DisruptedCommunity ;
+    rdfs:range her:HeritageRecovery ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:uses a ns1:ObjectProperty ;
+    rdfs:domain her:IdentityExpression ;
+    rdfs:range her:CulturalSymbol ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+her:AdaptivePractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:CulturalLineage a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HistoricalDisplacement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+her:HostCulture a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:NeglectedForm a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:PreservationPractice a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:RecognitionEvent a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+her:ReintegrationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:RestorationEffort a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:SymbolicObject a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:BelongingSentiment a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+her:Community a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:ContinuityBelief a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:CulturalPractitioner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:CulturalRenewal a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:Custodian a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:DiasporicGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:DisruptedCommunity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HistoricalTradition a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:MemoryRestoration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:NarrativeReconstruction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:ReconnectionExperience a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+her:CulturalHeritageItem a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+her:CulturalNegotiation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:CulturalSymbol a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HybridIdentity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+her:HeritageRecovery a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:RevivalMovement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:IdentityExpression a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+her:TransmissionProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

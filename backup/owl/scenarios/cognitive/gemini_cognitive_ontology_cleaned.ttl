@@ -1,0 +1,1847 @@
+@prefix att: <http://example.org/gemini/cognitive/attention#> .
+@prefix bel: <http://example.org/gemini/cognitive/belief#> .
+@prefix dec: <http://example.org/gemini/cognitive/decision#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix eva: <http://example.org/gemini/cognitive/evaluation#> .
+@prefix int: <http://example.org/gemini/cognitive/intention#> .
+@prefix mem: <http://example.org/gemini/cognitive/memory#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rsn: <http://example.org/gemini/cognitive/reasoning#> .
+
+att: ns1:imports dul: .
+
+att:AttentionalLimitations a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:ConsciousMonitoringSituation a dul:Situation ;
+    dul:hasParticipant att:ConsciousObserver ;
+    dul:hasSetting att:AwarenessStates,
+        att:MetaAwareness,
+        att:SelfReflection ;
+    rdfs:comment "Situation where a ConsciousObserver monitors AwarenessStates and engages in MetaAwareness and SelfReflection." .
+
+att:DistractiveThoughts a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MindfulnessSituation a dul:Situation ;
+    dul:hasParticipant att:MindfulPractitioner ;
+    dul:hasSetting att:AttentionalTraining,
+        att:ClarityOfMind,
+        att:MindfulnessExercises ;
+    rdfs:comment "Situation where a MindfulPractitioner engages in MindfulnessExercises to develop AttentionalTraining and attain ClarityOfMind." .
+
+att:MultitaskingSituation a dul:Situation ;
+    dul:hasParticipant att:Multitasker ;
+    dul:hasSetting att:ConcurrentTasks,
+        att:DividedAttention,
+        att:MultitaskingStrategies ;
+    rdfs:comment "Situation where a Multitasker uses DividedAttention across ConcurrentTasks with specific MultitaskingStrategies." .
+
+att:PresentMomentAwareness a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:SelectiveAttentionSituation a dul:Situation ;
+    dul:hasParticipant att:AttentionalController ;
+    dul:hasSetting att:AttentionalStrategies,
+        att:RelevantStimuli,
+        att:SelectiveAttention ;
+    rdfs:comment "Situation where an AttentionalController directs SelectiveAttention to RelevantStimuli using AttentionalStrategies." .
+
+att:TargetEvents a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:VigilanceSituation a dul:Situation ;
+    dul:hasParticipant att:VigilanceOperator ;
+    dul:hasSetting att:AlertMonitoring,
+        att:CriticalSignals,
+        att:ResponseReadiness ;
+    rdfs:comment "Situation where a VigilanceOperator performs AlertMonitoring to detect CriticalSignals and maintain ResponseReadiness." .
+
+att:affects a ns1:ObjectProperty ;
+    rdfs:domain att:TaskSwitching ;
+    rdfs:range att:PerformanceTradeoffs ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#affects>,
+        dul:hasEffect .
+
+att:allocatesTo a ns1:ObjectProperty ;
+    rdfs:domain att:DividedAttention ;
+    rdfs:range att:MultipleTargets ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:detects a ns1:ObjectProperty ;
+    rdfs:domain att:AlertMonitoring ;
+    rdfs:range att:CriticalSignals ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#detects>,
+        dul:hasParticipant .
+
+att:develop a ns1:ObjectProperty ;
+    rdfs:domain att:MindfulnessExercises ;
+    rdfs:range att:AttentionalTraining ;
+    rdfs:subPropertyOf dul:realizes .
+
+att:directsAttentionTo a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalController ;
+    rdfs:range att:RelevantStimuli ;
+    rdfs:subPropertyOf dul:directlyFollows .
+
+att:distributesOver a ns1:ObjectProperty ;
+    rdfs:domain att:DividedAttention ;
+    rdfs:range att:ConcurrentTasks ;
+    rdfs:subPropertyOf dul:hasRegion .
+
+att:enables a ns1:ObjectProperty ;
+    rdfs:domain att:MetaAwareness ;
+    rdfs:range att:SelfReflection ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+att:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain att:MindfulPractitioner,
+        att:Multitasker ;
+    rdfs:range att:DividedAttention,
+        att:MindfulnessExercises ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#engagesIn>,
+        dul:performs .
+
+att:enhances a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalTraining,
+        att:SelfReflection ;
+    rdfs:range att:ConsciousnessLevels,
+        att:SustainedAwareness ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+att:experiences a ns1:ObjectProperty ;
+    rdfs:domain att:ConsciousObserver ;
+    rdfs:range att:AwarenessStates ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:filtersOut a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalController ;
+    rdfs:range att:DistractingElements ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+att:influence a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalModes ;
+    rdfs:range att:AwarenessStates ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+att:involves a ns1:ObjectProperty ;
+    rdfs:domain att:AlertMonitoring,
+        att:ConsciousMonitoring ;
+    rdfs:range att:CognitiveProcesses,
+        att:MonitoringTasks ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#involves>,
+        dul:hasParticipant .
+
+att:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain att:SelectiveAttention,
+        att:VigilanceDecrement ;
+    rdfs:range att:AttentionalFatigue,
+        att:ConcentrationStates ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasOutcome .
+
+att:maintain a ns1:ObjectProperty ;
+    rdfs:domain att:AlertnessStrategies ;
+    rdfs:range att:ResponseReadiness ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+att:modulates a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalCompetition ;
+    rdfs:range att:FocusControl ;
+    rdfs:subPropertyOf dul:hasCause .
+
+att:monitors a ns1:ObjectProperty ;
+    rdfs:domain att:ConsciousObserver ;
+    rdfs:range att:MentalStates ;
+    rdfs:subPropertyOf dul:observes .
+
+att:optimize a ns1:ObjectProperty ;
+    rdfs:domain att:MultitaskingStrategies ;
+    rdfs:range att:CognitiveEfficiency ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+att:performs a ns1:ObjectProperty ;
+    rdfs:domain att:VigilanceOperator ;
+    rdfs:range att:AlertMonitoring ;
+    rdfs:subPropertyOf dul:performs .
+
+att:reduces a ns1:ObjectProperty ;
+    rdfs:domain att:AttentionalTraining ;
+    rdfs:range att:MindWandering ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+att:resultsFrom a ns1:ObjectProperty ;
+    rdfs:domain att:ClarityOfMind,
+        att:MindfulPresence,
+        att:OptimalFocus ;
+    rdfs:range att:FocusControl,
+        att:MindfulPresence,
+        att:NonJudgmentalAttention ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasOutcome,
+        dul:hasQuality .
+
+att:supports a ns1:ObjectProperty ;
+    rdfs:domain att:SustainedVigilance ;
+    rdfs:range att:DetectionAccuracy ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+att:uses a ns1:ObjectProperty ;
+    rdfs:domain att:SelectiveAttention ;
+    rdfs:range att:AttentionalStrategies ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+att:utilizes a ns1:ObjectProperty ;
+    rdfs:domain att:DividedAttention ;
+    rdfs:range att:AttentionalResources ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel: ns1:imports dul: .
+
+bel:AssumptionManagementSituation a dul:Situation ;
+    dul:hasParticipant bel:AssumptionManager ;
+    dul:hasSetting bel:AssumptionTracking,
+        bel:CoherenceAssessment,
+        bel:LogicalConsistency .
+
+bel:BeliefConflictSituation a dul:Situation ;
+    dul:hasParticipant bel:EpistemicNegotiator ;
+    dul:hasSetting bel:BeliefIntegration,
+        bel:BeliefResolution,
+        bel:EpistemicDialogue .
+
+bel:BeliefFormationSituation a dul:Situation ;
+    dul:hasParticipant bel:BeliefAgent ;
+    dul:hasSetting bel:BeliefFormation,
+        bel:EpistemicSupport,
+        bel:JustificationProcesses .
+
+bel:CertaintyEvaluationSituation a dul:Situation ;
+    dul:hasParticipant bel:CertaintyEvaluator ;
+    dul:hasSetting bel:BeliefStability,
+        bel:CertaintyAssessment,
+        bel:DoubtRecognition .
+
+bel:KnowledgeRevisionSituation a dul:Situation ;
+    dul:hasParticipant bel:KnowledgeSeeker ;
+    dul:hasSetting bel:CognitiveReorganization,
+        bel:ContradictoryEvidence,
+        bel:KnowledgeAcquisition .
+
+bel:benefitsFrom a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefResolution ;
+    rdfs:range bel:ConsensusStrategies ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel:conducts a ns1:ObjectProperty ;
+    rdfs:domain bel:CertaintyEvaluator ;
+    rdfs:range bel:CertaintyAssessment ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain bel:KnowledgeSeeker ;
+    rdfs:range bel:KnowledgeAcquisition ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#engagesIn>,
+        dul:performs .
+
+bel:evaluate a ns1:ObjectProperty ;
+    rdfs:domain bel:ConfidenceJudgments ;
+    rdfs:range bel:BeliefStability ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+bel:evaluates a ns1:ObjectProperty ;
+    rdfs:domain bel:CoherenceAssessment ;
+    rdfs:range bel:CognitiveAssumptions ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+bel:identifies a ns1:ObjectProperty ;
+    rdfs:domain bel:AssumptionTracking ;
+    rdfs:range bel:ImplicitAssumptions ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel:includes a ns1:ObjectProperty ;
+    rdfs:domain bel:CertaintyAssessment ;
+    rdfs:range bel:DoubtRecognition ;
+    rdfs:subPropertyOf dul:hasPart .
+
+bel:informs a ns1:ObjectProperty ;
+    rdfs:domain bel:EvidenceEvaluation ;
+    rdfs:range bel:JustificationProcesses ;
+    rdfs:subPropertyOf dul:hasCause .
+
+bel:initiates a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefAgent ;
+    rdfs:range bel:BeliefFormation ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:leadTo a ns1:ObjectProperty ;
+    rdfs:domain bel:ConsensusStrategies ;
+    rdfs:range bel:BeliefIntegration ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+bel:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefFormation ;
+    rdfs:range bel:BeliefStates ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+bel:monitors a ns1:ObjectProperty ;
+    rdfs:domain bel:AssumptionManager ;
+    rdfs:range bel:AssumptionTracking ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:produces a ns1:ObjectProperty ;
+    rdfs:domain bel:CognitiveReorganization ;
+    rdfs:range bel:LearningOutcomes ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+bel:requires a ns1:ObjectProperty ;
+    rdfs:domain bel:KnowledgeRevision ;
+    rdfs:range bel:CognitiveReorganization ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+bel:resolves a ns1:ObjectProperty ;
+    rdfs:domain bel:EpistemicNegotiator ;
+    rdfs:range bel:ConflictingBeliefs ;
+    rdfs:subPropertyOf dul:performs .
+
+bel:resultsFrom a ns1:ObjectProperty ;
+    rdfs:domain bel:KnowledgeRevision ;
+    rdfs:range bel:ContradictoryEvidence ;
+    rdfs:subPropertyOf dul:hasCause .
+
+bel:reveals a ns1:ObjectProperty ;
+    rdfs:domain bel:DoubtRecognition ;
+    rdfs:range bel:EpistemicUncertainty ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+bel:shouldSatisfy a ns1:ObjectProperty ;
+    rdfs:domain bel:CognitiveAssumptions ;
+    rdfs:range bel:LogicalConsistency ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+bel:support a ns1:ObjectProperty ;
+    rdfs:domain bel:JustificationProcesses ;
+    rdfs:range bel:BeliefFormation ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+bel:supportedBy a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefStates ;
+    rdfs:range bel:EpistemicSupport ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+bel:uses a ns1:ObjectProperty ;
+    rdfs:domain bel:BeliefResolution,
+        bel:KnowledgeAcquisition ;
+    rdfs:range bel:ConceptualFrameworks,
+        bel:EpistemicDialogue ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec: ns1:imports dul: .
+
+dec:DeliberationSituation a dul:Situation ;
+    dul:hasParticipant dec:Deliberator ;
+    dul:hasSetting dec:CostBenefitAnalysis,
+        dec:DecisionMaking,
+        dec:TradeOffResolution .
+
+dec:ExecutionMonitoringSituation a dul:Situation ;
+    dul:hasParticipant dec:ActionExecutor ;
+    dul:hasSetting dec:ActionImplementation,
+        dec:FeedbackIntegration,
+        dec:PerformanceEvaluation .
+
+dec:GoalFormulationSituation a dul:Situation ;
+    dul:hasParticipant dec:DecisionAgent ;
+    dul:hasSetting dec:GoalFormulation,
+        dec:GoalHierarchy,
+        dec:ValueAssessment .
+
+dec:PlanningSituation a dul:Situation ;
+    dul:hasParticipant dec:Planner ;
+    dul:hasSetting dec:ContingencyPlans,
+        dec:OutcomeAnticipation,
+        dec:PlanningProcesses .
+
+dec:RiskEvaluationSituation a dul:Situation ;
+    dul:hasParticipant dec:RiskEvaluator ;
+    dul:hasSetting dec:MitigationStrategies,
+        dec:ProbabilityJudgments,
+        dec:RiskAssessment .
+
+dec:TemporalReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:considers a ns1:ObjectProperty ;
+    rdfs:domain dec:PlanningProcesses ;
+    rdfs:range dec:FutureScenarios ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+dec:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain dec:Deliberator ;
+    rdfs:range dec:DecisionMaking ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#engagesIn>,
+        dul:performs .
+
+dec:evaluates a ns1:ObjectProperty ;
+    rdfs:domain dec:DecisionMaking ;
+    rdfs:range dec:AlternativeOptions ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec:executes a ns1:ObjectProperty ;
+    rdfs:domain dec:Planner ;
+    rdfs:range dec:PlanningProcesses ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:feeds a ns1:ObjectProperty ;
+    rdfs:domain dec:CostBenefitAnalysis ;
+    rdfs:range dec:TradeOffResolution ;
+    rdfs:subPropertyOf dul:hasCause .
+
+dec:formulates a ns1:ObjectProperty ;
+    rdfs:domain dec:DecisionAgent ;
+    rdfs:range dec:GoalFormulation ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:guides a ns1:ObjectProperty ;
+    rdfs:domain dec:OutcomeAnticipation ;
+    rdfs:range dec:PlanningProcesses ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+dec:includes a ns1:ObjectProperty ;
+    rdfs:domain dec:PlanningProcesses ;
+    rdfs:range dec:ActionSequences ;
+    rdfs:subPropertyOf dul:hasPart .
+
+dec:inform a ns1:ObjectProperty ;
+    rdfs:domain dec:ProbabilityJudgments ;
+    rdfs:range dec:DecisionConfidence ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+dec:informs a ns1:ObjectProperty ;
+    rdfs:domain dec:FeedbackIntegration ;
+    rdfs:range dec:AdjustmentActions ;
+    rdfs:subPropertyOf dul:hasCause .
+
+dec:initiates a ns1:ObjectProperty ;
+    rdfs:domain dec:ActionExecutor ;
+    rdfs:range dec:ActionImplementation ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:involves a ns1:ObjectProperty ;
+    rdfs:domain dec:RiskAssessment ;
+    rdfs:range dec:UncertaintyFactors ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#involves>,
+        dul:hasSetting .
+
+dec:monitors a ns1:ObjectProperty ;
+    rdfs:domain dec:PerformanceEvaluation ;
+    rdfs:range dec:ActionImplementation ;
+    rdfs:subPropertyOf dul:observes .
+
+dec:organizes a ns1:ObjectProperty ;
+    rdfs:domain dec:GoalHierarchy ;
+    rdfs:range dec:GoalStates ;
+    rdfs:subPropertyOf dul:hasPart .
+
+dec:performs a ns1:ObjectProperty ;
+    rdfs:domain dec:RiskEvaluator ;
+    rdfs:range dec:RiskAssessment ;
+    rdfs:subPropertyOf dul:performs .
+
+dec:reduce a ns1:ObjectProperty ;
+    rdfs:domain dec:MitigationStrategies ;
+    rdfs:range dec:RiskSensitivity ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+dec:respondTo a ns1:ObjectProperty ;
+    rdfs:domain dec:ContingencyPlans ;
+    rdfs:range dec:FutureScenarios ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+dec:supports a ns1:ObjectProperty ;
+    rdfs:domain dec:ValueAssessment ;
+    rdfs:range dec:DecisionCriteria ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+dec:targets a ns1:ObjectProperty ;
+    rdfs:domain dec:GoalFormulation ;
+    rdfs:range dec:GoalStates ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+dec:track a ns1:ObjectProperty ;
+    rdfs:domain dec:MonitoringMechanisms ;
+    rdfs:range dec:DecisionOutcomes ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec:uses a ns1:ObjectProperty ;
+    rdfs:domain dec:DecisionMaking,
+        dec:GoalFormulation ;
+    rdfs:range dec:DeliberativeStrategies,
+        dec:PrioritizationCriteria ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva: ns1:imports dul: .
+
+eva:AestheticEvaluationSituation a dul:Situation ;
+    dul:hasParticipant eva:AestheticJudge ;
+    dul:hasSetting eva:AestheticEvaluation,
+        eva:AestheticQualities,
+        eva:SensoryExperience .
+
+eva:ComparativeEvaluationSituation a dul:Situation ;
+    dul:hasParticipant eva:ValueComparer ;
+    dul:hasSetting eva:ComparativeJudgment,
+        eva:DecisionCriteria,
+        eva:TradeOffEvaluations .
+
+eva:MoralEvaluationSituation a dul:Situation ;
+    dul:hasParticipant eva:MoralEvaluator ;
+    dul:hasSetting eva:EthicalPrinciples,
+        eva:MoralJudgments,
+        eva:MoralReasoning .
+
+eva:PragmaticJudgmentSituation a dul:Situation ;
+    dul:hasParticipant eva:PragmaticEvaluator ;
+    dul:hasSetting eva:FeasibilityAssessments,
+        eva:GoalSatisfaction,
+        eva:PracticalJudgments .
+
+eva:QualityAssessmentSituation a dul:Situation ;
+    dul:hasParticipant eva:Evaluator ;
+    dul:hasSetting eva:EvaluativeThinking,
+        eva:QualityAssessment,
+        eva:QualityJudgments .
+
+eva:aimFor a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:GoalSatisfaction ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+eva:applies a ns1:ObjectProperty ;
+    rdfs:domain eva:MoralReasoning,
+        eva:QualityAssessment ;
+    rdfs:range eva:EthicalPrinciples,
+        eva:EvaluationCriteria ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:appliesTo a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment ;
+    rdfs:range eva:ValueDimensions ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:conducts a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticJudge,
+        eva:Evaluator ;
+    rdfs:range eva:AestheticEvaluation,
+        eva:QualityAssessment ;
+    rdfs:subPropertyOf dul:performs .
+
+eva:consider a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:ContextualFactors ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:determine a ns1:ObjectProperty ;
+    rdfs:domain eva:QualityJudgments ;
+    rdfs:range eva:ObjectValue ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+eva:determineContext a ns1:ObjectProperty ;
+    rdfs:domain eva:QualityJudgments ;
+    rdfs:range eva:SituationalQuality ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+eva:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment,
+        eva:Evaluator,
+        eva:MoralEvaluator ;
+    rdfs:range eva:EvaluativeThinking,
+        eva:MoralReasoning,
+        eva:TradeOffEvaluations ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#engagesIn>,
+        dul:hasPart,
+        dul:performs .
+
+eva:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation ;
+    rdfs:range eva:AestheticStandards ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:influencedBy a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation ;
+    rdfs:range eva:SubjectiveImpressions ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:involves a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation ;
+    rdfs:range eva:SensoryExperience ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#involves>,
+        dul:hasParticipant .
+
+eva:makes a ns1:ObjectProperty ;
+    rdfs:domain eva:PragmaticEvaluator ;
+    rdfs:range eva:PracticalJudgments ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:performs a ns1:ObjectProperty ;
+    rdfs:domain eva:ValueComparer ;
+    rdfs:range eva:ComparativeJudgment ;
+    rdfs:subPropertyOf dul:performs .
+
+eva:produces a ns1:ObjectProperty ;
+    rdfs:domain eva:EvaluativeThinking,
+        eva:MoralReasoning ;
+    rdfs:range eva:MoralJudgments,
+        eva:QualityJudgments ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+eva:referTo a ns1:ObjectProperty ;
+    rdfs:domain eva:MoralJudgments ;
+    rdfs:range eva:NormativeFrameworks ;
+    rdfs:subPropertyOf dul:hasReference .
+
+eva:require a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:FeasibilityAssessments ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:requireUtility a ns1:ObjectProperty ;
+    rdfs:domain eva:PracticalJudgments ;
+    rdfs:range eva:UtilityEvaluations ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:respondTo a ns1:ObjectProperty ;
+    rdfs:domain eva:MoralJudgments ;
+    rdfs:range eva:MoralConflicts ;
+    rdfs:subPropertyOf dul:hasCause .
+
+eva:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment ;
+    rdfs:range eva:PreferenceStructures ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:targets a ns1:ObjectProperty ;
+    rdfs:domain eva:AestheticEvaluation,
+        eva:QualityAssessment ;
+    rdfs:range eva:AestheticQualities,
+        eva:TargetObjects ;
+    rdfs:subPropertyOf dul:hasParticipant,
+        dul:hasQuality .
+
+eva:targetsContext a ns1:ObjectProperty ;
+    rdfs:domain eva:QualityAssessment ;
+    rdfs:range eva:TargetSituations ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:useMethods a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeEvaluations ;
+    rdfs:range eva:EvaluationMethods ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:useStandards a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeEvaluations ;
+    rdfs:range eva:AssessmentStandards ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+eva:usesCriteria a ns1:ObjectProperty ;
+    rdfs:domain eva:ComparativeJudgment ;
+    rdfs:range eva:DecisionCriteria ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+eva:yields a ns1:ObjectProperty ;
+    rdfs:domain eva:EvaluativeThinking ;
+    rdfs:range eva:ComparativeEvaluations ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+int: ns1:imports dul: .
+
+int:ActionPlanningSituation a dul:Situation ;
+    dul:hasParticipant int:ActionPlanner ;
+    dul:hasSetting int:ActionPlans,
+        int:ExecutionProcesses,
+        int:ImplementationIntentions .
+
+int:GoalPersistenceSituation a dul:Situation ;
+    dul:hasParticipant int:LongTermPlanner ;
+    dul:hasSetting int:IntentionSustainment,
+        int:LongTermGoals,
+        int:PersistenceStrategies .
+
+int:HabitualActionSituation a dul:Situation ;
+    dul:hasParticipant int:HabitualActor ;
+    dul:hasSetting int:ContextualTriggers,
+        int:HabitualActions,
+        int:IntentionalOverride .
+
+int:IntentionFormationSituation a dul:Situation ;
+    dul:hasParticipant int:IntentionalAgent ;
+    dul:hasSetting int:CommitmentState,
+        int:GoalIntention,
+        int:IntentionFormation .
+
+int:IntentionReconsiderationSituation a dul:Situation ;
+    dul:hasParticipant int:ReconsideringAgent ;
+    dul:hasSetting int:ConflictingIntentions,
+        int:GoalAdjustment,
+        int:ReconsiderationProcesses .
+
+int:compare a ns1:ObjectProperty ;
+    rdfs:domain int:ReconsiderationProcesses ;
+    rdfs:range int:ConflictingIntentions ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+int:creates a ns1:ObjectProperty ;
+    rdfs:domain int:ActionPlanner ;
+    rdfs:range int:ActionPlans ;
+    rdfs:subPropertyOf dul:designs .
+
+int:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain int:ReconsideringAgent ;
+    rdfs:range int:ReconsiderationProcesses ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#engagesIn>,
+        dul:performs .
+
+int:establishes a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionFormation ;
+    rdfs:range int:CommitmentState ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+int:executes a ns1:ObjectProperty ;
+    rdfs:domain int:HabitualActor ;
+    rdfs:range int:HabitualActions ;
+    rdfs:subPropertyOf dul:performs .
+
+int:follow a ns1:ObjectProperty ;
+    rdfs:domain int:ExecutionProcesses ;
+    rdfs:range int:PlanSequencing ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+int:forms a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionalAgent ;
+    rdfs:range int:GoalIntention ;
+    rdfs:subPropertyOf dul:initiates .
+
+int:govern a ns1:ObjectProperty ;
+    rdfs:domain int:ImplementationIntentions ;
+    rdfs:range int:ExecutionProcesses ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+int:include a ns1:ObjectProperty ;
+    rdfs:domain int:ActionPlans ;
+    rdfs:range int:SubGoals ;
+    rdfs:subPropertyOf dul:hasPart .
+
+int:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain int:CommitmentState ;
+    rdfs:range int:ActionInitiation ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+int:maintain a ns1:ObjectProperty ;
+    rdfs:domain int:PersistenceStrategies ;
+    rdfs:range int:GoalMaintenance ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+int:modulates a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionalOverride ;
+    rdfs:range int:VolitionalControl ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+int:pursues a ns1:ObjectProperty ;
+    rdfs:domain int:LongTermPlanner ;
+    rdfs:range int:LongTermGoals ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+int:resultsFrom a ns1:ObjectProperty ;
+    rdfs:domain int:GoalAdjustment ;
+    rdfs:range int:CognitiveConflict ;
+    rdfs:subPropertyOf dul:hasCause .
+
+int:support a ns1:ObjectProperty ;
+    rdfs:domain int:AutomaticityMechanisms ;
+    rdfs:range int:HabitualActions ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+int:sustain a ns1:ObjectProperty ;
+    rdfs:domain int:MotivationalFactors ;
+    rdfs:range int:IntentionSustainment ;
+    rdfs:subPropertyOf dul:hasCause .
+
+int:targets a ns1:ObjectProperty ;
+    rdfs:domain int:GoalIntention ;
+    rdfs:range int:GoalRepresentation ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+int:triggeredBy a ns1:ObjectProperty ;
+    rdfs:domain int:HabitualActions ;
+    rdfs:range int:ContextualTriggers ;
+    rdfs:subPropertyOf dul:hasCause .
+
+int:updates a ns1:ObjectProperty ;
+    rdfs:domain int:IntentionalRevision ;
+    rdfs:range int:GoalIntention ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem: ns1:imports dul: .
+
+mem:ForgettingInterferenceSituation a dul:Situation ;
+    dul:hasParticipant mem:MemoryEvaluator ;
+    dul:hasSetting mem:ForgettingProcesses,
+        mem:InterferenceEffects,
+        mem:RecallImpairment .
+
+mem:LearningAdaptationSituation a dul:Situation ;
+    dul:hasParticipant mem:LearningAgent ;
+    dul:hasSetting mem:LearningEfficiency,
+        mem:LearningProcesses,
+        mem:SkillAcquisition .
+
+mem:MemoryConsolidationSituation a dul:Situation ;
+    dul:hasParticipant mem:Neuroscientist ;
+    dul:hasSetting mem:ConsolidationProcesses,
+        mem:LongTermMemory,
+        mem:MemoryPersistence .
+
+mem:MemoryEncodingSituation a dul:Situation ;
+    dul:hasParticipant mem:MemoryResearcher ;
+    dul:hasSetting mem:MemoryEncoding,
+        mem:MemoryTraces,
+        mem:RetrievalCues .
+
+mem:WorkingMemorySituation a dul:Situation ;
+    dul:hasParticipant mem:CognitiveScientist ;
+    dul:hasSetting mem:InformationChunks,
+        mem:RehearsalMechanisms,
+        mem:WorkingMemory .
+
+mem:affects a ns1:ObjectProperty ;
+    rdfs:domain mem:InformationDecay,
+        mem:RetroactiveInterference ;
+    rdfs:range mem:InformationChunks,
+        mem:MemoryRecall ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#affects>,
+        dul:hasEffect .
+
+mem:analyzes a ns1:ObjectProperty ;
+    rdfs:domain mem:CognitiveScientist ;
+    rdfs:range mem:WorkingMemory ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:assesses a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryEvaluator ;
+    rdfs:range mem:MemoryErrors ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:canFailDueTo a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryRecall ;
+    rdfs:range mem:AccessFailures ;
+    rdfs:subPropertyOf dul:hasCause .
+
+mem:cause a ns1:ObjectProperty ;
+    rdfs:domain mem:InterferenceEffects ;
+    rdfs:range mem:MemoryErrors ;
+    rdfs:subPropertyOf dul:hasCause .
+
+mem:creates a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryEncoding ;
+    rdfs:range mem:MemoryTraces ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+mem:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningAgent ;
+    rdfs:range mem:LearningProcesses ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#engagesIn>,
+        dul:performs .
+
+mem:enhance a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningProcesses ;
+    rdfs:range mem:SkillAcquisition ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+mem:exhibit a ns1:ObjectProperty ;
+    rdfs:domain mem:DurableMemories ;
+    rdfs:range mem:MemoryPersistence ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mem:holds a ns1:ObjectProperty ;
+    rdfs:domain mem:WorkingMemory ;
+    rdfs:range mem:InformationChunks ;
+    rdfs:subPropertyOf dul:hasPart .
+
+mem:improve a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningStrategies ;
+    rdfs:range mem:LearningEfficiency ;
+    rdfs:subPropertyOf dul:hasGoal .
+
+mem:include a ns1:ObjectProperty ;
+    rdfs:domain mem:ForgettingProcesses ;
+    rdfs:range mem:MemoryDecay ;
+    rdfs:subPropertyOf dul:hasPart .
+
+mem:influences a ns1:ObjectProperty ;
+    rdfs:domain mem:CognitiveLoad ;
+    rdfs:range mem:WorkingMemory ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mem:investigates a ns1:ObjectProperty ;
+    rdfs:domain mem:Neuroscientist ;
+    rdfs:range mem:LongTermMemory ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:involve a ns1:ObjectProperty ;
+    rdfs:domain mem:ConsolidationProcesses ;
+    rdfs:range mem:NeuralStabilization ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mem:leadTo a ns1:ObjectProperty ;
+    rdfs:domain mem:ForgettingProcesses,
+        mem:SynapticChanges ;
+    rdfs:range mem:DurableMemories,
+        mem:RecallImpairment ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem:limitedBy a ns1:ObjectProperty ;
+    rdfs:domain mem:WorkingMemory ;
+    rdfs:range mem:BufferCapacity ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mem:mitigate a ns1:ObjectProperty ;
+    rdfs:domain mem:RehearsalMechanisms ;
+    rdfs:range mem:InformationDecay ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+mem:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryRetrieval ;
+    rdfs:range mem:MemoryRecall ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem:stabilize a ns1:ObjectProperty ;
+    rdfs:domain mem:ConsolidationProcesses ;
+    rdfs:range mem:LongTermMemory ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mem:studies a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryResearcher ;
+    rdfs:range mem:MemoryEncoding ;
+    rdfs:subPropertyOf dul:observes .
+
+mem:support a ns1:ObjectProperty ;
+    rdfs:domain mem:AdaptationMechanisms,
+        mem:StorageMechanisms ;
+    rdfs:range mem:LearningProcesses,
+        mem:MemoryEncoding ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+mem:supports a ns1:ObjectProperty ;
+    rdfs:domain mem:WorkingMemory ;
+    rdfs:range mem:TaskGoals ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+mem:trigger a ns1:ObjectProperty ;
+    rdfs:domain mem:ReinforcementEvents ;
+    rdfs:range mem:SynapticChanges ;
+    rdfs:subPropertyOf dul:hasCause .
+
+mem:use a ns1:ObjectProperty ;
+    rdfs:domain mem:LearningProcesses ;
+    rdfs:range mem:InstructionalCues ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mem:uses a ns1:ObjectProperty ;
+    rdfs:domain mem:MemoryEncoding,
+        mem:MemoryRetrieval ;
+    rdfs:range mem:EncodingStrategies,
+        mem:RetrievalCues ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn: ns1:imports dul: .
+
+rsn:AnalogicalReasoningSituation a dul:Situation ;
+    dul:hasParticipant rsn:AnalogicalThinker ;
+    dul:hasSetting rsn:AnalogicalReasoning,
+        rsn:CrossDomainInference,
+        rsn:MappingStructures .
+
+rsn:CreativeProblemSolvingSituation a dul:Situation ;
+    dul:hasParticipant rsn:CreativeAgent ;
+    dul:hasSetting rsn:CreativeProblemSolving,
+        rsn:DivergentThinking,
+        rsn:ProblemConstraints .
+
+rsn:HypothesisTestingSituation a dul:Situation ;
+    dul:hasParticipant rsn:HypothesisTester ;
+    dul:hasSetting rsn:ContradictionDetection,
+        rsn:HypothesisTesting,
+        rsn:KnowledgeRefinement .
+
+rsn:InsightReasoningSituation a dul:Situation ;
+    dul:hasParticipant rsn:InsightfulThinker ;
+    dul:hasSetting rsn:AhaMoments,
+        rsn:InsightGeneration,
+        rsn:IntuitiveJudgments .
+
+rsn:StructuredReasoningSituation a dul:Situation ;
+    dul:hasParticipant rsn:ReasoningAgent ;
+    dul:hasSetting rsn:InferenceChains,
+        rsn:ProblemDecomposition,
+        rsn:StructuredReasoning .
+
+rsn:activates a ns1:ObjectProperty ;
+    rdfs:domain rsn:ContradictionDetection ;
+    rdfs:range rsn:RefutationStrategies ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+rsn:conducts a ns1:ObjectProperty ;
+    rdfs:domain rsn:HypothesisTester ;
+    rdfs:range rsn:HypothesisTesting ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:contributesTo a ns1:ObjectProperty ;
+    rdfs:domain rsn:DivergentThinking ;
+    rdfs:range rsn:NovelSolution ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+rsn:detects a ns1:ObjectProperty ;
+    rdfs:domain rsn:DeductiveReasoning ;
+    rdfs:range rsn:ContradictionDetection ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#detects>,
+        dul:hasOutcome .
+
+rsn:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain rsn:InsightfulThinker ;
+    rdfs:range rsn:IntuitiveJudgments ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#engagesIn>,
+        dul:performs .
+
+rsn:facilitates a ns1:ObjectProperty ;
+    rdfs:domain rsn:InsightGeneration ;
+    rdfs:range rsn:ProblemRecognition ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+rsn:guidedBy a ns1:ObjectProperty ;
+    rdfs:domain rsn:InferenceChains ;
+    rdfs:range rsn:LogicRules ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rsn:includes a ns1:ObjectProperty ;
+    rdfs:domain rsn:CreativeProblemSolving,
+        rsn:StructuredReasoning ;
+    rdfs:range rsn:IdeationProcesses,
+        rsn:ProblemDecomposition ;
+    rdfs:subPropertyOf dul:hasPart .
+
+rsn:initiates a ns1:ObjectProperty ;
+    rdfs:domain rsn:AnalogicalThinker ;
+    rdfs:range rsn:AnalogicalReasoning ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:involves a ns1:ObjectProperty ;
+    rdfs:domain rsn:HypothesisTesting ;
+    rdfs:range rsn:DeductiveReasoning ;
+    rdfs:subPropertyOf <http://example.org/gemini/cognitive/common#involves>,
+        dul:hasParticipant .
+
+rsn:mapsFrom a ns1:ObjectProperty ;
+    rdfs:domain rsn:AnalogicalReasoning ;
+    rdfs:range rsn:SourceDomain ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn:mapsTo a ns1:ObjectProperty ;
+    rdfs:domain rsn:AnalogicalReasoning ;
+    rdfs:range rsn:TargetDomain ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn:performs a ns1:ObjectProperty ;
+    rdfs:domain rsn:ReasoningAgent ;
+    rdfs:range rsn:StructuredReasoning ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:produces a ns1:ObjectProperty ;
+    rdfs:domain rsn:StructuredReasoning ;
+    rdfs:range rsn:InferenceChains ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+rsn:requires a ns1:ObjectProperty ;
+    rdfs:domain rsn:ProblemDecomposition ;
+    rdfs:range rsn:CognitiveSteps ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+rsn:shape a ns1:ObjectProperty ;
+    rdfs:domain rsn:ProblemConstraints ;
+    rdfs:range rsn:CreativeProblemSolving ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rsn:support a ns1:ObjectProperty ;
+    rdfs:domain rsn:MappingStructures ;
+    rdfs:range rsn:CrossDomainInference ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+rsn:trigger a ns1:ObjectProperty ;
+    rdfs:domain rsn:IntuitiveJudgments ;
+    rdfs:range rsn:AhaMoments ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+rsn:underlies a ns1:ObjectProperty ;
+    rdfs:domain rsn:ImplicitKnowledge ;
+    rdfs:range rsn:InsightGeneration ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+rsn:undertakes a ns1:ObjectProperty ;
+    rdfs:domain rsn:CreativeAgent ;
+    rdfs:range rsn:CreativeProblemSolving ;
+    rdfs:subPropertyOf dul:performs .
+
+rsn:update a ns1:ObjectProperty ;
+    rdfs:domain rsn:RefutationStrategies ;
+    rdfs:range rsn:KnowledgeRefinement ;
+    rdfs:subPropertyOf dul:hasOutcome .
+
+att:AlertnessStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AttentionalCompetition a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:AttentionalFatigue a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:AttentionalModes a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:AttentionalResources a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:CognitiveEfficiency a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:CognitiveProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:ConcentrationStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:ConsciousMonitoring a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:ConsciousnessLevels a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:DetectionAccuracy a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:DistractingElements a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MentalStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:MindWandering a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:MonitoringTasks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MultipleTargets a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:NonJudgmentalAttention a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:OptimalFocus a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:PerformanceTradeoffs a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:SustainedAwareness a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:SustainedVigilance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:TaskSwitching a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:VigilanceDecrement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ConceptualFrameworks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:ConfidenceJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ConflictingBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:EpistemicUncertainty a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+bel:EvidenceEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ImplicitAssumptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:LearningOutcomes a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:ActionSequences a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:AdjustmentActions a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:AlternativeOptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:DecisionConfidence a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+dec:DecisionCriteria a ns1:Class ;
+    rdfs:subClassOf <http://example.org/gemini/cognitive/common#DecisionCriteria>,
+        dul:Object .
+
+dec:DecisionOutcomes a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:DeliberativeStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:MonitoringMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:PrioritizationCriteria a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:RiskSensitivity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+dec:UncertaintyFactors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:AestheticStandards a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:AssessmentStandards a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:ContextualFactors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:EvaluationCriteria a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:EvaluationMethods a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:MoralConflicts a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+eva:NormativeFrameworks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:ObjectValue a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:PreferenceStructures a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:SituationalQuality a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:SubjectiveImpressions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:TargetObjects a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:TargetSituations a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:UtilityEvaluations a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:ValueDimensions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ActionInitiation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:AutomaticityMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:CognitiveConflict a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:GoalMaintenance a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:GoalRepresentation a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:IntentionalRevision a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:MotivationalFactors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:PlanSequencing a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:SubGoals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:VolitionalControl a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:AccessFailures a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:AdaptationMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:BufferCapacity a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:CognitiveLoad a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:EncodingStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:InstructionalCues a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:LearningStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:MemoryDecay a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:NeuralStabilization a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:ReinforcementEvents a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:RetroactiveInterference a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:StorageMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:TaskGoals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:CognitiveSteps a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:IdeationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:ImplicitKnowledge a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:LogicRules a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:NovelSolution a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:ProblemRecognition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:SourceDomain a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:TargetDomain a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:AttentionalStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:ClarityOfMind a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+att:ConcurrentTasks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:CriticalSignals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:FocusControl a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:MetaAwareness a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:MindfulPractitioner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MindfulPresence a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:Multitasker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MultitaskingStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:RelevantStimuli a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:ResponseReadiness a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:VigilanceOperator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:AssumptionManager a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:BeliefAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:BeliefIntegration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:BeliefStability a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+bel:BeliefStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+bel:CertaintyEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:CognitiveAssumptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:CoherenceAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ConsensusStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:ContradictoryEvidence a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:EpistemicDialogue a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:EpistemicNegotiator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:EpistemicSupport a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:KnowledgeRevision a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:KnowledgeSeeker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+bel:LogicalConsistency a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+<http://example.org/gemini/cognitive/common#DecisionCriteria> a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+<http://example.org/gemini/cognitive/common#affects> a ns1:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+<http://example.org/gemini/cognitive/common#detects> a ns1:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec:ActionExecutor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:ContingencyPlans a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:CostBenefitAnalysis a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:DecisionAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:Deliberator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:FeedbackIntegration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:FutureScenarios a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:GoalHierarchy a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:GoalStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+dec:MitigationStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:OutcomeAnticipation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:PerformanceEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:Planner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:ProbabilityJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:RiskEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+dec:TradeOffResolution a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:ValueAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:AestheticJudge a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:AestheticQualities a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:DecisionCriteria a ns1:Class ;
+    rdfs:subClassOf <http://example.org/gemini/cognitive/common#DecisionCriteria>,
+        dul:Object .
+
+eva:EthicalPrinciples a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:FeasibilityAssessments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:GoalSatisfaction a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+eva:MoralEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:PragmaticEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:SensoryExperience a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:TradeOffEvaluations a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:ValueComparer a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ActionPlanner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ConflictingIntentions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ContextualTriggers a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:GoalAdjustment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:HabitualActor a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ImplementationIntentions a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:IntentionFormation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:IntentionSustainment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:IntentionalAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:IntentionalOverride a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:LongTermGoals a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:LongTermPlanner a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:PersistenceStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:ReconsideringAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:CognitiveScientist a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:DurableMemories a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:InformationDecay a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:InterferenceEffects a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:LearningAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:LearningEfficiency a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:MemoryErrors a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:MemoryEvaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:MemoryPersistence a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:MemoryResearcher a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:MemoryRetrieval a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:MemoryTraces a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:Neuroscientist a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:RecallImpairment a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mem:RehearsalMechanisms a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:RetrievalCues a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:SkillAcquisition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:SynapticChanges a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:AhaMoments a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+rsn:AnalogicalThinker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:CreativeAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:CrossDomainInference a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:DeductiveReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:DivergentThinking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:HypothesisTester a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:InsightfulThinker a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:KnowledgeRefinement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:MappingStructures a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:ProblemConstraints a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:ReasoningAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:RefutationStrategies a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AttentionalController a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:AwarenessStates a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+att:ConsciousObserver a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+att:MindfulnessExercises a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:SelectiveAttention a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:SelfReflection a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:AssumptionTracking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:BeliefResolution a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:CertaintyAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:CognitiveReorganization a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:DoubtRecognition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:JustificationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:KnowledgeAcquisition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:ActionImplementation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:RiskAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:ComparativeEvaluations a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:Evaluator a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:ActionPlans a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:CommitmentState a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:ExecutionProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+int:ReconsiderationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:ConsolidationProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:ForgettingProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:InformationChunks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:LongTermMemory a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+mem:MemoryRecall a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:ContradictionDetection a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:HypothesisTesting a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:InferenceChains a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+rsn:InsightGeneration a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:IntuitiveJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:ProblemDecomposition a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AlertMonitoring a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:AttentionalTraining a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+bel:BeliefFormation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+<http://example.org/gemini/cognitive/common#involves> a ns1:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+dec:DecisionMaking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:GoalFormulation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:EvaluativeThinking a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:MoralJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+eva:MoralReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:QualityJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+int:GoalIntention a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+int:HabitualActions a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:AnalogicalReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:CreativeProblemSolving a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+rsn:StructuredReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+att:DividedAttention a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+dec:PlanningProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:QualityAssessment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:LearningProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mem:MemoryEncoding a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:AestheticEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:ComparativeJudgment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+eva:PracticalJudgments a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mem:WorkingMemory a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+<http://example.org/gemini/cognitive/common#engagesIn> a ns1:ObjectProperty ;
+    rdfs:subPropertyOf dul:hasParticipant .
+

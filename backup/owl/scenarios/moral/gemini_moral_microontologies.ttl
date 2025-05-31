@@ -1,0 +1,244 @@
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix mor: <http://example.org/gemini/moral/judgment#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mor: ns1:imports dul: .
+
+mor:CrossCulturalEvaluationContext a dul:Situation ;
+    dul:hasParticipant mor:CulturalContext ;
+    dul:hasSetting mor:EthicalDialogue,
+        mor:MoralDisagreement,
+        mor:MoralEvaluation .
+
+mor:EvaluativeJudgmentContext a dul:Situation ;
+    dul:hasParticipant mor:MoralAgent ;
+    dul:hasSetting mor:EthicalCriterion,
+        mor:EvaluativeJudgment,
+        mor:JudgedAction .
+
+mor:MoralAccountabilityContext a dul:Situation ;
+    dul:hasParticipant mor:MoralCommunity ;
+    dul:hasSetting mor:BlameAction,
+        mor:PraiseAction,
+        mor:ReputationImpact .
+
+mor:MoralDilemmaContext a dul:Situation ;
+    dul:hasParticipant mor:MoralDilemma ;
+    dul:hasSetting mor:DeliberationProcess,
+        mor:MoralDecision,
+        mor:TradeOff .
+
+mor:RetrospectiveReflectionContext a dul:Situation ;
+    dul:hasParticipant mor:ReflectiveAgent ;
+    dul:hasSetting mor:EthicalLearning,
+        mor:MoralReflection,
+        mor:PastAction .
+
+mor:addressedBy a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralDisagreement ;
+    rdfs:range mor:EthicalDialogue ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mor:addresses a ns1:ObjectProperty ;
+    rdfs:domain mor:BlameAction ;
+    rdfs:range mor:MoralDeviation ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mor:affects a ns1:ObjectProperty ;
+    rdfs:domain mor:BlameAction ;
+    rdfs:range mor:ReputationImpact ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mor:applies a ns1:ObjectProperty ;
+    rdfs:domain mor:EvaluativeJudgment ;
+    rdfs:range mor:EthicalCriterion ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mor:assigns a ns1:ObjectProperty ;
+    rdfs:domain mor:EvaluativeJudgment ;
+    rdfs:range mor:MoralValue ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+mor:comparesWith a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralEvaluation ;
+    rdfs:range mor:CulturalValue ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mor:concerns a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralReflection ;
+    rdfs:range mor:PastAction ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mor:delivers a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralCommunity ;
+    rdfs:range mor:BlameAction,
+        mor:PraiseAction ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+mor:elicits a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralReflection ;
+    rdfs:range mor:RegretEmotion ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mor:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain mor:ReflectiveAgent ;
+    rdfs:range mor:MoralReflection ;
+    rdfs:subPropertyOf dul:performs .
+
+mor:evaluates a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralDecision ;
+    rdfs:range mor:TradeOff ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mor:generates a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralEvaluation ;
+    rdfs:range mor:MoralDisagreement ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+mor:influencedBy a ns1:ObjectProperty ;
+    rdfs:domain mor:EvaluativeJudgment ;
+    rdfs:range mor:SocialNorm ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+mor:involves a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralDecision,
+        mor:MoralDilemma ;
+    rdfs:range mor:ConflictingValues,
+        mor:DeliberationProcess ;
+    rdfs:subPropertyOf dul:hasConstituent,
+        dul:hasQuality .
+
+mor:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralReflection ;
+    rdfs:range mor:ChangedUnderstanding ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+mor:makesJudgment a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralAgent ;
+    rdfs:range mor:EvaluativeJudgment ;
+    rdfs:subPropertyOf dul:performs .
+
+mor:recognizes a ns1:ObjectProperty ;
+    rdfs:domain mor:PraiseAction ;
+    rdfs:range mor:ExemplaryBehavior ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mor:requires a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralDilemma ;
+    rdfs:range mor:MoralDecision ;
+    rdfs:subPropertyOf dul:hasConstituent .
+
+mor:resultsIn a ns1:ObjectProperty ;
+    rdfs:domain mor:MoralDecision,
+        mor:MoralReflection ;
+    rdfs:range mor:EthicalLearning,
+        mor:MoralOutcome ;
+    rdfs:subPropertyOf dul:hasEffect,
+        dul:hasOutcome .
+
+mor:shapes a ns1:ObjectProperty ;
+    rdfs:domain mor:CulturalContext ;
+    rdfs:range mor:MoralEvaluation ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+mor:supports a ns1:ObjectProperty ;
+    rdfs:domain mor:EthicalDialogue ;
+    rdfs:range mor:ValuePluralism ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+mor:targets a ns1:ObjectProperty ;
+    rdfs:domain mor:EvaluativeJudgment ;
+    rdfs:range mor:JudgedAction ;
+    rdfs:subPropertyOf dul:hasObject .
+
+mor:ChangedUnderstanding a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mor:ConflictingValues a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mor:CulturalValue a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mor:ExemplaryBehavior a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:MoralDeviation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:MoralOutcome a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mor:MoralValue a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mor:RegretEmotion a ns1:Class ;
+    rdfs:subClassOf dul:Quality .
+
+mor:SocialNorm a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mor:ValuePluralism a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mor:CulturalContext a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mor:DeliberationProcess a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:EthicalCriterion a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+mor:EthicalLearning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:JudgedAction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:MoralAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mor:MoralCommunity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mor:PastAction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:ReflectiveAgent a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mor:ReputationImpact a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mor:TradeOff a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+mor:EthicalDialogue a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:MoralDilemma a ns1:Class ;
+    rdfs:subClassOf dul:Situation .
+
+mor:MoralDisagreement a ns1:Class ;
+    rdfs:subClassOf dul:Event .
+
+mor:PraiseAction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:BlameAction a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:MoralEvaluation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:MoralDecision a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:EvaluativeJudgment a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+mor:MoralReflection a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+

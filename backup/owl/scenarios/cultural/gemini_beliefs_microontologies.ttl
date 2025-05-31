@@ -1,0 +1,241 @@
+@prefix blv: <http://example.org/gemini/cultural/beliefs#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix ns1: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+blv: ns1:imports dul: .
+
+blv:CollectiveIdeologyFormation a dul:Situation ;
+    dul:hasParticipant blv:GroupEntity ;
+    dul:hasSetting blv:BeliefTransmission,
+        blv:IdeologicalSystems,
+        blv:SharedBeliefs .
+
+blv:CulturalBeliefConflict a dul:Situation ;
+    dul:hasParticipant blv:CulturalGroup ;
+    dul:hasSetting blv:BeliefDiversity,
+        blv:InterculturalDialogue,
+        blv:WorldviewConflicts .
+
+blv:PersonalBeliefFormation a dul:Situation ;
+    dul:hasParticipant blv:BeliefHolder ;
+    dul:hasSetting blv:BeliefFormation,
+        blv:CoreBeliefs,
+        blv:ReflectionProcesses .
+
+blv:PhilosophicalBeliefSystem a dul:Situation ;
+    dul:hasParticipant blv:Philosopher ;
+    dul:hasSetting blv:ConceptualFrameworks,
+        blv:OntologicalAssumptions,
+        blv:PhilosophicalReasoning .
+
+blv:ReligiousWorldviewSituation a dul:Situation ;
+    dul:hasParticipant blv:ReligiousCommunity ;
+    dul:hasSetting blv:FaithPractices,
+        blv:SacredTexts,
+        blv:SpiritualWorldview .
+
+blv:builds a ns1:ObjectProperty ;
+    rdfs:domain blv:PhilosophicalReasoning ;
+    rdfs:range blv:ConceptualFrameworks ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+blv:drawFrom a ns1:ObjectProperty ;
+    rdfs:domain blv:IdeologicalSystems ;
+    rdfs:range blv:CulturalNarratives ;
+    rdfs:subPropertyOf dul:hasReference .
+
+blv:engages a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefFormation ;
+    rdfs:range blv:ReflectionProcesses ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:engagesIn a ns1:ObjectProperty ;
+    rdfs:domain blv:Philosopher ;
+    rdfs:range blv:PhilosophicalReasoning ;
+    rdfs:subPropertyOf dul:performs .
+
+blv:exhibits a ns1:ObjectProperty ;
+    rdfs:domain blv:CulturalGroup ;
+    rdfs:range blv:BeliefDiversity ;
+    rdfs:subPropertyOf dul:hasQuality .
+
+blv:express a ns1:ObjectProperty ;
+    rdfs:domain blv:FaithPractices ;
+    rdfs:range blv:TranscendentBeliefs ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:follows a ns1:ObjectProperty ;
+    rdfs:domain blv:ReligiousCommunity ;
+    rdfs:range blv:SacredTexts ;
+    rdfs:subPropertyOf dul:hasReference .
+
+blv:include a ns1:ObjectProperty ;
+    rdfs:domain blv:ConceptualFrameworks ;
+    rdfs:range blv:EpistemologicalPrinciples,
+        blv:EthicalTheories,
+        blv:OntologicalAssumptions ;
+    rdfs:subPropertyOf dul:hasPart .
+
+blv:influencedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefFormation ;
+    rdfs:range blv:LifeExperiences ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:interpretedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:SacredTexts ;
+    rdfs:range blv:DoctrinalInterpretation ;
+    rdfs:subPropertyOf dul:hasInterpretation .
+
+blv:leadsTo a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefDiversity,
+        blv:BeliefFormation ;
+    rdfs:range blv:BeliefRevision,
+        blv:WorldviewConflicts ;
+    rdfs:subPropertyOf dul:hasEffect .
+
+blv:mediatedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:WorldviewConflicts ;
+    rdfs:range blv:InterculturalDialogue ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:performs a ns1:ObjectProperty ;
+    rdfs:domain blv:ReligiousCommunity ;
+    rdfs:range blv:FaithPractices ;
+    rdfs:subPropertyOf dul:performs .
+
+blv:promotes a ns1:ObjectProperty ;
+    rdfs:domain blv:InterculturalDialogue ;
+    rdfs:range blv:ToleranceNorms ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+blv:refines a ns1:ObjectProperty ;
+    rdfs:domain blv:ReflectionProcesses ;
+    rdfs:range blv:CoreBeliefs ;
+    rdfs:subPropertyOf dul:hasOutput .
+
+blv:reinforcedBy a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefTransmission ;
+    rdfs:range blv:SocialReinforcement ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:shape a ns1:ObjectProperty ;
+    rdfs:domain blv:FaithPractices ;
+    rdfs:range blv:SpiritualWorldview ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:shares a ns1:ObjectProperty ;
+    rdfs:domain blv:GroupEntity ;
+    rdfs:range blv:SharedBeliefs ;
+    rdfs:subPropertyOf dul:hasMember .
+
+blv:structuredBy a ns1:ObjectProperty ;
+    rdfs:domain blv:SharedBeliefs ;
+    rdfs:range blv:IdeologicalSystems ;
+    rdfs:subPropertyOf dul:hasSetting .
+
+blv:support a ns1:ObjectProperty ;
+    rdfs:domain blv:ToleranceNorms ;
+    rdfs:range blv:CoexistenceModels ;
+    rdfs:subPropertyOf dul:hasFunction .
+
+blv:transmittedThrough a ns1:ObjectProperty ;
+    rdfs:domain blv:SharedBeliefs ;
+    rdfs:range blv:BeliefTransmission ;
+    rdfs:subPropertyOf dul:hasParticipant .
+
+blv:undergoes a ns1:ObjectProperty ;
+    rdfs:domain blv:BeliefHolder ;
+    rdfs:range blv:BeliefFormation ;
+    rdfs:subPropertyOf dul:performs .
+
+blv:BeliefRevision a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:CoexistenceModels a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:CulturalNarratives a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:DoctrinalInterpretation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:EpistemologicalPrinciples a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:EthicalTheories a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:LifeExperiences a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:SocialReinforcement a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:TranscendentBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:BeliefHolder a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:CoreBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:CulturalGroup a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:GroupEntity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:OntologicalAssumptions a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:Philosopher a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:SpiritualWorldview a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:ToleranceNorms a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:BeliefDiversity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:BeliefTransmission a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:ConceptualFrameworks a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:IdeologicalSystems a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:InterculturalDialogue a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:PhilosophicalReasoning a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:ReflectionProcesses a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:ReligiousCommunity a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:SacredTexts a ns1:Class ;
+    rdfs:subClassOf dul:InformationObject .
+
+blv:WorldviewConflicts a ns1:Class ;
+    rdfs:subClassOf dul:State .
+
+blv:FaithPractices a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
+blv:SharedBeliefs a ns1:Class ;
+    rdfs:subClassOf dul:Object .
+
+blv:BeliefFormation a ns1:Class ;
+    rdfs:subClassOf dul:Process .
+
