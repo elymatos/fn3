@@ -165,16 +165,3 @@
         
 - A classificação não deve ser hierárquica rígida, mas **multidimensional**, permitindo a criação dos _"small worlds"_ desejados na FN5.
     
-
----
-
-Se desejar, posso prosseguir com:
-
-- ✔️ Uma tabela formal dos tipos, atributos e exemplos.
-    
-- ✔️ A análise da **estrutura interna dos frames** (próximo passo do seu plano).
-    
-- ✔️ O início da definição das **relações estruturais e semânticas** entre os frames.
-    
-
-👉 **Confirma como deseja proceder?**

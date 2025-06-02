@@ -1,0 +1,109 @@
+🧠 Goal of the Session
+To establish a formal methodology for the creation of semantic frames in FN5 (FrameNet 5), aligned with cognitive realism and sufficient structure for partial automation via LLMs. The goal is to move beyond intuition-driven frame creation to a structured, ontology-integrated process.
+
+✅ Key Milestones
+1. Frame Typology
+A revised and expanded typology of frames was created with categories like:
+
+Event, State, Quality, Functional, Image Schema, Pragmatic, etc.
+
+Distinctions were clarified (e.g., State vs. Quality, Image Schema merging Structural).
+
+2. Frame Element Roles
+Refined a classification of Frame Element (FE) Role Types, including:
+
+Participant, Undergoer, Stimulus, Instrument, Path, Goal, etc.
+
+Dropped the use of "extra-thematic" coreness; only core and peripheral distinctions remain.
+
+3. Frame Relations
+Reviewed existing Berkeley and FrameNet Brasil relations.
+
+Proposed a layered model of relations:
+
+Structural (e.g. inheritance, subframe)
+
+Ontological (e.g. cause, part, path)
+
+Pragmatic (e.g. perspectivization)
+
+Confirmed that all frame-to-frame relations can be projected to FE-to-FE relations.
+
+4. Review of Existing FN-Br Files
+Parsed and analyzed:
+
+fnbr_frame.csv: list of existing frames
+
+fnbr_frameelement.csv: list of FEs with links to frames
+
+fnbr_frame_relations.csv: list of current relations
+
+Classified frame types and FE role types for use in automatic/semi-automatic processing.
+
+5. Clusters and Subdomains
+You provided generic_domains_for_frames.txt with 96 domains.
+
+These were mapped into FN5 subdomains, derived from 10-domains_subdomains-v1.md.
+
+A revised CSV mapping (fn5_clusters_to_subdomains_refined.csv) was manually reviewed and uploaded.
+
+6. Frame Generation Methodology
+A clear hierarchical structure was established:
+
+scss
+Copy
+Edit
+DOMAIN (e.g. Social)
+└── SUBDOMAIN (e.g. Economic and Commercial Practices)
+    └── CLUSTER (e.g. transaction, accounting, commerce)
+        └── FRAME (e.g. Purchase, Hire)
+For each subdomain, a domain profile includes:
+
+Associated clusters
+
+Ontological scenarios
+
+Expected frame types
+
+Typical FE role types
+
+Inheritance base
+
+For each cluster, one or more seed frame templates are created, specifying:
+
+Frame name and definition
+
+Core/peripheral FEs with role types
+
+Lexical units
+
+Ontological alignment
+
+🧪 Examples Generated
+You received full domain profiles and seed frame templates for:
+
+Economic and Commercial Practices
+
+Frames: Purchase, Hire
+
+Emotions and Affective States
+
+Frame: Fear
+
+Motion and Trajectory
+
+Frame: Travel
+
+📁 Files Involved
+You’ve uploaded and used:
+
+FN5 documents: 10-domains_subdomains-v1.md, 20-scenarios-all-v1.md, 05-Ontological_dimension-v1.md
+
+FrameNet literature (PDFs)
+
+FrameNet Brasil data: fnbr_frame.csv, fnbr_frameelement.csv, fnbr_frame_relations.csv
+
+Domain list: generic_domains_for_frames.txt
+
+Revised classification: fn5_clusters_to_subdomains_refined.csv
+

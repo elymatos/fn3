@@ -60,7 +60,7 @@ mathematics
 media
 modality
 motion
-moral
+moral_standards
 music
 people
 physics
@@ -80,3 +80,14 @@ transport
 violence
 war
 well-being
+location
+livin_entities
+substances
+movement_of_tought
+institution
+convention
+language
+signs
+unit_of_measurement
+metalanguage
+speech_acts
