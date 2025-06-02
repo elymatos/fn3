@@ -1,3 +1,4 @@
+# Space-time
 ## Spatial Configuration
 
 **Domain:** Space-Time  

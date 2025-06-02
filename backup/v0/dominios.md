@@ -1,5 +1,4 @@
 
-abstractions
 accounting
 administration
 advertising
@@ -22,7 +21,7 @@ celebrations_and_festivities
 chemistry
 cleaning
 cloth
-cognitive_processes
+cognition
 commerce
 communication
 competitions_and_contests
@@ -61,15 +60,17 @@ mathematics
 media
 modality
 motion
+moral
 music
 people
 physics
 psychology
 planning
 religion
+representations
 scales
 sciences
-social_processes
+society
 sociology
 space
 sports

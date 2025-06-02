@@ -1,0 +1,18 @@
+select idFrame,name,description
+from view_frame f
+where idLanguage = 2
+order by name;
+
+select idFrameElement,frameName,name,coreType,description
+from view_frameelement
+where idLanguage = 2
+and coreType in ('cty_core','cty_core-unexpressed','cty_peripheral')
+order by 2,4;
+
+select f1.name superFrame, substr(r.relationType,5) relation, f2.name subFrame
+from view_relation r
+join view_frame f1 on (r.idEntity1 = f1.idEntity)
+join view_frame f2 on (r.idEntity2 = f2.idEntity)
+where (f1.idLanguage = 2) and (f2.idLanguage = 2);
+
+
