@@ -1,0 +1,104 @@
+Here's a summary of our session, outlining the conclusions and directives for continuing our work on the Ontolexical FrameNet (FN5) project:
+
+Our session focused on integrating the practical, application-oriented domains of FrameNet Brasil (like "Tourism," "Health," "Sports," etc.) with the foundational, ontological categories of the FN5 framework (Physical, Biological, Social, Cognitive, Representational, Space-Time, Moral).
+
+**Key Conclusions & Directives:**
+
+1.  **Reconciliation of Domain Types:**
+    * **FN5 Domains** are **ontological categories** representing fundamental dimensions of reality (e.g., Physical, Social).
+    * **FrameNet Brasil Domains** are **thematic or epistemic groupings** (e.g., Tourism, Health) that serve as practical application contexts.
+    * The core strategy is to model these FrameNet Brasil domains as **Scenarios** within the FN5 framework.
+
+2.  **Scenarios as Complex Situations:**
+    * A **Scenario** is a structured, context-specific conceptual model that integrates Ontological Elements (OEs) and relations drawn from various FN5 foundational domains and subdomains.
+    * This approach leverages the **Descriptions and Situations (D&S) framework** from DUL to formally structure these scenarios. A `Description` defines the abstract schema of the thematic domain, while a `Situation` represents a concrete instance of that schema.
+
+3.  **Integration and Mapping Strategy:**
+    * **Lexical Frames** from FrameNet Brasil remain language-focused and usage-based.
+    * **Frame Elements (FEs)** from these lexical frames are mapped to **Ontological Elements (OEs)** defined within the FN5 Scenarios.
+    * This method allows for ontological formalization of thematic domains, enhances interoperability across scenarios, and promotes the reusability of frames in different contexts.
+    * Existing FrameNet Brasil frames are **not replaced**, but are **restructured and grounded** via FN5 scenarios.
+
+4.  **LLM Task Directives (for generating scenario structures):**
+    * **Define the Scenario:** Provide a brief descriptive text capturing the core cognitive schema of the thematic domain.
+    * **Identify Ontological Elements (OEs):** List key entities, events, states, qualities, and relations. Classify each OE by its type (`@entity`, `@event`, `@state`, `@quality`, `@relation`) and its most fitting FN5 Ontological Domain/Subdomain. Use the `<scenario_name>:<element_name>` naming convention (e.g., `Tourism:Tourist`).
+    * **Propose Core Relations:** Define essential natural language relations between OEs, indicating their type (e.g., `structural`, `causal`, `temporal`).
+    * **Illustrate D&S Application:** Explain how the scenario aligns with the D&S framework, identifying its potential `Description` and example `Situations`.
+    * **Suggest Lexical Frame Mappings:** Provide examples of FrameNet lexical frames and illustrate how their FEs would map to the defined OEs.
+
+**Demonstration with "Tourism" Scenario:**
+
+We successfully applied these directives to the "Tourism" thematic domain, creating a detailed structure including:
+* Its definition as a scenario.
+* A list of `Tourism:`-prefixed Ontological Elements (e.g., `Tourism:Tourist`, `Tourism:Destination`), classified by their ontological type and mapped to specific FN5 Domains/Subdomains (e.g., `Tourism:Tourist` as `@entity` in Social / Social Roles and Identities).
+* Proposed core relations illustrating participation, spatial/temporal, cognitive/intentional, and descriptive/qualitative links.
+* An illustration of its D&S application (e.g., `Description:Tourism_Schema` and `Situation:Johns_Trip_to_Paris_2025`).
+* Suggestions for mapping FEs from FrameNet's `Travel` or `Expense` frames to the defined OEs.
+
+This concludes our current work and sets the stage for continuing with other thematic domains.
+
+====
+
+Here’s a complete summary of this session, ready to be reused when you start a new chat:
+
+---
+
+## 🧭 **FN5 Thematic Scenario Modeling — Session Summary**
+
+### ✅ Context
+
+You are building the **FN5 Ontolexical Framework**, which integrates **ontological structure** (via domains, subdomains, and ontological elements) with **lexical structure** (via frames and lexical units). A key methodological challenge addressed in this session was how to reconcile **FrameNet Brasil’s thematic domains** (e.g., *Tourism*, *Health*) with the **ontological structure of FN5**.
+
+---
+
+### ✅ Resolution Strategy
+
+**Thematic domains** (FN-Br) are not discarded. Instead, they are:
+
+* Reinterpreted as **Scenarios** in FN5.
+* Structured using ontological elements (OEs) from FN5’s foundational domains.
+* Anchored in the **Descriptions and Situations (D\&S)** framework from DUL.
+* Linked to **FrameNet lexical frames** through **Frame Element → OE mappings**.
+
+---
+
+### ✅ Directive File Established
+
+You uploaded and finalized a directive (`10-fn-scenarios-edited-v1.md`) that:
+
+1. **Distinguishes** between ontological domains (FN5) and thematic domains (FN-Br).
+2. **Defines Scenarios** as context-specific ontological models using the `<Scenario>:<Element>` naming convention.
+3. **Outlines a 5-step procedure** for modeling each thematic scenario:
+
+   * Scenario Definition
+   * Ontological Elements (OEs)
+   * Core Relations
+   * D\&S Application
+   * Lexical Frame Mappings
+
+This document is now your **authoritative LLM-ready protocol** for scenario generation.
+
+---
+
+### ✅ First Scenario Fully Developed: `Tourism`
+
+**Scenario Name**: `Tourism`
+**Type**: Thematic Scenario
+
+* **OEs** defined include: `Tourism:Tourist`, `Tourism:Destination`, `Tourism:TravelActivity`, `Tourism:Accommodation`, `Tourism:Itinerary`, `Tourism:TourService`, etc., spanning domains like Social, Physical, Cognitive, Space-Time, and Representational.
+* **Relations** captured agentive, temporal, causal, spatial, and economic structures (e.g., “Tourist performs TravelActivity”, “TravelPlan causes TravelActivity”).
+* **D\&S**: Abstract schema formalized, with a realistic instantiation example provided.
+* **Lexical Frame Mappings**: Linked to FrameNet frames such as `Travel`, `Touring`, `Commerce_pay`, and `Intentionally_act`, mapping frame elements to defined OEs.
+
+---
+
+### ✅ Next Step Options
+
+* Continue with the next thematic scenario (*Health*, *Violence*, etc.)
+* Formalize existing scenario as JSON, OWL, or RDF
+* Batch-generate multiple scenario skeletons using the same protocol
+
+---
+
+When you're ready in the new session, just paste this summary and say:
+**"Let's continue from the Tourism scenario summary"** — and we’ll pick up exactly where we left off.
