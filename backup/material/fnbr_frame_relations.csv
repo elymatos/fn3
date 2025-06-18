@@ -1,4 +1,4 @@
-superFrame,relation,subFrame
+parent,relation,child
 Causation,perspective_on,Means
 Causation,inheritance,Cause_to_start
 Communication,inheritance,Communication_noise

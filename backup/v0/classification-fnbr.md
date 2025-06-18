@@ -107,4 +107,3 @@ Here’s an initial draft of classification criteria for FrameNet frames, ground
 
 ---
 
-Would you like a full annotated export of the classified frames using this schema, or refinement of any specific category?
