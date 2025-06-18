@@ -15,4 +15,54 @@ join view_frame f1 on (r.idEntity1 = f1.idEntity)
 join view_frame f2 on (r.idEntity2 = f2.idEntity)
 where (f1.idLanguage = 2) and (f2.idLanguage = 2);
 
+== filtered
+
+select `idSemanticType`, `name` from `view_semantictype` where `entry` LIKE 'sty\_ft%' and `idLanguage` = 1 order by `name` asc;
+
+select distinct `f`.`idFrame`, `f`.`name`, `f`.`description`
+from `view_frame` as `f`
+         inner join `view_frame_classification` as `c` on `f`.`idFrame` = `c`.`idFrame`
+where `f`.`idLanguage` = 2 and `c`.`idLanguage` = 2
+  and `c`.`idSemanticType` not in (479,1022,480)
+order by `f`.`name` asc;
+
+
+select idFrame,idFrameElement,frameName,name as FrameElementName,coreType,description
+from view_frameelement fe
+where fe.idFrame in (
+select f.idframe from `view_frame` as `f`
+         inner join `view_frame_classification` as `c` on `f`.`idFrame` = `c`.`idFrame`
+where `f`.`idLanguage` = 2 and `c`.`idLanguage` = 2
+  and `c`.`idSemanticType` not in (479,1022,480))
+and (fe.idLanguage = 2)
+order by `fe`.`frameName` asc;
+
+
+select f1.name parent, substr(r.relationType,5) relation, f2.name child
+from view_relation r
+join view_frame f1 on (r.idEntity1 = f1.idEntity)
+join view_frame f2 on (r.idEntity2 = f2.idEntity)
+where (f1.idLanguage = 2) and (f2.idLanguage = 2)
+and f1.idFrame in (select f.idframe from `view_frame` as `f`
+         inner join `view_frame_classification` as `c` on `f`.`idFrame` = `c`.`idFrame`
+where `f`.`idLanguage` = 2 and `c`.`idLanguage` = 2
+  and `c`.`idSemanticType` not in (479,1022,480))
+and f2.idFrame in (select f.idframe from `view_frame` as `f`
+         inner join `view_frame_classification` as `c` on `f`.`idFrame` = `c`.`idFrame`
+where `f`.`idLanguage` = 2 and `c`.`idLanguage` = 2
+  and `c`.`idSemanticType` not in (479,1022,480))
+
+select idLU,lu.name as luName, frame.name as frameName, sensedescription
+from lu
+join view_frame frame on (lu.idFrame = frame.idFrame)
+where lu.idFrame in (
+select f.idframe from `view_frame` as `f`
+         inner join `view_frame_classification` as `c` on `f`.`idFrame` = `c`.`idFrame`
+where `f`.`idLanguage` = 2 and `c`.`idLanguage` = 2
+  and `c`.`idSemanticType` not in (479,1022,480))
+and (frame.idLanguage = 2)
+order by `frame`.`name` asc;
+
+
+
 

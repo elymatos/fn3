@@ -25,6 +25,7 @@ As a State: If we say, "The vase is in a broken state," we are explicitly framin
 Consider "system stability" or "mutual agreement":
 System Stability (@quality): This is a characteristic or property of a system. A system is stable or has stability. While a system might become stable (a process) or lose stability (another process), the quality of 'stability' itself describes an attribute of the system's functioning. FN5's Ecological Systems subdomain lists SystemStability as a Quality. This aligns with the 'descriptive function' criterion.
 Mutual Agreement (@state): This is a condition or outcome of a process like negotiation. The Agreement is a resulting state where parties are now aligned. It persists until revoked or changed. The Negotiation Scenario in FN5 explicitly lists Negotiation:Agreement as a @state. This is because it represents a resultant condition or status of the negotiation process, rather than an inherent, timeless attribute.
+
 Summary of Core Distinctions:
 Quality: What something is like or has. Focuses on inherent characteristics, attributes, or properties. Often gradable. Does not imply internal temporal unfolding.
 State: What something is (its condition or status). Focuses on a persistent configuration or condition over a duration. Often results from a process or event. Does not imply internal dynamics, but rather a stable (even if temporary) 'snapshot' of reality.
