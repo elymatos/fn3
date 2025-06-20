@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame Cards Visualization</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #controls button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #controls button:hover {
+            background: #357abd;
+        }
+
+        #search {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .frame-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            cursor: move;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .frame-card:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+            border-color: #4a90e2;
+        }
+
+        .frame-card.selected {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+        }
+
+        .frame-header {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame-connection-box {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .frame-connection-box:hover {
+            transform: translateY(-50%) scale(1.3);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .frame-connection-box.connected {
+            background: #28a745;
+        }
+
+        .frame-connection-box.highlighted {
+            background: #ffc107;
+        }
+
+        .frame-title {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .frame-hide-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .frame-hide-icon:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .frame-count {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        .frame-elements {
+            padding: 15px;
+            max-height: none;
+            overflow-y: visible;
+        }
+
+        .frame-element {
+            background: #f8f9fa;
+            margin: 6px 0;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            border-left: 3px solid #4a90e2;
+            transition: all 0.2s;
+            cursor: pointer;
+            min-height: 16px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .frame-element .connection-box {
+            width: 8px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 2px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .frame-element .connection-box:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
+        }
+
+        .frame-element.connected .connection-box {
+            background: #28a745;
+        }
+
+        .frame-element.highlighted .connection-box {
+            background: #ffc107;
+        }
+
+        .frame-element:hover {
+            background: #e3f2fd;
+            transform: translateX(3px);
+        }
+
+        .frame-element.connected {
+            background: #e8f5e8;
+            border-left-color: #28a745;
+        }
+
+        .frame-element.highlighted {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+
+        .connection-line {
+            stroke: #28a745;
+            stroke-width: 2;
+            fill: none;
+            opacity: 0.7;
+            pointer-events: none;
+            stroke-dasharray: 5,5;
+        }
+
+        .connection-line.active {
+            stroke: #ff6b6b;
+            stroke-width: 3;
+            opacity: 1;
+            stroke-dasharray: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        .frame-card.dimmed {
+            opacity: 0.3;
+            filter: grayscale(70%);
+        }
+
+        .frame-card.focused {
+            box-shadow: 0 0 0 4px #ff6b6b, 0 12px 35px rgba(0, 0, 0, 0.25);
+            transform: scale(1.02);
+        }
+
+        .connection-tooltip {
+            position: absolute;
+            background: rgba(255, 107, 107, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2000;
+            max-width: 200px;
+            font-weight: bold;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2000;
+            max-width: 250px;
+        }
+
+        .stats {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom scrollbar for frame elements */
+        .frame-elements::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .frame-elements::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .frame-elements::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+
+        .frame-elements::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="controls">
+            <input type="text" id="search" placeholder="Search frames or elements...">
+            <button id="resetView">Reset View</button>
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+            <button id="arrangeGrid">Arrange Grid</button>
+            <button id="arrangeCircle">Arrange Circle</button>
+            <button id="toggleFrameConnections">Show Frame Connections</button>
+            <button id="toggleElementConnections">Show Element Connections</button>
+        </div>
+        
+        <svg id="visualization"></svg>
+        
+        <div class="stats" id="stats">
+            Loading data...
+        </div>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script>
+        // Sample data structure - In real implementation, this would come from your CSV
+        const sampleFrameData = [
+            {
+                frameName: "Communication",
+                frameElements: ["Speaker", "Addressee", "Message", "Topic", "Medium", "Manner"]
+            },
+            {
+                frameName: "Motion",
+                frameElements: ["Theme", "Source", "Goal", "Path", "Manner", "Speed", "Direction"]
+            },
+            {
+                frameName: "Causation",
+                frameElements: ["Cause", "Effect", "Actor", "Affected", "Circumstances", "Time"]
+            },
+            {
+                frameName: "Perception",
+                frameElements: ["Perceiver", "Phenomenon", "Body_part", "Manner", "Degree"]
+            },
+            {
+                frameName: "Commerce",
+                frameElements: ["Buyer", "Seller", "Goods", "Money", "Rate", "Place", "Time"]
+            },
+            {
+                frameName: "Emotion",
+                frameElements: ["Experiencer", "Stimulus", "Emotion", "Degree", "Circumstances"]
+            },
+            {
+                frameName: "Building",
+                frameElements: ["Agent", "Created_entity", "Components", "Place", "Time", "Purpose"]
+            },
+            {
+                frameName: "Teaching",
+                frameElements: ["Teacher", "Student", "Subject", "Skill", "Institution", "Manner"]
+            },
+            {
+                frameName: "Judgment",
+                frameElements: ["Judge", "Evaluee", "Criteria", "Degree", "Reason", "Circumstances"]
+            },
+            {
+                frameName: "Transportation",
+                frameElements: ["Theme", "Source", "Goal", "Path", "Vehicle", "Carrier", "Distance"]
+            }
+        ];
+
+        // Sample frame element relationships
+        const frameElementRelations = [
+            {
+                sourceFrame: "Communication",
+                sourceElement: "Manner",
+                targetFrame: "Motion", 
+                targetElement: "Manner",
+                relationType: "rel_inheritance"
+            },
+            {
+                sourceFrame: "Communication",
+                sourceElement: "Speaker",
+                targetFrame: "Causation",
+                targetElement: "Actor",
+                relationType: "rel_using"
+            },
+            {
+                sourceFrame: "Motion",
+                sourceElement: "Theme",
+                targetFrame: "Transportation",
+                targetElement: "Theme",
+                relationType: "rel_inheritance"
+            },
+            {
+                sourceFrame: "Perception",
+                sourceElement: "Manner",
+                targetFrame: "Communication",
+                targetElement: "Manner",
+                relationType: "rel_using"
+            },
+            {
+                sourceFrame: "Teaching",
+                sourceElement: "Manner",
+                targetFrame: "Communication",
+                targetElement: "Manner",
+                relationType: "rel_subframe"
+            },
+            {
+                sourceFrame: "Commerce",
+                sourceElement: "Place",
+                targetFrame: "Building",
+                targetElement: "Place",
+                relationType: "rel_inheritance"
+            }
+        ];
+
+        // Sample frame-to-frame relationships
+        const frameRelations = [
+            {
+                sourceFrame: "Communication",
+                targetFrame: "Teaching",
+                relationType: "rel_subframe"
+            },
+            {
+                sourceFrame: "Motion",
+                targetFrame: "Transportation",
+                relationType: "rel_inheritance"
+            },
+            {
+                sourceFrame: "Causation",
+                targetFrame: "Building",
+                relationType: "rel_using"
+            },
+            {
+                sourceFrame: "Perception",
+                targetFrame: "Emotion",
+                relationType: "rel_perspective_on"
+            }
+        ];
+
+        // Set up SVG and dimensions
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        const svg = d3.select("#visualization")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create main group for zooming and panning
+        const mainGroup = svg.append("g");
+
+        // Set up zoom behavior (pan enabled, zoom disabled)
+        const zoom = d3.zoom()
+            .scaleExtent([1, 1]) // Disable zoom by setting min and max to same value
+            .on("zoom", (event) => {
+                // Only apply translation (pan), keep scale at 1
+                const transform = event.transform;
+                mainGroup.attr("transform", `translate(${transform.x}, ${transform.y}) scale(1)`);
+            });
+
+        svg.call(zoom);
+
+        // Tooltip
+        const tooltip = d3.select("#tooltip");
+        const connectionTooltip = d3.select("body").append("div").attr("class", "connection-tooltip");
+
+        // State variables
+        let frameConnectionsVisible = false;
+        let elementConnectionsVisible = false;
+        let focusMode = false;
+        let selectedElement = null;
+        let isZooming = false;
+        let zoomTimeout = null;
+        let hiddenFrames = new Set(); // Track hidden frames
+
+        // Card dimensions
+        const cardWidth = 250;
+        const minCardHeight = 200;
+        const maxCardHeight = 500;
+        const cardPadding = 20;
+        const elementHeight = 40; // Height per element including margins (increased from 35)
+
+        // Create frame cards
+        function createFrameCards() {
+            // Calculate initial positions (grid layout)
+            const cols = Math.floor(Math.sqrt(sampleFrameData.length));
+            const rows = Math.ceil(sampleFrameData.length / cols);
+            
+            // Calculate dynamic heights for each frame
+            sampleFrameData.forEach((frame, i) => {
+                const headerHeight = 60; // Header height
+                const paddingTop = 15; // Top padding in elements container
+                const paddingBottom = 15; // Bottom padding in elements container
+                const elementsHeight = frame.frameElements.length * elementHeight;
+                const calculatedHeight = headerHeight + paddingTop + paddingBottom + elementsHeight;
+                
+                // Set height within min/max bounds
+                frame.cardHeight = Math.max(minCardHeight, Math.min(maxCardHeight, calculatedHeight));
+                
+                const col = i % cols;
+                const row = Math.floor(i / cols);
+                frame.x = (col * (cardWidth + cardPadding)) + cardWidth/2 + 100;
+                frame.y = (row * (frame.cardHeight + cardPadding)) + frame.cardHeight/2 + 100;
+                frame.id = `frame-${i}`;
+            });
+
+            // Create card groups
+            const cards = mainGroup.selectAll(".card-group")
+                .data(sampleFrameData)
+                .enter()
+                .append("g")
+                .attr("class", "card-group")
+                .attr("transform", d => `translate(${d.x - cardWidth/2}, ${d.y - d.cardHeight/2})`)
+                .call(d3.drag()
+                    .on("start", dragStarted)
+                    .on("drag", dragged)
+                    .on("end", dragEnded));
+
+            // Create foreign object for HTML content with dynamic height
+            const foreignObjects = cards.append("foreignObject")
+                .attr("width", cardWidth)
+                .attr("height", d => d.cardHeight)
+                .attr("class", "frame-card-fo");
+
+            // Create HTML content for each card
+            const cardContents = foreignObjects.append("xhtml:div")
+                .attr("class", "frame-card")
+                .style("height", d => d.cardHeight + "px")
+                .on("click", function(event, d) {
+                    // Toggle selection
+                    const isSelected = d3.select(this).classed("selected");
+                    d3.selectAll(".frame-card").classed("selected", false);
+                    d3.select(this).classed("selected", !isSelected);
+                });
+
+            // Add frame headers
+            cardContents.append("div")
+                .attr("class", "frame-header")
+                .each(function(d) {
+                    const header = d3.select(this);
+                    
+                    // Add frame connection box
+                    header.append("div")
+                        .attr("class", "frame-connection-box")
+                        .attr("title", "Frame connections")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            
+                            // Check if this frame has connections and frame connections are visible
+                            const hasFrameConnections = frameRelations.some(rel =>
+                                rel.sourceFrame === d.frameName || rel.targetFrame === d.frameName
+                            );
+                            
+                            if (hasFrameConnections && frameConnectionsVisible) {
+                                // Toggle focus mode for frame connections
+                                if (focusMode && selectedElement && 
+                                    selectedElement.type === 'frame' && 
+                                    selectedElement.frame === d.frameName) {
+                                    // Same frame clicked - exit focus mode
+                                    exitFocusMode();
+                                } else {
+                                    // Different frame or no focus mode - activate focus mode for frame
+                                    activateFrameFocusMode(d.frameName);
+                                }
+                            }
+                        });
+                    
+                    // Add frame title
+                    header.append("div")
+                        .attr("class", "frame-title")
+                        .text(d.frameName);
+                    
+                    // Add frame count badge
+                    header.append("div")
+                        .attr("class", "frame-count")
+                        .text(d.frameElements.length);
+                    
+                    // Add hide icon
+                    header.append("div")
+                        .attr("class", "frame-hide-icon")
+                        .text("×")
+                        .attr("title", "Hide this frame")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            hideFrame(d.frameName);
+                        });
+                });
+
+            // Add frame elements with scroll if needed
+            const elementsContainer = cardContents.append("div")
+                .attr("class", "frame-elements")
+                .style("max-height", d => {
+                    // If the card is at max height, enable scrolling
+                    if (d.cardHeight === maxCardHeight) {
+                        return (maxCardHeight - 90) + "px"; // Subtract header (60) + padding (30)
+                    }
+                    return "none";
+                })
+                .style("overflow-y", d => d.cardHeight === maxCardHeight ? "auto" : "visible");
+
+            elementsContainer.each(function(d) {
+                const container = d3.select(this);
+                d.frameElements.forEach(element => {
+                    const elementDiv = container.append("div")
+                        .attr("class", "frame-element")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            
+                            // Toggle highlighting for frame elements (not connection boxes)
+                            const currentElement = d3.select(this);
+                            const isCurrentlyHighlighted = currentElement.classed("highlighted");
+                            
+                            if (focusMode) {
+                                exitFocusMode();
+                            } else {
+                                if (isCurrentlyHighlighted) {
+                                    // If this element is already highlighted, unhighlight all
+                                    d3.selectAll(".frame-element").classed("highlighted", false);
+                                } else {
+                                    // Clear all highlights first, then highlight elements with same name
+                                    d3.selectAll(".frame-element").classed("highlighted", false);
+                                    d3.selectAll(".frame-element").each(function() {
+                                        const elementText = d3.select(this).select("span").text();
+                                        if (elementText === element) {
+                                            d3.select(this).classed("highlighted", true);
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                    
+                    // Add connection box
+                    elementDiv.append("div")
+                        .attr("class", "connection-box")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            
+                            // Check if this element has connections and element connections are visible
+                            const hasConnections = frameElementRelations.some(rel =>
+                                (rel.sourceFrame === d.frameName && rel.sourceElement === element) ||
+                                (rel.targetFrame === d.frameName && rel.targetElement === element)
+                            );
+                            
+                            if (hasConnections && elementConnectionsVisible) {
+                                // Toggle focus mode
+                                if (focusMode && selectedElement && 
+                                    selectedElement.type === 'element' &&
+                                    selectedElement.element === element && 
+                                    selectedElement.frame === d.frameName) {
+                                    // Same element clicked - exit focus mode
+                                    exitFocusMode();
+                                } else {
+                                    // Different element or no focus mode - activate focus mode
+                                    activateFocusMode(element, d.frameName);
+                                }
+                            }
+                        });
+                    
+                    // Add element text
+                    elementDiv.append("span")
+                        .text(element);
+                });
+            });
+
+            updateStats();
+            markConnectedElements();
+            markConnectedFrames(); // Mark frames that have frame-to-frame connections
+        }
+
+        // Mark elements that have connections
+        function markConnectedElements() {
+            frameElementRelations.forEach(rel => {
+                d3.selectAll(".frame-card").each(function(d) {
+                    if (d.frameName === rel.sourceFrame) {
+                        d3.select(this).selectAll(".frame-element").each(function() {
+                            const elementText = d3.select(this).select("span").text();
+                            if (elementText === rel.sourceElement) {
+                                d3.select(this).classed("connected", true);
+                            }
+                        });
+                    }
+                    if (d.frameName === rel.targetFrame) {
+                        d3.select(this).selectAll(".frame-element").each(function() {
+                            const elementText = d3.select(this).select("span").text();
+                            if (elementText === rel.targetElement) {
+                                d3.select(this).classed("connected", true);
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        // Show connections for a specific element
+        function showElementConnections(elementName, frameName, forceRecalculate = false) {
+            const connections = frameElementRelations.filter(rel => 
+                (rel.sourceFrame === frameName && rel.sourceElement === elementName) ||
+                (rel.targetFrame === frameName && rel.targetElement === elementName)
+            );
+            
+            connections.forEach(rel => {
+                // Only show connections where both frames are visible
+                if (!hiddenFrames.has(rel.sourceFrame) && !hiddenFrames.has(rel.targetFrame)) {
+                    drawElementConnection(rel, true, forceRecalculate);
+                }
+            });
+        }
+
+        // Show connections for a specific frame
+        function showFrameConnections(frameName, forceRecalculate = false) {
+            const connections = frameRelations.filter(rel => 
+                rel.sourceFrame === frameName || rel.targetFrame === frameName
+            );
+            
+            connections.forEach(rel => {
+                // Only show connections where both frames are visible
+                if (!hiddenFrames.has(rel.sourceFrame) && !hiddenFrames.has(rel.targetFrame)) {
+                    drawFrameConnection(rel, true, forceRecalculate);
+                }
+            });
+        }
+
+        // Draw connection line between two frame elements
+        function drawElementConnection(relation, isActive = false, forceRecalculate = false) {
+            const sourcePos = getElementPosition(relation.sourceFrame, relation.sourceElement, forceRecalculate);
+            const targetPos = getElementPosition(relation.targetFrame, relation.targetElement, forceRecalculate);
+            
+            if (!sourcePos || !targetPos) return;
+            
+            const connectionId = `element-connection-${relation.sourceFrame}-${relation.sourceElement}-${relation.targetFrame}-${relation.targetElement}`;
+            
+            // Remove existing connection
+            svg.select(`#${connectionId}`).remove();
+            
+            // Create curved path
+            const path = d3.path();
+            const dx = targetPos.x - sourcePos.x;
+            const dy = targetPos.y - sourcePos.y;
+            const dr = Math.sqrt(dx * dx + dy * dy) * 0.3; // Curve intensity
+            
+            path.moveTo(sourcePos.x, sourcePos.y);
+            path.quadraticCurveTo(
+                sourcePos.x + dx/2 + (dy > 0 ? dr : -dr),
+                sourcePos.y + dy/2 + (dx > 0 ? -dr : dr),
+                targetPos.x,
+                targetPos.y
+            );
+            
+            const connectionLine = svg.append("path")
+                .attr("id", connectionId)
+                .attr("class", isActive ? "connection-line active" : "connection-line")
+                .attr("d", path.toString())
+                .on("mouseover", function(event) {
+                    connectionTooltip
+                        .style("opacity", 1)
+                        .html(`${relation.sourceFrame}::${relation.sourceElement}<br>↓ ${relation.relationType}<br>${relation.targetFrame}::${relation.targetElement}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 10) + "px");
+                })
+                .on("mouseout", function() {
+                    connectionTooltip.style("opacity", 0);
+                });
+        }
+
+        // Draw connection line between two frames
+        function drawFrameConnection(relation, isActive = false, forceRecalculate = false) {
+            const sourcePos = getFrameConnectionPosition(relation.sourceFrame, forceRecalculate);
+            const targetPos = getFrameConnectionPosition(relation.targetFrame, forceRecalculate);
+            
+            if (!sourcePos || !targetPos) return;
+            
+            const connectionId = `frame-connection-${relation.sourceFrame}-${relation.targetFrame}`;
+            
+            // Remove existing connection
+            svg.select(`#${connectionId}`).remove();
+            
+            // Create curved path
+            const path = d3.path();
+            const dx = targetPos.x - sourcePos.x;
+            const dy = targetPos.y - sourcePos.y;
+            const dr = Math.sqrt(dx * dx + dy * dy) * 0.4; // Slightly more curve for frame connections
+            
+            path.moveTo(sourcePos.x, sourcePos.y);
+            path.quadraticCurveTo(
+                sourcePos.x + dx/2 + (dy > 0 ? dr : -dr),
+                sourcePos.y + dy/2 + (dx > 0 ? -dr : dr),
+                targetPos.x,
+                targetPos.y
+            );
+            
+            const connectionLine = svg.append("path")
+                .attr("id", connectionId)
+                .attr("class", isActive ? "connection-line active" : "connection-line")
+                .attr("d", path.toString())
+                .style("stroke-width", "3px") // Thicker lines for frame connections
+                .on("mouseover", function(event) {
+                    connectionTooltip
+                        .style("opacity", 1)
+                        .html(`${relation.sourceFrame}<br>↓ ${relation.relationType}<br>${relation.targetFrame}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 10) + "px");
+                })
+                .on("mouseout", function() {
+                    connectionTooltip.style("opacity", 0);
+                });
+        }
+
+        // Get position of a frame connection box (in header)
+        function getFrameConnectionPosition(frameName, forceRecalculate = false) {
+            const frameData = sampleFrameData.find(f => f.frameName === frameName);
+            if (!frameData) return null;
+            
+            let position = null;
+            let connectionBoxOffsetX = null;
+            let connectionBoxOffsetY = null;
+            
+            // Get the actual offset of the frame connection box relative to the frame
+            d3.selectAll(".frame-card").each(function(d) {
+                if (d.frameName === frameName && connectionBoxOffsetX === null) {
+                    const card = d3.select(this);
+                    const cardElement = this;
+                    
+                    const frameConnectionBox = card.select(".frame-connection-box").node();
+                    if (frameConnectionBox) {
+                        if (forceRecalculate) {
+                            cardElement.offsetHeight; // Force reflow
+                        }
+                        
+                        // Get the relative position of frame connection box within the card
+                        const cardRect = cardElement.getBoundingClientRect();
+                        const boxRect = frameConnectionBox.getBoundingClientRect();
+                        
+                        // Calculate offset from card center to connection box center
+                        const cardCenterX = cardRect.left + cardRect.width/2;
+                        const cardCenterY = cardRect.top + cardRect.height/2;
+                        const boxCenterX = boxRect.left + boxRect.width/2;
+                        const boxCenterY = boxRect.top + boxRect.height/2;
+                        
+                        connectionBoxOffsetX = boxCenterX - cardCenterX;
+                        connectionBoxOffsetY = boxCenterY - cardCenterY;
+                    }
+                }
+            });
+            
+            if (connectionBoxOffsetX !== null && connectionBoxOffsetY !== null) {
+                position = {
+                    x: frameData.x + connectionBoxOffsetX,
+                    y: frameData.y + connectionBoxOffsetY
+                };
+            }
+            
+            return position;
+        }
+        function getElementPosition(frameName, elementName, forceRecalculate = false) {
+            let position = null;
+            
+            // Find the frame data to get current position
+            const frameData = sampleFrameData.find(f => f.frameName === frameName);
+            if (!frameData) return null;
+            
+            // Calculate element position based on frame's current position
+            const frameElementIndex = frameData.frameElements.indexOf(elementName);
+            if (frameElementIndex === -1) return null;
+            
+            // Use a hybrid approach: Get actual DOM offset once, then calculate relative to frame position
+            let connectionBoxOffsetX = null;
+            let connectionBoxOffsetY = null;
+            
+            // Get the actual offset of the connection box relative to the frame
+            d3.selectAll(".frame-card").each(function(d) {
+                if (d.frameName === frameName && connectionBoxOffsetX === null) {
+                    const card = d3.select(this);
+                    const cardElement = this;
+                    
+                    card.selectAll(".frame-element").each(function(elementData, i) {
+                        if (i === frameElementIndex && connectionBoxOffsetX === null) {
+                            const connectionBox = d3.select(this).select(".connection-box").node();
+                            if (connectionBox) {
+                                if (forceRecalculate) {
+                                    // Force a reflow to get updated positions after zoom
+                                    cardElement.offsetHeight; // Force reflow
+                                }
+                                
+                                // Get the relative position of connection box within the card
+                                const cardRect = cardElement.getBoundingClientRect();
+                                const boxRect = connectionBox.getBoundingClientRect();
+                                
+                                // Calculate offset from card center to connection box center
+                                const cardCenterX = cardRect.left + cardRect.width/2;
+                                const cardCenterY = cardRect.top + cardRect.height/2;
+                                const boxCenterX = boxRect.left + boxRect.width/2;
+                                const boxCenterY = boxRect.top + boxRect.height/2;
+                                
+                                connectionBoxOffsetX = boxCenterX - cardCenterX;
+                                connectionBoxOffsetY = boxCenterY - cardCenterY;
+                            }
+                        }
+                    });
+                }
+            });
+            
+            // If we got the offset, calculate the position based on current frame position
+            // Don't apply transform here since connection lines are inside the transformed group
+            if (connectionBoxOffsetX !== null && connectionBoxOffsetY !== null) {
+                position = {
+                    x: frameData.x + connectionBoxOffsetX,
+                    y: frameData.y + connectionBoxOffsetY
+                };
+            }
+            
+            return position;
+        }
+
+        // Update all visible connections
+        function updateAllConnections(forceRecalculate = false) {
+            hideAllConnections();
+            
+            if (focusMode && selectedElement) {
+                // In focus mode, show only related connections
+                if (selectedElement.type === 'element') {
+                    showElementConnections(selectedElement.element, selectedElement.frame, forceRecalculate);
+                } else if (selectedElement.type === 'frame') {
+                    showFrameConnections(selectedElement.frame, forceRecalculate);
+                }
+            } else {
+                // Normal mode, show all enabled connections
+                showAllConnections(forceRecalculate);
+            }
+        }
+
+        // Show all connections based on current visibility settings
+        function showAllConnections(forceRecalculate = false) {
+            // Show frame element connections if enabled
+            if (elementConnectionsVisible) {
+                frameElementRelations.forEach(rel => {
+                    // Only show connections where both frames are visible
+                    if (!hiddenFrames.has(rel.sourceFrame) && !hiddenFrames.has(rel.targetFrame)) {
+                        drawElementConnection(rel, false, forceRecalculate);
+                    }
+                });
+            }
+            
+            // Show frame-to-frame connections if enabled
+            if (frameConnectionsVisible) {
+                frameRelations.forEach(rel => {
+                    // Only show connections where both frames are visible
+                    if (!hiddenFrames.has(rel.sourceFrame) && !hiddenFrames.has(rel.targetFrame)) {
+                        drawFrameConnection(rel, false, forceRecalculate);
+                    }
+                });
+            }
+        }
+
+        // Hide all connections
+        function hideAllConnections() {
+            svg.selectAll(".connection-line").remove();
+        }
+
+        // Toggle frame connections visibility
+        function toggleFrameConnections() {
+            frameConnectionsVisible = !frameConnectionsVisible;
+            
+            if (frameConnectionsVisible) {
+                d3.select("#toggleFrameConnections").text("Hide Frame Connections");
+            } else {
+                d3.select("#toggleFrameConnections").text("Show Frame Connections");
+                // Exit focus mode if it was focused on frames and no connections are visible
+                if (focusMode && selectedElement && selectedElement.type === 'frame' && !elementConnectionsVisible) {
+                    exitFocusMode();
+                }
+            }
+            
+            updateAllConnections();
+        }
+
+        // Toggle element connections visibility
+        function toggleElementConnections() {
+            elementConnectionsVisible = !elementConnectionsVisible;
+            
+            if (elementConnectionsVisible) {
+                d3.select("#toggleElementConnections").text("Hide Element Connections");
+            } else {
+                d3.select("#toggleElementConnections").text("Show Element Connections");
+                // Exit focus mode if it was focused on elements and no connections are visible
+                if (focusMode && selectedElement && selectedElement.type === 'element' && !frameConnectionsVisible) {
+                    exitFocusMode();
+                }
+            }
+            
+            updateAllConnections();
+        }
+
+        // Toggle focus mode
+        function toggleFocusMode() {
+            if (focusMode) {
+                exitFocusMode();
+            }
+        }
+
+        // Drag functions
+        function dragStarted(event, d) {
+            d3.select(this).raise();
+        }
+
+        function dragged(event, d) {
+            d.x = event.x;
+            d.y = event.y;
+            d3.select(this).attr("transform", `translate(${d.x - cardWidth/2}, ${d.y - d.cardHeight/2})`);
+            
+            // Update connections if any are visible
+            if (frameConnectionsVisible || elementConnectionsVisible) {
+                updateAllConnections();
+            }
+        }
+
+        function dragEnded(event, d) {
+            // Update connections after drag ends
+            if (frameConnectionsVisible || elementConnectionsVisible) {
+                updateAllConnections();
+            }
+        }
+
+        // Tooltip functions
+        function showTooltip(event, d) {
+            tooltip
+                .style("opacity", 1)
+                .html(`
+                    <strong>${d.frameName}</strong><br>
+                    Frame Elements: ${d.frameElements.length}<br>
+                    <em>Click to select, drag to move</em>
+                `)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 10) + "px");
+        }
+
+        function hideTooltip() {
+            tooltip.style("opacity", 0);
+        }
+
+        // Mark frames that have frame-to-frame connections
+        function markConnectedFrames() {
+            frameRelations.forEach(rel => {
+                d3.selectAll(".frame-card").each(function(d) {
+                    if (d.frameName === rel.sourceFrame || d.frameName === rel.targetFrame) {
+                        d3.select(this).select(".frame-connection-box").classed("connected", true);
+                    }
+                });
+            });
+        }
+
+        // Hide a frame
+        function hideFrame(frameName) {
+            hiddenFrames.add(frameName);
+            
+            // Hide the frame card with animation
+            d3.selectAll(".card-group")
+                .filter(d => d.frameName === frameName)
+                .transition()
+                .duration(300)
+                .style("opacity", 0)
+                .style("transform", d => `translate(${d.x - cardWidth/2}, ${d.y - d.cardHeight/2}) scale(0.8)`)
+                .on("end", function() {
+                    d3.select(this).style("display", "none");
+                });
+            
+            // Update connections to hide those involving the hidden frame
+            if (frameConnectionsVisible || elementConnectionsVisible) {
+                updateAllConnections();
+            }
+            
+            // Exit focus mode if the focused frame was hidden
+            if (focusMode && selectedElement && selectedElement.frame === frameName) {
+                exitFocusMode();
+            }
+            
+            updateStats();
+        }
+
+        // Show a frame
+        function showFrame(frameName) {
+            hiddenFrames.delete(frameName);
+            
+            // Show the frame card with animation
+            d3.selectAll(".card-group")
+                .filter(d => d.frameName === frameName)
+                .style("display", "block")
+                .style("opacity", 0)
+                .style("transform", d => `translate(${d.x - cardWidth/2}, ${d.y - d.cardHeight/2}) scale(0.8)`)
+                .transition()
+                .duration(300)
+                .style("opacity", 1)
+                .style("transform", d => `translate(${d.x - cardWidth/2}, ${d.y - d.cardHeight/2}) scale(1)`);
+            
+            // Update connections
+            if (frameConnectionsVisible || elementConnectionsVisible) {
+                updateAllConnections();
+            }
+            
+            updateStats();
+        }
+
+        // Activate focus mode when clicking on a connection box (frame element)
+        function activateFocusMode(elementName, frameName) {
+            focusMode = true;
+            selectedElement = {type: 'element', element: elementName, frame: frameName};
+            
+            // Find related connections for this element
+            const relatedConnections = frameElementRelations.filter(rel => 
+                (rel.sourceFrame === frameName && rel.sourceElement === elementName) ||
+                (rel.targetFrame === frameName && rel.targetElement === elementName)
+            );
+            
+            const relatedFrames = new Set([frameName]);
+            relatedConnections.forEach(rel => {
+                if (!hiddenFrames.has(rel.sourceFrame)) relatedFrames.add(rel.sourceFrame);
+                if (!hiddenFrames.has(rel.targetFrame)) relatedFrames.add(rel.targetFrame);
+            });
+            
+            // Dim unrelated frames
+            d3.selectAll(".frame-card").each(function(d) {
+                const card = d3.select(this);
+                if (hiddenFrames.has(d.frameName)) return; // Skip hidden frames
+                
+                if (relatedFrames.has(d.frameName)) {
+                    card.classed("focused", d.frameName === frameName);
+                    card.classed("dimmed", false);
+                } else {
+                    card.classed("dimmed", true);
+                    card.classed("focused", false);
+                }
+            });
+            
+            // Show only related element connections
+            hideAllConnections();
+            relatedConnections.forEach(rel => {
+                // Only show connections where both frames are visible
+                if (!hiddenFrames.has(rel.sourceFrame) && !hiddenFrames.has(rel.targetFrame)) {
+                    drawElementConnection(rel, true);
+                }
+            });
+        }
+
+        // Activate focus mode when clicking on a frame connection box
+        function activateFrameFocusMode(frameName) {
+            focusMode = true;
+            selectedElement = {type: 'frame', frame: frameName};
+            
+            // Find related frame connections
+            const relatedFrameConnections = frameRelations.filter(rel => 
+                rel.sourceFrame === frameName || rel.targetFrame === frameName
+            );
+            
+            const relatedFrames = new Set([frameName]);
+            relatedFrameConnections.forEach(rel => {
+                if (!hiddenFrames.has(rel.sourceFrame)) relatedFrames.add(rel.sourceFrame);
+                if (!hiddenFrames.has(rel.targetFrame)) relatedFrames.add(rel.targetFrame);
+            });
+            
+            // Dim unrelated frames
+            d3.selectAll(".frame-card").each(function(d) {
+                const card = d3.select(this);
+                if (hiddenFrames.has(d.frameName)) return; // Skip hidden frames
+                
+                if (relatedFrames.has(d.frameName)) {
+                    card.classed("focused", d.frameName === frameName);
+                    card.classed("dimmed", false);
+                } else {
+                    card.classed("dimmed", true);
+                    card.classed("focused", false);
+                }
+            });
+            
+            // Show only related frame connections
+            hideAllConnections();
+            relatedFrameConnections.forEach(rel => {
+                // Only show connections where both frames are visible
+                if (!hiddenFrames.has(rel.sourceFrame) && !hiddenFrames.has(rel.targetFrame)) {
+                    drawFrameConnection(rel, true);
+                }
+            });
+        }
+
+        // Exit focus mode
+        function exitFocusMode() {
+            focusMode = false;
+            selectedElement = null;
+            
+            // Clear focus mode effects
+            d3.selectAll(".frame-card")
+                .classed("focused", false)
+                .classed("dimmed", false);
+            
+            // Restore all connections based on current settings
+            if (frameConnectionsVisible || elementConnectionsVisible) {
+                updateAllConnections();
+            }
+        }
+
+        // Search functionality
+        function setupSearch() {
+            d3.select("#search").on("input", function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                d3.selectAll(".frame-card").each(function(d) {
+                    const card = d3.select(this);
+                    const frameMatch = d.frameName.toLowerCase().includes(searchTerm);
+                    const elementMatch = d.frameElements.some(el => 
+                        el.toLowerCase().includes(searchTerm)
+                    );
+                    
+                    if (searchTerm === "") {
+                        card.style("opacity", 1);
+                        card.selectAll(".frame-element").classed("highlighted", false);
+                    } else if (frameMatch || elementMatch) {
+                        card.style("opacity", 1);
+                        // Highlight matching elements
+                        card.selectAll(".frame-element").each(function() {
+                            const elementText = d3.select(this).select("span").text();
+                            const match = elementText.toLowerCase().includes(searchTerm);
+                            d3.select(this).classed("highlighted", match);
+                        });
+                    } else {
+                        card.style("opacity", 0.3);
+                    }
+                });
+                
+                // Update connections if visible
+                if (connectionsVisible) {
+                    hideAllConnections();
+                    if (searchTerm === "") {
+                        showAllConnections();
+                    }
+                }
+            });
+        }
+
+        // Arrangement functions
+        function arrangeGrid() {
+            const cols = Math.floor(Math.sqrt(sampleFrameData.length));
+            
+            d3.selectAll(".card-group")
+                .transition()
+                .duration(1000)
+                .attr("transform", (d, i) => {
+                    const col = i % cols;
+                    const row = Math.floor(i / cols);
+                    const x = (col * (cardWidth + cardPadding)) + cardWidth/2 + 100;
+                    const y = (row * (d.cardHeight + cardPadding)) + d.cardHeight/2 + 100;
+                    d.x = x;
+                    d.y = y;
+                    return `translate(${x - cardWidth/2}, ${y - d.cardHeight/2})`;
+                })
+                .on("end", function() {
+                    // Update connections after animation completes
+                    updateAllConnections();
+                });
+        }
+
+        function arrangeCircle() {
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = Math.min(width, height) / 3;
+            
+            d3.selectAll(".card-group")
+                .transition()
+                .duration(1000)
+                .attr("transform", (d, i) => {
+                    const angle = (i / sampleFrameData.length) * 2 * Math.PI;
+                    const x = centerX + radius * Math.cos(angle);
+                    const y = centerY + radius * Math.sin(angle);
+                    d.x = x;
+                    d.y = y;
+                    return `translate(${x - cardWidth/2}, ${y - d.cardHeight/2})`;
+                })
+                .on("end", function() {
+                    // Update connections after animation completes
+                    updateAllConnections();
+                });
+        }
+
+        // Control buttons
+        function setupControls() {
+            d3.select("#arrangeGrid").on("click", arrangeGrid);
+            d3.select("#arrangeCircle").on("click", arrangeCircle);
+            d3.select("#toggleFrameConnections").on("click", toggleFrameConnections);
+            d3.select("#toggleElementConnections").on("click", toggleElementConnections);
+        }
+
+        // Update statistics
+        function updateStats() {
+            const visibleFrames = sampleFrameData.filter(f => !hiddenFrames.has(f.frameName));
+            const totalFrames = visibleFrames.length;
+            const totalElements = visibleFrames.reduce((sum, frame) => sum + frame.frameElements.length, 0);
+            const avgElements = totalFrames > 0 ? (totalElements / totalFrames).toFixed(1) : 0;
+            
+            d3.select("#stats").html(`
+                <strong>Visible:</strong> ${totalFrames} frames, ${totalElements} elements (avg: ${avgElements})
+                ${hiddenFrames.size > 0 ? `<br><strong>Hidden:</strong> ${hiddenFrames.size} frames` : ''}
+            `);
+        }
+
+        // Initialize visualization
+        function init() {
+            createFrameCards();
+            setupSearch();
+            setupControls();
+        }
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+            svg.attr("width", newWidth).attr("height", newHeight);
+        });
+
+        // Start the visualization
+        init();
+    </script>
+</body>
+</html>
