@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scenario Frame Hierarchical Tree</title>
+<style>
+body {
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+margin: 0;
+padding: 20px;
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+min-height: 100vh;
+}
+
+.container {
+max-width: 100%;
+margin: 0 auto;
+background: white;
+border-radius: 12px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+overflow: hidden;
+}
+
+.header {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+padding: 25px;
+text-align: center;
+}
+
+.header h1 {
+margin: 0;
+font-size: 28px;
+font-weight: 300;
+}
+
+.header p {
+margin: 10px 0 0 0;
+opacity: 0.9;
+font-size: 16px;
+}
+
+.controls {
+padding: 20px;
+background: #f8f9fa;
+border-bottom: 1px solid #e9ecef;
+display: flex;
+gap: 15px;
+align-items: center;
+flex-wrap: wrap;
+}
+
+.control-group {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.control-group label {
+font-weight: 500;
+color: #495057;
+}
+
+select, input[type="text"] {
+padding: 8px 12px;
+border: 1px solid #ced4da;
+border-radius: 6px;
+font-size: 14px;
+background: white;
+}
+
+.tree-container {
+padding: 30px;
+overflow-x: auto;
+overflow-y: auto;
+max-height: 80vh;
+}
+
+.tree {
+margin-bottom: 40px;
+border: 1px solid #e9ecef;
+border-radius: 8px;
+background: #ffffff;
+padding: 20px;
+}
+
+.tree-title {
+font-size: 18px;
+font-weight: 600;
+color: #2c3e50;
+margin-bottom: 20px;
+padding-bottom: 10px;
+border-bottom: 2px solid #667eea;
+}
+
+.node {
+display: flex;
+align-items: flex-start;
+margin: 15px 0;
+position: relative;
+}
+
+.scenario-node {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+padding: 12px 18px;
+border-radius: 8px;
+font-weight: 600;
+min-width: 200px;
+text-align: center;
+box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+position: relative;
+}
+
+.child-scenario-node {
+background: linear-gradient(135deg, #48cae4 0%, #0077b6 100%);
+color: white;
+padding: 10px 16px;
+border-radius: 6px;
+font-weight: 500;
+min-width: 180px;
+text-align: center;
+box-shadow: 0 3px 10px rgba(72, 202, 228, 0.3);
+}
+
+.components-container {
+margin-left: 30px;
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+align-items: center;
+max-width: 600px;
+}
+
+.component {
+background: #f8f9fa;
+border: 1px solid #dee2e6;
+padding: 6px 12px;
+border-radius: 20px;
+font-size: 13px;
+color: #495057;
+transition: all 0.2s;
+cursor: pointer;
+}
+
+.component:hover {
+background: #e9ecef;
+transform: translateY(-1px);
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.connector {
+display: flex;
+align-items: center;
+margin: 0 15px;
+}
+
+.connector::before {
+content: "";
+width: 20px;
+height: 2px;
+background: #667eea;
+display: block;
+}
+
+.relation-label {
+background: #fff3cd;
+color: #856404;
+padding: 2px 8px;
+border-radius: 12px;
+font-size: 11px;
+font-weight: 500;
+margin-top: 5px;
+border: 1px solid #ffeaa7;
+display: inline-block;
+}
+
+.stats {
+background: #f8f9fa;
+padding: 15px;
+border-radius: 8px;
+margin-bottom: 20px;
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+.stat-item {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.stat-number {
+background: #667eea;
+color: white;
+padding: 4px 8px;
+border-radius: 4px;
+font-weight: 600;
+font-size: 14px;
+}
+
+.hidden {
+display: none;
+}
+
+.search-highlight {
+background: #fff3cd !important;
+border-color: #ffc107 !important;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>Scenario Frame Hierarchical Structure</h1>
+<p>Interactive visualization of scenario frames and their component relationships</p>
+</div>
+
+<div class="controls">
+<div class="control-group">
+<label>Filter:</label>
+<select id="filterType" onchange="filterTrees()">
+<option value="all">All Trees</option>
+<option value="hierarchical">Hierarchical Only</option>
+<option value="standalone">Standalone Only</option>
+<option value="with-components">With Components</option>
+</select>
+</div>
+
+<div class="control-group">
+<label>Search:</label>
+<input type="text" id="searchInput" placeholder="Search scenarios or components..." oninput="searchTrees()">
+</div>
+</div>
+
+<div class="tree-container">
+<div class="stats">
+<div class="stat-item">
+<span>Total Trees:</span>
+<span class="stat-number">44</span>
+</div>
+<div class="stat-item">
+<span>Hierarchical:</span>
+<span class="stat-number">14</span>
+</div>
+<div class="stat-item">
+<span>Standalone:</span>
+<span class="stat-number">30</span>
+</div>
+<div class="stat-item">
+<span>Total Components:</span>
+<span class="stat-number">221</span>
+</div>
+</div>
+
+<div id="trees-container">
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Attempting_and_resolving_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (5 children, 5 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Attempting_and_resolving_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Attempt_distant_interaction_scenario">Attempt_distant_interaction_scenario</div>
+                <div class="component" title="Attempt_obtain_food_scenario">Attempt_obtain_food_scenario</div>
+                <div class="component" title="Attempt_obtain_mineral_scenario">Attempt_obtain_mineral_scenario</div>
+                <div class="component" title="Result_of_attempt_scenario">Result_of_attempt_scenario</div>
+                <div class="component" title="Attempt_action_scenario">Attempt_action_scenario</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Attempt_distant_interaction_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Aiming">Aiming</div>
+                    <div class="component" title="Shooting_scenario">Shooting_scenario</div>
+                    <div class="component" title="Hit_or_miss">Hit_or_miss</div>
+                </div>
+            </div>
+                <div class="node" style="margin-left: 80px;">
+                    <div class="child-scenario-node">
+                        Shooting_scenario
+                        <div class="relation-label">inheritance</div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="components-container">
+                        <div class="component" title="Shoot_projectiles">Shoot_projectiles</div>
+                        <div class="component" title="Use_firearm">Use_firearm</div>
+                        <div class="component" title="Hit_target">Hit_target</div>
+                    </div>
+                </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Attempt_obtain_food_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Hunting_scenario">Hunting_scenario</div>
+                    <div class="component" title="Agriculture">Agriculture</div>
+                </div>
+            </div>
+                <div class="node" style="margin-left: 80px;">
+                    <div class="child-scenario-node">
+                        Hunting_scenario
+                        <div class="relation-label">inheritance</div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="components-container">
+                        <div class="component" title="Hunting_success_or_failure">Hunting_success_or_failure</div>
+                        <div class="component" title="Hunting">Hunting</div>
+                    </div>
+                </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Attempt_obtain_mineral_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Mining">Mining</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Result_of_attempt_scenario
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Success_or_failure">Success_or_failure</div>
+                    <div class="component" title="Successful_action">Successful_action</div>
+                    <div class="component" title="Thwarting">Thwarting</div>
+                    <div class="component" title="Expertise">Expertise</div>
+                    <div class="component" title="Elusive_goal">Elusive_goal</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Attempt_action_scenario
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Attempt">Attempt</div>
+                    <div class="component" title="Attempt_means">Attempt_means</div>
+                    <div class="component" title="Result_of_attempt_scenario">Result_of_attempt_scenario</div>
+                </div>
+            </div>
+                <div class="node" style="margin-left: 80px;">
+                    <div class="child-scenario-node">
+                        Result_of_attempt_scenario
+                        <div class="relation-label">precedes</div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="components-container">
+                        <div class="component" title="Success_or_failure">Success_or_failure</div>
+                        <div class="component" title="Successful_action">Successful_action</div>
+                        <div class="component" title="Thwarting">Thwarting</div>
+                        <div class="component" title="Expertise">Expertise</div>
+                        <div class="component" title="Elusive_goal">Elusive_goal</div>
+                    </div>
+                </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Awareness_change_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Awareness_change_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Coming_to_believe">Coming_to_believe</div>
+                <div class="component" title="Enter_awareness">Enter_awareness</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Causation_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 1 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Causation_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Causation">Causation</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Change_of_phase_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Change_of_phase_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Change_of_phase">Change_of_phase</div>
+                <div class="component" title="Substance_by_phase">Substance_by_phase</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Commerce_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 5 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Commerce_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Businesses">Businesses</div>
+                <div class="component" title="Expensiveness">Expensiveness</div>
+                <div class="component" title="Commercial_transaction">Commercial_transaction</div>
+                <div class="component" title="Having_commercial_agreement">Having_commercial_agreement</div>
+                <div class="component" title="Exchange_currency">Exchange_currency</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Conditional_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Conditional_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Negative_conditional">Negative_conditional</div>
+                <div class="component" title="Conditional_occurrence">Conditional_occurrence</div>
+                <div class="component" title="Preferred_alternative_scenario">Preferred_alternative_scenario</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Preferred_alternative_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Required_event">Required_event</div>
+                    <div class="component" title="Desirable_event">Desirable_event</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Containment_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Containment_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Containing">Containing</div>
+                <div class="component" title="Being_contained_within">Being_contained_within</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Crime_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Crime_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Criminal_process">Criminal_process</div>
+                <div class="component" title="Criminal_investigation">Criminal_investigation</div>
+                <div class="component" title="Committing_crime">Committing_crime</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Cycle_of_existence_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 5 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Cycle_of_existence_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Coming_to_be">Coming_to_be</div>
+                <div class="component" title="Existence">Existence</div>
+                <div class="component" title="Ceasing_to_be">Ceasing_to_be</div>
+                <div class="component" title="Out_of_existence">Out_of_existence</div>
+                <div class="component" title="Cycle_of_life_and_death">Cycle_of_life_and_death</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Deception_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 1 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Deception_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Deception_end">Deception_end</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Delimited_state_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Delimited_state_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Process_continue">Process_continue</div>
+                <div class="component" title="Duration_scenario">Duration_scenario</div>
+                <div class="component" title="Timespan">Timespan</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Duration_scenario
+                    <div class="relation-label">perspective_on</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Duration_relation">Duration_relation</div>
+                    <div class="component" title="Measure_duration">Measure_duration</div>
+                    <div class="component" title="Duration_description">Duration_description</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Disaster_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 1 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Disaster_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Fire_emergency_scenario">Fire_emergency_scenario</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Fire_emergency_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Firefighting">Firefighting</div>
+                    <div class="component" title="Emergency_fire">Emergency_fire</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Dynamic_situation_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Dynamic_situation_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Event">Event</div>
+                <div class="component" title="Event_initial_state">Event_initial_state</div>
+                <div class="component" title="Event_endstate">Event_endstate</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Employment_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (2 children, 6 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Employment_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Employment_start">Employment_start</div>
+                <div class="component" title="Employment_continue">Employment_continue</div>
+                <div class="component" title="Employment_end">Employment_end</div>
+                <div class="component" title="Fields">Fields</div>
+                <div class="component" title="Employee_scenario">Employee_scenario</div>
+                <div class="component" title="Employer_scenario">Employer_scenario</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Employee_scenario
+                    <div class="relation-label">perspective_on</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Get_a_job">Get_a_job</div>
+                    <div class="component" title="Being_employed">Being_employed</div>
+                    <div class="component" title="Quitting">Quitting</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Employer_scenario
+                    <div class="relation-label">perspective_on</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Hiring">Hiring</div>
+                    <div class="component" title="Employing">Employing</div>
+                    <div class="component" title="Firing">Firing</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Fire_end_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 1 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Fire_end_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Fire_going_out">Fire_going_out</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Fire_stopping_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 1 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Fire_stopping_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Putting_out_fire">Putting_out_fire</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Fragmentation_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Fragmentation_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Breaking_off">Breaking_off</div>
+                <div class="component" title="Breaking_apart">Breaking_apart</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Getting_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 4 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Getting_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Receiving_scenario">Receiving_scenario</div>
+                <div class="component" title="Pre_getting">Pre_getting</div>
+                <div class="component" title="Getting">Getting</div>
+                <div class="component" title="Post_getting">Post_getting</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Receiving_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Pre_receiving">Pre_receiving</div>
+                    <div class="component" title="Receiving">Receiving</div>
+                    <div class="component" title="Post_receiving">Post_receiving</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    History_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                History_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Socially_significant_history_scenario">Socially_significant_history_scenario</div>
+                <div class="component" title="Individual_history">Individual_history</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Socially_significant_history_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="History">History</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Identity_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Identity_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Identicality">Identicality</div>
+                <div class="component" title="Identity">Identity</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Import_export_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Import_export_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Exporting">Exporting</div>
+                <div class="component" title="Importing">Importing</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Inclusion_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 4 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Inclusion_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Inclusion">Inclusion</div>
+                <div class="component" title="Being_included">Being_included</div>
+                <div class="component" title="Set_relation">Set_relation</div>
+                <div class="component" title="Wholes_and_parts">Wholes_and_parts</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Inhibit_motion_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Inhibit_motion_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Inhibit_movement">Inhibit_movement</div>
+                <div class="component" title="Taking_captive">Taking_captive</div>
+                <div class="component" title="Releasing">Releasing</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Invasion_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Invasion_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Conquering">Conquering</div>
+                <div class="component" title="Invading">Invading</div>
+                <div class="component" title="Repel">Repel</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Knot_creation_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Knot_creation_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Knot_creation">Knot_creation</div>
+                <div class="component" title="Rope_manipulation">Rope_manipulation</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Lodging_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Lodging_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Provide_lodging">Provide_lodging</div>
+                <div class="component" title="Temporary_stay">Temporary_stay</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Lose_possession_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 4 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Lose_possession_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Post_lose_possession">Post_lose_possession</div>
+                <div class="component" title="Pre_lose_possession">Pre_lose_possession</div>
+                <div class="component" title="Lose_possession">Lose_possession</div>
+                <div class="component" title="Giving_scenario">Giving_scenario</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Giving_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Pre_giving">Pre_giving</div>
+                    <div class="component" title="Giving">Giving</div>
+                    <div class="component" title="Post_giving">Post_giving</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Measure_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (2 children, 6 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Measure_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Measurable_attributes">Measurable_attributes</div>
+                <div class="component" title="Measures">Measures</div>
+                <div class="component" title="Dimension">Dimension</div>
+                <div class="component" title="Quantified_mass">Quantified_mass</div>
+                <div class="component" title="Duration_scenario">Duration_scenario</div>
+                <div class="component" title="Distance_scenario">Distance_scenario</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Duration_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Duration_relation">Duration_relation</div>
+                    <div class="component" title="Measure_duration">Measure_duration</div>
+                    <div class="component" title="Duration_description">Duration_description</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Distance_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Measure_of_distance_and_length">Measure_of_distance_and_length</div>
+                    <div class="component" title="Gradable_proximity">Gradable_proximity</div>
+                    <div class="component" title="Non-gradable_proximity">Non-gradable_proximity</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Motion_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 5 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Motion_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Motion">Motion</div>
+                <div class="component" title="Source_of_getting">Source_of_getting</div>
+                <div class="component" title="Operate_vehicle_scenario">Operate_vehicle_scenario</div>
+                <div class="component" title="Traversing">Traversing</div>
+                <div class="component" title="Source_path_goal">Source_path_goal</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Operate_vehicle_scenario
+                    <div class="relation-label">using</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Operate_vehicle">Operate_vehicle</div>
+                    <div class="component" title="Cause_to_land">Cause_to_land</div>
+                    <div class="component" title="Getting_vehicle_underway">Getting_vehicle_underway</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Obligation_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 5 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Obligation_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Being_obligated">Being_obligated</div>
+                <div class="component" title="Being_obligatory">Being_obligatory</div>
+                <div class="component" title="Compliance">Compliance</div>
+                <div class="component" title="Being_in_effect">Being_in_effect</div>
+                <div class="component" title="Documents">Documents</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Placing_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Placing_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Container_focused_placing">Container_focused_placing</div>
+                <div class="component" title="Placing">Placing</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Product_development_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Product_development_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Product_development">Product_development</div>
+                <div class="component" title="Achieving_first">Achieving_first</div>
+                <div class="component" title="Manufacturing">Manufacturing</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Receive_visitor_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 1 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Receive_visitor_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Have_visitor_over">Have_visitor_over</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Removing_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Removing_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Container_focused_removing">Container_focused_removing</div>
+                <div class="component" title="Removing">Removing</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Requirement_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Requirement_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Have_as_requirement">Have_as_requirement</div>
+                <div class="component" title="Being_necessary">Being_necessary</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Response_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Response_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Response">Response</div>
+                <div class="component" title="Meet_with_response">Meet_with_response</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Risk_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 4 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Risk_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Risky_situation">Risky_situation</div>
+                <div class="component" title="Being_at_risk">Being_at_risk</div>
+                <div class="component" title="Run_risk">Run_risk</div>
+                <div class="component" title="Rescuing">Rescuing</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Searching_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Searching_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Scrutinizing_for">Scrutinizing_for</div>
+                <div class="component" title="Seeking">Seeking</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Sexual_reproduction_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (1 children, 2 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Sexual_reproduction_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Birth_scenario">Birth_scenario</div>
+                <div class="component" title="Procreative_sex">Procreative_sex</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Birth_scenario
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Being_born">Being_born</div>
+                    <div class="component" title="Medical_interaction_scenario">Medical_interaction_scenario</div>
+                    <div class="component" title="Giving_birth">Giving_birth</div>
+                </div>
+            </div>
+                <div class="node" style="margin-left: 80px;">
+                    <div class="child-scenario-node">
+                        Medical_interaction_scenario
+                        <div class="relation-label">using</div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="components-container">
+                        <div class="component" title="Healthcare_service">Healthcare_service</div>
+                        <div class="component" title="Take_a_medical_exam">Take_a_medical_exam</div>
+                        <div class="component" title="Symptoms">Symptoms</div>
+                        <div class="component" title="Medical_specialties">Medical_specialties</div>
+                        <div class="component" title="Medical_professionals">Medical_professionals</div>
+                        <div class="component" title="Recovery">Recovery</div>
+                        <div class="component" title="Medical_intervention">Medical_intervention</div>
+                        <div class="component" title="Medical_conditions">Medical_conditions</div>
+                        <div class="component" title="People_by_health_condition">People_by_health_condition</div>
+                    </div>
+                </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Sports_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Sports_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Competition">Competition</div>
+                <div class="component" title="Sports_event">Sports_event</div>
+                <div class="component" title="Infrastructure">Infrastructure</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Tourism_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (3 children, 7 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Tourism_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Travel">Travel</div>
+                <div class="component" title="Arrival">Arrival</div>
+                <div class="component" title="Tourism_scenario_stay">Tourism_scenario_stay</div>
+                <div class="component" title="Tourism_scenario_departure">Tourism_scenario_departure</div>
+                <div class="component" title="Tourism_scenario_preparation">Tourism_scenario_preparation</div>
+                <div class="component" title="Infrastructure">Infrastructure</div>
+                <div class="component" title="Touring">Touring</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Tourism_scenario_stay
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Tourism_scenario_departure">Tourism_scenario_departure</div>
+                    <div class="component" title="Event_tourism">Event_tourism</div>
+                    <div class="component" title="Attraction_tourism">Attraction_tourism</div>
+                    <div class="component" title="Tourist_activities">Tourist_activities</div>
+                    <div class="component" title="Temporary_stay">Temporary_stay</div>
+                    <div class="component" title="Temporary_stay">Temporary_stay</div>
+                    <div class="component" title="Go_places">Go_places</div>
+                    <div class="component" title="Emergency">Emergency</div>
+                </div>
+            </div>
+                <div class="node" style="margin-left: 80px;">
+                    <div class="child-scenario-node">
+                        Tourism_scenario_departure
+                        <div class="relation-label">precedes</div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="components-container">
+                        <div class="component" title="Tourist_departure_locality">Tourist_departure_locality</div>
+                        <div class="component" title="Tourist_departure_lodging">Tourist_departure_lodging</div>
+                    </div>
+                </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Tourism_scenario_departure
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Tourist_departure_locality">Tourist_departure_locality</div>
+                    <div class="component" title="Tourist_departure_lodging">Tourist_departure_lodging</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Tourism_scenario_preparation
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Exchange_currency">Exchange_currency</div>
+                    <div class="component" title="Tourist_service_buy">Tourist_service_buy</div>
+                    <div class="component" title="Planning_by_tourist">Planning_by_tourist</div>
+                    <div class="component" title="Tourist_service_reserve">Tourist_service_reserve</div>
+                    <div class="component" title="Get_document">Get_document</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Transfer_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (3 children, 7 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Transfer_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Pre_transfer">Pre_transfer</div>
+                <div class="component" title="Transfer">Transfer</div>
+                <div class="component" title="Post_transfer">Post_transfer</div>
+                <div class="component" title="Receiving_scenario">Receiving_scenario</div>
+                <div class="component" title="Giving_scenario">Giving_scenario</div>
+                <div class="component" title="Exchange">Exchange</div>
+                <div class="component" title="Temporary_transfer_scenario">Temporary_transfer_scenario</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Receiving_scenario
+                    <div class="relation-label">perspective_on</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Pre_receiving">Pre_receiving</div>
+                    <div class="component" title="Receiving">Receiving</div>
+                    <div class="component" title="Post_receiving">Post_receiving</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Giving_scenario
+                    <div class="relation-label">perspective_on</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Pre_giving">Pre_giving</div>
+                    <div class="component" title="Giving">Giving</div>
+                    <div class="component" title="Post_giving">Post_giving</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Temporary_transfer_scenario
+                    <div class="relation-label">inheritance</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Lending">Lending</div>
+                    <div class="component" title="Borrowing">Borrowing</div>
+                </div>
+            </div>
+
+    </div>
+    <div class="tree" data-type="standalone" data-components="with-components">
+    <div class="tree-title">
+    Undergoing_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (0 children, 3 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Undergoing_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Undergoing">Undergoing</div>
+                <div class="component" title="Eventive_affecting">Eventive_affecting</div>
+                <div class="component" title="Violence">Violence</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="tree" data-type="hierarchical" data-components="with-components">
+    <div class="tree-title">
+    Visiting_scenario
+    <span style="font-weight: normal; color: #6c757d; font-size: 14px;">
+    (4 children, 5 components)
+    </span>
+    </div>
+            <div class="node" style="margin-left: 0px;">
+            <div class="scenario-node">
+                Visiting_scenario
+                
+            </div>
+            <div class="connector"></div>
+            <div class="components-container">
+                <div class="component" title="Visitor_and_host">Visitor_and_host</div>
+                <div class="component" title="Visitor_scenario">Visitor_scenario</div>
+                <div class="component" title="Visiting_scenario_arrival">Visiting_scenario_arrival</div>
+                <div class="component" title="Visiting_scenario_departing">Visiting_scenario_departing</div>
+                <div class="component" title="Visiting_scenario_stay">Visiting_scenario_stay</div>
+            </div>
+        </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Visitor_scenario
+                    <div class="relation-label">perspective_on</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Visitor_arrival">Visitor_arrival</div>
+                    <div class="component" title="Visiting">Visiting</div>
+                    <div class="component" title="Visitor_departure">Visitor_departure</div>
+                    <div class="component" title="Visit_host">Visit_host</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Visiting_scenario_arrival
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Visitor_arrival">Visitor_arrival</div>
+                    <div class="component" title="Visiting_scenario_stay">Visiting_scenario_stay</div>
+                    <div class="component" title="Visit_host_arrival">Visit_host_arrival</div>
+                </div>
+            </div>
+                <div class="node" style="margin-left: 80px;">
+                    <div class="child-scenario-node">
+                        Visiting_scenario_stay
+                        <div class="relation-label">precedes</div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="components-container">
+                        <div class="component" title="Visiting">Visiting</div>
+                        <div class="component" title="Visiting_scenario_departing">Visiting_scenario_departing</div>
+                        <div class="component" title="Visit_host_stay">Visit_host_stay</div>
+                    </div>
+                </div>
+                    <div class="node" style="margin-left: 120px;">
+                        <div class="child-scenario-node">
+                            Visiting_scenario_departing
+                            <div class="relation-label">precedes</div>
+                        </div>
+                        <div class="connector"></div>
+                        <div class="components-container">
+                            <div class="component" title="Visitor_departure">Visitor_departure</div>
+                            <div class="component" title="Visit_host_departure">Visit_host_departure</div>
+                        </div>
+                    </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Visiting_scenario_departing
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Visitor_departure">Visitor_departure</div>
+                    <div class="component" title="Visit_host_departure">Visit_host_departure</div>
+                </div>
+            </div>
+            <div class="node" style="margin-left: 40px;">
+                <div class="child-scenario-node">
+                    Visiting_scenario_stay
+                    <div class="relation-label">subframe</div>
+                </div>
+                <div class="connector"></div>
+                <div class="components-container">
+                    <div class="component" title="Visiting">Visiting</div>
+                    <div class="component" title="Visiting_scenario_departing">Visiting_scenario_departing</div>
+                    <div class="component" title="Visit_host_stay">Visit_host_stay</div>
+                </div>
+            </div>
+                <div class="node" style="margin-left: 80px;">
+                    <div class="child-scenario-node">
+                        Visiting_scenario_departing
+                        <div class="relation-label">precedes</div>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="components-container">
+                        <div class="component" title="Visitor_departure">Visitor_departure</div>
+                        <div class="component" title="Visit_host_departure">Visit_host_departure</div>
+                    </div>
+                </div>
+
+    </div>
+</div>
+</div>
+</div>
+
+<script>
+function filterTrees() {
+const filterType = document.getElementById("filterType").value;
+const trees = document.querySelectorAll(".tree");
+
+trees.forEach(tree => {
+const treeType = tree.getAttribute("data-type");
+const hasComponents = tree.getAttribute("data-components");
+
+let show = true;
+
+switch(filterType) {
+    case "hierarchical":
+        show = treeType === "hierarchical";
+        break;
+    case "standalone":
+        show = treeType === "standalone";
+        break;
+    case "with-components":
+        show = hasComponents === "with-components";
+        break;
+    case "all":
+    default:
+        show = true;
+        break;
+        }
+
+        tree.style.display = show ? "block" : "none";
+        });
+        }
+
+        function searchTrees() {
+        const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+        const trees = document.querySelectorAll(".tree");
+
+        trees.forEach(tree => {
+        const text = tree.textContent.toLowerCase();
+        const matches = text.includes(searchTerm);
+        tree.style.display = matches ? "block" : "none";
+
+        // Highlight matching components
+        const components = tree.querySelectorAll(".component");
+        components.forEach(component => {
+        if (component.textContent.toLowerCase().includes(searchTerm)) {
+            component.classList.add("search-highlight");
+            } else {
+                component.classList.remove("search-highlight");
+                }
+                });
+
+                // Highlight matching scenario names
+                const scenarios = tree.querySelectorAll(".scenario-node, .child-scenario-node");
+                scenarios.forEach(scenario => {
+                if (scenario.textContent.toLowerCase().includes(searchTerm)) {
+                    scenario.classList.add("search-highlight");
+                    } else {
+                        scenario.classList.remove("search-highlight");
+                        }
+                        });
+                        });
+                        }
+                        </script>
+                        </body>
+                        </html>

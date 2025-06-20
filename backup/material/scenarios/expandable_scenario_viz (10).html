@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable Scenario Frame Visualization</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #controls button {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 12px;
+        }
+
+        #controls button:hover {
+            background: #357abd;
+        }
+
+        #search {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        /* Frame Cards */
+        .frame-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            cursor: move;
+            transition: all 0.3s ease;
+            overflow: visible;
+            border: 2px solid transparent;
+            position: absolute;
+            min-width: 250px;
+            min-height: 180px;
+        }
+
+        .frame-card:hover {
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+            border-color: #4a90e2;
+        }
+
+        .frame-card.selected {
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.3);
+        }
+
+        .frame-card.scenario {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .frame-card.child {
+            border-left: 4px solid #28a745;
+        }
+
+        .frame-card.expanded {
+            background: #f8f9fa;
+            border: 3px solid #ff6b6b;
+        }
+
+        /* Frame Header */
+        .frame-header {
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame-header.scenario {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        .frame-header.child {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        .frame-connection-box {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .frame-connection-box:hover {
+            transform: translateY(-50%) scale(1.3);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .frame-connections-toggle {
+            position: absolute;
+            left: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            transition: all 0.2s;
+            font-weight: bold;
+        }
+
+        .frame-connections-toggle:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .frame-connections-toggle.active {
+            background: rgba(255, 255, 255, 0.6);
+            color: #333;
+        }
+
+        .frame-title {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .frame-expand-button {
+            position: absolute;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: all 0.2s;
+            font-weight: bold;
+        }
+
+        .frame-expand-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .frame-expand-button.expanded {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .frame-hide-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .frame-hide-icon:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .frame-stats {
+            position: absolute;
+            top: 5px;
+            right: 65px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* Frame Elements */
+        .frame-elements {
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .frame-elements.expanded {
+            max-height: 150px;
+        }
+
+        .frame-element {
+            background: #f8f9fa;
+            margin: 6px 0;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            border-left: 3px solid #4a90e2;
+            transition: all 0.2s;
+            cursor: pointer;
+            min-height: 16px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .frame-element .connection-box {
+            width: 8px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 2px;
+            margin-right: 10px;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .frame-element .connection-box:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.5);
+        }
+
+        .frame-element.connected .connection-box {
+            background: #28a745;
+        }
+
+        .frame-element.highlighted .connection-box {
+            background: #ffc107;
+        }
+
+        .frame-element:hover {
+            background: #e3f2fd;
+            transform: translateX(3px);
+        }
+
+        .frame-element.connected {
+            background: #e8f5e8;
+            border-left-color: #28a745;
+        }
+
+        .frame-element.highlighted {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+
+        /* Child Frame Container */
+        .child-frames-container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-top: 2px dashed #ddd;
+            position: relative;
+            overflow: visible;
+            min-height: 250px;
+        }
+
+        /* Resize Handles */
+        .resize-handle-se {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            cursor: se-resize;
+            background: linear-gradient(-45deg, transparent 30%, #ff0000 30%, #ff0000 40%, transparent 40%, transparent 60%, #ff0000 60%, #ff0000 70%, transparent 70%);
+            z-index: 2000;
+            border: 2px solid #ff0000;
+            opacity: 0.8;
+        }
+
+        .resize-handle-e {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 12px;
+            height: 40px;
+            transform: translateY(-50%);
+            cursor: e-resize;
+            background: linear-gradient(90deg, transparent 20%, #00ff00 20%, #00ff00 80%, transparent 80%);
+            z-index: 2000;
+            border: 2px solid #00ff00;
+            opacity: 0.8;
+        }
+
+        .resize-handle-s {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 40px;
+            height: 12px;
+            transform: translateX(-50%);
+            cursor: s-resize;
+            background: linear-gradient(0deg, transparent 20%, #0000ff 20%, #0000ff 80%, transparent 80%);
+            z-index: 2000;
+            border: 2px solid #0000ff;
+            opacity: 0.8;
+        }
+
+        /* Movable divider */
+        .frame-divider {
+            height: 8px;
+            background: #ddd;
+            cursor: ns-resize;
+            border-top: 2px dashed #bbb;
+            border-bottom: 2px dashed #bbb;
+            position: relative;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .frame-divider:hover {
+            background: #ccc;
+        }
+
+        .frame-divider::before {
+            content: '⋯';
+            color: #999;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Connection Lines */
+        .connection-line {
+            stroke: #28a745;
+            stroke-width: 2;
+            fill: none;
+            opacity: 0.7;
+            pointer-events: none;
+            stroke-dasharray: 5,5;
+        }
+
+        .connection-line.active {
+            stroke: #ff6b6b;
+            stroke-width: 3;
+            opacity: 1;
+            stroke-dasharray: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Focus mode styles */
+        .frame-card.dimmed {
+            opacity: 0.3;
+            filter: grayscale(70%);
+        }
+
+        .frame-card.focused {
+            box-shadow: 0 0 0 4px #ff6b6b, 0 12px 35px rgba(0, 0, 0, 0.25);
+            transform: scale(1.02);
+        }
+
+        /* Tooltips */
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2000;
+            max-width: 250px;
+        }
+
+        .connection-tooltip {
+            position: absolute;
+            background: rgba(255, 107, 107, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 2000;
+            max-width: 200px;
+            font-weight: bold;
+        }
+
+        /* Stats panel */
+        .stats {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Scrollbar styling */
+        .frame-elements::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .frame-elements::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .frame-elements::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+
+        .frame-elements::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="controls">
+            <input type="text" id="search" placeholder="Search frames or elements...">
+            <button id="resetView">Reset View</button>
+            <button id="expandAll">Expand All</button>
+            <button id="collapseAll">Collapse All</button>
+            <button id="arrangeGrid">Arrange Grid</button>
+            <button id="arrangeCircle">Arrange Circle</button>
+            <button id="showAllConnections">Show All Connections</button>
+            <button id="hideAllConnections">Hide All Connections</button>
+        </div>
+        
+        <svg id="visualization"></svg>
+        
+        <div class="stats" id="stats">
+            Loading data...
+        </div>
+    </div>
+    
+    <div class="tooltip" id="tooltip"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script>
+        // Global variables
+        let allFrames = new Map();
+        let frameElementRelations = [];
+        let connectionsVisible = false;
+        let activeConnections = new Set(); // Track which component connections are active
+        let focusMode = false;
+        let selectedElement = null;
+        let hiddenFrames = new Set();
+        
+        // Visualization setup
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        const svg = d3.select("#visualization")
+            .attr("width", width)
+            .attr("height", height);
+
+        const mainGroup = svg.append("g");
+        
+        // Pan-only zoom
+        const zoom = d3.zoom()
+            .scaleExtent([1, 1])
+            .on("zoom", (event) => {
+                const transform = event.transform;
+                mainGroup.attr("transform", `translate(${transform.x}, ${transform.y}) scale(1)`);
+            });
+
+        svg.call(zoom);
+
+        // Tooltips
+        const tooltip = d3.select("#tooltip");
+        const connectionTooltip = d3.select("body").append("div").attr("class", "connection-tooltip");
+
+        // Card dimensions
+        const cardWidth = 280;
+        const cardHeight = 200;
+        const expandedCardWidth = 400;
+        const expandedCardHeight = 300;
+        const cardPadding = 30;
+
+        // Initialize data
+        function initializeData() {
+            // Sample scenario frames with complete data
+            const scenarioFrames = [
+                {
+                    frameId: 1006,
+                    frameName: "Placing_scenario",
+                    frameType: 'scenario',
+                    frameElements: [
+                        {elementId: 9694, elementName: "Agent"},
+                        {elementId: 9709, elementName: "Cause"},
+                        {elementId: 9698, elementName: "Goal"},
+                        {elementId: 9695, elementName: "Theme"},
+                        {elementId: 9696, elementName: "Source"},
+                        {elementId: 9697, elementName: "Path"},
+                        {elementId: 9700, elementName: "Manner"},
+                        {elementId: 9701, elementName: "Time"}
+                    ],
+                    childFrames: [
+                        {frameId: 1007, frameName: "Container_focused_placing"},
+                        {frameId: 1008, frameName: "Placing"}
+                    ],
+                    isExpanded: false,
+                    level: 0,
+                    x: 200,
+                    y: 200,
+                    cardWidth: cardWidth,
+                    cardHeight: cardHeight
+                },
+                {
+                    frameId: 1009,
+                    frameName: "Deception_scenario",
+                    frameType: 'scenario',
+                    frameElements: [
+                        {elementId: 9701, elementName: "Deceiver"},
+                        {elementId: 9702, elementName: "Phenomenon"},
+                        {elementId: 9703, elementName: "Topic"},
+                        {elementId: 9704, elementName: "Victim"},
+                        {elementId: 9705, elementName: "Means"}
+                    ],
+                    childFrames: [
+                        {frameId: 1010, frameName: "Deception_end"}
+                    ],
+                    isExpanded: false,
+                    level: 0,
+                    x: 600,
+                    y: 200,
+                    cardWidth: cardWidth,
+                    cardHeight: cardHeight
+                },
+                {
+                    frameId: 1011,
+                    frameName: "Inhibit_motion_scenario",
+                    frameType: 'scenario',
+                    frameElements: [
+                        {elementId: 9706, elementName: "Agent"},
+                        {elementId: 9707, elementName: "Cause"},
+                        {elementId: 9708, elementName: "Theme"},
+                        {elementId: 9709, elementName: "Holding_location"},
+                        {elementId: 9710, elementName: "Duration"}
+                    ],
+                    childFrames: [
+                        {frameId: 1012, frameName: "Inhibit_movement"},
+                        {frameId: 1013, frameName: "Taking_captive"},
+                        {frameId: 1014, frameName: "Releasing"}
+                    ],
+                    isExpanded: false,
+                    level: 0,
+                    x: 1000,
+                    y: 200,
+                    cardWidth: cardWidth,
+                    cardHeight: cardHeight
+                }
+            ];
+
+            // Sample child frames with complete data
+            const childFrames = [
+                {
+                    frameId: 1007,
+                    frameName: "Container_focused_placing",
+                    frameType: 'child',
+                    frameElements: [
+                        {elementId: 9710, elementName: "Agent"},
+                        {elementId: 9726, elementName: "Cause"},
+                        {elementId: 9714, elementName: "Goal"},
+                        {elementId: 9711, elementName: "Theme"},
+                        {elementId: 9712, elementName: "Container"}
+                    ],
+                    childFrames: [],
+                    parentFrame: "Placing_scenario",
+                    isExpanded: false,
+                    level: 1
+                },
+                {
+                    frameId: 1008,
+                    frameName: "Placing",
+                    frameType: 'child',
+                    frameElements: [
+                        {elementId: 9720, elementName: "Agent"},
+                        {elementId: 9721, elementName: "Cause"},
+                        {elementId: 9722, elementName: "Goal"},
+                        {elementId: 9723, elementName: "Theme"},
+                        {elementId: 9724, elementName: "Place"}
+                    ],
+                    childFrames: [],
+                    parentFrame: "Placing_scenario",
+                    isExpanded: false,
+                    level: 1
+                },
+                {
+                    frameId: 1010,
+                    frameName: "Deception_end",
+                    frameType: 'child',
+                    frameElements: [
+                        {elementId: 9730, elementName: "Deceiver"},
+                        {elementId: 9731, elementName: "Phenomenon"},
+                        {elementId: 9732, elementName: "Topic"},
+                        {elementId: 9733, elementName: "Victim"}
+                    ],
+                    childFrames: [],
+                    parentFrame: "Deception_scenario",
+                    isExpanded: false,
+                    level: 1
+                },
+                {
+                    frameId: 1012,
+                    frameName: "Inhibit_movement",
+                    frameType: 'child',
+                    frameElements: [
+                        {elementId: 9740, elementName: "Agent"},
+                        {elementId: 9741, elementName: "Cause"},
+                        {elementId: 9742, elementName: "Theme"}
+                    ],
+                    childFrames: [],
+                    parentFrame: "Inhibit_motion_scenario",
+                    isExpanded: false,
+                    level: 1
+                },
+                {
+                    frameId: 1013,
+                    frameName: "Taking_captive",
+                    frameType: 'child',
+                    frameElements: [
+                        {elementId: 9750, elementName: "Agent"},
+                        {elementId: 9751, elementName: "Cause"},
+                        {elementId: 9752, elementName: "Captive"},
+                        {elementId: 9753, elementName: "Location"}
+                    ],
+                    childFrames: [],
+                    parentFrame: "Inhibit_motion_scenario",
+                    isExpanded: false,
+                    level: 1
+                },
+                {
+                    frameId: 1014,
+                    frameName: "Releasing",
+                    frameType: 'child',
+                    frameElements: [
+                        {elementId: 9760, elementName: "Agent"},
+                        {elementId: 9761, elementName: "Captor"},
+                        {elementId: 9762, elementName: "Location_of_confinement"},
+                        {elementId: 9763, elementName: "Captive"}
+                    ],
+                    childFrames: [],
+                    parentFrame: "Inhibit_motion_scenario",
+                    isExpanded: false,
+                    level: 1
+                }
+            ];
+
+            // Initialize allFrames map
+            [...scenarioFrames, ...childFrames].forEach(frame => {
+                allFrames.set(frame.frameName, frame);
+            });
+
+            // Enhanced frame element relationships
+            frameElementRelations = [
+                // Placing scenario relationships
+                {
+                    sourceFrame: "Placing_scenario",
+                    sourceElement: "Agent",
+                    targetFrame: "Container_focused_placing",
+                    targetElement: "Agent",
+                    relationType: "perspective_on"
+                },
+                {
+                    sourceFrame: "Placing_scenario",
+                    sourceElement: "Goal",
+                    targetFrame: "Container_focused_placing",
+                    targetElement: "Goal",
+                    relationType: "perspective_on"
+                },
+                {
+                    sourceFrame: "Placing_scenario",
+                    sourceElement: "Theme",
+                    targetFrame: "Container_focused_placing",
+                    targetElement: "Theme",
+                    relationType: "perspective_on"
+                },
+                {
+                    sourceFrame: "Placing_scenario",
+                    sourceElement: "Agent",
+                    targetFrame: "Placing",
+                    targetElement: "Agent",
+                    relationType: "perspective_on"
+                },
+                {
+                    sourceFrame: "Placing_scenario",
+                    sourceElement: "Theme",
+                    targetFrame: "Placing",
+                    targetElement: "Theme",
+                    relationType: "perspective_on"
+                },
+                {
+                    sourceFrame: "Placing_scenario",
+                    sourceElement: "Goal",
+                    targetFrame: "Placing",
+                    targetElement: "Goal",
+                    relationType: "perspective_on"
+                },
+                // Deception scenario relationships
+                {
+                    sourceFrame: "Deception_scenario",
+                    sourceElement: "Deceiver",
+                    targetFrame: "Deception_end",
+                    targetElement: "Deceiver",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Deception_scenario",
+                    sourceElement: "Phenomenon",
+                    targetFrame: "Deception_end",
+                    targetElement: "Phenomenon",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Deception_scenario",
+                    sourceElement: "Topic",
+                    targetFrame: "Deception_end",
+                    targetElement: "Topic",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Deception_scenario",
+                    sourceElement: "Victim",
+                    targetFrame: "Deception_end",
+                    targetElement: "Victim",
+                    relationType: "subframe"
+                },
+                // Inhibit motion scenario relationships
+                {
+                    sourceFrame: "Inhibit_motion_scenario",
+                    sourceElement: "Agent",
+                    targetFrame: "Inhibit_movement",
+                    targetElement: "Agent",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Inhibit_motion_scenario",
+                    sourceElement: "Cause",
+                    targetFrame: "Inhibit_movement",
+                    targetElement: "Cause",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Inhibit_motion_scenario",
+                    sourceElement: "Theme",
+                    targetFrame: "Inhibit_movement",
+                    targetElement: "Theme",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Inhibit_motion_scenario",
+                    sourceElement: "Agent",
+                    targetFrame: "Taking_captive",
+                    targetElement: "Agent",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Inhibit_motion_scenario",
+                    sourceElement: "Cause",
+                    targetFrame: "Taking_captive",
+                    targetElement: "Cause",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Inhibit_motion_scenario",
+                    sourceElement: "Agent",
+                    targetFrame: "Releasing",
+                    targetElement: "Agent",
+                    relationType: "subframe"
+                },
+                {
+                    sourceFrame: "Inhibit_motion_scenario",
+                    sourceElement: "Holding_location",
+                    targetFrame: "Releasing",
+                    targetElement: "Location_of_confinement",
+                    relationType: "subframe"
+                }
+            ];
+        }
+
+        // Create frame cards with resize functionality
+        function createFrameCards() {
+            const visibleFrames = Array.from(allFrames.values()).filter(frame => 
+                !hiddenFrames.has(frame.frameName) && frame.level === 0
+            );
+
+            const cards = mainGroup.selectAll(".card-group")
+                .data(visibleFrames, d => d.frameName)
+                .join("g")
+                .attr("class", "card-group");
+
+            cards.each(function(d) {
+                const cardGroup = d3.select(this);
+                cardGroup.selectAll("*").remove();
+
+                // Calculate dynamic dimensions
+                let currentWidth = d.cardWidth || cardWidth;
+                let currentHeight = d.cardHeight || cardHeight;
+                
+                if (d.isExpanded && d.childFrames.length > 0) {
+                    const childrenPerRow = Math.ceil(Math.sqrt(d.childFrames.length));
+                    currentWidth = Math.max(d.cardWidth || expandedCardWidth, 
+                        (childrenPerRow * (cardWidth + 30)) + 60);
+                    
+                    const childRows = Math.ceil(d.childFrames.length / childrenPerRow);
+                    const childContainerHeight = (childRows * (cardHeight + 30)) + 60;
+                    currentHeight = 150 + Math.max(250, childContainerHeight);
+                }
+
+                // Store current dimensions
+                d.cardWidth = currentWidth;
+                d.cardHeight = currentHeight;
+
+                cardGroup.transition()
+                    .duration(500)
+                    .attr("transform", `translate(${d.x}, ${d.y})`);
+
+                const foreignObject = cardGroup.append("foreignObject")
+                    .attr("width", currentWidth)
+                    .attr("height", currentHeight)
+                    .attr("x", -currentWidth/2)
+                    .attr("y", -currentHeight/2);
+
+                const cardDiv = foreignObject.append("xhtml:div")
+                    .attr("class", `frame-card ${d.frameType} ${d.isExpanded ? 'expanded' : ''}`)
+                    .style("width", currentWidth + "px")
+                    .style("height", currentHeight + "px")
+                    .style("position", "relative");
+
+                // Add resize functionality
+                setupCardResize(cardDiv, d, cardGroup, foreignObject);
+
+                // Create header
+                const header = cardDiv.append("div")
+                    .attr("class", `frame-header ${d.frameType}`)
+                    .on("click", function(event) {
+                        if (event.target === this || event.target.classList.contains('frame-title')) {
+                            event.stopPropagation();
+                            toggleFrameSelection(d);
+                        }
+                    });
+
+                header.append("div")
+                    .attr("class", "frame-connection-box")
+                    .on("click", function(event) {
+                        event.stopPropagation();
+                        // Only allow frame focus if there are active connections
+                        if (activeConnections.size > 0) {
+                            toggleFrameFocus(d.frameName);
+                        }
+                    });
+
+                header.append("div")
+                    .attr("class", "frame-title")
+                    .text(d.frameName);
+
+                header.append("div")
+                    .attr("class", "frame-stats")
+                    .text(`${d.frameElements.length}e, ${d.childFrames.length}c`);
+
+                if (d.childFrames.length > 0) {
+                    header.append("div")
+                        .attr("class", `frame-expand-button ${d.isExpanded ? 'expanded' : ''}`)
+                        .text(d.isExpanded ? "−" : "+")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            toggleFrameExpansion(d);
+                        });
+                }
+
+                header.append("div")
+                    .attr("class", "frame-hide-icon")
+                    .text("×")
+                    .on("click", function(event) {
+                        event.stopPropagation();
+                        hideFrame(d.frameName);
+                    });
+
+                // Frame elements with scroll event handling
+                const elementsHeight = d.isExpanded ? (d.elementsHeight || 150) : 400;
+                const elementsContainer = cardDiv.append("div")
+                    .attr("class", `frame-elements ${d.isExpanded ? 'expanded' : ''}`)
+                    .style("max-height", elementsHeight + "px")
+                    .on("scroll", function() {
+                        // Update connections when scrolling
+                        if (activeConnections.size > 0) {
+                            clearTimeout(this.scrollTimeout);
+                            this.scrollTimeout = setTimeout(() => {
+                                updateAllConnections();
+                            }, 50); // Reduced delay for more responsive updates
+                        }
+                    });
+
+                d.frameElements.forEach(element => {
+                    const elementDiv = elementsContainer.append("div")
+                        .attr("class", "frame-element")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            highlightElement(element.elementName);
+                        });
+
+                    elementDiv.append("div")
+                        .attr("class", "connection-box")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            // Only allow element focus if there are active connections
+                            if (activeConnections.size > 0) {
+                                toggleElementFocus(element.elementName, d.frameName);
+                            }
+                        });
+
+                    elementDiv.append("span")
+                        .text(element.elementName);
+                });
+
+                // Add movable divider if expanded
+                if (d.isExpanded && d.childFrames.length > 0) {
+                    const divider = cardDiv.append("div")
+                        .attr("class", "frame-divider");
+                    
+                    setupDividerResize(divider, d, cardDiv, elementsContainer);
+                }
+
+                // Child frames container
+                if (d.isExpanded && d.childFrames.length > 0) {
+                    const childContainer = cardDiv.append("div")
+                        .attr("class", "child-frames-container");
+                    
+                    createChildFrames(childContainer, d, currentWidth);
+                }
+            });
+
+            // Make cards draggable (but not the resize handle areas)
+            cards.call(d3.drag()
+                .filter(function(event) {
+                    // Prevent drag if clicking on resize areas or divider
+                    const target = event.target;
+                    return !target.classList.contains('resize-handle-se') &&
+                           !target.classList.contains('resize-handle-e') &&
+                           !target.classList.contains('resize-handle-s') &&
+                           !target.classList.contains('frame-divider');
+                })
+                .on("start", dragStarted)
+                .on("drag", dragged)
+                .on("end", dragEnded));
+
+            updateStats();
+            markConnectedElements();
+        }
+
+        // Setup card resize functionality with multiple handles
+        function setupCardResize(cardDiv, frameData, cardGroup, foreignObject) {
+            let isResizing = false;
+            let resizeType = null;
+            let startX, startY, startWidth, startHeight;
+
+            // Create diagonal resize handle (bottom-right) - WORKING VERSION
+            const resizeHandleSE = cardDiv.append("div")
+                .attr("class", "resize-handle-se")
+                .attr("title", "Resize diagonally")
+                .on("mousedown", function(event) {
+                    console.log("SE handle clicked!");
+                    
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    console.log("Starting simple resize");
+                    
+                    let startX = event.clientX;
+                    let startY = event.clientY;
+                    let startWidth = frameData.cardWidth || cardWidth;
+                    let startHeight = frameData.cardHeight || cardHeight;
+                    
+                    console.log(`Initial: ${startWidth}x${startHeight}, mouse: ${startX},${startY}`);
+                    
+                    d3.select("body").style("user-select", "none");
+                    
+                    function handleMouseMove(moveEvent) {
+                        console.log(`Mouse move: ${moveEvent.clientX}, ${moveEvent.clientY}`);
+                        
+                        let newWidth = Math.max(250, startWidth + (moveEvent.clientX - startX));
+                        let newHeight = Math.max(180, startHeight + (moveEvent.clientY - startY));
+                        
+                        console.log(`Resizing to: ${newWidth}x${newHeight}`);
+                        
+                        // Update frame data
+                        frameData.cardWidth = newWidth;
+                        frameData.cardHeight = newHeight;
+                        
+                        // Update the card size
+                        foreignObject
+                            .attr("width", newWidth)
+                            .attr("height", newHeight)
+                            .attr("x", -newWidth/2)
+                            .attr("y", -newHeight/2);
+                            
+                        cardDiv
+                            .style("width", newWidth + "px")
+                            .style("height", newHeight + "px");
+                        
+                        // Update connections if any are active
+                        if (activeConnections.size > 0) {
+                            console.log(`Updating ${activeConnections.size} active connections`);
+                            updateAllConnections();
+                        }
+                    }
+                    
+                    function handleMouseUp() {
+                        console.log("Mouse up - ending resize");
+                        d3.select("body").style("user-select", null);
+                        d3.select(window).on("mousemove.resize", null);
+                        d3.select(window).on("mouseup.resize", null);
+                        
+                        // Final connection update
+                        if (activeConnections.size > 0) {
+                            console.log("Final connection update");
+                            updateAllConnections();
+                        }
+                    }
+                    
+                    // Bind events
+                    d3.select(window).on("mousemove.resize", handleMouseMove);
+                    d3.select(window).on("mouseup.resize", handleMouseUp);
+                    
+                    console.log("Resize events bound");
+                });
+
+            // Create horizontal resize handle (right edge) - SIMPLIFIED
+            const resizeHandleE = cardDiv.append("div")
+                .attr("class", "resize-handle-e")
+                .attr("title", "Resize horizontally")
+                .on("mousedown", function(event) {
+                    console.log("E handle clicked!");
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    let startX = event.clientX;
+                    let startWidth = frameData.cardWidth || cardWidth;
+                    
+                    d3.select("body").style("user-select", "none");
+                    
+                    d3.select(window).on("mousemove.resize", function(moveEvent) {
+                        let newWidth = Math.max(250, startWidth + (moveEvent.clientX - startX));
+                        frameData.cardWidth = newWidth;
+                        
+                        foreignObject.attr("width", newWidth).attr("x", -newWidth/2);
+                        cardDiv.style("width", newWidth + "px");
+                        
+                        if (activeConnections.size > 0) {
+                            updateAllConnections();
+                        }
+                    });
+                    
+                    d3.select(window).on("mouseup.resize", function() {
+                        d3.select("body").style("user-select", null);
+                        d3.select(window).on("mousemove.resize", null);
+                        d3.select(window).on("mouseup.resize", null);
+                    });
+                });
+
+            // Create vertical resize handle (bottom edge) - SIMPLIFIED
+            const resizeHandleS = cardDiv.append("div")
+                .attr("class", "resize-handle-s")
+                .attr("title", "Resize vertically")
+                .on("mousedown", function(event) {
+                    console.log("S handle clicked!");
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    let startY = event.clientY;
+                    let startHeight = frameData.cardHeight || cardHeight;
+                    
+                    d3.select("body").style("user-select", "none");
+                    
+                    d3.select(window).on("mousemove.resize", function(moveEvent) {
+                        let newHeight = Math.max(180, startHeight + (moveEvent.clientY - startY));
+                        frameData.cardHeight = newHeight;
+                        
+                        foreignObject.attr("height", newHeight).attr("y", -newHeight/2);
+                        cardDiv.style("height", newHeight + "px");
+                        
+                        if (activeConnections.size > 0) {
+                            updateAllConnections();
+                        }
+                    });
+                    
+                    d3.select(window).on("mouseup.resize", function() {
+                        d3.select("body").style("user-select", null);
+                        d3.select(window).on("mousemove.resize", null);
+                        d3.select(window).on("mouseup.resize", null);
+                    });
+                });
+
+            console.log(`Created resize handles for ${frameData.frameName}:`, {
+                se: resizeHandleSE.node(),
+                e: resizeHandleE.node(),
+                s: resizeHandleS.node()
+            });
+
+            function startResize(event, type) {
+                event.preventDefault();
+                event.stopPropagation();
+                isResizing = true;
+                resizeType = type;
+                
+                startX = event.clientX;
+                startY = event.clientY;
+                startWidth = frameData.cardWidth || cardWidth;
+                startHeight = frameData.cardHeight || cardHeight;
+
+                d3.select("body").style("user-select", "none");
+
+                const mousemove = function(event) {
+                    if (!isResizing) return;
+                    
+                    let newWidth = startWidth;
+                    let newHeight = startHeight;
+                    
+                    // Calculate new dimensions based on resize type
+                    if (resizeType === 'se') {
+                        // Diagonal resize (both width and height)
+                        newWidth = Math.max(250, startWidth + (event.clientX - startX));
+                        newHeight = Math.max(180, startHeight + (event.clientY - startY));
+                    } else if (resizeType === 'e') {
+                        // Horizontal resize (width only)
+                        newWidth = Math.max(250, startWidth + (event.clientX - startX));
+                    } else if (resizeType === 's') {
+                        // Vertical resize (height only)
+                        newHeight = Math.max(180, startHeight + (event.clientY - startY));
+                    }
+                    
+                    frameData.cardWidth = newWidth;
+                    frameData.cardHeight = newHeight;
+                    
+                    // Update the card size
+                    foreignObject
+                        .attr("width", newWidth)
+                        .attr("height", newHeight)
+                        .attr("x", -newWidth/2)
+                        .attr("y", -newHeight/2);
+                        
+                    cardDiv
+                        .style("width", newWidth + "px")
+                        .style("height", newHeight + "px");
+                    
+                    // Update connections
+                    if (connectionsVisible) {
+                        updateAllConnections();
+                    }
+                };
+
+                const mouseup = function() {
+                    isResizing = false;
+                    resizeType = null;
+                    d3.select("body").style("user-select", null);
+                    d3.select(window).on("mousemove.resize", null);
+                    d3.select(window).on("mouseup.resize", null);
+                };
+
+                d3.select(window).on("mousemove.resize", mousemove);
+                d3.select(window).on("mouseup.resize", mouseup);
+            }
+        }
+
+        // Setup divider resize functionality
+        function setupDividerResize(divider, frameData, cardDiv, elementsContainer) {
+            let isDragging = false;
+            let startY, startHeight;
+
+            divider.on("mousedown", function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                isDragging = true;
+                
+                startY = event.clientY;
+                startHeight = frameData.elementsHeight || 150;
+
+                d3.select("body").style("user-select", "none");
+
+                const mousemove = function(event) {
+                    if (!isDragging) return;
+                    
+                    const deltaY = event.clientY - startY;
+                    const newHeight = Math.max(100, Math.min(400, startHeight + deltaY));
+                    
+                    frameData.elementsHeight = newHeight;
+                    
+                    // Update elements container height
+                    elementsContainer.style("max-height", newHeight + "px");
+                    
+                    // Update connections immediately during divider drag
+                    if (activeConnections.size > 0) {
+                        updateAllConnections();
+                    }
+                };
+
+                const mouseup = function() {
+                    isDragging = false;
+                    d3.select("body").style("user-select", null);
+                    d3.select(window).on("mousemove.divider", null);
+                    d3.select(window).on("mouseup.divider", null);
+                    
+                    // Final connection update after divider resize
+                    if (activeConnections.size > 0) {
+                        updateAllConnections();
+                    }
+                };
+
+                d3.select(window).on("mousemove.divider", mousemove);
+                d3.select(window).on("mouseup.divider", mouseup);
+            });
+        }
+
+        // Setup drag functionality for child component cards
+        function setupChildCardDrag(childDiv, childFrame, parentFrame) {
+            console.log(`Setting up drag for child: ${childFrame.frameName}`);
+            
+            // Test if the element exists
+            const element = childDiv.node();
+            console.log(`Child div element:`, element, `Classes:`, element?.className);
+            
+            let isDragging = false;
+            let startX, startY;
+            let startLeft, startTop;
+
+            // Try a different approach - attach to the childDiv directly
+            childDiv
+                .style("pointer-events", "auto")
+                .on("mousedown.drag", function(event) {
+                    console.log(`DRAG MOUSEDOWN: ${childFrame.frameName}`);
+                    alert(`Drag mousedown: ${childFrame.frameName}`);
+                    
+                    // CRITICAL: Stop all event propagation immediately
+                    event.preventDefault();
+                    event.stopPropagation();
+                    event.stopImmediatePropagation();
+                    
+                    // Only drag if clicking on the card itself, not on interactive elements
+                    const target = event.target;
+                    console.log(`Target element:`, target, `Classes:`, target.className);
+                    
+                    if (target.classList.contains('resize-handle-se') || 
+                        target.classList.contains('resize-handle-e') || 
+                        target.classList.contains('resize-handle-s') ||
+                        target.classList.contains('connection-box') ||
+                        target.classList.contains('frame-connection-box')) {
+                        console.log(`Ignoring drag on interactive element: ${target.className}`);
+                        return;
+                    }
+
+                    console.log(`Starting drag for child: ${childFrame.frameName}`);
+                    
+                    isDragging = true;
+                    startX = event.clientX;
+                    startY = event.clientY;
+                    
+                    // Get current position
+                    const currentLeft = parseInt(childDiv.style("left")) || 0;
+                    const currentTop = parseInt(childDiv.style("top")) || 0;
+                    startLeft = currentLeft;
+                    startTop = currentTop;
+                    
+                    console.log(`Starting position: ${startLeft}, ${startTop}`);
+                    
+                    // Visual feedback
+                    childDiv.style("z-index", "1000");
+                    childDiv.style("opacity", "0.9");
+                    
+                    d3.select("body").style("user-select", "none");
+
+                    function handleMouseMove(moveEvent) {
+                        if (!isDragging) return;
+                        
+                        console.log(`Child drag move: ${moveEvent.clientX}, ${moveEvent.clientY}`);
+                        
+                        // Stop propagation on move events too
+                        moveEvent.preventDefault();
+                        moveEvent.stopPropagation();
+                        moveEvent.stopImmediatePropagation();
+                        
+                        const deltaX = moveEvent.clientX - startX;
+                        const deltaY = moveEvent.clientY - startY;
+                        
+                        const newLeft = startLeft + deltaX;
+                        const newTop = startTop + deltaY;
+                        
+                        // Constrain movement within the parent container
+                        const containerWidth = parseInt(childDiv.node().parentNode.style.width) || 800;
+                        const containerHeight = parseInt(childDiv.node().parentNode.style.height) || 600;
+                        const cardWidth = parseInt(childDiv.style("width")) || 200;
+                        const cardHeight = parseInt(childDiv.style("height")) || 180;
+                        
+                        const constrainedLeft = Math.max(0, Math.min(newLeft, containerWidth - cardWidth));
+                        const constrainedTop = Math.max(0, Math.min(newTop, containerHeight - cardHeight));
+                        
+                        childDiv
+                            .style("left", constrainedLeft + "px")
+                            .style("top", constrainedTop + "px");
+                        
+                        console.log(`Child moved to: ${constrainedLeft}, ${constrainedTop}`);
+                        
+                        // Update connections in real-time
+                        if (activeConnections.has(childFrame.frameName)) {
+                            updateAllConnections();
+                        }
+                    }
+
+                    function handleMouseUp(upEvent) {
+                        if (!isDragging) return;
+                        
+                        console.log(`Ending drag for child: ${childFrame.frameName}`);
+                        
+                        // Stop propagation on mouse up too
+                        if (upEvent) {
+                            upEvent.preventDefault();
+                            upEvent.stopPropagation();
+                            upEvent.stopImmediatePropagation();
+                        }
+                        
+                        isDragging = false;
+                        
+                        // Reset visual feedback
+                        childDiv.style("z-index", null);
+                        childDiv.style("opacity", null);
+                        
+                        d3.select("body").style("user-select", null);
+                        d3.select(window).on("mousemove.childDrag", null);
+                        d3.select(window).on("mouseup.childDrag", null);
+                        
+                        // Final connection update
+                        if (activeConnections.has(childFrame.frameName)) {
+                            updateAllConnections();
+                        }
+                    }
+
+                    // Bind events to window for global mouse tracking
+                    d3.select(window).on("mousemove.childDrag", handleMouseMove);
+                    d3.select(window).on("mouseup.childDrag", handleMouseUp);
+                    
+                    // Return false to further prevent event bubbling
+                    return false;
+                });
+        }
+
+        // Create child frames with scroll handling
+        function createChildFrames(container, parentFrame, containerWidth) {
+            const childrenPerRow = Math.ceil(Math.sqrt(parentFrame.childFrames.length));
+            const childCardWidth = Math.min(cardWidth * 0.8, (containerWidth - 80) / childrenPerRow - 20);
+            const childCardHeight = 220;
+            
+            parentFrame.childFrames.forEach((child, index) => {
+                const childFrame = allFrames.get(child.frameName);
+                if (!childFrame) return;
+
+                const row = Math.floor(index / childrenPerRow);
+                const col = index % childrenPerRow;
+                
+                const xPos = col * (childCardWidth + 20) + 20;
+                const yPos = row * (childCardHeight + 20) + 20;
+
+                const childDiv = container.append("div")
+                    .style("position", "absolute")
+                    .style("left", xPos + "px")
+                    .style("top", yPos + "px")
+                    .style("width", childCardWidth + "px")
+                    .style("height", childCardHeight + "px");
+
+                const childCard = childDiv.append("div")
+                    .attr("class", `frame-card ${childFrame.frameType}`)
+                    .style("width", "100%")
+                    .style("height", "100%")
+                    .style("position", "relative")
+                    .style("box-shadow", "0 4px 15px rgba(0, 0, 0, 0.1)")
+                    .style("min-width", "200px")
+                    .style("min-height", "180px");
+
+                const childHeader = childCard.append("div")
+                    .attr("class", `frame-header ${childFrame.frameType}`)
+                    .style("padding", "10px")
+                    .style("font-size", "14px");
+
+                childHeader.append("div")
+                    .attr("class", "frame-connection-box")
+                    .classed("connections-active", activeConnections.has(childFrame.frameName))
+                    .attr("title", "Click to toggle connections for this component")
+                    .on("click", function(event) {
+                        event.stopPropagation();
+                        toggleComponentConnections(childFrame.frameName);
+                    });
+
+                childHeader.append("div")
+                    .attr("class", "frame-title")
+                    .style("font-size", "13px")
+                    .text(childFrame.frameName);
+
+                childHeader.append("div")
+                    .attr("class", "frame-stats")
+                    .style("font-size", "10px")
+                    .text(`${childFrame.frameElements.length}e`);
+
+                // Child elements with scroll handling
+                const childElements = childCard.append("div")
+                    .attr("class", "frame-elements")
+                    .style("padding", "8px")
+                    .style("max-height", (childCardHeight - 70) + "px")
+                    .style("overflow-y", "auto")
+                    .style("overflow-x", "hidden")
+                    .on("scroll", function() {
+                        // Update connections when child elements scroll
+                        if (activeConnections.size > 0) {
+                            clearTimeout(this.scrollTimeout);
+                            this.scrollTimeout = setTimeout(() => {
+                                updateAllConnections();
+                            }, 50); // Reduced delay for more responsive updates
+                        }
+                    });
+
+                childFrame.frameElements.forEach(element => {
+                    const elementDiv = childElements.append("div")
+                        .attr("class", "frame-element")
+                        .style("margin", "4px 0")
+                        .style("padding", "8px")
+                        .style("font-size", "12px")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            highlightElement(element.elementName);
+                        });
+
+                    elementDiv.append("div")
+                        .attr("class", "connection-box")
+                        .style("width", "6px")
+                        .style("height", "6px")
+                        .style("margin-right", "8px")
+                        .on("click", function(event) {
+                            event.stopPropagation();
+                            if (activeConnections.has(childFrame.frameName)) {
+                                toggleElementFocus(element.elementName, childFrame.frameName);
+                            }
+                        });
+
+                    elementDiv.append("span")
+                        .text(element.elementName);
+                });
+            });
+        }
+
+        // Toggle frame expansion
+        function toggleFrameExpansion(frame) {
+            frame.isExpanded = !frame.isExpanded;
+            createFrameCards();
+            if (connectionsVisible) {
+                setTimeout(() => updateAllConnections(), 300);
+            }
+        }
+
+        // Toggle frame selection
+        function toggleFrameSelection(frame) {
+            const isSelected = d3.selectAll(".frame-card").classed("selected");
+            d3.selectAll(".frame-card").classed("selected", false);
+            
+            if (!isSelected) {
+                d3.selectAll(".frame-card")
+                    .filter(d => d.frameName === frame.frameName)
+                    .classed("selected", true);
+            }
+        }
+
+        // Highlight elements
+        function highlightElement(elementName) {
+            const isHighlighted = d3.selectAll(".frame-element")
+                .filter(function() {
+                    return d3.select(this).select("span").text() === elementName;
+                })
+                .classed("highlighted");
+            
+            d3.selectAll(".frame-element").classed("highlighted", false);
+            
+            if (!isHighlighted) {
+                d3.selectAll(".frame-element")
+                    .filter(function() {
+                        return d3.select(this).select("span").text() === elementName;
+                    })
+                    .classed("highlighted", true);
+            }
+        }
+
+        // Focus mode functions
+        function toggleElementFocus(elementName, frameName) {
+            if (focusMode && selectedElement && 
+                selectedElement.element === elementName && 
+                selectedElement.frame === frameName) {
+                exitFocusMode();
+            } else {
+                activateElementFocusMode(elementName, frameName);
+            }
+        }
+
+        function toggleFrameFocus(frameName) {
+            if (focusMode && selectedElement && 
+                selectedElement.type === 'frame' && 
+                selectedElement.frame === frameName) {
+                exitFocusMode();
+            } else {
+                activateFrameFocusMode(frameName);
+            }
+        }
+
+        function activateElementFocusMode(elementName, frameName) {
+            focusMode = true;
+            selectedElement = {type: 'element', element: elementName, frame: frameName};
+            
+            const relatedConnections = frameElementRelations.filter(rel => 
+                (rel.sourceFrame === frameName && rel.sourceElement === elementName) ||
+                (rel.targetFrame === frameName && rel.targetElement === elementName)
+            );
+            
+            const relatedFrames = new Set([frameName]);
+            relatedConnections.forEach(rel => {
+                relatedFrames.add(rel.sourceFrame);
+                relatedFrames.add(rel.targetFrame);
+            });
+            
+            d3.selectAll(".frame-card").each(function(d) {
+                const card = d3.select(this);
+                if (relatedFrames.has(d.frameName)) {
+                    card.classed("focused", d.frameName === frameName);
+                    card.classed("dimmed", false);
+                } else {
+                    card.classed("dimmed", true);
+                    card.classed("focused", false);
+                }
+            });
+            
+            hideAllConnections();
+            relatedConnections.forEach(rel => {
+                drawConnection(rel, true);
+            });
+        }
+
+        function activateFrameFocusMode(frameName) {
+            focusMode = true;
+            selectedElement = {type: 'frame', frame: frameName};
+            
+            const frame = allFrames.get(frameName);
+            const relatedFrames = new Set([frameName]);
+            
+            if (frame && frame.isExpanded) {
+                frame.childFrames.forEach(child => {
+                    relatedFrames.add(child.frameName);
+                });
+            }
+            
+            d3.selectAll(".frame-card").each(function(d) {
+                const card = d3.select(this);
+                if (relatedFrames.has(d.frameName)) {
+                    card.classed("focused", d.frameName === frameName);
+                    card.classed("dimmed", false);
+                } else {
+                    card.classed("dimmed", true);
+                    card.classed("focused", false);
+                }
+            });
+        }
+
+        // Toggle connections for a specific component
+        function toggleComponentConnections(componentFrameName) {
+            if (activeConnections.has(componentFrameName)) {
+                // Hide connections for this component
+                activeConnections.delete(componentFrameName);
+                
+                // Remove all connections related to this component
+                const relatedConnections = frameElementRelations.filter(rel => 
+                    rel.targetFrame === componentFrameName || rel.sourceFrame === componentFrameName
+                );
+                
+                relatedConnections.forEach(rel => {
+                    const connectionId = `connection-${rel.sourceFrame}-${rel.sourceElement}-${rel.targetFrame}-${rel.targetElement}`.replace(/[^a-zA-Z0-9-_]/g, '_');
+                    svg.select(`#${connectionId}`).remove();
+                });
+            } else {
+                // Show connections for this component
+                activeConnections.add(componentFrameName);
+                
+                // Draw connections related to this component
+                const relatedConnections = frameElementRelations.filter(rel => 
+                    rel.targetFrame === componentFrameName || rel.sourceFrame === componentFrameName
+                );
+                
+                relatedConnections.forEach(rel => {
+                    drawConnection(rel, false);
+                });
+            }
+            
+            // Update the toggle icon appearance
+            updateConnectionToggles();
+            updateStats();
+        }
+
+        // Update visual state of connection toggles
+        function updateConnectionToggles() {
+            d3.selectAll(".child-frames-container .frame-connection-box").each(function() {
+                const connectionBox = d3.select(this);
+                const parentHeader = d3.select(this.parentNode);
+                const frameName = parentHeader.select('.frame-title').text();
+                
+                connectionBox.classed("connections-active", activeConnections.has(frameName));
+            });
+        }
+
+        // Show all component connections
+        function showAllConnections() {
+            // Get all child frame names
+            const childFrameNames = Array.from(allFrames.values())
+                .filter(frame => frame.frameType === 'child')
+                .map(frame => frame.frameName);
+            
+            childFrameNames.forEach(frameName => {
+                if (!activeConnections.has(frameName)) {
+                    toggleComponentConnections(frameName);
+                }
+            });
+        }
+
+        // Hide all component connections
+        function hideAllConnections() {
+            // Clear all active connections
+            const activeConnectionsCopy = new Set(activeConnections);
+            activeConnectionsCopy.forEach(frameName => {
+                toggleComponentConnections(frameName);
+            });
+            
+            // Also exit focus mode
+            exitFocusMode();
+        }
+
+        function getElementPosition(frameName, elementName) {
+            let position = null;
+            
+            const frame = allFrames.get(frameName);
+            if (!frame) return null;
+            
+            // Search in all frame elements (both main and child cards)
+            d3.selectAll(".frame-element").each(function() {
+                if (position !== null) return;
+                
+                const elementText = d3.select(this).select("span").text();
+                if (elementText === elementName) {
+                    // Check if this element belongs to the correct frame
+                    const parentCard = d3.select(this.closest('.frame-card'));
+                    const parentGroup = d3.select(this.closest('.card-group'));
+                    
+                    let isCorrectFrame = false;
+                    
+                    // Check if it's in a main card (scenario)
+                    if (parentGroup.datum() && parentGroup.datum().frameName === frameName) {
+                        isCorrectFrame = true;
+                    }
+                    // Check if it's in a child card (component)
+                    else {
+                        const headerText = parentCard.select('.frame-title').text();
+                        if (headerText === frameName) {
+                            isCorrectFrame = true;
+                        }
+                    }
+                    
+                    if (isCorrectFrame) {
+                        const connectionBox = d3.select(this).select(".connection-box").node();
+                        if (connectionBox) {
+                            try {
+                                // Force multiple layout recalculations to ensure fresh positions
+                                connectionBox.getBoundingClientRect();
+                                this.offsetTop; // Force reflow
+                                connectionBox.getBoundingClientRect();
+                                
+                                const svgRect = svg.node().getBoundingClientRect();
+                                const boxRect = connectionBox.getBoundingClientRect();
+                                
+                                // Calculate center of connection box
+                                const boxCenterX = boxRect.left + boxRect.width/2 - svgRect.left;
+                                const boxCenterY = boxRect.top + boxRect.height/2 - svgRect.top;
+                                
+                                // Account for current zoom/pan transform
+                                const transform = d3.zoomTransform(svg.node());
+                                
+                                position = {
+                                    x: (boxCenterX - transform.x) / transform.k,
+                                    y: (boxCenterY - transform.y) / transform.k
+                                };
+                                
+                                // Debug: log when we get new positions
+                                if (Date.now() % 1000 < 100) { // Log occasionally to avoid spam
+                                    console.log(`Fresh position for ${frameName}::${elementName}: x=${position.x.toFixed(2)}, y=${position.y.toFixed(2)}, boxLeft=${boxRect.left.toFixed(2)}`);
+                                }
+                            } catch (e) {
+                                console.warn("Error calculating position for", frameName, elementName, ":", e);
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // If not found in frame elements, check frame headers for scenario frames
+            if (position === null && frame.frameType === 'scenario') {
+                // Look for the frame header connection box
+                d3.selectAll(".card-group").each(function(d) {
+                    if (position === null && d && d.frameName === frameName) {
+                        const headerConnectionBox = d3.select(this).select(".frame-connection-box").node();
+                        if (headerConnectionBox) {
+                            try {
+                                // Force multiple layout recalculations
+                                headerConnectionBox.getBoundingClientRect();
+                                this.offsetTop;
+                                headerConnectionBox.getBoundingClientRect();
+                                
+                                const svgRect = svg.node().getBoundingClientRect();
+                                const boxRect = headerConnectionBox.getBoundingClientRect();
+                                
+                                const boxCenterX = boxRect.left + boxRect.width/2 - svgRect.left;
+                                const boxCenterY = boxRect.top + boxRect.height/2 - svgRect.top;
+                                
+                                const transform = d3.zoomTransform(svg.node());
+                                
+                                position = {
+                                    x: (boxCenterX - transform.x) / transform.k,
+                                    y: (boxCenterY - transform.y) / transform.k
+                                };
+                            } catch (e) {
+                                console.warn("Error calculating header position for", frameName, ":", e);
+                            }
+                        }
+                    }
+                });
+            }
+            
+            return position;
+        }
+
+        // Enhanced connection drawing with better line anchoring
+        function drawConnection(relation, isActive = false) {
+            const sourcePos = getElementPosition(relation.sourceFrame, relation.sourceElement);
+            const targetPos = getElementPosition(relation.targetFrame, relation.targetElement);
+            
+            if (!sourcePos || !targetPos) {
+                console.warn("Could not find positions for connection:", relation.sourceFrame, relation.sourceElement, "->", relation.targetFrame, relation.targetElement);
+                return;
+            }
+            
+            // Reduced debug logging
+            // console.log(`[${Date.now()}] Drawing connection: ${relation.sourceFrame}::${relation.sourceElement} (${sourcePos.x.toFixed(2)}, ${sourcePos.y.toFixed(2)}) -> ${relation.targetFrame}::${relation.targetElement} (${targetPos.x.toFixed(2)}, ${targetPos.y.toFixed(2)})`);
+            
+            const connectionId = `connection-${relation.sourceFrame}-${relation.sourceElement}-${relation.targetFrame}-${relation.targetElement}`.replace(/[^a-zA-Z0-9-_]/g, '_');
+            
+            // Remove existing connection
+            const existingConnection = svg.select(`#${connectionId}`);
+            if (!existingConnection.empty()) {
+                existingConnection.remove();
+            }
+            
+            // Create curved path between connection boxes
+            const path = d3.path();
+            const dx = targetPos.x - sourcePos.x;
+            const dy = targetPos.y - sourcePos.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const dr = Math.min(distance * 0.3, 100); // Limit curve intensity
+            
+            path.moveTo(sourcePos.x, sourcePos.y);
+            path.quadraticCurveTo(
+                sourcePos.x + dx/2 + (dy > 0 ? dr : -dr),
+                sourcePos.y + dy/2 + (dx > 0 ? -dr : dr),
+                targetPos.x,
+                targetPos.y
+            );
+            
+            // Add connection line to SVG with forced refresh
+            const connectionLine = svg.append("path")
+                .attr("id", connectionId)
+                .attr("class", isActive ? "connection-line active" : "connection-line")
+                .attr("d", path.toString())
+                .style("stroke-width", isActive ? "3px" : "2px")
+                .style("stroke", isActive ? "#ff6b6b" : "#28a745")
+                .style("opacity", 0) // Start invisible
+                .on("mouseover", function(event) {
+                    connectionTooltip
+                        .style("opacity", 1)
+                        .html(`<strong>${relation.relationType}</strong><br>${relation.sourceFrame}::${relation.sourceElement}<br>↓<br>${relation.targetFrame}::${relation.targetElement}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 10) + "px");
+                })
+                .on("mouseout", function() {
+                    connectionTooltip.style("opacity", 0);
+                });
+            
+            // Force visibility with transition
+            connectionLine.transition()
+                .duration(50)
+                .style("opacity", isActive ? 1 : 0.7);
+            
+            // Add arrow marker to show direction
+            if (!svg.select("#arrowhead").node()) {
+                svg.append("defs").append("marker")
+                    .attr("id", "arrowhead")
+                    .attr("viewBox", "0 -5 10 10")
+                    .attr("refX", 8)
+                    .attr("refY", 0)
+                    .attr("markerWidth", 6)
+                    .attr("markerHeight", 6)
+                    .attr("orient", "auto")
+                    .append("path")
+                    .attr("d", "M0,-5L10,0L0,5")
+                    .attr("fill", "#28a745");
+            }
+            
+            connectionLine.attr("marker-end", "url(#arrowhead)");
+        }
+
+        function exitFocusMode() {
+            focusMode = false;
+            selectedElement = null;
+            
+            d3.selectAll(".frame-card")
+                .classed("focused", false)
+                .classed("dimmed", false);
+            
+            // Restore connections for active components
+            updateAllConnections();
+        }
+
+        function updateAllConnections() {
+            // Clear all connections first
+            svg.selectAll(".connection-line").remove();
+            
+            if (focusMode && selectedElement) {
+                // In focus mode, show only related connections
+                if (selectedElement.type === 'element') {
+                    const relatedConnections = frameElementRelations.filter(rel => 
+                        (rel.sourceFrame === selectedElement.frame && rel.sourceElement === selectedElement.element) ||
+                        (rel.targetFrame === selectedElement.frame && rel.targetElement === selectedElement.element)
+                    );
+                    relatedConnections.forEach(rel => drawConnection(rel, true));
+                }
+            } else {
+                // Normal mode - show connections for active components only
+                activeConnections.forEach(componentFrameName => {
+                    const relatedConnections = frameElementRelations.filter(rel => 
+                        rel.targetFrame === componentFrameName || rel.sourceFrame === componentFrameName
+                    );
+                    
+                    relatedConnections.forEach(rel => {
+                        const sourceFrame = allFrames.get(rel.sourceFrame);
+                        const targetFrame = allFrames.get(rel.targetFrame);
+                        
+                        if (sourceFrame && targetFrame && 
+                            !hiddenFrames.has(rel.sourceFrame) && 
+                            !hiddenFrames.has(rel.targetFrame)) {
+                            drawConnection(rel, false);
+                        }
+                    });
+                });
+            }
+        }
+
+        function markConnectedElements() {
+            frameElementRelations.forEach(rel => {
+                d3.selectAll(".frame-element").each(function() {
+                    const elementText = d3.select(this).select("span").text();
+                    const parentCard = d3.select(this.closest('.frame-card'));
+                    const parentGroup = d3.select(this.closest('.card-group'));
+                    
+                    let frameName = null;
+                    if (parentGroup.datum()) {
+                        frameName = parentGroup.datum().frameName;
+                    } else {
+                        frameName = parentCard.select('.frame-title').text();
+                    }
+                    
+                    if (frameName && (
+                        (frameName === rel.sourceFrame && elementText === rel.sourceElement) ||
+                        (frameName === rel.targetFrame && elementText === rel.targetElement)
+                    )) {
+                        d3.select(this).classed("connected", true);
+                    }
+                });
+            });
+        }
+
+        function collapseAll() {
+            allFrames.forEach(frame => {
+                frame.isExpanded = false;
+            });
+            createFrameCards();
+            updateAllConnections();
+        }
+
+        function expandAll() {
+            allFrames.forEach(frame => {
+                if (frame.childFrames.length > 0) {
+                    frame.isExpanded = true;
+                }
+            });
+            createFrameCards();
+            updateAllConnections();
+        }
+
+        function toggleConnections() {
+            connectionsVisible = !connectionsVisible;
+            
+            if (connectionsVisible) {
+                d3.select("#toggleConnections").text("Hide Connections");
+                updateAllConnections();
+            } else {
+                d3.select("#toggleConnections").text("Show Connections");
+                hideAllConnections();
+                exitFocusMode();
+            }
+        }
+
+        function hideFrame(frameName) {
+            hiddenFrames.add(frameName);
+            
+            // If this was an active connection component, remove it
+            if (activeConnections.has(frameName)) {
+                toggleComponentConnections(frameName);
+            }
+            
+            createFrameCards();
+            updateAllConnections();
+            updateStats();
+        }
+
+        function arrangeGrid() {
+            const visibleFrames = Array.from(allFrames.values()).filter(frame => 
+                !hiddenFrames.has(frame.frameName) && frame.level === 0
+            );
+            
+            const cols = Math.ceil(Math.sqrt(visibleFrames.length));
+            
+            visibleFrames.forEach((frame, i) => {
+                const col = i % cols;
+                const row = Math.floor(i / cols);
+                frame.x = (col * (cardWidth + cardPadding)) + cardWidth/2 + 100;
+                frame.y = (row * (cardHeight + cardPadding)) + cardHeight/2 + 100;
+            });
+            
+            createFrameCards();
+            updateAllConnections();
+        }
+
+        function arrangeCircle() {
+            const visibleFrames = Array.from(allFrames.values()).filter(frame => 
+                !hiddenFrames.has(frame.frameName) && frame.level === 0
+            );
+            
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = Math.min(width, height) / 3;
+            
+            visibleFrames.forEach((frame, i) => {
+                const angle = (i / visibleFrames.length) * 2 * Math.PI;
+                frame.x = centerX + radius * Math.cos(angle);
+                frame.y = centerY + radius * Math.sin(angle);
+            });
+            
+            createFrameCards();
+            updateAllConnections();
+        }
+
+        function resetView() {
+            hiddenFrames.clear();
+            activeConnections.clear(); // Clear all active connections
+            exitFocusMode();
+            collapseAll();
+            arrangeGrid();
+            
+            svg.transition().duration(750).call(
+                zoom.transform,
+                d3.zoomIdentity
+            );
+        }
+
+        // Drag functions
+        function dragStarted(event, d) {
+            d3.select(this).raise();
+        }
+
+        function dragged(event, d) {
+            d.x = event.x;
+            d.y = event.y;
+            d3.select(this).attr("transform", `translate(${d.x}, ${d.y})`);
+            
+            // Update connections immediately during drag
+            if (activeConnections.size > 0) {
+                updateAllConnections();
+            }
+        }
+
+        function dragEnded(event, d) {
+            // Final connection update after drag ends
+            if (activeConnections.size > 0) {
+                updateAllConnections();
+            }
+        }
+
+        // Search functionality
+        function setupSearch() {
+            d3.select("#search").on("input", function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                if (searchTerm === "") {
+                    d3.selectAll(".frame-card").style("opacity", 1);
+                    d3.selectAll(".frame-element").classed("highlighted", false);
+                } else {
+                    d3.selectAll(".frame-card").each(function(d) {
+                        const card = d3.select(this);
+                        const frameMatch = d.frameName.toLowerCase().includes(searchTerm);
+                        const elementMatch = d.frameElements.some(el => 
+                            el.elementName.toLowerCase().includes(searchTerm)
+                        );
+                        
+                        if (frameMatch || elementMatch) {
+                            card.style("opacity", 1);
+                            card.selectAll(".frame-element").each(function() {
+                                const elementText = d3.select(this).select("span").text();
+                                const match = elementText.toLowerCase().includes(searchTerm);
+                                d3.select(this).classed("highlighted", match);
+                            });
+                        } else {
+                            card.style("opacity", 0.3);
+                        }
+                    });
+                }
+            });
+        }
+
+        function updateStats() {
+            const visibleFrames = Array.from(allFrames.values()).filter(f => 
+                !hiddenFrames.has(f.frameName) && f.level === 0
+            );
+            const totalElements = visibleFrames.reduce((sum, frame) => 
+                sum + frame.frameElements.length, 0
+            );
+            const expandedFrames = visibleFrames.filter(f => f.isExpanded).length;
+            const activeConnectionsCount = activeConnections.size;
+            
+            d3.select("#stats").html(`
+                <strong>Scenario Frames:</strong> ${visibleFrames.length} 
+                (${expandedFrames} expanded)<br>
+                <strong>Frame Elements:</strong> ${totalElements}<br>
+                <strong>Active Connections:</strong> ${activeConnectionsCount} components
+                ${hiddenFrames.size > 0 ? `<br><strong>Hidden:</strong> ${hiddenFrames.size}` : ''}
+            `);
+        }
+
+        // Setup controls
+        function setupControls() {
+            d3.select("#expandAll").on("click", expandAll);
+            d3.select("#collapseAll").on("click", collapseAll);
+            d3.select("#showAllConnections").on("click", showAllConnections);
+            d3.select("#hideAllConnections").on("click", hideAllConnections);
+            d3.select("#arrangeGrid").on("click", arrangeGrid);
+            d3.select("#arrangeCircle").on("click", arrangeCircle);
+            d3.select("#resetView").on("click", resetView);
+        }
+
+        // Initialize
+        function init() {
+            initializeData();
+            setupControls();
+            setupSearch();
+            createFrameCards();
+            updateStats();
+        }
+
+        // Handle window resize
+        window.addEventListener("resize", () => {
+            const newWidth = window.innerWidth;
+            const newHeight = window.innerHeight;
+            svg.attr("width", newWidth).attr("height", newHeight);
+        });
+
+        // Start the visualization
+        init();
+    </script>
+</body>
+</html>)
