@@ -1030,9 +1030,9 @@ class OntologyBrowser {
             }, 300);
         });
 
-        // Clear search (using the new method that doesn't reset page state)
+        // Clear search
         this.clearSearch.addEventListener('click', () => {
-            this.clearSearchDropdown();
+            this.clearSearchResults();
         });
 
         // Expand/Collapse all
@@ -1073,7 +1073,7 @@ class OntologyBrowser {
             }
 
             if (e.key === 'Escape') {
-                this.clearSearchDropdown();
+                this.clearSearchResults();
             }
         });
     }
@@ -1171,157 +1171,134 @@ class OntologyBrowser {
 
     performSearch(searchTerm) {
         if (!searchTerm || searchTerm.length < 2) {
-            this.clearSearchDropdown();
+            this.clearSearchResults();
             return;
         }
 
         const term = searchTerm.toLowerCase();
-        const matches = [];
+        let matchCount = 0;
 
-        // Search only in class names
         this.allCards.forEach(card => {
             // Get class name from data attribute or card content
             const className = card.dataset.className || '';
 
-        // Get the class name from the header (remove any parent info in brackets)
+        // Get the class name from the header
         const headerElement = card.querySelector('h3, h4, h5, h6');
-        let headerText = '';
-        if (headerElement) {
-            // Extract just the class name, removing parent info like "[ParentClass]"
-            headerText = headerElement.textContent.replace(/\s*\[.*?\]\s*$/, '').trim().toLowerCase();
-        }
+        const headerText = headerElement ? headerElement.textContent.toLowerCase() : '';
 
-        // Check if search term matches class name only
-        const isMatch = className.includes(term) || headerText.includes(term);
+        // Get definition text
+        const definitionElement = card.querySelector('.definition');
+        const definitionText = definitionElement ? definitionElement.textContent.toLowerCase() : '';
+
+        // Check if search term matches class name, header, or definition
+        const isMatch = className.includes(term) ||
+        headerText.includes(term) ||
+        definitionText.includes(term);
 
         if (isMatch) {
-            const classId = card.id || this.generateIdFromCard(card);
-            const displayName = headerText || className || 'Unknown Class';
+            card.style.display = 'block';
+        card.classList.add('fade-in');
+        this.highlightSearchTerms(card, searchTerm);
+        matchCount++;
 
-        matches.push({
-            id: classId,
-            name: this.capitalizeFirstLetter(displayName),
-                     element: card
-        });
-        }
-        });
-
-        // Sort matches alphabetically
-        matches.sort((a, b) => a.name.localeCompare(b.name));
-
-        this.showSearchResults(matches.length, matches);
-
-        console.log(`Search for "${searchTerm}" found ${matches.length} class name matches`);
-    }
-
-    // Note: Search highlighting removed - now showing results as clickable list instead
-
-    reinitializeCardEvents(card) {
-        const toggleBtn = card.querySelector('.toggle-subclasses-btn');
-        if (toggleBtn) {
-            const targetId = toggleBtn.dataset.target;
-            if (targetId) {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Remove any existing event listeners by cloning the button
-                    const newToggleBtn = toggleBtn.cloneNode(true);
-                    toggleBtn.parentNode.replaceChild(newToggleBtn, toggleBtn);
-
-                    // Add fresh event listener
-                    newToggleBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        this.toggleSubclasses(newToggleBtn, targetElement);
-                    });
-                }
-            }
-        }
-    }
-
-    showParentCards(card) {
-        let parent = card.parentElement;
-        while (parent && !parent.classList.contains('container')) {
-            if (parent.classList.contains('class-card')) {
-                parent.style.display = 'block';
-                parent.style.visibility = 'visible';
-            }
-            if (parent.classList.contains('subclass-container')) {
-                parent.classList.remove('hidden');
-                parent.style.display = 'block';
-                // Update corresponding toggle button
-                const parentCard = parent.closest('.class-card');
-                if (parentCard) {
-                    const toggleBtn = parentCard.querySelector('.toggle-subclasses-btn');
-                    if (toggleBtn) {
-                        toggleBtn.setAttribute('aria-expanded', 'true');
-                    }
-                }
-            }
-            parent = parent.parentElement;
-        }
-    }
-
-    showSearchResults(count, matches = []) {
-        this.searchCount.textContent = count;
-        this.searchResults.classList.remove('hidden');
-
-        // Create or update the search results list
-        let resultsContainer = document.getElementById('search-results-list');
-        if (!resultsContainer) {
-            resultsContainer = document.createElement('div');
-            resultsContainer.id = 'search-results-list';
-            resultsContainer.className = 'mt-3 max-h-60 overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-lg';
-            this.searchResults.appendChild(resultsContainer);
-        }
-
-        // Clear previous results
-        resultsContainer.innerHTML = '';
-
-        if (matches.length > 0) {
-            const list = document.createElement('ul');
-            list.className = 'py-2';
-
-            matches.forEach(match => {
-                const listItem = document.createElement('li');
-                listItem.className = 'px-4 py-2 hover:bg-blue-50 border-b border-gray-100 last:border-b-0';
-
-            const link = document.createElement('a');
-            link.href = `#${match.id}`;
-            link.className = 'block text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150';
-            link.textContent = match.name;
-
-            // Add click handler to navigate to the class
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.navigateToClass(match.id, match.element);
-            });
-
-            listItem.appendChild(link);
-            list.appendChild(listItem);
-            });
-
-            resultsContainer.appendChild(list);
+        // Show parent cards if this is a match
+        this.showParentCards(card);
         } else {
-            resultsContainer.innerHTML = '<div class="px-4 py-3 text-gray-500 text-center">No classes found</div>';
+            card.style.display = 'none';
+        card.classList.remove('fade-in');
         }
+        });
+
+        this.showSearchResults(matchCount);
     }
 
-    clearSearchResults() {
-        this.searchInput.value = '';
+    highlightSearchTerms(card, searchTerm) {
+        // Get the key that was used when storing
+        const cardIndex = Array.from(this.allCards).indexOf(card);
+        const key = card.dataset.classUri || card.id || `card-${cardIndex}`;
+        const originalContent = this.originalContent.get(key);
+
+        if (!originalContent) {
+            console.warn('No original content found for card:', key);
+            return;
+        }
+
+        // Only highlight if we have a valid search term
+        if (!searchTerm || searchTerm.length < 2) {
+            card.innerHTML = originalContent;
+            this.reinitializeCardEvents(card);
+            return;
+        }
+
+        const regex = new RegExp(`(${this.escapeRegExp(searchTerm)})`, 'gi');
+        const highlightedContent = originalContent.replace(regex, '<span class="highlight">$1</span>');
+        card.innerHTML = highlightedContent;
+
+        // Reinitialize event listeners for this card
+        this.reinitializeCardEvents(card);
+    }
+
+    escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\            highlightSearchTerms(card, searchTerm) {
+        const originalContent = this.originalContent.get(card.dataset.classUri || card.id);
+        if (!originalContent) return;
+
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        const highlightedContent = originalContent.replace(regex, '<span class="highlight">$1</span>');
+        card.innerHTML = highlightedContent;
+
+        // Reinitialize event listeners for this card
+        this.reinitializeCardEvents(card);
+    }');
+}
+
+reinitializeCardEvents(card) {
+    const toggleBtn = card.querySelector('.toggle-subclasses-btn');
+    if (toggleBtn) {
+        const targetId = toggleBtn.dataset.target;
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.toggleSubclasses(toggleBtn, targetElement);
+            });
+        }
+    }
+}
+
+showParentCards(card) {
+    let parent = card.parentElement;
+    while (parent && !parent.classList.contains('ontology-docs')) {
+        if (parent.classList.contains('class-card')) {
+            parent.style.display = 'block';
+        }
+        if (parent.classList.contains('subclass-container')) {
+            parent.classList.remove('hidden');
+            // Update corresponding toggle button
+            const toggleBtn = parent.parentElement.querySelector('.toggle-subclasses-btn');
+            if (toggleBtn) {
+                toggleBtn.setAttribute('aria-expanded', 'true');
+            }
+        }
+        parent = parent.parentElement;
+    }
+}
+
+showSearchResults(count) {
+    this.searchCount.textContent = count;
+    this.searchResults.classList.remove('hidden');
+}
+
+clearSearchResults() {
+    this.searchInput.value = '';
         this.searchResults.classList.add('hidden');
 
-        // Remove the search results list
-        const resultsContainer = document.getElementById('search-results-list');
-        if (resultsContainer) {
-            resultsContainer.remove();
-        }
-
-        // Ensure all cards are visible in their normal state
+        // Restore original content and visibility
         this.allCards.forEach((card, index) => {
             card.style.display = 'block';
-        card.style.visibility = 'visible';
         card.classList.remove('fade-in');
 
-        // Restore original content (remove any highlighting)
         const key = card.dataset.classUri || card.id || `card-${index}`;
         const originalContent = this.originalContent.get(key);
         if (originalContent) {
@@ -1330,7 +1307,7 @@ class OntologyBrowser {
         }
         });
 
-        // Reset all subclass containers to hidden (normal state)
+        // Reset all subclass containers to hidden
         document.querySelectorAll('.subclass-container').forEach(container => {
             container.classList.add('hidden');
         });
@@ -1339,12 +1316,10 @@ class OntologyBrowser {
         document.querySelectorAll('.toggle-subclasses-btn').forEach(button => {
             button.setAttribute('aria-expanded', 'false');
         });
+}
 
-        console.log('Search cleared');
-    }
-
-    toggleSubclasses(button, targetElement) {
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+toggleSubclasses(button, targetElement) {
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
         button.setAttribute('aria-expanded', !isExpanded);
         targetElement.classList.toggle('hidden');
 
@@ -1355,10 +1330,10 @@ class OntologyBrowser {
                 targetElement.classList.remove('fade-in');
             }, 500);
         }
-    }
+}
 
-    toggleAllSubclasses(expand) {
-        const action = expand ? 'remove' : 'add';
+toggleAllSubclasses(expand) {
+    const action = expand ? 'remove' : 'add';
         const ariaValue = expand ? 'true' : 'false';
 
         document.querySelectorAll('.subclass-container').forEach(container => {
@@ -1377,87 +1352,27 @@ class OntologyBrowser {
             this.expandAllBtn.disabled = false;
             this.collapseAllBtn.disabled = false;
         }, 1000);
+}
+
+focusNextCard(currentIndex) {
+    const visibleCards = Array.from(this.allCards).filter(card =>
+    card.style.display !== 'none'
+    );
+    const nextIndex = (currentIndex + 1) % visibleCards.length;
+    if (visibleCards[nextIndex]) {
+        visibleCards[nextIndex].focus();
     }
+}
 
-    focusNextCard(currentIndex) {
-        const visibleCards = Array.from(this.allCards).filter(card =>
-        card.style.display !== 'none'
-        );
-        const nextIndex = (currentIndex + 1) % visibleCards.length;
-        if (visibleCards[nextIndex]) {
-            visibleCards[nextIndex].focus();
-        }
+focusPreviousCard(currentIndex) {
+    const visibleCards = Array.from(this.allCards).filter(card =>
+    card.style.display !== 'none'
+    );
+    const prevIndex = currentIndex === 0 ? visibleCards.length - 1 : currentIndex - 1;
+    if (visibleCards[prevIndex]) {
+        visibleCards[prevIndex].focus();
     }
-
-    focusPreviousCard(currentIndex) {
-        const visibleCards = Array.from(this.allCards).filter(card =>
-        card.style.display !== 'none'
-        );
-        const prevIndex = currentIndex === 0 ? visibleCards.length - 1 : currentIndex - 1;
-        if (visibleCards[prevIndex]) {
-            visibleCards[prevIndex].focus();
-        }
-    }
-
-    // Helper methods for the new search functionality
-    generateIdFromCard(card) {
-        const headerElement = card.querySelector('h3, h4, h5, h6');
-        if (headerElement && headerElement.id) {
-            return headerElement.id;
-        }
-
-        // Try to generate an ID from the class name
-        const className = card.dataset.className || '';
-        if (className) {
-            return 'class-' + className.replace(/[^a-z0-9]/gi, '-').toLowerCase();
-        }
-
-        return 'class-unknown-' + Math.random().toString(36).substr(2, 9);
-    }
-
-    capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
-    navigateToClass(classId, element) {
-        // First expand all to ensure the target is visible
-        this.toggleAllSubclasses(true);
-
-        // Wait for expansion animation, then scroll
-        setTimeout(() => {
-            const targetElement = document.getElementById(classId) || element;
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-
-                // Add temporary highlight
-                targetElement.classList.add('highlight-target');
-                setTimeout(() => {
-                    targetElement.classList.remove('highlight-target');
-                }, 2000);
-
-                // Clear only the search results dropdown, but keep everything expanded
-                this.clearSearchDropdown();
-            }
-        }, 100);
-    }
-
-    // Clear only the search dropdown, not the entire page state
-    clearSearchDropdown() {
-        this.searchInput.value = '';
-        this.searchResults.classList.add('hidden');
-
-        // Remove the search results list
-        const resultsContainer = document.getElementById('search-results-list');
-        if (resultsContainer) {
-            resultsContainer.remove();
-        }
-
-        console.log('Search dropdown cleared, keeping expanded state');
-    }
+}
 }
 
 // Initialize when DOM is loaded
