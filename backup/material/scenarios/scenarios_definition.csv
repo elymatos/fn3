@@ -1,0 +1,182 @@
+idFrame,name,description
+827,Access_scenario,A Theme is or is not capable of entering or accessing a Useful_location because of/despite a Barrier.
+1368,Attempting_and_resolving_scenario,"An #Agent has a particular #Goal in mind, and then uses some #Means that they believe will bring about the #Goal.  The #Agent succeeds or fails inasmuch as the result of the #Means action matches the #Goal."
+1369,Attempt_action_scenario,"This frame represents the core action of an Attempt, where an #Agent has a #Goal and performs some #Means action that they believe will achieve the #Goal.  See its two perspectivized frames for further information."
+842,Attempt_distant_interaction_scenario,"An #Agent attempts to interact with a relatively distant or indirectly accessible #Target using some #Instrument (which may be a body part, e.g. <ment>hand</ment>).  The #Agent's ability to manipulate the #Instrument and put it in the #Target location is in question.  The most common types of distant interaction involve an #Agent attempting to move the #Instrument ballistically so that it contacts the #Target (e.g. Shooting_scenario), or an #Agent attempting to direct an #Instrument that enables perception at a #Target_location to be examined."
+887,Attempt_obtain_food_scenario,A #Seeker is trying to obtain #Food and is seeking it within the context of a #Ground. 
+973,Attempt_obtain_mineral_scenario,"An #Agent attempts to obtain a non-renewable resource, often solid minerals or metals, but also oil, water, and other valuable substances."
+1437,Awareness_change_scenario,"An #Experiencer becomes aware of some #Phenomenon (a situation, fact, or idea) that they formerly did not have in their mind."
+1165,Birth_scenario,"An #Offspring is born to a #Mother and #Father, collectively referred to as #Parents. This event happens at a particular #Time and #Place."
+195,Causation_scenario,"A #Cause brings about an #Effect that would not have occurred otherwise, simultaneously preventing an #Averted_situation, which is what would have occurred without the #Cause.  The #Effect and the #Averted_situation are thus mutually exclusive alternatives prior to the #Cause event.  In most cases, either the #Effect or the #Averted_situation is clearly most prominent; this is especially true in the case where the #Cause is the action of an Agent, who normally conceives of their action as either bringing about a desirable #Effect or avoiding an undesirable #Averted_situation.
+<ex></ex>
+In frames that inherit from this one, the #Cause is either an event, or an entity that plans or directly causes the #Effect may metonymically stand in for the #Cause event."
+602,Change_of_phase_scenario,The sequence of events in which the #Patient begins as one state of matter and ends up as another.
+76,Commerce_scenario,"Commerce is a situation in which a #Buyer and a #Seller have agreed upon an exchange of #Money and #Goods (possibly after a negotiation), and then perform the exchange, optionally carrying it out with various kinds of direct payment or financing or the giving of change.
+
+The #Seller indicates their willingness to give the #Goods in their possession to a #Buyer who would give them some amount of #Money.  The #Seller may have already decided on the amount of money that they would require, in which case it is called the Asking price.
+
+The #Buyer also indicates their willingness to give an amount of money called an Offer to a #Seller who would give them the #Goods.
+
+Normally the process is begun by the #Seller.  The means by which the #Seller indicates their wish to engage in an exchange are various, ranging from putting a price tag on an item on a store shelf, to advertizing, to communicating directly and specifically with a possible #Buyer.  In some cases, however, the process may be initiated by the #Buyer indicating to a possible #Seller that they would like to make an exchange.
+
+<ex>[buyer|Target] beware.</ex>"
+1194,Conditional_scenario,"In this scene, two mutually exclusive possibilities are presented, the #Profiled_possibility and the #Opposite_possibility, each of which has a consequence associated with it, the #Consequence (associated with the Profiled_possibility) and the #Anti_consequence (associated with the #Opposite_possibility).  Usually, the #Consequence and #Anti_consequence are also mutually exclusive, but in some cases (especially with """"even if"""") the same #Consequence results regardless of whether one considers the #Profiled_possibility or the #Opposite_possibility. Neither of the possibilities is asserted and neither can simply be merged with a factual understanding of the world. Both possibilities are presented as uncertain, and the #Profiled_possibility may be further characterized with a neutral stance towards it, or with a doubtful, negative stance, depending on the specific lexical unit introducing the conditional and what verb forms are used in the #Profiled_possibility.
+<ex></ex>
+
+<ex>[If|Target] [you read caerfully|Profiled_possibility], [you 'll see the letters are swapped|Consequence].</ex>
+<ex>[Unless|Target] [you read carefully|Profiled_possibility] , [you wo n't understand what I said|Anti_consequence] .</ex>
+
+The most common use of lexical units connected to the Conditional_scenario is for prediction; in this case the conditionals pair up possibilities with predicted consequences. Subtypes of this use include, but are not limited to:
+<ex></ex>
+(1) contingencies:
+<ex>[If|Target] [it rains|Profiled_possibility], [the ceremony will be under the tent|Consequence].</ex>
+
+(2) conditional promises (usually when making a deal):
+<ex>[If|Target] [you will wait with reasonable patience|Profiled_possibility] , [I will explain|Consequence]</ex>
+
+(3) threats (which are inherently conditional):
+<ex>[If|Target] [any boy says anything to Weeks about it|Profiled_possibility], [I will cane him.|Consequence]</ex>
+
+(4) hypotheticals, especially when a different choice was made in the past and one imagines it would lead to a different outcome:
+<ex>[If|Target] [I had elected to stay there|Profiled_possibility], [I probably would not have become homeless five years later|Consequence].</ex>
+
+(5) descriptions of general rules of the world:
+<ex>[You only get shingles|Consequence] [if|Target] [you have had chickenpox|Profiled_possibility].</ex>
+
+(6) descriptions of the characteristics of individual entities or persons that have an effect under certain circumstances:
+<ex>[If|Target] [Joey says you're in|Profiled_possibility], [you're in|Consequence].</ex>
+
+<ex></ex>
+<m>Speech act conditionals:</m>
+<ex></ex>
+Lexical units of these frames can also be used in a pattern called a """"Speech Act conditional"""".  In this case, the conditional presents a statement that is relevant to the conversation if the #Profiled_possibility holds.
+
+<ex>[Just ask for Bob|Consequence] [if|Target] [you need anything|Profiled_possibility].</ex>
+
+The relevance of the statement is a #Consequence of the #Profiled_possibility, but there is no distinct alternative intended, so this usage does not normally allow distancing verb forms (see Dancygier and Sweetser 2005: 114-115). As shown in the above example, we annotate the potentially relevant statement as #Consequence.  This is based on an analysis of the filler of the #Consequence as metonymically expressing a message similar to """"it is relevant to say the following: ..."""".  Such cases should be tagged with the clause-level tag """"Speech act"""".  Thus in the following example, it is relevant for the speaker to explain the situation by saying """"no, she's not my wife"""" if the other person is wondering about that possibility:
+
+<ex>[In case|Target] [you're wondering|Profiled_possibility], [no she's not my wife|Consequence].</ex>
+<ex></ex>
+<m>Metalinguistic conditionals:</m>
+<ex></ex>
+In addition, conditionals can be used to talk about the actual encoding of a message and usually encode a strong opinion about the appropriateness or inappropriateness of a description, often in contrast to someone else's contrary opinion. Such sentences should be tagged """"Metalinguistic"""", as in the following:
+
+<ex>[If|Target] [that's not success|Profiled_possibility], [I don't know what is|Consequence].</ex>
+<ex></ex>
+<m>Epistemic conditionals:</m>
+<ex></ex>
+Finally, conditionals can be used to profile a reasoning process.  While all conditionals mark the connection from a hypothetical situation to an associated conclusion, many conditionals specifically highlight this process of thinking about the connection, especially when the reasoning is cooccurring with speaking, and most obviously when reasoning from effects to causes. In such cases as the following, we mark the clause as """"Epistemic"""":
+
+<ex>[If|Target] [the lights are on|Profiled_possibility], [then somebody is home|Consequence].</ex>
+
+Many sentences are vague about exactly to what degree they profile the reasoning process, so sentences like the following can be legitimately labeled """"Epistemic"""" or not:
+
+<ex>[If|Target] [you believe that what you are doing is right|Profiled_possibility] [then you can't compromise|Consequence].</ex>
+
+<ex></ex>
+<m>Special constructions:</m>
+<ex></ex>
+Conditionals interact significantly with ellipsis constructions, particularly because they often occur in parallel structures in which different possibilities are being contrasted, or cases in which there is a contrast between what is always true and what is only conditionally true.  In these cases, the #Profiled_possibility and the #Consequence or #Anti_consequence may be abbreviated under the same conditions that apply to ellipsis in the rest of the language.  See the following examples:
+
+<ex>She would visit for at least a week and, [if|Target] [necessary|Profiled_possibility], [an additional day or two|Consequence].</ex>
+
+In these examples, """"an additional day or two"""" is understood as """"she would stay an additional day or two"""", based on the immediately preceding sentence.  This is a general construction that allows a finite sentence that is parallel to an immediately adjacent clause to be abbreviated just to the content in addition to or contrasting with the adjacent clause. Since it must be interpreted as a full clause and occurs in exactly the places a clause is expected, we actually annotate the PT of the #Consequence as """"Sfin"""" in these cases. The adjective """"necessary"""" in the #Profiled_possibility, however, is not licensed by a general construction that allows an adjective like necessary to be used arbitrarily in the kinds of places a clause would be found. Therefore, in this case, we consider the adjective to represent a separate valence with PT """"AP""""."
+1380,Containment_scenario,"In this situation, a #Container has within it some #Contents.  The #Container has an #Interior, a space which is potentially empty, but instead is occupied with the #Contents."
+445,Crime_scenario,"A (putative) #Crime is committed and comes to the attention of the #Authorities.  In response, there is a Criminal_investigation and (often) Arrest and criminal court proceedings.  The Investigation, Arrest, and other parts of the Criminal_process are pursued in order to find a #Suspect (who then may enter the Criminal_process to become the Defendant) and determine if this #Suspect matches the #Perpetrator of the #Crime, and also to determine if the #Charges match the #Crime.  If the #Suspect is deemed to have committed the #Crime, then they are generally given some punishment commensurate with the #Charges.
+
+
+"
+934,Cycle_of_existence_scenario,"An Entity comes into being, exists for some time, and ceases to be."
+1078,Deception_scenario,"Deception is a scenario in which a #Deceiver attempts to make it such that a #Victim comes to an incorrect understanding about a #Topic. This may be done by presenting a misleading #Phenomenon to the #Victim, or by concealing the existence of items which the #Victim may be interested in. Note that the #Victim is not necessarily aware of the (possible) existence of the #Topicor items related to it."
+944,Delimited_state_scenario,A #State (often an ongoing process) is ongoing for some period of time.
+1175,Disaster_scenario,"This frame covers the large scenario for characterizing disasters, including the occurrence of particular types of disasters and the range of responses to disasters."
+1438,Distance_scenario,"This frame abstracts over various viewpoints on the specification or description of #Distance.  #Distance may either be precisely specified as a #Count of some standard #Unit (as in <ment>meters</ment> or <ment>inches</ment>), or may be described by the #Degree that it differs from expectation (as in <ment>near</ment> or <ment>far</ment>)."
+943,Duration_scenario,"An Event or #Period has a particular #Duration.  The #Duration may be characterized in several different ways: as a #Durational direct measure, a #Degree of deviation from an expected #Duration, or as a #Count of #Units of standard, known duration."
+1382,Dynamic_situation_scenario,"This frame denotes simple #Events in which an #Entity is in a dynamic situation, usually punctually or continually changing to conform to the situation encoded in the Event_endstate.  This frame also covers situations in which there is no significant difference between the pre- and post-states, but the dynamic situation that occurs between them is notably temporally bounded."
+521,Employee_scenario,"The sequence of events in which the #Employee hires on with an #Employer, holds a #Position, and finally leaves the #Position."
+522,Employer_scenario,"The sequence of events in which the #Employer hires an #Employee, employs them in a #Position for some #Duration, and finally lets them go from the #Position."
+293,Employment_scenario,"An #Employee and #Employer enter into an employment relation, wherein the #Employee remains employed for some #Duration of time, and finally the relationship ends either by the #Employee leaving the job or the #Employer letting go (or firing) the #Employee.  To each of these events there are concomitants, such as agreeing to/signing a contract for entering employment, compensation and performance of a service for the employment period itself, and severance for the dissolution of the relationship.  There are several other events involved, including preparatory actions on the part of the #Employer (posting the #Position), the prospective #Employee's part (looking for a job), or both (job interviews).  In addition, there is the possibility of change in the relationship of #Employer and #Employee during the employment period, such as a change in #Position (e.g. promotion, demotion) and a change in #Compensation (e.g. raise, paycut)."
+1178,Fire_emergency_scenario,This frame characterizes any scenario in which the presence of a fire necessitates an emergency response in order to mitigate damage directly caused by the fire.
+1168,Fire_end_scenario,"This scenario begins with a #Fire burning, transitions as the #Fire goes out, and ends with the #Fire dissipated."
+1167,Fire_stopping_scenario,"The Fire_stopping_scenario begins with a #Fire in process, transitions with the action of an #Agent to end the #Fire, and ends with the #Fire having stopped burning."
+823,Fragmentation_scenario,"A #Whole fragments or breaks into #Parts, or alternatively a part, #Part_1, breaks off from the rest of the item, called #Part_2.
+
+<ex>[Last year|Time], [it|Part_1] [broke|Target] [off from the Ross Ice Shelf|Part_2] and began drifting out to sea. </ex>
+
+<ex>[The calved ice|Whole] [broke|Target] [into three large icebergs, named A22, A23 and A24|Parts].</ex>"
+584,Getting_scenario,"In this scenario, the #Recipient begins without the #Theme, then acquires the #Theme from a #Source.
+"
+583,Giving_scenario,"The sequence of events in which the #Donor begins in possession of the #Theme, then gives it to the #Recipient, relinquishing possession.
+"
+939,History_scenario,This frame describes how #Events are related to each other and #Place and #Time.
+889,Hunting_scenario,"A #Hunter endeavors to- and either fails or succeeds at finding and obtaining [Food|Food]. This scenario occurs within the context of some #Ground within which the preparation, hunt, and success or failure of it plays out. "
+1389,Identity_scenario,"An #Instance of some #Type is conceived of as having a distinct #Identity.  Its #Identity persists across time and remains constant for an #Instance despite arbitrary changes in other attributes of the #Instance.  Establishing #Identity answers the question """"which"""", and is often answered by saying that an #Instance is the same or different from a previously mentioned instance (see Identicality), or by deictic reference (""""that one""""), etc.
+
+#Identity is not the same as appearance or name (if the #Instance even has such), although these attributes of the #Instance may be useful in establishing #Identity.  #Identity can be established knowing the totality of the history of an #Instance; however, this is impractical and usually proxies like name and appearance are used.  For the #Identity of humans, history sufficient to establish #Identity can usually be satisfactorily established by documents associated with the person, often with information like appearance and name, though use of such documents leads to the problem of multiple identities, only one of which is considered legitimate or """"true"""" in a given context. "
+391,Import_export_scenario,"An #Agent moves #Goods (or some other useful item) from an #Exporting_area, across a boundary or border to a different area, the #Importing_area.  The #Path along which the #Goods pass may also be indicated. Depending on the lexical unit, the #Agent 's point of view may be centered on the #Exporting_area at the beginning of the process (e.g. <ment>export</ment>) or on the #Importing_area and the end of the process (e.g. <ment>import</ment>) or on the #Path (e.g. <ment>transship</ment>). In some sentences, a constituent which encodes the #Agent FE also encodes information about the #Exporting_area, #Path, or #Importing_area.
+
+<ex>Cooperating was an old term used by the Customs service to describe the illegal traffic of contraband[|Goods]sold and [transhipped|Target] [from larger vessels|Exporting_area] [into small local boats|Importing_area].</ex>
+"
+816,Inclusion_scenario,"A #Part is either a subset of a collection of items that make up a #Whole, or is a subpart of a singular Whole. This frame covers both super/sub-set relations and part-whole relations."
+1108,Inhibit_motion_scenario,"This scenario concerns an #Agent inhibiting the motion of a #Theme against the desire, plan, or tendency to be free. After a period of time, the #Agent may choose to release the #Theme, or the #Theme may escape or be broken free by an intervening cause."
+903,Invasion_scenario,An #Invader enters a land in an attempt to dominate the #Attacked and they either fail or succeed.
+777,Knot_creation_scenario,An #Agent manipulates a long thin object (the #Rope and creates a #Knot.
+1162,Locative_scenario,"A #Figure is located with respect to a #Ground, whose location is (generally) better known. This is accomplished by identifying the #Figure as within a #Profiled_region--a shape defined by an Image Schema, located at, on, or in the #Ground, and scaled by context. Alternatively, a group of #Figures is described within a symmetrical #Profiled_region located simultaneously with respect to each of the #Figures."
+856,Lodging_scenario,A #Host provides a #Residence for a #Lodger to temporarily stay.
+190,Lose_possession_scenario,"This is the Frame which binds together the initial state of the #Donor possessing the #Theme, the transfer, and the final state of the #Donor not possessing the #Theme."
+773,Measure_scenario,"An #Entity has a particular #Value for an #Attribute which may be described in several different ways, including:
+<ex></ex>
+#Degree of deviation from the #Value expected for the kind of #Entity seen in a particular instance, or in comparison to some other explicit comparison set.
+<ex></ex>
+Absolute quantification in terms of the number of #Counts of a particular #Unit which equal the #Value for the #Attribute."
+1138,Medical_interaction_scenario,"A #Patient interacts with one or more #Medics (doctors, nurses, and/or EMTs with a responsibility for the #Patient's health) so that the #Medics can determine the health status of the #Patient and maintain or restore the #Patient's health as necessary.
+<ex></ex>
+Usually, the #Patient has an #Affliction, a medical problem that motivates or necessitates their coming into the care of a #Medic. At a minimum, the #Patient has a single interaction with a #Medic, but usually the #Patient has a relationship with the #Medic or group of medical professionals who either have responsibility for helping them with their specific #Affliction or for their health in general. Medical interactions normally take place at a #Medical_center (a hospital or doctor's office), but in cases where the #Patient suffers a sudden catastrophic #Affliction, the #Patient may be taken into the care of EMTs, who act as their #Medic until reaching a medical center.
+<ex></ex>
+In some cases, the #Body_system that has a problem is mentioned in place of the #Affliction.
+
+<ex>[Her|Medic] three [cardiac|Body_system] [[patients|Target]|Patient] take up all her time.</ex>
+<ex>[Our doctors|Medic] <m>provide</m> the best [healthcare|Target] on the planet.</ex>"
+214,Motion_scenario,"This frame binds together the various parts of movement, from setting out, to traveling, to arriving."
+662,Obligation_scenario,"Under some, usually implicit, #Condition a #Duty needs to be fulfilled by a #Responsible_party. If the #Duty is not performed, there may be some undesirable social #Consequence for the #Responsible_party. This #Consequence may or may not be stated overtly. "
+1095,Operate_vehicle_scenario,"This frame describes an #Operator interacting with a #Vehicle to transport him/herself (and possibly others) from a #Source to a #Goal. The three primary stages are preparation for canonical operation, operation of the vehicle proper, and bringing the vehicle back to a state of rest, where it may continue to move but not in its typical fashion."
+1006,Placing_scenario,"This frame represents the abstract scene in which an #Agent manipulates a #Theme's location, thus affecting a #Goal which ends up co-located with the #Theme.
+
+This frame is primarily for Inheritance."
+1198,Preferred_alternative_scenario,"In this scenario, there are two mutually incompatible scenes, the #Profiled_possibility and the #Opposite_possibility, leading respectively to a preferable #Positive_consequence and a dispreferable #Undesirable_consequence."
+1131,Product_development_scenario,"An [Developer|Dev] works to create progress on an #Entity.  The #Entity typically goes through three stages of development: the conceptual process (Achieving_first); the development process (Product_development); and the manufactuing process (Manufacturing).  The Entity can also undergo additional processes such as designing, engineering, prototyping, and testing.
+
+"
+879,Receive_visitor_scenario,"A (potential) #Visitor arrives at a location associated with a (potential) #Host. The #Host permits the #Visitor to enter the location, and allows the #Visitor to avail him/herself of available resources, in order to pursue some goal. The visit is often for social or entertainment reasons. After a temporary stay at the #Host's location, the #Visitor departs."
+573,Receiving_scenario,"The sequence beginning with the #Recipient not having the #Theme and ending with the #Recipient in possession of the #Theme.
+"
+812,Removing_scenario,The abstract scene in which an #Agent affects a #Source and a #Theme so that the #Theme ends up not co-located with the #Source.
+661,Requirement_scenario,"One  state of affairs, the #Dependent, cannot occur without another state of affairs, the #Requirement, also occurring.  This #Requirement is construed to be under the control of some implicit force or actor.  In an alternative construal, the #Dependent state of affairs may be presented as depending on the presence of a #Required_entity. Individuals that profit from the occurrence of the #Dependent state (#Dependent_individuals) are backgrounded. The same goes for individuals (#Required_individual) that are required to provide any #Required_entity or to see to the occurrence of the #Dependent state of affairs.
+
+The connection between the #Requirement and the #Dependent can be qualified further in terms of the #Degree of strength of the link between the two eventualities, the #Place and #Time where this relationship obtains, the #Explanation for its existence, or a specification of #Condition when it applies."
+975,Response_scenario,A #Trigger elicits a #Response by some #Responding_entity or an #Agent.  
+1399,Result_of_attempt_scenario,An #Agent and their #Action succeed or fail inasmuch as the result of an #Action matches the #Goal that they hope to bring about by the #Action.
+793,Risk_scenario,"An Asset is in a particular Situation, which has a likelihood of leading to or inviting a Harmful_event which will negatively affect the Asset."
+771,Searching_scenario,A #Cognizer seeks a #Phenomenon within the #Ground.
+1204,Sexual_reproduction_scenario,This frame embodies the process of procreation.
+784,Shooting_scenario,"A firearm is discharged, causing the motion of a projectile.  This frame exists primarily to relate frames."
+935,Socially_significant_history_scenario,"A series of #Events are important to humankind and its culture.
+
+
+
+ "
+1355,Sports_scenario,"Human activity whose the main actor is an #Athlete that practices some #Sport, aiming the welfare or to win some rules based competition, using kinds of #Equipment and #Venue. "
+1159,Temporary_transfer_scenario,"In this scenario, the #Theme begins in possession of the #Lender and ends up in the possession of the #Borrower, with the expectation that the #Borrower will return the #Theme after a #Duration of time.  "
+1228,Tourism_scenario,"It represents in a general way the essential human activity in which the main actor is a #Tourist who is interested in visiting or enjoying either an #Attraction or a #Place. Different reasons may lead to tourism such as entertainment, business, events and education."
+1226,Tourism_scenario_departure,"The #Tourist leaves an #Origin with the aim of arriving at her #Destination, that is, generally, the place where she resides. To make it happen, it is necessary that the #Tourist ends her stay at the #Origin."
+1227,Tourism_scenario_preparation,"The #Tourist wants to know more about the region where the touring will happen. Different information is searched, as the local attractions, cuisine, health insurance, documentation need, weather forecasts, transit and security. Besides, ticket purchases, hotel booking or even travel packages can be chosen, including both the traveling and lodging options. These issues can be regarded as the planning of the #Touristic_Activity."
+1225,Tourism_scenario_stay,"Many reasons make the #Tourist have a touristic experience during the stay at a #Place: attractions, events, religion, business, studying, adventure, etc. During the period of stay, these motivations are achieved. The #Tourist has interests in other activities, besides the ones which motivated the trip. These activities, generally, are projected in attraction and/or places that are recognized by humanity to have historical or cultural importance, natural and/or artificial resources."
+585,Transfer_scenario,"In this scenario, the #Theme begins in the possession of the #Donor and ends up in the possession of the #Recipient.  Alternatively, these two participants may be jointly construed as #Transferors.
+
+"
+1403,Undergoing_scenario,"In this scene, an #Event occurs, and an #Entity is affected by it."
+870,Visiting_scenario,"An #Agent and an #Entity become co-located. The #Agent in pursuit of a #Purpose, and temporarily remains with the #Entity to fulfill this #Purpose and then departs again, usually back to their #Normal_location."
+872,Visiting_scenario_arrival,An #Agent arrives at a location that should help them achieve their #Purpose. This situation is point-of-view-neutral.
+873,Visiting_scenario_departing,"An #Agent departs from the #Source, normally bound for their normal location. This is a point-of-view-neutral conception of the departure."
+874,Visiting_scenario_stay,"An #Agent matches location with an #Entity in order to fulfill some  #Purpose. Quite often, the #Purpose is social- or entertainment-oriented. This scene is point-of-view-neutral."
+852,Visitor_scenario,"An #Agent leaves their #Normal_location and matches location with an #Entity in pursuit of a #Purpose.  The #Agent temporarily remains with the #Entity to fulfil this #Purpose and then departs again, usually back to the #Normal_location."

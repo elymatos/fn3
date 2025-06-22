@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/fndul#"
+     xml:base="http://example.org/fndul"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#">
+
+    <owl:Ontology rdf:about="http://example.org/fndul">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            This module defines Frame Element (FE) classes, extending DOLCE+DnS Ultralite (DUL)
+            to represent common FrameNet FEs for enhanced semantic inference.
+        </rdfs:comment>
+        <rdfs:label xml:lang="en">FrameNet DUL Alignment Module</rdfs:label>
+    </owl:Ontology>
+
+    <owl:Class rdf:about="http://example.org/fndul#TimeFE">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#TimeInterval"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            Represents the temporal aspect of a situation or event, corresponding to FrameNet's
+            'Time' and related FEs like Duration, Frequency, and Iteration. It is a specialization
+            of dul:TimeInterval.
+        </rdfs:comment>
+        <rdfs:label xml:lang="en">Time FE</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/fndul#LocationFE">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Place"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            Represents the general spatial location of an event or entity, corresponding to FrameNet's
+            'Place' FE. It specializes dul:Place.
+        </rdfs:comment>
+        <rdfs:label xml:lang="en">Location FE</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/fndul#SpatialRegionFE">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpaceRegion"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            Represents a specific dimensional spatial region, corresponding to FrameNet's 'Subregion'
+            or 'Point of contact' FEs. It specializes dul:SpaceRegion.
+        </rdfs:comment>
+        <rdfs:label xml:lang="en">Spatial Region FE</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/fndul#MannerFE">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            Represents the way an action is performed, corresponding to FrameNet's 'Manner' FE.
+            It is a specialization of dul:Quality, viewed as a quality of an Action or Event.
+        </rdfs:comment>
+        <rdfs:label xml:lang="en">Manner FE</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/fndul#CommunicationMediumFE">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            Represents the channel or means by which a communication is conveyed, corresponding to
+            FrameNet's 'Medium' FE. It is a specialization of dul:Object, and could be further
+            specialized as dul:PhysicalArtifact for concrete mediums or dul:InformationObject
+            for abstract/digital mediums.
+        </rdfs:comment>
+        <rdfs:label xml:lang="en">Communication Medium FE</rdfs:label>
+    </owl:Class>
+
+</rdf:RDF>

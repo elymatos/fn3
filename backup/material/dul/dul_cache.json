@@ -1,0 +1,1136 @@
+{
+    "classes": {
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Abstract": {
+            "name": "Abstract",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Abstract",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Action": {
+            "name": "Action",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Action",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Agent": {
+            "name": "Agent",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Agent",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Amount": {
+            "name": "Amount",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Amount",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#BiologicalObject": {
+            "name": "BiologicalObject",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#BiologicalObject",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#ChemicalObject": {
+            "name": "ChemicalObject",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#ChemicalObject",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Classification": {
+            "name": "Classification",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Classification",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Collection": {
+            "name": "Collection",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Collection",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Collective": {
+            "name": "Collective",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Collective",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#CollectiveAgent": {
+            "name": "CollectiveAgent",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#CollectiveAgent",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Community": {
+            "name": "Community",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Community",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Concept": {
+            "name": "Concept",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Concept",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Configuration": {
+            "name": "Configuration",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Configuration",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Contract": {
+            "name": "Contract",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Contract",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Description": {
+            "name": "Description",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Description",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Design": {
+            "name": "Design",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Design",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#DesignedArtifact": {
+            "name": "DesignedArtifact",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#DesignedArtifact",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#DesignedSubstance": {
+            "name": "DesignedSubstance",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#DesignedSubstance",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Diagnosis": {
+            "name": "Diagnosis",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Diagnosis",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Entity": {
+            "name": "Entity",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Entity",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Event": {
+            "name": "Event",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Event",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#EventType": {
+            "name": "EventType",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#EventType",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#FormalEntity": {
+            "name": "FormalEntity",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#FormalEntity",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#FunctionalSubstance": {
+            "name": "FunctionalSubstance",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#FunctionalSubstance",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Goal": {
+            "name": "Goal",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Goal",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Group": {
+            "name": "Group",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Group",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#InformationEntity": {
+            "name": "InformationEntity",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#InformationEntity",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#InformationObject": {
+            "name": "InformationObject",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#InformationObject",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#InformationRealization": {
+            "name": "InformationRealization",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#InformationRealization",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#LocalConcept": {
+            "name": "LocalConcept",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#LocalConcept",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Method": {
+            "name": "Method",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Method",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Narrative": {
+            "name": "Narrative",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Narrative",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#NaturalPerson": {
+            "name": "NaturalPerson",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#NaturalPerson",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Norm": {
+            "name": "Norm",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Norm",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Object": {
+            "name": "Object",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Object",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Organism": {
+            "name": "Organism",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Organism",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Organization": {
+            "name": "Organization",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Organization",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Parameter": {
+            "name": "Parameter",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Parameter",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Pattern": {
+            "name": "Pattern",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Pattern",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Person": {
+            "name": "Person",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Person",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Personification": {
+            "name": "Personification",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Personification",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalAgent": {
+            "name": "PhysicalAgent",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalAgent",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalArtifact": {
+            "name": "PhysicalArtifact",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalArtifact",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalAttribute": {
+            "name": "PhysicalAttribute",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalAttribute",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalBody": {
+            "name": "PhysicalBody",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalBody",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalObject": {
+            "name": "PhysicalObject",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalObject",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalPlace": {
+            "name": "PhysicalPlace",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PhysicalPlace",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Place": {
+            "name": "Place",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Place",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Plan": {
+            "name": "Plan",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Plan",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PlanExecution": {
+            "name": "PlanExecution",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#PlanExecution",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Process": {
+            "name": "Process",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Process",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Project": {
+            "name": "Project",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Project",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Quality": {
+            "name": "Quality",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Quality",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Region": {
+            "name": "Region",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Region",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Relation": {
+            "name": "Relation",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Relation",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Right": {
+            "name": "Right",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Right",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Role": {
+            "name": "Role",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Role",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Set": {
+            "name": "Set",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Set",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Situation": {
+            "name": "Situation",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Situation",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialAgent": {
+            "name": "SocialAgent",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialAgent",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialObject": {
+            "name": "SocialObject",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialObject",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialObjectAttribute": {
+            "name": "SocialObjectAttribute",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialObjectAttribute",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialPerson": {
+            "name": "SocialPerson",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialPerson",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialRelation": {
+            "name": "SocialRelation",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SocialRelation",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SpaceRegion": {
+            "name": "SpaceRegion",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SpaceRegion",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SpatioTemporalRegion": {
+            "name": "SpatioTemporalRegion",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#SpatioTemporalRegion",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Substance": {
+            "name": "Substance",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Substance",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Task": {
+            "name": "Task",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Task",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Theory": {
+            "name": "Theory",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Theory",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#TimeInterval": {
+            "name": "TimeInterval",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#TimeInterval",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Transition": {
+            "name": "Transition",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Transition",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#TypeCollection": {
+            "name": "TypeCollection",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#TypeCollection",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#UnitOfMeasure": {
+            "name": "UnitOfMeasure",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#UnitOfMeasure",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Workflow": {
+            "name": "Workflow",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#Workflow",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        },
+        "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#WorkflowExecution": {
+            "name": "WorkflowExecution",
+            "uri": "http:\/\/www.ontologydesignpatterns.org\/ont\/dul\/DUL.owl#WorkflowExecution",
+            "definition": "",
+            "subClasses": [],
+            "superClasses": [],
+            "properties": [],
+            "restrictions": [],
+            "level": 0,
+            "isTopLevel": true,
+            "metadata": {
+                "deprecated": false,
+                "hasRestrictions": false
+            }
+        }
+    },
+    "properties": [],
+    "statistics": {
+        "total_classes": 75,
+        "total_properties": 0,
+        "max_depth": 1,
+        "processing_time": 0
+    }
+}
