@@ -1,4 +1,4 @@
-# FN3 Frame and Scenario Allocation Methodology: An Interactive Approach
+# Proposed methodology
 
 ## 1. Introduction
 
@@ -9,19 +9,18 @@ The methodology is designed to address the three main goals for the use of scena
 2.  **Positioning new frames:** To provide clues about where in the network a new frame must be positioned and which are its possible relations with other frames.
 3.  **Increasing network coverage:** To make clear what areas of the network must be completed to increase the coverage of FrameNet as a lexical-computational resource.
 
-This approach is grounded in the principles of Frame Semantics and draws significantly from the structured overview of Common Sense Psychology concepts by Hobbs, as detailed in the "Common Sense Psychology to FN3 Scenario Mapping Worksheet."
+This approach intend to be grounded in the principles of Frame Semantics and draws significantly from the structured overview of Commonsense Psychology concepts.
 
 ## 2. Theoretical Foundations
 
 ### 2.1. FN3 Hierarchical Structure
 
 FN3 organizes its network into a multilevel hierarchy:
-* **Domains** may contain **subdomains**.
-* **Domains** are composed of **scenarios**.
-* A **scenario** consists of multiple **situations** and **entities**.
-* **Situations** and **entities** are represented by **frames**.
-* A **scene** occurs in **scenario** as a container for **situations/entities**.
-* A **frame** denotes an Entity or a specific **type of situation** (Event, Process, State, Relation, Attribute).
+- **Domains** may contain **subdomains**.
+- **Domains** are composed of **scenarios**.
+- A **scenario** consists of multiple **frames**.
+- **Frames** represents **entities**, **attributes** or **situation_types**.
+- A **scene** occurs in **scenario** as a container for **frames**.
 
 ### 2.2. Frame Typology
 
@@ -47,11 +46,9 @@ The methodology adheres to the core principles for frame creation in FN3, adapte
 * **Cognitive Embeddability:** A valid scenario should be mentally imageable and learnable by humans.
 * **Computational Alignment:** The process should be structured to allow for semi-automatic guidance by language models.
 
-### **3. Methodology for Frame and Scenario Allocation: An Interactive Approach**
+### **3. Methodology for Frame and Scenario Allocation**
 
-This methodology proposes a web-interface-driven approach where users answer a series of common-sense questions to guide the frame and scenario allocation process. A background inference engine will use these answers to suggest the most probable frame types and relevant scenarios, ensuring conceptual coherence, enhancing network coverage, and leveraging automation.
-
-The approach is grounded in the principles of Frame Semantics and draws significantly from the structured overview of Common Sense Psychology concepts by Hobbs, as detailed in the "Common Sense Psychology to FN3 Scenario Mapping Worksheet."
+This methodology proposes a **web-interface-driven approach** where users answer a series of commonsense questions to guide the frame and scenario allocation process. A background inference engine will use these answers to suggest the most probable frame types and relevant scenarios, ensuring conceptual coherence, enhancing network coverage, and leveraging automation.
 
 ### 3.1. Overview of the Interactive Flow
 
@@ -61,7 +58,7 @@ The process begins when a user wants to define a new frame or allocate an existi
 
 **Phase 1: Frame Type Identification** The system asks questions to infer the most probable FN3 Frame Type (Entity, Event, Process, State, Attribute, Relation).
 
-**Phase 2: Generic Common-Sense Scenario Identification** Based on the characteristics described, the system asks questions to identify relevant generic common-sense scenario(s) that the frame participates in or helps define. This phase leverages the structured knowledge from the "Common Sense Psychology to FN3 Scenario Mapping Worksheet."
+**Phase 2: Generic Commonsense Scenario Identification** Based on the characteristics described, the system asks questions to identify relevant generic commonsense scenario(s) that the frame participates in or helps define. This phase leverages the structured knowledge from the "Common Sense Psychology to FN3 Scenario Mapping Worksheet."
 
 **Phase 3: Domain Scenario Allocation & Creation** This crucial phase determines if the frame and its generic scenario context belong to a specific domain, and whether an existing or new domain scenario is appropriate. This phase also formalizes the hierarchical relationship between generic and domain-specific conceptualizations.
 
@@ -80,16 +77,19 @@ These questions are designed to discriminate between the six primary FN3 frame t
         * **Suggests:** `Entity` frame
         * **Weight if chosen:** `Entity`: +3
     * **Option B:** *Something that happens*, *unfolds*, or describes a *condition* or *relationship* over time?
-        * **Suggests:** `Situation` (Event, Process, State, Attribute, Relation)
+        * **Suggests:** `Situation` (Event, Process, State, Relation)
         * **Weight if chosen:** `Event`: +1, `Process`: +1, `State`: +1, `Attribute`: +1, `Relation`: +1
+	- **Option C:** *Something that qualifies*, or describes a *quality*, *characteristic*, or *measurable property* of a situation or entity?
+        * **Suggests:** `Attribute` frame
+        * **Weight if chosen:** `Attribute`: +1
 
 * **Q1.1: If Q1.0.B (Situation) was chosen: Does it primarily describe something that involves *change*, *action*, or *a sequence of operations*?**
     * **Option A:** Yes (It is dynamic)
         * **Suggests:** `Event`, `Process`
-        * **Weight if chosen:** `Event`: +2, `Process`: +2, `State`: -1, `Attribute`: -1, `Relation`: -1
-    * **Option B:** No (It is static, a condition, property, or relationship)
-        * **Suggests:** `State`, `Attribute`, `Relation`
-        * **Weight if chosen:** `Event`: -1, `Process`: -1, `State`: +2, `Attribute`: +2, `Relation`: +2
+        * **Weight if chosen:** `Event`: +2, `Process`: +2, `State`: -1, `Relation`: -1
+    * **Option B:** No (It is static, a condition or relationship)
+        * **Suggests:** `State`, `Relation`
+        * **Weight if chosen:** `Event`: -1, `Process`: -1, `State`: +2, `Relation`: +2
 
 * **Q1.2: If Q1.1.A (Dynamic) was chosen: Does it emphasize a *transformation*, *transition*, or a *continuous unfolding* with stages?**
     * **Option A:** Yes (It's a process)
@@ -100,19 +100,16 @@ These questions are designed to discriminate between the six primary FN3 frame t
         * **Weight if chosen:** `Event`: +3, `Process`: +1
 
 * **Q1.3: If Q1.1.B (Static) was chosen: Does it describe:**
-    * **Option A:** A *quality*, *characteristic*, or *measurable property* of something (e.g., its size, color, importance, brokenness)?
-        * **Suggests:** `Attribute`
-        * **Weight if chosen:** `Attribute`: +3, `State`: +1, `Relation`: +1
-    * **Option B:** A *link*, *connection*, or *interdependency* between two or more things (e.g., cause-effect, part-whole, similarity)?
+    * **Option A:** A *link*, *connection*, or *interdependency* between two or more things (e.g., cause-effect, part-whole, similarity)?
         * **Suggests:** `Relation`
-        * **Weight if chosen:** `Relation`: +3, `State`: +1, `Attribute`: +1
-    * **Option C:** A *stable condition*, *status*, or *arrangement* that persists, without inherently changing or linking multiple things (e.g., ownership, health, emotional disposition)?
+        * **Weight if chosen:** `Relation`: +3, `State`: +1
+    * **Option B:** A *stable condition*, *status*, or *arrangement* that persists, without inherently changing or linking multiple things (e.g., ownership, health, emotional disposition)?
         * **Suggests:** `State`
-        * **Weight if chosen:** `State`: +3, `Attribute`: +1, `Relation`: +1
+        * **Weight if chosen:** `State`: +3, `Relation`: +1
 
 #### 3.2.2. Scenario Identification Questions
 
-These questions directly probe the characteristics that define the common-sense scenarios documented in the "Common Sense Psychology to FN3 Scenario Mapping Worksheet." Users can select multiple options, contributing to the score of relevant scenarios.
+These questions directly probe the characteristics that define the common-sense scenarios documented in the "CSP to FN3 Scenario Mapping." Users can select multiple options, contributing to the score of relevant scenarios.
 
 **Scenario Weighting Scale (for options in Q2.x questions):**
 * **+3:** Strong indication for this scenario.
@@ -164,14 +161,14 @@ These questions directly probe the characteristics that define the common-sense 
 
 The FN3 framework supports a layered approach to scenarios:
 
-1. **Generic Common-Sense Scenarios:** These represent fundamental cognitive and interactional patterns derived from Common Sense Psychology (e.g., `Belief_State_Management_Scenario`, `Goal_Directed_Action_Scenario`). Frames that compose these generic scenarios must themselves be generic, cross-domain frames.
+1. **Generic Commonsense Scenarios:** These represent fundamental cognitive and interactional patterns derived from Commonsense Psychology (e.g., `Belief_State_Management_Scenario`, `Goal_Directed_Action_Scenario`). Frames that compose these generic scenarios must themselves be generic, cross-domain frames.
 2. **Domain-Specific Scenarios:** These represent patterns of activity or experience within a circumscribed field of human activity (e.g., `Crop_Harvest_scenario` in Agriculture, `Tourist_Arrival_scenario` in Tourism).
 
 To maintain a coherent structure without excessive rigidity, the following policies apply to their integration:
 
 - **Policy 1: Domain Scenario Specialization:** A domain scenario **must specialize** from one or more generic common-sense scenarios. This means a domain scenario is conceptually a "type of" or a specific instance of a broader common-sense pattern. This relationship will be captured via `Specializes_Scenario` links (e.g., `Medical_Treatment_Scenario` `Specializes_Scenario` `Goal_Directed_Action_Scenario`).
 - **Policy 2: Frames within Domain Scenarios - Case-by-Case Analysis:** For frames that constitute a domain scenario, a flexible approach is adopted:
-    - If a generic common-sense frame (e.g., `Communication`, `Motion`) is used within a specific domain scenario **without any change to its core meaning or valence patterns**, the generic frame can be directly included as a constituent of the domain scenario. This acknowledges that generic language often retains its original meaning even in specialized contexts.
+    - If a generic commonsense frame (e.g., `Communication`, `Motion`) is used within a specific domain scenario **without any change to its core meaning or valence patterns**, the generic frame can be directly included as a constituent of the domain scenario. This acknowledges that generic language often retains its original meaning even in specialized contexts.
     - If the generic frame's meaning, typical Frame Elements, or valence patterns **are significantly specialized or nuanced by the domain context**, then a new, domain-specific frame should be created (e.g., `Medical_Communication` inheriting from `Communication`). This domain-specific frame would then be a constituent of the domain scenario.
     - This case-by-case analysis avoids creating unnecessary specialized frames while ensuring that genuine semantic distinctions are captured.
 

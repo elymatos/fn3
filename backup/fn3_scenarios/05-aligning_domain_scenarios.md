@@ -1,9 +1,3 @@
-Here is the comprehensive re-analysis of current FrameNet scenarios, incorporating their definitions and identifying relationships to generic common-sense scenarios and potential weak points, formatted as a Markdown document for your documentation.
-
----
-
-# Re-analysis: Current FrameNet Scenarios vs. Generic Common-Sense Scenarios (with Definitions)
-
 This document presents a re-analysis of selected existing FrameNet domain scenarios, integrating their explicit definitions from `scenarios_definition.csv` with the proposed methodology's policies. The analysis aims to infer the relationship of these domain scenarios to the generic common-sense scenarios (Policy 1: Domain Scenario Specialization) and to identify potential weak points regarding the use of generic versus specialized frames within them (Policy 2: Frames within Domain Scenarios - Case-by-Case Analysis).
 
 **Method:** For each existing scenario, the analysis covers:
@@ -11,14 +5,10 @@ This document presents a re-analysis of selected existing FrameNet domain scenar
 - Its primary domain.
 - Its explicit `description` from `scenarios_definition.csv`.
 - Its inferred purpose.
-- Which of our 15 refined **Generic Common-Sense Scenarios** it `Specializes_Scenario` from (Policy 1).
+- Which of our 15 refined **Generic Commonsense Scenarios** it `Specializes_Scenario` from (Policy 1).
 - **Observations on Policy 2 Applicability / Potential Weak Points:** Comments on whether its constituent frames (from `scenario_frame_groupings.csv`) are currently generic and, given the scenario's definition, might warrant specialization under Policy 2, or if their direct use of generic frames is appropriate.
 
----
-
 ## Analysis of Selected Existing Scenarios
-
----
 
 ### **1. Scenario: `Crop_Harvest_scenario`**
 

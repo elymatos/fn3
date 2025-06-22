@@ -1,8 +1,14 @@
+---
+title: "Proposal for the Structural Model of FN3 (FrameNet Brasil)"
+author: "Your Name"
+date: "2024"
+---
+
 # Proposal for the Structural Model of FN3 (FrameNet Brasil)
 
 ## Abstract
 
-This proposal outlines the theoretical and operational architecture for FN3, the current evolution of FrameNet Brasil. The proposed structure is grounded in the core principles of Frame Semantics and intends to unify lexical, conceptual, and epistemic dimensions. It introduces a layered organization into **domains**, **scenarios**, **scenes**, and **situations**, enabling scalable, modular representation of meaning across language, perception, and multimodal content.
+This proposal outlines the theoretical and operational architecture for FN3, the current evolution of FrameNet Brasil. The proposed structure is grounded in the core principles of Frame Semantics and intends to unify lexical, conceptual, and epistemic dimensions. It introduces a layered organization into **domains**, **scenarios**, **scenes**, and **frames**, enabling scalable, modular representation of meaning across language, perception, and multimodal content.
 
 ---
 
@@ -12,10 +18,9 @@ FN3 organizes its network into a multilevel hierarchy:
 
 - **Domains** may contain **subdomains**.
 - **Domains** are composed of **scenarios**.
-- A **scenario** consists of multiple **situations** and **entities**.
-- **Situations** and **entities** are represented by **frames**.
-- A **scene** occurs in **scenario** as a container for **situations/entities**.
-- A **frame** denotes a Entity or a specific **type of situation** (Event, Process, State, Relation, Attribute).
+- A **scenario** consists of multiple **frames**.
+- **Frames** represents **entities**, **attributes** or **situation_types**.
+- A **scene** occurs in **scenario** as a container for **frames**.
 
 This structure supports both **semantic abstraction** and **narrative contextualization**, enabling the encoding of language in relation to lived or imagined experiences.
 
@@ -60,23 +65,27 @@ Examples of domains in FN3:
 
 ---
 
-## 3. Situations and Entities
+## 3. Frames
 
-A **situation** is a minimally coherent segment of reality, whether actual or possible. It is perceived and described from the perspective of a speaker or experiencer. Every situation is linguistically represented by a **frame**. In FN3, a frame is a formal model that defines a specific type of situation along with its participants and internal structure.
+**Frames** represents **entities**, **attributes** or **situations**.
+ 
+A **situation** is a minimally coherent segment of reality, whether actual or possible. It is perceived and described from the perspective of a speaker or experiencer. Every situation is linguistically represented by a **frame**. In FN3, a "situational frame" is a formal model that defines a specific type of situation along with its participants and internal structure. A situational frame can represent Events, Process, States and Relations.
 
-Situations are often reified or treated as “objects,” which allows not only the identification of situations but also the consideration of their properties. For example, we may consider the spatial and temporal location of a specific situation.
+Situations are often reified or treated as "objects," which allows not only the identification of situations but also the consideration of their properties. For example, we may consider the spatial and temporal location of a specific situation.
 
 An important characteristic of situations is that they can be conceived as having a complex mereological structure, with situations constituting other situations. This hierarchical form can be explored for reusing specifications of a situation.
 
-Each situation has a well-defined internal structure, and once formalized as a frame, this structure becomes fixed. This means that a **frame represents a rigid embodiment of a type of situation**: while its instantiations may vary in terms of lexical units or context, the conceptual structure of the frame remains stable. This rigidity is necessary for coherence, comparison, and reuse of frames across different scenes and domains. For example, the frame *Giving* will always involve a Donor, a Recipient, and a Theme, regardless of whether the context is economic exchange, symbolic offering, or metaphorical transfer.
+Each situation has a well-defined internal structure, and once formalized as a frame, this structure becomes fixed. This means that a **situational frame represents a rigid embodiment of a type of situation**: while its instantiations may vary in terms of lexical units or context, the conceptual structure of the frame remains stable. This rigidity is necessary for coherence, comparison, and reuse of frames across different scenes and domains. For example, the frame *Giving* will always involve a Donor, a Recipient, and a Theme, regardless of whether the context is economic exchange, symbolic offering, or metaphorical transfer.
 
-Like in many ontological and lexical frameworks, in FN3 a clear distinction is drawn between **entities** and **situations**. Entities—often equated with “endurants”—are things that persist through time while maintaining their identity. They have properties and parts, but they do not, in themselves, unfold or happen; rather, they provide the stable backdrop against which changes and events occur.
+Like in many ontological and lexical frameworks, in FN3 a clear distinction is drawn between **entities**, **attributes** and **situations**. 
 
-By contrast, situations correspond to “perdurants,” unfolding across time as processes, events or states. A situation is not wholly present at any single moment but consists of temporal parts: it begins, evolves, and eventually ends. Situations capture how entities participate in change—such as a conversation, a chemical reaction, or a journey—by describing the dynamic patterns of involvement rather than the static bearers of properties.
+Entities—often equated with "endurants"—are things that persist through time while maintaining their identity. They have properties and parts, but they do not, in themselves, unfold or happen; rather, they provide the stable backdrop against which changes and events occur.
 
-Endurant-based entities serve as the anchors of classification (who or what), while perdurant-based situations describe the temporal “happenings” (when and how) in which those entities are involved.
+By contrast, situations correspond to "perdurants," unfolding across time as processes, events or states. A situation is not wholly present at any single moment but consists of temporal parts: it begins, evolves, and eventually ends. Situations capture how entities participate in change—such as a conversation, a chemical reaction, or a journey—by describing the dynamic patterns of involvement rather than the static bearers of properties.
 
-In FN3 we are handling Attributes and Relations also as situations.
+Endurant-based entities serve as the anchors of classification (who or what), while perdurant-based situations describe the temporal "happenings" (when and how) in which those entities are involved.
+
+On the other hand, attributes (sometimes classified as "qualities") describe _what an Entity or Situation is like_. They don't _unfold_ in time, nor do they persist as independent entities. They _inhere_ in something else.
 
 ### 3.1. Frame Typology
 
@@ -136,8 +145,6 @@ Thus, FN3 adopts a **plural and flexible strategy** for classification, allowing
 
 This typology informs both the internal construction of frames (choice of core Frame Elements) and their relations (inheritance, subframing, etc.). It also facilitates automatic processing, as it enables generalization and inference across types.
 
----
-
 ## 4. Scenes
 
 A **scene** is a perceptually or narratively bounded experience. It is characterized by a configuration of one or more situations occurring in a defined space-time or cognitive scope. Unlike frames, scenes are not rigid: they can vary internally, evolve, or be reinterpreted according to context.
@@ -153,10 +160,9 @@ In the context of a multimodal FNBr, scenes are represented by sentences, images
 - An image is considered a scene, representing one or more situations/entities simultaneously.
 - A video can be considered a succession of scenes, where multiple situations are represented through a sequence of video frames. Each frame of the video is an image (which can represent one or more situations simultaneously). In videos, a situation can extend over time.
 
-
----
 ## 5. Scenarios
-A scenario is a special type of frame, used to group situations/entities that are related to each other, forming a sub-context within a given domain.
+
+A scenario is a special type of frame, used to group situations/entities/attributes that are related to each other, forming a sub-context within a given domain.
 
 Each frame is associated with a type. Thus, a **scenario** is composed of events, processes, states, relations, and entities.
 
@@ -166,7 +172,6 @@ The definition of the Frame Elements of scenarios may involve:
 - Motivations and conditions: includes causes, motivations, intentions, or obstacles.
 - Contextualization: often specifies whether it occurs in a certain place, time, or manner.
 
----
 ## 6. Core Principles for Formalizing Frame Creation in FNBr
 
 Frame creation in FN3 is governed by a set of core principles that guarantee conceptual coherence, linguistic validity, and compatibility with computational methods. These principles serve both theoretical consistency and practical scalability:
@@ -188,5 +193,5 @@ Frame creation in FN3 is governed by a set of core principles that guarantee con
 8. **Cognitive Embeddability**: A valid frame should be **mentally imageable**, relatable to experience, and potentially learnable by humans without explicit definition. This ensures cognitive adequacy. If a frame cannot be imagined or mentally simulated as a whole situation, it likely violates the cognitive motivations of frame semantics.
 
 9. **Computational Alignment**: Frame creation should follow a **structured enough process** that it can be guided or replicated (semi-)automatically by language models. A long-term goal of FN3 is automation. Aligning the method with LLM capabilities (e.g. pattern recognition, analogy, paraphrase alignment) enables assisted frame induction and scaling.
-.
+
 These principles establish FN3 as a cognitively grounded, linguistically precise, and computationally usable semantic network ready for advanced tasks in AI, education, translation, and cross-cultural representation.

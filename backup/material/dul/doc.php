@@ -120,32 +120,48 @@ function extractMultilingualText($data, $preferredLangs = ['en', 'it', null]) {
 }
 
 /**
- * Extract name from URI
+ * Extract name from URI - FIXED VERSION
  */
 function extractNameFromUri($uri) {
     if (empty($uri)) {
         return 'Unknown';
     }
 
-    // Remove any trailing file extensions
-    $name = preg_replace('/\.owl.*$/', '', $uri);
+    // For DUL URIs like "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"
+    // We want to extract "Entity"
 
     // If it contains #, take everything after the last #
-    if (strpos($name, '#') !== false) {
-        $name = substr($name, strrpos($name, '#') + 1);
+    if (strpos($uri, '#') !== false) {
+        $name = substr($uri, strrpos($uri, '#') + 1);
+        // Clean up any remaining file extensions
+        $name = preg_replace('/\.owl.*$/', '', $name);
+        return trim($name);
     }
 
-    // If it still contains /, take everything after the last /
-    if (strpos($name, '/') !== false) {
-        $name = substr($name, strrpos($name, '/') + 1);
+    // If no #, try to get the last part after /
+    if (strpos($uri, '/') !== false) {
+        $name = substr($uri, strrpos($uri, '/') + 1);
+        // Clean up any file extensions
+        $name = preg_replace('/\.owl.*$/', '', $name);
+        return trim($name);
     }
 
+    // Fallback: clean the whole URI
+    $name = preg_replace('/\.owl.*$/', '', $uri);
     return trim($name);
 }
 
 /**
- * Check if a URI belongs to DUL namespace
+ * Generate safe ID for HTML anchors
  */
+function generateClassId($classUri) {
+    $name = extractNameFromUri($classUri);
+    // Convert to lowercase and replace special characters with hyphens
+    $id = strtolower($name);
+    $id = preg_replace('/[^a-z0-9]+/', '-', $id);
+    $id = trim($id, '-');
+    return 'class-' . $id;
+}
 function isDulNamespace($uri) {
     return strpos($uri, DUL_NAMESPACE) === 0;
 }
@@ -284,7 +300,7 @@ function parseJsonLdFile($filePath) {
         $items = [$data];
     }
 
-    echo "<div style='background: lightblue; padding: 10px; margin: 10px;'>Processing " . count($items) . " items from JSON-LD</div>";
+    // Processing items from JSON-LD
 
     $classCount = 0;
     $propertyCount = 0;
@@ -434,12 +450,7 @@ function parseJsonLdFile($filePath) {
         $classData['isTopLevel'] = empty($classData['superClasses']);
     }
 
-    echo "<div style='background: lightgreen; padding: 10px; margin: 10px;'>";
-    echo "✓ JSON-LD parsing completed!<br>";
-    echo "Classes found: {$classCount} (with definitions: {$definitionCount})<br>";
-    echo "Properties found: {$propertyCount}<br>";
-    echo "Top-level classes: " . count(array_filter($classes, function($c) { return $c['isTopLevel']; })) . "<br>";
-    echo "</div>";
+    // JSON-LD parsing completed
 }
 
 /**
@@ -458,7 +469,6 @@ function findDulFile() {
 
     foreach ($possibleFiles as $file) {
         if (file_exists($file)) {
-            echo "<div style='background: lightgreen; padding: 10px; margin: 5px;'>Found file: {$file}</div>";
             return $file;
         }
     }
@@ -548,7 +558,7 @@ function renderClassCard($classUri, $allClasses, $allProperties, $level = 0) {
     }
 
     $class = $allClasses[$classUri];
-    $cardId = 'class-' . strtolower(str_replace([' ', '#', '/', ':'], '-', extractNameFromUri($class['uri'])));
+    $cardId = generateClassId($class['uri']);
     $marginClass = $level > 0 ? 'ml-' . min($level * 4, 16) : '';
 
     $html = "<div class='class-card bg-white rounded-lg shadow-md p-6 mb-4 {$marginClass} border border-gray-200' data-class-name='" . strtolower($class['name']) . "' data-class-uri='{$classUri}'>";
@@ -610,7 +620,7 @@ function renderClassCard($classUri, $allClasses, $allProperties, $level = 0) {
         $html .= "<ul class='list-disc list-inside ml-4 space-y-1'>";
         foreach ($class['superClasses'] as $superClassUri) {
             $superClassName = isset($allClasses[$superClassUri]) ? $allClasses[$superClassUri]['name'] : extractNameFromUri($superClassUri);
-            $linkId = 'class-' . strtolower(str_replace([' ', '#', '/', ':'], '-', extractNameFromUri($superClassUri)));
+            $linkId = generateClassId($superClassUri);
             $html .= "<li><a href='#{$linkId}' class='superclass-link text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-150'>{$superClassName}</a></li>";
         }
         $html .= "</ul></div>";
@@ -625,13 +635,27 @@ function renderClassCard($classUri, $allClasses, $allProperties, $level = 0) {
     if (!empty($class['subClasses'])) {
         $html .= "<div class='subclasses-section mt-4'>";
         $html .= "<h4 class='text-lg font-semibold text-gray-800 mb-2'>Subclasses of {$class['name']} (" . count($class['subClasses']) . "):</h4>";
-        $html .= "<div id='{$cardId}-subclasses' class='subclass-container pl-4 pt-2 hidden'>";
 
-        // Sort subclasses by name
+        // Add quick links to subclasses
+        $html .= "<div class='subclass-links mb-3'>";
+        $html .= "<ul class='list-disc list-inside ml-4 space-y-1'>";
+
+        // Sort subclasses by name for the links
         $sortedSubClasses = $class['subClasses'];
         usort($sortedSubClasses, function($a, $b) use ($allClasses) {
             return strcmp($allClasses[$a]['name'], $allClasses[$b]['name']);
         });
+
+        foreach ($sortedSubClasses as $subClassUri) {
+            $subClassName = isset($allClasses[$subClassUri]) ? $allClasses[$subClassUri]['name'] : extractNameFromUri($subClassUri);
+            $linkId = generateClassId($subClassUri);
+            $html .= "<li><a href='#{$linkId}' class='subclass-link text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-150'>{$subClassName}</a></li>";
+        }
+
+        $html .= "</ul></div>";
+
+        // Expandable detailed subclass sections
+        $html .= "<div id='{$cardId}-subclasses' class='subclass-container pl-4 pt-2 hidden'>";
 
         foreach ($sortedSubClasses as $subClassUri) {
             $html .= renderClassCard($subClassUri, $allClasses, $allProperties, $level + 1);
@@ -649,8 +673,6 @@ $owlFile = findDulFile();
 if (!$owlFile) {
     die("Error: No DUL ontology file found. Please check the files in the directory.");
 }
-
-echo "<div style='background: lightblue; padding: 10px; margin: 10px;'>Starting to parse: {$owlFile}</div>";
 
 // Parse the file
 parseJsonLdFile($owlFile);
@@ -678,11 +700,6 @@ $topLevelClasses = array_filter($classes, function($class) {
 uasort($topLevelClasses, function($a, $b) {
     return strcmp($a['name'], $b['name']);
 });
-
-echo "<div style='background: lightgreen; padding: 10px; margin: 10px;'>";
-echo "Ready to render " . count($topLevelClasses) . " top-level classes<br>";
-echo "Total processing time: " . number_format($statistics['processing_time'], 3) . "s";
-echo "</div>";
 ?>
 
 <!DOCTYPE html>
@@ -886,7 +903,7 @@ uasort($allClassesSorted, function($a, $b) {
 });
 
 foreach ($allClassesSorted as $classUri => $classData) {
-    $linkId = 'class-' . strtolower(str_replace([' ', '#', '/', ':'], '-', extractNameFromUri($classData['uri'])));
+    $linkId = generateClassId($classUri);
     $parentInfo = '';
     if (!empty($classData['superClasses']) && isset($classes[$classData['superClasses'][0]])) {
         $parentName = $classes[$classData['superClasses'][0]]['name'];
@@ -994,9 +1011,11 @@ class OntologyBrowser {
         this.setupClassIndex();
 
         // Store original content for search highlighting
-        this.allCards.forEach(card => {
+        this.allCards.forEach((card, index) => {
             const content = card.innerHTML;
-            this.originalContent.set(card.dataset.classUri || card.id, content);
+            // Use a more reliable key
+            const key = card.dataset.classUri || card.id || `card-${index}`;
+            this.originalContent.set(key, content);
         });
 
         console.log(`Ontology Browser initialized with ${this.allCards.length} classes`);
@@ -1011,9 +1030,9 @@ class OntologyBrowser {
             }, 300);
         });
 
-        // Clear search
+        // Clear search (using the new method that doesn't reset page state)
         this.clearSearch.addEventListener('click', () => {
-            this.clearSearchResults();
+            this.clearSearchDropdown();
         });
 
         // Expand/Collapse all
@@ -1054,7 +1073,7 @@ class OntologyBrowser {
             }
 
             if (e.key === 'Escape') {
-                this.clearSearchResults();
+                this.clearSearchDropdown();
             }
         });
     }
@@ -1152,109 +1171,176 @@ class OntologyBrowser {
 
     performSearch(searchTerm) {
         if (!searchTerm || searchTerm.length < 2) {
-            this.clearSearchResults();
+            this.clearSearchDropdown();
             return;
         }
 
         const term = searchTerm.toLowerCase();
-        let matchCount = 0;
+        const matches = [];
 
+        // Search only in class names
         this.allCards.forEach(card => {
+            // Get class name from data attribute or card content
             const className = card.dataset.className || '';
-        const cardText = card.textContent.toLowerCase();
 
-        if (className.includes(term) || cardText.includes(term)) {
-            card.style.display = 'block';
-        card.classList.add('fade-in');
-        this.highlightSearchTerms(card, searchTerm);
-        matchCount++;
+        // Get the class name from the header (remove any parent info in brackets)
+        const headerElement = card.querySelector('h3, h4, h5, h6');
+        let headerText = '';
+        if (headerElement) {
+            // Extract just the class name, removing parent info like "[ParentClass]"
+            headerText = headerElement.textContent.replace(/\s*\[.*?\]\s*$/, '').trim().toLowerCase();
+        }
 
-        // Show parent cards if this is a match
-        this.showParentCards(card);
-        } else {
-            card.style.display = 'none';
-        card.classList.remove('fade-in');
+        // Check if search term matches class name only
+        const isMatch = className.includes(term) || headerText.includes(term);
+
+        if (isMatch) {
+            const classId = card.id || this.generateIdFromCard(card);
+            const displayName = headerText || className || 'Unknown Class';
+
+        matches.push({
+            id: classId,
+            name: this.capitalizeFirstLetter(displayName),
+                     element: card
+        });
         }
         });
 
-        this.showSearchResults(matchCount);
+        // Sort matches alphabetically
+        matches.sort((a, b) => a.name.localeCompare(b.name));
+
+        this.showSearchResults(matches.length, matches);
+
+        console.log(`Search for "${searchTerm}" found ${matches.length} class name matches`);
     }
 
-    highlightSearchTerms(card, searchTerm) {
-        const originalContent = this.originalContent.get(card.dataset.classUri || card.id);
-        if (!originalContent) return;
-
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
-        const highlightedContent = originalContent.replace(regex, '<span class="highlight">$1</span>');
-        card.innerHTML = highlightedContent;
-
-        // Reinitialize event listeners for this card
-        this.reinitializeCardEvents(card);
-    }
+    // Note: Search highlighting removed - now showing results as clickable list instead
 
     reinitializeCardEvents(card) {
         const toggleBtn = card.querySelector('.toggle-subclasses-btn');
         if (toggleBtn) {
             const targetId = toggleBtn.dataset.target;
-            const targetElement = document.querySelector(targetId);
+            if (targetId) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Remove any existing event listeners by cloning the button
+                    const newToggleBtn = toggleBtn.cloneNode(true);
+                    toggleBtn.parentNode.replaceChild(newToggleBtn, toggleBtn);
 
-            if (targetElement) {
-                toggleBtn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    this.toggleSubclasses(toggleBtn, targetElement);
-                });
+                    // Add fresh event listener
+                    newToggleBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.toggleSubclasses(newToggleBtn, targetElement);
+                    });
+                }
             }
         }
     }
 
     showParentCards(card) {
         let parent = card.parentElement;
-        while (parent && !parent.classList.contains('ontology-docs')) {
+        while (parent && !parent.classList.contains('container')) {
             if (parent.classList.contains('class-card')) {
                 parent.style.display = 'block';
+                parent.style.visibility = 'visible';
             }
             if (parent.classList.contains('subclass-container')) {
                 parent.classList.remove('hidden');
+                parent.style.display = 'block';
                 // Update corresponding toggle button
-                const toggleBtn = parent.parentElement.querySelector('.toggle-subclasses-btn');
-                if (toggleBtn) {
-                    toggleBtn.setAttribute('aria-expanded', 'true');
+                const parentCard = parent.closest('.class-card');
+                if (parentCard) {
+                    const toggleBtn = parentCard.querySelector('.toggle-subclasses-btn');
+                    if (toggleBtn) {
+                        toggleBtn.setAttribute('aria-expanded', 'true');
+                    }
                 }
             }
             parent = parent.parentElement;
         }
     }
 
-    showSearchResults(count) {
+    showSearchResults(count, matches = []) {
         this.searchCount.textContent = count;
         this.searchResults.classList.remove('hidden');
+
+        // Create or update the search results list
+        let resultsContainer = document.getElementById('search-results-list');
+        if (!resultsContainer) {
+            resultsContainer = document.createElement('div');
+            resultsContainer.id = 'search-results-list';
+            resultsContainer.className = 'mt-3 max-h-60 overflow-y-auto bg-white border border-gray-200 rounded-lg shadow-lg';
+            this.searchResults.appendChild(resultsContainer);
+        }
+
+        // Clear previous results
+        resultsContainer.innerHTML = '';
+
+        if (matches.length > 0) {
+            const list = document.createElement('ul');
+            list.className = 'py-2';
+
+            matches.forEach(match => {
+                const listItem = document.createElement('li');
+                listItem.className = 'px-4 py-2 hover:bg-blue-50 border-b border-gray-100 last:border-b-0';
+
+            const link = document.createElement('a');
+            link.href = `#${match.id}`;
+            link.className = 'block text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150';
+            link.textContent = match.name;
+
+            // Add click handler to navigate to the class
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.navigateToClass(match.id, match.element);
+            });
+
+            listItem.appendChild(link);
+            list.appendChild(listItem);
+            });
+
+            resultsContainer.appendChild(list);
+        } else {
+            resultsContainer.innerHTML = '<div class="px-4 py-3 text-gray-500 text-center">No classes found</div>';
+        }
     }
 
     clearSearchResults() {
         this.searchInput.value = '';
         this.searchResults.classList.add('hidden');
 
-        // Restore original content and visibility
-        this.allCards.forEach(card => {
+        // Remove the search results list
+        const resultsContainer = document.getElementById('search-results-list');
+        if (resultsContainer) {
+            resultsContainer.remove();
+        }
+
+        // Ensure all cards are visible in their normal state
+        this.allCards.forEach((card, index) => {
             card.style.display = 'block';
+        card.style.visibility = 'visible';
         card.classList.remove('fade-in');
 
-        const originalContent = this.originalContent.get(card.dataset.classUri || card.id);
+        // Restore original content (remove any highlighting)
+        const key = card.dataset.classUri || card.id || `card-${index}`;
+        const originalContent = this.originalContent.get(key);
         if (originalContent) {
             card.innerHTML = originalContent;
             this.reinitializeCardEvents(card);
         }
         });
 
-        // Reset all subclass containers to hidden
+        // Reset all subclass containers to hidden (normal state)
         document.querySelectorAll('.subclass-container').forEach(container => {
             container.classList.add('hidden');
         });
 
         // Reset toggle buttons
-        this.toggleButtons.forEach(button => {
+        document.querySelectorAll('.toggle-subclasses-btn').forEach(button => {
             button.setAttribute('aria-expanded', 'false');
         });
+
+        console.log('Search cleared');
     }
 
     toggleSubclasses(button, targetElement) {
@@ -1311,6 +1397,66 @@ class OntologyBrowser {
         if (visibleCards[prevIndex]) {
             visibleCards[prevIndex].focus();
         }
+    }
+
+    // Helper methods for the new search functionality
+    generateIdFromCard(card) {
+        const headerElement = card.querySelector('h3, h4, h5, h6');
+        if (headerElement && headerElement.id) {
+            return headerElement.id;
+        }
+
+        // Try to generate an ID from the class name
+        const className = card.dataset.className || '';
+        if (className) {
+            return 'class-' + className.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+        }
+
+        return 'class-unknown-' + Math.random().toString(36).substr(2, 9);
+    }
+
+    capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    navigateToClass(classId, element) {
+        // First expand all to ensure the target is visible
+        this.toggleAllSubclasses(true);
+
+        // Wait for expansion animation, then scroll
+        setTimeout(() => {
+            const targetElement = document.getElementById(classId) || element;
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // Add temporary highlight
+                targetElement.classList.add('highlight-target');
+                setTimeout(() => {
+                    targetElement.classList.remove('highlight-target');
+                }, 2000);
+
+                // Clear only the search results dropdown, but keep everything expanded
+                this.clearSearchDropdown();
+            }
+        }, 100);
+    }
+
+    // Clear only the search dropdown, not the entire page state
+    clearSearchDropdown() {
+        this.searchInput.value = '';
+        this.searchResults.classList.add('hidden');
+
+        // Remove the search results list
+        const resultsContainer = document.getElementById('search-results-list');
+        if (resultsContainer) {
+            resultsContainer.remove();
+        }
+
+        console.log('Search dropdown cleared, keeping expanded state');
     }
 }
 
