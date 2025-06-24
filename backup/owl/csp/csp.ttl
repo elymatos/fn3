@@ -1,0 +1,308 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+@prefix csp: <http://www.fn3.org/ontologies/csp#> .
+
+<http://www.fn3.org/ontologies/csp> rdf:type owl:Ontology ;
+    owl:imports dul: ;
+    rdfs:label "Common Sense Psychology Ontology Module for FN3" ;
+    rdfs:comment "An OWL module formalizing core concepts from Common Sense Psychology (Gordon & Hobbs) and integrating them with DOLCE+DnS UltraLite (DUL) for FrameNet Brasil (FN3)." .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+### Core CSP Agents and Mental States
+csp:CognitiveAgent rdf:type owl:Class ;
+    rdfs:subClassOf dul:Agent ;
+    rdfs:label "Cognitive Agent" ;
+    rdfs:comment "A dul:Agent that possesses cognitive capabilities, including the ability to hold beliefs, desires, and intentions, and to perceive and act." .
+
+csp:MentalState rdf:type owl:Class ;
+    rdfs:subClassOf dul:State ;
+    rdfs:label "Mental State" ;
+    rdfs:comment "A dul:State that is an internal condition or disposition of a csp:CognitiveAgent." .
+
+csp:BeliefState rdf:type owl:Class ;
+    rdfs:subClassOf csp:MentalState ;
+    rdfs:label "Belief State" ;
+    rdfs:comment "A csp:MentalState where a csp:CognitiveAgent holds a csp:Proposition to be true as part of their internal model of the world." .
+
+csp:DesireState rdf:type owl:Class ;
+    rdfs:subClassOf csp:MentalState ;
+    rdfs:label "Desire State" ;
+    rdfs:comment "A csp:MentalState where a csp:CognitiveAgent wishes for a csp:DesiredStateOfAffairs to be true." .
+
+csp:IntentionState rdf:type owl:Class ;
+    rdfs:subClassOf csp:MentalState ;
+    rdfs:label "Intention State" ;
+    rdfs:comment "A csp:MentalState where a csp:CognitiveAgent commits to performing a csp:IntendedEvent to achieve a desired outcome." .
+
+csp:EmotionalState rdf:type owl:Class ;
+    rdfs:subClassOf csp:MentalState ;
+    rdfs:label "Emotional State" ;
+    rdfs:comment "A csp:MentalState reflecting an agent's affective response to a situation, often triggered by beliefs or desires." .
+
+csp:Proposition rdf:type owl:Class ;
+    rdfs:subClassOf dul:Proposition ;
+    rdfs:label "Proposition" ;
+    rdfs:comment "A unit of information or a statement about a state of affairs that can be believed, known, or communicated." .
+
+csp:KnownProposition rdf:type owl:Class ;
+    rdfs:subClassOf csp:Proposition ;
+    rdfs:label "Known Proposition" ;
+    rdfs:comment "A csp:Proposition that is not only believed by an agent but is also objectively true (within the defined reality of the system)." .
+
+csp:DesiredStateOfAffairs rdf:type owl:Class ;
+    rdfs:subClassOf dul:Situation ;
+    rdfs:label "Desired State of Affairs" ;
+    rdfs:comment "A dul:Situation or state of the world that a csp:CognitiveAgent desires to be true." .
+
+csp:IntendedEvent rdf:type owl:Class ;
+    rdfs:subClassOf dul:Event ;
+    rdfs:label "Intended Event" ;
+    rdfs:comment "A dul:Event that a csp:CognitiveAgent commits to bringing about as part of their intention." .
+
+
+### CSP Events and Processes
+csp:Action rdf:type owl:Class ;
+    rdfs:subClassOf dul:Action ; # dul:Action is a dul:Event performed by a dul:Agent
+    rdfs:label "Action" ;
+    rdfs:comment "A dul:Event caused by a csp:CognitiveAgent, typically performed with an intention to achieve a desired outcome." .
+
+csp:PerceptionEvent rdf:type owl:Class ;
+    rdfs:subClassOf dul:Event ;
+    rdfs:label "Perception Event" ;
+    rdfs:comment "A dul:Event in which a csp:CognitiveAgent directly acquires information about the state of the world through sensory input." .
+
+csp:CommunicationEvent rdf:type owl:Class ;
+    rdfs:subClassOf dul:Event ;
+    rdfs:label "Communication Event" ;
+    rdfs:comment "A dul:Event where a csp:CognitiveAgent transmits a csp:Proposition (message) to another agent, usually with the intention of influencing their beliefs or actions." .
+
+csp:PlanningProcess rdf:type owl:Class ;
+    rdfs:subClassOf dul:Process ; # dul:Process is a dul:Event with phases/duration
+    rdfs:label "Planning Process" ;
+    rdfs:comment "A csp:CognitiveAgent's mental dul:Process of constructing a sequence of csp:Actions believed to lead to a desired future state." .
+
+csp:CausalChainEvent rdf:type owl:Class ;
+    rdfs:subClassOf dul:Event ;
+    rdfs:label "Causal Chain Event" ;
+    rdfs:comment "A dul:Event that represents a link in a chain of causation, where one event or state brings about another." .
+
+
+### Other CSP related concepts
+csp:Environment rdf:type owl:Class ;
+    rdfs:subClassOf dul:Object ;
+    rdfs:label "Environment" ;
+    rdfs:comment "The external physical and social context in which a csp:CognitiveAgent operates and interacts." .
+
+csp:SecurityStatus rdf:type owl:Class ;
+    rdfs:subClassOf dul:Quality ;
+    rdfs:label "Security Status" ;
+    rdfs:comment "A dul:Quality representing the degree of protection or vulnerability of an object or situation." .
+
+csp:CompromisedSecurity rdf:type owl:Class ;
+    rdfs:subClassOf csp:SecurityStatus ;
+    rdfs:label "Compromised Security" ;
+    rdfs:comment "A csp:SecurityStatus indicating a state of reduced or lost security." .
+
+csp:EmotionalValenceValue rdf:type owl:Class ;
+    rdfs:subClassOf dul:Quality ;
+    rdfs:label "Emotional Valence Value" ;
+    rdfs:comment "A dul:Quality representing the positive, negative, or neutral character of an emotion." .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+### Properties for Beliefs
+csp:hasBeliever rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:BeliefState ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Believer" ;
+    rdfs:comment "Links a csp:BeliefState to the csp:CognitiveAgent who holds the belief." .
+
+csp:hasBelievedProposition rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:BeliefState ;
+    rdfs:range csp:Proposition ;
+    rdfs:label "has Believed Proposition" ;
+    rdfs:comment "Links a csp:BeliefState to the csp:Proposition that is believed." .
+
+csp:isBasedOn rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:BeliefState ;
+    rdfs:range dul:InformationEntity ; # Could also be dul:Event for direct observation
+    rdfs:label "is Based On" ;
+    rdfs:comment "Links a csp:BeliefState to the InformationEntity (e.g., evidence, perception) upon which it is based." .
+
+### Properties for Desires
+csp:hasDesirer rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:DesireState ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Desirer" ;
+    rdfs:comment "Links a csp:DesireState to the csp:CognitiveAgent who holds the desire." .
+
+csp:wantsState rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:DesireState ;
+    rdfs:range csp:DesiredStateOfAffairs ;
+    rdfs:label "wants State" ;
+    rdfs:comment "Links a csp:DesireState to the csp:DesiredStateOfAffairs that is wanted." .
+
+### Properties for Intentions
+csp:hasIntender rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:IntentionState ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Intender" ;
+    rdfs:comment "Links a csp:IntentionState to the csp:CognitiveAgent who holds the intention." .
+
+csp:intendsAction rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:IntentionState ;
+    rdfs:range csp:IntendedEvent ;
+    rdfs:label "intends Action" ;
+    rdfs:comment "Links a csp:IntentionState to the csp:IntendedEvent (action or state of affairs) that the agent commits to bringing about." .
+
+### Properties for Emotions
+csp:hasExperiencer rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:EmotionalState ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Experiencer" ;
+    rdfs:comment "Links an csp:EmotionalState to the csp:CognitiveAgent experiencing it." .
+
+csp:triggeredBy rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:EmotionalState ;
+    rdfs:range dul:Situation ; # Can be an event, state, or object/proposition
+    rdfs:label "triggered By" ;
+    rdfs:comment "Links an csp:EmotionalState to the dul:Situation or entity that causes or triggers it." .
+
+csp:hasEmotionalValence rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:EmotionalState ;
+    rdfs:range csp:EmotionalValenceValue ;
+    rdfs:label "has Emotional Valence" ;
+    rdfs:comment "Links an csp:EmotionalState to its emotional valence (e.g., positive, negative, neutral)." .
+
+csp:causesAction rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:causes ;
+    rdfs:domain csp:MentalState ; # More general, can be desire, intention, emotion
+    rdfs:range csp:Action ;
+    rdfs:label "causes Action" ;
+    rdfs:comment "Indicates that a csp:MentalState can cause a csp:Action by a csp:CognitiveAgent." .
+
+### Properties for Perception
+csp:hasPerceiver rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:PerceptionEvent ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Perceiver" ;
+    rdfs:comment "Links a csp:PerceptionEvent to the csp:CognitiveAgent who perceives." .
+
+csp:perceivesPhenomenon rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:PerceptionEvent ;
+    rdfs:range dul:Situation ; # Can be a dul:Object, dul:Event, or dul:State
+    rdfs:label "perceives Phenomenon" ;
+    rdfs:comment "Links a csp:PerceptionEvent to the dul:Situation or entity that is perceived." .
+
+csp:leadsToBelief rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:causes ;
+    rdfs:domain csp:PerceptionEvent ;
+    rdfs:range csp:BeliefState ;
+    rdfs:label "leads to Belief" ;
+    rdfs:comment "Indicates that a csp:PerceptionEvent can cause a csp:BeliefState in the perceiver." .
+
+### Properties for Communication
+csp:hasCommunicator rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:CommunicationEvent ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Communicator" ;
+    rdfs:comment "Links a csp:CommunicationEvent to the csp:CognitiveAgent who initiates the communication." .
+
+csp:hasRecipient rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:CommunicationEvent ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Recipient" ;
+    rdfs:comment "Links a csp:CommunicationEvent to the csp:CognitiveAgent who is the intended recipient." .
+
+csp:hasMessage rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:CommunicationEvent ;
+    rdfs:range csp:Proposition ;
+    rdfs:label "has Message" ;
+    rdfs:comment "Links a csp:CommunicationEvent to the csp:Proposition that is conveyed." .
+
+### Properties for Planning
+csp:hasPlanner rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:PlanningProcess ;
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Planner" ;
+    rdfs:comment "Links a csp:PlanningProcess to the csp:CognitiveAgent who is performing the planning." .
+
+csp:plansForGoal rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:PlanningProcess ;
+    rdfs:range dul:Situation ; # The desired dul:Situation
+    rdfs:label "plans For Goal" ;
+    rdfs:comment "Links a csp:PlanningProcess to the ultimate dul:Situation that is the goal of the plan." .
+
+csp:hasPlanStep rdf:type owl:ObjectProperty ;
+    rdfs:domain csp:PlanningProcess ;
+    rdfs:range dul:Event ; # The constituent events/actions
+    rdfs:label "has Plan Step" ;
+    rdfs:comment "Links a csp:PlanningProcess to an individual dul:Event that is a step in the plan." .
+
+### Properties for Social Interaction and Obligation
+csp:hasObligatedParty rdf:type owl:ObjectProperty ;
+    rdfs:domain dul:Situation ; # e.g., a csp:ObligationState or an event that creates obligation
+    rdfs:range csp:CognitiveAgent ;
+    rdfs:label "has Obligated Party" ;
+    rdfs:comment "Links a situation of obligation to the csp:CognitiveAgent who is obligated." .
+
+csp:hasObligatedAction rdf:type owl:ObjectProperty ;
+    rdfs:domain dul:Situation ; # e.g., a csp:ObligationState or an event that creates obligation
+    rdfs:range csp:Action ;
+    rdfs:label "has Obligated Action" ;
+    rdfs:comment "Links a situation of obligation to the csp:Action that the party is obligated to perform." .
+
+csp:influencesBelief rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:influences ; # Use dul:influences from DUL
+    rdfs:domain dul:Situation ;
+    rdfs:range csp:BeliefState ;
+    rdfs:label "influences Belief" ;
+    rdfs:comment "Indicates that a dul:Situation (e.g., communication, perception) can influence a csp:BeliefState." .
+
+csp:influencesDesire rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:influences ;
+    rdfs:domain dul:Situation ;
+    rdfs:range csp:DesireState ;
+    rdfs:label "influences Desire" ;
+    rdfs:comment "Indicates that a dul:Situation can influence a csp:DesireState." .
+
+csp:influencesIntention rdf:type owl:ObjectProperty ;
+    rdfs:subPropertyOf dul:influences ;
+    rdfs:domain dul:Situation ;
+    rdfs:range csp:IntentionState ;
+    rdfs:label "influences Intention" ;
+    rdfs:comment "Indicates that a dul:Situation can influence a csp:IntentionState." .
+
+#################################################################
+#    Axioms for CSP Relations (Explanatory Comments - Requires SWRL or more complex OWL for full logical expression)
+#################################################################
+
+# Axiom: Knowledge implies Belief
+# This can be modeled with a property chain or a SWRL rule for inferencing instances.
+# Example SWRL: csp:KnownProposition(?p) ^ csp:hasBelievedProposition(?b, ?p) -> csp:BeliefState(?b)
+
+# Axiom: Intention implies Desire (for the intended event to occur)
+# Example SWRL: csp:IntentionState(?i) ^ csp:hasIntender(?i, ?agent) ^ csp:intendsAction(?i, ?action) ->
+#                csp:DesireState(?d) ^ csp:hasDesirer(?d, ?agent) ^ csp:wantsState(?d, ?action)
+
+# Axiom: Perception leads to Belief
+# Example SWRL: csp:PerceptionEvent(?pe) ^ csp:hasPerceiver(?pe, ?agent) ^ csp:perceivesPhenomenon(?pe, ?phen) ->
+#                csp:BeliefState(?b) ^ csp:hasBeliever(?b, ?agent) ^ csp:hasBelievedProposition(?b, ?phen)
+
+# Axiom: Actions are caused by Intentions (among other factors)
+# Example SWRL: csp:Action(?a) ^ dul:hasAgent(?a, ?agent) ^ csp:causedByIntention(?a, ?i) -> csp:IntentionState(?i)
+
+# Axiom: Communication changes beliefs
+# Example SWRL: csp:CommunicationEvent(?ce) ^ csp:hasRecipient(?ce, ?recipient) ^ csp:hasMessage(?ce, ?message) ->
+#                csp:BeliefState(?b) ^ csp:hasBeliever(?b, ?recipient) ^ csp:hasBelievedProposition(?b, ?message)
+
