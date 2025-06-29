@@ -1,10 +1,10 @@
 ---
-title: "Proposal for the Structural Model of FN3 (FNBr)"
-author: "Ely Matos"
-date: "jul2025"
+title: "Proposal for the Structural Model of FN3 (FrameNet Brasil)"
+author: "Your Name"
+date: "2024"
 ---
 
-# Proposal for the Structural Model of FN3 (FNBr)
+# Proposal for the Structural Model of FN3 (FrameNet Brasil)
 
 ## Abstract
 
@@ -28,7 +28,7 @@ This structure supports both **semantic abstraction** and **narrative contextual
 
 ## 2. Domains
 
-Domains in FN3 correspond to broad fields of human experience and discourse. Unlike ontological categories, they are **epistemic regions**, meaning that they are historically and culturally constructed, and they aggregate a multiplicity of semantic phenomena.
+Domains in FN3 correspond to broad fields of human experience and discourse. Unlike ontological categories, they are **epistemic regions**, meaning that they are historically and culturally constructed, and they aggregate a multiplicity of semantic phenomena. 
 
 A domain is not defined by necessary and sufficient conditions but by the relevance of a set of experiences, knowledge, and practices organized historically. For example, the domain of *health* may include medical, psychological, biological, legal, and economic frames; the domain of *violence* may involve sociological, judicial, urban, and affective frames.
 
@@ -68,7 +68,7 @@ Examples of domains in FN3:
 ## 3. Frames
 
 **Frames** represents **entities**, **attributes** or **situations**.
-
+ 
 A **situation** is a minimally coherent segment of reality, whether actual or possible. It is perceived and described from the perspective of a speaker or experiencer. Every situation is linguistically represented by a **frame**. In FN3, a "situational frame" is a formal model that defines a specific type of situation along with its participants and internal structure. A situational frame can represent Events, Process, States and Relations.
 
 Situations are often reified or treated as "objects," which allows not only the identification of situations but also the consideration of their properties. For example, we may consider the spatial and temporal location of a specific situation.
@@ -77,7 +77,7 @@ An important characteristic of situations is that they can be conceived as havin
 
 Each situation has a well-defined internal structure, and once formalized as a frame, this structure becomes fixed. This means that a **situational frame represents a rigid embodiment of a type of situation**: while its instantiations may vary in terms of lexical units or context, the conceptual structure of the frame remains stable. This rigidity is necessary for coherence, comparison, and reuse of frames across different scenes and domains. For example, the frame *Giving* will always involve a Donor, a Recipient, and a Theme, regardless of whether the context is economic exchange, symbolic offering, or metaphorical transfer.
 
-Like in many ontological and lexical frameworks, in FN3 a clear distinction is drawn between **entities**, **attributes** and **situations**.
+Like in many ontological and lexical frameworks, in FN3 a clear distinction is drawn between **entities**, **attributes** and **situations**. 
 
 Entities—often equated with "endurants"—are things that persist through time while maintaining their identity. They have properties and parts, but they do not, in themselves, unfold or happen; rather, they provide the stable backdrop against which changes and events occur.
 
@@ -109,7 +109,7 @@ Unlike punctual events, process frames describe continuity and evolution, often 
 
 #### State Frames
 
-State frames represent static conditions that **hold over time** without internal change. Examples include *Ownership*, *Health_State*, *Emotional_State*.
+State frames represent static conditions that **hold over time** without internal change. Examples include *Ownership*, *Health_State*, *Emotional_State*. 
 
 A State is a Situation that persists over some duration without internal transition or inherent unfolding from one phase to another. It describes a static condition, configuration, or status of an entity or set of entities. Unlike an Event or Process, a state does not inherently describe a change or an activity. However, a state can change, and the change from one state to another would be an Event or Process. Some criteria:
 - Persistence over Duration: A State is characterized by its duration, during which its defining conditions remain constant. It is not instantaneous like some Events.
