@@ -1,3 +1,6 @@
+---
+title: 03-CSP Scenarios
+---
 # CSP to FN3 Scenarios Mapping Worksheet
 
 This worksheet maps core commonsense psychological concepts identified in CSP framework to potential specific frames and broader scenario frames for FN3, adhering to the proposed hierarchical structure of domains, scenarios, scenes, and frames.

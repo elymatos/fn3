@@ -1,3 +1,6 @@
+---
+title: 01-CSP
+---
 # Commonsense Psychology: A Summary
 
 In FN3, the structure of generic scenarios related to human cognition is based on the book
