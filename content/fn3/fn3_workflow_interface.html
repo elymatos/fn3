@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrameNet Brasil - Frame & Scenario Allocation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4a90e2, #357abd);
+            height: 100%;
+            transition: width 0.3s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .phase-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+
+        .phase-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .phase-step::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 1;
+        }
+
+        .phase-step:last-child::before {
+            display: none;
+        }
+
+        .phase-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .phase-step.active .phase-number {
+            background: #4a90e2;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .phase-step.completed .phase-number {
+            background: #28a745;
+            color: white;
+        }
+
+        .phase-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .phase-step.active .phase-label {
+            color: #4a90e2;
+            font-weight: 600;
+        }
+
+        .question-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .question-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #4a90e2;
+        }
+
+        .question {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .question h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .option:hover {
+            border-color: #4a90e2;
+            background: #f0f7ff;
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: #4a90e2;
+            background: #e3f2fd;
+        }
+
+        .option input[type="checkbox"],
+        .option input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .option label {
+            cursor: pointer;
+            font-weight: 500;
+            display: block;
+        }
+
+        .option-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        .textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .results-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .results-title {
+            color: #28a745;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .score-item {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #28a745;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .score-value {
+            background: #28a745;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+
+        .entry-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .entry-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .entry-section p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .info-box h4 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FrameNet Brasil</h1>
+            <p>Frame & Scenario Allocation Methodology</p>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+        </div>
+
+        <div class="content">
+            <!-- Phase Indicator -->
+            <div class="phase-indicator">
+                <div class="phase-step" id="phase-entry">
+                    <div class="phase-number">S</div>
+                    <div class="phase-label">Start</div>
+                </div>
+                <div class="phase-step" id="phase-1">
+                    <div class="phase-number">1</div>
+                    <div class="phase-label">Frame Type</div>
+                </div>
+                <div class="phase-step" id="phase-2">
+                    <div class="phase-number">2</div>
+                    <div class="phase-label">Generic Scenario</div>
+                </div>
+                <div class="phase-step" id="phase-3">
+                    <div class="phase-number">3</div>
+                    <div class="phase-label">Domain Scenario</div>
+                </div>
+                <div class="phase-step" id="phase-4">
+                    <div class="phase-number">4</div>
+                    <div class="phase-label">Integration</div>
+                </div>
+            </div>
+
+            <!-- Entry Section -->
+            <div class="question-section active" id="section-entry">
+                <div class="entry-section">
+                    <h2>Welcome to FN3 Frame Allocation</h2>
+                    <p>This interactive tool will guide you through the process of defining and allocating frames within the FrameNet Brasil network using our structured methodology.</p>
+                    <div class="info-box">
+                        <h4>What you'll do:</h4>
+                        <p>Answer a series of questions to help identify the appropriate frame type and scenario allocation for your lexical unit or conceptual phenomenon.</p>
+                    </div>
+                    <button class="start-btn" onclick="startWorkflow()">Begin Frame Allocation</button>
+                </div>
+            </div>
+
+            <!-- Phase 1: Frame Type Identification -->
+            <div class="question-section" id="section-phase1">
+                <div class="question-title">Phase 1: Frame Type Identification</div>
+                
+                <div class="question">
+                    <h3>Q1.0: Does the concept you are describing primarily refer to:</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 'q1-0', 'entity')">
+                            <input type="radio" name="q1-0" value="entity" id="q1-0-a">
+                            <label for="q1-0-a">
+                                <strong>A thing</strong> - A persistent object, person, place, or abstract concept that exists over time
+                                <div class="option-description">Suggests: Entity frame</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'q1-0', 'situation')">
+                            <input type="radio" name="q1-0" value="situation" id="q1-0-b">
+                            <label for="q1-0-b">
+                                <strong>Something that happens</strong> - Unfolds or describes a condition/relationship over time
+                                <div class="option-description">Suggests: Situation (Event, Process, State, Relation)</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'q1-0', 'attribute')">
+                            <input type="radio" name="q1-0" value="attribute" id="q1-0-c">
+                            <label for="q1-0-c">
+                                <strong>A quality or characteristic</strong> - Describes a measurable property of a situation or entity
+                                <div class="option-description">Suggests: Attribute frame</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q1-1" style="display: none;">
+                    <h3>Q1.1: Does it primarily describe something that involves change, action, or a sequence of operations?</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 'q1-1', 'dynamic')">
+                            <input type="radio" name="q1-1" value="dynamic" id="q1-1-a">
+                            <label for="q1-1-a">
+                                <strong>Yes (Dynamic)</strong> - It involves change or action
+                                <div class="option-description">Suggests: Event, Process</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'q1-1', 'static')">
+                            <input type="radio" name="q1-1" value="static" id="q1-1-b">
+                            <label for="q1-1-b">
+                                <strong>No (Static)</strong> - It's a condition or relationship
+                                <div class="option-description">Suggests: State, Relation</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q1-2" style="display: none;">
+                    <h3>Q1.2: Does it emphasize a transformation, transition, or continuous unfolding with stages?</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 'q1-2', 'process')">
+                            <input type="radio" name="q1-2" value="process" id="q1-2-a">
+                            <label for="q1-2-a">
+                                <strong>Yes (Process)</strong> - It's a continuous transformation with stages
+                                <div class="option-description">Suggests: Process frame</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'q1-2', 'event')">
+                            <input type="radio" name="q1-2" value="event" id="q1-2-b">
+                            <label for="q1-2-b">
+                                <strong>No (Event)</strong> - It's a punctual action or sequence of distinct changes
+                                <div class="option-description">Suggests: Event frame</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q1-3" style="display: none;">
+                    <h3>Q1.3: Does it describe:</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 'q1-3', 'relation')">
+                            <input type="radio" name="q1-3" value="relation" id="q1-3-a">
+                            <label for="q1-3-a">
+                                <strong>A link or connection</strong> - An interdependency between two or more things
+                                <div class="option-description">Suggests: Relation frame</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'q1-3', 'state')">
+                            <input type="radio" name="q1-3" value="state" id="q1-3-b">
+                            <label for="q1-3-b">
+                                <strong>A stable condition</strong> - A status that persists without inherent change
+                                <div class="option-description">Suggests: State frame</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 2: Generic Scenario Identification -->
+            <div class="question-section" id="section-phase2">
+                <div class="question-title">Phase 2: Generic Commonsense Scenario Identification</div>
+                
+                <div class="question">
+                    <h3>Q2.0: Does the concept involve someone's internal thoughts, understanding, desires, or feelings? (Select all that apply)</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectCheckbox(this, 'q2-0-a')">
+                            <input type="checkbox" name="q2-0" value="belief-update" id="q2-0-a">
+                            <label for="q2-0-a">
+                                <strong>Forming or updating understanding</strong> - Changing beliefs about facts or situations
+                                <div class="option-description">Suggests: Belief State Management, Knowledge Acquisition</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-0-b')">
+                            <input type="checkbox" name="q2-0" value="knowledge-acquisition" id="q2-0-b">
+                            <label for="q2-0-b">
+                                <strong>Acquiring verified information</strong> - Learning or applying facts
+                                <div class="option-description">Suggests: Knowledge Acquisition, Information Retention</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-0-c')">
+                            <input type="checkbox" name="q2-0" value="motivation" id="q2-0-c">
+                            <label for="q2-0-c">
+                                <strong>Wanting or having goals</strong> - Being motivated towards an outcome
+                                <div class="option-description">Suggests: Motivation and Goal Setting</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-0-d')">
+                            <input type="checkbox" name="q2-0" value="planning" id="q2-0-d">
+                            <label for="q2-0-d">
+                                <strong>Deciding to act</strong> - Committing to a plan or having a specific aim
+                                <div class="option-description">Suggests: Goal Directed Planning, Goal Directed Action</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-0-e')">
+                            <input type="checkbox" name="q2-0" value="emotions" id="q2-0-e">
+                            <label for="q2-0-e">
+                                <strong>Experiencing emotions</strong> - Joy, anger, fear, sadness, etc.
+                                <div class="option-description">Suggests: Emotional Experience</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-0-f')">
+                            <input type="checkbox" name="q2-0" value="memory" id="q2-0-f">
+                            <label for="q2-0-f">
+                                <strong>Storing or recalling information</strong> - Remembering past experiences
+                                <div class="option-description">Suggests: Information Retention and Recall</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>Q2.1: Does the concept involve someone actively doing something or making something happen? (Select all that apply)</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectCheckbox(this, 'q2-1-a')">
+                            <input type="checkbox" name="q2-1" value="agentive" id="q2-1-a">
+                            <label for="q2-1-a">
+                                <strong>Performing deliberate acts</strong> - Physical or mental acts to achieve a purpose
+                                <div class="option-description">Suggests: Agentive Behavior, Goal Directed Action</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-1-b')">
+                            <input type="checkbox" name="q2-1" value="planning-action" id="q2-1-b">
+                            <label for="q2-1-b">
+                                <strong>Devising plans</strong> - Creating strategies or sequences of steps
+                                <div class="option-description">Suggests: Goal Directed Planning</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-1-c')">
+                            <input type="checkbox" name="q2-1" value="causation" id="q2-1-c">
+                            <label for="q2-1-c">
+                                <strong>Causing outcomes</strong> - One event leading directly to another
+                                <div class="option-description">Suggests: Causal Event Chain</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-1-d')">
+                            <input type="checkbox" name="q2-1" value="goal-action" id="q2-1-d">
+                            <label for="q2-1-d">
+                                <strong>Acting purposefully</strong> - Overall process from desire to outcome
+                                <div class="option-description">Suggests: Goal Directed Action</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>Q2.2: Does the concept involve interaction with others or exchange of information? (Select all that apply)</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectCheckbox(this, 'q2-2-a')">
+                            <input type="checkbox" name="q2-2" value="communication" id="q2-2-a">
+                            <label for="q2-2-a">
+                                <strong>Communication</strong> - Sending/receiving messages or information
+                                <div class="option-description">Suggests: Information Exchange</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-2-b')">
+                            <input type="checkbox" name="q2-2" value="perception" id="q2-2-b">
+                            <label for="q2-2-b">
+                                <strong>Sensory acquisition</strong> - Getting information through senses
+                                <div class="option-description">Suggests: Perceptual Information Acquisition</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-2-c')">
+                            <input type="checkbox" name="q2-2" value="social-commitment" id="q2-2-c">
+                            <label for="q2-2-c">
+                                <strong>Social commitments</strong> - Promises, agreements, or obligations
+                                <div class="option-description">Suggests: Social Commitment and Interaction</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>Q2.3: Does the concept describe context, setting, or fundamental relationships? (Select all that apply)</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectCheckbox(this, 'q2-3-a')">
+                            <input type="checkbox" name="q2-3" value="spatial" id="q2-3-a">
+                            <label for="q2-3-a">
+                                <strong>Spatial relationships</strong> - Location, arrangement, or movement in space
+                                <div class="option-description">Suggests: Spatial Configuration</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-3-b')">
+                            <input type="checkbox" name="q2-3" value="temporal" id="q2-3-b">
+                            <label for="q2-3-b">
+                                <strong>Temporal relationships</strong> - Timing, sequence, or duration of events
+                                <div class="option-description">Suggests: Temporal Structuring</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q2-3-c')">
+                            <input type="checkbox" name="q2-3" value="agent-environment" id="q2-3-c">
+                            <label for="q2-3-c">
+                                <strong>Mind-world interaction</strong> - How mental states relate to external actions
+                                <div class="option-description">Suggests: Agent Environment Interaction</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 3: Domain Scenario Allocation -->
+            <div class="question-section" id="section-phase3">
+                <div class="question-title">Phase 3: Domain Scenario Allocation & Creation</div>
+                
+                <div class="question">
+                    <h3>Q3.0: Does the concept operate within a specific field of human experience? (Select all that apply)</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-agriculture')">
+                            <input type="checkbox" name="q3-0" value="agriculture" id="q3-0-agriculture">
+                            <label for="q3-0-agriculture">Agriculture</label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-business')">
+                            <input type="checkbox" name="q3-0" value="business" id="q3-0-business">
+                            <label for="q3-0-business">Business</label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-employment')">
+                            <input type="checkbox" name="q3-0" value="employment" id="q3-0-employment">
+                            <label for="q3-0-employment">Employment</label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-health')">
+                            <input type="checkbox" name="q3-0" value="health" id="q3-0-health">
+                            <label for="q3-0-health">Health</label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-legal')">
+                            <input type="checkbox" name="q3-0" value="legal" id="q3-0-legal">
+                            <label for="q3-0-legal">Legal</label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-education')">
+                            <input type="checkbox" name="q3-0" value="education" id="q3-0-education">
+                            <label for="q3-0-education">Education</label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-technology')">
+                            <input type="checkbox" name="q3-0" value="technology" id="q3-0-technology">
+                            <label for="q3-0-technology">Technology</label>
+                        </div>
+                        <div class="option" onclick="selectCheckbox(this, 'q3-0-general')">
+                            <input type="checkbox" name="q3-0" value="general" id="q3-0-general">
+                            <label for="q3-0-general">
+                                <strong>No specific domain</strong> - General concept applicable across many domains
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q3-1" style="display: none;">
+                    <h3>Q3.1: Does this align with an existing domain-specific scenario?</h3>
+                    <div class="options" id="existing-scenarios">
+                        <!-- Dynamic content will be populated based on domain selection -->
+                        <div class="option" onclick="selectOption(this, 'q3-1', 'no-existing')">
+                            <input type="radio" name="q3-1" value="no-existing" id="q3-1-none">
+                            <label for="q3-1-none">
+                                <strong>No existing scenario fits</strong>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question" id="q3-2" style="display: none;">
+                    <h3>Q3.2: Does this frame suggest a new pattern unique to this domain?</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 'q3-2', 'new-scenario')">
+                            <input type="radio" name="q3-2" value="new-scenario" id="q3-2-yes">
+                            <label for="q3-2-yes">
+                                <strong>Yes</strong> - A new domain scenario is needed
+                                <div class="option-description">Will proceed to new scenario definition</div>
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'q3-2', 'specific-frame')">
+                            <input type="radio" name="q3-2" value="specific-frame" id="q3-2-no">
+                            <label for="q3-2-no">
+                                <strong>No</strong> - It's a specific frame within the domain but doesn't form a scenario
+                                <div class="option-description">Will record domain membership only</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Domain Scenario Definition Section -->
+                <div id="new-scenario-definition" style="display: none;">
+                    <div class="info-box">
+                        <h4>New Domain Scenario Definition</h4>
+                        <p>You've indicated that a new domain scenario is needed. Please provide the following details:</p>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q3.3a: Proposed Name for the New Domain Scenario</h3>
+                        <input type="text" class="text-input" id="scenario-name" placeholder="e.g., Patient_Treatment_Scenario, Crop_Harvest_Scenario">
+                    </div>
+
+                    <div class="question">
+                        <h3>Q3.3b: What is the primary purpose of this new domain scenario?</h3>
+                        <textarea class="text-input textarea" id="scenario-purpose" placeholder="Explain what common theme or complex situation it groups within this domain..."></textarea>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q3.3c: Which Generic Common-Sense Scenarios does this specialize from? (Select all that apply)</h3>
+                        <div class="options">
+                            <div class="option" onclick="selectCheckbox(this, 'generic-belief')">
+                                <input type="checkbox" name="generic-scenarios" value="belief-state-management" id="generic-belief">
+                                <label for="generic-belief">Belief State Management Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-knowledge')">
+                                <input type="checkbox" name="generic-scenarios" value="knowledge-acquisition" id="generic-knowledge">
+                                <label for="generic-knowledge">Knowledge Acquisition and Application Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-motivation')">
+                                <input type="checkbox" name="generic-scenarios" value="motivation-goal" id="generic-motivation">
+                                <label for="generic-motivation">Motivation and Goal Setting Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-planning')">
+                                <input type="checkbox" name="generic-scenarios" value="goal-planning" id="generic-planning">
+                                <label for="generic-planning">Goal Directed Planning Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-action')">
+                                <input type="checkbox" name="generic-scenarios" value="goal-action" id="generic-action">
+                                <label for="generic-action">Goal Directed Action Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-agentive')">
+                                <input type="checkbox" name="generic-scenarios" value="agentive-behavior" id="generic-agentive">
+                                <label for="generic-agentive">Agentive Behavior Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-emotional')">
+                                <input type="checkbox" name="generic-scenarios" value="emotional-experience" id="generic-emotional">
+                                <label for="generic-emotional">Emotional Experience Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-information-exchange')">
+                                <input type="checkbox" name="generic-scenarios" value="information-exchange" id="generic-information-exchange">
+                                <label for="generic-information-exchange">Information Exchange Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-perceptual')">
+                                <input type="checkbox" name="generic-scenarios" value="perceptual-acquisition" id="generic-perceptual">
+                                <label for="generic-perceptual">Perceptual Information Acquisition Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-retention')">
+                                <input type="checkbox" name="generic-scenarios" value="information-retention" id="generic-retention">
+                                <label for="generic-retention">Information Retention and Recall Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-social')">
+                                <input type="checkbox" name="generic-scenarios" value="social-commitment" id="generic-social">
+                                <label for="generic-social">Social Commitment and Interaction Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-causal')">
+                                <input type="checkbox" name="generic-scenarios" value="causal-event" id="generic-causal">
+                                <label for="generic-causal">Causal Event Chain Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-spatial')">
+                                <input type="checkbox" name="generic-scenarios" value="spatial-configuration" id="generic-spatial">
+                                <label for="generic-spatial">Spatial Configuration Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-temporal')">
+                                <input type="checkbox" name="generic-scenarios" value="temporal-structuring" id="generic-temporal">
+                                <label for="generic-temporal">Temporal Structuring Scenario</label>
+                            </div>
+                            <div class="option" onclick="selectCheckbox(this, 'generic-agent-environment')">
+                                <input type="checkbox" name="generic-scenarios" value="agent-environment" id="generic-agent-environment">
+                                <label for="generic-agent-environment">Agent Environment Interaction Scenario</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q3.3d: Key Constituent Concepts/Potential Frames</h3>
+                        <textarea class="text-input textarea" id="constituent-frames" placeholder="List the frames that make up the core components of this scenario (one per line)..."></textarea>
+                        <div class="info-box">
+                            <p><strong>For each frame listed:</strong> Indicate whether it's an existing generic frame or needs to be a new domain-specific specialization.</p>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q3.3e: Typical Sequence/Dynamics</h3>
+                        <textarea class="text-input textarea" id="scenario-dynamics" placeholder="Describe the typical sequence of the situation: initial states, intermediate processes, outcomes..."></textarea>
+                    </div>
+
+                    <div class="question">
+                        <h3>Q3.3f: Key Participants/Elements</h3>
+                        <textarea class="text-input textarea" id="key-participants" placeholder="What are the key participants/elements that recur across constituent frames?"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Network Integration and Refinement -->
+            <div class="question-section" id="section-phase4">
+                <div class="question-title">Phase 4: Network Integration and Refinement</div>
+                
+                <div class="results-section">
+                    <div class="results-title">
+                        🎯 Analysis Results
+                    </div>
+                    
+                    <div id="frame-type-results">
+                        <h4>Recommended Frame Type:</h4>
+                        <div id="frame-type-scores"></div>
+                    </div>
+                    
+                    <div id="scenario-results" style="margin-top: 20px;">
+                        <h4>Relevant Generic Scenarios:</h4>
+                        <div id="scenario-scores"></div>
+                    </div>
+                    
+                    <div id="domain-results" style="margin-top: 20px;">
+                        <h4>Domain Context:</h4>
+                        <div id="domain-info"></div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <h3>Final Confirmation</h3>
+                    <p>Based on your responses, the system recommends the above frame type and scenario allocations. Do you agree with these recommendations?</p>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 'final-confirmation', 'accept')">
+                            <input type="radio" name="final-confirmation" value="accept" id="final-accept">
+                            <label for="final-accept">
+                                <strong>Accept Recommendations</strong> - Proceed with the suggested allocations
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'final-confirmation', 'modify')">
+                            <input type="radio" name="final-confirmation" value="modify" id="final-modify">
+                            <label for="final-modify">
+                                <strong>Request Modifications</strong> - I'd like to adjust some aspects
+                            </label>
+                        </div>
+                        <div class="option" onclick="selectOption(this, 'final-confirmation', 'restart')">
+                            <input type="radio" name="final-confirmation" value="restart" id="final-restart">
+                            <label for="final-restart">
+                                <strong>Start Over</strong> - Begin the process again
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>Next Steps</h4>
+                    <p>Upon confirmation, the system will:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Create or update the frame definition in the FN3 network</li>
+                        <li>Establish appropriate scenario relationships</li>
+                        <li>Generate documentation for the allocation decisions</li>
+                        <li>Update the network hierarchy and inheritance structures</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousStep()" disabled>Previous</button>
+                <div id="step-info">Step 1 of 4</div>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state management
+        let currentStep = 0;
+        let totalSteps = 4;
+        let answers = {};
+        let frameTypeScores = {};
+        let scenarioScores = {};
+        let selectedDomains = [];
+
+        // Initialize frame type scores
+        function initializeScores() {
+            frameTypeScores = {
+                'Entity': 0,
+                'Event': 0,
+                'Process': 0,
+                'State': 0,
+                'Attribute': 0,
+                'Relation': 0
+            };
+            
+            scenarioScores = {
+                'Belief State Management': 0,
+                'Knowledge Acquisition': 0,
+                'Motivation and Goal Setting': 0,
+                'Goal Directed Planning': 0,
+                'Goal Directed Action': 0,
+                'Agentive Behavior': 0,
+                'Emotional Experience': 0,
+                'Information Exchange': 0,
+                'Perceptual Information Acquisition': 0,
+                'Information Retention and Recall': 0,
+                'Social Commitment and Interaction': 0,
+                'Causal Event Chain': 0,
+                'Spatial Configuration': 0,
+                'Temporal Structuring': 0,
+                'Agent Environment Interaction': 0
+            };
+        }
+
+        function startWorkflow() {
+            initializeScores();
+            currentStep = 1;
+            updatePhaseIndicator();
+            showSection('section-phase1');
+            updateNavigation();
+            updateProgress();
+        }
+
+        function updatePhaseIndicator() {
+            // Reset all phases
+            document.querySelectorAll('.phase-step').forEach(phase => {
+                phase.classList.remove('active', 'completed');
+            });
+            
+            // Mark completed phases
+            for (let i = 0; i < currentStep; i++) {
+                let phaseId = i === 0 ? 'phase-entry' : `phase-${i}`;
+                let phase = document.getElementById(phaseId);
+                if (phase) phase.classList.add('completed');
+            }
+            
+            // Mark current phase
+            let currentPhaseId = currentStep === 0 ? 'phase-entry' : `phase-${currentStep}`;
+            let currentPhase = document.getElementById(currentPhaseId);
+            if (currentPhase) currentPhase.classList.add('active');
+        }
+
+        function updateProgress() {
+            let progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const stepInfo = document.getElementById('step-info');
+            
+            prevBtn.disabled = currentStep <= 1;
+            stepInfo.textContent = `Step ${currentStep} of ${totalSteps}`;
+            
+            if (currentStep === totalSteps) {
+                nextBtn.textContent = 'Complete';
+            } else {
+                nextBtn.textContent = 'Next';
+            }
+        }
+
+        function selectOption(element, questionName, value) {
+            // Remove selected class from siblings
+            element.parentNode.querySelectorAll('.option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Update the radio button
+            const radio = element.querySelector('input[type="radio"]');
+            if (radio) radio.checked = true;
+            
+            // Store answer
+            answers[questionName] = value;
+            
+            // Handle conditional logic
+            handleConditionalQuestions(questionName, value);
+            
+            // Update scores
+            updateScores(questionName, value);
+        }
+
+        function selectCheckbox(element, checkboxId) {
+            const checkbox = document.getElementById(checkboxId);
+            checkbox.checked = !checkbox.checked;
+            
+            if (checkbox.checked) {
+                element.classList.add('selected');
+            } else {
+                element.classList.remove('selected');
+            }
+            
+            // Store multiple answers for checkbox questions
+            const questionName = checkbox.name;
+            if (!answers[questionName]) answers[questionName] = [];
+            
+            if (checkbox.checked) {
+                if (!answers[questionName].includes(checkbox.value)) {
+                    answers[questionName].push(checkbox.value);
+                }
+            } else {
+                answers[questionName] = answers[questionName].filter(v => v !== checkbox.value);
+            }
+            
+            // Update scores for scenario questions
+            updateScenarioScores(questionName, checkbox.value, checkbox.checked);
+        }
+
+        function handleConditionalQuestions(questionName, value) {
+            if (questionName === 'q1-0') {
+                // Hide all conditional questions first
+                document.getElementById('q1-1').style.display = 'none';
+                document.getElementById('q1-2').style.display = 'none';
+                document.getElementById('q1-3').style.display = 'none';
+                
+                if (value === 'situation') {
+                    document.getElementById('q1-1').style.display = 'block';
+                }
+            } else if (questionName === 'q1-1') {
+                document.getElementById('q1-2').style.display = 'none';
+                document.getElementById('q1-3').style.display = 'none';
+                
+                if (value === 'dynamic') {
+                    document.getElementById('q1-2').style.display = 'block';
+                } else if (value === 'static') {
+                    document.getElementById('q1-3').style.display = 'block';
+                }
+            } else if (questionName === 'q3-0') {
+                // Handle domain selection logic
+                handleDomainSelection();
+            } else if (questionName === 'q3-1' && value === 'no-existing') {
+                document.getElementById('q3-2').style.display = 'block';
+            } else if (questionName === 'q3-2' && value === 'new-scenario') {
+                document.getElementById('new-scenario-definition').style.display = 'block';
+            }
+        }
+
+        function handleDomainSelection() {
+            const domainCheckboxes = document.querySelectorAll('input[name="q3-0"]:checked');
+            selectedDomains = Array.from(domainCheckboxes).map(cb => cb.value);
+            
+            if (selectedDomains.includes('general')) {
+                // Skip to phase 4 if general domain selected
+                document.getElementById('q3-1').style.display = 'none';
+                document.getElementById('q3-2').style.display = 'none';
+            } else if (selectedDomains.length > 0) {
+                // Show existing scenarios question and populate with domain-specific scenarios
+                document.getElementById('q3-1').style.display = 'block';
+                populateExistingScenarios();
+            }
+        }
+
+        function populateExistingScenarios() {
+            const scenariosContainer = document.getElementById('existing-scenarios');
+            
+            // Sample domain scenarios (in real implementation, this would be dynamic)
+            const domainScenarios = {
+                'agriculture': ['Crop_Harvest_Scenario', 'Farm_Management_Scenario', 'Fertilize_Scenario'],
+                'health': ['Medical_Treatment_Scenario', 'Patient_Care_Scenario', 'Diagnosis_Scenario'],
+                'business': ['Commercial_Transaction_Scenario', 'Market_Analysis_Scenario'],
+                'legal': ['Legal_Proceeding_Scenario', 'Contract_Formation_Scenario'],
+                'education': ['Teaching_Learning_Scenario', 'Academic_Assessment_Scenario']
+            };
+            
+            // Clear existing options except "No existing scenario fits"
+            const noExistingOption = scenariosContainer.querySelector('.option');
+            scenariosContainer.innerHTML = '';
+            
+            // Add relevant scenarios based on selected domains
+            selectedDomains.forEach(domain => {
+                if (domainScenarios[domain]) {
+                    domainScenarios[domain].forEach(scenario => {
+                        const option = document.createElement('div');
+                        option.className = 'option';
+                        option.onclick = () => selectOption(option, 'q3-1', scenario);
+                        
+                        const radioId = `q3-1-${scenario}`;
+                        option.innerHTML = `
+                            <input type="radio" name="q3-1" value="${scenario}" id="${radioId}">
+                            <label for="${radioId}">
+                                <strong>${scenario.replace(/_/g, ' ')}</strong>
+                                <div class="option-description">Domain: ${domain.charAt(0).toUpperCase() + domain.slice(1)}</div>
+                            </label>
+                        `;
+                        
+                        scenariosContainer.appendChild(option);
+                    });
+                }
+            });
+            
+            // Re-add "No existing scenario fits" option
+            scenariosContainer.appendChild(noExistingOption);
+        }
+
+        function updateScores(questionName, value) {
+            // Update frame type scores based on methodology
+            switch (questionName) {
+                case 'q1-0':
+                    if (value === 'entity') {
+                        frameTypeScores['Entity'] += 3;
+                    } else if (value === 'situation') {
+                        frameTypeScores['Event'] += 1;
+                        frameTypeScores['Process'] += 1;
+                        frameTypeScores['State'] += 1;
+                        frameTypeScores['Relation'] += 1;
+                    } else if (value === 'attribute') {
+                        frameTypeScores['Attribute'] += 3;
+                    }
+                    break;
+                case 'q1-1':
+                    if (value === 'dynamic') {
+                        frameTypeScores['Event'] += 2;
+                        frameTypeScores['Process'] += 2;
+                        frameTypeScores['State'] -= 1;
+                        frameTypeScores['Relation'] -= 1;
+                    } else if (value === 'static') {
+                        frameTypeScores['Event'] -= 1;
+                        frameTypeScores['Process'] -= 1;
+                        frameTypeScores['State'] += 2;
+                        frameTypeScores['Relation'] += 2;
+                    }
+                    break;
+                case 'q1-2':
+                    if (value === 'process') {
+                        frameTypeScores['Process'] += 3;
+                        frameTypeScores['Event'] += 1;
+                    } else if (value === 'event') {
+                        frameTypeScores['Event'] += 3;
+                        frameTypeScores['Process'] += 1;
+                    }
+                    break;
+                case 'q1-3':
+                    if (value === 'relation') {
+                        frameTypeScores['Relation'] += 3;
+                        frameTypeScores['State'] += 1;
+                    } else if (value === 'state') {
+                        frameTypeScores['State'] += 3;
+                        frameTypeScores['Relation'] += 1;
+                    }
+                    break;
+            }
+        }
+
+        function updateScenarioScores(questionName, value, isChecked) {
+            const weight = isChecked ? 1 : -1;
+            
+            // Map checkbox values to scenario scores based on methodology
+            const scenarioMappings = {
+                'belief-update': ['Belief State Management', 'Knowledge Acquisition'],
+                'knowledge-acquisition': ['Knowledge Acquisition', 'Information Retention and Recall'],
+                'motivation': ['Motivation and Goal Setting'],
+                'planning': ['Goal Directed Planning', 'Goal Directed Action'],
+                'emotions': ['Emotional Experience'],
+                'memory': ['Information Retention and Recall'],
+                'agentive': ['Agentive Behavior', 'Goal Directed Action'],
+                'planning-action': ['Goal Directed Planning'],
+                'causation': ['Causal Event Chain'],
+                'goal-action': ['Goal Directed Action'],
+                'communication': ['Information Exchange'],
+                'perception': ['Perceptual Information Acquisition'],
+                'social-commitment': ['Social Commitment and Interaction'],
+                'spatial': ['Spatial Configuration'],
+                'temporal': ['Temporal Structuring'],
+                'agent-environment': ['Agent Environment Interaction']
+            };
+            
+            if (scenarioMappings[value]) {
+                scenarioMappings[value].forEach(scenario => {
+                    scenarioScores[scenario] += weight * 2; // Multiply by 2 for stronger indication
+                });
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updatePhaseIndicator();
+                showSection(`section-phase${currentStep}`);
+                updateNavigation();
+                updateProgress();
+                
+                if (currentStep === 4) {
+                    generateResults();
+                }
+            } else {
+                // Complete the workflow
+                completeWorkflow();
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updatePhaseIndicator();
+                showSection(`section-phase${currentStep}`);
+                updateNavigation();
+                updateProgress();
+            }
+        }
+
+        function generateResults() {
+            // Generate frame type results
+            const frameTypeContainer = document.getElementById('frame-type-scores');
+            const sortedFrameTypes = Object.entries(frameTypeScores)
+                .sort(([,a], [,b]) => b - a)
+                .filter(([,score]) => score > 0);
+            
+            frameTypeContainer.innerHTML = '';
+            sortedFrameTypes.slice(0, 3).forEach(([type, score]) => {
+                const scoreItem = document.createElement('div');
+                scoreItem.className = 'score-item';
+                scoreItem.innerHTML = `
+                    <span><strong>${type}</strong> Frame</span>
+                    <span class="score-value">${score}</span>
+                `;
+                frameTypeContainer.appendChild(scoreItem);
+            });
+            
+            // Generate scenario results
+            const scenarioContainer = document.getElementById('scenario-scores');
+            const sortedScenarios = Object.entries(scenarioScores)
+                .sort(([,a], [,b]) => b - a)
+                .filter(([,score]) => score > 0);
+            
+            scenarioContainer.innerHTML = '';
+            sortedScenarios.slice(0, 5).forEach(([scenario, score]) => {
+                const scoreItem = document.createElement('div');
+                scoreItem.className = 'score-item';
+                scoreItem.innerHTML = `
+                    <span><strong>${scenario}</strong> Scenario</span>
+                    <span class="score-value">${score}</span>
+                `;
+                scenarioContainer.appendChild(scoreItem);
+            });
+            
+            // Generate domain results
+            const domainContainer = document.getElementById('domain-info');
+            domainContainer.innerHTML = '';
+            
+            if (selectedDomains.length > 0) {
+                if (selectedDomains.includes('general')) {
+                    domainContainer.innerHTML = '<p><strong>Domain:</strong> General (cross-domain applicability)</p>';
+                } else {
+                    const domainList = selectedDomains.map(d => d.charAt(0).toUpperCase() + d.slice(1)).join(', ');
+                    domainContainer.innerHTML = `<p><strong>Selected Domains:</strong> ${domainList}</p>`;
+                    
+                    if (answers['q3-1'] && answers['q3-1'] !== 'no-existing') {
+                        domainContainer.innerHTML += `<p><strong>Existing Scenario:</strong> ${answers['q3-1'].replace(/_/g, ' ')}</p>`;
+                    } else if (answers['q3-2'] === 'new-scenario') {
+                        const scenarioName = document.getElementById('scenario-name').value;
+                        domainContainer.innerHTML += `<p><strong>New Scenario:</strong> ${scenarioName || 'To be defined'}</p>`;
+                    }
+                }
+            } else {
+                domainContainer.innerHTML = '<p><strong>Domain:</strong> Not yet specified</p>';
+            }
+        }
+
+        function completeWorkflow() {
+            alert('Frame allocation workflow completed! In a real implementation, this would save the results to the FN3 database and generate the appropriate network relationships.');
+            
+            // Reset for new workflow
+            if (confirm('Would you like to start a new frame allocation?')) {
+                location.reload();
+            }
+        }
+
+        // Initialize the interface
+        initializeScores();
+        updatePhaseIndicator();
+    </script>
+</body>
+</html>
