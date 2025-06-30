@@ -1,3 +1,6 @@
+---
+title: 04-Methodology
+---
 # Proposed methodology
 
 ## 1. Introduction
