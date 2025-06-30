@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="117727e3-a6da-4761-a1de-e95a058ba540" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/content/01-fn3_proposal.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/02-CSP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/03-common_sense_scenarios.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/04-methodology.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/fn3_scenarios/01-fn3_proposal.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/01-structurel.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/fn3_scenarios/02-CSP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/fn3_scenarios/03-common_sense_scenarios.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/03-CSP_scenarios.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup/fn3_scenarios/04-methodology.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/01-fn3_proposal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/03-common_sense_scenarios.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/content/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/index.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750815343553</updated>
-      <workItem from="1750815344624" duration="2452000" />
+      <workItem from="1750815344624" duration="3063000" />
     </task>
     <servers />
   </component>
