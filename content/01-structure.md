@@ -1,7 +1,5 @@
 ---
-title: "Proposal for the Structural Model of FN3 (FrameNet Brasil)"
-author: "Your Name"
-date: "2024"
+title: Basic structure
 ---
 
 # Proposal for the Structural Model of FN3 (FrameNet Brasil)
