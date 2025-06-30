@@ -1,5 +1,5 @@
 ---
-title: 01-CSP
+title: 02-CSP
 ---
 # Commonsense Psychology: A Summary
 

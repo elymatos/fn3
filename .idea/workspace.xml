@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="117727e3-a6da-4761-a1de-e95a058ba540" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-    </list>
+    <list default="true" id="117727e3-a6da-4761-a1de-e95a058ba540" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +42,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/content" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/content/fn3" />
+    </key>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -60,7 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1750815343553</updated>
       <workItem from="1750815344624" duration="3666000" />
-      <workItem from="1751285087129" duration="80000" />
+      <workItem from="1751285087129" duration="741000" />
     </task>
     <servers />
   </component>
