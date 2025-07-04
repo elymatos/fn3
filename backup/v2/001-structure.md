@@ -1,7 +1,6 @@
 ---
 title: 01-Basic structure
 ---
-
 # Proposal for the Structural Model of FN3 (FrameNet Brasil)
 
 ## Abstract
