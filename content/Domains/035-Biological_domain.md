@@ -1,0 +1,3 @@
+# Biological Domain 
+
+The Biological domain captures human understanding of life in its various manifestations. These five subdomains progress from individual organisms and their processes (Biological Entities and Life Processes), through the experience of biological wellness and dysfunction (Health and Illness), to the structural (Body and Anatomy) and functional (Physiological Functions) aspects of living bodies, and finally to the larger ecological context in which life exists (Ecological Systems). Together, they represent the cognitive foundation for human interaction with the living world.
