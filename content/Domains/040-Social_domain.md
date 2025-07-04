@@ -1,0 +1,3 @@
+# Social Domain
+
+The Social domain captures the fundamental ways humans organize collective life. These seven subdomains progress from individual social positioning (Social Roles and Identities), through formal organizational structures (Institutions and Organizations), to specific domains of social activity (Economic and Commercial Practices, Governance and Law), and finally to the dynamic processes of social interaction (Social Interaction and Relationships, Conflict and Cooperation, Group Dynamics and Collective Behavior). Together, they represent the cognitive foundation for understanding human society and social behavior.

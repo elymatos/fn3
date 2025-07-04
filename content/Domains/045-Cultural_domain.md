@@ -1,0 +1,3 @@
+# Cultural Domain
+
+The Cultural domain captures the symbolic, meaning-making dimensions of human social life. These five subdomains progress from fundamental interpretive frameworks (Beliefs and Worldviews), through embodied cultural practices (Rituals and Traditions), to creative expression (Arts and Creative Practices), collective storytelling (Cultural Narratives and Memory), and personal cultural connection (Heritage and Identity). Together, they represent how humans create, maintain, and transmit the symbolic systems that give meaning to social existence and provide frameworks for understanding reality beyond immediate experience.

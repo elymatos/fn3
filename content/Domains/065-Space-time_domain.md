@@ -1,0 +1,3 @@
+# Space-Time Domain
+
+The Space-Time domain captures the fundamental dimensions within which all human experience and action occur. These four subdomains represent how humans understand and navigate the spatial and temporal frameworks of reality: static spatial relationships (Spatial Configuration), temporal organization and structure (Temporal Structure), dynamic movement through space-time (Motion and Trajectory), and transformation processes over time (Change over Time). Together, they provide the foundational frameworks that enable humans to orient themselves in reality, coordinate action, and understand the dynamic nature of existence within spatial and temporal dimensions.

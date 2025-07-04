@@ -1,0 +1,3 @@
+# Representational Domain
+
+The Representational domain captures the various systems and processes through which humans create, manipulate, and transmit symbolic representations of reality and meaning. These five subdomains progress from basic communicative representation (Signs and Communication and Language), through information organization (Information Structures), technological mediation (Media and Digital Systems), systematic formal representation (Formal Systems and Abstract Representations), to meaning encoding and knowledge preservation (Knowledge Representation). Together, they represent the full spectrum of human representational capabilities that enable complex thinking, communication, and cultural transmission.

@@ -1,0 +1,6 @@
+# Psychological Domain
+
+
+The Psychological domain captures the fundamental aspects of individual mental life and subjective experience. These four subdomains progress from the interface with external reality (Perception and Sensation), through the emotional coloring of experience (Emotions and Affective States), to the forces that drive behavior (Needs and Drives and Motivations), and finally to the qualitative, felt dimension of conscious experience (Subjective Experience of the Body and Environment). Together, they represent the core components of human psychological life as experienced from the first-person perspective.
+
+The Cognitive domain captures the fundamental mental processes and operations that constitute human thinking and rational cognition. These seven subdomains progress from the gatekeeping function of consciousness (Attention and Awareness), through information processing (Memory and Learning), systematic thinking (Reasoning and Problem-Solving), prospective cognition (Decision-Making and Planning), cognitive content (Beliefs and Knowledge and Assumptions), volitional control (Intention and Goal-Oriented Action), and evaluative thinking (Cognitive Judgments and Evaluations). Together, they represent the core operational components of human rational cognition and mental life.
