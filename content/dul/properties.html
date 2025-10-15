@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUL Properties Browser - Interactive Property Explorer</title>
+    <meta name="description" content="Interactive property-based browser for the DOLCE+DnS Ultralite (DUL) foundational ontology">
+    <meta name="keywords" content="ontology, DUL, DOLCE, OWL, semantic web, properties, object properties, datatype properties">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>">
+</head>
+<body data-theme="light">
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loader">
+            <div class="spinner"></div>
+            <p>Loading DUL Properties...</p>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message hidden"></div>
+
+    <!-- Header -->
+    <header class="app-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-title">
+                    <h1>
+                        <span class="title-main">DUL Properties Browser</span>
+                        <span class="title-sub">DOLCE+DnS Ultralite v3.34</span>
+                    </h1>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="header-nav">
+                    <a href="index.html" class="nav-link">
+                        <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"/>
+                        </svg>
+                        <span>Classes Browser</span>
+                    </a>
+                </div>
+
+                <!-- Statistics -->
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="stat-total-properties">0</span>
+                        <span class="stat-label">Properties</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="stat-object-properties">0</span>
+                        <span class="stat-label">Object</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="stat-datatype-properties">0</span>
+                        <span class="stat-label">Datatype</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="stat-with-inverse">0</span>
+                        <span class="stat-label">With Inverse</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <div class="container">
+            <!-- Search -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                    </svg>
+                    <input
+                        type="text"
+                        id="search-input"
+                        class="search-input"
+                        placeholder="Search properties... (Ctrl+F)"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <!-- Search Results Dropdown -->
+                <div id="search-results" class="search-results hidden"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="toolbar-controls">
+                <!-- Filter by Type -->
+                <div class="filter-buttons">
+                    <button id="filter-all-btn" class="btn btn-filter active" data-filter="all" title="Show all properties">
+                        All
+                    </button>
+                    <button id="filter-object-btn" class="btn btn-filter" data-filter="ObjectProperty" title="Show object properties only">
+                        Object
+                    </button>
+                    <button id="filter-datatype-btn" class="btn btn-filter" data-filter="DatatypeProperty" title="Show datatype properties only">
+                        Datatype
+                    </button>
+                </div>
+
+                <button id="expand-all-btn" class="btn btn-primary" title="Expand all properties (Ctrl+E)">
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 011.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 011.414-1.414L15 13.586V12a1 1 0 011-1z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Expand All</span>
+                </button>
+
+                <button id="collapse-all-btn" class="btn btn-secondary" title="Collapse all properties (Ctrl+Q)">
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Collapse All</span>
+                </button>
+
+                <button id="toggle-index-btn" class="btn btn-secondary" title="Toggle property index (Ctrl+I)">
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                    <span>Index</span>
+                </button>
+
+                <button id="export-btn" class="btn btn-secondary" title="Export properties data">
+                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Export</span>
+                </button>
+
+                <button id="theme-toggle-btn" class="btn btn-icon" title="Toggle dark mode">
+                    <svg class="icon icon-light" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                    </svg>
+                    <svg class="icon icon-dark" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Property Index -->
+    <aside id="property-index" class="class-index">
+        <div class="container">
+            <div class="class-index-header">
+                <h3>Property Index</h3>
+                <p class="index-description">Click any property to navigate</p>
+            </div>
+            <div id="property-index-grid" class="class-index-grid"></div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div id="main-content" class="ontology-cards"></div>
+        </div>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top-btn" class="back-to-top-btn" title="Back to top (Home)">
+        <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+        <div class="container">
+            <p>
+                <strong>DUL (DOLCE+DnS Ultralite)</strong> - Foundational Ontology v3.34
+            </p>
+            <p>
+                <a href="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" target="_blank">Original Ontology</a> |
+                <a href="https://github.com/LODpedia/DUL" target="_blank">Documentation</a> |
+                <a href="index.html">Classes Browser</a> |
+                Created with the Card-Based Ontology Browser
+            </p>
+            <p class="shortcuts-hint">
+                <strong>Keyboard Shortcuts:</strong>
+                <kbd>Ctrl+F</kbd> Search |
+                <kbd>Ctrl+E</kbd> Expand All |
+                <kbd>Ctrl+Q</kbd> Collapse All |
+                <kbd>Ctrl+I</kbd> Toggle Index
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/dul-parser.js"></script>
+    <script src="js/property-cards.js"></script>
+    <script src="js/properties-app.js"></script>
+</body>
+</html>
