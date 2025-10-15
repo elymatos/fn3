@@ -3,176 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUL Ontology Browser - Interactive Card-Based Explorer</title>
-    <meta name="description" content="Interactive card-based browser for the DOLCE+DnS Ultralite (DUL) foundational ontology">
-    <meta name="keywords" content="ontology, DUL, DOLCE, OWL, semantic web, knowledge representation">
+    <title>DUL Ontology Documentation Index</title>
+    <meta name="description" content="Index of DUL (DOLCE+DnS Ultralite) Ontology documentation and visualization tools">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/styles.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔷</text></svg>">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-light);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--bg-white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .description {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .file-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .file-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .file-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .file-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .file-card a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .file-card a:hover {
+            background-color: var(--primary-hover);
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+    </style>
 </head>
-<body data-theme="light">
-    <!-- Loading Overlay -->
-    <div id="loading-overlay" class="loading-overlay">
-        <div class="loader">
-            <div class="spinner"></div>
-            <p>Loading DUL Ontology...</p>
-        </div>
-    </div>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔷 DUL Ontology Documentation</h1>
+            <p class="subtitle">DOLCE+DnS Ultralite v3.34</p>
+            <p class="description">
+                Explore the foundational ontology through interactive visualizations and documentation.
+                Select a tool below to begin.
+            </p>
+        </header>
 
-    <!-- Error Message -->
-    <div id="error-message" class="error-message hidden"></div>
-
-    <!-- Header -->
-    <header class="app-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-title">
-                    <h1>
-                        <span class="title-main">DUL Ontology Browser</span>
-                        <span class="title-sub">DOLCE+DnS Ultralite v3.34</span>
-                    </h1>
+        <main>
+            <div class="file-grid">
+                <div class="file-card">
+                    <h2>Classes Browser</h2>
+                    <p>Interactive card-based explorer for browsing DUL ontology classes, their hierarchies, properties, and relationships.</p>
+                    <a href="classes.html">Open Classes Browser →</a>
                 </div>
 
-                <!-- Statistics -->
-                <div class="header-stats">
-                    <div class="stat-item">
-                        <span class="stat-value" id="stat-total-classes">0</span>
-                        <span class="stat-label">Classes</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value" id="stat-total-properties">0</span>
-                        <span class="stat-label">Properties</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value" id="stat-max-depth">0</span>
-                        <span class="stat-label">Max Depth</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value" id="stat-top-level">0</span>
-                        <span class="stat-label">Top Level</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Toolbar -->
-    <div class="toolbar">
-        <div class="container">
-            <!-- Search -->
-            <div class="search-container">
-                <div class="search-input-wrapper">
-                    <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
-                    </svg>
-                    <input
-                        type="text"
-                        id="search-input"
-                        class="search-input"
-                        placeholder="Search classes... (Ctrl+F)"
-                        autocomplete="off"
-                    >
+                <div class="file-card">
+                    <h2>Properties Browser</h2>
+                    <p>Browse and explore the properties defined in the DUL ontology, including object and datatype properties.</p>
+                    <a href="properties.html">Open Properties Browser →</a>
                 </div>
 
-                <!-- Search Results Dropdown -->
-                <div id="search-results" class="search-results hidden"></div>
+                <div class="file-card">
+                    <h2>Graph Visualization</h2>
+                    <p>Interactive graph visualization of the DUL ontology structure showing classes and their relationships.</p>
+                    <a href="dul_graph.html">Open Graph View →</a>
+                </div>
+
+                <div class="file-card">
+                    <h2>Diagram View</h2>
+                    <p>Visual diagram representation of the ontology structure with hierarchical layout.</p>
+                    <a href="dul_diagram.html">Open Diagram →</a>
+                </div>
+
+                <div class="file-card">
+                    <h2>Diagram View 2</h2>
+                    <p>Alternative diagram visualization with different layout and interaction options.</p>
+                    <a href="dul_diagram2.html">Open Alternative Diagram →</a>
+                </div>
+
+                <div class="file-card">
+                    <h2>DOT Visualization</h2>
+                    <p>Graphviz DOT-based visualization of the ontology structure.</p>
+                    <a href="dot.html">Open DOT View →</a>
+                </div>
             </div>
+        </main>
 
-            <!-- Controls -->
-            <div class="toolbar-controls">
-                <button id="expand-all-btn" class="btn btn-primary" title="Expand all classes (Ctrl+E)">
-                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 011.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 011.414-1.414L15 13.586V12a1 1 0 011-1z" clip-rule="evenodd"/>
-                    </svg>
-                    <span>Expand All</span>
-                </button>
-
-                <button id="collapse-all-btn" class="btn btn-secondary" title="Collapse all classes (Ctrl+Q)">
-                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clip-rule="evenodd"/>
-                    </svg>
-                    <span>Collapse All</span>
-                </button>
-
-                <button id="toggle-index-btn" class="btn btn-secondary" title="Toggle class index (Ctrl+I)">
-                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                    </svg>
-                    <span>Index</span>
-                </button>
-
-                <button id="export-btn" class="btn btn-secondary" title="Export ontology data">
-                    <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                    </svg>
-                    <span>Export</span>
-                </button>
-
-                <button id="theme-toggle-btn" class="btn btn-icon" title="Toggle dark mode">
-                    <svg class="icon icon-light" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
-                    </svg>
-                    <svg class="icon icon-dark" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Class Index -->
-    <aside id="class-index" class="class-index">
-        <div class="container">
-            <div class="class-index-header">
-                <h3>Class Index</h3>
-                <p class="index-description">Click any class to navigate</p>
-            </div>
-            <div id="class-index-grid" class="class-index-grid"></div>
-        </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <div id="main-content" class="ontology-cards"></div>
-        </div>
-    </main>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top-btn" class="back-to-top-btn" title="Back to top (Home)">
-        <svg class="icon" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-        </svg>
-    </button>
-
-    <!-- Footer -->
-    <footer class="app-footer">
-        <div class="container">
+        <footer>
             <p>
                 <strong>DUL (DOLCE+DnS Ultralite)</strong> - Foundational Ontology v3.34
             </p>
             <p>
                 <a href="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl" target="_blank">Original Ontology</a> |
-                <a href="https://github.com/LODpedia/DUL" target="_blank">Documentation</a> |
-                Created with the Card-Based Ontology Browser
+                <a href="https://github.com/LODpedia/DUL" target="_blank">Documentation</a>
             </p>
-            <p class="shortcuts-hint">
-                <strong>Keyboard Shortcuts:</strong>
-                <kbd>Ctrl+F</kbd> Search |
-                <kbd>Ctrl+E</kbd> Expand All |
-                <kbd>Ctrl+Q</kbd> Collapse All |
-                <kbd>Ctrl+I</kbd> Toggle Index
-            </p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/dul-parser.js"></script>
-    <script src="js/cards.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/app.js"></script>
+        </footer>
+    </div>
 </body>
 </html>
