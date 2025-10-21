@@ -1,4 +1,4 @@
-This subdomain captures human understanding of systems of authority, rule-making, and social control that regulate collective behavior. It encompasses how humans conceptualize legitimate authority, legal obligations, and the various mechanisms societies use to establish and enforce social order.## Governance and Law
+## Governance and Law
 
 ### Definition
 

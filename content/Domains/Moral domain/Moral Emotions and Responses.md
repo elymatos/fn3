@@ -1,4 +1,4 @@
-This subdomain captures human understanding of the emotional dimensions of moral experience, including the feelings that accompany moral judgments, moral violations, and moral achievements. It encompasses how humans conceptualize guilt, shame, pride, indignation, empathy, and other emotions that are specifically connected to moral situations and moral agency.## Moral Emotions and Responses
+## Moral Emotions and Responses
 
 ### Definition
 
