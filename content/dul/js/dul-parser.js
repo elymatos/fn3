@@ -7,12 +7,15 @@ class DULParser {
     constructor() {
         this.classes = new Map();
         this.properties = new Map();
+        this.blankNodes = new Map(); // Store blank nodes for processing
         this.rawData = null;
+        this.syntheticNodeCounter = 0; // Counter for generating synthetic node URIs
         this.statistics = {
             totalClasses: 0,
             totalProperties: 0,
             maxDepth: 0,
-            topLevelClasses: 0
+            topLevelClasses: 0,
+            syntheticNodes: 0
         };
     }
 
@@ -55,10 +58,18 @@ class DULParser {
 
         console.log(`Parsing ${items.length} items from ontology...`);
 
-        // First pass: Extract all classes, properties, AND synthetic nodes
+        // First pass: Store blank nodes for later processing
+        items.forEach(item => {
+            if (item['@id'] && item['@id'].startsWith('_:')) {
+                this.blankNodes.set(item['@id'], item);
+            }
+        });
+        console.log(`Found ${this.blankNodes.size} blank nodes`);
+
+        // Second pass: Extract all classes, properties, AND synthetic nodes
         items.forEach(item => {
             if (!item['@id'] || item['@id'].startsWith('_:')) {
-                return; // Skip blank nodes
+                return; // Skip blank nodes in this pass
             }
 
             const uri = item['@id'];
@@ -84,7 +95,20 @@ class DULParser {
             }
         });
 
-        // Second pass: Build relationships (subclass, properties, etc.)
+        // Third pass: Process equivalentClass definitions and create synthetic nodes
+        items.forEach(item => {
+            if (!item['@id'] || item['@id'].startsWith('_:')) {
+                return;
+            }
+
+            const uri = item['@id'];
+            if (this.classes.has(uri)) {
+                this.processEquivalentClass(item);
+            }
+        });
+        console.log(`Created ${this.syntheticNodeCounter} synthetic nodes from equivalentClass definitions`);
+
+        // Fourth pass: Build relationships (subclass, properties, etc.)
         items.forEach(item => {
             if (!item['@id'] || item['@id'].startsWith('_:')) {
                 return;
@@ -96,7 +120,7 @@ class DULParser {
             }
         });
 
-        // Third pass: Categorize synthetic node references
+        // Fifth pass: Categorize synthetic node references
         this.classes.forEach((classData, uri) => {
             if (classData.isSynthetic && classData.involvedRefs) {
                 classData.involvedRefs.forEach(refUri => {
@@ -109,7 +133,7 @@ class DULParser {
             }
         });
 
-        // Fourth pass: Calculate hierarchy and statistics
+        // Sixth pass: Calculate hierarchy and statistics
         this.calculateHierarchy();
         this.calculateStatistics();
 
@@ -168,10 +192,12 @@ class DULParser {
             definition,
             labels,
             superClasses: [],
+            superClassRestrictions: [], // Will store parsed restrictions from subClassOf
             subClasses: [],
             properties: [],
             disjointWith: [],
             restrictions: [],
+            equivalentClass: null, // Will store logical definition
             isTopLevel: false,
             level: 0
         });
@@ -351,18 +377,53 @@ class DULParser {
         const uri = item['@id'];
         const classData = this.classes.get(uri);
 
-        // Extract superclasses
-        const superClasses = this.extractURIArray(item, [
-            'http://www.w3.org/2000/01/rdf-schema#subClassOf',
-            'rdfs:subClassOf'
-        ]);
+        // Extract subClassOf - both regular classes and restrictions
+        const subClassOfProp = item['http://www.w3.org/2000/01/rdf-schema#subClassOf'] ||
+                               item['rdfs:subClassOf'];
 
-        superClasses.forEach(superUri => {
-            if (this.classes.has(superUri)) {
-                classData.superClasses.push(superUri);
-                this.classes.get(superUri).subClasses.push(uri);
-            }
-        });
+        if (subClassOfProp) {
+            const subClassOfArray = Array.isArray(subClassOfProp) ? subClassOfProp : [subClassOfProp];
+
+            subClassOfArray.forEach(sc => {
+                if (!sc) return;
+
+                // Extract the ID - handle both object and string formats
+                let scId = null;
+                if (typeof sc === 'string') {
+                    scId = sc;
+                } else if (typeof sc === 'object' && sc['@id']) {
+                    scId = sc['@id'];
+                }
+
+                // Skip if no valid ID
+                if (!scId || typeof scId !== 'string') return;
+
+                if (scId.startsWith('_:')) {
+                    // It's a blank node (restriction) - parse it and create synthetic node
+                    const blankNode = this.blankNodes.get(scId);
+                    if (blankNode) {
+                        const restrictionDef = this.parseBlankNodeDefinition(blankNode);
+                        if (restrictionDef) {
+                            classData.superClassRestrictions.push(restrictionDef);
+
+                            // Create a synthetic node for graph visualization
+                            const syntheticUri = this.createSyntheticNodeFromRestriction(restrictionDef, uri);
+                            if (syntheticUri) {
+                                // Add it as a superclass so it appears in the hierarchy
+                                classData.superClasses.push(syntheticUri);
+                                this.classes.get(syntheticUri).subClasses.push(uri);
+                            }
+                        }
+                    }
+                } else if (scId.includes('ont/dul/DUL.owl#')) {
+                    // It's a regular class
+                    if (this.classes.has(scId)) {
+                        classData.superClasses.push(scId);
+                        this.classes.get(scId).subClasses.push(uri);
+                    }
+                }
+            });
+        }
 
         // Extract disjoint classes
         const disjointClasses = this.extractURIArray(item, [
@@ -375,6 +436,375 @@ class DULParser {
                 classData.disjointWith.push(disjointUri);
             }
         });
+    }
+
+    /**
+     * Process owl:equivalentClass definitions and store on the class
+     */
+    processEquivalentClass(item) {
+        const OWL_NS = 'http://www.w3.org/2002/07/owl#';
+        const equivalentClassProp = `${OWL_NS}equivalentClass`;
+
+        if (!item[equivalentClassProp]) {
+            return;
+        }
+
+        const uri = item['@id'];
+        const classData = this.classes.get(uri);
+        if (!classData) return;
+
+        // Get the blank node reference
+        const equivalentRefs = Array.isArray(item[equivalentClassProp])
+            ? item[equivalentClassProp]
+            : [item[equivalentClassProp]];
+
+        equivalentRefs.forEach(ref => {
+            const blankNodeId = ref['@id'];
+            if (blankNodeId && blankNodeId.startsWith('_:')) {
+                const blankNode = this.blankNodes.get(blankNodeId);
+                if (blankNode) {
+                    // Parse the blank node and store the logical definition
+                    const logicalDef = this.parseBlankNodeDefinition(blankNode);
+                    if (logicalDef) {
+                        classData.equivalentClass = logicalDef;
+                        this.statistics.syntheticNodes++;
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * Parse a blank node structure into a logical definition
+     */
+    parseBlankNodeDefinition(blankNode) {
+        const OWL_NS = 'http://www.w3.org/2002/07/owl#';
+
+        // Check if it's an intersection
+        if (blankNode[`${OWL_NS}intersectionOf`]) {
+            return this.parseIntersectionDefinition(blankNode);
+        }
+
+        // Check if it's a union
+        if (blankNode[`${OWL_NS}unionOf`]) {
+            return this.parseUnionDefinition(blankNode);
+        }
+
+        // Check if it's a restriction
+        if (blankNode['@type'] && blankNode['@type'].includes(`${OWL_NS}Restriction`)) {
+            return this.parseRestrictionDefinition(blankNode);
+        }
+
+        // Check if it's a complement
+        if (blankNode[`${OWL_NS}complementOf`]) {
+            return this.parseComplementDefinition(blankNode);
+        }
+
+        return null;
+    }
+
+    /**
+     * Parse an intersection definition
+     */
+    parseIntersectionDefinition(blankNode) {
+        const OWL_NS = 'http://www.w3.org/2002/07/owl#';
+
+        const intersectionProp = blankNode[`${OWL_NS}intersectionOf`];
+        if (!intersectionProp || !intersectionProp[0] || !intersectionProp[0]['@list']) {
+            return null;
+        }
+
+        const operands = intersectionProp[0]['@list'];
+        const parsedOperands = [];
+
+        // Process each operand
+        operands.forEach(operand => {
+            if (operand['@id']) {
+                const operandId = operand['@id'];
+                if (operandId.startsWith('_:')) {
+                    // Nested blank node - recursively parse it
+                    const nestedBlank = this.blankNodes.get(operandId);
+                    if (nestedBlank) {
+                        const nestedDef = this.parseBlankNodeDefinition(nestedBlank);
+                        if (nestedDef) {
+                            parsedOperands.push(nestedDef);
+                        }
+                    }
+                } else {
+                    // Regular class reference
+                    const classData = this.classes.get(operandId);
+                    const className = classData ? classData.name : operandId.split('#').pop();
+                    parsedOperands.push({
+                        type: 'class',
+                        uri: operandId,
+                        name: className
+                    });
+                }
+            }
+        });
+
+        return {
+            type: 'intersection',
+            operator: '⊓',
+            operatorLabel: 'AND',
+            operands: parsedOperands
+        };
+    }
+
+    /**
+     * Parse a union definition
+     */
+    parseUnionDefinition(blankNode) {
+        const OWL_NS = 'http://www.w3.org/2002/07/owl#';
+
+        const unionProp = blankNode[`${OWL_NS}unionOf`];
+        if (!unionProp || !unionProp[0] || !unionProp[0]['@list']) {
+            return null;
+        }
+
+        const operands = unionProp[0]['@list'];
+        const parsedOperands = [];
+
+        // Process each operand
+        operands.forEach(operand => {
+            if (operand['@id']) {
+                const operandId = operand['@id'];
+                if (operandId.startsWith('_:')) {
+                    // Nested blank node
+                    const nestedBlank = this.blankNodes.get(operandId);
+                    if (nestedBlank) {
+                        const nestedDef = this.parseBlankNodeDefinition(nestedBlank);
+                        if (nestedDef) {
+                            parsedOperands.push(nestedDef);
+                        }
+                    }
+                } else {
+                    const classData = this.classes.get(operandId);
+                    const className = classData ? classData.name : operandId.split('#').pop();
+                    parsedOperands.push({
+                        type: 'class',
+                        uri: operandId,
+                        name: className
+                    });
+                }
+            }
+        });
+
+        return {
+            type: 'union',
+            operator: '⊔',
+            operatorLabel: 'OR',
+            operands: parsedOperands
+        };
+    }
+
+    /**
+     * Parse a restriction definition
+     */
+    parseRestrictionDefinition(blankNode) {
+        const OWL_NS = 'http://www.w3.org/2002/07/owl#';
+
+        const onProperty = blankNode[`${OWL_NS}onProperty`];
+        const someValuesFrom = blankNode[`${OWL_NS}someValuesFrom`];
+        const allValuesFrom = blankNode[`${OWL_NS}allValuesFrom`];
+        const hasValue = blankNode[`${OWL_NS}hasValue`];
+
+        if (!onProperty || !onProperty[0] || !onProperty[0]['@id']) {
+            return null;
+        }
+
+        const propertyUri = onProperty[0]['@id'];
+        let restrictionType, quantifier, fillerUri;
+
+        if (someValuesFrom && someValuesFrom[0]) {
+            restrictionType = 'someValuesFrom';
+            quantifier = 'some';
+            fillerUri = someValuesFrom[0]['@id'];
+        } else if (allValuesFrom && allValuesFrom[0]) {
+            restrictionType = 'allValuesFrom';
+            quantifier = 'only';
+            fillerUri = allValuesFrom[0]['@id'];
+        } else if (hasValue && hasValue[0]) {
+            restrictionType = 'hasValue';
+            quantifier = 'value';
+            fillerUri = hasValue[0]['@id'] || hasValue[0]['@value'];
+        } else {
+            return null;
+        }
+
+        // Get names for readable labels
+        const property = this.properties.get(propertyUri);
+        const propertyName = property ? property.name : propertyUri.split('#').pop();
+
+        let fillerName = '';
+        let fillerType = 'class';
+        if (fillerUri) {
+            const fillerClass = this.classes.get(fillerUri);
+            if (fillerClass) {
+                fillerName = fillerClass.name;
+            } else {
+                fillerName = fillerUri.split('#').pop();
+                fillerType = 'value';
+            }
+        }
+
+        return {
+            type: 'restriction',
+            restrictionType: restrictionType,
+            quantifier: quantifier,
+            property: {
+                uri: propertyUri,
+                name: propertyName
+            },
+            filler: {
+                type: fillerType,
+                uri: fillerUri,
+                name: fillerName
+            }
+        };
+    }
+
+    /**
+     * Create a synthetic node class from a restriction definition (for graph visualization)
+     */
+    createSyntheticNodeFromRestriction(restrictionDef, parentClassUri) {
+        const DUL_NS = 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#';
+
+        // Generate a descriptive name for the synthetic node
+        let syntheticName = '';
+        let syntheticType = 'restriction';
+
+        if (restrictionDef.type === 'restriction') {
+            const propName = restrictionDef.property.name;
+            const fillerName = restrictionDef.filler.name;
+            syntheticName = `${restrictionDef.quantifier} ${propName} ${fillerName}`;
+        } else if (restrictionDef.type === 'intersection') {
+            syntheticType = 'intersection';
+            const operandNames = restrictionDef.operands.map(op =>
+                op.type === 'class' ? op.name : '(nested)'
+            ).join(' ⊓ ');
+            syntheticName = operandNames;
+        } else if (restrictionDef.type === 'union') {
+            syntheticType = 'union';
+            const operandNames = restrictionDef.operands.map(op =>
+                op.type === 'class' ? op.name : '(nested)'
+            ).join(' ⊔ ');
+            syntheticName = operandNames;
+        } else if (restrictionDef.type === 'complement') {
+            syntheticType = 'complement';
+            syntheticName = `¬ ${restrictionDef.operand.name}`;
+        }
+
+        // Create unique URI for the synthetic node
+        const syntheticUri = `${DUL_NS}SyntheticNode_${syntheticType}_${this.syntheticNodeCounter++}`;
+
+        // Create the synthetic node class
+        this.classes.set(syntheticUri, {
+            uri: syntheticUri,
+            name: syntheticName,
+            definition: `Logical restriction from ${this.classes.get(parentClassUri)?.name || 'parent class'}`,
+            labels: { en: syntheticName },
+            isSynthetic: true,
+            syntheticType: syntheticType,
+            logicalDefinition: restrictionDef,
+            appliesTo: parentClassUri,
+            involvedRefs: this.extractInvolvedRefs(restrictionDef),
+            involvedClasses: this.extractInvolvedClasses(restrictionDef),
+            involvedProperties: this.extractInvolvedProperties(restrictionDef),
+            superClasses: [],
+            superClassRestrictions: [],
+            subClasses: [],
+            properties: [],
+            disjointWith: [],
+            restrictions: [],
+            equivalentClass: null,
+            isTopLevel: false,
+            level: 0
+        });
+
+        this.statistics.syntheticNodes++;
+        return syntheticUri;
+    }
+
+    /**
+     * Extract involved references from a restriction definition
+     */
+    extractInvolvedRefs(def) {
+        const refs = [];
+        if (def.type === 'restriction') {
+            if (def.property?.uri) refs.push(def.property.uri);
+            if (def.filler?.uri) refs.push(def.filler.uri);
+        } else if (def.type === 'intersection' || def.type === 'union') {
+            def.operands?.forEach(op => {
+                if (op.type === 'class' && op.uri) refs.push(op.uri);
+            });
+        } else if (def.type === 'complement') {
+            if (def.operand?.uri) refs.push(def.operand.uri);
+        }
+        return refs;
+    }
+
+    /**
+     * Extract involved classes from a restriction definition
+     */
+    extractInvolvedClasses(def) {
+        const classes = [];
+        if (def.type === 'restriction') {
+            if (def.filler?.uri && this.classes.has(def.filler.uri)) {
+                classes.push(def.filler.uri);
+            }
+        } else if (def.type === 'intersection' || def.type === 'union') {
+            def.operands?.forEach(op => {
+                if (op.type === 'class' && op.uri && this.classes.has(op.uri)) {
+                    classes.push(op.uri);
+                }
+            });
+        } else if (def.type === 'complement') {
+            if (def.operand?.uri && this.classes.has(def.operand.uri)) {
+                classes.push(def.operand.uri);
+            }
+        }
+        return classes;
+    }
+
+    /**
+     * Extract involved properties from a restriction definition
+     */
+    extractInvolvedProperties(def) {
+        const props = [];
+        if (def.type === 'restriction') {
+            if (def.property?.uri && this.properties.has(def.property.uri)) {
+                props.push(def.property.uri);
+            }
+        }
+        return props;
+    }
+
+    /**
+     * Parse a complement definition
+     */
+    parseComplementDefinition(blankNode) {
+        const OWL_NS = 'http://www.w3.org/2002/07/owl#';
+
+        const complementOf = blankNode[`${OWL_NS}complementOf`];
+        if (!complementOf || !complementOf[0] || !complementOf[0]['@id']) {
+            return null;
+        }
+
+        const operandUri = complementOf[0]['@id'];
+        const operandClass = this.classes.get(operandUri);
+        const operandName = operandClass ? operandClass.name : operandUri.split('#').pop();
+
+        return {
+            type: 'complement',
+            operator: '¬',
+            operatorLabel: 'NOT',
+            operand: {
+                type: 'class',
+                uri: operandUri,
+                name: operandName
+            }
+        };
     }
 
     /**
@@ -553,12 +983,12 @@ class DULParser {
 
                 if (typeof value === 'string') {
                     uri = value;
-                } else if (value['@id']) {
+                } else if (typeof value === 'object' && value['@id']) {
                     uri = value['@id'];
                 }
 
                 // Only add DUL namespace URIs and skip blank nodes
-                if (uri && uri.includes('ont/dul/DUL.owl#') && !uri.startsWith('_:')) {
+                if (uri && typeof uri === 'string' && uri.includes('ont/dul/DUL.owl#') && !uri.startsWith('_:')) {
                     uris.push(uri);
                 }
             });

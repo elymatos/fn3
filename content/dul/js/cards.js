@@ -169,6 +169,12 @@ class CardBuilder {
             body.appendChild(logicalDefSection);
         }
 
+        // Equivalent To section (for classes with logical definitions)
+        if (classData.equivalentClass) {
+            const equivalentSection = this.createEquivalentClassSection(classData);
+            body.appendChild(equivalentSection);
+        }
+
         // Definition
         if (classData.definition && !classData.isSynthetic) {
             const definition = document.createElement('div');
@@ -237,6 +243,7 @@ class CardBuilder {
         const list = document.createElement('ul');
         list.className = 'class-list';
 
+        // Add regular superclass links
         classData.superClasses.forEach(superUri => {
             const superClass = this.parser.getClass(superUri);
             if (superClass) {
@@ -256,8 +263,144 @@ class CardBuilder {
             }
         });
 
+        // Add restrictions from subClassOf
+        if (classData.superClassRestrictions && classData.superClassRestrictions.length > 0) {
+            classData.superClassRestrictions.forEach(restriction => {
+                const item = document.createElement('li');
+                item.className = 'restriction-item';
+
+                const restrictionDisplay = this.renderLogicalDefinition(restriction);
+                restrictionDisplay.classList.add('inline-restriction');
+                item.appendChild(restrictionDisplay);
+
+                list.appendChild(item);
+            });
+        }
+
         section.appendChild(list);
         return section;
+    }
+
+    /**
+     * Create equivalent class section
+     */
+    createEquivalentClassSection(classData) {
+        const section = document.createElement('div');
+        section.className = 'section equivalent-class-section';
+
+        const title = document.createElement('h4');
+        title.className = 'section-title';
+        title.innerHTML = '≡ Equivalent To:';
+        section.appendChild(title);
+
+        const definition = classData.equivalentClass;
+        const formula = document.createElement('div');
+        formula.className = 'logic-formula equivalent-formula';
+
+        // Render the logical definition
+        const renderedDef = this.renderLogicalDefinition(definition);
+        formula.appendChild(renderedDef);
+
+        section.appendChild(formula);
+        return section;
+    }
+
+    /**
+     * Render a logical definition recursively
+     */
+    renderLogicalDefinition(def) {
+        const container = document.createElement('div');
+        container.className = 'logic-expression';
+
+        if (def.type === 'restriction') {
+            const restriction = document.createElement('span');
+            restriction.className = 'logic-restriction';
+
+            const propertyLink = document.createElement('a');
+            propertyLink.className = 'property-link';
+            propertyLink.textContent = def.property.name;
+            propertyLink.href = '#';
+            propertyLink.title = def.property.uri;
+
+            const fillerLink = document.createElement('a');
+            fillerLink.className = 'class-link';
+            fillerLink.textContent = def.filler.name;
+            fillerLink.href = '#';
+            fillerLink.title = def.filler.uri;
+            if (def.filler.uri && !def.filler.uri.startsWith('http')) {
+                fillerLink.classList.add('literal-value');
+            } else {
+                fillerLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.navigateToClass(def.filler.uri);
+                });
+            }
+
+            restriction.innerHTML = `<span class="logic-keyword">${def.quantifier}</span> `;
+            restriction.appendChild(propertyLink);
+            restriction.innerHTML += ' ';
+            restriction.appendChild(fillerLink);
+
+            container.appendChild(restriction);
+
+        } else if (def.type === 'intersection' || def.type === 'union') {
+            const operator = def.type === 'intersection' ? ' ⊓ ' : ' ⊔ ';
+
+            def.operands.forEach((operand, index) => {
+                if (index > 0) {
+                    const opSpan = document.createElement('span');
+                    opSpan.className = 'logic-operator';
+                    opSpan.textContent = operator;
+                    container.appendChild(opSpan);
+                }
+
+                if (operand.type === 'class') {
+                    const classLink = document.createElement('a');
+                    classLink.className = 'class-link';
+                    classLink.textContent = operand.name;
+                    classLink.href = '#';
+                    classLink.title = operand.uri;
+                    classLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.navigateToClass(operand.uri);
+                    });
+                    container.appendChild(classLink);
+                } else {
+                    // Nested expression - wrap in parentheses
+                    const nested = document.createElement('span');
+                    nested.className = 'logic-nested';
+                    nested.textContent = '(';
+                    container.appendChild(nested);
+
+                    const nestedDef = this.renderLogicalDefinition(operand);
+                    container.appendChild(nestedDef);
+
+                    const closeParen = document.createElement('span');
+                    closeParen.className = 'logic-nested';
+                    closeParen.textContent = ')';
+                    container.appendChild(closeParen);
+                }
+            });
+
+        } else if (def.type === 'complement') {
+            const complement = document.createElement('span');
+            complement.className = 'logic-complement';
+            complement.textContent = '¬ ';
+            container.appendChild(complement);
+
+            const classLink = document.createElement('a');
+            classLink.className = 'class-link';
+            classLink.textContent = def.operand.name;
+            classLink.href = '#';
+            classLink.title = def.operand.uri;
+            classLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.navigateToClass(def.operand.uri);
+            });
+            container.appendChild(classLink);
+        }
+
+        return container;
     }
 
     /**
@@ -861,8 +1004,20 @@ class CardBuilder {
      */
     getClassName(uri) {
         if (!uri) return 'Unknown';
+
+        // Handle object format (new parser format)
+        if (typeof uri === 'object') {
+            if (uri.name) return uri.name;
+            if (uri.uri) uri = uri.uri; // Extract URI from object
+            else return 'Unknown';
+        }
+
+        // Handle string format
+        if (typeof uri !== 'string') return 'Unknown';
+
         const classData = this.parser.getClass(uri);
         if (classData) return classData.name;
+
         // Extract from URI if not found
         if (uri.includes('#')) return uri.split('#').pop();
         if (uri.includes('/')) return uri.split('/').pop();
