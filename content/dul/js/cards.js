@@ -25,6 +25,11 @@ class CardBuilder {
         card.dataset.className = classData.name.toLowerCase();
         card.id = this.generateCardId(classUri);
 
+        // Add synthetic node class
+        if (classData.isSynthetic) {
+            card.classList.add('synthetic-node');
+        }
+
         // Add top-level badge
         if (classData.isTopLevel) {
             card.classList.add('top-level');
@@ -54,9 +59,23 @@ class CardBuilder {
         const header = document.createElement('div');
         header.className = 'card-header';
 
+        // Add synthetic class to header if applicable
+        if (classData.isSynthetic) {
+            header.classList.add('synthetic');
+        }
+
         // Title row
         const titleRow = document.createElement('div');
         titleRow.className = 'title-row';
+
+        // Synthetic icon (diamond)
+        if (classData.isSynthetic) {
+            const syntheticIcon = document.createElement('span');
+            syntheticIcon.className = 'synthetic-icon';
+            syntheticIcon.textContent = '◆';
+            syntheticIcon.title = 'Logical Definition';
+            titleRow.appendChild(syntheticIcon);
+        }
 
         // Class name
         const title = document.createElement('h' + Math.min(level + 2, 6));
@@ -79,6 +98,15 @@ class CardBuilder {
                 });
                 title.appendChild(parentBadge);
             }
+        }
+
+        // Synthetic node badge
+        if (classData.isSynthetic && classData.syntheticType) {
+            const syntheticBadge = document.createElement('span');
+            syntheticBadge.className = 'badge synthetic-badge';
+            syntheticBadge.textContent = this.formatSyntheticType(classData.syntheticType);
+            syntheticBadge.title = 'Synthetic node type';
+            title.appendChild(syntheticBadge);
         }
 
         // Top-level badge
@@ -135,21 +163,45 @@ class CardBuilder {
         const body = document.createElement('div');
         body.className = 'card-body';
 
+        // For synthetic nodes, show logical definition first
+        if (classData.isSynthetic && classData.logicalDefinition) {
+            const logicalDefSection = this.createLogicalDefinitionSection(classData);
+            body.appendChild(logicalDefSection);
+        }
+
         // Definition
-        if (classData.definition) {
+        if (classData.definition && !classData.isSynthetic) {
             const definition = document.createElement('div');
             definition.className = 'definition';
             definition.textContent = classData.definition;
             body.appendChild(definition);
-        } else {
+        } else if (!classData.isSynthetic) {
             const noDefinition = document.createElement('div');
             noDefinition.className = 'no-definition';
             noDefinition.textContent = 'No definition available.';
             body.appendChild(noDefinition);
         }
 
+        // Applies To section (for synthetic nodes)
+        if (classData.isSynthetic && classData.appliesTo) {
+            const appliesToSection = this.createAppliesToSection(classData);
+            body.appendChild(appliesToSection);
+        }
+
+        // Referenced Classes section (for synthetic nodes)
+        if (classData.isSynthetic && classData.involvedClasses && classData.involvedClasses.length > 0) {
+            const referencedClassesSection = this.createReferencedClassesSection(classData);
+            body.appendChild(referencedClassesSection);
+        }
+
+        // Referenced Properties section (for synthetic nodes)
+        if (classData.isSynthetic && classData.involvedProperties && classData.involvedProperties.length > 0) {
+            const referencedPropsSection = this.createReferencedPropertiesSection(classData);
+            body.appendChild(referencedPropsSection);
+        }
+
         // Superclasses section
-        if (classData.superClasses.length > 0) {
+        if (classData.superClasses.length > 0 && !classData.isSynthetic) {
             const superSection = this.createSuperclassesSection(classData);
             body.appendChild(superSection);
         }
@@ -622,6 +674,199 @@ class CardBuilder {
         } catch (e) {
             console.warn('Could not save expanded state:', e);
         }
+    }
+
+    /**
+     * Format synthetic type for display
+     */
+    formatSyntheticType(type) {
+        const typeMap = {
+            'existential_restriction': '∃ Restriction',
+            'universal_restriction': '∀ Restriction',
+            'value_restriction': 'Value Restriction',
+            'cardinality_restriction': 'Cardinality',
+            'intersection': '⊓ Intersection',
+            'union': '⊔ Union',
+            'complement': '¬ Complement',
+            'equivalent_class': '≡ Equivalent'
+        };
+        return typeMap[type] || type;
+    }
+
+    /**
+     * Create logical definition section
+     */
+    createLogicalDefinitionSection(classData) {
+        const section = document.createElement('div');
+        section.className = 'section logical-definition';
+
+        const title = document.createElement('h4');
+        title.className = 'section-title';
+        title.textContent = 'Logical Definition:';
+        section.appendChild(title);
+
+        const def = classData.logicalDefinition;
+        const formula = document.createElement('div');
+        formula.className = 'logic-formula';
+
+        if (def.type === 'restriction') {
+            formula.innerHTML = `
+                <code>
+                    <span class="logic-quantifier">${def.quantifier}</span>
+                    <span class="logic-property">${this.getClassName(def.property)}</span>
+                    <span class="logic-filler">${this.getClassName(def.filler || def.value)}</span>
+                </code>
+            `;
+
+            const explanation = document.createElement('div');
+            explanation.className = 'logic-explanation';
+            explanation.textContent = `Any instance must ${def.quantifier.includes('∃') ? 'have at least one' : 'only have'} ${this.getClassName(def.property)} relationship to instances of ${this.getClassName(def.filler || def.value)}.`;
+            section.appendChild(explanation);
+
+        } else if (def.type === 'intersection') {
+            const operandNames = (def.operands || []).map(uri => this.getClassName(uri));
+            formula.innerHTML = `<code>${operandNames.join(' ⊓ ')}</code>`;
+
+            const explanation = document.createElement('div');
+            explanation.className = 'logic-explanation';
+            explanation.textContent = 'Must satisfy ALL of these classes simultaneously.';
+            section.appendChild(explanation);
+
+        } else if (def.type === 'union') {
+            const operandNames = (def.operands || []).map(uri => this.getClassName(uri));
+            formula.innerHTML = `<code>${operandNames.join(' ⊔ ')}</code>`;
+
+            const explanation = document.createElement('div');
+            explanation.className = 'logic-explanation';
+            explanation.textContent = 'Must satisfy AT LEAST ONE of these classes.';
+            section.appendChild(explanation);
+
+        } else if (def.type === 'complement') {
+            formula.innerHTML = `<code>¬ ${this.getClassName(def.operand)}</code>`;
+
+            const explanation = document.createElement('div');
+            explanation.className = 'logic-explanation';
+            explanation.textContent = `Must NOT be an instance of ${this.getClassName(def.operand)}.`;
+            section.appendChild(explanation);
+        }
+
+        section.insertBefore(formula, section.children[1] || null);
+        return section;
+    }
+
+    /**
+     * Create applies to section
+     */
+    createAppliesToSection(classData) {
+        const section = document.createElement('div');
+        section.className = 'section applies-to-section';
+
+        const title = document.createElement('h4');
+        title.className = 'section-title';
+        title.textContent = 'Applies To:';
+        section.appendChild(title);
+
+        const list = document.createElement('ul');
+        list.className = 'class-list';
+
+        const parentClass = this.parser.getClass(classData.appliesTo);
+        if (parentClass) {
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = '#' + this.generateCardId(classData.appliesTo);
+            link.className = 'class-link';
+            link.textContent = parentClass.name;
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.navigateToClass(classData.appliesTo);
+            });
+            item.appendChild(link);
+            list.appendChild(item);
+        }
+
+        section.appendChild(list);
+        return section;
+    }
+
+    /**
+     * Create referenced classes section
+     */
+    createReferencedClassesSection(classData) {
+        const section = document.createElement('div');
+        section.className = 'section referenced-classes-section';
+
+        const title = document.createElement('h4');
+        title.className = 'section-title';
+        title.textContent = 'Referenced Classes:';
+        section.appendChild(title);
+
+        const list = document.createElement('ul');
+        list.className = 'class-list';
+
+        classData.involvedClasses.forEach(refUri => {
+            const refClass = this.parser.getClass(refUri);
+            if (refClass) {
+                const item = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = '#' + this.generateCardId(refUri);
+                link.className = 'class-link';
+                link.textContent = refClass.name;
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.navigateToClass(refUri);
+                });
+                item.appendChild(link);
+                list.appendChild(item);
+            }
+        });
+
+        section.appendChild(list);
+        return section;
+    }
+
+    /**
+     * Create referenced properties section
+     */
+    createReferencedPropertiesSection(classData) {
+        const section = document.createElement('div');
+        section.className = 'section referenced-properties-section';
+
+        const title = document.createElement('h4');
+        title.className = 'section-title';
+        title.textContent = 'Referenced Properties:';
+        section.appendChild(title);
+
+        const list = document.createElement('ul');
+        list.className = 'property-list';
+
+        classData.involvedProperties.forEach(propUri => {
+            const prop = this.parser.getProperty(propUri);
+            if (prop) {
+                const item = document.createElement('li');
+                const link = document.createElement('span');
+                link.className = 'property-name';
+                link.textContent = prop.name;
+                link.title = prop.definition || 'Property';
+                item.appendChild(link);
+                list.appendChild(item);
+            }
+        });
+
+        section.appendChild(list);
+        return section;
+    }
+
+    /**
+     * Get class name from URI
+     */
+    getClassName(uri) {
+        if (!uri) return 'Unknown';
+        const classData = this.parser.getClass(uri);
+        if (classData) return classData.name;
+        // Extract from URI if not found
+        if (uri.includes('#')) return uri.split('#').pop();
+        if (uri.includes('/')) return uri.split('/').pop();
+        return uri;
     }
 
     /**

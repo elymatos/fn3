@@ -21,8 +21,8 @@ class DULBrowserApp {
         this.showLoading();
 
         try {
-            // Load the ontology data
-            const result = await this.parser.loadFromFile('DUL.jsonld');
+            // Load the ontology data (with synthetic nodes)
+            const result = await this.parser.loadFromFile('DUL_enhanced.jsonld');
 
             if (!result.success) {
                 throw new Error(result.error);
