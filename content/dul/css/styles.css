@@ -1364,6 +1364,87 @@ body[data-theme="dark"] .btn-icon .icon-dark {
     line-height: 1.6;
 }
 
+/* Equivalent To section styles */
+.equivalent-class-section {
+    background: #f0f7ff;
+    border-left: 3px solid #2196f3;
+    padding: 12px;
+    margin: 12px 0;
+}
+
+.equivalent-class-section .section-title {
+    color: #1976d2;
+    margin-bottom: 8px;
+}
+
+.equivalent-formula {
+    background: white;
+    border: 1px solid #bbdefb;
+}
+
+.logic-expression {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    line-height: 1.6;
+}
+
+.logic-keyword {
+    font-weight: 600;
+    color: #7c4dff;
+}
+
+.logic-operator {
+    font-weight: 600;
+    color: #424242;
+    padding: 0 4px;
+}
+
+.logic-restriction {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.logic-nested {
+    font-weight: 600;
+    color: #616161;
+}
+
+.logic-complement {
+    font-weight: 600;
+    color: #e53935;
+}
+
+/* Inline restrictions in Subclass Of section */
+.restriction-item {
+    background: #f5f5f5;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border-left: 3px solid #9c27b0;
+}
+
+.inline-restriction {
+    font-family: 'Courier New', Monaco, monospace;
+    font-size: 0.95em;
+}
+
+.inline-restriction .logic-keyword {
+    color: #9c27b0;
+}
+
+.inline-restriction .class-link,
+.inline-restriction .property-link {
+    text-decoration: none;
+    color: #1976d2;
+}
+
+.inline-restriction .class-link:hover,
+.inline-restriction .property-link:hover {
+    text-decoration: underline;
+}
+
 .logic-quantifier {
     color: #1976d2;
     font-weight: bold;
@@ -1445,6 +1526,34 @@ body[data-theme="dark"] .btn-icon .icon-dark {
 
 [data-theme="dark"] .logic-formula {
     background: #1e1e1e;
+}
+
+[data-theme="dark"] .equivalent-class-section {
+    background: #1a2332;
+    border-left-color: #42a5f5;
+}
+
+[data-theme="dark"] .equivalent-class-section .section-title {
+    color: #64b5f6;
+}
+
+[data-theme="dark"] .equivalent-formula {
+    background: #1e1e1e;
+    border-color: #1e88e5;
+}
+
+[data-theme="dark"] .restriction-item {
+    background: #2a2a2a;
+    border-left-color: #ba68c8;
+}
+
+[data-theme="dark"] .inline-restriction .logic-keyword {
+    color: #ce93d8;
+}
+
+[data-theme="dark"] .inline-restriction .class-link,
+[data-theme="dark"] .inline-restriction .property-link {
+    color: #64b5f6;
 }
 
 [data-theme="dark"] .logic-quantifier {
