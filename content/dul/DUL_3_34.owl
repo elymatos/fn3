@@ -3417,6 +3417,9 @@ This class can also be used to act as &apos;naturalized reifications&apos; of lo
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aldo Gangemi</dc:creator>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2021-02-24T14:24:23Z</dc:date>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A Situation that includes a time indexing in its setting, so allowing to order any binary relation (property) with time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
+        <rdfs:label xml:lang="en">Time-indexed relation</rdfs:label>
+        <rdfs:label xml:lang="it">Relazione indicizzata nel tempo</rdfs:label>
     </owl:Class>
     
 
