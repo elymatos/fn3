@@ -55,7 +55,7 @@ class DULParser {
 
         console.log(`Parsing ${items.length} items from ontology...`);
 
-        // First pass: Extract all classes and properties
+        // First pass: Extract all classes, properties, AND synthetic nodes
         items.forEach(item => {
             if (!item['@id'] || item['@id'].startsWith('_:')) {
                 return; // Skip blank nodes
@@ -68,8 +68,12 @@ class DULParser {
                 return;
             }
 
-            // Process classes
-            if (this.isClass(item)) {
+            // Process synthetic nodes FIRST (they are also classes)
+            if (this.isSyntheticNode(item)) {
+                this.processSyntheticNode(item);
+            }
+            // Then process regular classes
+            else if (this.isClass(item)) {
                 this.processClass(item);
             }
 
@@ -92,7 +96,20 @@ class DULParser {
             }
         });
 
-        // Third pass: Calculate hierarchy and statistics
+        // Third pass: Categorize synthetic node references
+        this.classes.forEach((classData, uri) => {
+            if (classData.isSynthetic && classData.involvedRefs) {
+                classData.involvedRefs.forEach(refUri => {
+                    if (this.classes.has(refUri)) {
+                        classData.involvedClasses.push(refUri);
+                    } else if (this.properties.has(refUri)) {
+                        classData.involvedProperties.push(refUri);
+                    }
+                });
+            }
+        });
+
+        // Fourth pass: Calculate hierarchy and statistics
         this.calculateHierarchy();
         this.calculateStatistics();
 
@@ -108,6 +125,17 @@ class DULParser {
             t === 'http://www.w3.org/2002/07/owl#Class' ||
             t === 'owl:Class'
         );
+    }
+
+    /**
+     * Check if an item is a synthetic node
+     */
+    isSyntheticNode(item) {
+        const types = Array.isArray(item['@type']) ? item['@type'] : [item['@type']];
+        return types.some(t =>
+            t === 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SyntheticNode' ||
+            t.includes('SyntheticNode')
+        ) || item['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#syntheticType'];
     }
 
     /**
@@ -201,6 +229,119 @@ class DULParser {
         });
 
         this.statistics.totalProperties++;
+    }
+
+    /**
+     * Process a synthetic node
+     */
+    processSyntheticNode(item) {
+        const uri = item['@id'];
+        const DUL_NS = 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#';
+
+        // Get synthetic type
+        const syntheticType = item[`${DUL_NS}syntheticType`];
+
+        // Extract label
+        const name = this.extractName(item, uri);
+
+        // Extract involved classes and properties
+        const involvedRefs = this.extractURIArray(item, [`${DUL_NS}involves`]);
+        const involvedClasses = [];
+        const involvedProperties = [];
+
+        // We'll categorize involves in the second pass once we know what's a class vs property
+
+        // Extract appliesTo
+        const appliesTo = this.extractURIArray(item, [`${DUL_NS}appliesTo`]);
+
+        // Parse logical definition
+        const logicalDefinition = this.parseLogicalDefinition(item, syntheticType);
+
+        this.classes.set(uri, {
+            uri,
+            name,
+            definition: `Synthetic node: ${name}`,
+            labels: this.extractLabels(item),
+            isSynthetic: true,
+            syntheticType: syntheticType,
+            logicalDefinition: logicalDefinition,
+            involvedRefs: involvedRefs,  // Store raw references for now
+            involvedClasses: involvedClasses,
+            involvedProperties: involvedProperties,
+            appliesTo: appliesTo[0] || null,
+            superClasses: [],
+            subClasses: [],
+            properties: [],
+            disjointWith: [],
+            restrictions: [],
+            isTopLevel: false,
+            level: 0
+        });
+
+        this.statistics.totalClasses++;
+    }
+
+    /**
+     * Parse logical definition from synthetic node
+     */
+    parseLogicalDefinition(item, syntheticType) {
+        const DUL_NS = 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#';
+        const OWL_NS = 'http://www.w3.org/2002/07/owl#';
+
+        const getFirstURI = (prop) => {
+            const arr = this.extractURIArray(item, [prop]);
+            return arr[0] || null;
+        };
+
+        switch(syntheticType) {
+            case 'existential_restriction':
+                return {
+                    type: 'restriction',
+                    quantifier: '∃ (some)',
+                    property: getFirstURI(`${DUL_NS}onProperty`),
+                    filler: getFirstURI(`${DUL_NS}someValuesFrom`)
+                };
+
+            case 'universal_restriction':
+                return {
+                    type: 'restriction',
+                    quantifier: '∀ (only)',
+                    property: getFirstURI(`${DUL_NS}onProperty`),
+                    filler: getFirstURI(`${DUL_NS}allValuesFrom`)
+                };
+
+            case 'value_restriction':
+                return {
+                    type: 'restriction',
+                    quantifier: 'hasValue',
+                    property: getFirstURI(`${DUL_NS}onProperty`),
+                    value: getFirstURI(`${DUL_NS}hasValue`)
+                };
+
+            case 'intersection':
+                return {
+                    type: 'intersection',
+                    operator: '⊓ (AND)',
+                    operands: this.extractURIArray(item, [`${DUL_NS}intersectionOf`])
+                };
+
+            case 'union':
+                return {
+                    type: 'union',
+                    operator: '⊔ (OR)',
+                    operands: this.extractURIArray(item, [`${DUL_NS}unionOf`])
+                };
+
+            case 'complement':
+                return {
+                    type: 'complement',
+                    operator: '¬ (NOT)',
+                    operand: getFirstURI(`${DUL_NS}complementOf`)
+                };
+
+            default:
+                return { type: 'unknown' };
+        }
     }
 
     /**
