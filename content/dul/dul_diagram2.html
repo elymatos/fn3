@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUL Ontology Diagram</title>
+    <title>Complete DUL Ontology Diagram</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -12,126 +16,84 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-        
+
         .container {
-            max-width: 1400px;
+            max-width: 1800px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-        
+
         .header {
             background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
             padding: 30px;
             text-align: center;
         }
-        
+
         .header h1 {
             margin: 0;
             font-size: 2.5em;
             font-weight: 300;
         }
-        
+
         .header p {
             margin: 10px 0 0 0;
             opacity: 0.9;
             font-size: 1.1em;
         }
-        
+
+        .stats {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .stats h3 {
+            margin: 0 0 10px 0;
+            color: #495057;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
         .diagram-container {
             padding: 40px;
             background: #f8f9fa;
         }
-        
-        .ontology-diagram {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
+
+        .section {
+            margin-bottom: 40px;
         }
-        
-        .class-group {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .class-group:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
-        
-        .class-group.entity { border-color: #3498db; }
-        .class-group.objects { border-color: #e74c3c; }
-        .class-group.events { border-color: #f39c12; }
-        .class-group.social { border-color: #9b59b6; }
-        .class-group.abstract { border-color: #1abc9c; }
-        .class-group.qualities { border-color: #e67e22; }
-        
-        .group-header {
-            font-size: 1.4em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            text-align: center;
-            padding: 12px;
-            border-radius: 8px;
-            color: white;
-        }
-        
-        .entity .group-header { background: #3498db; }
-        .objects .group-header { background: #e74c3c; }
-        .events .group-header { background: #f39c12; }
-        .social .group-header { background: #9b59b6; }
-        .abstract .group-header { background: #1abc9c; }
-        .qualities .group-header { background: #e67e22; }
-        
-        .class-item {
-            background: #f8f9fa;
-            margin: 8px 0;
-            padding: 12px 15px;
-            border-radius: 8px;
-            border-left: 4px solid #ddd;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        
-        .class-item:hover {
-            background: #e9ecef;
-            border-left-color: #007bff;
-            transform: translateX(5px);
-        }
-        
-        .class-name {
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 1.05em;
-        }
-        
-        .class-desc {
-            font-size: 0.85em;
-            color: #6c757d;
-            margin-top: 4px;
-            line-height: 1.3;
-        }
-        
-        .relations-section {
-            margin-top: 50px;
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-        
-        .relations-header {
+
+        .section-header {
             text-align: center;
             font-size: 2em;
             font-weight: 600;
@@ -142,102 +104,175 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .relations-grid {
+
+        .ontology-diagram {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
-        
+
+        .class-group {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .class-group:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .class-group.entity { border-color: #3498db; }
+        .class-group.objects { border-color: #e74c3c; }
+        .class-group.persons { border-color: #e91e63; }
+        .class-group.events { border-color: #f39c12; }
+        .class-group.social { border-color: #9b59b6; }
+        .class-group.descriptions { border-color: #16a085; }
+        .class-group.concepts { border-color: #27ae60; }
+        .class-group.information { border-color: #3498db; }
+        .class-group.collections { border-color: #f368e0; }
+        .class-group.abstract { border-color: #1abc9c; }
+        .class-group.regions { border-color: #e67e22; }
+        .class-group.substances { border-color: #95a5a6; }
+        .class-group.situations { border-color: #d35400; }
+
+        .group-header {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 6px;
+            color: white;
+            text-align: center;
+        }
+
+        .entity .group-header { background: #3498db; }
+        .objects .group-header { background: #e74c3c; }
+        .persons .group-header { background: #e91e63; }
+        .events .group-header { background: #f39c12; }
+        .social .group-header { background: #9b59b6; }
+        .descriptions .group-header { background: #16a085; }
+        .concepts .group-header { background: #27ae60; }
+        .information .group-header { background: #3498db; }
+        .collections .group-header { background: #f368e0; }
+        .abstract .group-header { background: #1abc9c; }
+        .regions .group-header { background: #e67e22; }
+        .substances .group-header { background: #95a5a6; }
+        .situations .group-header { background: #d35400; }
+
+        .class-item {
+            background: #f8f9fa;
+            margin: 6px 0;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border-left: 3px solid #ddd;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .class-item:hover {
+            background: #e9ecef;
+            border-left-color: #007bff;
+            transform: translateX(3px);
+        }
+
+        .class-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95em;
+        }
+
+        .class-desc {
+            font-size: 0.75em;
+            color: #6c757d;
+            margin-top: 3px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .relations-section {
+            margin-top: 50px;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .relations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
         .relation-category {
             background: #f8f9fa;
             border-radius: 10px;
-            padding: 20px;
-            border-left: 5px solid;
+            padding: 18px;
+            border-left: 4px solid;
         }
-        
+
         .relation-category.structural { border-left-color: #3498db; }
         .relation-category.participatory { border-left-color: #e74c3c; }
         .relation-category.descriptive { border-left-color: #9b59b6; }
         .relation-category.temporal { border-left-color: #f39c12; }
         .relation-category.spatial { border-left-color: #1abc9c; }
         .relation-category.semantic { border-left-color: #e67e22; }
-        
+        .relation-category.agents { border-left-color: #27ae60; }
+        .relation-category.settings { border-left-color: #d35400; }
+        .relation-category.data { border-left-color: #95a5a6; }
+
         .relation-category h3 {
-            margin: 0 0 15px 0;
-            font-size: 1.3em;
+            margin: 0 0 12px 0;
+            font-size: 1.1em;
             color: #2c3e50;
         }
-        
+
         .relation-item {
             background: white;
-            margin: 8px 0;
-            padding: 12px 15px;
+            margin: 6px 0;
+            padding: 10px 12px;
             border-radius: 6px;
             border: 1px solid #e9ecef;
             transition: all 0.2s ease;
         }
-        
+
         .relation-item:hover {
             background: #f1f3f4;
             border-color: #007bff;
         }
-        
+
         .relation-name {
             font-weight: 600;
             color: #495057;
             font-family: 'Courier New', monospace;
-            font-size: 0.95em;
-        }
-        
-        .relation-desc {
             font-size: 0.85em;
+        }
+
+        .relation-desc {
+            font-size: 0.75em;
             color: #6c757d;
-            margin-top: 4px;
+            margin-top: 3px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-        
-        .legend {
-            margin-top: 30px;
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 20px;
-        }
-        
-        .legend h3 {
-            margin: 0 0 15px 0;
-            color: #856404;
-        }
-        
-        .legend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .color-box {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
-            border: 2px solid white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
+
         @media (max-width: 768px) {
             .ontology-diagram {
                 grid-template-columns: 1fr;
             }
-            
+
             .relations-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .header h1 {
                 font-size: 2em;
             }
@@ -247,299 +282,753 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>DOLCE Ultra Lite (DUL) Ontology</h1>
-            <p>Main Classes and Relations - Foundational Framework for Reality Modeling</p>
+            <h1>DOLCE Ultra Lite (DUL) Ontology - Complete</h1>
+            <p>All 78 Classes and 117 Properties - Foundational Framework for Reality Modeling</p>
         </div>
-        
+
+        <div class="stats">
+            <h3>Ontology Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">78</div>
+                    <div class="stat-label">Total Classes</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">112</div>
+                    <div class="stat-label">Object Properties</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Datatype Properties</div>
+                </div>
+            </div>
+        </div>
+
         <div class="diagram-container">
-            <div class="ontology-diagram">
-                <!-- Entity - Root Class -->
-                <div class="class-group entity">
-                    <div class="group-header">🌟 ENTITY</div>
-                    <div class="class-item">
-                        <div class="class-name">Entity</div>
-                        <div class="class-desc">Root class: anything that can be talked about</div>
+            <div class="section">
+                <div class="section-header">Classes</div>
+
+                <div class="ontology-diagram">
+                    <!-- Entity - Root -->
+                    <div class="class-group entity">
+                        <div class="group-header">ENTITY (Root)</div>
+                        <div class="class-item">
+                            <div class="class-name">Entity</div>
+                            <div class="class-desc">Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.</div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Objects -->
-                <div class="class-group objects">
-                    <div class="group-header">🔵 OBJECTS</div>
-                    <div class="class-item">
-                        <div class="class-name">Object</div>
-                        <div class="class-desc">Physical, social, or mental objects</div>
+
+                    <!-- Physical Objects -->
+                    <div class="class-group objects">
+                        <div class="group-header">PHYSICAL OBJECTS</div>
+                        <div class="class-item">
+                            <div class="class-name">Object</div>
+                            <div class="class-desc">Any physical, social, or mental object, or a substance.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">PhysicalObject</div>
+                            <div class="class-desc">Any Object that has a proper space region.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">PhysicalAgent</div>
+                            <div class="class-desc">A PhysicalObject capable of self-representing a Description to plan an Action.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">PhysicalArtifact</div>
+                            <div class="class-desc">Any PhysicalObject that isDescribedBy a Plan.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">PhysicalBody</div>
+                            <div class="class-desc">Physical bodies for which we neutralize any possible artifactual character.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">PhysicalPlace</div>
+                            <div class="class-desc">A physical object that is inherently located; e.g., a water area.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">PhysicalAttribute</div>
+                            <div class="class-desc">Physical value of a physical object, e.g. density, color, etc.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">BiologicalObject</div>
+                            <div class="class-desc">Physical objects with biological characteristics.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">ChemicalObject</div>
+                            <div class="class-desc">Chemical entities and compounds.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Organism</div>
+                            <div class="class-desc">A physical object with biological characteristics, typically that can self-reproduce.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">ObjectAggregate</div>
+                            <div class="class-desc">An aggregate of distributed objects, members of a same Collection.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">PhysicalObject</div>
-                        <div class="class-desc">Objects with spatial location</div>
+
+                    <!-- Persons -->
+                    <div class="class-group persons">
+                        <div class="group-header">PERSONS</div>
+                        <div class="class-item">
+                            <div class="class-name">Agent</div>
+                            <div class="class-desc">Objects that can act intentionally, including computational agents.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Person</div>
+                            <div class="class-desc">Persons in commonsense intuition.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">NaturalPerson</div>
+                            <div class="class-desc">A person in the physical commonsense intuition.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">SocialPerson</div>
+                            <div class="class-desc">A SocialAgent that needs the existence of a specific NaturalPerson.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Personification</div>
+                            <div class="class-desc">A social entity with agentive features from cultural transformation.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">Agent</div>
-                        <div class="class-desc">Objects that can act intentionally</div>
+
+                    <!-- Events -->
+                    <div class="class-group events">
+                        <div class="group-header">EVENTS & PROCESSES</div>
+                        <div class="class-item">
+                            <div class="class-name">Event</div>
+                            <div class="class-desc">Any physical, social, or mental process, event, or state.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Action</div>
+                            <div class="class-desc">An Event with at least one Agent that executes a Task.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Process</div>
+                            <div class="class-desc">Events considered in their evolution, not strictly dependent on agents.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Transition</div>
+                            <div class="class-desc">A Situation that creates a context for state changes.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">EventType</div>
+                            <div class="class-desc">A Concept that classifies an Event.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">PhysicalAgent</div>
-                        <div class="class-desc">Physical objects capable of planning</div>
+
+                    <!-- Social Agents -->
+                    <div class="class-group social">
+                        <div class="group-header">SOCIAL AGENTS</div>
+                        <div class="class-item">
+                            <div class="class-name">SocialAgent</div>
+                            <div class="class-desc">Any individual whose existence is granted by social communicability and action.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">CollectiveAgent</div>
+                            <div class="class-desc">A SocialAgent acted by agents that are members of a Collective.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Community</div>
+                            <div class="class-desc">A collective with shared characteristics.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Group</div>
+                            <div class="class-desc">A CollectiveAgent whose acting agents conceptualize a same SocialRelation.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Organization</div>
+                            <div class="class-desc">An internally structured, conventionally created SocialAgent.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">Person</div>
-                        <div class="class-desc">Human individuals</div>
+
+                    <!-- Social Objects -->
+                    <div class="class-group social">
+                        <div class="group-header">SOCIAL OBJECTS</div>
+                        <div class="class-item">
+                            <div class="class-name">SocialObject</div>
+                            <div class="class-desc">Objects that exist only within communication events.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">SocialObjectAttribute</div>
+                            <div class="class-desc">Regions representing characteristics of SocialObjects.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">SocialRelation</div>
+                            <div class="class-desc">Any social relationship.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">Organism</div>
-                        <div class="class-desc">Biological objects</div>
+
+                    <!-- Descriptions -->
+                    <div class="class-group descriptions">
+                        <div class="group-header">DESCRIPTIONS</div>
+                        <div class="class-item">
+                            <div class="class-name">Description</div>
+                            <div class="class-desc">A SocialObject that represents a conceptualization.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Plan</div>
+                            <div class="class-desc">A Description having an explicit Goal.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Goal</div>
+                            <div class="class-desc">The Description of a Situation desired by an Agent.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Design</div>
+                            <div class="class-desc">A Description of the Situation in terms of structure and function.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Diagnosis</div>
+                            <div class="class-desc">A Description of the Situation of a system.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Method</div>
+                            <div class="class-desc">A Description that guides carrying out actions aimed at a solution.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Narrative</div>
+                            <div class="class-desc">A Description that tells a story.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Norm</div>
+                            <div class="class-desc">A social norm.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Contract</div>
+                            <div class="class-desc">An agreement between at least two agents about a contract object.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Right</div>
+                            <div class="class-desc">A legal position by which an Agent is entitled to obtain something.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Project</div>
+                            <div class="class-desc">A Plan with a subgoal structure and multiple roles and tasks.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Workflow</div>
+                            <div class="class-desc">A Plan that defines Role(s), Task(s), and structure for an Organization.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Theory</div>
+                            <div class="class-desc">A Description representing assumptions for describing something.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Pattern</div>
+                            <div class="class-desc">Any invariance detected from data or observation.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Relation</div>
+                            <div class="class-desc">Descriptions that are counterparts of formal relations.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">PhysicalArtifact</div>
-                        <div class="class-desc">Designed physical objects</div>
+
+                    <!-- Concepts -->
+                    <div class="class-group concepts">
+                        <div class="group-header">CONCEPTS</div>
+                        <div class="class-item">
+                            <div class="class-name">Concept</div>
+                            <div class="class-desc">A SocialObject isDefinedIn some Description.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Role</div>
+                            <div class="class-desc">A Concept that classifies an Object.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Task</div>
+                            <div class="class-desc">An EventType that classifies an Action to be executed.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Parameter</div>
+                            <div class="class-desc">A Concept that classifies a Region as constraints on values.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">LocalConcept</div>
+                            <div class="class-desc">A Concept isDefinedIn exactly 1 Description.</div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Events -->
-                <div class="class-group events">
-                    <div class="group-header">🟡 EVENTS</div>
-                    <div class="class-item">
-                        <div class="class-name">Event</div>
-                        <div class="class-desc">Physical, social, or mental processes</div>
+
+                    <!-- Information -->
+                    <div class="class-group information">
+                        <div class="group-header">INFORMATION</div>
+                        <div class="class-item">
+                            <div class="class-name">InformationEntity</div>
+                            <div class="class-desc">A piece of information, realized or not.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">InformationObject</div>
+                            <div class="class-desc">A piece of information, independent from concrete realization.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">InformationRealization</div>
+                            <div class="class-desc">A concrete realization of an InformationObject.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">Action</div>
-                        <div class="class-desc">Events with intentional agents</div>
+
+                    <!-- Collections -->
+                    <div class="class-group collections">
+                        <div class="group-header">COLLECTIONS</div>
+                        <div class="class-item">
+                            <div class="class-name">Collection</div>
+                            <div class="class-desc">Any container for entities that share common properties.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Collective</div>
+                            <div class="class-desc">A Collection whose members are agents.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Configuration</div>
+                            <div class="class-desc">A collection whose members are 'unified' by a Description.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">TypeCollection</div>
+                            <div class="class-desc">A Collection whose members share the same type.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">Process</div>
-                        <div class="class-desc">Events in their evolution</div>
+
+                    <!-- Abstract -->
+                    <div class="class-group abstract">
+                        <div class="group-header">ABSTRACT</div>
+                        <div class="class-item">
+                            <div class="class-name">Abstract</div>
+                            <div class="class-desc">Any Entity that cannot be located in space-time.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">FormalEntity</div>
+                            <div class="class-desc">Entities that are formally defined and context-independent.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Set</div>
+                            <div class="class-desc">Mathematical sets.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">Situation</div>
-                        <div class="class-desc">Contexts/views on sets of entities</div>
+
+                    <!-- Regions & Qualities -->
+                    <div class="class-group regions">
+                        <div class="group-header">REGIONS & QUALITIES</div>
+                        <div class="class-item">
+                            <div class="class-name">Quality</div>
+                            <div class="class-desc">Any aspect of an Entity which cannot exist without that Entity.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Region</div>
+                            <div class="class-desc">Any region in a dimensional space used as a value for a quality.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">SpaceRegion</div>
+                            <div class="class-desc">Any Region used to localize an Entity.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">TimeInterval</div>
+                            <div class="class-desc">Any Region that aims at representing time.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">SpatioTemporalRegion</div>
+                            <div class="class-desc">Regions combining space and time.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Amount</div>
+                            <div class="class-desc">A quantity, independent from measurement.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Place</div>
+                            <div class="class-desc">Socially or cognitively dependent locations.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">UnitOfMeasure</div>
+                            <div class="class-desc">Units conceptualized as parameters on regions.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">PlanExecution</div>
-                        <div class="class-desc">Situations satisfying plans</div>
+
+                    <!-- Substances & Artifacts -->
+                    <div class="class-group substances">
+                        <div class="group-header">SUBSTANCES</div>
+                        <div class="class-item">
+                            <div class="class-name">Substance</div>
+                            <div class="class-desc">Any PhysicalBody without necessarily specified boundaries.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">FunctionalSubstance</div>
+                            <div class="class-desc">Substances with designed functions.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">DesignedSubstance</div>
+                            <div class="class-desc">Substances that are also DesignedArtifacts.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">DesignedArtifact</div>
+                            <div class="class-desc">A PhysicalArtifact also described by a Design.</div>
+                        </div>
                     </div>
-                    <div class="class-item">
-                        <div class="class-name">Transition</div>
-                        <div class="class-desc">State change situations</div>
-                    </div>
-                </div>
-                
-                <!-- Social Objects -->
-                <div class="class-group social">
-                    <div class="group-header">🟣 SOCIAL</div>
-                    <div class="class-item">
-                        <div class="class-name">SocialObject</div>
-                        <div class="class-desc">Objects existing through communication</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Description</div>
-                        <div class="class-desc">Conceptual frameworks</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Plan</div>
-                        <div class="class-desc">Descriptions with explicit goals</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Concept</div>
-                        <div class="class-desc">Ideas defined in descriptions</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Role</div>
-                        <div class="class-desc">Concepts that classify objects</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Task</div>
-                        <div class="class-desc">Event types for actions</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">InformationObject</div>
-                        <div class="class-desc">Pieces of information content</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Organization</div>
-                        <div class="class-desc">Structured social agents</div>
-                    </div>
-                </div>
-                
-                <!-- Abstract & Qualities -->
-                <div class="class-group abstract">
-                    <div class="group-header">🟢 ABSTRACT</div>
-                    <div class="class-item">
-                        <div class="class-name">Abstract</div>
-                        <div class="class-desc">Entities outside space-time</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">FormalEntity</div>
-                        <div class="class-desc">Mathematical/logical entities</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Collection</div>
-                        <div class="class-desc">Containers for entities</div>
-                    </div>
-                </div>
-                
-                <!-- Qualities & Regions -->
-                <div class="class-group qualities">
-                    <div class="group-header">🟠 QUALITIES</div>
-                    <div class="class-item">
-                        <div class="class-name">Quality</div>
-                        <div class="class-desc">Aspects of entities</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Region</div>
-                        <div class="class-desc">Dimensional spaces/values</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">TimeInterval</div>
-                        <div class="class-desc">Temporal regions</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">SpaceRegion</div>
-                        <div class="class-desc">Spatial regions</div>
-                    </div>
-                    <div class="class-item">
-                        <div class="class-name">Parameter</div>
-                        <div class="class-desc">Constraints on regions</div>
+
+                    <!-- Situations -->
+                    <div class="class-group situations">
+                        <div class="group-header">SITUATIONS</div>
+                        <div class="class-item">
+                            <div class="class-name">Situation</div>
+                            <div class="class-desc">A view, consistent with a Description, on a set of entities.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">PlanExecution</div>
+                            <div class="class-desc">Situations that proactively satisfy a plan.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">WorkflowExecution</div>
+                            <div class="class-desc">Execution of a Workflow.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Classification</div>
+                            <div class="class-desc">A Situation allowing time indexing for the classifies relation.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">Parthood</div>
+                            <div class="class-desc">A Situation allowing time indexing for the hasPart relation.</div>
+                        </div>
+                        <div class="class-item">
+                            <div class="class-name">TimeIndexedRelation</div>
+                            <div class="class-desc">A Situation that includes time indexing in its setting.</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="relations-section">
-                <div class="relations-header">Key Relations (Properties)</div>
-                
-                <div class="relations-grid">
-                    <div class="relation-category structural">
-                        <h3>🔗 Structural Relations</h3>
-                        <div class="relation-item">
-                            <div class="relation-name">hasPart / isPartOf</div>
-                            <div class="relation-desc">Part-whole relationships</div>
+
+            <div class="section">
+                <div class="section-header">Properties (Object & Datatype)</div>
+
+                <div class="relations-section">
+                    <div class="relations-grid">
+                        <!-- Structural Relations -->
+                        <div class="relation-category structural">
+                            <h3>Structural Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">hasPart / isPartOf</div>
+                                <div class="relation-desc">Part-whole relationships between entities.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasProperPart / isPropertPartOf</div>
+                                <div class="relation-desc">Asymmetric parthood.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasComponent / isComponentOf</div>
+                                <div class="relation-desc">Component relationships assuming a Design.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasConstituent / isConstituentOf</div>
+                                <div class="relation-desc">Cross-layer constituency relationships.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasMember / isMemberOf</div>
+                                <div class="relation-desc">Collection membership.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasCommonBoundary</div>
+                                <div class="relation-desc">Common boundaries between entities.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">overlaps</div>
+                                <div class="relation-desc">Spatial/temporal overlap.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">hasComponent / isComponentOf</div>
-                            <div class="relation-desc">Component relationships</div>
+
+                        <!-- Participatory Relations -->
+                        <div class="relation-category participatory">
+                            <h3>Participation Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">hasParticipant / isParticipantIn</div>
+                                <div class="relation-desc">Object participation in events.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">involvesAgent / isAgentInvolvedIn</div>
+                                <div class="relation-desc">Agent involvement in events.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">coparticipatesWith</div>
+                                <div class="relation-desc">Two objects participating in same event.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">includesAgent / isAgentIncludedIn</div>
+                                <div class="relation-desc">Situations including agents.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">includesObject / isObjectIncludedIn</div>
+                                <div class="relation-desc">Situations including objects.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">includesEvent / isEventIncludedIn</div>
+                                <div class="relation-desc">Situations including events.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">includesAction / isActionIncludedIn</div>
+                                <div class="relation-desc">Situations including actions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">includesTime / isTimeIncludedIn</div>
+                                <div class="relation-desc">Situations including time intervals.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">includesPart</div>
+                                <div class="relation-desc">Situations including parts.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">includesWhole</div>
+                                <div class="relation-desc">Situations including wholes.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">hasMember / isMemberOf</div>
-                            <div class="relation-desc">Collection membership</div>
+
+                        <!-- Descriptive Relations -->
+                        <div class="relation-category descriptive">
+                            <h3>Descriptive Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">describes / isDescribedBy</div>
+                                <div class="relation-desc">Description-entity links.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">defines / isDefinedIn</div>
+                                <div class="relation-desc">Concept definition in descriptions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">definesRole / isRoleDefinedIn</div>
+                                <div class="relation-desc">Role definition in descriptions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">definesTask / isTaskDefinedIn</div>
+                                <div class="relation-desc">Task definition in descriptions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">classifies / isClassifiedBy</div>
+                                <div class="relation-desc">Concept-entity classification.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">satisfies / isSatisfiedBy</div>
+                                <div class="relation-desc">Situation-description fulfillment.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">usesConcept / isConceptUsedIn</div>
+                                <div class="relation-desc">Concept usage in descriptions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">expands / isExpandedIn</div>
+                                <div class="relation-desc">Description expansion relationships.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">introduces / isIntroducedBy</div>
+                                <div class="relation-desc">Descriptions introducing social agents.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">covers / isCoveredBy</div>
+                                <div class="relation-desc">Concepts covering collections.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">characterizes / isCharacterizedBy</div>
+                                <div class="relation-desc">Concepts characterizing collections.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">unifies / isUnifiedBy</div>
+                                <div class="relation-desc">Descriptions unifying collections.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">isRelatedToDescription</div>
+                                <div class="relation-desc">Generic relations between descriptions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">isRelatedToConcept</div>
+                                <div class="relation-desc">Generic relations between concepts.</div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="relation-category participatory">
-                        <h3>👥 Participation Relations</h3>
-                        <div class="relation-item">
-                            <div class="relation-name">hasParticipant / isParticipantIn</div>
-                            <div class="relation-desc">Event participation</div>
+
+                        <!-- Temporal Relations -->
+                        <div class="relation-category temporal">
+                            <h3>Temporal Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">hasTimeInterval / isTimeIntervalOf</div>
+                                <div class="relation-desc">Event-time associations.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">precedes / follows</div>
+                                <div class="relation-desc">Sequential ordering.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">directlyPrecedes / directlyFollows</div>
+                                <div class="relation-desc">Immediate sequence.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasPrecondition / isPreconditionOf</div>
+                                <div class="relation-desc">Preconditions for situations.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasPostcondition / isPostconditionOf</div>
+                                <div class="relation-desc">Postconditions for situations.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">isObservableAt / isTimeOfObservationOf</div>
+                                <div class="relation-desc">Time intervals at which entities are observable.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">involvesAgent / isAgentInvolvedIn</div>
-                            <div class="relation-desc">Agent involvement</div>
+
+                        <!-- Spatial Relations -->
+                        <div class="relation-category spatial">
+                            <h3>Spatial Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">hasLocation / isLocationOf</div>
+                                <div class="relation-desc">Generic relative spatial locations.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">nearTo</div>
+                                <div class="relation-desc">Generic proximity relationships.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">farFrom</div>
+                                <div class="relation-desc">Generic distance relationships.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">executesTask / isExecutedIn</div>
-                            <div class="relation-desc">Task execution</div>
+
+                        <!-- Semantic Relations -->
+                        <div class="relation-category semantic">
+                            <h3>Quality & Region Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">hasQuality / isQualityOf</div>
+                                <div class="relation-desc">Quality attribution to entities.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasRegion / isRegionFor</div>
+                                <div class="relation-desc">Value/region assignment to entities.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasParameter / isParameterFor</div>
+                                <div class="relation-desc">Parameters constraining concepts.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">parametrizes / isParametrizedBy</div>
+                                <div class="relation-desc">Parameters on regions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasConstraint / isConstraintFor</div>
+                                <div class="relation-desc">Generic constraints on entities.</div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="relation-category descriptive">
-                        <h3>📋 Descriptive Relations</h3>
-                        <div class="relation-item">
-                            <div class="relation-name">describes / isDescribedBy</div>
-                            <div class="relation-desc">Description-entity links</div>
+
+                        <!-- Information Relations -->
+                        <div class="relation-category semantic">
+                            <h3>Information & Expression</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">expresses / isExpressedBy</div>
+                                <div class="relation-desc">Information-meaning links.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">expressesConcept / isConceptExpressedBy</div>
+                                <div class="relation-desc">Information objects expressing concepts.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">concretelyExpresses / isConcretelyExpressedBy</div>
+                                <div class="relation-desc">Realizations expressing descriptions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">realizes / isRealizedBy</div>
+                                <div class="relation-desc">Realizations of information objects.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">realizesInformationAbout / isReferenceOfInformationRealizedBy</div>
+                                <div class="relation-desc">Realizations about entities.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">realizesSelfInformation</div>
+                                <div class="relation-desc">Self-referential information realization.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">isAbout / isReferenceOf</div>
+                                <div class="relation-desc">Reference relationships.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">satisfies / isSatisfiedBy</div>
-                            <div class="relation-desc">Situation-description fulfillment</div>
+
+                        <!-- Agent Relations -->
+                        <div class="relation-category agents">
+                            <h3>Agent Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">actsFor</div>
+                                <div class="relation-desc">PhysicalAgent acting for SocialAgent.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">actsThrough</div>
+                                <div class="relation-desc">SocialAgent acting through PhysicalAgent.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">conceptualizes / isConceptualizedBy</div>
+                                <div class="relation-desc">Agents internally representing social objects.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">executesTask / isExecutedIn</div>
+                                <div class="relation-desc">Actions executing tasks.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasTask / isTaskOf</div>
+                                <div class="relation-desc">Roles having tasks.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasRole / isRoleOf</div>
+                                <div class="relation-desc">Objects having roles.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">defines / isDefinedIn</div>
-                            <div class="relation-desc">Concept definition</div>
+
+                        <!-- Setting Relations -->
+                        <div class="relation-category settings">
+                            <h3>Setting Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">hasSetting / isSettingFor</div>
+                                <div class="relation-desc">Entities in situations.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">sameSettingAs</div>
+                                <div class="relation-desc">Two entities in same situation.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">classifies / isClassifiedBy</div>
-                            <div class="relation-desc">Concept-entity classification</div>
+
+                        <!-- Specialization -->
+                        <div class="relation-category semantic">
+                            <h3>Specialization Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">specializes / isSpecializedBy</div>
+                                <div class="relation-desc">Subsumption between social objects.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">isSuperordinatedTo / isSubordinatedTo</div>
+                                <div class="relation-desc">Hierarchical concept ordering.</div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="relation-category temporal">
-                        <h3>⏰ Temporal Relations</h3>
-                        <div class="relation-item">
-                            <div class="relation-name">hasTimeInterval / isTimeIntervalOf</div>
-                            <div class="relation-desc">Event-time associations</div>
+
+                        <!-- Generic Association -->
+                        <div class="relation-category structural">
+                            <h3>Generic Relations</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">associatedWith</div>
+                                <div class="relation-desc">Catch-all association property (transitive, symmetric).</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">precedes / follows</div>
-                            <div class="relation-desc">Sequential ordering</div>
+
+                        <!-- Datatype Properties -->
+                        <div class="relation-category data">
+                            <h3>Datatype Properties</h3>
+                            <div class="relation-item">
+                                <div class="relation-name">hasDataValue</div>
+                                <div class="relation-desc">Direct datatype values for entities.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasRegionDataValue</div>
+                                <div class="relation-desc">Datatype values for regions.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasParameterDataValue</div>
+                                <div class="relation-desc">Datatype values for parameters.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasEventDate</div>
+                                <div class="relation-desc">Date values for events.</div>
+                            </div>
+                            <div class="relation-item">
+                                <div class="relation-name">hasIntervalDate</div>
+                                <div class="relation-desc">Date values for time intervals.</div>
+                            </div>
                         </div>
-                        <div class="relation-item">
-                            <div class="relation-name">directlyPrecedes / directlyFollows</div>
-                            <div class="relation-desc">Immediate sequence</div>
-                        </div>
-                    </div>
-                    
-                    <div class="relation-category spatial">
-                        <h3>📍 Spatial Relations</h3>
-                        <div class="relation-item">
-                            <div class="relation-name">hasLocation / isLocationOf</div>
-                            <div class="relation-desc">Spatial positioning</div>
-                        </div>
-                        <div class="relation-item">
-                            <div class="relation-name">nearTo / farFrom</div>
-                            <div class="relation-desc">Distance relationships</div>
-                        </div>
-                        <div class="relation-item">
-                            <div class="relation-name">overlaps</div>
-                            <div class="relation-desc">Spatial/temporal overlap</div>
-                        </div>
-                    </div>
-                    
-                    <div class="relation-category semantic">
-                        <h3>💭 Semantic Relations</h3>
-                        <div class="relation-item">
-                            <div class="relation-name">hasQuality / isQualityOf</div>
-                            <div class="relation-desc">Quality attribution</div>
-                        </div>
-                        <div class="relation-item">
-                            <div class="relation-name">hasRegion / isRegionFor</div>
-                            <div class="relation-desc">Value/region assignment</div>
-                        </div>
-                        <div class="relation-item">
-                            <div class="relation-name">expresses / isExpressedBy</div>
-                            <div class="relation-desc">Information-meaning links</div>
-                        </div>
-                        <div class="relation-item">
-                            <div class="relation-name">isAbout / isReferenceOf</div>
-                            <div class="relation-desc">Reference relationships</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="legend">
-                <h3>🎨 Class Categories Legend</h3>
-                <div class="legend-grid">
-                    <div class="legend-item">
-                        <div class="color-box" style="background: #3498db;"></div>
-                        <span><strong>Entity:</strong> Root concept</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="color-box" style="background: #e74c3c;"></div>
-                        <span><strong>Objects:</strong> Spatial entities</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="color-box" style="background: #f39c12;"></div>
-                        <span><strong>Events:</strong> Temporal processes</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="color-box" style="background: #9b59b6;"></div>
-                        <span><strong>Social:</strong> Communication-based</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="color-box" style="background: #1abc9c;"></div>
-                        <span><strong>Abstract:</strong> Outside space-time</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="color-box" style="background: #e67e22;"></div>
-                        <span><strong>Qualities:</strong> Aspects & values</span>
                     </div>
                 </div>
             </div>
