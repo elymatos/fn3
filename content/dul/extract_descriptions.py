@@ -184,12 +184,14 @@ def write_output(classes, object_properties, datatype_properties, output_file):
             if visited is None:
                 visited = set()
             if node in visited:
-                return
+                return ""
             visited.add(node)
 
             result = "  " * indent + "- " + node + "\n"
             for child in sorted(hierarchy.get(node, [])):
-                result += print_hierarchy(child, indent + 1, visited)
+                child_result = print_hierarchy(child, indent + 1, visited)
+                if child_result:
+                    result += child_result
             return result
 
         for root in sorted(hierarchy.get('ROOT', [])):

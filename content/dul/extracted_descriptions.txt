@@ -1,0 +1,1995 @@
+================================================================================
+DUL ONTOLOGY - EXTRACTED DESCRIPTIONS
+DOLCE+DnS Ultralite v3.34
+================================================================================
+
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+1. ONTOLOGY STATISTICS
+2. CLASS HIERARCHY
+3. CLASS DESCRIPTIONS (Alphabetical)
+4. OBJECT PROPERTY DESCRIPTIONS (Alphabetical)
+5. DATATYPE PROPERTY DESCRIPTIONS (Alphabetical)
+
+
+================================================================================
+1. ONTOLOGY STATISTICS
+================================================================================
+
+Total Classes: 78
+Total Object Properties: 112
+Total Datatype Properties: 5
+
+================================================================================
+2. CLASS HIERARCHY
+================================================================================
+
+- Entity
+  - Abstract
+    - FormalEntity
+      - Set
+    - Region
+      - Amount
+      - PhysicalAttribute
+      - SocialObjectAttribute
+      - SpaceRegion
+      - SpatioTemporalRegion
+      - TimeInterval
+  - Event
+    - Action
+    - Process
+  - InformationEntity
+    - InformationObject
+    - InformationRealization
+  - Object
+    - Agent
+      - Person
+        - NaturalPerson
+        - SocialPerson
+      - PhysicalAgent
+        - Organism
+      - SocialAgent
+        - CollectiveAgent
+          - Community
+          - Group
+        - Organization
+        - Personification
+    - PhysicalObject
+      - PhysicalArtifact
+        - DesignedArtifact
+          - DesignedSubstance
+      - PhysicalBody
+        - BiologicalObject
+        - ChemicalObject
+        - Substance
+          - FunctionalSubstance
+      - PhysicalPlace
+    - SocialObject
+      - Collection
+        - Collective
+        - Configuration
+        - TypeCollection
+      - Concept
+        - EventType
+          - Task
+        - LocalConcept
+        - Parameter
+          - UnitOfMeasure
+        - Role
+      - Description
+        - Contract
+        - Design
+        - Diagnosis
+        - Goal
+        - Method
+        - Narrative
+        - Norm
+        - Plan
+          - Project
+          - Workflow
+        - Relation
+          - Pattern
+          - SocialRelation
+        - Right
+        - Theory
+      - Place
+  - Quality
+  - Situation
+    - PlanExecution
+    - TimeIndexedRelation
+      - Classification
+      - Parthood
+    - Transition
+    - WorkflowExecution
+- ObjectAggregate
+
+
+================================================================================
+3. CLASS DESCRIPTIONS (Alphabetical)
+================================================================================
+
+CLASS: Abstract
+Label: Abstract
+Superclasses: Entity
+
+Description:
+Any Entity that cannot be located in space-time. E.g. mathematical entities: formal semantics elements, regions within dimensional spaces, etc.
+--------------------------------------------------------------------------------
+
+CLASS: Action
+Label: Action
+Superclasses: Event
+
+Description:
+An Event with at least one Agent that isParticipantIn it, and that executes a Task that typically isDefinedIn a Plan, Workflow, Project, etc.
+--------------------------------------------------------------------------------
+
+CLASS: Agent
+Label: Agent
+Superclasses: Object
+
+Description:
+Additional comment: a computational agent can be considered as a PhysicalAgent that realizes a certain class of algorithms (that can be considered as instances of InformationObject) that allow to obtain some behaviors that are considered typical of agents in general. For an ontology of computational objects based on DOLCE see e.g. http://www.loa-cnr.it/COS/COS.owl, and http://www.loa-cnr.it/KCO/KCO.owl.
+--------------------------------------------------------------------------------
+
+CLASS: Amount
+Label: Amount
+Superclasses: Region
+
+Description:
+A quantity, independently from how it is measured, computed, etc.
+--------------------------------------------------------------------------------
+
+CLASS: BiologicalObject
+Label: Biological object
+Superclasses: PhysicalBody
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: ChemicalObject
+Label: Chemical object
+Superclasses: PhysicalBody
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: Classification
+Label: Classification
+Superclasses: TimeIndexedRelation
+
+Description:
+A special kind of Situation that allows to include time indexing for the classifies relation in situations. For example, if a Situation s 'my old cradle is used in these days as a flower pot' isSettingFor the entity 'my old cradle' and the TimeIntervals '8June2007' and '10June2007', and we know that s satisfies a functional Description for aesthetic objects, which defines the Concepts 'flower pot' and 'flower', then we also need to know what concept classifies 'my old cradle' at what time.
+In order to solve this issue, we need to create a sub-situation s' for the classification time: 'my old cradle is a flower pot in 8June2007'. Such sub-situation s' isPartOf s.
+--------------------------------------------------------------------------------
+
+CLASS: Collection
+Label: Collection
+Superclasses: SocialObject
+
+Description:
+Any container for entities that share one or more common properties. E.g. "stone objects", "the nurses", "the Louvre Aegyptian collection", all the elections for the Italian President of the Republic. 
+A collection is not a logical class: a collection is a first-order entity, while a class is second-order.
+A collection is neither an aggregate of its member entities (see e.g. ObjectAggregate class).
+--------------------------------------------------------------------------------
+
+CLASS: Collective
+Label: Collective
+Superclasses: Collection
+
+Description:
+A Collection whose members are agents, e.g. "the nurses", "the Italian rockabilly fans".
+Collectives, facon de parler, can act as agents, although they are not assumed here to be agents (they are even disjoint from the class SocialAgent). This is represented by admitting collectives in the range of the relations having Agent in their domain or range.
+--------------------------------------------------------------------------------
+
+CLASS: CollectiveAgent
+Label: Collective agent
+Superclasses: SocialAgent
+
+Description:
+A SocialAgent that is actedBy agents that are (and act as) members of a Collective. A collective agent can have roles that are also roles of those agents.
+For example, in sociology, a 'group action' is the situation in which a number of people (that result to be members of a collective) in a given area behave in a coordinated way in order to achieve a (often common) goal. The Agent in such a Situation is not single, but a CollectiveAgent (a Group). This can be generalized to the notion of social movement, which assumes a large Community or even the entire Society as agents.
+The difference between a CollectiveAgent and an Organization is that a Description that introduces a CollectiveAgent is also one that unifies the corresponding Collective. In practice, this difference makes collective agents 'less stable' than organizations, because they have a dedicated, publicly recognizable Description that is conceived to introduce them.
+--------------------------------------------------------------------------------
+
+CLASS: Community
+Label: Community
+Superclasses: CollectiveAgent
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: Concept
+Label: Concept
+Superclasses: SocialObject
+
+Description:
+A Concept is a SocialObject, and isDefinedIn some Description; once defined, a Concept can be used in other Description(s). If a Concept isDefinedIn exactly one Description, see the LocalConcept class.
+The classifies relation relates Concept(s) to Entity(s) at some TimeInterval
+--------------------------------------------------------------------------------
+
+CLASS: Configuration
+Label: Configuration
+Superclasses: Collection
+
+Description:
+A collection whose members are 'unified', i.e. organized according to a certain schema that can be represented by a Description.
+Typically, a configuration is the collection that emerges out of a composed entity: an industrial artifact, a plan, a discourse, etc.  
+E.g. a physical book has a configuration provided by the part-whole schema that holds together its cover, pages, ink. That schema, based on the individual relations between the book and its parts, can be represented in a reified way by means of a (structural) description, which is said to 'unify' the book configuration.
+--------------------------------------------------------------------------------
+
+CLASS: Contract
+Label: Contract
+Superclasses: Description
+
+Description:
+(The content of) an agreement between at least two agents that play a Party Role, about some contract object (a Task to be executed).
+--------------------------------------------------------------------------------
+
+CLASS: Description
+Label: Description
+Superclasses: SocialObject
+
+Description:
+A Description is a SocialObject that represents a conceptualization. 
+It can be thought also as a 'descriptive context' that uses or defines concepts in order to create a view on a 'relational context' (cf. Situation) out of a set of data or observations. 
+For example, a Plan is a Description of some actions to be executed by agents in a certain way, with certain parameters; a Diagnosis is a Description that provides an interpretation for a set of observed entities, etc.
+Descriptions 'define' or 'use' concepts, and can be 'satisfied' by situations.
+--------------------------------------------------------------------------------
+
+CLASS: Design
+Label: Design
+Superclasses: Description
+
+Description:
+A Description of the Situation, in terms of structure and function, held by an Entity for some reason.
+A design is usually accompanied by the rationales behind the construction of the designed Entity (i.e. of the reasons why a design is claimed to be as such). For example, the actual design (a Situation) of a car or of a law is based on both the specification (a Description) of the structure, and the rationales used to construct cars or laws.
+While designs typically describe entities to be constructed, they can also be used to describe 'refunctionalized' entities, or to hypothesize unknown functions. For example, a cradle can be refunctionalized as a flowerpot based on a certain home design.
+--------------------------------------------------------------------------------
+
+CLASS: DesignedArtifact
+Label: Designed artifact
+Superclasses: PhysicalArtifact
+
+Description:
+A PhysicalArtifact that is also described by a Design. This excludes simple recycling or refunctionalization of natural objects. Most common sense 'artifacts' can be included in this class: cars, lamps, houses, chips, etc.
+--------------------------------------------------------------------------------
+
+CLASS: DesignedSubstance
+Label: DesignedSubstance
+Superclasses: DesignedArtifact, FunctionalSubstance
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: Diagnosis
+Label: Diagnosis
+Superclasses: Description
+
+Description:
+A Description of the Situation of a system, usually applied in order to control a normal behaviour, or to explain a notable behavior (e.g. a functional breakdown).
+--------------------------------------------------------------------------------
+
+CLASS: Entity
+Label: Entity
+
+Description:
+Anything: real, possible, or imaginary, which some modeller wants to talk about for some purpose.
+--------------------------------------------------------------------------------
+
+CLASS: Event
+Label: Event
+Superclasses: Entity
+
+Description:
+Any physical, social, or mental process, event, or state.
+
+More theoretically, events can be classified in different ways, possibly based on 'aspect' (e.g. stative, continuous, accomplishement, achievement, etc.), on 'agentivity' (e.g. intentional, natural, etc.), or on 'typical participants' (e.g. human, physical, abstract, food, etc.).
+Here no special direction is taken, and the following explains why: events are related to observable situations, and they can have different views at a same time.
+If a position has to be suggested here anyway, the participant-based classification of events seems the most stable and appropriate for many modelling problems.
+
+(1) Alternative aspectual views
+
+Consider a same event 'rock erosion in the Sinni valley': it can be conceptualized as an accomplishment (what has brought a certain state to occur), as an achievement (the state resulting from a previous accomplishment), as a punctual event (if we collapse the time interval of the erosion into a time point), or as a transition (something that has changed from a state to a different one). 
+In the erosion case, we could therefore have good motivations to shift from one aspect to another: a) causation focus, b) effectual focus, c) historical condensation, d) transition (causality).
+
+The different views refer to the same event, but are still different: how to live with this seeming paradox? 
+A typical solution e.g. in linguistics (cf. Levin's aspectual classes) and in DOLCE Full (cf. WonderWeb D18 axiomatization) is to classify events based on aspectual differences. But this solution would create different identities for a same event, where the difference is only based on the modeller's attitude.
+An alternative solution is suggested here, and exploits the notion of (observable) Situation; a Situation is a view, consistent with a Description, which can be observed of a set of entities. It can also be seen as a 'relational context' created by an observer on the basis of a 'frame'. Therefore, a Situation allows to create a context where each particular view can have a proper identity, while the Event preserves its own identity. 
+For example, ErosionAsAccomplishment is a Situation where rock erosion is observed as a process leading to a certain achievement: the conditions (roles, parameters) that suggest such view are stated in a Description, which acts as a 'theory of accomplishments'. Similarly, ErosionAsTransition is a Situation where rock erosion is observed as an event that has changed a state to another: the conditions for such interpretation are stated in a different Description, which acts as a 'theory of state transitions'.
+Consider that in no case the actual event is changed or enriched in parts by the aspectual view.
+
+(2) Alternative intentionality views
+
+Similarly to aspectual views, several intentionality views can be provided for a same Event. For example, one can investigate if an avalanche has been caused by immediate natural forces, or if there is any hint of an intentional effort to activate those natural forces.
+Also in this case, the Event as such has not different identities, while the causal analysis generates situations with different identities, according to what Description is taken for interpreting the Event. 
+On the other hand, if the possible actions of an Agent causing the starting of an avalanche are taken as parts of the Event, then this makes its identity change, because we are adding a part to it. 
+Therefore, if intentionality is a criterion to classify events or not, this depends on if an ontology designer wants to consider causality as a relevant dimension for events' identity.
+
+(3) Alternative participant views
+
+A slightly different case is when we consider the basic participants to an Event. In this case, the identity of the Event is affected by the participating objects, because it depends on them. 
+For example, if snow, mountain slopes, wind, waves, etc. are considered as an avalanche basic participants, or if we also want to add water, human agents, etc., that makes the identity of an avalanche change.
+Anyway, this approach to event classification is based on the designer's choices, and more accurately mirrors lexical or commonsense classifications (see. e.g. WordNet 'supersenses' for verb synsets).
+
+Ultimately, this discussion has no end, because realists will keep defending the idea that events in reality are not changed by the way we describe them, while constructivists will keep defending the idea that, whatever 'true reality' is about, it can't be modelled without the theoretical burden of how we observe and describe it. 
+Both positions are in principle valid, but, if taken too radically, they focus on issues that are only partly relevant to the aim of computational ontologies, which assist domain experts in representing a certain portion of reality according to their own assumptions and requirements. 
+
+For this reason, in this ontology version of DOLCE, both events and situations are allowed, together with descriptions (the reason for the inclusion of the D&S framewrok in DOLCE), in order to encode the modelling needs, independently from the position (if any) chosen by the model designer.
+--------------------------------------------------------------------------------
+
+CLASS: EventType
+Label: Event type
+Superclasses: Concept
+
+Description:
+A Concept that classifies an Event . An event type describes how an Event should be interpreted, executed, expected, seen, etc., according to the Description that the EventType isDefinedIn (or used in)
+--------------------------------------------------------------------------------
+
+CLASS: FormalEntity
+Label: Formal entity
+Superclasses: Abstract
+
+Description:
+Entities that are formally defined and are considered independent from the social context in which they are used. They cannot be localized in space or time. Also called 'Platonic entities'.
+Mathematical and logical entities are included in this class: sets, categories, tuples, costants, variables, etc.
+Abstract formal entities are distinguished from information objects, which are supposed to be part of a social context, and are localized in space and time, therefore being (social) objects.
+For example, the class 'Quark' is an abstract formal entity from the purely set-theoretical perspective, but it is an InformationObject from the viewpoint of ontology design, when e.g. implemented in a logical language like OWL.
+Abstract formal entities are also distinguished from Concept(s), Collection(s), and Description(s), which are part of a social context, therefore being SocialObject(s) as well.
+For example, the class 'Quark' is an abstract FormalEntity from the purely set-theoretical perspective, but it is a Concept within history of science and cultural dynamics.
+
+These distinctions allow to represent two different notions of 'semantics': the first one is abstract and formal ('formal semantics'), and formallyInterprets symbols that are about entities whatsoever; for example, the term 'Quark' isAbout the Collection of all quarks, and that Collection isFormalGroundingFor the abstract class 'Quark' (in the extensional sense). 
+The second notion is social, localized in space-time ('social semantics'), and can be used to interpret entities in the intensional sense. For example, the Collection of all quarks isCoveredBy the Concept 'Quark', which is also expressed by the term 'Quark'.
+--------------------------------------------------------------------------------
+
+CLASS: FunctionalSubstance
+Label: Functional substance
+Superclasses: Substance
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: Goal
+Label: Goal
+Superclasses: Description
+
+Description:
+The Description of a Situation that is desired by an Agent, and usually associated to a Plan that describes how to actually achieve it
+--------------------------------------------------------------------------------
+
+CLASS: Group
+Label: Group
+Superclasses: CollectiveAgent
+
+Description:
+A CollectiveAgent whose acting agents conceptualize a same SocialRelation .
+--------------------------------------------------------------------------------
+
+CLASS: InformationEntity
+Label: InformationEntity
+Superclasses: Entity
+
+Description:
+A piece of information, be it concretely realized or not. It is a catchall class, intended to bypass the ambiguities of many data or text that could denote either a an expression or a concrete realization of that expression.
+In a semiotic model, there is no special reason to distinguish between them, however we may want to distinguish between a pure information content (e.g. the 3rd Gymnopedie by Satie), and its possible concrete realizations as a music sheet, a piano execution, the reproduction of the execution, its publishing as a record, etc.).
+--------------------------------------------------------------------------------
+
+CLASS: InformationObject
+Label: Information object
+Superclasses: InformationEntity, SocialObject
+
+Description:
+A piece of information, such as a musical composition, a text, a word, a picture, independently from how it is concretely realized.
+--------------------------------------------------------------------------------
+
+CLASS: InformationRealization
+Label: Information realization
+Superclasses: InformationEntity
+
+Description:
+A concrete realization of an InformationObject, e.g. the written document (object) containing the text of a law, a poetry reading (event), the dark timbre (quality) of a sound (event) in the execution (event) of a musical composition, realizing a 'misterioso' tempo indication.
+
+The realization of an information object also realizes information about itself. This is a special semiotic feature, which allows to avoid a traditonal paradox, by which an information is often supposed to be about itself besides other entities (e.g. the information object 'carpe diem' is about its meaning in Horace's Odes (let alone its fortune in Western culture and beyond), but also about its expression in context: 'dum loquimur, fugerit invida aetas: carpe diem, quam minimum credula postero', with the sound and emotional relations that it could activate.
+This is expressed in OWL2 with a local reflexivity axiom of the dul:InformationRealization class.
+--------------------------------------------------------------------------------
+
+CLASS: LocalConcept
+Label: Local concept
+Superclasses: Concept
+
+Description:
+A Concept that isDefinedIn exactly 1 Description. For example, the Concept 'coffee' in a 'preparesCoffee' relation can be defined in that relation, and for all other Description(s) that use it, the isConceptUsedIn property should be applied. Notice therefore that not necessarily all Concept(s) isDefinedIn exactly 1 Description.
+--------------------------------------------------------------------------------
+
+CLASS: Method
+Label: Method
+Superclasses: Description
+
+Description:
+A method is a Description that defines or uses concepts in order to guide carrying out actions aimed at a solution with respect to a problem. 
+It is different from a Plan, because plans could be carried out in order to follow a method, but a method can be followed by executing alternative plans.
+--------------------------------------------------------------------------------
+
+CLASS: Narrative
+Label: Narrative
+Superclasses: Description
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: NaturalPerson
+Label: Natural person
+Superclasses: Person, PhysicalAgent
+
+Description:
+A person in the physical commonsense intuition: 'have you seen that person walking down the street?'
+--------------------------------------------------------------------------------
+
+CLASS: Norm
+Label: Norm
+Superclasses: Description
+
+Description:
+A social norm.
+--------------------------------------------------------------------------------
+
+CLASS: Object
+Label: Object
+Superclasses: Entity
+
+Description:
+Any physical, social, or mental object, or a substance. Following DOLCE Full, objects are always participating in some event (at least their own life), and are spatially located.
+--------------------------------------------------------------------------------
+
+CLASS: ObjectAggregate
+Label: ObjectAggregate
+
+Description:
+An aggregate of distributed objects, members of a same Collection, e.g. the stars in a constellation, the parts of a car, the employees of a company, the entries from an encyclopedia, the concepts expressed in a speech, etc.
+It cannot be defined by means of an equivalence axiom, because it'd require the same Collection for all members, an axiom that cannot be expressed in OWL.
+--------------------------------------------------------------------------------
+
+CLASS: Organism
+Label: Organism
+Superclasses: BiologicalObject, PhysicalAgent
+
+Description:
+A physical objects with biological characteristics, typically that organisms can self-reproduce.
+--------------------------------------------------------------------------------
+
+CLASS: Organization
+Label: Organization
+Superclasses: SocialAgent
+
+Description:
+An internally structured, conventionally created SocialAgent, needing a specific Role and Agent that plays it, in order to act.
+--------------------------------------------------------------------------------
+
+CLASS: Parameter
+Label: Parameter
+Superclasses: Concept
+
+Description:
+A Concept that classifies a Region; the difference between a Region and a Parameter is that regions represent sets of observable values, e.g. the height  of a given building, while parameters represent constraints or selections on observable values, e.g. 'VeryHigh'. Therefore, parameters can also be used to constrain regions, e.g. VeryHigh on a subset of values of the Region Height applied to buildings, or to add an external selection criterion , such as measurement units, to regions, e.g. Meter on a subset of values from the Region Length applied to the Region Length applied to roads.
+--------------------------------------------------------------------------------
+
+CLASS: Parthood
+Label: parthood
+Superclasses: TimeIndexedRelation
+
+Description:
+A special kind of Situation that allows to include time indexing for the hasPart relation in situations. 
+For example, if a Situation s 'finally, my bike has a luggage rack' isSettingFor the entity 'my bike' and the TimeIntervals 'now', or more specifically '29March2021', we need to have a time-index the part relation. With Parthood, we use includesWhole and includesPart properties.
+This can be done similarly for other arguments of parthood, e.g. location, configuration, topology, etc.
+Concerning the possible property characteristics reused from mereology (transitivity, asymmetry, reflexivity), they need to be implemented by means of rules (or, in a limited way, property chains using the binary hasPart or hasProperPart properties).
+A key is also added to ensure identification constraints of time-indexed parthood.
+--------------------------------------------------------------------------------
+
+CLASS: Pattern
+Label: Pattern
+Superclasses: Relation
+
+Description:
+Any invariance detected from a dataset, or from observation; also, any invariance proposed based on top-down considerations.
+E.g. patterns detected and abstracted by an organism, by pattern recognition algorithms, by machine learning techniques, etc.
+An occurrence of a pattern is an 'observable', or detected Situation
+--------------------------------------------------------------------------------
+
+CLASS: Person
+Label: Person
+Superclasses: Agent
+
+Description:
+Persons in commonsense intuition, which does not apparently distinguish between either natural or social persons.
+--------------------------------------------------------------------------------
+
+CLASS: Personification
+Label: Personification
+Superclasses: SocialAgent
+
+Description:
+A social entity with agentive features, but whose status is the result of a cultural transformation from e.g. a PhysicalObject, an Event, an Abstract, another SocialObject, etc. For example: the holy grail, deus ex machina, gods, magic wands, etc.
+--------------------------------------------------------------------------------
+
+CLASS: PhysicalAgent
+Label: Physical agent
+Superclasses: Agent, PhysicalObject
+
+Description:
+A PhysicalObject that is capable of self-representing (conceptualizing) a Description in order to plan an Action. 
+A PhysicalAgent is a substrate for (actsFor) a Social Agent
+--------------------------------------------------------------------------------
+
+CLASS: PhysicalArtifact
+Label: Physical artifact
+Superclasses: PhysicalObject
+
+Description:
+Any PhysicalObject that isDescribedBy a Plan .
+This axiomatization is weak, but allows to talk of artifacts in a very general sense, i.e. including recycled objects, objects with an intentional functional change, natural objects that are given a certain function, even though they are not modified or structurally designed, etc. PhysicalArtifact(s) are not considered disjoint from PhysicalBody(s), in order to allow a dual classification when needed. E.g.,
+FunctionalSubstance(s) are included here as well.
+Immaterial (non-physical) artifacts (e.g. texts, ideas, cultural movements, corporations, communities, etc. can be modelled as social objects (see SocialObject), which are all 'artifactual' in the weak sense assumed here.
+--------------------------------------------------------------------------------
+
+CLASS: PhysicalAttribute
+Label: Physical attribute
+Superclasses: Region
+
+Description:
+Physical value of a physical object, e.g. density, color, etc.
+--------------------------------------------------------------------------------
+
+CLASS: PhysicalBody
+Label: Physical body
+Superclasses: PhysicalObject
+
+Description:
+Physical bodies are PhysicalObject(s), for which we tend to neutralize any possible artifactual character. They can have several granularity levels: geological, chemical, physical, biological, etc.
+--------------------------------------------------------------------------------
+
+CLASS: PhysicalObject
+Label: Physical object
+Superclasses: Object
+
+Description:
+Any Object that has a proper space region. The prototypical physical object has also an associated mass, but the nature of its mass can greatly vary based on the epistemological status of the object (scientifically measured, subjectively possible, imaginary).
+--------------------------------------------------------------------------------
+
+CLASS: PhysicalPlace
+Label: Physical place
+Superclasses: PhysicalObject
+
+Description:
+A physical object that is inherently located; for example, a water area.
+--------------------------------------------------------------------------------
+
+CLASS: Place
+Label: Place
+Superclasses: SocialObject
+
+Description:
+Socially or cognitively dependent locations: political geographic entities (Rome, Lesotho), and non-material locations determined by the presence of other entities ("the area close to Rome") or of pivot events or signs ("the area where the helicopter fell"), as well as identified as complements to other entities ("the area under the table"), etc. 
+In this generic sense, a Place is a 'dependent' location. For 'non-dependent' locations, cf. the PhysicalPlace class. For an abstract (dimensional) location, cf. the SpaceRegion class.
+--------------------------------------------------------------------------------
+
+CLASS: Plan
+Label: Plan
+Superclasses: Description
+
+Description:
+A Description having an explicit Goal, to be achieved by executing the plan
+--------------------------------------------------------------------------------
+
+CLASS: PlanExecution
+Label: Plan execution
+Superclasses: Situation
+
+Description:
+Plan executions are situations that proactively satisfy a plan. Subplan executions are proper parts of the whole plan execution.
+--------------------------------------------------------------------------------
+
+CLASS: Process
+Label: Process
+Superclasses: Event
+
+Description:
+This is a placeholder for events that are considered in their evolution, or anyway not strictly dependent on agents, tasks, and plans. 
+See Event class for some thoughts on classifying events. See also 'Transition'.
+--------------------------------------------------------------------------------
+
+CLASS: Project
+Label: Project
+Superclasses: Plan
+
+Description:
+A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed in relation to goals to be achieved, in order to achieve the main goal of the project. In other words, a project is a plan with a subgoal structure and multiple roles and tasks.
+--------------------------------------------------------------------------------
+
+CLASS: Quality
+Label: Quality
+Superclasses: Entity
+
+Description:
+Any aspect of an Entity (but not a part of it), which cannot exist without that Entity. For example, the way the surface of a specific PhysicalObject looks like, or the specific light of a place at a certain time, are examples of Quality, while the encoding of a Quality into e.g. a PhysicalAttribute should be modeled as a Region. 
+From the design viewpoint, the Quality-Region distinction is useful only when individual aspects of an Entity are considered in a domain of discourse. 
+For example, in an automotive context, it would be irrelevant to consider the aspects of car windows for a specific car, unless the factory wants to check a specific window against design parameters (anomaly detection). 
+On the other hand, in an antiques context, the individual aspects for a specific piece of furniture are a major focus of attention, and may constitute the actual added value, because the design parameters for old furniture are often not fixed, and may not be viewed as 'anomalies'.
+--------------------------------------------------------------------------------
+
+CLASS: Region
+Label: Region
+Superclasses: Abstract
+
+Description:
+Any region in a dimensional space (a dimensional space is a maximal Region), which can be used as a value for a quality of an Entity . For example, TimeInterval, SpaceRegion, PhysicalAttribute, Amount, SocialAttribute are all subclasses of Region. 
+Regions are not data values in the ordinary knowledge representation sense; in order to get patterns for modelling data, see the properties: representsDataValue and hasDataValue
+--------------------------------------------------------------------------------
+
+CLASS: Relation
+Label: Relation
+Superclasses: Description
+
+Description:
+Relations are descriptions that can be considered as the counterpart of formal relations (that are included in the FormalEntity class).
+For example, 'givingGrantToInstitution(x,y,z)' with three argument types: Provider(x),Grant(y),Recipient(z), can have a Relation counterpart: 'GivingGrantToInstitution', which defines three Concept instances: Provider,Grant,Recipient.
+Since social objects are not formal entities, Relation includes here any 'relation-like' entity in common sense, including social relations.
+--------------------------------------------------------------------------------
+
+CLASS: Right
+Label: Right
+Superclasses: Description
+
+Description:
+A legal position by which an Agent is entitled to obtain something from another Agent , under specified circumstances, through an enforcement explicited either in a Law, Contract , etc.
+--------------------------------------------------------------------------------
+
+CLASS: Role
+Label: Role
+Superclasses: Concept
+
+Description:
+A Concept that classifies an Object
+--------------------------------------------------------------------------------
+
+CLASS: Set
+Label: Set
+Superclasses: FormalEntity
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: Situation
+Label: Situation
+Superclasses: Entity
+
+Description:
+A view, consistent with ('satisfying') a Description, on a set of entities. 
+It can also be seen as a 'relational context' created by an observer on the basis of a 'frame' (i.e. a Description). 
+For example, a PlanExecution is a context including some actions executed by agents according to certain parameters and expected tasks to be achieved from a Plan; a DiagnosedSituation is a context of observed entities that is interpreted on the basis of a Diagnosis, etc.
+Situation is also able to represent reified n-ary relations, where isSettingFor is the top-level relation for all binary projections of the n-ary relation. 
+If used in a transformation pattern for n-ary relations, the designer should take care of adding (some or all) OWL2 keys, corresponding to binary projections of the n-ary, to a subclass of Situation. Otherwise the 'identification constraint' (Calvanese et al., IJCAI 2001) might be violated.
+--------------------------------------------------------------------------------
+
+CLASS: SocialAgent
+Label: Social agent
+Superclasses: Agent, SocialObject
+
+Description:
+Any individual whose existence is granted simply by its social communicability and capability of action (through some PhysicalAgent).
+--------------------------------------------------------------------------------
+
+CLASS: SocialObject
+Label: Social object
+Superclasses: Object
+
+Description:
+Any Object that exists only within some communication Event, in which at least one PhysicalObject participates in. 
+In other words, all objects that have been or are created in the process of social communication: for the sake of communication (InformationObject), for incorporating new individuals (SocialAgent, Place), for contextualizing or intepreting existing entities (Description, Concept), or for collecting existing entities (Collection).
+Being dependent on communication, all social objects need to be expressed by some information object (information objects are self-expressing).
+--------------------------------------------------------------------------------
+
+CLASS: SocialObjectAttribute
+Label: Social attribute
+Superclasses: Region
+
+Description:
+Any Region in a dimensional space that is used to represent some characteristic of a SocialObject, e.g. judgment values, social scalars, statistical attributes over a collection of entities, etc.
+--------------------------------------------------------------------------------
+
+CLASS: SocialPerson
+Label: Social person
+Superclasses: Person, SocialAgent
+
+Description:
+A SocialAgent that needs the existence of a specific NaturalPerson in order to act (but the lifetime of the NaturalPerson has only to overlap that of the SocialPerson).
+--------------------------------------------------------------------------------
+
+CLASS: SocialRelation
+Label: Social relation
+Superclasses: Relation
+
+Description:
+Any social relationship
+--------------------------------------------------------------------------------
+
+CLASS: SpaceRegion
+Label: Space region
+Superclasses: Region
+
+Description:
+Any Region in a dimensional space that is used to localize an Entity ; i.e., it is not used to represent some characteristic (e.g. it excludes time intervals, colors, size values, judgment values, etc.). Differently from a Place , a space region has a specific dimensional space.
+--------------------------------------------------------------------------------
+
+CLASS: SpatioTemporalRegion
+Label: SpatioTemporalRegion
+Superclasses: Region
+
+Description:
+
+--------------------------------------------------------------------------------
+
+CLASS: Substance
+Label: Substance
+Superclasses: PhysicalBody
+
+Description:
+Any PhysicalBody that has not necessarily specified (designed) boundaries, e.g. a pile of trash, some sand, etc. 
+In this sense, an artistic object made of trash or a dose of medicine in the form of a pill would be a FunctionalSubstance, and a DesignedArtifact, since its boundaries are specified by a Design; aleatoric objects that are outcomes of an artistic process might be still considered DesignedArtifact(s), and Substance(s).
+--------------------------------------------------------------------------------
+
+CLASS: Task
+Label: Task
+Superclasses: EventType
+
+Description:
+An EventType that classifies an Action to be executed. 
+For example, reaching a destination is a task that can be executed by performing certain actions, e.g. driving a car, buying a train ticket, etc. 
+The actions to execute a task can also be organized according to a Plan that is not the same as the one that defines the task (if any). 
+For example, reaching a destination could be defined by a plan to get on holidays, while the plan to execute the task can consist of putting some travels into a sequence.
+--------------------------------------------------------------------------------
+
+CLASS: Theory
+Label: Theory
+Superclasses: Description
+
+Description:
+A Theory is a Description that represents a set of assumptions for describing something, usually general. Scientific, philosophical, and commonsense theories can be included here.
+This class can also be used to act as 'naturalized reifications' of logical theories (of course, they will be necessarily incomplete in this case, because second-order entities are represented as first-order ones).
+--------------------------------------------------------------------------------
+
+CLASS: TimeIndexedRelation
+Label: Time-indexed relation
+Superclasses: Situation
+
+Description:
+A Situation that includes a time indexing in its setting, so allowing to order any binary relation (property) with time.
+--------------------------------------------------------------------------------
+
+CLASS: TimeInterval
+Label: Time interval
+Superclasses: Region
+
+Description:
+Any Region in a dimensional space that aims at representing time.
+--------------------------------------------------------------------------------
+
+CLASS: Transition
+Label: Transition
+Superclasses: Situation
+
+Description:
+A transition is a Situation that creates a context for three TimeInterval(s), two additional different Situation(s), one Event, one Process, and at least one Object: the Event is observed as the cause for the transition, one Situation is the state before the transition, the second Situation is the state after the transition, the Process is the invariance under some different transitions (including the one represented here), in which at least one Object is situated. Finally, the time intervals position the situations and the transitional event in time.
+This class of situations partly encodes the ontology underlying typical engineering algebras for processes, e.g. Petri Nets. 
+A full representation of the transition ontology is outside the expressivity of OWL, because we would need qualified cardinality restrictions,  coreference, property equivalence, and property composition.
+--------------------------------------------------------------------------------
+
+CLASS: TypeCollection
+Label: Type collection
+Superclasses: Collection
+
+Description:
+A Collection whose members are the maximal set of individuals that share the same (named) type, e.g. "the gem stones", "the Italians".
+This class is very useful to apply a variety of the so-called "ClassesAsValues" design pattern, when it is used to talk about the extensional aspect of a class. An alternative variety of the pattern applies to the intensional aspect of a class, and the class Concept should be used instead.
+--------------------------------------------------------------------------------
+
+CLASS: UnitOfMeasure
+Label: Unit of measure
+Superclasses: Parameter
+
+Description:
+Units of measure are conceptualized here as parameters on regions, which can be valued as datatype values.
+--------------------------------------------------------------------------------
+
+CLASS: Workflow
+Label: Workflow
+Superclasses: Plan
+
+Description:
+A Plan that defines Role(s), Task(s), and a specific structure for tasks to be executed, usually supporting the work of an Organization
+--------------------------------------------------------------------------------
+
+CLASS: WorkflowExecution
+Label: Workflow execution
+Superclasses: Situation
+
+Description:
+
+--------------------------------------------------------------------------------
+
+
+================================================================================
+4. OBJECT PROPERTY DESCRIPTIONS (Alphabetical)
+================================================================================
+
+PROPERTY: actsFor
+Label: acts for
+Domain: Agent
+Range: SocialAgent
+Inverse: actsThrough
+
+Description:
+The relation holding between any Agent, and a SocialAgent. In principle, a SocialAgent requires at least one PhysicalAgent in order to act, but this dependency can be 'delegated'; e.g. a university can be acted for by a department, which on its turm is acted for by physical agents.
+--------------------------------------------------------------------------------
+
+PROPERTY: actsThrough
+Label: acts through
+Domain: SocialAgent
+Range: Agent
+
+Description:
+The relation holding between a PhysicalAgent and a SocialAgent. In principle, a SocialAgent requires at least one PhysicalAgent in order to act, but this dependency can be 'delegated', e.g. a university can be acted for by a department, which is acted for by physical agents. AKA isActedBy
+--------------------------------------------------------------------------------
+
+PROPERTY: associatedWith
+Label: associatedWith
+Domain: Entity
+Range: Entity
+Inverse: associatedWith
+
+Description:
+A catch-all object property, useful for alignment and querying purposes.
+It is declared as both transitive and symmetric, in order to reason an a maximal closure of associations between individuals.
+--------------------------------------------------------------------------------
+
+PROPERTY: characterizes
+Label: characterizes
+Domain: Concept
+Range: Collection
+Inverse: isCharacterizedBy
+
+Description:
+A relation between concepts and collections, where a Concept is said to characterize a Collection; it corresponds to a link between the (reified) intensional and extensional interpretations of a _proper subset of_ a (reified) class. This is different from covers, because it refers to an interpretation the entire reified class.
+E.g. the collection of vintage saxophones is characterized by the Concept 'manufactured by hand', while it gets covered by the Concept 'Saxophone' with the Parameter 'Vintage'.
+--------------------------------------------------------------------------------
+
+PROPERTY: classifies
+Label: classifies
+Domain: Concept
+Range: Entity
+Inverse: isClassifiedBy
+
+Description:
+A relation between a Concept and an Entity, e.g. the Role 'student' classifies a Person 'John'.
+--------------------------------------------------------------------------------
+
+PROPERTY: conceptualizes
+Label: conceptualizes
+Domain: Agent
+Range: SocialObject
+Inverse: isConceptualizedBy
+
+Description:
+A relation stating that an Agent is internally representing a SocialObject: situations, descriptions, concepts, etc. E.g., 'John believes in the conspiracy theory'; 'Niels Bohr created the solar-system metaphor for the atomic theory'; 'Jacques assumes all swans are white'; 'the task force members share the attack plan'.
+Conceptualizations can be distinguished into different forms, primarily based on the type of SocialObject that is conceptualized. Descriptions and concepts can be 'assumed', situations can be 'believed' or 'known', plans can be 'adopted', etc. (see ontology: http://www.ontologydesignpatterns.org/ont/dul/Conceptualization.owl.
+--------------------------------------------------------------------------------
+
+PROPERTY: concretelyExpresses
+Label: concretely expresses
+Domain: InformationRealization
+Range: SocialObject
+Inverse: isConcretelyExpressedBy
+
+Description:
+A relation between an InformationRealization and a Description, e.g. 'the printout of the Italian Constitution concretelyExpresses the Italian Constitution'. It should be supplied also with a rule stating that the InformationRealization realizes an InformationObject that expresses the Description
+--------------------------------------------------------------------------------
+
+PROPERTY: coparticipatesWith
+Label: co-participates with
+Domain: Object
+Range: Object
+Inverse: coparticipatesWith
+
+Description:
+A relation between two objects participating in a same Event; e.g., 'Vitas and Jimmy are playing tennis'.
+--------------------------------------------------------------------------------
+
+PROPERTY: covers
+Label: covers
+Domain: Concept
+Range: Collection
+Inverse: isCoveredBy
+
+Description:
+A relation between concepts and collections, where a Concept is said to cover a Collection; it corresponds to a link between the (reified) intensional and extensional interpretations of a (reified) class.
+E.g. the collection of vintage saxophones is covered by the Concept 'Saxophone' with the Parameter 'Vintage'.
+--------------------------------------------------------------------------------
+
+PROPERTY: defines
+Label: defines
+Domain: Description
+Range: Concept
+Inverse: isDefinedIn
+
+Description:
+A relation between a Description and a Concept, e.g. a Workflow for a governmental Organization defines the Role 'officer', or 'the Italian Traffic Law defines the role Vehicle'.
+--------------------------------------------------------------------------------
+
+PROPERTY: definesRole
+Label: defines role
+Domain: Description
+Range: Role
+Inverse: isRoleDefinedIn
+
+Description:
+A relation between a description and a role, e.g. the recipe for a cake defines the role 'ingredient'.
+--------------------------------------------------------------------------------
+
+PROPERTY: definesTask
+Label: defines task
+Domain: Description
+Range: Task
+Inverse: isTaskDefinedIn
+
+Description:
+A relation between a description and a task, e.g. the recipe for a cake defines the task 'boil'.
+--------------------------------------------------------------------------------
+
+PROPERTY: describes
+Label: describes
+Domain: Description
+Range: Entity
+Inverse: isDescribedBy
+
+Description:
+The relation between a Description and an Entity : a Description gives a unity to a Collection of parts (the components), or constituents, by assigning a Role to each of them in the context of a whole Object (the system).
+A same Entity can be given different descriptions, for example, an old cradle can be given a unifying Description based on the original aesthetic design, the functionality it was built for, or a new aesthetic functionality in which it can be used as a flower pot.
+--------------------------------------------------------------------------------
+
+PROPERTY: directlyFollows
+Label: directly follows
+Domain: Entity
+Range: Entity
+Inverse: directlyPrecedes
+
+Description:
+The intransitive follows relation. For example, Wednesday directly precedes Thursday. Directness of precedence depends on the designer conceptualization.
+--------------------------------------------------------------------------------
+
+PROPERTY: directlyPrecedes
+Label: directly precedes
+Domain: Entity
+Range: Entity
+
+Description:
+The intransitive precedes relation. For example, Monday directly precedes Tuesday. Directness of precedence depends on the designer conceptualization.
+--------------------------------------------------------------------------------
+
+PROPERTY: executesTask
+Label: executes task
+Domain: Action
+Range: Task
+Inverse: isExecutedIn
+
+Description:
+A relation between an action and a task, e.g. 'putting some water in a pot and putting the pot on a fire until the water starts bubbling' executes the task 'boiling'.
+--------------------------------------------------------------------------------
+
+PROPERTY: expands
+Label: expands
+Domain: Description
+Range: Description
+Inverse: isExpandedIn
+
+Description:
+A partial order relation that holds between descriptions. It represents the proper part relation between a description and another description featuring the same properties as the former, with at least one additional one.
+Descriptions can be expanded either by adding other descriptions as parts, or by refining concepts that are used by them. 
+An 'intention' to expand must be present (unless purely formal theories are considered, but even in this case a criterion of relevance is usually active).
+--------------------------------------------------------------------------------
+
+PROPERTY: expresses
+Label: expresses
+Domain: InformationObject
+Range: SocialObject
+Inverse: isExpressedBy
+
+Description:
+A relation between an InformationObject and a 'meaning', generalized here as a 'SocialObject'. For example: 'A Beehive is a structure in which bees are kept, typically in the form of a dome or box.' (Oxford dictionary)'; 'the term Beehive expresses the concept Beehive in my apiculture ontology'.
+The intuition for 'meaning' is intended to be very broad. A separate, large comment is included for those who want to investigate more on what kind of meaning can be represented in what form.
+--------------------------------------------------------------------------------
+
+PROPERTY: expressesConcept
+Label: expresses concept
+Domain: InformationObject
+Range: Concept
+Inverse: isConceptExpressedBy
+
+Description:
+A relation between an InformationObject and a Concept , e.g. the term "dog" expresses the Concept "dog". For expressing a relational meaning, see the more general object property: expresses
+--------------------------------------------------------------------------------
+
+PROPERTY: farFrom
+Label: far from
+Domain: Entity
+Range: Entity
+Inverse: farFrom
+
+Description:
+Generic distance relation between any Entity(s). E.g. Rome is far from Beijing, astronomy is far from necromancy.
+--------------------------------------------------------------------------------
+
+PROPERTY: follows
+Label: follows
+Domain: Entity
+Range: Entity
+Inverse: precedes
+
+Description:
+A relation between entities, expressing a 'sequence' schema. 
+E.g. 'year 2000 follows 1999', 'preparing coffee' follows 'deciding what coffee to use', 'II World War follows I World War', etc. 
+It can be used between tasks, processes or time intervals, and subproperties would fit best in order to distinguish the different uses.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasCommonBoundary
+Label: has common boundary
+Domain: Entity
+Range: Entity
+Inverse: hasCommonBoundary
+
+Description:
+A relation to encode either formal or informal characterizations of 'boundaries' common to two different entities: an Event that ends when another begins, two abstract regions that have a common topological boundary, two objects that are said to be 'in contact' from a commonsense perspective, etc.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasComponent
+Label: has component
+Domain: Entity
+Range: Entity
+Inverse: isComponentOf
+
+Description:
+The hasProperPart relation without transitivity, holding between an Object (the system) and another (the component), and assuming a Design that structures the Object.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasConstituent
+Label: has constituent
+Domain: Entity
+Range: Entity
+Inverse: isConstituentOf
+
+Description:
+'Constituency' depends on some layering of  the world described by the ontology. For example, scientific granularities (e.g. body-organ-tissue-cell) or ontological 'strata' (e.g. social-mental-biological-physical) are  typical layerings. 
+Intuitively, a constituent is a part belonging to a lower layer. Since layering is actually a partition of the world described by the ontology, constituents are not properly classified as parts, although this kinship can be intuitive for common sense.
+A desirable advantage of this distinction is that we are able to talk e.g. of physical constituents of non-physical objects (e.g. systems), while this is not possible in terms of parts.
+Example of are the persons constituting a social system, the molecules constituting a person, the atoms constituting a river, etc. 
+In all these examples, we notice a typical discontinuity between the constituted and the constituent object: e.g. a social system is conceptualized at a different layer from the persons that constitute it, a person is conceptualized at a different layer from the molecules that constitute them, and a river is conceptualized at a different layer from the atoms that constitute it.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasConstraint
+Label: has constraint
+Domain: Entity
+Range: Parameter
+Inverse: isConstraintFor
+
+Description:
+A relation between parameters and entities. It allows to assert generic constraints (encoded as parameters), e.g. MinimumAgeForDriving isConstraintFor John (where John is a legal subject under the TrafficLaw).
+The intended semantics (not expressible in OWL) is that a Parameter isParameterFor a Concept that classifies an Entity; moreover, it entails that a Parameter parametrizes a Region that isRegionFor that Entity.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasLocation
+Label: has location
+Domain: Entity
+Range: Entity
+Inverse: isLocationOf
+
+Description:
+A generic, relative spatial location, holding between any entities. E.g. 'the cat is on the mat', 'Omar is in Samarcanda', 'the wound is close to the femural artery'.
+For 'absolute' locations, see SpaceRegion
+--------------------------------------------------------------------------------
+
+PROPERTY: hasMember
+Label: has member
+Domain: Collection
+Range: Entity
+Inverse: isMemberOf
+
+Description:
+A relation between collections and entities, e.g. 'my collection of saxophones includes an old Adolphe Sax original alto' (i.e. my collection has member an Adolphe Sax alto).
+--------------------------------------------------------------------------------
+
+PROPERTY: hasParameter
+Label: has parameter
+Domain: Concept
+Range: Parameter
+Inverse: isParameterFor
+
+Description:
+A Concept can have a Parameter that constrains the attributes that a classified Entity can have in a certain Situation, e.g. a 4WheelDriver Role definedIn the ItalianTrafficLaw has a MinimumAge parameter on the Amount 16.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasPart
+Label: has part
+Domain: Entity
+Range: Entity
+Inverse: isPartOf
+
+Description:
+A schematic relation between any entities, e.g. 'the human body has a brain as part', '20th century contains year 1923', 'World War II includes the Pearl Harbour event'.
+
+Parthood should assume the basic properties of mereology: transitivity, antisymmetry, and reflexivity (propert Parthood of course misses reflexivity). 
+However, antisymmetry is not supported in OWL2 explicitly, therefore DUL has to adopt one of two patterns:
+1) dropping asymmetry axioms, while granting reflexivity: this means that symmetry is not enforced, but permitted for the case of reflexivity. Of course, in this way we cannot prevent symmetric usages of hasPart;
+2) dropping the reflexivity axiom, and enforce asymmetry: in this case, we would prevent all symmetric usages, but we loose the possibility of enforcing reflexivity, which is commonsensical in parthood.
+In DUL, we adopt pattern #1 for partOf, and pattern #2 for properPartOf, which seems a good approximation: due to the lack of inheritance of property characteristics, each asymmetric hasPropertPart assertion would also be a reflexive hasPart assertion (reflexive reduction design pattern).
+
+Subproperties and restrictions can be used to specialize hasPart for objects, events, etc.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasParticipant
+Label: has participant
+Domain: Event
+Range: Object
+Inverse: isParticipantIn
+
+Description:
+A relation between an object and a process, e.g. 'John took part in the discussion', 'a large mass of snow fell during the avalanche', or 'a cook, some sugar, flour, etc. are all present in the cooking of a cake'.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasPostcondition
+Label: has postcondition
+Inverse: isPostconditionOf
+
+Description:
+Direct succession applied to situations. 
+E.g., 'A postcondition of our Plan is to have things settled'.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasPrecondition
+Label: has precondition
+Inverse: isPreconditionOf
+
+Description:
+Direct precedence applied to situations. 
+E.g., 'A precondition to declare war against a foreign country is claiming to find nuclear weapons in it'.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasProperPart
+Label: has proper part
+Inverse: isPropertPartOf
+
+Description:
+Asymmetric (so including irreflexive) parthood.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasQuality
+Label: has quality
+Domain: Entity
+Range: Quality
+Inverse: isQualityOf
+
+Description:
+A relation between entities and qualities, e.g. 'Dmitri's skin is yellowish'.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasRegion
+Label: has region
+Domain: Entity
+Range: Region
+Inverse: isRegionFor
+
+Description:
+A relation between entities and regions, e.g. 'the number of wheels of that truck is 12', 'the time of the experiment is August 9th, 2004', 'the whale has been localized at 34 degrees E, 20 degrees S'.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasRole
+Label: has role
+Domain: Object
+Range: Role
+Inverse: isRoleOf
+
+Description:
+A relation between an object and a role, e.g. the person 'John' has role 'student'.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasSetting
+Label: has setting
+Domain: Entity
+Range: Situation
+Inverse: isSettingFor
+
+Description:
+A relation between entities and situations, e.g. 'this morning I've prepared my coffee with a new fantastic Arabica', i.e.: (an amount of) a new fantastic Arabica hasSetting the preparation of my coffee this morning.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasTask
+Label: has task
+Domain: Role
+Range: Task
+Inverse: isTaskOf
+
+Description:
+A relation between roles and tasks, e.g. 'students have the duty of giving exams' (i.e. the Role 'student' hasTask the Task 'giving exams').
+--------------------------------------------------------------------------------
+
+PROPERTY: hasTimeInterval
+Label: has time interval
+Domain: Event
+Range: TimeInterval
+Inverse: isTimeIntervalOf
+
+Description:
+The generic relation between events and time intervals.
+--------------------------------------------------------------------------------
+
+PROPERTY: includesAction
+Label: includes action
+Domain: Situation
+Range: Action
+Inverse: isActionIncludedIn
+
+Description:
+A relation between situations and actions, e.g. 'this morning I've prepared my coffee and had my fingers burnt' (i.e.: the preparation of my coffee this morning included a burning of my fingers).
+--------------------------------------------------------------------------------
+
+PROPERTY: includesAgent
+Label: includes agent
+Domain: Situation
+Range: Agent
+Inverse: isAgentIncludedIn
+
+Description:
+A relation between situations and persons, e.g. 'this morning I've prepared my coffee and had my fingers burnt' (i.e.: the preparation of my coffee this morning included me).
+--------------------------------------------------------------------------------
+
+PROPERTY: includesEvent
+Label: includes event
+Domain: Situation
+Range: Event
+Inverse: isEventIncludedIn
+
+Description:
+A relation between situations and events, e.g. 'this morning I've prepared my coffee and had my fingers burnt' (i.e.: the preparation of my coffee this morning included a burning of my fingers).
+--------------------------------------------------------------------------------
+
+PROPERTY: includesObject
+Label: includes object
+Domain: Situation
+Range: Object
+Inverse: isObjectIncludedIn
+
+Description:
+A relation between situations and objects, e.g. 'this morning I've prepared my coffee and had my fingers burnt' (i.e.: the preparation of my coffee this morning included me).
+--------------------------------------------------------------------------------
+
+PROPERTY: includesPart
+Label: includesPart
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: includesTime
+Label: includes time
+Domain: Situation
+Range: TimeInterval
+Inverse: isTimeIncludedIn
+
+Description:
+A relation between situations and time intervals, e.g. 'this morning I've prepared my coffee and had my fingers burnt' (i.e.: preparing my coffee was held this morning). A data value attached to the time interval typically complements this modelling pattern.
+--------------------------------------------------------------------------------
+
+PROPERTY: includesWhole
+Label: includesWhole
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: introduces
+Label: introduces
+Domain: Description
+Range: SocialAgent
+Inverse: isIntroducedBy
+
+Description:
+A relation between a Description and a SocialAgent, e.g. a Constitutional Charter introduces the SocialAgent 'PresidentOfRepublic'.
+--------------------------------------------------------------------------------
+
+PROPERTY: involvesAgent
+Label: involves agent
+Domain: Event
+Range: Agent
+Inverse: isAgentInvolvedIn
+
+Description:
+Agent participation.
+--------------------------------------------------------------------------------
+
+PROPERTY: isAbout
+Label: is about
+Domain: InformationObject
+Range: Entity
+Inverse: isReferenceOf
+
+Description:
+A relation between an information object and an Entity (including information objects). It can be used to talk about entities that are references of proper nouns: the proper noun 'Leonardo da Vinci' isAbout the Person Leonardo da Vinci; as well as to talk about sets of entities that can be described by a common noun: the common noun 'person' isAbout the set of all persons in a domain of discourse, which can be represented in DOLCE-Ultralite as an individual of the class: dul:Collection.
+A specific sentence may use common nouns with either a singular or plural reference, or it can even refer to all possible references (e.g. in a lexicographic definition): all those uses are kinds of aboutness.
+
+The isAbout relation is sometimes considered as reflexive, however this is semiotically inaccurate, because information can be about itself ('de dicto' usage, as in 'John is four character long'), but it is typically about something else ('de re' usage, as in 'John loves Mary').
+If a reflexivity exists in general, it rather concerns its realisation, which is always associated with an event, e.g. an utterance, which makes the information denoting itself, besides its aboutness. This is implemented in DUL with the dul:realizesSelfInformation property, which is used with local reflexivity in the dul:InformationRealization class.
+--------------------------------------------------------------------------------
+
+PROPERTY: isActionIncludedIn
+Label: is action included in
+Domain: Action
+Range: Situation
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: isAgentIncludedIn
+Label: is agent included in
+Domain: Agent
+Range: Situation
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: isAgentInvolvedIn
+Label: is agent involved in
+Domain: Agent
+Range: Event
+
+Description:
+Agent participation.
+--------------------------------------------------------------------------------
+
+PROPERTY: isCharacterizedBy
+Label: is characterized by
+Domain: Collection
+Range: Concept
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: isClassifiedBy
+Label: is classified by
+Domain: Entity
+Range: Concept
+
+Description:
+A relation between a Concept and an Entity, e.g. 'John is considered a typical rude man'; your last concert constitutes the achievement of a lifetime; '20-year-old means she's mature enough'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isComponentOf
+Label: is component of
+Domain: Entity
+Range: Entity
+
+Description:
+The asymmetric isProperPartOf relation without transitivity, holding between an Object (the system) and another (the component), and assuming a Design that structures the Object.
+--------------------------------------------------------------------------------
+
+PROPERTY: isConceptExpressedBy
+Label: is concept expressed by
+Domain: Concept
+Range: InformationObject
+
+Description:
+A relation between an InformationObject and a Concept , e.g. the term "dog" expresses the Concept "dog". For expressing a relational meaning, see the more general object property: expresses
+--------------------------------------------------------------------------------
+
+PROPERTY: isConceptUsedIn
+Label: is concept used in
+Domain: Concept
+Range: Description
+Inverse: usesConcept
+
+Description:
+A more generic relation holding between a Description and a Concept. In order to be used, a Concept must be previously definedIn another Description
+--------------------------------------------------------------------------------
+
+PROPERTY: isConceptualizedBy
+Label: is conceptualized by
+Domain: SocialObject
+Range: Agent
+
+Description:
+A relation stating that an Agent is internally representing a Description . E.g., 'John believes in the conspiracy theory'; 'Niels Bohr created a solar-system metaphor for his atomic theory'; 'Jacques assumes all swans are white'; 'the task force shares the attack plan'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isConcretelyExpressedBy
+Label: is concretely expressed by
+Domain: SocialObject
+Range: InformationRealization
+
+Description:
+A relation between an InformationRealization and a Description, e.g. 'the printout of the Italian Constitution concretelyExpresses the Italian Constitution'. It should be supplied also with a rule stating that the InformationRealization realizes an InformationObject that expresses the Description
+--------------------------------------------------------------------------------
+
+PROPERTY: isConstituentOf
+Label: is constituent of
+Domain: Entity
+Range: Entity
+
+Description:
+'Constituency' depends on some layering of  the world described by the ontology. For example, scientific granularities (e.g. body-organ-tissue-cell) or ontological 'strata' (e.g. social-mental-biological-physical) are  typical layerings. 
+Intuitively, a constituent is a part belonging to a lower layer. Since layering is actually a partition of the world described by the ontology, constituents are not properly classified as parts, although this kinship can be intuitive for common sense.
+A desirable advantage of this distinction is that we are able to talk e.g. of physical constituents of non-physical objects (e.g. systems), while this is not possible in terms of parts.
+Example of are the persons constituting a social system, the molecules constituting a person, the atoms constituting a river, etc. 
+In all these examples, we notice a typical discontinuity between the constituted and the constituent object: e.g. a social system is conceptualized at a different layer from the persons that constitute it, a person is conceptualized at a different layer from the molecules that constitute them, and a river is conceptualized at a different layer from the atoms that constitute it.
+--------------------------------------------------------------------------------
+
+PROPERTY: isConstraintFor
+Label: is constraint for
+Domain: Parameter
+Range: Entity
+
+Description:
+A relation between parameters and entities. It allows to assert generic constraints (encoded as parameters), e.g. MinimumAgeForDriving isConstraintFor John (where John is a legal subject under the TrafficLaw).
+The intended semantics (not expressible in OWL) is that a Parameter isConstraintFor and Entity if the Parameter isParameterFor a Concept that classifies that Entity; moreover, it entails that a Parameter parametrizes a Region that isRegionFor that Entity. The use in OWL is therefore a shortcut to annotate what Parameter constrains what Entity
+--------------------------------------------------------------------------------
+
+PROPERTY: isCoveredBy
+Label: is covered by
+Domain: Collection
+Range: Concept
+
+Description:
+A relation between concepts and collections, where a Concept is said to cover a Collection; it corresponds to a link between the (reified) intensional and extensional interpretations of a (reified) class.
+E.g. the collection of vintage saxophones is covered by the Concept 'Saxophone' with the Parameter 'Vintage'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isDefinedIn
+Label: is defined in
+Domain: Concept
+Range: Description
+
+Description:
+A relation between a Description and a Concept, e.g. a Workflow for a governmental Organization defines the Role 'officer', or 'the Italian Traffic Law defines the role Vehicle'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isDescribedBy
+Label: is described by
+Domain: Entity
+Range: Description
+
+Description:
+The relation between an Entity and a Description: a Description gives a unity to a Collection of parts (the components), or constituents, by assigning a Role to each of them in the context of a whole Object (the system).
+A same Entity can be given different descriptions, for example, an old cradle can be given a unifying Description based on the original aesthetic design, the functionality it was built for, or a new aesthetic functionality in which it can be used as a flower pot.
+--------------------------------------------------------------------------------
+
+PROPERTY: isEventIncludedIn
+Label: is event included in
+Domain: Event
+Range: Situation
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: isExecutedIn
+Label: is executed in
+Domain: Task
+Range: Action
+
+Description:
+A relation between an action and a task, e.g. 'putting some water in a pot and putting the pot on a fire until the water starts bubbling' executes the task 'boiling'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isExpandedIn
+Label: is expanded in
+Domain: Description
+Range: Description
+
+Description:
+A partial order relation that holds between descriptions. It represents the proper part relation between a description and another description featuring the same properties as the former, with at least one additional one.
+Descriptions can be expanded either by adding other descriptions as parts, or by refining concepts that are used by them. 
+An 'intention' to expand must be present (unless purely formal theories are considered, but even in this case a criterion of relevance is usually active).
+--------------------------------------------------------------------------------
+
+PROPERTY: isExpressedBy
+Label: is expressed by
+Domain: SocialObject
+Range: InformationObject
+
+Description:
+A relation between a dul:SocialObject (the 'meaning') and a dul:InformationObject (the 'expression'). 
+For example: 'A Beehive is a structure in which bees are kept, typically in the form of a dome or box.' (Oxford dictionary)'; 'the term Beehive expresses the concept Beehive in my apiculture ontology'.
+The intuition for 'meaning' is intended to be very broad. A separate, large comment is included in the encoding of 'expresses', for those who want to investigate more on what kind of meaning can be represented in what form.
+--------------------------------------------------------------------------------
+
+PROPERTY: isIntroducedBy
+Label: is introduced by
+Domain: SocialAgent
+Range: Description
+
+Description:
+A relation between a Description and a SocialAgent, e.g. a Constitutional Charter introduces the SocialAgent 'PresidentOfRepublic'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isLocationOf
+Label: is location of
+Domain: Entity
+Range: Entity
+
+Description:
+A generic, relative localization, holding between any entities. E.g. 'Rome is the seat of the Pope', 'the liver is the location of the tumor'.
+For 'absolute' locations, see SpaceRegion
+--------------------------------------------------------------------------------
+
+PROPERTY: isMemberOf
+Label: is member of
+Domain: Entity
+Range: Collection
+
+Description:
+A relation between collections and entities, e.g. 'the Night Watch by Rembrandt is in the Rijksmuseum collection'; 'Davide is member of the Pen Club', 'Igor is one the subjects chosen for the experiment'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isObjectIncludedIn
+Label: is object included in
+Domain: Object
+Range: Situation
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: isObservableAt
+Label: is observable at
+Domain: Entity
+Range: TimeInterval
+Inverse: isTimeOfObservationOf
+
+Description:
+A relation to represent a (past, present or future) TimeInterval at which an Entity is observable.
+In order to encode a specific time, a data value should be related to the TimeInterval. 
+An alternative way of representing time is the datatype property: hasIntervalDate
+--------------------------------------------------------------------------------
+
+PROPERTY: isParameterFor
+Label: is parameter for
+Domain: Parameter
+Range: Concept
+
+Description:
+A Concept can have a Parameter that constrains the attributes that a classified Entity can have in a certain Situation, e.g. a 4WheelDriver Role definedIn the ItalianTrafficLaw has a MinimumAge parameter on the Amount 16.
+--------------------------------------------------------------------------------
+
+PROPERTY: isParametrizedBy
+Label: is parametrized by
+Domain: Region
+Range: Parameter
+Inverse: parametrizes
+
+Description:
+The relation between a Parameter, e.g. 'MajorAge', and a Region, e.g. '>17 year'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isPartOf
+Label: is part of
+Domain: Entity
+Range: Entity
+
+Description:
+A relation between any entities, e.g. 'brain is a part of the human body'. See dul:hasPart for additional documentation.
+--------------------------------------------------------------------------------
+
+PROPERTY: isParticipantIn
+Label: is participant in
+Domain: Object
+Range: Event
+
+Description:
+A relation between an object and a process, e.g. 'John took part in the discussion', 'a large mass of snow fell during the avalanche', or 'a cook, some sugar, flour, etc. are all present in the cooking of a cake'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isPostconditionOf
+Label: is postcondition of
+
+Description:
+Direct succession applied to situations. 
+E.g., 'Taking some rest is a postcondition of my search for a hotel'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isPreconditionOf
+Label: is precondition of
+
+Description:
+Direct precedence applied to situations. 
+E.g., 'claiming to find nuclear weapons in a foreign country is a precondition to declare war against it'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isPropertPartOf
+Label: is propert part of
+
+Description:
+See dul:hasProperPart for additional documentation.
+--------------------------------------------------------------------------------
+
+PROPERTY: isQualityOf
+Label: is quality of
+Domain: Quality
+Range: Entity
+
+Description:
+A relation between entities and qualities, e.g. 'Dmitri's skin is yellowish'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isRealizedBy
+Label: is realized by
+Domain: InformationObject
+Range: InformationRealization
+Inverse: realizes
+
+Description:
+A relation between an information realization and an information object, e.g. the paper copy of the Italian Constitution realizes the text of the Constitution.
+--------------------------------------------------------------------------------
+
+PROPERTY: isReferenceOf
+Label: is reference of
+Domain: Entity
+Range: InformationObject
+
+Description:
+A relation between information objects and any Entity (including information objects). It can be used to talk about e.g. entities are references of proper nouns: the proper noun 'Leonardo da Vinci' isAbout the Person Leonardo da Vinci; as well as to talk about sets of entities that can be described by a common noun: the common noun 'person' isAbout the set of all persons in a domain of discourse, which can be represented in DOLCE-Ultralite as an individual of the class: Collection .
+The isReferenceOf relation is irreflexive, differently from its inverse isAbout.
+--------------------------------------------------------------------------------
+
+PROPERTY: isReferenceOfInformationRealizedBy
+Label: is reference of information realized by
+Domain: Entity
+Range: InformationRealization
+Inverse: realizesInformationAbout
+
+Description:
+The relation between entities and information realizations, e.g. between Italy and a paper copy of the text of the Italian Constitution.
+--------------------------------------------------------------------------------
+
+PROPERTY: isRegionFor
+Label: is region for
+Domain: Region
+Range: Entity
+
+Description:
+A relation between entities and regions, e.g. 'the color of my car is red'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isRelatedToConcept
+Label: is related to concept
+Domain: Concept
+Range: Concept
+Inverse: isRelatedToConcept
+
+Description:
+Any relation between concepts, e.g. superordinated, conceptual parthood, having a parameter, having a task, superordination, etc.
+--------------------------------------------------------------------------------
+
+PROPERTY: isRelatedToDescription
+Label: is related to description
+Domain: Description
+Range: Description
+Inverse: isRelatedToDescription
+
+Description:
+Any relation between descriptions.
+--------------------------------------------------------------------------------
+
+PROPERTY: isRoleDefinedIn
+Label: is role defined in
+Domain: Role
+Range: Description
+
+Description:
+A relation between a description and a role, e.g. the role 'Ingredient' is defined in the recipe for a cake.
+--------------------------------------------------------------------------------
+
+PROPERTY: isRoleOf
+Label: is role of
+Domain: Role
+Range: Object
+
+Description:
+A relation between an object and a role, e.g. 'student' is the role of 'John'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isSatisfiedBy
+Label: is satisfied by
+Domain: Description
+Range: Situation
+Inverse: satisfies
+
+Description:
+A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan.
+--------------------------------------------------------------------------------
+
+PROPERTY: isSettingFor
+Label: is setting for
+Domain: Situation
+Range: Entity
+
+Description:
+A relation between situations and entities, e.g. 'this morning I've prepared my coffee with a new fantastic Arabica', i.e.: the preparation of my coffee this morning is the setting for (an amount of) a new fantastic Arabica.
+--------------------------------------------------------------------------------
+
+PROPERTY: isSpecializedBy
+Label: is specialized by
+Domain: SocialObject
+Range: SocialObject
+Inverse: specializes
+
+Description:
+A partial order relation that holds between social objects. It represents the subsumption relation between e.g. a Concept and another Concept that is broader in extensional interpretation, but narrowe in intensional interpretation.
+E.g. PhDStudent Role specializes Student Role
+--------------------------------------------------------------------------------
+
+PROPERTY: isSubordinatedTo
+Label: is subordinated to
+Domain: Concept
+Range: Concept
+Inverse: isSuperordinatedTo
+
+Description:
+Direct succession applied to concepts. E.g. the role 'Officer' is subordinated to 'Director'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isSuperordinatedTo
+Label: is superordinated to
+Domain: Concept
+Range: Concept
+
+Description:
+Direct precedence applied to concepts. E.g. the role 'Executive' is superordinated to 'DepartmentManager'.
+--------------------------------------------------------------------------------
+
+PROPERTY: isTaskDefinedIn
+Label: is task defined in
+Domain: Task
+Range: Description
+
+Description:
+A relation between a description and a task, e.g. the task 'boil' is defined in a recipe for a cake.
+--------------------------------------------------------------------------------
+
+PROPERTY: isTaskOf
+Label: is task of
+Domain: Task
+Range: Role
+
+Description:
+A relation between roles and tasks, e.g. 'students have the duty of giving exams' (i.e. the Role 'student' hasTask the Task 'giving exams').
+--------------------------------------------------------------------------------
+
+PROPERTY: isTimeIncludedIn
+Label: is time included in
+Domain: TimeInterval
+Range: Situation
+
+Description:
+
+--------------------------------------------------------------------------------
+
+PROPERTY: isTimeIntervalOf
+Label: is time interval of
+Domain: TimeInterval
+Range: Event
+
+Description:
+The generic relation between time intervals and events.
+--------------------------------------------------------------------------------
+
+PROPERTY: isTimeOfObservationOf
+Label: is time of observation of
+Domain: TimeInterval
+Range: Entity
+
+Description:
+A relation to represent a (past, present or future) TimeInterval at which an Entity is observable.
+In order to encode a specific time, a data value should be related to the TimeInterval. 
+An alternative way of representing time is the datatype property: hasIntervalDate
+--------------------------------------------------------------------------------
+
+PROPERTY: isUnifiedBy
+Label: is unified by
+Domain: Collection
+Range: Description
+Inverse: unifies
+
+Description:
+A Collection has a unification criterion, provided by a Description; for example, a community of practice can be unified by a shared theory or interest, e.g. the community that makes research on mirror neurons shares some core knowledge about mirror neurons, which can be represented as a Description MirrorNeuronTheory that unifies the community. There can be several unifying descriptions.
+--------------------------------------------------------------------------------
+
+PROPERTY: nearTo
+Label: near to
+Domain: Entity
+Range: Entity
+Inverse: nearTo
+
+Description:
+Generic distance relation between any Entity(s). E.g. Rome is near to Florence, astronomy is near to physics.
+--------------------------------------------------------------------------------
+
+PROPERTY: overlaps
+Label: overlaps
+Domain: Entity
+Range: Entity
+Inverse: overlaps
+
+Description:
+A schematic relation between any entities, e.g. 'the chest region overlaps with the abdomen region', 'my spoken words overlap with hers', 'the time of my leave overlaps with the time of your arrival', 'fibromyalgia overlaps with other conditions'.
+Subproperties and restrictions can be used to specialize overlaps for objects, events, time intervals, etc.
+--------------------------------------------------------------------------------
+
+PROPERTY: parametrizes
+Label: parametrizes
+Domain: Parameter
+Range: Region
+
+Description:
+The relation between a Parameter, e.g. 'MajorAgeLimit', and a Region, e.g. '18_year'.
+For a more data-oriented relation, see hasDataValue
+--------------------------------------------------------------------------------
+
+PROPERTY: precedes
+Label: precedes
+Domain: Entity
+Range: Entity
+
+Description:
+A relation between entities, expressing a 'sequence' schema. 
+E.g. 'year 1999 precedes 2000', 'deciding what coffee to use' precedes 'preparing coffee', 'World War II follows World War I', 'in the Milan to Rome autoroute, Bologna precedes Florence', etc.
+It can then be used between tasks, processes, time intervals, spatially locate objects, situations, etc. 
+Subproperties can be defined in order to distinguish the different uses.
+--------------------------------------------------------------------------------
+
+PROPERTY: realizes
+Label: realizes
+Domain: InformationRealization
+Range: InformationObject
+
+Description:
+A relation between an information realization and an information object, e.g. the paper copy of the Italian Constitution realizes the text of the Constitution.
+--------------------------------------------------------------------------------
+
+PROPERTY: realizesInformationAbout
+Label: realizes information about
+Domain: InformationRealization
+Range: Entity
+
+Description:
+The relation between entities and information realizations, e.g. between Italy and a paper copy of the text of the Italian Constitution.
+--------------------------------------------------------------------------------
+
+PROPERTY: realizesSelfInformation
+Label: realizesSelfInformation
+
+Description:
+This relation is a workaround to enable local reflexivity axioms (Self) working with non-simple properties; in this case, dul:realizesInformation About.
+--------------------------------------------------------------------------------
+
+PROPERTY: sameSettingAs
+Label: is in the same setting as
+Domain: Entity
+Range: Entity
+Inverse: sameSettingAs
+
+Description:
+A relation between two entities participating in a same Situation; e.g., 'Our company provides an antivenom service' (the situation is the service, the two entities are the company and the antivenom).
+--------------------------------------------------------------------------------
+
+PROPERTY: satisfies
+Label: satisfies
+Domain: Situation
+Range: Description
+
+Description:
+A relation between a Situation and a Description, e.g. the execution of a Plan satisfies that plan.
+--------------------------------------------------------------------------------
+
+PROPERTY: specializes
+Label: specializes
+Domain: SocialObject
+Range: SocialObject
+
+Description:
+A partial order relation that holds between social objects. 
+It mainly represents the subsumption relation between e.g. a Concept or Description and another Concept (resp. Description) that is broader in extensional interpretation, but narrower in intensional interpretation. For example, the role PhDStudent specializes the role Student.
+Another possible use is between a Collection that isCoveredBy a Concept A, and another Collection that isCoveredBy a Concept B that on its turm specializes A. For example, the 70,000 series Selmer Mark VI saxophone Collection specializes the Selmer Mark VI saxophone Collection.
+--------------------------------------------------------------------------------
+
+PROPERTY: unifies
+Label: unifies
+Domain: Description
+Range: Collection
+
+Description:
+A Collection has a unification criterion, provided by a Description; for example, a community of practice can be unified by a shared theory or interest, e.g. the community that makes research on mirror neurons shares some core knowledge about mirror neurons, which can be represented as a Description MirrorNeuronTheory that unifies the community. There can be several unifying descriptions.
+--------------------------------------------------------------------------------
+
+PROPERTY: usesConcept
+Label: uses concept
+Domain: Description
+Range: Concept
+
+Description:
+A generic relation holding between a Description and a Concept. In order to be used, a Concept must be previously definedIn another Description. This last condition cannot be encoded for object properties in OWL.
+--------------------------------------------------------------------------------
+
+
+================================================================================
+5. DATATYPE PROPERTY DESCRIPTIONS (Alphabetical)
+================================================================================
+
+PROPERTY: hasDataValue
+Label: has data value
+Domain: Entity
+
+Description:
+A datatype property that encodes values from a datatype for an Entity. 
+There are several ways to encode values in DOLCE (Ultralite):
+
+1) Directly assert an xsd:_ value to an Entity by using hasDataValue
+2) Assert a Region for an Entity by using hasRegion, and then assert an xsd:_ value to that Region, by using hasRegionDataValue
+3) Assert a Quality for an Entity by using hasQuality, then assert a Region for that Quality, and assert an xsd:_ value to that Region, by using hasRegionDataValue
+4) When the value is required, but not directly observed, assert a Parameter for an xsd:_ value by using hasParameterDataValue, and then associate the Parameter to an Entity by using isConstraintFor
+5) When the value is required, but not directly observed, you can also assert a Parameter for a Region by using parametrizes, and then assert an xsd:_ value to that Region, by using hasRegionDataValue
+
+The five approaches obey different requirements. 
+For example, a simple value can be easily asserted by using pattern (1), but if one needs to assert an interval between two values, a Region should be introduced to materialize that interval, as pattern (2) suggests. 
+Furthermore, if one needs to distinguish the individual Quality of a value, e.g. the particular nature of the density of a substance, pattern (3) can be used. 
+Patterns (4) and (5) should be used instead when a constraint or a selection is modeled, independently from the actual observation of values in the real world.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasEventDate
+Label: has event date
+Domain: Event
+
+Description:
+A datatype property that encodes values from xsd:dateTime for an Event; a same Event can have more than one xsd:dateTime value: begin date, end date, date at which the interval holds, etc.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasIntervalDate
+Label: has interval date
+Domain: TimeInterval
+
+Description:
+A datatype property that encodes values from xsd:dateTime for a TimeInterval; a same TimeInterval can have more than one xsd:dateTime value: begin date, end date, date at which the interval holds, etc.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasParameterDataValue
+Label: has parameter data value
+Domain: Parameter
+
+Description:
+Parametrizes values from a datatype. For example, a Parameter MinimumAgeForDriving hasParameterDataValue 18 on datatype xsd:int, in the Italian traffic code. In this example, MinimumAgeForDriving isDefinedIn the Norm ItalianTrafficCodeAgeDriving.
+More complex parametrization requires workarounds. E.g. AgeRangeForDrugUsage could parametrize data value: 14 to 50 on the datatype: xsd:int. Since complex datatypes are not allowed in OWL1.0, a solution to this can only work by creating two 'sub-parameters': MinimumAgeForDrugUsage (that hasParameterDataValue 14) and MaximumAgeForDrugUsage (that hasParameterDataValue 50), which are components of (cf. hasComponent) the main Parameter AgeRangeForDrugUsage.
+Ordering on subparameters can be created by using or specializing the object property 'precedes'.
+--------------------------------------------------------------------------------
+
+PROPERTY: hasRegionDataValue
+Label: has region data value
+Domain: Region
+
+Description:
+A datatype property that encodes values for a Region, e.g. a float for the Region Height.
+--------------------------------------------------------------------------------
+

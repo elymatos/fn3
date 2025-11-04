@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="117727e3-a6da-4761-a1de-e95a058ba540" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/dul/DUL.jsonld.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/dul/DUL_enhanced.jsonld.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/dul/EQUIVALENTCLASS_UPDATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/dul/GRAPH_SYNTHETIC_NODES_UPDATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/dul/OWL_JSONLD_FIX_SUMMARY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/dul/SUBCLASSOF_RESTRICTIONS_UPDATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/dul/dul_graph_enhanced.html.old" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/dul/extract_descriptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/dul/extract_descriptions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +70,7 @@
       <updated>1750815343553</updated>
       <workItem from="1750815344624" duration="3666000" />
       <workItem from="1751285087129" duration="2701000" />
-      <workItem from="1762267149605" duration="3247000" />
+      <workItem from="1762267149605" duration="3805000" />
     </task>
     <servers />
   </component>
