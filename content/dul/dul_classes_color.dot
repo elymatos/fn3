@@ -1,0 +1,179 @@
+# http://www.graphviz.org/content/cluster
+
+digraph G {
+    rankdir=LR;
+  graph [fontname = "Handlee"];
+  node [fontname = "Handlee" shape="box" style="rounded" ];
+  edge [fontname = "Handlee"];
+
+  bgcolor=transparent;
+    subgraph cluster_entity {
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue ]
+        edge [fontname = "Handlee" color=blue];
+        label = "*Entity*";
+  Entity
+  Region [color=darkgreen fillcolor=darkgreen ]
+  Event [color=red fillcolor=red ]
+  Situation [color=brown fillcolor=brown ]
+  Abstract -> Entity
+  "Formal entity" -> Abstract
+  Set -> "Formal entity"
+  "Region" -> Abstract
+  Event -> Entity
+  Object -> Entity
+  "Quality" -> Entity
+  "Situation" -> Entity
+  InformationEntity -> Entity
+    }
+
+    subgraph cluster_region {
+        node [fontname = "Handlee" shape="box" style="rounded" color=darkgreen fillcolor=darkgreen ]
+        edge [fontname = "Handlee" color=darkgreen];
+        label = "*Region*";
+  Amount -> "Region"
+  "Physical attribute" -> "Region"
+  "Social attribute" -> "Region"
+  "Space region" -> "Region"
+  "SpatioTemporalRegion" -> "Region"
+  "Time interval" -> "Region"
+    }
+
+      subgraph cluster_event {
+        node [fontname = "Handlee" shape="box" style="rounded" color=red fillcolor=red ]
+        edge [fontname = "Handlee" color=red];
+                label = "*Event*";
+
+  Action -> Event
+  Process -> Event
+      }
+            subgraph cluster_information {
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue ]
+        edge [fontname = "Handlee" color=blue];
+                label = "*Information*";
+
+  "Information object" -> InformationEntity
+  "Information realization" -> InformationEntity
+      }
+
+                  subgraph cluster_object {
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue ]
+        edge [fontname = "Handlee" color=blue];
+                label = "*Object*";
+
+  Agent -> Object
+  ObjectAggregate -> Object
+  "Physical object" -> Object
+  "Social object" -> Object
+                  }
+
+                        subgraph cluster_social_object {
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue ]
+        edge [fontname = "Handlee" color=blue];
+                label = "*Social object*";
+
+Concept [color=orange fillcolor=orange ]
+Description [color=chocolate fillcolor=chocolate ]
+  "Information object" -> "Social object"
+  "Place" -> "Social object"
+  "Social agent" -> "Social object"
+  "Collection" -> "Social object"
+  "Description" -> "Social object"
+  "Concept" -> "Social object"
+                        }
+
+                        subgraph cluster_agent {
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue ]
+        edge [fontname = "Handlee" color=blue];
+                label = "*Agent*";
+
+  Person -> Agent
+  "Natural person" -> Person
+  "Social person" -> Person
+  "Physical agent" -> Agent
+  "Natural person" -> "Physical agent"
+  "Organism" -> "Physical agent"
+  "Social agent" -> Agent
+  "Collective agent" -> "Social agent"
+  Community -> "Collective agent"
+  Group -> "Social agent"
+  Organization -> "Social agent"
+  Personification -> "Social agent"
+  "Social person" -> "Social agent"
+
+                        }
+
+                        subgraph cluster_physical_object {
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue ]
+        edge [fontname = "Handlee" color=blue];
+                label = "*Physical object*";
+
+  "Physical agent" -> "Physical object"
+  "Physical artifact" -> "Physical object"
+  "Designed artifact" -> "Physical artifact"
+  "DesignedSubstance" -> "Designed artifact"
+  "Physical body" -> "Physical object"
+  "Biological object" -> "Physical body"
+  "Organism" -> "Biological object"
+  "Chemical object" -> "Physical body"
+  "Substance" -> "Physical body"
+  "Functional substance" -> "Substance"
+  "Physical place" -> "Physical object"
+                        }
+    subgraph cluster_collection {
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue ]
+        edge [fontname = "Handlee" color=blue];
+                label = "*Collection*";
+
+  "Collective" -> "Collection"
+  "Configuration" -> "Collection"
+  "Type collection" -> "Collection"
+    }
+
+    subgraph cluster_concept {
+        node [fontname = "Handlee" shape="box" style="rounded" color=orange fillcolor=orange ]
+        edge [fontname = "Handlee" color=orange];
+                label = "*Concept*";
+
+  "Event type" -> "Concept"
+  "Task" -> "Event type"
+  "Local concept" -> "Concept"
+  "Parameter" -> "Concept"
+  "Unit of measure" -> "Parameter"
+  "Role" -> "Concept"
+    }
+    subgraph cluster_description {
+        node [fontname = "Handlee" shape="box" style="rounded" color=chocolate fillcolor=chocolate ]
+        edge [fontname = "Handlee" color=chocolate];
+                label = "*Description*";
+
+  "Contract" -> "Description"
+  "Design" -> "Description"
+  "Diagnosis" -> "Description"
+  "Goal" -> "Description"
+  "Method" -> "Description"
+  "Narrative" -> "Description"
+  "Norm" -> "Description"
+  "Plan" -> "Description"
+  "Project" -> "Plan"
+  "Wordflow" -> "Plan"
+  "Relation" -> "Description"
+  "Pattern" -> "Relation"
+  "Social relation" -> "Relation"
+  "Right" -> "Description"
+  "Theory" -> "Description"
+    }
+
+      subgraph cluster_situation {
+        node [fontname = "Handlee" shape="box" style="rounded" color=brown fillcolor=brown ]
+        edge [fontname = "Handlee" color=brown];
+                label = "*Situation*";
+
+  "Plan execution" -> "Situation"
+  "TimeIndexedRelation" -> "Situation"
+  "Parthood" ->  "TimeIndexedRelation"
+  "TimeIndexClassification" ->  "TimeIndexedRelation"
+  "Transition" -> "Situation"
+  "Workflow execution" -> "Situation"
+      }
+
+}
