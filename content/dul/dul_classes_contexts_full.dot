@@ -1,0 +1,228 @@
+digraph G {
+    rankdir=RL;
+    graph [fontname = "Handlee"];
+    node [fontname = "Handlee" shape="box" style="rounded"];
+    edge [fontname = "Handlee"];
+
+    layout=fdp
+    bgcolor=transparent;
+    newrank=true;
+    overlap=false
+
+    // Reset node and edge styles for visible elements
+    node [style="rounded", width="", height=""];
+    edge [style=solid];
+
+    subgraph cluster_information {
+        graph [fontname = "Handlee"];
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue];
+        edge [fontname = "Handlee" color=blue];
+        label = "*Informational context*";
+
+        "Information object";
+        "Information realization";
+        InformationEntity;
+
+        "Information object" -> InformationEntity;
+        "Information realization" -> InformationEntity [label="realizes"];
+    }
+
+    subgraph cluster_social_object {
+        graph [fontname = "Handlee"];
+        node [fontname = "Handlee" shape="box" style="rounded" color=blue fillcolor=blue];
+        edge [fontname = "Handlee" color=blue];
+        label = "*Social context*";
+
+        "Social object";
+        "Place";
+        "Social agent";
+        "Collection";
+        "Collective";
+        "Configuration";
+        "Type collection";
+        Person;
+        Agent;
+        "Natural person";
+        "Social person";
+        "Physical agent";
+        "Organism";
+        "Collective agent";
+        Community;
+        Group;
+        Organization;
+        Personification;
+
+        "Place" -> "Social object";
+        "Social agent" -> "Social object";
+        "Collection" -> "Social object";
+        "Collective" -> "Collection";
+        "Configuration" -> "Collection";
+        "Type collection" -> "Collection";
+        Person -> Agent;
+        "Natural person" -> Person;
+        "Social person" -> Person;
+        "Physical agent" -> Agent;
+        "Natural person" -> "Physical agent";
+        "Organism" -> "Physical agent";
+        "Social agent" -> Agent;
+        "Collective agent" -> "Social agent";
+        Community -> "Collective agent";
+        Group -> "Social agent";
+        Organization -> "Social agent";
+        Personification -> "Social agent";
+        "Social person" -> "Social agent";
+    }
+
+    subgraph cluster_description {
+        graph [fontname = "Handlee"];
+        node [fontname = "Handlee" shape="box" style="rounded" color=chocolate fillcolor=chocolate];
+        edge [fontname = "Handlee" color=chocolate];
+        label = "*Conceptual context*";
+
+        Concept [color=orange fillcolor=orange];
+        Description [color=chocolate fillcolor=chocolate];
+        "Contract";
+        "Design";
+        "Diagnosis";
+        "Goal";
+        "Method";
+        "Narrative";
+        "Norm";
+        "Plan";
+        "Project";
+        "Wordflow";
+        "Relation";
+        "Pattern";
+        "Social relation";
+        "Right";
+        "Theory";
+        "Event type";
+        "Task";
+        "Local concept";
+        "Parameter";
+        "Unit of measure";
+        "Role";
+
+        "Description" -> "Concept" [label="defines"]
+
+        "Contract" -> "Description";
+        "Design" -> "Description";
+        "Diagnosis" -> "Description";
+        "Goal" -> "Description";
+        "Method" -> "Description";
+        "Narrative" -> "Description";
+        "Norm" -> "Description";
+        "Plan" -> "Description";
+        "Project" -> "Plan";
+        "Wordflow" -> "Plan";
+        "Relation" -> "Description";
+        "Pattern" -> "Relation";
+        "Social relation" -> "Relation";
+        "Right" -> "Description";
+        "Theory" -> "Description";
+        "Event type" -> "Concept";
+        "Task" -> "Event type";
+        "Local concept" -> "Concept";
+        "Parameter" -> "Concept";
+        "Unit of measure" -> "Parameter";
+        "Role" -> "Concept";
+    }
+
+    subgraph cluster_situation {
+        graph [fontname = "Handlee"];
+        node [fontname = "Handlee" shape="box" style="rounded" color=brown fillcolor=brown];
+        edge [fontname = "Handlee" color=brown];
+        label = "*Circumstantial context*";
+
+        "(non-schematic)Entity";
+        Region [color=darkgreen fillcolor=darkgreen];
+        Event [color=red fillcolor=red];
+        Abstract;
+        "Formal entity";
+        Set;
+        Action;
+        Process;
+        Object;
+        "Quality";
+        Situation [color=brown fillcolor=brown];
+        "Plan execution";
+        "TimeIndexedRelation";
+        "Parthood";
+        "TimeIndexClassification";
+        "Transition";
+        "Workflow execution";
+        Amount;
+        "Physical attribute";
+        "Social attribute";
+        "Space region";
+        "SpatioTemporalRegion";
+        "Time interval";
+        ObjectAggregate;
+        "Physical object";
+        "Physical artifact";
+        "Designed artifact";
+        "DesignedSubstance";
+        "Physical body";
+        "Biological object";
+        "Chemical object";
+        "Substance";
+        "Functional substance";
+        "Physical place";
+
+        Abstract -> "(non-schematic)Entity";
+        "Formal entity" -> Abstract;
+        Set -> "Formal entity";
+        "Region" -> Abstract;
+        Event -> "(non-schematic)Entity";
+        Action -> Event;
+        Process -> Event;
+
+        Object -> "(non-schematic)Entity";
+        "Quality" -> "(non-schematic)Entity";
+        Situation -> "(non-schematic)Entity" [label="is setting for"];
+        "Plan execution" -> "Situation";
+        "TimeIndexedRelation" -> "Situation";
+        "Parthood" -> "TimeIndexedRelation";
+        "TimeIndexClassification" -> "TimeIndexedRelation";
+        "Transition" -> "Situation";
+        "Workflow execution" -> "Situation";
+        Amount -> "Region";
+        "Physical attribute" -> "Region";
+        "Social attribute" -> "Region";
+        "Space region" -> "Region";
+        "SpatioTemporalRegion" -> "Region";
+        "Time interval" -> "Region";
+        ObjectAggregate -> Object;
+        "Physical object" -> Object;
+        "Physical artifact" -> "Physical object";
+        "Designed artifact" -> "Physical artifact";
+        "DesignedSubstance" -> "Designed artifact";
+        "Physical body" -> "Physical object";
+        "Biological object" -> "Physical body";
+        "Chemical object" -> "Physical body";
+        "Substance" -> "Physical body";
+        "Functional substance" -> "Substance";
+        "Physical place" -> "Physical object";
+    }
+
+    // Cross-cluster edges - reset edge attributes first
+    edge [style=solid, color=black];
+    "(schematic)Entity"
+
+    //"Information object" -> "Social object";
+    //"Description" -> "Social object";
+    //"Concept" -> "Social object";
+    "Concept" -> "(non-schematic)Entity" [label="classifies"];
+    Situation -> Description [label="satisfies"];
+    "Information object" -> "(non-schematic)Entity" [label="express"];
+    "Agent" -> "(non-schematic)Entity" [label="conceptualizes"];
+    "Description" -> "(schematic)Entity"
+    "Situation" -> "(schematic)Entity"
+    "Concept" -> "(schematic)Entity"
+    "Agent" -> "(schematic)Entity"
+    "Collection" -> "(schematic)Entity"
+    "Information object" -> "(schematic)Entity"
+    "(schematic)Entity" -> "Entity"
+    "(non-schematic)Entity" -> "Entity"
+
+}
